@@ -26,7 +26,8 @@ jobs:
         run: |
           mkdir .site
           cp ./*.html ./*.css ./*.js favicon.svg LICENSE NOTICE.md README.md .site/
-          cp -R data images third_party .site/
+          cp -R data images .site/
+          if [ -d third_party ]; then cp -R third_party .site/; fi
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
         with:
