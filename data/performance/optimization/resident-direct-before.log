@@ -1,0 +1,14 @@
+
+running 1 test
+thread 'resident_meshing_matches_the_in_game_path' panicked at crates/voxelgame-core/tests/generation_timing.rs:394:5:
+streaming should admit chunks, got 19
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test resident_meshing_matches_the_in_game_path ... FAILED
+
+failures:
+
+failures:
+    resident_meshing_matches_the_in_game_path
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.46s
+

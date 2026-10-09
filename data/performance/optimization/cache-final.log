@@ -1,0 +1,27 @@
+   Compiling voxelgame-core v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-core)
+    Finished test [optimized + debuginfo] target(s) in 2m 06s
+     Running unittests src/lib.rs (target/debug/deps/voxelgame_core-723bcf2f33c4e6cf)
+
+running 7 tests
+test world::surface_band_cache::tests::landscape_revision_discards_values_and_eviction_history ... ok
+test world::surface_band_tests::block_edits_preserve_the_cached_reference_surface ... ok
+test world::surface_band_cache::tests::long_travel_stays_bounded_and_keeps_recent_columns ... ok
+test world::surface_band_tests::cached_bounds_follow_structure_growth_shrinkage_and_removal ... ok
+test world::surface_band_tests::cached_bounds_match_sampling_across_versions_and_absolute_coordinates ... ok
+test world::surface_band_tests::cached_bounds_follow_terrain_profile_install_replace_and_clear ... ok
+test world::surface_band_tests::streamed_band_covers_the_renderers_readiness_envelope ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 753 filtered out; finished in 3.06s
+
+     Running tests/generation_timing.rs (target/debug/deps/generation_timing-8b435d87668304d2)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+     Running tests/worldgen_versions.rs (target/debug/deps/worldgen_versions-aef4049c4808eabd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+

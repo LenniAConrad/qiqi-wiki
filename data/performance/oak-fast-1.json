@@ -1,0 +1,161 @@
+{
+  "cpu": [
+    {
+      "calls": 268,
+      "cpu_ms": 2505.109617,
+      "exclusive_cpu_ms": 103.005785,
+      "exclusive_wall_ms": 103.054988,
+      "label": "frame",
+      "wall_ms": 7998.392664
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 14.728465,
+      "exclusive_cpu_ms": 14.728465,
+      "exclusive_wall_ms": 14.91792,
+      "label": "profile.gpu_readback",
+      "wall_ms": 14.91792
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 92.4329,
+      "exclusive_cpu_ms": 92.4329,
+      "exclusive_wall_ms": 93.177821,
+      "label": "render.entities",
+      "wall_ms": 93.177821
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 95.570477,
+      "exclusive_cpu_ms": 95.570477,
+      "exclusive_wall_ms": 5574.647167,
+      "label": "render.gpu_wait",
+      "wall_ms": 5574.647167
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 0.471506,
+      "exclusive_cpu_ms": 0.471506,
+      "exclusive_wall_ms": 0.44867,
+      "label": "render.minimap",
+      "wall_ms": 0.44867
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 40.571321,
+      "exclusive_cpu_ms": 40.571321,
+      "exclusive_wall_ms": 40.961047,
+      "label": "render.scene_lighting",
+      "wall_ms": 40.961047
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 1134.483443,
+      "exclusive_cpu_ms": 931.7576,
+      "exclusive_wall_ms": 940.06933,
+      "label": "render.total",
+      "wall_ms": 6622.918123
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 51.384074,
+      "exclusive_cpu_ms": 51.384074,
+      "exclusive_wall_ms": 51.873989,
+      "label": "render.ui",
+      "wall_ms": 51.873989
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 54.352095,
+      "exclusive_cpu_ms": 54.352095,
+      "exclusive_wall_ms": 55.084253,
+      "label": "simulation.creatures",
+      "wall_ms": 55.084253
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 4.250064,
+      "exclusive_cpu_ms": 4.250064,
+      "exclusive_wall_ms": 4.296249,
+      "label": "simulation.player",
+      "wall_ms": 4.296249
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 1172.013338,
+      "exclusive_cpu_ms": 6.817743,
+      "exclusive_wall_ms": 6.821233,
+      "label": "simulation.total",
+      "wall_ms": 1176.023897
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 1.022295,
+      "exclusive_cpu_ms": 1.022295,
+      "exclusive_wall_ms": 1.034457,
+      "label": "streaming.detail_upload",
+      "wall_ms": 1.034457
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 2.151856,
+      "exclusive_cpu_ms": 2.151856,
+      "exclusive_wall_ms": 2.183378,
+      "label": "streaming.lod_schedule_upload",
+      "wall_ms": 2.183378
+    },
+    {
+      "calls": 268,
+      "cpu_ms": 1106.590542,
+      "exclusive_cpu_ms": 1106.590542,
+      "exclusive_wall_ms": 1109.819273,
+      "label": "streaming.schedule",
+      "wall_ms": 1109.819273
+    },
+    {
+      "calls": 1,
+      "cpu_ms": 0.002894,
+      "exclusive_cpu_ms": 0.002894,
+      "exclusive_wall_ms": 0.002889,
+      "label": "trees.lod_records",
+      "wall_ms": 0.002889
+    }
+  ],
+  "frames": 268,
+  "gpu": [
+    {
+      "calls": 1340,
+      "gpu_ms": 16.503708,
+      "label": "gpu.bloom_accumulate"
+    },
+    {
+      "calls": 1608,
+      "gpu_ms": 34.366927,
+      "label": "gpu.bloom_downsample"
+    },
+    {
+      "calls": 268,
+      "gpu_ms": 43.464851,
+      "label": "gpu.composite"
+    },
+    {
+      "calls": 268,
+      "gpu_ms": 1514.799523,
+      "label": "gpu.shadows"
+    },
+    {
+      "calls": 268,
+      "gpu_ms": 13.844021,
+      "label": "gpu.ui"
+    },
+    {
+      "calls": 268,
+      "gpu_ms": 3769.856685,
+      "label": "gpu.world"
+    }
+  ],
+  "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+  "process_cpu_seconds": 2.507376678,
+  "tree_geometry_hidden": false,
+  "wall_seconds": 8.000660988
+}

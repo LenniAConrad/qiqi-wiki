@@ -1,0 +1,96 @@
+   Compiling voxelgame-core v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-core)
+   Compiling voxelgame-zijing-nerds v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-zijing-nerds)
+   Compiling voxelgame-verdun v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-verdun)
+   Compiling voxelgame-wwii v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-wwii)
+   Compiling voxelgame-render v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-render)
+   Compiling voxelgame-chinese-village v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-chinese-village)
+   Compiling voxelgame v0.1.0 (/home/lennart/Code/Voxelgame)
+    Finished test [optimized + debuginfo] target(s) in 36.00s
+     Running unittests src/main.rs (target/debug/deps/voxelgame-9dd144301fd250a2)
+
+running 82 tests
+test audio::effects::tests::distinct_materials_and_weapons_never_use_the_old_placeholder_families ... ok
+test app::tests::pointer_capture_requires_a_visible_focused_gameplay_window ... ok
+test app::tests::redraw_pacing_distinguishes_limits_unlimited_and_occlusion ... ok
+test audio::music::tests::optional_music_decoder_reads_pcm_wave ... ignored, requires the optional ffmpeg music decoder
+test audio::music::tests::changing_songs_ignores_stale_decoder_results ... ok
+test audio::music::tests::end_of_song_leaves_remaining_effect_samples_intact ... ok
+test app::tests::debug_title_explains_when_the_saved_limit_is_active ... ok
+test audio::music::tests::pause_retains_position_and_eof_advances_playlist ... ok
+test audio::music::tests::speed_changes_source_progress_and_interpolates_without_changing_effects ... ok
+test audio::music::tests::playlist_ignores_unknown_duplicate_and_escaping_entries ... ok
+test audio::tests::biome_materials_choose_their_physical_sound_family ... ok
+test audio::tests::effect_variation_interpolates_and_applies_gain_without_changing_music_rate ... ok
+test audio::music::tests::revised_collection_preserves_old_slots_and_appends_new_songs ... ok
+test audio::tests::master_volume_mutes_music_and_effects_together ... ok
+test audio::tests::glide_frequency_is_monotonic_and_hits_its_endpoints ... ok
+test audio::tests::master_volume_scales_active_voices_and_mute_still_advances_playback ... ok
+test audio::nature::tests::loops_wrap_and_fade_to_silence_without_resetting_phase ... ok
+test audio::tests::saturate_is_transparent_near_zero_and_never_exceeds_full_scale ... ok
+test audio::music::tests::softer_piano_requires_matching_original_content ... ok
+test audio::tests::procedural_effect_is_a_valid_pcm_wave ... ok
+test audio::tests::transient_envelope_snaps_up_then_decays_to_near_silence ... ok
+test audio::tests::missing_footstep_assets_preserve_posture_volume ... ok
+test audio::tests::registered_one_shot_report_stays_bounded_and_decays_to_near_silence ... ok
+test audio::tests::registered_profile_synthesis_is_deterministic_for_a_fixed_seed ... ok
+test debug_session::tests::protocol_bounds_lines_before_allocating_unbounded_input ... ok
+test audio::tests::enabled_pack_profiles_install_once_and_drive_bounded_original_synthesis ... ok
+test audio::nature::tests::birds_already_playing_fade_out_when_morning_or_trees_disappear ... ok
+test input_adapter::tests::movement_keys_preserve_physical_directions ... ok
+test input_adapter::tests::optional_content_controls_reach_the_platform_neutral_simulation ... ok
+test input_adapter::tests::unrelated_platform_keys_are_ignored ... ok
+test launch::tests::a_held_camera_is_read_as_position_and_orientation ... ok
+test launch::tests::a_held_time_of_day_is_read ... ok
+test launch::tests::a_late_screenshot_keeps_a_finished_benchmark_running ... ok
+test launch::tests::an_early_screenshot_does_not_shorten_the_benchmark ... ok
+test launch::tests::an_ordinary_launch_changes_nothing ... ok
+test launch::tests::bad_input_is_rejected_rather_than_guessed ... ok
+test launch::tests::bench_defaults_to_thirty_seconds_without_a_value ... ok
+test launch::tests::bench_implies_the_settings_an_unattended_run_needs ... ok
+test launch::tests::benchmark_warmup_is_explicit_and_configurable ... ok
+test audio::study_tests::study_alerts_are_distinct_audible_click_free_and_bounded ... ok
+test launch::tests::diagnostics_complete_without_ending_an_ordinary_session ... ok
+test launch::tests::headless_runs_are_bounded_and_never_save ... ok
+test launch::tests::modal_capture_screens_wait_for_world_warmup ... ok
+test audio::tests::thunder_has_a_bounded_audible_rumble_and_quiet_tail ... ok
+test launch::tests::oversized_durations_are_errors_instead_of_panics ... ok
+test launch::tests::positive_durations_must_not_round_to_zero ... ok
+test launch::tests::settings_overrides_are_read ... ok
+test launch::tests::statistics_ignore_impossible_frames_and_empty_runs ... ok
+test launch::tests::statistics_report_the_slow_frames_not_just_the_average ... ok
+test launch::tests::the_last_time_override_wins ... ok
+test audio::nature::tests::imported_bank_resolves_loops_calls_and_thunder ... ok
+test audio::nature::tests::nature_uses_the_same_master_mute_as_music_and_effects ... ok
+test launch::tests::capture_screens_are_explicit_and_validated ... ok
+test launch::tests::numeric_time_stays_fixed_without_camera_overrides ... ok
+test debug_session::tests::debug_configuration_reaches_the_full_terrain_horizon ... ok
+test audio::effects::tests::shipped_bank_is_complete_and_every_gameplay_family_resolves ... ok
+test audio::effects::tests::posture_gain_reaches_the_playback_voice ... ok
+test mods::tests::unknown_persisted_ids_fail_deterministically ... ok
+test single_instance::tests::second_acquisition_notifies_primary_without_becoming_an_instance ... ok
+test debug_session::assets::tests::rejected_spawns_do_not_mutate_and_blocks_use_half_metre_grid ... ok
+test single_instance::tests::stale_socket_is_recovered_once ... ok
+test worlds::tests::active_save_alias_appears_once_and_remains_selected ... ok
+test worlds::tests::world_menu_labels_are_bounded_and_player_facing ... ok
+test worlds::tests::active_save_symlink_appears_once ... ok
+test worlds::tests::missing_active_save_remains_first_in_a_bounded_menu ... ok
+test audio::effects::tests::shuffled_variants_do_not_repeat_and_stay_cached ... ok
+test audio::effects::tests::supplementary_clips_are_bounded_audible_and_fade_to_zero ... ok
+test debug_session::assets::tests::catalog_paginates_and_inspection_does_not_edit_or_require_gpu ... ok
+test mods::tests::optional_packs_are_discovered_off_and_register_only_when_selected ... ok
+test debug_session::tests::invalid_input_does_not_advance_or_mutate_the_session ... ok
+test debug_session::tests::profiled_step_reports_cpu_work_without_enabling_save_writes ... ok
+test debug_session::tests::inspection_does_not_create_edits_and_reset_discards_session_changes ... ok
+test debug_session::tests::held_keys_do_not_repeat_ui_press_edges_across_commands ... ok
+test debug_session::tests::scripted_controls_move_and_release_through_normal_gameplay ... ok
+test debug_session::assets::tests::preview_camera_aims_at_bounds_and_reset_clears_geometry ... ok
+test debug_session::tests::reset_can_replay_legacy_terrain_without_overriding_saved_rules ... ok
+test launch::tests::weather_presets_parse_and_apply_without_advancing_simulation ... ok
+test mods::tests::enabled_pack_installs_tanks_cars_aircraft_and_frigates_into_a_session ... ok
+test mods::tests::mod_weapon_ads_reduces_sensitivity_and_resets_on_every_context_switch ... ok
+test mods::tests::frigate_helm_coastal_artillery_aa_and_weapon_pov_are_active_in_gameplay ... ok
+test debug_session::assets::tests::inspection_registry_reserves_structure_budget_for_explicit_placement ... ok
+test mods::tests::character_pack_pedestrians_spawn_alongside_the_vehicles ... ok
+
+test result: ok. 81 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 7.80s
+

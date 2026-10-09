@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Zoom into a side-by-side, true-scale comparison of Voxelgame, Minecraft, the Sun and all eight planets.">
+  <meta name="theme-color" content="#253c30"><title>World Scale · qiqi-dev</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="scale.css">
+  <script defer src="data/scale.js"></script><script defer src="scale.js"></script>
+</head>
+<body class="scale-page">
+<a class="skip" href="#comparison">Skip to size comparison</a>
+<header class="site-header"><a class="wordmark" href="index.html"><span class="mark" aria-hidden="true">▧</span> qiqi<span class="wordmark-light">/ dev</span></a><nav aria-label="Main"><a href="index.html#catalog">Biomes</a><a href="animals.html">Animals</a><a href="islands.html">Islands</a><a href="villages.html">Village</a><a href="performance.html">Performance</a><a href="scale.html" aria-current="page">Scale</a></nav><span class="edition">WORLDS IN PERSPECTIVE</span></header>
+<main>
+  <section class="intro" aria-labelledby="title"><div class="eyebrow"><span class="status-dot"></span> A LITTLE PERSPECTIVE</div><div class="intro-row"><h1 id="title">Room to roam.<br><em>Worlds to compare.</em></h1><p>Our voxel world, another sandbox, and the solar system.<br>Side by side. One shared scale.<br>Zoom in to find the small things.</p></div></section>
+  <section id="comparison" aria-label="Interactive size comparison">
+    <div class="scale-toolbar">
+      <label for="scale-mode">Measure <select id="scale-mode"><option value="width">Actual diameter / map width</option><option value="area">Total surface / map area</option></select></label>
+      <div class="scale-presets" aria-label="Comparison groups"><button type="button" data-preset="overview">Sun &amp; worlds</button><button type="button" data-preset="planets">All planets</button><button type="button" data-preset="games">Earth &amp; games</button><button type="button" data-preset="all">Everything</button></div>
+    </div>
+    <div id="scale-selection" class="scale-selection" role="group" aria-label="Objects to show"></div>
+    <div class="scale-canvas-wrap">
+      <div class="scale-canvas-heading"><span id="scale-view-title">TRUE WIDTHS · SIDE BY SIDE</span><span id="scale-zoom">1.0×</span></div>
+      <svg id="scale-diagram" xmlns="http://www.w3.org/2000/svg" tabindex="0" role="img" aria-labelledby="scale-svg-title scale-svg-desc">
+        <title id="scale-svg-title">Worlds at a shared linear scale</title><desc id="scale-svg-desc">Side-by-side disks and square maps. Drag to pan, wheel or pinch to zoom, use plus and minus or arrow keys, or choose a focus button below.</desc>
+        <defs><pattern id="scale-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#c4d3b8" stroke-opacity="0.055"/></pattern><clipPath id="scale-frame-clip"><rect id="scale-frame"/></clipPath></defs>
+        <g clip-path="url(#scale-frame-clip)"><rect id="scale-grid-rect" fill="url(#scale-grid)"/><g id="scale-marks"></g><g id="scale-labels"></g></g><g id="scale-ruler"></g>
+      </svg>
+      <div class="scale-canvas-footer"><span>Drag to pan · wheel / pinch to zoom</span><span>Sizes to scale · spacing illustrative</span></div>
+    </div>
+    <div class="scale-navigation"><div class="scale-zoom-buttons"><button type="button" id="scale-out" aria-label="Zoom out">−</button><button type="button" id="scale-in" aria-label="Zoom in">+</button><button type="button" id="scale-fit">Fit all</button></div><label for="scale-focus">Focus on <select id="scale-focus"></select></label><button type="button" id="scale-focus-go">Go</button><button type="button" id="scale-fullscreen">Expand</button></div>
+    <p id="scale-mode-note" class="scale-note"></p>
+    <p id="scale-status" class="scale-status" role="status" aria-live="polite"></p>
+    <noscript><p>The interactive comparison needs JavaScript. Voxelgame’s theoretical square is 536,870.912 km per side; Minecraft’s is 59,999.968 km. The Sun’s mean diameter is 1,391,400 km and Earth’s is 12,742 km.</p></noscript>
+  </section>
+  <section class="scale-catalog" aria-labelledby="numbers-title"><div class="section-heading"><div class="eyebrow">01 / THE NUMBERS</div><div class="section-heading-row"><h2 id="numbers-title">Same ruler. Different worlds.</h2><p>All eight planets, the Sun, and two flat maps.<br>Select a name to bring it into the comparison.</p></div></div>
+    <div class="scale-table-wrap"><table><caption>Approximate spherical surface areas; map areas include land and ocean. Rings are excluded.</caption><thead><tr><th scope="col">World</th><th scope="col">Diameter / side<br><span>km</span></th><th scope="col">Surface / map area<br><span>km²</span></th><th scope="col">Voxelgame area ÷<br>this area</th></tr></thead><tbody id="scale-table"></tbody></table></div>
+  </section>
+  <section class="method" id="scale-sources" aria-labelledby="method-title"><div><div class="eyebrow">02 / READ THE SCALE</div><h2 id="method-title">Capacity.<br><em>Not a promise.</em></h2><p>A dated comparison of coordinate limits, not a claim that every distant location is already playable.</p></div><div class="method-details">
+    <article><span>01</span><div><h3>What Voxelgame’s size means</h3><p>The 8 October 2026 source snapshot accepts ±2²⁸ metres per axis in saves and matching voxel coordinates on the network. That gives a 536,870.912 km square envelope, or 288.23 billion km². Movement and projectiles still suffer precision loss far from the origin; this is not a measured playable boundary or a fully stored map. Reference: core <code>save.rs</code>, <code>MAX_SAVED_VOXEL</code>, half-metre voxels, revision <code>78b45ed</code>.</p></div></article>
+    <article><span>02</span><div><h3>Width and area tell different stories</h3><p>Width mode compares actual mean planetary diameters with square map sides. Area mode redraws every object as an equal-area disk: a planet’s whole surface is 4πr², while a map’s area is side². These disks are not physical planet diameters. Planet sizes use <a href="https://nssdc.gsfc.nasa.gov/planetary/planetfact.html">NASA mean radii</a>; giant planets use atmospheric reference surfaces. Minecraft uses the <a href="https://docs.papermc.io/paper/reference/server-properties/#max-world-size">Java border convention</a> of ±29,999,984 one-metre blocks. Bedrock, world height and other dimensions are not included.</p></div></article>
+    <article><span>03</span><div><h3>Natural materials, accurate sizes</h3><p>All textures are original procedural illustrations inspired by natural materials: solar granulation and sunspots, cratered rock, turbulent cloud bands, polar ice and ocean-covered terrain. Fine mountain ridges, river-like channels, cloud shadows and atmospheric haze add depth. Geography and surface features are invented, including Earth’s continents. Voxelgame uses cool island terrain and turquoise shallows; Minecraft uses warmer, chunkier continental terrain. These are not observation photographs or actual game captures. Colors and patterns identify the objects; only their sizes carry measurement meaning. Rings and decorative halos are omitted to preserve body size.</p></div></article>
+  </div></section>
+</main>
+<footer><a class="wordmark" href="index.html">qiqi<span class="wordmark-light">/ dev</span></a><p>An independent atlas of an original voxel world.</p><a href="README.md">About this project ↗</a></footer>
+</body></html>

@@ -1,0 +1,554 @@
+{
+  "BlackSandBeach": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "basalt",
+    "groundCompanions": "dune grass, dry shrub",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "CoastalDunes": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "cobble",
+    "groundCompanions": "short grass, heather",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "Atoll": {
+    "lowGrowth": "palm fronds",
+    "stoneGroups": "sparse low limestone boulders on dry cays",
+    "groundCompanions": "dune grass, wildflowers",
+    "composition": "Raised grassy cay interiors support palms and scattered low pale stones; shell-sand rims, lagoon channels and reef water retain their coastal placement rules."
+  },
+  "CoralShallows": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "coral gold",
+    "groundCompanions": "coral blue, coral red",
+    "composition": "Underwater colonies and rock or reef groups require supported seabed and suitable water depth."
+  },
+  "DeepKelpForest": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "kelp, anemone",
+    "composition": "Underwater colonies and rock or reef groups require supported seabed and suitable water depth."
+  },
+  "FrozenFjord": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "slate scree",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "GravelShore": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "cobble",
+    "groundCompanions": "dune grass, dry shrub",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "MangroveCoast": {
+    "lowGrowth": "willow leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "fern, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "OceanFloor": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "seagrass, anemone",
+    "composition": "Underwater colonies and rock or reef groups require supported seabed and suitable water depth."
+  },
+  "OpenOcean": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "seagrass, anemone",
+    "composition": "Underwater colonies and rock or reef groups require supported seabed and suitable water depth."
+  },
+  "RockyCliffs": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "dry shrub, mountain flowers",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "SeaStacks": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "layered sandstone",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "SeagrassLagoon": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "cobble",
+    "groundCompanions": "anemone, starfish",
+    "composition": "Underwater colonies and rock or reef groups require supported seabed and suitable water depth."
+  },
+  "ShellBeach": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "cobble",
+    "groundCompanions": "dune grass, short grass",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "TidePools": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "coral gold, seagrass",
+    "composition": "Underwater colonies and rock or reef groups require supported seabed and suitable water depth."
+  },
+  "AlpineMeadow": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "short grass, lichen",
+    "composition": "Open flowered turf can carry lingering snow on colder patches beside the alpine snow belt."
+  },
+  "AuroraTundra": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "cotton grass, short grass",
+    "composition": "Snow lingers in colder sheltered patches and thins to frozen turf toward warmer ground; exposed cliffs and special formations retain their own surfaces."
+  },
+  "FirnField": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "glacier ice",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "FrozenLake": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "No added stone groups",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "GlacialMoraine": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "GlacialOutwash": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "cobble",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "IceSpikes": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "glacier ice",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "MossyHighlands": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "woodland fungi, short grass",
+    "composition": "Conifer stands alternate with open glades and brushy edges; ground cover follows the same canopy pattern."
+  },
+  "PolarDesert": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "RockyHighlands": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "short grass, dry shrub",
+    "composition": "Conifer stands alternate with open glades and brushy edges; ground cover follows the same canopy pattern."
+  },
+  "SnowyPeaks": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "slate scree",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Cold summit ground retains snow, while warmer patches reveal the native bedrock. Exposed cliffs and glacial formations keep their distinct rocky and icy surfaces."
+  },
+  "SnowyTundra": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "short grass, lichen",
+    "composition": "Snow lingers in colder sheltered patches and thins to frozen turf toward warmer ground; exposed cliffs and special formations retain their own surfaces."
+  },
+  "Badlands": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "layered sandstone",
+    "groundCompanions": "thorn bush, lichen",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "Chaparral": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "heather, short grass",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "Desert": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "sandstone",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "DuneSea": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "sandstone",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "Oasis": {
+    "lowGrowth": "palm fronds",
+    "stoneGroups": "sandstone",
+    "groundCompanions": "fern, wildflowers",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "PaintedHills": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "layered sandstone",
+    "groundCompanions": "thorn bush, lichen",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "RedDesert": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "red rock",
+    "groundCompanions": "short grass, lichen",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "SaltFlats": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "No added stone groups",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "Scrubland": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "sandstone",
+    "groundCompanions": "short grass, lichen",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "AmethystGorge": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "dark stone",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "GeyserBasin": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "sulfur crust",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "GraniteDomes": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "exfoliated granite",
+    "groundCompanions": "short grass, mountain flowers",
+    "composition": "Conifer stands alternate with open glades and brushy edges; ground cover follows the same canopy pattern."
+  },
+  "HotSprings": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "mineral crust",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "KarstPinnacles": {
+    "lowGrowth": "broad leaves",
+    "stoneGroups": "limestone",
+    "groundCompanions": "bromeliad, endemic flowers",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  },
+  "LimestonePavement": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "limestone",
+    "groundCompanions": "fern, mountain flowers",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "MeteorField": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "dark stone",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "SlateQuarryHills": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "slate scree",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "LavaTubes": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "basalt",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "TepuiPlateau": {
+    "lowGrowth": "broad leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "fern, lichen",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "VolcanicCaldera": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "basalt",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "Volcanic": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "lava rock",
+    "groundCompanions": "Bare surface pattern",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "AfricanThornveld": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "tall grass, short grass",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "AustralianBushland": {
+    "lowGrowth": "leaves",
+    "stoneGroups": "red rock",
+    "groundCompanions": "tall grass, leaf litter",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  },
+  "ChalkHeath": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "chalk",
+    "groundCompanions": "short grass, mountain flowers",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "FlowerMeadow": {
+    "lowGrowth": "blossom leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "endemic flowers, short grass",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "Heathland": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "dry shrub, lichen",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "LavenderFields": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "limestone",
+    "groundCompanions": "wildflowers, heather",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "Meadow": {
+    "lowGrowth": "leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "short grass, heather",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "Pampas": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "tall grass, wildflowers",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "RedRockSteppe": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "red rock",
+    "groundCompanions": "lichen, short grass",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "RollingDowns": {
+    "lowGrowth": "leaves",
+    "stoneGroups": "chalk",
+    "groundCompanions": "heather, lichen",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "Savanna": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "thorn bush, short grass",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "Steppe": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "lichen, mountain flowers",
+    "composition": "Exposed ground retains its snow, rock or dry-soil identity, with localized stones and biome-specific surface patterns."
+  },
+  "TallgrassPrairie": {
+    "lowGrowth": "leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "plume grass, short grass",
+    "composition": "Patchy low growth and brushy edges leave broad open glades; ground cover follows the same patches."
+  },
+  "BlackwaterBayou": {
+    "lowGrowth": "willow leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "bromeliad, woodland fungi",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "ColdRiver": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "cobble",
+    "groundCompanions": "lichen, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "FloodedGrassland": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "cobble",
+    "groundCompanions": "reeds, cotton grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "FloodplainForest": {
+    "lowGrowth": "willow leaves",
+    "stoneGroups": "cobble",
+    "groundCompanions": "leaf litter, sedge",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "InlandDelta": {
+    "lowGrowth": "willow leaves",
+    "stoneGroups": "cobble",
+    "groundCompanions": "reeds, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "Marsh": {
+    "lowGrowth": "willow leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "cotton grass, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "Muskeg": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "lichen, heather",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "PeatBog": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "heather, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "RiverDelta": {
+    "lowGrowth": "willow leaves",
+    "stoneGroups": "cobble",
+    "groundCompanions": "tall reeds, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "TaigaBog": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "sedge, fern",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "TemperateSaltMarsh": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "cobble",
+    "groundCompanions": "tall reeds, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "TropicalRiver": {
+    "lowGrowth": "willow leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "tall reeds, bromeliad",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "WetlandFen": {
+    "lowGrowth": "No additional shrub layer",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "reeds, short grass",
+    "composition": "Wetland trees and low growth follow supported wet ground and drainage; reeds and aquatic plants keep their water-depth rules."
+  },
+  "AutumnForest": {
+    "lowGrowth": "amber leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "short grass, woodland fungi",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "BambooThicket": {
+    "lowGrowth": "broad leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "fern, leaf litter",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "BirchGrove": {
+    "lowGrowth": "birch leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "leaf litter, wildflowers",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  },
+  "BorealBurn": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "fern, dry shrub",
+    "composition": "Conifer stands alternate with open glades and brushy edges; ground cover follows the same canopy pattern."
+  },
+  "CherryGrove": {
+    "lowGrowth": "cherry blossom leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "fern, leaf litter",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  },
+  "CloudForest": {
+    "lowGrowth": "broad leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "woodland fungi, fern",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "RedwoodForest": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "woodland fungi, leaf litter",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "DenseForest": {
+    "lowGrowth": "oak leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "woodland fungi, short grass",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "MediterraneanWoodland": {
+    "lowGrowth": "oak leaves",
+    "stoneGroups": "limestone",
+    "groundCompanions": "thorn bush, short grass",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  },
+  "MiomboWoodland": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "red rock",
+    "groundCompanions": "leaf litter, short grass",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  },
+  "MonsoonForest": {
+    "lowGrowth": "jungle leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "leaf litter, bromeliad",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "MontaneForest": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "short grass, leaf litter",
+    "composition": "Conifer stands alternate with open glades and brushy edges; ground cover follows the same canopy pattern."
+  },
+  "OldGrowthForest": {
+    "lowGrowth": "oak leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "woodland fungi, epiphyte moss",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "Orchard": {
+    "lowGrowth": "leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "leaf litter, fern",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  },
+  "PineHighlands": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "fern, short grass",
+    "composition": "Conifer stands alternate with open glades and brushy edges; ground cover follows the same canopy pattern."
+  },
+  "Rainforest": {
+    "lowGrowth": "jungle leaves",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "bromeliad, endemic flowers",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "TemperateRainforest": {
+    "lowGrowth": "pine needles",
+    "stoneGroups": "mossy cobble",
+    "groundCompanions": "woodland fungi, epiphyte moss",
+    "composition": "Closed stands alternate with open glades and brushy edges; each biome’s ground plants follow the same canopy pattern."
+  },
+  "TropicalDryForest": {
+    "lowGrowth": "acacia leaves",
+    "stoneGroups": "boulder stone",
+    "groundCompanions": "thorn bush, short grass",
+    "composition": "Open groves alternate with grassy glades and brushy margins; ground cover follows the canopy pattern."
+  }
+}

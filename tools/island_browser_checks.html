@@ -1,0 +1,87 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="en"><meta charset="utf-8"><title>Island gallery browser checks</title>
+<style>body{font:14px monospace}iframe{display:block;width:1280px;height:900px;border:0}pre{white-space:pre-wrap}</style>
+<h1>Island gallery browser checks</h1><pre id="report">Running…</pre><iframe src="../islands.html" title="Island gallery under test"></iframe>
+<script>
+'use strict';
+const frame=document.querySelector('iframe'),report=document.querySelector('#report'),results=[];
+const delay=()=>new Promise(resolve=>setTimeout(resolve,50));
+function check(ok,message){results.push({passed:!!ok,message});if(!ok)throw Error(message);}
+frame.addEventListener('load',async()=>{
+try {
+ const d=frame.contentDocument,w=frame.contentWindow,q=selector=>d.querySelector(selector),cards=()=>[...d.querySelectorAll('.card')];
+ const query=value=>{q('#search').value=value;q('#search').dispatchEvent(new Event('input',{bubbles:true}));};
+ const sort=value=>{q('#sort').value=value;q('#sort').dispatchEvent(new Event('change',{bubbles:true}));};
+ const data=w.ISLAND_ATLAS;
+ check(Number.isInteger(data.generatorVersion)&&data.generatorVersion>=8&&q('#generation').textContent===String(data.generatorVersion).padStart(2,'0'),'Gallery displays its actual generator version');
+ check(data.islands.length===6&&['Rounded','Long','Crescent','TwinLobed','Rugged','Atoll'].every(shape=>data.islands.some(island=>island.shape===shape)),'Exactly the six existing shape families are represented');
+ check(cards().length===6,'All six island cards appear');
+ const names=cards().map(card=>card.querySelector('h3').textContent);
+ check(names.join() === [...names].sort((a,b)=>a.localeCompare(b,'en')).join(),'Island names default to alphabetical order');
+ check(d.querySelectorAll('.island-preview').length===12,'Every card offers both a map and a panorama');
+ check(data.islands.every(island=>['temperature','moisture','elevation'].every(type=>island.views.some(view=>view.type===type&&view.legend))),'Every island offers temperature, moisture and elevation diagnostics with legends');
+ const rounded=data.islands.find(island=>island.shape==='Rounded');
+ query('rounded');check(cards().length===1&&cards()[0].dataset.island===rounded.id,'Shape search finds its island');
+ query(`${rounded.name} ${rounded.seed}`);check(cards().length===1,'Search combines shape and exact seed');
+ const trigger=cards()[0].querySelector('[data-view=panorama]');trigger.focus();trigger.click();
+ check(q('#detail').open&&q('#detail-title').textContent===rounded.name,'Preview opens the matching island');
+ check(q('#view-controls [aria-pressed=true]').dataset.view==='panorama','Panorama preview opens directly to panorama');
+ check(q('#detail-facts').textContent.includes(rounded.seed)&&q('#detail-facts').textContent.includes('Planned long × short axes'),'Seed and accurately labelled planned dimensions are visible');
+ check(q('#detail-facts').textContent.includes('Sampled dry land'),'Sampled dry-land area is separate from planned dimensions');
+ for(const view of rounded.views){
+  q(`#view-controls [data-view=${view.type}]`).click();
+  check(q('#detail-image').getAttribute('src')===view.image&&q('#original-image').getAttribute('href')===view.image,`${view.type} and full-size link select the same image`);
+  check(d.querySelectorAll('#view-controls [aria-pressed=true]').length===1,`${view.type} toggle has one accessible selection`);
+  check(q('#detail-image').alt.length>0,`${view.type} has an image description`);
+  if(view.type==='panorama') check(Number.isFinite(view.sampleSpacingMetres)&&q('#view-description').textContent.includes(`Source samples every ${new Intl.NumberFormat('en',{maximumFractionDigits:1}).format(view.sampleSpacingMetres)} m`),'Panorama discloses its source sample spacing separately from image resolution');
+  check(q('#view-legend').hidden===!view.legend,`${view.type} displays its own legend only when provided`);
+  if(view.legend) check(q('#view-legend').textContent.includes(view.legend.title)&&d.querySelectorAll('#legend-stops li').length===view.legend.stops.length,`${view.type} legend matches the actual scale metadata`);
+ }
+ q('#close-detail').click();await delay();
+ check(!q('#detail').open&&!d.body.classList.contains('modal-open'),'Closing restores document scrolling');
+ check(d.activeElement===trigger,'Closing restores keyboard focus to the chosen preview');
+ q('#reset-filters').click();
+ for(const mode of ['largest','smallest']){
+  sort(mode);
+  const lengths=cards().map(card=>Math.max(...data.islands.find(island=>island.id===card.dataset.island).sizeMetres));
+  check(lengths.every((length,index)=>index===0||(mode==='largest'?length<=lengths[index-1]:length>=lengths[index-1])),`${mode} sorts by planned long axis`);
+ }
+ sort('name');cards()[0].querySelector('[data-view=panorama]').click();q('#next').click();
+ check(q('#detail-title').textContent===names[1]&&q('#view-controls [aria-pressed=true]').dataset.view==='panorama','Next follows the visible order and preserves the view');
+ q('#view-controls [aria-pressed=true]').focus();
+ d.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowLeft',bubbles:true}));
+ check(q('#detail-title').textContent===names[0],'Arrow keys navigate islands');
+ check(d.activeElement===q('#view-controls [aria-pressed=true]'),'Keyboard navigation retains focus on the selected view control');
+ q('#previous').click();check(q('#detail-title').textContent===names.at(-1),'Previous wraps to the last visible island');
+ q('#close-detail').click();await delay();
+ query('no-such-island-example');check(cards().length===0&&!q('#empty').hidden,'Empty search explains how to recover');
+ q('#reset-filters').click();check(cards().length===6&&q('#sort').value==='name','Clear search restores the alphabetical catalog');
+ q('#search').blur();d.dispatchEvent(new KeyboardEvent('keydown',{key:'/',bubbles:true}));check(d.activeElement===q('#search'),'Slash focuses search');
+ for(const width of [1280,768,375,320]){
+  frame.style.width=`${width}px`;await delay();
+  check(d.documentElement.scrollWidth<=d.documentElement.clientWidth+1,`Gallery fits ${width}px`);
+  w.openIsland(rounded.id,'map');await delay();
+  check(q('#detail').scrollWidth<=q('#detail').clientWidth+1&&q('#detail').getBoundingClientRect().width<=width,`Map dialog fits ${width}px`);
+  q('#view-controls [data-view=panorama]').click();await delay();
+  check(q('#detail').scrollWidth<=q('#detail').clientWidth+1,`Panorama dialog fits ${width}px`);
+  for(const view of rounded.views){
+   q(`#view-controls [data-view=${view.type}]`).click();await delay();
+   check(q('#detail').scrollWidth<=q('#detail').clientWidth+1,`${view.type} controls and legend fit ${width}px`);
+  }
+  q('#close-detail').click();await delay();
+ }
+ const images=data.islands.flatMap(island=>island.views);
+ check(images.length>=12&&data.islands.every(island=>['map','panorama'].every(type=>island.views.some(view=>view.type===type))),'Catalog contains both primary images for every island');
+ const loaded=await Promise.all(images.map(view=>new Promise(resolve=>{
+  const image=new Image();const timeout=setTimeout(()=>resolve(false),15000);
+  image.onload=()=>{clearTimeout(timeout);resolve(image.naturalWidth===view.width&&image.naturalHeight===view.height);};
+  image.onerror=()=>{clearTimeout(timeout);resolve(false);};image.src='../'+view.image;
+ })));
+ check(loaded.every(Boolean),`All ${images.length} images load at their recorded full dimensions`);
+ await new Promise(resolve=>{frame.addEventListener('load',resolve,{once:true});frame.src=`../islands.html?qa=deep-link#island=${encodeURIComponent(rounded.id)}`;});
+ check(frame.contentDocument.querySelector('#detail').open&&frame.contentDocument.querySelector('#detail-title').textContent===rounded.name,'An island deep link opens its details');
+ report.dataset.result='passed';report.textContent=JSON.stringify({status:'passed',checks:results},null,2);
+}catch(error){report.dataset.result='failed';report.textContent=JSON.stringify({status:'failed',error:String(error),checks:results},null,2);}
+},{once:true});
+</script></html>

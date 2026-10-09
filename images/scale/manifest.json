@@ -1,0 +1,19 @@
+{
+  "style": "original naturalistic procedural illustrations; invented geography",
+  "sourceImages": [],
+  "globeEdge": 2048,
+  "mapEdge": 2048,
+  "outputs": {
+    "earth.webp": "ec54bcb67ce048796852ba92d43991e99563f490de76074702822eeeed1caeb2",
+    "jupiter.webp": "e2de637af4aafdac5de936d25cb24e9ee2eaaf9b5e05eb8259a1dd0fb9e9179e",
+    "mars.webp": "bafa5b7c526bb0e5718761c9289e6e286809cd701717a637457faee5e4392df9",
+    "mercury.webp": "2535c5a31187b62695d5720ac53b53a130aa098762db930c82ce9775836d1d5f",
+    "minecraft.webp": "ef792f3c7cb0b12be78d3ec4984bfb873ee72e447e6e1099d269f1ed1b527bb9",
+    "neptune.webp": "48ec227effbfde71597f829ee16aa5f00c2e8ec0b792963f1f82948720d937a5",
+    "saturn.webp": "3a51bc7d3572e9db64afbdf531e750f3c22b7cad4d9568387ed8b5d512d008df",
+    "sun.webp": "54741685c6233beaa48e29833d319b6f790a4e2bf8185fd7d53055b102e5a98c",
+    "uranus.webp": "57058f82c91dc5d359d1cf17cb0606f73d9696f2e6d88bfe83c8c7b278c9dbf5",
+    "venus.webp": "8c587a40a15a77b77e0b0de3949887375b96acf753816915e0297d85a5f2444c",
+    "voxelgame.webp": "ce5db9f7fb0916f864a13fb94583dfdc4a1cbc98c1b1e05b74633998b9edcbac"
+  }
+}

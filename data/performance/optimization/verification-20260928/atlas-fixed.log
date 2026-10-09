@@ -1,0 +1,9 @@
+   Compiling voxelgame-render v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-render)
+    Finished test [optimized + debuginfo] target(s) in 35.14s
+     Running unittests src/lib.rs (target/debug/deps/voxelgame_render-88cd4ed9127f1eec)
+
+running 1 test
+test atlas::tests::anatomical_part_tiles_have_their_expected_dominant_color_relationships ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 278 filtered out; finished in 0.00s
+

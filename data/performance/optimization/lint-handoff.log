@@ -1,0 +1,9 @@
+    Blocking waiting for file lock on build directory
+    Checking voxelgame-core v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-core)
+    Checking voxelgame-chinese-village v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-chinese-village)
+    Checking voxelgame-wwii v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-wwii)
+    Checking voxelgame-render v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-render)
+    Checking voxelgame-zijing-nerds v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-zijing-nerds)
+    Checking voxelgame-verdun v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-verdun)
+    Checking voxelgame v0.1.0 (/home/lennart/Code/Voxelgame)
+    Finished dev [optimized + debuginfo] target(s) in 2m 11s

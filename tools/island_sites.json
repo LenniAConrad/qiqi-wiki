@@ -1,0 +1,72 @@
+{
+  "license": "SPDX-License-Identifier: GPL-3.0-only",
+  "schemaVersion": 1,
+  "islands": [
+    {
+      "id": "Rounded",
+      "slug": "rounded",
+      "seed": "7",
+      "cell": [
+        -15,
+        -11
+      ],
+      "spanMetres": 14000,
+      "description": "A compact mainland with a broad interior, uneven headlands and small offshore islets."
+    },
+    {
+      "id": "Long",
+      "slug": "long",
+      "seed": "7",
+      "cell": [
+        -14,
+        11
+      ],
+      "spanMetres": 14000,
+      "description": "A narrow mainland whose long spine follows its own heading, with coves along both flanks."
+    },
+    {
+      "id": "Crescent",
+      "slug": "crescent",
+      "seed": "2",
+      "cell": [
+        15,
+        -9
+      ],
+      "spanMetres": 14000,
+      "description": "A curved mainland wraps around a large bay that remains connected to the open sea."
+    },
+    {
+      "id": "TwinLobed",
+      "slug": "twin-lobed",
+      "seed": "42",
+      "cell": [
+        5,
+        5
+      ],
+      "spanMetres": 15000,
+      "description": "Two broad lobes join across a narrower waist, giving the mainland two distinct ends."
+    },
+    {
+      "id": "Rugged",
+      "slug": "rugged",
+      "seed": "42",
+      "cell": [
+        -1,
+        -12
+      ],
+      "spanMetres": 16000,
+      "description": "Irregular headlands and deep coves surround a rough interior and a scatter of satellite islets."
+    },
+    {
+      "id": "Atoll",
+      "slug": "atoll",
+      "seed": "812",
+      "cell": [
+        2,
+        -15
+      ],
+      "spanMetres": 3200,
+      "description": "Low reef islands trace a broken rim around a shallow lagoon with open ocean channels."
+    }
+  ]
+}

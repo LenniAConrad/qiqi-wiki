@@ -1,0 +1,17 @@
+   Compiling voxelgame-core v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-core)
+   Compiling voxelgame-render v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-render)
+    Finished release [optimized] target(s) in 6m 22s
+     Running unittests src/lib.rs (target/release/deps/voxelgame_render-77a41f8234f41d31)
+
+running 1 test
+generation: 42.709521ms/sample, 267 trees, 152 bytes/tree
+Near: 10.488041ms/forest, 111888 vertices/forest
+Fine: 10.837692ms/forest, 111888 vertices/forest
+Middle: 10.693702ms/forest, 111888 vertices/forest
+Far: 10.950327ms/forest, 111888 vertices/forest
+Horizon: 3.240707ms/forest, 24412 vertices/forest
+Remote: 3.306451ms/forest, 24412 vertices/forest
+test far_terrain::trees::tests::tree_lod_timing ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 278 filtered out; finished in 10.82s
+

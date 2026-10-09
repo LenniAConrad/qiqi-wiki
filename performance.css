@@ -1,0 +1,56 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+.performance-page .intro-row p { max-width: 400px; }
+.study-meta { padding: 0 0 23px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.performance-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.performance-stats span { line-height: 1.6; }
+.report-nav { display: flex; flex-wrap: wrap; gap: 15px 28px; padding-block: 25px; font-size: 12px; }
+.report-nav a { text-underline-offset: 4px; }
+.report-section { padding: 44px 0 54px; border-bottom: 1px solid var(--line); }
+.report-section .eyebrow { margin-bottom: 14px; }
+.report-lead { max-width: 780px; margin: 22px 0 28px; font-size: 15px; line-height: 1.85; color: var(--muted); }
+.cost-chart { margin: 0 0 30px; }
+.cost-chart img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+.cost-chart figcaption { margin-top: 12px; color: var(--muted); font-size: 11px; line-height: 1.8; }
+.cost-chart figcaption a { margin-left: 10px; white-space: nowrap; }
+.table-wrap { max-width: 100%; overflow-x: auto; margin: 28px 0 18px; }
+.table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.report-section table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; line-height: 1.7; }
+.report-section caption { text-align: left; font-size: 11px; color: var(--muted); margin-bottom: 13px; }
+.report-section th, .report-section td { padding: 15px 16px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.report-section th:first-child { text-align: left; padding-left: 0; }
+.report-section thead th { font-size: 11px; font-weight: 600; color: var(--muted); background: #e8ecdf; }
+.report-section thead th:first-child { padding-left: 12px; }
+.report-section tbody th { font-weight: 500; }
+.measurement-note { max-width: 900px; color: var(--muted); font-size: 12px; line-height: 1.85; }
+.report-details { border-block: 1px solid var(--line); padding: 19px 0; margin-top: 28px; }
+.report-details summary { cursor: pointer; font-size: 13px; font-weight: 600; }
+.report-details p { font-size: 13px; line-height: 1.85; color: var(--muted); max-width: 880px; }
+.finding-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 32px; }
+.finding-pair h3, .priority-list h3 { font-size: 16px; font-weight: 550; line-height: 1.5; }
+.finding-pair p, .priority-list p { color: var(--muted); font-size: 13px; line-height: 1.85; }
+.streaming-finding { background: #e8ecdf; padding: 30px 34px; margin-top: 34px; border-left: 3px solid var(--ink); }
+.streaming-finding h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.2; margin: 12px 0 20px; }
+.streaming-finding p { max-width: 900px; font-size: 14px; line-height: 1.85; }
+.streaming-finding .measurement-note { font-size: 12px; }
+.priority-list { padding-left: 25px; max-width: 900px; }
+.priority-list li { padding: 5px 0 8px 15px; }
+.priority-list li::marker { font-family: var(--serif); font-size: 20px; }
+.evidence-links { display: flex; gap: 14px; flex-wrap: wrap; margin: 30px 0; }
+.evidence-links a { padding: 12px 15px; border: 1px solid var(--line); border-radius: 3px; font-size: 12px; text-decoration: none; }
+.evidence-links a:hover { background: #e8ecdf; }
+@media (max-width: 1000px) {
+  .performance-page .edition { display: none; }
+}
+@media (max-width: 650px) {
+  .performance-stats { grid-template-columns: 1fr; gap: 18px; }
+  .performance-stats > div, .performance-stats > div:nth-child(3) { padding: 0; border: 0; }
+  .performance-stats strong { font-size: 32px; }
+  .report-section { padding-block: 32px; }
+  .report-section .section-heading h2 { font-size: 33px; }
+  .finding-pair { grid-template-columns: 1fr; gap: 10px; }
+  .streaming-finding { padding: 23px 20px; }
+  .streaming-finding h3 { font-size: 27px; }
+  .report-section th, .report-section td { padding: 12px; }
+  #optimization th, #optimization td { white-space: normal; }
+  .report-nav { gap: 17px 22px; }
+}

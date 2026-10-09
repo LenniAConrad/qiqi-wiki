@@ -1,0 +1,3697 @@
+{
+  "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-ubc3po57",
+  "warmup_windows": [
+    {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.4483458995819092,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 39.22174546666667
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 953.476115,
+            "exclusive_cpu_ms": 1.942388,
+            "exclusive_wall_ms": 6.168422,
+            "label": "frame",
+            "max_cpu_ms": 21.644575,
+            "max_wall_ms": 69.824384,
+            "wall_ms": 4705.31007
+          },
+          {
+            "calls": 10,
+            "cpu_ms": 46.183063,
+            "exclusive_cpu_ms": 46.183063,
+            "exclusive_wall_ms": 113.306649,
+            "label": "meshing.detail",
+            "max_cpu_ms": 5.381767,
+            "max_wall_ms": 16.383558,
+            "wall_ms": 113.306649
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 5869.59765,
+            "exclusive_cpu_ms": 2257.429658,
+            "exclusive_wall_ms": 2986.9427,
+            "label": "meshing.lod",
+            "max_cpu_ms": 1491.283736,
+            "max_wall_ms": 3409.769897,
+            "wall_ms": 9694.90956
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 3588.511497,
+            "exclusive_cpu_ms": 3588.511497,
+            "exclusive_wall_ms": 6682.639393,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 930.698261,
+            "max_wall_ms": 2708.779155,
+            "wall_ms": 6682.639393
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 0.027856,
+            "exclusive_cpu_ms": 0.027856,
+            "exclusive_wall_ms": 0.027801,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.005144,
+            "max_wall_ms": 0.005091,
+            "wall_ms": 0.027801
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.567446,
+            "exclusive_cpu_ms": 6.567446,
+            "exclusive_wall_ms": 6.626657,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.093156,
+            "max_wall_ms": 0.135011,
+            "wall_ms": 6.626657
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 70.877326,
+            "exclusive_cpu_ms": 70.877326,
+            "exclusive_wall_ms": 91.15096,
+            "label": "render.entities",
+            "max_cpu_ms": 0.926269,
+            "max_wall_ms": 5.23702,
+            "wall_ms": 91.15096
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 49.006091,
+            "exclusive_cpu_ms": 49.006091,
+            "exclusive_wall_ms": 2511.328835,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.00967,
+            "max_wall_ms": 36.622967,
+            "wall_ms": 2511.328835
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.243506,
+            "exclusive_cpu_ms": 0.243506,
+            "exclusive_wall_ms": 0.179174,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.039885,
+            "max_wall_ms": 0.005289,
+            "wall_ms": 0.179174
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 31.712719,
+            "exclusive_cpu_ms": 31.712719,
+            "exclusive_wall_ms": 65.081187,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.727816,
+            "max_wall_ms": 16.314163,
+            "wall_ms": 65.081187
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 811.927994,
+            "exclusive_cpu_ms": 723.970365,
+            "exclusive_wall_ms": 1913.777585,
+            "label": "render.total",
+            "max_cpu_ms": 9.113516,
+            "max_wall_ms": 63.756753,
+            "wall_ms": 4497.423796
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.427867,
+            "exclusive_cpu_ms": 0.427867,
+            "exclusive_wall_ms": 0.430358,
+            "label": "render.ui",
+            "max_cpu_ms": 0.005327,
+            "max_wall_ms": 0.00534,
+            "wall_ms": 0.430358
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 29.251711,
+            "exclusive_cpu_ms": 29.251711,
+            "exclusive_wall_ms": 32.423086,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.373058,
+            "max_wall_ms": 3.076495,
+            "wall_ms": 32.423086
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.081867,
+            "exclusive_cpu_ms": 1.081867,
+            "exclusive_wall_ms": 1.075805,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.041675,
+            "max_wall_ms": 0.0416,
+            "wall_ms": 1.075805
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 37.454979,
+            "exclusive_cpu_ms": 4.599482,
+            "exclusive_wall_ms": 4.578485,
+            "label": "simulation.total",
+            "max_cpu_ms": 0.731727,
+            "max_wall_ms": 3.132737,
+            "wall_ms": 40.724645
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.724656,
+            "exclusive_cpu_ms": 6.724656,
+            "exclusive_wall_ms": 17.061249,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 3.268499,
+            "max_wall_ms": 9.604279,
+            "wall_ms": 17.061249
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.335088,
+            "exclusive_cpu_ms": 0.335088,
+            "exclusive_wall_ms": 0.336979,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.004437,
+            "max_wall_ms": 0.004419,
+            "wall_ms": 0.336979
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 24.548772,
+            "exclusive_cpu_ms": 24.548772,
+            "exclusive_wall_ms": 52.780998,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 12.433484,
+            "max_wall_ms": 24.305742,
+            "wall_ms": 52.780998
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 1.134775,
+            "exclusive_cpu_ms": 1.134775,
+            "exclusive_wall_ms": 1.134964,
+            "label": "streaming.plan",
+            "max_cpu_ms": 0.236283,
+            "max_wall_ms": 0.236483,
+            "wall_ms": 1.134964
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.476702,
+            "exclusive_cpu_ms": 1.006839,
+            "exclusive_wall_ms": 1.130292,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 0.385331,
+            "max_wall_ms": 0.507778,
+            "wall_ms": 2.602235
+          },
+          {
+            "calls": 127,
+            "cpu_ms": 16.851226,
+            "exclusive_cpu_ms": 16.851226,
+            "exclusive_wall_ms": 17.789533,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.314333,
+            "max_wall_ms": 0.374729,
+            "wall_ms": 17.789533
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 45.571326,
+            "exclusive_cpu_ms": 6.26336,
+            "exclusive_wall_ms": 6.572041,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 19.506563,
+            "max_wall_ms": 20.108932,
+            "wall_ms": 47.842815
+          },
+          {
+            "calls": 8,
+            "cpu_ms": 39.353183,
+            "exclusive_cpu_ms": 6.536889,
+            "exclusive_wall_ms": 6.607184,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 15.809347,
+            "max_wall_ms": 16.256221,
+            "wall_ms": 41.315808
+          },
+          {
+            "calls": 582,
+            "cpu_ms": 15.965068,
+            "exclusive_cpu_ms": 15.965068,
+            "exclusive_wall_ms": 16.919091,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.050304,
+            "max_wall_ms": 0.519557,
+            "wall_ms": 16.919091
+          },
+          {
+            "calls": 10,
+            "cpu_ms": 46.290849,
+            "exclusive_cpu_ms": 0.107786,
+            "exclusive_wall_ms": 0.093624,
+            "label": "worker.detail_job",
+            "max_cpu_ms": 5.396084,
+            "max_wall_ms": 16.39576,
+            "wall_ms": 113.400273
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 5869.665229,
+            "exclusive_cpu_ms": 0.067579,
+            "exclusive_wall_ms": 0.066758,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 1491.328777,
+            "max_wall_ms": 3409.81437,
+            "wall_ms": 9694.976318
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.270497,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 14.723688,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.432803,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 555.378466,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1540.193606,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 10.01210956,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 4.706608029
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 23,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 14
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 22.183333333333334,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 1331,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 22.016502380371094,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    },
+    {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.4500124454498291,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 36.041035375
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 854.340748,
+            "exclusive_cpu_ms": 1.894032,
+            "exclusive_wall_ms": 1.754602,
+            "label": "frame",
+            "max_cpu_ms": 10.171536,
+            "max_wall_ms": 49.807958,
+            "wall_ms": 4323.796097
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 5878.868505,
+            "exclusive_cpu_ms": 2002.384231,
+            "exclusive_wall_ms": 2641.658137,
+            "label": "meshing.lod",
+            "max_cpu_ms": 1382.129975,
+            "max_wall_ms": 2154.201283,
+            "wall_ms": 8185.270806
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 3806.961317,
+            "exclusive_cpu_ms": 3806.961317,
+            "exclusive_wall_ms": 5453.205812,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 926.554673,
+            "max_wall_ms": 1461.161966,
+            "wall_ms": 5453.205812
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 0.022013,
+            "exclusive_cpu_ms": 0.022013,
+            "exclusive_wall_ms": 0.022047,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.00509,
+            "max_wall_ms": 0.005068,
+            "wall_ms": 0.022047
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 5.855913,
+            "exclusive_cpu_ms": 5.855913,
+            "exclusive_wall_ms": 5.919517,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.069417,
+            "max_wall_ms": 0.087397,
+            "wall_ms": 5.919517
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 68.080804,
+            "exclusive_cpu_ms": 67.859867,
+            "exclusive_wall_ms": 80.726263,
+            "label": "render.entities",
+            "max_cpu_ms": 1.002816,
+            "max_wall_ms": 4.019234,
+            "wall_ms": 80.946622
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 50.689649,
+            "exclusive_cpu_ms": 50.689649,
+            "exclusive_wall_ms": 2597.199832,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.03185,
+            "max_wall_ms": 31.403397,
+            "wall_ms": 2597.199832
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.23114,
+            "exclusive_cpu_ms": 0.23114,
+            "exclusive_wall_ms": 0.170687,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.012875,
+            "max_wall_ms": 0.003838,
+            "wall_ms": 0.170687
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 27.17036,
+            "exclusive_cpu_ms": 27.17036,
+            "exclusive_wall_ms": 29.19099,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.282537,
+            "max_wall_ms": 2.195067,
+            "wall_ms": 29.19099
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 737.038736,
+            "exclusive_cpu_ms": 652.71204,
+            "exclusive_wall_ms": 1549.684403,
+            "label": "render.total",
+            "max_cpu_ms": 8.14947,
+            "max_wall_ms": 48.937275,
+            "wall_ms": 4182.545694
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.379634,
+            "exclusive_cpu_ms": 0.379634,
+            "exclusive_wall_ms": 0.380265,
+            "label": "render.ui",
+            "max_cpu_ms": 0.00453,
+            "max_wall_ms": 0.004545,
+            "wall_ms": 0.380265
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 27.377644,
+            "exclusive_cpu_ms": 27.377644,
+            "exclusive_wall_ms": 29.18232,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.34869,
+            "max_wall_ms": 1.46387,
+            "wall_ms": 29.18232
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.968882,
+            "exclusive_cpu_ms": 0.968882,
+            "exclusive_wall_ms": 0.959626,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.012275,
+            "max_wall_ms": 0.012263,
+            "wall_ms": 0.959626
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 35.250161,
+            "exclusive_cpu_ms": 4.189576,
+            "exclusive_wall_ms": 5.03683,
+            "label": "simulation.total",
+            "max_cpu_ms": 0.668166,
+            "max_wall_ms": 5.767209,
+            "wall_ms": 42.979118
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.448792,
+            "exclusive_cpu_ms": 0.448792,
+            "exclusive_wall_ms": 0.447153,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 0.007089,
+            "max_wall_ms": 0.007069,
+            "wall_ms": 0.447153
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.31519,
+            "exclusive_cpu_ms": 0.31519,
+            "exclusive_wall_ms": 0.316563,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.004171,
+            "max_wall_ms": 0.004194,
+            "wall_ms": 0.316563
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 11.032988,
+            "exclusive_cpu_ms": 11.032988,
+            "exclusive_wall_ms": 14.527631,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 1.918834,
+            "max_wall_ms": 5.382263,
+            "wall_ms": 14.527631
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1.414731,
+            "exclusive_cpu_ms": 1.414731,
+            "exclusive_wall_ms": 6.514618,
+            "label": "streaming.plan",
+            "max_cpu_ms": 0.27848,
+            "max_wall_ms": 5.37858,
+            "wall_ms": 6.514618
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 0.595235,
+            "exclusive_cpu_ms": 0.595235,
+            "exclusive_wall_ms": 0.595277,
+            "label": "streaming.prune",
+            "max_cpu_ms": 0.595235,
+            "max_wall_ms": 0.595277,
+            "wall_ms": 0.595277
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.714059,
+            "exclusive_cpu_ms": 0.984138,
+            "exclusive_wall_ms": 0.969161,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 0.38946,
+            "max_wall_ms": 5.488281,
+            "wall_ms": 7.800342
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 0.220937,
+            "exclusive_cpu_ms": 0.01382,
+            "exclusive_wall_ms": 0.012674,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.220937,
+            "max_wall_ms": 0.220359,
+            "wall_ms": 0.220359
+          },
+          {
+            "calls": 234,
+            "cpu_ms": 32.482129,
+            "exclusive_cpu_ms": 32.482129,
+            "exclusive_wall_ms": 42.466818,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.298271,
+            "max_wall_ms": 3.350861,
+            "wall_ms": 42.466818
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 69.500944,
+            "exclusive_cpu_ms": 13.005623,
+            "exclusive_wall_ms": 16.143681,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 27.436002,
+            "max_wall_ms": 27.619013,
+            "wall_ms": 90.38481
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 56.495321,
+            "exclusive_cpu_ms": 12.129578,
+            "exclusive_wall_ms": 13.417983,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 22.798586,
+            "max_wall_ms": 22.89085,
+            "wall_ms": 74.241129
+          },
+          {
+            "calls": 416,
+            "cpu_ms": 12.090731,
+            "exclusive_cpu_ms": 12.090731,
+            "exclusive_wall_ms": 18.564013,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.068512,
+            "max_wall_ms": 3.278997,
+            "wall_ms": 18.564013
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 5878.89735,
+            "exclusive_cpu_ms": 0.028845,
+            "exclusive_wall_ms": 0.028377,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 1382.136843,
+            "max_wall_ms": 2154.207525,
+            "wall_ms": 8185.299183
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.278926,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 14.686405,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.458321,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 548.224303,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1601.017299,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 9.649529355,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 4.324923223
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 31,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 15
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 24.183333333333334,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 1451,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 24.01647186279297,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    },
+    {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.451678991317749,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 37.2234816
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 873.170823,
+            "exclusive_cpu_ms": 1.795036,
+            "exclusive_wall_ms": 1.647344,
+            "label": "frame",
+            "max_cpu_ms": 9.825269,
+            "max_wall_ms": 50.281107,
+            "wall_ms": 4465.706227
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 6630.034295,
+            "exclusive_cpu_ms": 2428.399293,
+            "exclusive_wall_ms": 2769.40651,
+            "label": "meshing.lod",
+            "max_cpu_ms": 1231.927759,
+            "max_wall_ms": 1655.934255,
+            "wall_ms": 7983.850576
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 4143.978041,
+            "exclusive_cpu_ms": 4143.978041,
+            "exclusive_wall_ms": 5120.560294,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 784.249282,
+            "max_wall_ms": 1099.196254,
+            "wall_ms": 5120.560294
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 0.026668,
+            "exclusive_cpu_ms": 0.026668,
+            "exclusive_wall_ms": 0.02685,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.007477,
+            "max_wall_ms": 0.007516,
+            "wall_ms": 0.02685
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.264191,
+            "exclusive_cpu_ms": 6.264191,
+            "exclusive_wall_ms": 11.249469,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.097203,
+            "max_wall_ms": 3.267823,
+            "wall_ms": 11.249469
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 71.612432,
+            "exclusive_cpu_ms": 71.612432,
+            "exclusive_wall_ms": 94.346568,
+            "label": "render.entities",
+            "max_cpu_ms": 0.810945,
+            "max_wall_ms": 6.070184,
+            "wall_ms": 94.346568
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 53.593385,
+            "exclusive_cpu_ms": 53.593385,
+            "exclusive_wall_ms": 2591.505603,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.119539,
+            "max_wall_ms": 30.764628,
+            "wall_ms": 2591.505603
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.218973,
+            "exclusive_cpu_ms": 0.218973,
+            "exclusive_wall_ms": 0.170966,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.002691,
+            "max_wall_ms": 0.001742,
+            "wall_ms": 0.170966
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 27.532807,
+            "exclusive_cpu_ms": 27.532807,
+            "exclusive_wall_ms": 40.560005,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.313972,
+            "max_wall_ms": 4.950325,
+            "wall_ms": 40.560005
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 754.872425,
+            "exclusive_cpu_ms": 666.884327,
+            "exclusive_wall_ms": 1677.62055,
+            "label": "render.total",
+            "max_cpu_ms": 7.796822,
+            "max_wall_ms": 49.29059,
+            "wall_ms": 4321.48582
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.378742,
+            "exclusive_cpu_ms": 0.378742,
+            "exclusive_wall_ms": 0.379227,
+            "label": "render.ui",
+            "max_cpu_ms": 0.008714,
+            "max_wall_ms": 0.00869,
+            "wall_ms": 0.379227
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 27.954748,
+            "exclusive_cpu_ms": 27.954748,
+            "exclusive_wall_ms": 31.32967,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.305484,
+            "max_wall_ms": 1.812947,
+            "wall_ms": 31.32967
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.999287,
+            "exclusive_cpu_ms": 0.999287,
+            "exclusive_wall_ms": 0.991092,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.026229,
+            "max_wall_ms": 0.026651,
+            "wall_ms": 0.991092
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 35.762285,
+            "exclusive_cpu_ms": 4.115466,
+            "exclusive_wall_ms": 4.101153,
+            "label": "simulation.total",
+            "max_cpu_ms": 0.651465,
+            "max_wall_ms": 1.859645,
+            "wall_ms": 39.100179
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.45765,
+            "exclusive_cpu_ms": 0.45765,
+            "exclusive_wall_ms": 0.442196,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 0.017739,
+            "max_wall_ms": 0.005953,
+            "wall_ms": 0.442196
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.317757,
+            "exclusive_cpu_ms": 0.317757,
+            "exclusive_wall_ms": 0.319401,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.004098,
+            "max_wall_ms": 0.004094,
+            "wall_ms": 0.319401
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 8.670995,
+            "exclusive_cpu_ms": 8.670995,
+            "exclusive_wall_ms": 8.68412,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 1.491573,
+            "max_wall_ms": 1.492669,
+            "wall_ms": 8.68412
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1.373259,
+            "exclusive_cpu_ms": 1.373259,
+            "exclusive_wall_ms": 1.3734,
+            "label": "streaming.plan",
+            "max_cpu_ms": 0.246457,
+            "max_wall_ms": 0.246751,
+            "wall_ms": 1.3734
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.692784,
+            "exclusive_cpu_ms": 1.001768,
+            "exclusive_wall_ms": 0.985463,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 0.355495,
+            "max_wall_ms": 0.355301,
+            "wall_ms": 2.678264
+          },
+          {
+            "calls": 192,
+            "cpu_ms": 22.251101,
+            "exclusive_cpu_ms": 22.251101,
+            "exclusive_wall_ms": 38.245407,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.290039,
+            "max_wall_ms": 3.423058,
+            "wall_ms": 38.245407
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 57.630293,
+            "exclusive_cpu_ms": 11.725553,
+            "exclusive_wall_ms": 18.054304,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 27.378922,
+            "max_wall_ms": 55.314381,
+            "wall_ms": 93.856922
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 45.90474,
+            "exclusive_cpu_ms": 8.699961,
+            "exclusive_wall_ms": 15.939542,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 21.356655,
+            "max_wall_ms": 43.297679,
+            "wall_ms": 75.802618
+          },
+          {
+            "calls": 519,
+            "cpu_ms": 14.953678,
+            "exclusive_cpu_ms": 14.953678,
+            "exclusive_wall_ms": 21.617669,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.059357,
+            "max_wall_ms": 3.230426,
+            "wall_ms": 21.617669
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 6630.067822,
+            "exclusive_cpu_ms": 0.033527,
+            "exclusive_wall_ms": 0.033682,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 1231.934387,
+            "max_wall_ms": 1655.939713,
+            "wall_ms": 7983.884258
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.267995,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 14.572186,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.430922,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 550.933988,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1668.536354,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 10.954451343,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 4.46681675
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 40,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 21
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 26.183333333333334,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 1571,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 26.016441345214844,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    },
+    {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.45334553718566895,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 37.904069774999996
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 927.422456,
+            "exclusive_cpu_ms": 2.088477,
+            "exclusive_wall_ms": 1.987099,
+            "label": "frame",
+            "max_cpu_ms": 31.61145,
+            "max_wall_ms": 86.952206,
+            "wall_ms": 4547.170499
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 6146.301831,
+            "exclusive_cpu_ms": 2273.956739,
+            "exclusive_wall_ms": 3158.353287,
+            "label": "meshing.lod",
+            "max_cpu_ms": 1273.943312,
+            "max_wall_ms": 1841.131314,
+            "wall_ms": 8432.551382
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 3798.784259,
+            "exclusive_cpu_ms": 3798.784259,
+            "exclusive_wall_ms": 5178.111242,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 800.222253,
+            "max_wall_ms": 1149.298584,
+            "wall_ms": 5178.111242
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 0.02503,
+            "exclusive_cpu_ms": 0.02503,
+            "exclusive_wall_ms": 0.024743,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.004658,
+            "max_wall_ms": 0.004641,
+            "wall_ms": 0.024743
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.362706,
+            "exclusive_cpu_ms": 6.362706,
+            "exclusive_wall_ms": 6.36931,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.08172,
+            "max_wall_ms": 0.081651,
+            "wall_ms": 6.36931
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 71.934012,
+            "exclusive_cpu_ms": 71.934012,
+            "exclusive_wall_ms": 88.521409,
+            "label": "render.entities",
+            "max_cpu_ms": 0.906448,
+            "max_wall_ms": 6.338379,
+            "wall_ms": 88.521409
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 45.795843,
+            "exclusive_cpu_ms": 45.795843,
+            "exclusive_wall_ms": 2657.599262,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 0.982246,
+            "max_wall_ms": 33.281016,
+            "wall_ms": 2657.599262
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.210047,
+            "exclusive_cpu_ms": 0.210047,
+            "exclusive_wall_ms": 0.182857,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.012675,
+            "max_wall_ms": 0.011985,
+            "wall_ms": 0.182857
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 30.998243,
+            "exclusive_cpu_ms": 30.998243,
+            "exclusive_wall_ms": 44.259581,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.310251,
+            "max_wall_ms": 9.300931,
+            "wall_ms": 44.259581
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 813.946764,
+            "exclusive_cpu_ms": 730.141167,
+            "exclusive_wall_ms": 1701.169909,
+            "label": "render.total",
+            "max_cpu_ms": 29.337623,
+            "max_wall_ms": 81.209511,
+            "wall_ms": 4410.022359
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.438758,
+            "exclusive_cpu_ms": 0.438758,
+            "exclusive_wall_ms": 0.44144,
+            "label": "render.ui",
+            "max_cpu_ms": 0.005251,
+            "max_wall_ms": 0.005322,
+            "wall_ms": 0.44144
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 20.431694,
+            "exclusive_cpu_ms": 20.431694,
+            "exclusive_wall_ms": 27.300729,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.246005,
+            "max_wall_ms": 3.560864,
+            "wall_ms": 27.300729
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.169498,
+            "exclusive_cpu_ms": 1.169498,
+            "exclusive_wall_ms": 1.167274,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.028888,
+            "max_wall_ms": 0.0289,
+            "wall_ms": 1.167274
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 28.997854,
+            "exclusive_cpu_ms": 4.582959,
+            "exclusive_wall_ms": 4.725579,
+            "label": "simulation.total",
+            "max_cpu_ms": 0.574377,
+            "max_wall_ms": 3.619116,
+            "wall_ms": 36.004489
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.513868,
+            "exclusive_cpu_ms": 0.513868,
+            "exclusive_wall_ms": 0.514266,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 0.013384,
+            "max_wall_ms": 0.013568,
+            "wall_ms": 0.514266
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.348688,
+            "exclusive_cpu_ms": 0.348688,
+            "exclusive_wall_ms": 0.370509,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.004523,
+            "max_wall_ms": 0.023035,
+            "wall_ms": 0.370509
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 9.24249,
+            "exclusive_cpu_ms": 9.24249,
+            "exclusive_wall_ms": 9.421731,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 1.571031,
+            "max_wall_ms": 1.571873,
+            "wall_ms": 9.421731
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1.357042,
+            "exclusive_cpu_ms": 1.357042,
+            "exclusive_wall_ms": 1.357105,
+            "label": "streaming.plan",
+            "max_cpu_ms": 0.237067,
+            "max_wall_ms": 0.236949,
+            "wall_ms": 1.357105
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 0.698991,
+            "exclusive_cpu_ms": 0.698991,
+            "exclusive_wall_ms": 0.699146,
+            "label": "streaming.prune",
+            "max_cpu_ms": 0.698991,
+            "max_wall_ms": 0.699146,
+            "wall_ms": 0.699146
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.813703,
+            "exclusive_cpu_ms": 1.107973,
+            "exclusive_wall_ms": 1.083293,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 0.353524,
+            "max_wall_ms": 0.353418,
+            "wall_ms": 2.810907
+          },
+          {
+            "calls": 258,
+            "cpu_ms": 32.775736,
+            "exclusive_cpu_ms": 32.775736,
+            "exclusive_wall_ms": 42.462,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.275838,
+            "max_wall_ms": 3.340332,
+            "wall_ms": 42.462
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 73.535803,
+            "exclusive_cpu_ms": 12.89248,
+            "exclusive_wall_ms": 15.895323,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 24.100895,
+            "max_wall_ms": 46.12786,
+            "wall_ms": 96.06211
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 60.643323,
+            "exclusive_cpu_ms": 11.612341,
+            "exclusive_wall_ms": 14.6382,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 19.846832,
+            "max_wall_ms": 38.872273,
+            "wall_ms": 80.166787
+          },
+          {
+            "calls": 592,
+            "cpu_ms": 16.255246,
+            "exclusive_cpu_ms": 16.255246,
+            "exclusive_wall_ms": 23.066587,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.082762,
+            "max_wall_ms": 3.375033,
+            "wall_ms": 23.066587
+          },
+          {
+            "calls": 7,
+            "cpu_ms": 6146.337717,
+            "exclusive_cpu_ms": 0.035886,
+            "exclusive_wall_ms": 0.035576,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 1273.948334,
+            "max_wall_ms": 1841.13735,
+            "wall_ms": 8432.586958
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.274612,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 14.522333,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.460767,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 553.531222,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1723.5337,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 11.529105473,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 4.548487077
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 49,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 23
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 28.183333333333334,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 1691,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 28.01641082763672,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    },
+    {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.45501208305358887,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 39.497677591666665
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 921.307054,
+            "exclusive_cpu_ms": 1.858598,
+            "exclusive_wall_ms": 1.722783,
+            "label": "frame",
+            "max_cpu_ms": 33.417275,
+            "max_wall_ms": 92.975159,
+            "wall_ms": 4737.692824
+          },
+          {
+            "calls": 18,
+            "cpu_ms": 6187.702734,
+            "exclusive_cpu_ms": 2229.572424,
+            "exclusive_wall_ms": 3163.571641,
+            "label": "meshing.lod",
+            "max_cpu_ms": 519.815497,
+            "max_wall_ms": 780.044912,
+            "wall_ms": 8646.212525
+          },
+          {
+            "calls": 18,
+            "cpu_ms": 3773.580862,
+            "exclusive_cpu_ms": 3773.580862,
+            "exclusive_wall_ms": 5211.823951,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 316.393491,
+            "max_wall_ms": 506.50657,
+            "wall_ms": 5211.823951
+          },
+          {
+            "calls": 18,
+            "cpu_ms": 0.074013,
+            "exclusive_cpu_ms": 0.074013,
+            "exclusive_wall_ms": 0.073952,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.005737,
+            "max_wall_ms": 0.005614,
+            "wall_ms": 0.073952
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 5.961412,
+            "exclusive_cpu_ms": 5.961412,
+            "exclusive_wall_ms": 5.983604,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.096935,
+            "max_wall_ms": 0.096947,
+            "wall_ms": 5.983604
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 74.732208,
+            "exclusive_cpu_ms": 74.688096,
+            "exclusive_wall_ms": 90.561906,
+            "label": "render.entities",
+            "max_cpu_ms": 0.964537,
+            "max_wall_ms": 6.637926,
+            "wall_ms": 90.603741
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 49.069898,
+            "exclusive_cpu_ms": 49.069898,
+            "exclusive_wall_ms": 2779.830078,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.085732,
+            "max_wall_ms": 36.570276,
+            "wall_ms": 2779.830078
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.205993,
+            "exclusive_cpu_ms": 0.205993,
+            "exclusive_wall_ms": 0.168528,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.002247,
+            "max_wall_ms": 0.001615,
+            "wall_ms": 0.168528
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 28.472218,
+            "exclusive_cpu_ms": 28.472218,
+            "exclusive_wall_ms": 28.581241,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.301568,
+            "max_wall_ms": 0.319368,
+            "wall_ms": 28.581241
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 790.200507,
+            "exclusive_cpu_ms": 706.102043,
+            "exclusive_wall_ms": 1769.84302,
+            "label": "render.total",
+            "max_cpu_ms": 30.990189,
+            "max_wall_ms": 87.390763,
+            "wall_ms": 4584.795797
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.388943,
+            "exclusive_cpu_ms": 0.388943,
+            "exclusive_wall_ms": 0.389326,
+            "label": "render.ui",
+            "max_cpu_ms": 0.006369,
+            "max_wall_ms": 0.00642,
+            "wall_ms": 0.389326
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 26.668791,
+            "exclusive_cpu_ms": 26.668791,
+            "exclusive_wall_ms": 26.781231,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.289398,
+            "max_wall_ms": 0.312513,
+            "wall_ms": 26.781231
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.986257,
+            "exclusive_cpu_ms": 0.986257,
+            "exclusive_wall_ms": 0.993716,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.015766,
+            "max_wall_ms": 0.019558,
+            "wall_ms": 0.993716
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 34.118842,
+            "exclusive_cpu_ms": 4.07595,
+            "exclusive_wall_ms": 4.053892,
+            "label": "simulation.total",
+            "max_cpu_ms": 0.623321,
+            "max_wall_ms": 0.623353,
+            "wall_ms": 34.206019
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.447543,
+            "exclusive_cpu_ms": 0.447543,
+            "exclusive_wall_ms": 0.446722,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 0.005776,
+            "max_wall_ms": 0.005739,
+            "wall_ms": 0.446722
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.317608,
+            "exclusive_cpu_ms": 0.317608,
+            "exclusive_wall_ms": 0.320012,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.003982,
+            "max_wall_ms": 0.004205,
+            "wall_ms": 0.320012
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 19.949356,
+            "exclusive_cpu_ms": 19.949356,
+            "exclusive_wall_ms": 25.917762,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 3.191937,
+            "max_wall_ms": 6.192049,
+            "wall_ms": 25.917762
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 1.159663,
+            "exclusive_cpu_ms": 1.159663,
+            "exclusive_wall_ms": 1.159719,
+            "label": "streaming.plan",
+            "max_cpu_ms": 0.243032,
+            "max_wall_ms": 0.243042,
+            "wall_ms": 1.159719
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.387844,
+            "exclusive_cpu_ms": 0.910573,
+            "exclusive_wall_ms": 0.897449,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 0.366835,
+            "max_wall_ms": 0.366845,
+            "wall_ms": 2.37718
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 0.044112,
+            "exclusive_cpu_ms": 0.044112,
+            "exclusive_wall_ms": 0.041835,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.010315,
+            "max_wall_ms": 0.00993,
+            "wall_ms": 0.041835
+          },
+          {
+            "calls": 778,
+            "cpu_ms": 71.003705,
+            "exclusive_cpu_ms": 71.003705,
+            "exclusive_wall_ms": 100.508673,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.330208,
+            "max_wall_ms": 6.344775,
+            "wall_ms": 100.508673
+          },
+          {
+            "calls": 18,
+            "cpu_ms": 184.475435,
+            "exclusive_cpu_ms": 39.460511,
+            "exclusive_wall_ms": 55.012547,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 23.446236,
+            "max_wall_ms": 45.613174,
+            "wall_ms": 270.742981
+          },
+          {
+            "calls": 18,
+            "cpu_ms": 145.014924,
+            "exclusive_cpu_ms": 27.301507,
+            "exclusive_wall_ms": 43.123037,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 19.106282,
+            "max_wall_ms": 38.286071,
+            "wall_ms": 215.730434
+          },
+          {
+            "calls": 1503,
+            "cpu_ms": 46.709712,
+            "exclusive_cpu_ms": 46.709712,
+            "exclusive_wall_ms": 72.098724,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.084536,
+            "max_wall_ms": 6.232284,
+            "wall_ms": 72.098724
+          },
+          {
+            "calls": 18,
+            "cpu_ms": 6187.800733,
+            "exclusive_cpu_ms": 0.097999,
+            "exclusive_wall_ms": 0.097062,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 519.821266,
+            "max_wall_ms": 780.050353,
+            "wall_ms": 8646.309587
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.27429,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 14.63183,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.552695,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 556.455967,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1768.113756,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 8.0068189,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 4.7397205620000005
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 71,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 32
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 30.183333333333334,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 1811,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 30.016380310058594,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    },
+    {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.4566786289215088,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 38.03208655833334
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 889.616931,
+            "exclusive_cpu_ms": 2.014924,
+            "exclusive_wall_ms": 1.912667,
+            "label": "frame",
+            "max_cpu_ms": 8.556568,
+            "max_wall_ms": 50.047733,
+            "wall_ms": 4562.536346
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.321344,
+            "exclusive_cpu_ms": 6.321344,
+            "exclusive_wall_ms": 8.600332,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.103899,
+            "max_wall_ms": 1.436568,
+            "wall_ms": 8.600332
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 74.312385,
+            "exclusive_cpu_ms": 74.251171,
+            "exclusive_wall_ms": 84.938368,
+            "label": "render.entities",
+            "max_cpu_ms": 0.903963,
+            "max_wall_ms": 3.637028,
+            "wall_ms": 84.999066
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 47.581448,
+            "exclusive_cpu_ms": 47.581448,
+            "exclusive_wall_ms": 2798.618185,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 0.91264,
+            "max_wall_ms": 36.821686,
+            "wall_ms": 2798.618185
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.190861,
+            "exclusive_cpu_ms": 0.190861,
+            "exclusive_wall_ms": 0.169644,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.001985,
+            "max_wall_ms": 0.00182,
+            "wall_ms": 0.169644
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 30.624399,
+            "exclusive_cpu_ms": 30.624399,
+            "exclusive_wall_ms": 33.11811,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.375188,
+            "max_wall_ms": 2.441855,
+            "wall_ms": 33.11811
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 773.698629,
+            "exclusive_cpu_ms": 688.549459,
+            "exclusive_wall_ms": 1586.620439,
+            "label": "render.total",
+            "max_cpu_ms": 7.589059,
+            "max_wall_ms": 49.084062,
+            "wall_ms": 4427.573366
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.431118,
+            "exclusive_cpu_ms": 0.431118,
+            "exclusive_wall_ms": 0.446656,
+            "label": "render.ui",
+            "max_cpu_ms": 0.0209,
+            "max_wall_ms": 0.035238,
+            "wall_ms": 0.446656
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 28.589244,
+            "exclusive_cpu_ms": 28.589244,
+            "exclusive_wall_ms": 35.257059,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.323191,
+            "max_wall_ms": 2.040037,
+            "wall_ms": 35.257059
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.229858,
+            "exclusive_cpu_ms": 1.229858,
+            "exclusive_wall_ms": 1.235645,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.083204,
+            "max_wall_ms": 0.083267,
+            "wall_ms": 1.235645
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 37.446437,
+            "exclusive_cpu_ms": 4.708141,
+            "exclusive_wall_ms": 6.34881,
+            "label": "simulation.total",
+            "max_cpu_ms": 0.747473,
+            "max_wall_ms": 2.095322,
+            "wall_ms": 45.846689
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.49671,
+            "exclusive_cpu_ms": 0.49671,
+            "exclusive_wall_ms": 0.507129,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 0.014852,
+            "max_wall_ms": 0.024561,
+            "wall_ms": 0.507129
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.346622,
+            "exclusive_cpu_ms": 0.346622,
+            "exclusive_wall_ms": 0.442212,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.01409,
+            "max_wall_ms": 0.107814,
+            "wall_ms": 0.442212
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.927716,
+            "exclusive_cpu_ms": 0.927716,
+            "exclusive_wall_ms": 0.934993,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 0.012906,
+            "max_wall_ms": 0.012896,
+            "wall_ms": 0.934993
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1.402194,
+            "exclusive_cpu_ms": 1.402194,
+            "exclusive_wall_ms": 1.402459,
+            "label": "streaming.plan",
+            "max_cpu_ms": 0.258725,
+            "max_wall_ms": 0.258845,
+            "wall_ms": 1.402459
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 0.72013,
+            "exclusive_cpu_ms": 0.72013,
+            "exclusive_wall_ms": 0.762436,
+            "label": "streaming.prune",
+            "max_cpu_ms": 0.72013,
+            "max_wall_ms": 0.762436,
+            "wall_ms": 0.762436
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.867152,
+            "exclusive_cpu_ms": 1.118336,
+            "exclusive_wall_ms": 1.108744,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 0.400315,
+            "max_wall_ms": 0.400287,
+            "wall_ms": 2.953415
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 0.061214,
+            "exclusive_cpu_ms": 0.061214,
+            "exclusive_wall_ms": 0.060698,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.016962,
+            "max_wall_ms": 0.016757,
+            "wall_ms": 0.060698
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 0.052042,
+            "exclusive_cpu_ms": 0.052042,
+            "exclusive_wall_ms": 0.05176,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 0.052042,
+            "max_wall_ms": 0.05176,
+            "wall_ms": 0.05176
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.271795,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 14.777502,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.623112,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 561.142892,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1782.932136,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 0.890822441,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 4.563849402
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 71,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 32
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 32.18333333333333,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 1931,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 32.01634979248047,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    },
+    {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.4583451747894287,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 38.098791075
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 856.220727,
+            "exclusive_cpu_ms": 1.848357,
+            "exclusive_wall_ms": 1.722138,
+            "label": "frame",
+            "max_cpu_ms": 8.812654,
+            "max_wall_ms": 75.438489,
+            "wall_ms": 4570.72287
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.234312,
+            "exclusive_cpu_ms": 6.234312,
+            "exclusive_wall_ms": 8.36169,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.129472,
+            "max_wall_ms": 2.107874,
+            "wall_ms": 8.36169
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 66.505177,
+            "exclusive_cpu_ms": 66.476182,
+            "exclusive_wall_ms": 75.924163,
+            "label": "render.entities",
+            "max_cpu_ms": 0.907301,
+            "max_wall_ms": 3.696766,
+            "wall_ms": 75.946012
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 50.467249,
+            "exclusive_cpu_ms": 50.467249,
+            "exclusive_wall_ms": 3135.706493,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 0.954948,
+            "max_wall_ms": 41.160689,
+            "wall_ms": 3135.706493
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.206303,
+            "exclusive_cpu_ms": 0.206303,
+            "exclusive_wall_ms": 0.174679,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.002195,
+            "max_wall_ms": 0.004341,
+            "wall_ms": 0.174679
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 29.911522,
+            "exclusive_cpu_ms": 29.911522,
+            "exclusive_wall_ms": 35.753666,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.394126,
+            "max_wall_ms": 6.080713,
+            "wall_ms": 35.753666
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 747.009097,
+            "exclusive_cpu_ms": 659.7821,
+            "exclusive_wall_ms": 1258.0823,
+            "label": "render.total",
+            "max_cpu_ms": 7.856011,
+            "max_wall_ms": 63.251255,
+            "wall_ms": 4438.481804
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.407611,
+            "exclusive_cpu_ms": 0.407611,
+            "exclusive_wall_ms": 0.402976,
+            "label": "render.ui",
+            "max_cpu_ms": 0.014123,
+            "max_wall_ms": 0.014125,
+            "wall_ms": 0.402976
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 31.328878,
+            "exclusive_cpu_ms": 31.328878,
+            "exclusive_wall_ms": 43.435716,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.384554,
+            "max_wall_ms": 11.607541,
+            "wall_ms": 43.435716
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.006574,
+            "exclusive_cpu_ms": 1.006574,
+            "exclusive_wall_ms": 0.992741,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.020336,
+            "max_wall_ms": 0.020443,
+            "wall_ms": 0.992741
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 39.543013,
+            "exclusive_cpu_ms": 4.384889,
+            "exclusive_wall_ms": 5.069822,
+            "label": "simulation.total",
+            "max_cpu_ms": 0.783835,
+            "max_wall_ms": 11.666832,
+            "wall_ms": 52.309263
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.473183,
+            "exclusive_cpu_ms": 0.473183,
+            "exclusive_wall_ms": 1.416878,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 0.014163,
+            "max_wall_ms": 0.957574,
+            "wall_ms": 1.416878
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.315062,
+            "exclusive_cpu_ms": 0.315062,
+            "exclusive_wall_ms": 0.333491,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.005264,
+            "max_wall_ms": 0.018652,
+            "wall_ms": 0.333491
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.8419,
+            "exclusive_cpu_ms": 0.8419,
+            "exclusive_wall_ms": 0.846775,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 0.009984,
+            "max_wall_ms": 0.01,
+            "wall_ms": 0.846775
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1.401346,
+            "exclusive_cpu_ms": 1.401346,
+            "exclusive_wall_ms": 1.401572,
+            "label": "streaming.plan",
+            "max_cpu_ms": 0.249369,
+            "max_wall_ms": 0.249447,
+            "wall_ms": 1.401572
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.822672,
+            "exclusive_cpu_ms": 1.106264,
+            "exclusive_wall_ms": 1.075921,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 0.392971,
+            "max_wall_ms": 0.39307,
+            "wall_ms": 2.810984
+          },
+          {
+            "calls": 2,
+            "cpu_ms": 0.028995,
+            "exclusive_cpu_ms": 0.028995,
+            "exclusive_wall_ms": 0.021849,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.018943,
+            "max_wall_ms": 0.012139,
+            "wall_ms": 0.021849
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.292951,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 14.78755,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.6627,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 549.832272,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1776.978282,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 0.857348385,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 4.571854141
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 71,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 32
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 34.18333333333333,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 2051,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 34.016319274902344,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    }
+  ],
+  "final_state": {
+    "audio": {
+      "footstep_count": 0,
+      "footsteps": []
+    },
+    "available_mods": [
+      "chinese_village:pack",
+      "voxelgame_verdun:pack",
+      "voxelgame_wwii:pack",
+      "zijing_nerds:pack"
+    ],
+    "day_fraction": 0.4583451747894287,
+    "generator_version": 9,
+    "inspection_subjects": [
+      {
+        "asset": "chinese_village:structure/village",
+        "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+        "bounds_metres": [
+          [
+            -49.0,
+            10.5,
+            -40.0
+          ],
+          [
+            52.0,
+            38.0,
+            40.0
+          ]
+        ],
+        "subject": "subject-1"
+      }
+    ],
+    "map_locator": {
+      "center_voxels": [
+        -176,
+        -184
+      ],
+      "exhausted": false,
+      "query": "",
+      "result_voxels": null,
+      "searching": false,
+      "selected": null,
+      "span_metres": 512
+    },
+    "metrics": {
+      "last_render_mean_wall_ms": null,
+      "last_step_mean_wall_ms": 38.098791075
+    },
+    "mobile_entities": [],
+    "mode": "creative",
+    "mods": [
+      "chinese_village:pack"
+    ],
+    "nature": {
+      "birds": 0.0,
+      "cave": 0.0,
+      "forest": 0.0,
+      "night": 0.0,
+      "pond": 0.0,
+      "rain": 0.0,
+      "roof_rain": 0.0,
+      "shore": 0.0,
+      "storm": 0.0,
+      "stream": 0.0,
+      "wind": 0.05000000074505806
+    },
+    "player": {
+      "camera_forward": [
+        0.5572077035903931,
+        -0.6156615614891052,
+        0.5572078227996826
+      ],
+      "camera_mode": "First person",
+      "camera_position_metres": [
+        -87.65322875976562,
+        122.75584411621094,
+        -89.15325164794922
+      ],
+      "collision_height_metres": 1.7999999523162842,
+      "crawling": false,
+      "crouching": false,
+      "eye_position_metres": [
+        -87.65322875976562,
+        122.75584411621094,
+        -89.15325164794922
+      ],
+      "flying": true,
+      "gait_phase": 0.0,
+      "health": 100.0,
+      "hunger": 100.0,
+      "look_degrees": [
+        44.999996185302734,
+        -38.000003814697266
+      ],
+      "on_ground": false,
+      "position_metres": [
+        -87.65322875976562,
+        121.1358413696289,
+        -89.15325164794922
+      ],
+      "submerged": false,
+      "swimming": false,
+      "thirst": 100.0,
+      "velocity_metres_per_second": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "pomodoro": {
+      "break": false,
+      "completed": 0,
+      "open": false,
+      "options_open": false,
+      "orbit": false,
+      "real_terrain": false,
+      "remaining": 1500,
+      "running": false,
+      "weather": 0
+    },
+    "profile": {
+      "cpu": [
+        {
+          "calls": 120,
+          "cpu_ms": 856.220727,
+          "exclusive_cpu_ms": 1.848357,
+          "exclusive_wall_ms": 1.722138,
+          "label": "frame",
+          "max_cpu_ms": 8.812654,
+          "max_wall_ms": 75.438489,
+          "wall_ms": 4570.72287
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 6.234312,
+          "exclusive_cpu_ms": 6.234312,
+          "exclusive_wall_ms": 8.36169,
+          "label": "profile.gpu_readback",
+          "max_cpu_ms": 0.129472,
+          "max_wall_ms": 2.107874,
+          "wall_ms": 8.36169
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 66.505177,
+          "exclusive_cpu_ms": 66.476182,
+          "exclusive_wall_ms": 75.924163,
+          "label": "render.entities",
+          "max_cpu_ms": 0.907301,
+          "max_wall_ms": 3.696766,
+          "wall_ms": 75.946012
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 50.467249,
+          "exclusive_cpu_ms": 50.467249,
+          "exclusive_wall_ms": 3135.706493,
+          "label": "render.gpu_wait",
+          "max_cpu_ms": 0.954948,
+          "max_wall_ms": 41.160689,
+          "wall_ms": 3135.706493
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 0.206303,
+          "exclusive_cpu_ms": 0.206303,
+          "exclusive_wall_ms": 0.174679,
+          "label": "render.minimap",
+          "max_cpu_ms": 0.002195,
+          "max_wall_ms": 0.004341,
+          "wall_ms": 0.174679
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 29.911522,
+          "exclusive_cpu_ms": 29.911522,
+          "exclusive_wall_ms": 35.753666,
+          "label": "render.scene_lighting",
+          "max_cpu_ms": 0.394126,
+          "max_wall_ms": 6.080713,
+          "wall_ms": 35.753666
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 747.009097,
+          "exclusive_cpu_ms": 659.7821,
+          "exclusive_wall_ms": 1258.0823,
+          "label": "render.total",
+          "max_cpu_ms": 7.856011,
+          "max_wall_ms": 63.251255,
+          "wall_ms": 4438.481804
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 0.407611,
+          "exclusive_cpu_ms": 0.407611,
+          "exclusive_wall_ms": 0.402976,
+          "label": "render.ui",
+          "max_cpu_ms": 0.014123,
+          "max_wall_ms": 0.014125,
+          "wall_ms": 0.402976
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 31.328878,
+          "exclusive_cpu_ms": 31.328878,
+          "exclusive_wall_ms": 43.435716,
+          "label": "simulation.creatures",
+          "max_cpu_ms": 0.384554,
+          "max_wall_ms": 11.607541,
+          "wall_ms": 43.435716
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 1.006574,
+          "exclusive_cpu_ms": 1.006574,
+          "exclusive_wall_ms": 0.992741,
+          "label": "simulation.player",
+          "max_cpu_ms": 0.020336,
+          "max_wall_ms": 0.020443,
+          "wall_ms": 0.992741
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 39.543013,
+          "exclusive_cpu_ms": 4.384889,
+          "exclusive_wall_ms": 5.069822,
+          "label": "simulation.total",
+          "max_cpu_ms": 0.783835,
+          "max_wall_ms": 11.666832,
+          "wall_ms": 52.309263
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 0.473183,
+          "exclusive_cpu_ms": 0.473183,
+          "exclusive_wall_ms": 1.416878,
+          "label": "streaming.detail_upload",
+          "max_cpu_ms": 0.014163,
+          "max_wall_ms": 0.957574,
+          "wall_ms": 1.416878
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 0.315062,
+          "exclusive_cpu_ms": 0.315062,
+          "exclusive_wall_ms": 0.333491,
+          "label": "streaming.install",
+          "max_cpu_ms": 0.005264,
+          "max_wall_ms": 0.018652,
+          "wall_ms": 0.333491
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 0.8419,
+          "exclusive_cpu_ms": 0.8419,
+          "exclusive_wall_ms": 0.846775,
+          "label": "streaming.lod_schedule_upload",
+          "max_cpu_ms": 0.009984,
+          "max_wall_ms": 0.01,
+          "wall_ms": 0.846775
+        },
+        {
+          "calls": 6,
+          "cpu_ms": 1.401346,
+          "exclusive_cpu_ms": 1.401346,
+          "exclusive_wall_ms": 1.401572,
+          "label": "streaming.plan",
+          "max_cpu_ms": 0.249369,
+          "max_wall_ms": 0.249447,
+          "wall_ms": 1.401572
+        },
+        {
+          "calls": 120,
+          "cpu_ms": 2.822672,
+          "exclusive_cpu_ms": 1.106264,
+          "exclusive_wall_ms": 1.075921,
+          "label": "streaming.schedule",
+          "max_cpu_ms": 0.392971,
+          "max_wall_ms": 0.39307,
+          "wall_ms": 2.810984
+        },
+        {
+          "calls": 2,
+          "cpu_ms": 0.028995,
+          "exclusive_cpu_ms": 0.028995,
+          "exclusive_wall_ms": 0.021849,
+          "label": "trees.daylight_columns",
+          "max_cpu_ms": 0.018943,
+          "max_wall_ms": 0.012139,
+          "wall_ms": 0.021849
+        }
+      ],
+      "frames": 120,
+      "gpu": [
+        {
+          "calls": 600,
+          "gpu_ms": 7.292951,
+          "label": "gpu.bloom_accumulate"
+        },
+        {
+          "calls": 720,
+          "gpu_ms": 14.78755,
+          "label": "gpu.bloom_downsample"
+        },
+        {
+          "calls": 120,
+          "gpu_ms": 18.6627,
+          "label": "gpu.composite"
+        },
+        {
+          "calls": 120,
+          "gpu_ms": 549.832272,
+          "label": "gpu.shadows"
+        },
+        {
+          "calls": 120,
+          "gpu_ms": 1776.978282,
+          "label": "gpu.world"
+        }
+      ],
+      "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+      "process_cpu_seconds": 0.857348385,
+      "tree_geometry_hidden": false,
+      "wall_seconds": 4.571854141
+    },
+    "renderer": {
+      "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+      "detail_clip_radius_metres": 128.0,
+      "detail_clip_target_metres": 128.0,
+      "resident_far_tiles": 71,
+      "viewport": [
+        960,
+        540
+      ],
+      "visible_chunks": 958,
+      "visible_far_tiles": 32
+    },
+    "save_writes": false,
+    "schema_version": 1,
+    "seed": "42",
+    "selected_block": "Meadow turf",
+    "settings": {
+      "debug_visible": true,
+      "far_terrain": true,
+      "lod_debug": "Off",
+      "selected_row": 9,
+      "shader": "Fast",
+      "view_distance": 32,
+      "voxel_mode": false,
+      "xray_outline": false
+    },
+    "simulation_seconds": 34.18333333333333,
+    "status": "Back to the world",
+    "target": null,
+    "ticks": 2051,
+    "ui": {
+      "character": false,
+      "inventory": false,
+      "map_fullscreen": false,
+      "menu": false,
+      "settings": false
+    },
+    "weather": {
+      "clock_seconds": 34.016319274902344,
+      "cloud_cover": 0.0,
+      "cloud_presence": 0.0,
+      "control": "clear",
+      "fog": 0.0,
+      "lightning": 0.0,
+      "rain": 0.0,
+      "resolved": "clear",
+      "wind": 0.05000000074505806
+    },
+    "world": {
+      "arrows": 0,
+      "creatures": 19,
+      "edited_voxels": 0,
+      "explosives": 0,
+      "particles": 0,
+      "particles_active": false,
+      "resident_chunks": 3092,
+      "rifle_projectiles": 0
+    }
+  },
+  "capture": {
+    "path": "/home/lennart/Code/Voxelgame/.cache/debug/session-ubc3po57/village-on-fully-settled.png",
+    "state": {
+      "audio": {
+        "footstep_count": 0,
+        "footsteps": []
+      },
+      "available_mods": [
+        "chinese_village:pack",
+        "voxelgame_verdun:pack",
+        "voxelgame_wwii:pack",
+        "zijing_nerds:pack"
+      ],
+      "day_fraction": 0.4583451747894287,
+      "generator_version": 9,
+      "inspection_subjects": [
+        {
+          "asset": "chinese_village:structure/village",
+          "behavior": "terrain-anchored structure overlay; supplied Y is replaced by terrain height",
+          "bounds_metres": [
+            [
+              -49.0,
+              10.5,
+              -40.0
+            ],
+            [
+              52.0,
+              38.0,
+              40.0
+            ]
+          ],
+          "subject": "subject-1"
+        }
+      ],
+      "map_locator": {
+        "center_voxels": [
+          -176,
+          -184
+        ],
+        "exhausted": false,
+        "query": "",
+        "result_voxels": null,
+        "searching": false,
+        "selected": null,
+        "span_metres": 512
+      },
+      "metrics": {
+        "last_render_mean_wall_ms": null,
+        "last_step_mean_wall_ms": 38.098791075
+      },
+      "mobile_entities": [],
+      "mode": "creative",
+      "mods": [
+        "chinese_village:pack"
+      ],
+      "nature": {
+        "birds": 0.0,
+        "cave": 0.0,
+        "forest": 0.0,
+        "night": 0.0,
+        "pond": 0.0,
+        "rain": 0.0,
+        "roof_rain": 0.0,
+        "shore": 0.0,
+        "storm": 0.0,
+        "stream": 0.0,
+        "wind": 0.05000000074505806
+      },
+      "player": {
+        "camera_forward": [
+          0.5572077035903931,
+          -0.6156615614891052,
+          0.5572078227996826
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -87.65322875976562,
+          122.75584411621094,
+          -89.15325164794922
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          44.999996185302734,
+          -38.000003814697266
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -87.65322875976562,
+          121.1358413696289,
+          -89.15325164794922
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "pomodoro": {
+        "break": false,
+        "completed": 0,
+        "open": false,
+        "options_open": false,
+        "orbit": false,
+        "real_terrain": false,
+        "remaining": 1500,
+        "running": false,
+        "weather": 0
+      },
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "resident_far_tiles": 71,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 958,
+        "visible_far_tiles": 32
+      },
+      "save_writes": false,
+      "schema_version": 1,
+      "seed": "42",
+      "selected_block": "Meadow turf",
+      "settings": {
+        "debug_visible": true,
+        "far_terrain": true,
+        "lod_debug": "Off",
+        "selected_row": 9,
+        "shader": "Fast",
+        "view_distance": 32,
+        "voxel_mode": false,
+        "xray_outline": false
+      },
+      "simulation_seconds": 34.18333333333333,
+      "status": "Back to the world",
+      "target": null,
+      "ticks": 2051,
+      "ui": {
+        "character": false,
+        "inventory": false,
+        "map_fullscreen": false,
+        "menu": false,
+        "settings": false
+      },
+      "weather": {
+        "clock_seconds": 34.016319274902344,
+        "cloud_cover": 0.0,
+        "cloud_presence": 0.0,
+        "control": "clear",
+        "fog": 0.0,
+        "lightning": 0.0,
+        "rain": 0.0,
+        "resolved": "clear",
+        "wind": 0.05000000074505806
+      },
+      "world": {
+        "arrows": 0,
+        "creatures": 19,
+        "edited_voxels": 0,
+        "explosives": 0,
+        "particles": 0,
+        "particles_active": false,
+        "resident_chunks": 3092,
+        "rifle_projectiles": 0
+      }
+    }
+  }
+}

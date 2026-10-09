@@ -1,0 +1,4 @@
+    Blocking waiting for file lock on build directory
+ Documenting voxelgame-core v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-core)
+    Finished dev [optimized + debuginfo] target(s) in 1m 55s
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame_core/index.html

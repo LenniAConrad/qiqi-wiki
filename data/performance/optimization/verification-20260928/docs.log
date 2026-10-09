@@ -1,0 +1,21 @@
+    Checking voxelgame-core v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-core)
+ Documenting voxelgame-core v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-core)
+    Checking voxelgame-chinese-village v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-chinese-village)
+    Checking voxelgame-wwii v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-wwii)
+    Checking voxelgame-render v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-render)
+    Checking voxelgame-verdun v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-verdun)
+    Checking voxelgame-zijing-nerds v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-zijing-nerds)
+ Documenting voxelgame-wwii v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-wwii)
+ Documenting voxelgame-chinese-village v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-chinese-village)
+ Documenting voxelgame-zijing-nerds v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-zijing-nerds)
+ Documenting voxelgame-render v0.1.0 (/home/lennart/Code/Voxelgame/crates/voxelgame-render)
+ Documenting voxelgame-verdun v0.1.0 (/home/lennart/Code/Voxelgame/mods/voxelgame-verdun)
+ Documenting voxelgame v0.1.0 (/home/lennart/Code/Voxelgame)
+    Finished dev [optimized + debuginfo] target(s) in 11.31s
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame/index.html
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame_chinese_village/index.html
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame_core/index.html
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame_render/index.html
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame_verdun/index.html
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame_wwii/index.html
+   Generated /home/lennart/Code/Voxelgame/target/doc/voxelgame_zijing_nerds/index.html

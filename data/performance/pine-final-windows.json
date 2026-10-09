@@ -1,0 +1,2009 @@
+{
+  "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-xt4sx38w",
+  "windows": [
+    {
+      "phase": "cold-0",
+      "command": {
+        "command": "step",
+        "frames": 120,
+        "render": true,
+        "profile": true
+      },
+      "player": {
+        "camera_forward": [
+          0.6408563852310181,
+          -0.4226182997226715,
+          0.6408563852310181
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -984.0,
+          93.12000274658203,
+          -1048.0
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -984.0,
+          93.12000274658203,
+          -1048.0
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          45.0,
+          -25.0
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -984.0,
+          91.5,
+          -1048.0
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 2327.735905,
+            "exclusive_cpu_ms": 2.104687,
+            "exclusive_wall_ms": 2.014343,
+            "label": "frame",
+            "max_cpu_ms": 295.666952,
+            "max_wall_ms": 789.467027,
+            "wall_ms": 6213.701005
+          },
+          {
+            "calls": 467,
+            "cpu_ms": 8137.747376,
+            "exclusive_cpu_ms": 8085.072324,
+            "exclusive_wall_ms": 15944.22741,
+            "label": "generation.chunk",
+            "max_cpu_ms": 39.934384,
+            "max_wall_ms": 146.50566,
+            "wall_ms": 16051.743104
+          },
+          {
+            "calls": 158,
+            "cpu_ms": 16425.403937,
+            "exclusive_cpu_ms": 12840.525757,
+            "exclusive_wall_ms": 23087.80144,
+            "label": "meshing.detail",
+            "max_cpu_ms": 717.26308,
+            "max_wall_ms": 1622.607435,
+            "wall_ms": 29085.482678
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 7752.705515,
+            "exclusive_cpu_ms": 3157.801542,
+            "exclusive_wall_ms": 3505.680563,
+            "label": "meshing.lod",
+            "max_cpu_ms": 1426.366562,
+            "max_wall_ms": 2404.170352,
+            "wall_ms": 9857.09753
+          },
+          {
+            "calls": 9,
+            "cpu_ms": 6645.393952,
+            "exclusive_cpu_ms": 6645.393952,
+            "exclusive_wall_ms": 11016.096158,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 899.854116,
+            "max_wall_ms": 1853.811576,
+            "wall_ms": 11016.096158
+          },
+          {
+            "calls": 9,
+            "cpu_ms": 0.039654,
+            "exclusive_cpu_ms": 0.039654,
+            "exclusive_wall_ms": 0.03963,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.006031,
+            "max_wall_ms": 0.005994,
+            "wall_ms": 0.03963
+          },
+          {
+            "calls": 67367,
+            "cpu_ms": 3507.509273,
+            "exclusive_cpu_ms": 3475.018934,
+            "exclusive_wall_ms": 5825.67958,
+            "label": "meshing.sky_lighting",
+            "max_cpu_ms": 0.851138,
+            "max_wall_ms": 14.096019,
+            "wall_ms": 5879.462724
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 7.708049,
+            "exclusive_cpu_ms": 7.708049,
+            "exclusive_wall_ms": 8.155437,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.168346,
+            "max_wall_ms": 0.520486,
+            "wall_ms": 8.155437
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 21.550935,
+            "exclusive_cpu_ms": 21.263283,
+            "exclusive_wall_ms": 32.103078,
+            "label": "render.entities",
+            "max_cpu_ms": 1.033736,
+            "max_wall_ms": 5.718171,
+            "wall_ms": 32.390089
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 51.467373,
+            "exclusive_cpu_ms": 51.467373,
+            "exclusive_wall_ms": 1240.201998,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.018735,
+            "max_wall_ms": 27.801406,
+            "wall_ms": 1240.201998
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.344038,
+            "exclusive_cpu_ms": 0.344038,
+            "exclusive_wall_ms": 0.306002,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.020616,
+            "max_wall_ms": 0.006427,
+            "wall_ms": 0.306002
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 41.096843,
+            "exclusive_cpu_ms": 41.096843,
+            "exclusive_wall_ms": 57.365607,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 4.101339,
+            "max_wall_ms": 7.166857,
+            "wall_ms": 57.365607
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 576.187741,
+            "exclusive_cpu_ms": 444.817362,
+            "exclusive_wall_ms": 1255.799189,
+            "label": "render.total",
+            "max_cpu_ms": 37.082666,
+            "max_wall_ms": 134.135313,
+            "wall_ms": 2628.737099
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 30.754076,
+            "exclusive_cpu_ms": 30.754076,
+            "exclusive_wall_ms": 66.908866,
+            "label": "render.ui",
+            "max_cpu_ms": 0.358721,
+            "max_wall_ms": 11.638095,
+            "wall_ms": 66.908866
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 69.294146,
+            "exclusive_cpu_ms": 68.015955,
+            "exclusive_wall_ms": 155.799519,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 16.182503,
+            "max_wall_ms": 46.741119,
+            "wall_ms": 156.898101
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.236097,
+            "exclusive_cpu_ms": 1.236097,
+            "exclusive_wall_ms": 1.783175,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.020635,
+            "max_wall_ms": 0.491598,
+            "wall_ms": 1.783175
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1526.264684,
+            "exclusive_cpu_ms": 5.180676,
+            "exclusive_wall_ms": 7.457705,
+            "label": "simulation.total",
+            "max_cpu_ms": 265.622983,
+            "max_wall_ms": 683.909931,
+            "wall_ms": 3123.884684
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 79.740976,
+            "exclusive_cpu_ms": 79.740976,
+            "exclusive_wall_ms": 189.131243,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 12.986445,
+            "max_wall_ms": 36.973887,
+            "wall_ms": 189.131243
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 4.160208,
+            "exclusive_cpu_ms": 4.160208,
+            "exclusive_wall_ms": 10.303574,
+            "label": "streaming.install",
+            "max_cpu_ms": 1.11812,
+            "max_wall_ms": 7.109052,
+            "wall_ms": 10.303574
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 121.886882,
+            "exclusive_cpu_ms": 121.886882,
+            "exclusive_wall_ms": 237.543547,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 43.259216,
+            "max_wall_ms": 52.402568,
+            "wall_ms": 237.543547
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1445.238427,
+            "exclusive_cpu_ms": 9.162577,
+            "exclusive_wall_ms": 10.458508,
+            "label": "streaming.plan",
+            "max_cpu_ms": 265.262825,
+            "max_wall_ms": 683.532947,
+            "wall_ms": 2946.306883
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1450.553765,
+            "exclusive_cpu_ms": 1.15513,
+            "exclusive_wall_ms": 1.135246,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 265.511791,
+            "max_wall_ms": 683.802227,
+            "wall_ms": 2957.745703
+          },
+          {
+            "calls": 1758,
+            "cpu_ms": 1436.07585,
+            "exclusive_cpu_ms": 1436.07585,
+            "exclusive_wall_ms": 2935.848375,
+            "label": "streaming.surface_bounds",
+            "max_cpu_ms": 1.241252,
+            "max_wall_ms": 15.323616,
+            "wall_ms": 2935.848375
+          },
+          {
+            "calls": 7287,
+            "cpu_ms": 32.777991,
+            "exclusive_cpu_ms": 29.348203,
+            "exclusive_wall_ms": 50.342603,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.36612,
+            "max_wall_ms": 6.222028,
+            "wall_ms": 54.070155
+          },
+          {
+            "calls": 23199,
+            "cpu_ms": 66.929172,
+            "exclusive_cpu_ms": 58.939328,
+            "exclusive_wall_ms": 83.855943,
+            "label": "trees.detail_geometry",
+            "max_cpu_ms": 1.05093,
+            "max_wall_ms": 6.406231,
+            "wall_ms": 104.478356
+          },
+          {
+            "calls": 580,
+            "cpu_ms": 53.149604,
+            "exclusive_cpu_ms": 53.149604,
+            "exclusive_wall_ms": 77.862546,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.221231,
+            "max_wall_ms": 10.353357,
+            "wall_ms": 77.862546
+          },
+          {
+            "calls": 9,
+            "cpu_ms": 70.612475,
+            "exclusive_cpu_ms": 19.179791,
+            "exclusive_wall_ms": 19.292127,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 18.764917,
+            "max_wall_ms": 18.766382,
+            "wall_ms": 74.426671
+          },
+          {
+            "calls": 9,
+            "cpu_ms": 51.432684,
+            "exclusive_cpu_ms": 9.528972,
+            "exclusive_wall_ms": 9.374875,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 13.352291,
+            "max_wall_ms": 13.352434,
+            "wall_ms": 55.134544
+          },
+          {
+            "calls": 1457,
+            "cpu_ms": 41.963155,
+            "exclusive_cpu_ms": 41.963155,
+            "exclusive_wall_ms": 77.539261,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.098827,
+            "max_wall_ms": 12.228027,
+            "wall_ms": 77.539261
+          },
+          {
+            "calls": 5076,
+            "cpu_ms": 19.70777,
+            "exclusive_cpu_ms": 12.733518,
+            "exclusive_wall_ms": 24.859386,
+            "label": "trees.voxel_lookup",
+            "max_cpu_ms": 0.38611,
+            "max_wall_ms": 6.366123,
+            "wall_ms": 35.461153
+          },
+          {
+            "calls": 467,
+            "cpu_ms": 52.675052,
+            "exclusive_cpu_ms": 9.870045,
+            "exclusive_wall_ms": 12.202875,
+            "label": "trees.voxelize",
+            "max_cpu_ms": 1.018724,
+            "max_wall_ms": 12.395206,
+            "wall_ms": 107.515694
+          },
+          {
+            "calls": 158,
+            "cpu_ms": 16443.785882,
+            "exclusive_cpu_ms": 18.381945,
+            "exclusive_wall_ms": 22.063608,
+            "label": "worker.detail_job",
+            "max_cpu_ms": 718.270144,
+            "max_wall_ms": 1623.6438,
+            "wall_ms": 29107.546286
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 7752.745222,
+            "exclusive_cpu_ms": 0.039707,
+            "exclusive_wall_ms": 0.039578,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 1426.373759,
+            "max_wall_ms": 2404.177066,
+            "wall_ms": 9857.137108
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.437794,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 15.101409,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 18.756601,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 34.195455,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 6.095975,
+            "label": "gpu.ui"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 388.028107,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 39.844048883,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 6.215163837
+      }
+    },
+    {
+      "phase": "cold-1",
+      "command": {
+        "command": "step",
+        "frames": 120,
+        "render": true,
+        "profile": true
+      },
+      "player": {
+        "camera_forward": [
+          0.6408563852310181,
+          -0.4226182997226715,
+          0.6408563852310181
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -984.0,
+          93.12000274658203,
+          -1048.0
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -984.0,
+          93.12000274658203,
+          -1048.0
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          45.0,
+          -25.0
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -984.0,
+          91.5,
+          -1048.0
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 2471.31651,
+            "exclusive_cpu_ms": 2.216875,
+            "exclusive_wall_ms": 7.891996,
+            "label": "frame",
+            "max_cpu_ms": 279.365654,
+            "max_wall_ms": 327.262977,
+            "wall_ms": 5570.663007
+          },
+          {
+            "calls": 894,
+            "cpu_ms": 13666.141075,
+            "exclusive_cpu_ms": 13541.976175,
+            "exclusive_wall_ms": 15825.763495,
+            "label": "generation.chunk",
+            "max_cpu_ms": 38.792734,
+            "max_wall_ms": 111.77174,
+            "wall_ms": 15973.854223
+          },
+          {
+            "calls": 345,
+            "cpu_ms": 21790.81953,
+            "exclusive_cpu_ms": 16247.965174,
+            "exclusive_wall_ms": 19456.247034,
+            "label": "meshing.detail",
+            "max_cpu_ms": 376.138509,
+            "max_wall_ms": 503.763616,
+            "wall_ms": 25989.278736
+          },
+          {
+            "calls": 11,
+            "cpu_ms": 12838.388261,
+            "exclusive_cpu_ms": 4918.061683,
+            "exclusive_wall_ms": 5093.65318,
+            "label": "meshing.lod",
+            "max_cpu_ms": 1437.879452,
+            "max_wall_ms": 1631.690763,
+            "wall_ms": 13555.914793
+          },
+          {
+            "calls": 11,
+            "cpu_ms": 7857.40425,
+            "exclusive_cpu_ms": 7857.40425,
+            "exclusive_wall_ms": 8399.274496,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 868.045966,
+            "max_wall_ms": 1129.030612,
+            "wall_ms": 8399.274496
+          },
+          {
+            "calls": 11,
+            "cpu_ms": 0.037431,
+            "exclusive_cpu_ms": 0.037431,
+            "exclusive_wall_ms": 0.037394,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.004193,
+            "max_wall_ms": 0.004096,
+            "wall_ms": 0.037394
+          },
+          {
+            "calls": 92194,
+            "cpu_ms": 5392.787745,
+            "exclusive_cpu_ms": 5334.70024,
+            "exclusive_wall_ms": 6284.275999,
+            "label": "meshing.sky_lighting",
+            "max_cpu_ms": 0.623687,
+            "max_wall_ms": 9.908976,
+            "wall_ms": 6352.334733
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 7.104457,
+            "exclusive_cpu_ms": 7.104457,
+            "exclusive_wall_ms": 7.621895,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.125622,
+            "max_wall_ms": 0.368786,
+            "wall_ms": 7.621895
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 47.994591,
+            "exclusive_cpu_ms": 47.985076,
+            "exclusive_wall_ms": 75.420112,
+            "label": "render.entities",
+            "max_cpu_ms": 0.63372,
+            "max_wall_ms": 8.687243,
+            "wall_ms": 75.42962
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 47.560012,
+            "exclusive_cpu_ms": 47.560012,
+            "exclusive_wall_ms": 2365.830433,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 0.870242,
+            "max_wall_ms": 31.076849,
+            "wall_ms": 2365.830433
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.301125,
+            "exclusive_cpu_ms": 0.301125,
+            "exclusive_wall_ms": 0.810563,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.01182,
+            "max_wall_ms": 0.523645,
+            "wall_ms": 0.810563
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 53.161265,
+            "exclusive_cpu_ms": 53.161265,
+            "exclusive_wall_ms": 83.455334,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 6.059217,
+            "max_wall_ms": 12.67959,
+            "wall_ms": 83.455334
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 613.904246,
+            "exclusive_cpu_ms": 476.210341,
+            "exclusive_wall_ms": 930.896535,
+            "label": "render.total",
+            "max_cpu_ms": 54.49711,
+            "max_wall_ms": 115.117986,
+            "wall_ms": 3433.655887
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 29.567046,
+            "exclusive_cpu_ms": 29.567046,
+            "exclusive_wall_ms": 45.041127,
+            "label": "render.ui",
+            "max_cpu_ms": 0.32033,
+            "max_wall_ms": 6.271404,
+            "wall_ms": 45.041127
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 43.764855,
+            "exclusive_cpu_ms": 43.202043,
+            "exclusive_wall_ms": 65.861939,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 15.404447,
+            "max_wall_ms": 28.141735,
+            "wall_ms": 66.379615
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.189474,
+            "exclusive_cpu_ms": 1.189474,
+            "exclusive_wall_ms": 1.189635,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.022739,
+            "max_wall_ms": 0.022823,
+            "wall_ms": 1.189635
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1453.148581,
+            "exclusive_cpu_ms": 4.75784,
+            "exclusive_wall_ms": 4.763494,
+            "label": "simulation.total",
+            "max_cpu_ms": 272.790813,
+            "max_wall_ms": 308.063398,
+            "wall_ms": 1609.772206
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 70.269686,
+            "exclusive_cpu_ms": 70.269686,
+            "exclusive_wall_ms": 90.264242,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 2.773163,
+            "max_wall_ms": 8.397289,
+            "wall_ms": 90.264242
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 4.181047,
+            "exclusive_cpu_ms": 4.181047,
+            "exclusive_wall_ms": 4.287614,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.24987,
+            "max_wall_ms": 0.249924,
+            "wall_ms": 4.287614
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 49.847031,
+            "exclusive_cpu_ms": 49.847031,
+            "exclusive_wall_ms": 104.134266,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 10.323476,
+            "max_wall_ms": 35.144743,
+            "wall_ms": 104.134266
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1398.109046,
+            "exclusive_cpu_ms": 5.872235,
+            "exclusive_wall_ms": 5.1168,
+            "label": "streaming.plan",
+            "max_cpu_ms": 272.401849,
+            "max_wall_ms": 307.674779,
+            "wall_ms": 1532.019536
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 233.9355,
+            "exclusive_cpu_ms": 1.362178,
+            "exclusive_wall_ms": 1.234382,
+            "label": "streaming.prune",
+            "max_cpu_ms": 233.9355,
+            "max_wall_ms": 249.51479,
+            "wall_ms": 249.51479
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1403.436412,
+            "exclusive_cpu_ms": 1.146319,
+            "exclusive_wall_ms": 1.132312,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 272.571738,
+            "max_wall_ms": 307.844174,
+            "wall_ms": 1537.439462
+          },
+          {
+            "calls": 2083,
+            "cpu_ms": 1624.810133,
+            "exclusive_cpu_ms": 1624.810133,
+            "exclusive_wall_ms": 1775.183144,
+            "label": "streaming.surface_bounds",
+            "max_cpu_ms": 1.139492,
+            "max_wall_ms": 12.208916,
+            "wall_ms": 1775.183144
+          },
+          {
+            "calls": 9826,
+            "cpu_ms": 58.09702,
+            "exclusive_cpu_ms": 49.317819,
+            "exclusive_wall_ms": 54.509985,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.271593,
+            "max_wall_ms": 2.231356,
+            "wall_ms": 68.068242
+          },
+          {
+            "calls": 58066,
+            "cpu_ms": 147.730264,
+            "exclusive_cpu_ms": 127.347632,
+            "exclusive_wall_ms": 153.815221,
+            "label": "trees.detail_geometry",
+            "max_cpu_ms": 1.031203,
+            "max_wall_ms": 5.795404,
+            "wall_ms": 178.354282
+          },
+          {
+            "calls": 934,
+            "cpu_ms": 83.293076,
+            "exclusive_cpu_ms": 83.293076,
+            "exclusive_wall_ms": 105.084075,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.328125,
+            "max_wall_ms": 5.075552,
+            "wall_ms": 105.084075
+          },
+          {
+            "calls": 11,
+            "cpu_ms": 62.884897,
+            "exclusive_cpu_ms": 12.088491,
+            "exclusive_wall_ms": 12.15208,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 11.871425,
+            "max_wall_ms": 11.871782,
+            "wall_ms": 62.949723
+          },
+          {
+            "calls": 11,
+            "cpu_ms": 50.796406,
+            "exclusive_cpu_ms": 7.84659,
+            "exclusive_wall_ms": 7.670064,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 9.333067,
+            "max_wall_ms": 9.333174,
+            "wall_ms": 50.797643
+          },
+          {
+            "calls": 2924,
+            "cpu_ms": 81.426996,
+            "exclusive_cpu_ms": 81.426996,
+            "exclusive_wall_ms": 93.75018,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.080536,
+            "max_wall_ms": 4.002578,
+            "wall_ms": 93.75018
+          },
+          {
+            "calls": 8928,
+            "cpu_ms": 23.281791,
+            "exclusive_cpu_ms": 18.471984,
+            "exclusive_wall_ms": 18.474997,
+            "label": "trees.voxel_lookup",
+            "max_cpu_ms": 0.311361,
+            "max_wall_ms": 4.041206,
+            "wall_ms": 27.399424
+          },
+          {
+            "calls": 896,
+            "cpu_ms": 124.633513,
+            "exclusive_cpu_ms": 16.452265,
+            "exclusive_wall_ms": 15.662914,
+            "label": "trees.voxelize",
+            "max_cpu_ms": 1.094296,
+            "max_wall_ms": 5.966379,
+            "wall_ms": 148.886906
+          },
+          {
+            "calls": 345,
+            "cpu_ms": 21820.338668,
+            "exclusive_cpu_ms": 29.519138,
+            "exclusive_wall_ms": 35.386641,
+            "label": "worker.detail_job",
+            "max_cpu_ms": 377.663946,
+            "max_wall_ms": 507.993527,
+            "wall_ms": 26024.665377
+          },
+          {
+            "calls": 11,
+            "cpu_ms": 12838.445582,
+            "exclusive_cpu_ms": 0.057321,
+            "exclusive_wall_ms": 0.057691,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 1437.885063,
+            "max_wall_ms": 1631.696316,
+            "wall_ms": 13555.972484
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.300765,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 15.63187,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 19.420251,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 145.769204,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 6.094046,
+            "label": "gpu.ui"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1028.29773,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 54.335296584,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 5.572110011
+      }
+    },
+    {
+      "phase": "stationary",
+      "command": {
+        "command": "step",
+        "frames": 120,
+        "render": true,
+        "profile": true,
+        "keys": []
+      },
+      "player": {
+        "camera_forward": [
+          0.6408563852310181,
+          -0.4226182997226715,
+          0.6408563852310181
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -984.0,
+          93.12000274658203,
+          -1048.0
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -984.0,
+          93.12000274658203,
+          -1048.0
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          45.0,
+          -25.0
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -984.0,
+          91.5,
+          -1048.0
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 1953.930762,
+            "exclusive_cpu_ms": 1.905795,
+            "exclusive_wall_ms": 1.753081,
+            "label": "frame",
+            "max_cpu_ms": 274.466256,
+            "max_wall_ms": 365.956902,
+            "wall_ms": 8457.794153
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 7.058372,
+            "exclusive_cpu_ms": 7.058372,
+            "exclusive_wall_ms": 7.119663,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.093119,
+            "max_wall_ms": 0.093676,
+            "wall_ms": 7.119663
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 48.394264,
+            "exclusive_cpu_ms": 48.330644,
+            "exclusive_wall_ms": 49.541164,
+            "label": "render.entities",
+            "max_cpu_ms": 0.686991,
+            "max_wall_ms": 0.906914,
+            "wall_ms": 49.602558
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 58.00653,
+            "exclusive_cpu_ms": 58.00653,
+            "exclusive_wall_ms": 6464.383686,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.468785,
+            "max_wall_ms": 78.567849,
+            "wall_ms": 6464.383686
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.299844,
+            "exclusive_cpu_ms": 0.299844,
+            "exclusive_wall_ms": 0.265322,
+            "label": "render.minimap",
+            "max_cpu_ms": 0.00308,
+            "max_wall_ms": 0.003009,
+            "wall_ms": 0.265322
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 29.12832,
+            "exclusive_cpu_ms": 29.12832,
+            "exclusive_wall_ms": 29.555926,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 0.348379,
+            "max_wall_ms": 0.553109,
+            "wall_ms": 29.555926
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 814.264078,
+            "exclusive_cpu_ms": 692.334148,
+            "exclusive_wall_ms": 736.182762,
+            "label": "render.total",
+            "max_cpu_ms": 8.282915,
+            "max_wall_ms": 84.790358,
+            "wall_ms": 7265.259572
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 27.436864,
+            "exclusive_cpu_ms": 27.436864,
+            "exclusive_wall_ms": 27.752213,
+            "label": "render.ui",
+            "max_cpu_ms": 0.286261,
+            "max_wall_ms": 0.339794,
+            "wall_ms": 27.752213
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 20.025339,
+            "exclusive_cpu_ms": 20.025339,
+            "exclusive_wall_ms": 24.111037,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 0.226689,
+            "max_wall_ms": 3.689991,
+            "wall_ms": 24.111037
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.043088,
+            "exclusive_cpu_ms": 1.043088,
+            "exclusive_wall_ms": 1.036461,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.01467,
+            "max_wall_ms": 0.013611,
+            "wall_ms": 1.036461
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1087.930997,
+            "exclusive_cpu_ms": 4.900647,
+            "exclusive_wall_ms": 4.916365,
+            "label": "simulation.total",
+            "max_cpu_ms": 266.526432,
+            "max_wall_ms": 313.161987,
+            "wall_ms": 1139.68834
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.508926,
+            "exclusive_cpu_ms": 0.508926,
+            "exclusive_wall_ms": 0.508919,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 0.010118,
+            "max_wall_ms": 0.010099,
+            "wall_ms": 0.508919
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.355629,
+            "exclusive_cpu_ms": 0.355629,
+            "exclusive_wall_ms": 0.345198,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.014483,
+            "max_wall_ms": 0.009185,
+            "wall_ms": 0.345198
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 0.926702,
+            "exclusive_cpu_ms": 0.926702,
+            "exclusive_wall_ms": 0.981683,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 0.021253,
+            "max_wall_ms": 0.034001,
+            "wall_ms": 0.981683
+          },
+          {
+            "calls": 5,
+            "cpu_ms": 1060.586207,
+            "exclusive_cpu_ms": 4.029017,
+            "exclusive_wall_ms": 3.411441,
+            "label": "streaming.plan",
+            "max_cpu_ms": 266.146567,
+            "max_wall_ms": 312.782016,
+            "wall_ms": 1108.261728
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1061.936906,
+            "exclusive_cpu_ms": 0.99507,
+            "exclusive_wall_ms": 0.992602,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 266.30174,
+            "max_wall_ms": 312.937092,
+            "wall_ms": 1109.599528
+          },
+          {
+            "calls": 1465,
+            "cpu_ms": 1056.55719,
+            "exclusive_cpu_ms": 1056.55719,
+            "exclusive_wall_ms": 1104.850287,
+            "label": "streaming.surface_bounds",
+            "max_cpu_ms": 1.123229,
+            "max_wall_ms": 4.773626,
+            "wall_ms": 1104.850287
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 0.06362,
+            "exclusive_cpu_ms": 0.06362,
+            "exclusive_wall_ms": 0.061394,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.012216,
+            "max_wall_ms": 0.012151,
+            "wall_ms": 0.061394
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 0.025017,
+            "exclusive_cpu_ms": 0.025017,
+            "exclusive_wall_ms": 0.024949,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 0.025017,
+            "max_wall_ms": 0.024949,
+            "wall_ms": 0.024949
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.287015,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 16.095103,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 19.777956,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 857.682411,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 6.102647,
+            "label": "gpu.ui"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 2216.292172,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 1.955129683,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 8.459006191
+      }
+    },
+    {
+      "phase": "flight-0",
+      "command": {
+        "command": "step",
+        "frames": 120,
+        "render": true,
+        "profile": true,
+        "keys": [
+          "W",
+          "ControlLeft"
+        ]
+      },
+      "player": {
+        "camera_forward": [
+          0.6408563852310181,
+          -0.4226182997226715,
+          0.6408563852310181
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -940.4518432617188,
+          93.12000274658203,
+          -1004.4488525390625
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -940.4518432617188,
+          93.12000274658203,
+          -1004.4488525390625
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          45.0,
+          -25.0
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -940.4518432617188,
+          91.5,
+          -1004.4488525390625
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          22.62741470336914,
+          0.0,
+          22.62741470336914
+        ]
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 2655.843503,
+            "exclusive_cpu_ms": 2.775395,
+            "exclusive_wall_ms": 2.609649,
+            "label": "frame",
+            "max_cpu_ms": 232.969545,
+            "max_wall_ms": 265.130747,
+            "wall_ms": 8561.314166
+          },
+          {
+            "calls": 325,
+            "cpu_ms": 4837.661995,
+            "exclusive_cpu_ms": 4789.467916,
+            "exclusive_wall_ms": 4865.815172,
+            "label": "generation.chunk",
+            "max_cpu_ms": 32.299638,
+            "max_wall_ms": 42.033135,
+            "wall_ms": 4913.947804
+          },
+          {
+            "calls": 228,
+            "cpu_ms": 25833.236677,
+            "exclusive_cpu_ms": 21476.428542,
+            "exclusive_wall_ms": 21784.184458,
+            "label": "meshing.detail",
+            "max_cpu_ms": 500.256216,
+            "max_wall_ms": 537.681346,
+            "wall_ms": 26155.489776
+          },
+          {
+            "calls": 4,
+            "cpu_ms": 1776.002588,
+            "exclusive_cpu_ms": 595.303196,
+            "exclusive_wall_ms": 597.603225,
+            "label": "meshing.lod",
+            "max_cpu_ms": 885.357709,
+            "max_wall_ms": 885.730491,
+            "wall_ms": 1779.039867
+          },
+          {
+            "calls": 4,
+            "cpu_ms": 1160.99773,
+            "exclusive_cpu_ms": 1160.99773,
+            "exclusive_wall_ms": 1161.702174,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 597.033121,
+            "max_wall_ms": 597.403954,
+            "wall_ms": 1161.702174
+          },
+          {
+            "calls": 4,
+            "cpu_ms": 0.014138,
+            "exclusive_cpu_ms": 0.014138,
+            "exclusive_wall_ms": 0.014214,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.00403,
+            "max_wall_ms": 0.004142,
+            "wall_ms": 0.014214
+          },
+          {
+            "calls": 74713,
+            "cpu_ms": 4084.366201,
+            "exclusive_cpu_ms": 4017.084502,
+            "exclusive_wall_ms": 4030.601978,
+            "label": "meshing.sky_lighting",
+            "max_cpu_ms": 0.622752,
+            "max_wall_ms": 1.129514,
+            "wall_ms": 4097.634564
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.775043,
+            "exclusive_cpu_ms": 6.775043,
+            "exclusive_wall_ms": 6.802886,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.093597,
+            "max_wall_ms": 0.094144,
+            "wall_ms": 6.802886
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 63.164628,
+            "exclusive_cpu_ms": 63.019208,
+            "exclusive_wall_ms": 63.428569,
+            "label": "render.entities",
+            "max_cpu_ms": 1.258051,
+            "max_wall_ms": 1.259068,
+            "wall_ms": 63.572172
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 56.042473,
+            "exclusive_cpu_ms": 56.042473,
+            "exclusive_wall_ms": 5944.625002,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.172936,
+            "max_wall_ms": 73.363061,
+            "wall_ms": 5944.625002
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 53.868585,
+            "exclusive_cpu_ms": 53.868585,
+            "exclusive_wall_ms": 54.158328,
+            "label": "render.minimap",
+            "max_cpu_ms": 6.917263,
+            "max_wall_ms": 6.917412,
+            "wall_ms": 54.158328
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 84.714201,
+            "exclusive_cpu_ms": 84.714201,
+            "exclusive_wall_ms": 85.023582,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 8.327268,
+            "max_wall_ms": 8.328862,
+            "wall_ms": 85.023582
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1039.85498,
+            "exclusive_cpu_ms": 811.510057,
+            "exclusive_wall_ms": 824.283219,
+            "label": "render.total",
+            "max_cpu_ms": 31.222189,
+            "max_wall_ms": 80.021171,
+            "wall_ms": 6941.89601
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 26.944621,
+            "exclusive_cpu_ms": 26.944621,
+            "exclusive_wall_ms": 27.002993,
+            "label": "render.ui",
+            "max_cpu_ms": 0.304082,
+            "max_wall_ms": 0.304636,
+            "wall_ms": 27.002993
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 31.313788,
+            "exclusive_cpu_ms": 31.313788,
+            "exclusive_wall_ms": 31.477857,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 1.076718,
+            "max_wall_ms": 1.077386,
+            "wall_ms": 31.477857
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 2.838711,
+            "exclusive_cpu_ms": 2.838711,
+            "exclusive_wall_ms": 2.840378,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.059112,
+            "max_wall_ms": 0.059489,
+            "wall_ms": 2.840378
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1278.125803,
+            "exclusive_cpu_ms": 4.436011,
+            "exclusive_wall_ms": 4.409644,
+            "label": "simulation.total",
+            "max_cpu_ms": 223.625473,
+            "max_wall_ms": 223.627559,
+            "wall_ms": 1280.457602
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 62.421389,
+            "exclusive_cpu_ms": 62.421389,
+            "exclusive_wall_ms": 63.246243,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 16.74799,
+            "max_wall_ms": 17.507726,
+            "wall_ms": 63.246243
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1.565237,
+            "exclusive_cpu_ms": 1.565237,
+            "exclusive_wall_ms": 1.571386,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.063536,
+            "max_wall_ms": 0.063982,
+            "wall_ms": 1.571386
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 3.311407,
+            "exclusive_cpu_ms": 3.311407,
+            "exclusive_wall_ms": 3.317744,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 1.434505,
+            "max_wall_ms": 1.435525,
+            "wall_ms": 3.317744
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1236.705049,
+            "exclusive_cpu_ms": 4.887851,
+            "exclusive_wall_ms": 4.202911,
+            "label": "streaming.plan",
+            "max_cpu_ms": 223.268922,
+            "max_wall_ms": 223.270945,
+            "wall_ms": 1238.907106
+          },
+          {
+            "calls": 1,
+            "cpu_ms": 206.189901,
+            "exclusive_cpu_ms": 1.399202,
+            "exclusive_wall_ms": 1.315499,
+            "label": "streaming.prune",
+            "max_cpu_ms": 206.189901,
+            "max_wall_ms": 206.214746,
+            "wall_ms": 206.214746
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1239.537293,
+            "exclusive_cpu_ms": 1.267007,
+            "exclusive_wall_ms": 1.251231,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 223.387587,
+            "max_wall_ms": 223.389696,
+            "wall_ms": 1241.729723
+          },
+          {
+            "calls": 2083,
+            "cpu_ms": 1436.607897,
+            "exclusive_cpu_ms": 1436.607897,
+            "exclusive_wall_ms": 1439.603442,
+            "label": "streaming.surface_bounds",
+            "max_cpu_ms": 0.965827,
+            "max_wall_ms": 1.108934,
+            "wall_ms": 1439.603442
+          },
+          {
+            "calls": 12795,
+            "cpu_ms": 67.427119,
+            "exclusive_cpu_ms": 61.690148,
+            "exclusive_wall_ms": 61.424304,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.486181,
+            "max_wall_ms": 0.485811,
+            "wall_ms": 67.176189
+          },
+          {
+            "calls": 86519,
+            "cpu_ms": 257.267247,
+            "exclusive_cpu_ms": 226.76867,
+            "exclusive_wall_ms": 228.325433,
+            "label": "trees.detail_geometry",
+            "max_cpu_ms": 0.469261,
+            "max_wall_ms": 0.469128,
+            "wall_ms": 258.93575
+          },
+          {
+            "calls": 442,
+            "cpu_ms": 49.072119,
+            "exclusive_cpu_ms": 49.072119,
+            "exclusive_wall_ms": 49.333854,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.337053,
+            "max_wall_ms": 0.337189,
+            "wall_ms": 49.333854
+          },
+          {
+            "calls": 4,
+            "cpu_ms": 19.687524,
+            "exclusive_cpu_ms": 5.660798,
+            "exclusive_wall_ms": 5.691943,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 8.063125,
+            "max_wall_ms": 8.064278,
+            "wall_ms": 19.720254
+          },
+          {
+            "calls": 4,
+            "cpu_ms": 14.026726,
+            "exclusive_cpu_ms": 2.879949,
+            "exclusive_wall_ms": 2.815239,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 5.874954,
+            "max_wall_ms": 5.875935,
+            "wall_ms": 14.028311
+          },
+          {
+            "calls": 952,
+            "cpu_ms": 24.333373,
+            "exclusive_cpu_ms": 24.333373,
+            "exclusive_wall_ms": 24.513681,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.068895,
+            "max_wall_ms": 0.069005,
+            "wall_ms": 24.513681
+          },
+          {
+            "calls": 16457,
+            "cpu_ms": 45.673264,
+            "exclusive_cpu_ms": 30.863362,
+            "exclusive_wall_ms": 30.417252,
+            "label": "trees.voxel_lookup",
+            "max_cpu_ms": 0.565206,
+            "max_wall_ms": 0.564874,
+            "wall_ms": 45.345321
+          },
+          {
+            "calls": 325,
+            "cpu_ms": 48.194079,
+            "exclusive_cpu_ms": 6.482237,
+            "exclusive_wall_ms": 6.178123,
+            "label": "trees.voxelize",
+            "max_cpu_ms": 1.829869,
+            "max_wall_ms": 1.828159,
+            "wall_ms": 48.132632
+          },
+          {
+            "calls": 228,
+            "cpu_ms": 25861.017315,
+            "exclusive_cpu_ms": 27.780638,
+            "exclusive_wall_ms": 27.738446,
+            "label": "worker.detail_job",
+            "max_cpu_ms": 500.460387,
+            "max_wall_ms": 538.090869,
+            "wall_ms": 26183.228222
+          },
+          {
+            "calls": 3,
+            "cpu_ms": 1776.025951,
+            "exclusive_cpu_ms": 0.023363,
+            "exclusive_wall_ms": 0.020491,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 1150.26295,
+            "max_wall_ms": 1150.678892,
+            "wall_ms": 1779.060358
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.297175,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 15.877182,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 19.627853,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 802.749559,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 6.063214,
+            "label": "gpu.ui"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1961.164533,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 35.141371178,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 8.5625543
+      }
+    },
+    {
+      "phase": "flight-1",
+      "command": {
+        "command": "step",
+        "frames": 120,
+        "render": true,
+        "profile": true,
+        "keys": [
+          "W",
+          "ControlLeft"
+        ]
+      },
+      "player": {
+        "camera_forward": [
+          0.6408563852310181,
+          -0.4226182997226715,
+          0.6408563852310181
+        ],
+        "camera_mode": "First person",
+        "camera_position_metres": [
+          -895.2028198242188,
+          93.12000274658203,
+          -959.1998291015625
+        ],
+        "collision_height_metres": 1.7999999523162842,
+        "crawling": false,
+        "crouching": false,
+        "eye_position_metres": [
+          -895.2028198242188,
+          93.12000274658203,
+          -959.1998291015625
+        ],
+        "flying": true,
+        "gait_phase": 0.0,
+        "health": 100.0,
+        "hunger": 100.0,
+        "look_degrees": [
+          45.0,
+          -25.0
+        ],
+        "on_ground": false,
+        "position_metres": [
+          -895.2028198242188,
+          91.5,
+          -959.1998291015625
+        ],
+        "submerged": false,
+        "swimming": false,
+        "thirst": 100.0,
+        "velocity_metres_per_second": [
+          22.62741470336914,
+          0.0,
+          22.62741470336914
+        ]
+      },
+      "profile": {
+        "cpu": [
+          {
+            "calls": 120,
+            "cpu_ms": 2408.931676,
+            "exclusive_cpu_ms": 1.991247,
+            "exclusive_wall_ms": 1.898659,
+            "label": "frame",
+            "max_cpu_ms": 263.858738,
+            "max_wall_ms": 397.170076,
+            "wall_ms": 6502.182327
+          },
+          {
+            "calls": 826,
+            "cpu_ms": 12209.098701,
+            "exclusive_cpu_ms": 12125.409557,
+            "exclusive_wall_ms": 16573.26976,
+            "label": "generation.chunk",
+            "max_cpu_ms": 35.305661,
+            "max_wall_ms": 123.319085,
+            "wall_ms": 16663.905178
+          },
+          {
+            "calls": 344,
+            "cpu_ms": 29164.762185,
+            "exclusive_cpu_ms": 26540.624906,
+            "exclusive_wall_ms": 30337.522661,
+            "label": "meshing.detail",
+            "max_cpu_ms": 408.441726,
+            "max_wall_ms": 679.10988,
+            "wall_ms": 33857.763958
+          },
+          {
+            "calls": 8,
+            "cpu_ms": 8899.066063,
+            "exclusive_cpu_ms": 3653.585795,
+            "exclusive_wall_ms": 3889.760139,
+            "label": "meshing.lod",
+            "max_cpu_ms": 1299.283143,
+            "max_wall_ms": 1441.993794,
+            "wall_ms": 9855.358587
+          },
+          {
+            "calls": 8,
+            "cpu_ms": 5199.946267,
+            "exclusive_cpu_ms": 5199.946267,
+            "exclusive_wall_ms": 5914.041061,
+            "label": "meshing.lod_plants_rocks",
+            "max_cpu_ms": 780.132142,
+            "max_wall_ms": 867.834097,
+            "wall_ms": 5914.041061
+          },
+          {
+            "calls": 8,
+            "cpu_ms": 0.029061,
+            "exclusive_cpu_ms": 0.029061,
+            "exclusive_wall_ms": 0.028892,
+            "label": "meshing.lod_structures",
+            "max_cpu_ms": 0.004613,
+            "max_wall_ms": 0.004645,
+            "wall_ms": 0.028892
+          },
+          {
+            "calls": 43013,
+            "cpu_ms": 2579.438148,
+            "exclusive_cpu_ms": 2564.937999,
+            "exclusive_wall_ms": 3438.72027,
+            "label": "meshing.sky_lighting",
+            "max_cpu_ms": 0.496401,
+            "max_wall_ms": 9.155813,
+            "wall_ms": 3459.471581
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 6.312568,
+            "exclusive_cpu_ms": 6.312568,
+            "exclusive_wall_ms": 7.501812,
+            "label": "profile.gpu_readback",
+            "max_cpu_ms": 0.092335,
+            "max_wall_ms": 1.04831,
+            "wall_ms": 7.501812
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 41.385457,
+            "exclusive_cpu_ms": 41.385457,
+            "exclusive_wall_ms": 48.278626,
+            "label": "render.entities",
+            "max_cpu_ms": 0.828351,
+            "max_wall_ms": 6.472686,
+            "wall_ms": 48.278626
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 50.695553,
+            "exclusive_cpu_ms": 50.695553,
+            "exclusive_wall_ms": 3137.832836,
+            "label": "render.gpu_wait",
+            "max_cpu_ms": 1.208607,
+            "max_wall_ms": 43.323265,
+            "wall_ms": 3137.832836
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 72.76308,
+            "exclusive_cpu_ms": 72.76308,
+            "exclusive_wall_ms": 159.52229,
+            "label": "render.minimap",
+            "max_cpu_ms": 6.413627,
+            "max_wall_ms": 30.140015,
+            "wall_ms": 159.52229
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 56.42589,
+            "exclusive_cpu_ms": 56.42589,
+            "exclusive_wall_ms": 82.951641,
+            "label": "render.scene_lighting",
+            "max_cpu_ms": 3.247676,
+            "max_wall_ms": 9.509163,
+            "wall_ms": 82.951641
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 938.308484,
+            "exclusive_cpu_ms": 723.785935,
+            "exclusive_wall_ms": 1257.713323,
+            "label": "render.total",
+            "max_cpu_ms": 32.30899,
+            "max_wall_ms": 93.49787,
+            "wall_ms": 4687.866642
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 28.325458,
+            "exclusive_cpu_ms": 28.325458,
+            "exclusive_wall_ms": 42.34474,
+            "label": "render.ui",
+            "max_cpu_ms": 0.32316,
+            "max_wall_ms": 3.59406,
+            "wall_ms": 42.34474
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 43.541386,
+            "exclusive_cpu_ms": 43.541386,
+            "exclusive_wall_ms": 55.379969,
+            "label": "simulation.creatures",
+            "max_cpu_ms": 1.254508,
+            "max_wall_ms": 4.504647,
+            "wall_ms": 55.379969
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 3.118837,
+            "exclusive_cpu_ms": 3.118837,
+            "exclusive_wall_ms": 3.12305,
+            "label": "simulation.player",
+            "max_cpu_ms": 0.041501,
+            "max_wall_ms": 0.041541,
+            "wall_ms": 3.12305
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1319.307918,
+            "exclusive_cpu_ms": 4.730735,
+            "exclusive_wall_ms": 4.820062,
+            "label": "simulation.total",
+            "max_cpu_ms": 256.311143,
+            "max_wall_ms": 364.757486,
+            "wall_ms": 1517.718613
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 70.382342,
+            "exclusive_cpu_ms": 70.382342,
+            "exclusive_wall_ms": 185.524368,
+            "label": "streaming.detail_upload",
+            "max_cpu_ms": 17.834754,
+            "max_wall_ms": 83.278853,
+            "wall_ms": 185.524368
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 3.740714,
+            "exclusive_cpu_ms": 3.740714,
+            "exclusive_wall_ms": 7.556118,
+            "label": "streaming.install",
+            "max_cpu_ms": 0.087764,
+            "max_wall_ms": 3.859456,
+            "wall_ms": 7.556118
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 37.556228,
+            "exclusive_cpu_ms": 37.556228,
+            "exclusive_wall_ms": 60.895419,
+            "label": "streaming.lod_schedule_upload",
+            "max_cpu_ms": 14.425642,
+            "max_wall_ms": 15.449593,
+            "wall_ms": 60.895419
+          },
+          {
+            "calls": 6,
+            "cpu_ms": 1263.041455,
+            "exclusive_cpu_ms": 5.046603,
+            "exclusive_wall_ms": 4.534565,
+            "label": "streaming.plan",
+            "max_cpu_ms": 255.74523,
+            "max_wall_ms": 364.191544,
+            "wall_ms": 1445.722594
+          },
+          {
+            "calls": 120,
+            "cpu_ms": 1267.91696,
+            "exclusive_cpu_ms": 1.134791,
+            "exclusive_wall_ms": 1.11682,
+            "label": "streaming.schedule",
+            "max_cpu_ms": 255.893863,
+            "max_wall_ms": 364.339975,
+            "wall_ms": 1454.395532
+          },
+          {
+            "calls": 1758,
+            "cpu_ms": 1257.994852,
+            "exclusive_cpu_ms": 1257.994852,
+            "exclusive_wall_ms": 1441.188029,
+            "label": "streaming.surface_bounds",
+            "max_cpu_ms": 1.15763,
+            "max_wall_ms": 10.876173,
+            "wall_ms": 1441.188029
+          },
+          {
+            "calls": 2870,
+            "cpu_ms": 14.500149,
+            "exclusive_cpu_ms": 12.466829,
+            "exclusive_wall_ms": 18.709846,
+            "label": "trees.daylight_columns",
+            "max_cpu_ms": 0.211085,
+            "max_wall_ms": 6.206972,
+            "wall_ms": 20.751311
+          },
+          {
+            "calls": 17389,
+            "cpu_ms": 42.182342,
+            "exclusive_cpu_ms": 36.258493,
+            "exclusive_wall_ms": 46.036083,
+            "label": "trees.detail_geometry",
+            "max_cpu_ms": 0.22556,
+            "max_wall_ms": 6.291815,
+            "wall_ms": 51.964699
+          },
+          {
+            "calls": 380,
+            "cpu_ms": 37.94683,
+            "exclusive_cpu_ms": 37.94683,
+            "exclusive_wall_ms": 39.964904,
+            "label": "trees.graph_build",
+            "max_cpu_ms": 0.262771,
+            "max_wall_ms": 2.018799,
+            "wall_ms": 39.964904
+          },
+          {
+            "calls": 8,
+            "cpu_ms": 45.50494,
+            "exclusive_cpu_ms": 17.914874,
+            "exclusive_wall_ms": 23.936761,
+            "label": "trees.lod_mesh",
+            "max_cpu_ms": 15.152534,
+            "max_wall_ms": 15.153287,
+            "wall_ms": 51.528495
+          },
+          {
+            "calls": 8,
+            "cpu_ms": 27.590066,
+            "exclusive_cpu_ms": 7.722069,
+            "exclusive_wall_ms": 7.636829,
+            "label": "trees.lod_records",
+            "max_cpu_ms": 12.070858,
+            "max_wall_ms": 12.071035,
+            "wall_ms": 27.591734
+          },
+          {
+            "calls": 2137,
+            "cpu_ms": 58.128436,
+            "exclusive_cpu_ms": 58.128436,
+            "exclusive_wall_ms": 64.07679,
+            "label": "trees.root_miss",
+            "max_cpu_ms": 0.066247,
+            "max_wall_ms": 3.219521,
+            "wall_ms": 64.07679
+          },
+          {
+            "calls": 2583,
+            "cpu_ms": 8.440638,
+            "exclusive_cpu_ms": 5.392648,
+            "exclusive_wall_ms": 11.553817,
+            "label": "trees.voxel_lookup",
+            "max_cpu_ms": 0.210849,
+            "max_wall_ms": 6.241675,
+            "wall_ms": 14.733633
+          },
+          {
+            "calls": 826,
+            "cpu_ms": 83.689144,
+            "exclusive_cpu_ms": 12.563185,
+            "exclusive_wall_ms": 11.76991,
+            "label": "trees.voxelize",
+            "max_cpu_ms": 1.38552,
+            "max_wall_ms": 3.315192,
+            "wall_ms": 90.635418
+          },
+          {
+            "calls": 344,
+            "cpu_ms": 29176.023985,
+            "exclusive_cpu_ms": 11.2618,
+            "exclusive_wall_ms": 14.810774,
+            "label": "worker.detail_job",
+            "max_cpu_ms": 408.664417,
+            "max_wall_ms": 679.334827,
+            "wall_ms": 33872.574732
+          },
+          {
+            "calls": 4,
+            "cpu_ms": 8899.098191,
+            "exclusive_cpu_ms": 0.032128,
+            "exclusive_wall_ms": 0.029078,
+            "label": "worker.lod_job",
+            "max_cpu_ms": 2459.735031,
+            "max_wall_ms": 2703.582099,
+            "wall_ms": 9855.387665
+          }
+        ],
+        "frames": 120,
+        "gpu": [
+          {
+            "calls": 600,
+            "gpu_ms": 7.279476,
+            "label": "gpu.bloom_accumulate"
+          },
+          {
+            "calls": 720,
+            "gpu_ms": 15.818702,
+            "label": "gpu.bloom_downsample"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 19.581496,
+            "label": "gpu.composite"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 697.57904,
+            "label": "gpu.shadows"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 6.022334,
+            "label": "gpu.ui"
+          },
+          {
+            "calls": 120,
+            "gpu_ms": 1570.745376,
+            "label": "gpu.world"
+          }
+        ],
+        "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+        "process_cpu_seconds": 56.464502727,
+        "tree_geometry_hidden": false,
+        "wall_seconds": 6.503526895
+      }
+    }
+  ]
+}

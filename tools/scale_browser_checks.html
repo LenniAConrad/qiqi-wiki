@@ -1,0 +1,62 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="en"><meta charset="utf-8"><title>World scale browser checks</title>
+<style>body{font:14px monospace}iframe{display:block;width:1280px;height:1000px;border:0}pre{white-space:pre-wrap}</style>
+<h1>World scale browser checks</h1><pre id="report">Running…</pre><iframe src="../scale.html" title="World scale page under test"></iframe>
+<script>
+'use strict';
+const frame=document.querySelector('iframe'),report=document.querySelector('#report'),results=[];
+const delay=()=>new Promise(resolve=>setTimeout(resolve,70));
+function check(value,message){results.push({passed:!!value,message});if(!value)throw Error(message);}
+frame.addEventListener('load',async()=>{
+ try{
+  const d=frame.contentDocument,w=frame.contentWindow,q=s=>d.querySelector(s);
+  const change=(selector,value)=>{q(selector).value=value;q(selector).dispatchEvent(new Event('change',{bubbles:true}));};
+  const size=id=>Number(q('#scale-marks image[data-body="'+id+'"]').getAttribute('width'));
+  check(w.SCALE_ATLAS.bodies.length===11,'Sun, eight planets, Voxelgame and Minecraft are included');
+  check(d.querySelectorAll('#scale-table tr').length===11,'All objects have measurements and source links');
+  check(d.querySelectorAll('#scale-selection [aria-pressed=true]').length===4,'Initial comparison contains Sun, Earth and both games');
+  await delay();
+  check(Math.abs(size('sun')/size('voxelgame')-1391400/536870.912)<1e-9,'Actual width geometry uses real kilometres, not normalized portraits');
+  check(Math.abs(size('voxelgame')/size('minecraft')-536870.912/59999.968)<1e-9,'Minecraft uses the maximum Java border convention');
+  check(q('[data-object=voxelgame]>rect')&&q('[data-object=minecraft]>rect'),'Width mode shows square game maps');
+  const objects=[...d.querySelectorAll('#scale-marks image')].map(node=>({x:Number(node.getAttribute('x')),width:Number(node.getAttribute('width'))}));
+  check(objects.every((item,i)=>i===0||item.x>objects[i-1].x+objects[i-1].width),'Objects are side by side without overlap');
+  change('#scale-mode','area');await delay();
+  check(Math.abs((size('sun')/size('voxelgame'))**2-21.101538579434322)<1e-8,'Disk AREA ratio matches total Sun surface / map area');
+  check(Math.abs((size('voxelgame')/size('minecraft'))**2-80.064078)<0.00001,'Map area ratio squares the side-length ratio');
+  check(q('[data-object=voxelgame]>circle'),'Area mode changes square maps to equal-area disks');
+  const before=size('voxelgame');q('#scale-in').click();await delay();
+  check(size('voxelgame')>before*1.5,'Zoom changes geometry');
+  q('#scale-out').click();await delay();check(Math.abs(size('voxelgame')-before)<1e-8,'Zoom in/out is reversible');
+  q('#scale-focus').value='earth';q('#scale-focus-go').click();await delay();
+  check(size('earth')>250,'Earth focus magnifies tiny bodies without changing shared scale');
+  q('#scale-fit').click();await delay();
+  q('[data-preset=all]').click();await delay();
+  check(d.querySelectorAll('#scale-selection [aria-pressed=true]').length===11,'Everything preset selects all eleven bodies');
+  check(d.querySelectorAll('#scale-marks image').length===11,'All eleven bodies fit in the diagram');
+  const images=await Promise.all(w.SCALE_ATLAS.bodies.map(body=>new Promise(resolve=>{
+   const image=new Image();const timer=setTimeout(()=>resolve(false),15000);
+   image.onload=()=>{clearTimeout(timer);resolve(image.naturalWidth===2048&&image.naturalHeight===image.naturalWidth);};
+   image.onerror=()=>{clearTimeout(timer);resolve(false);};image.src='../images/scale/'+body.id+'.webp';
+  })));
+  check(images.every(Boolean),'All eleven 2K naturalistic illustrations load');
+  q('#scale-selection [data-body=venus]').click();await delay();
+  check(!q('#scale-marks [data-body=venus]')&&q('#scale-selection [data-body=venus]').getAttribute('aria-pressed')==='false','Individual visibility updates geometry and pressed state');
+  check(q('#scale-selection [data-body=voxelgame]').disabled,'Voxelgame remains the comparison reference');
+  q('#scale-table tr[data-body=jupiter] button').click();await delay();
+  check(d.querySelectorAll('#scale-selection [aria-pressed=true]').length===2&&q('#scale-marks [data-body=jupiter]'),'Measurement row opens its pairwise comparison');
+  q('[data-preset=games]').click();await delay();
+  check(d.querySelectorAll('#scale-selection [aria-pressed=true]').length===3,'Earth and games preset has three objects');
+  check(new URL(w.location.href).searchParams.get('mode')==='area'&&new URL(w.location.href).searchParams.get('show').includes('minecraft'),'Mode and selection persist in a shareable local URL');
+  for(const viewport of [1440,1024,768,375,320]){
+   frame.style.width=viewport+'px';await delay();q('#scale-fit').click();await delay();
+   check(d.documentElement.scrollWidth<=d.documentElement.clientWidth+1,'Page fits '+viewport+'px');
+   const nav=q('.site-header nav').getBoundingClientRect();
+   check(nav.left>=0&&nav.right<=viewport,'Main navigation fits '+viewport+'px');
+  }
+  check(q('nav a[href="scale.html"]').getAttribute('aria-current')==='page','Scale is a native current navigation item');
+  report.dataset.result='passed';report.textContent=JSON.stringify({status:'passed',checks:results},null,2);
+ }catch(error){report.dataset.result='failed';report.textContent=JSON.stringify({status:'failed',error:String(error),checks:results},null,2);}
+},{once:true});
+</script></html>

@@ -1,0 +1,169 @@
+{
+  "cpu": [
+    {
+      "calls": 248,
+      "cpu_ms": 1616.693478,
+      "exclusive_cpu_ms": 88.284753,
+      "exclusive_wall_ms": 88.212064,
+      "label": "frame",
+      "wall_ms": 7990.46814
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 7.703333,
+      "exclusive_cpu_ms": 7.703333,
+      "exclusive_wall_ms": 7.703629,
+      "label": "profile.gpu_readback",
+      "wall_ms": 7.703629
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 40.018545,
+      "exclusive_cpu_ms": 40.004996,
+      "exclusive_wall_ms": 40.102067,
+      "label": "render.entities",
+      "wall_ms": 40.115598
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 51.249476,
+      "exclusive_cpu_ms": 51.249476,
+      "exclusive_wall_ms": 6424.858874,
+      "label": "render.gpu_wait",
+      "wall_ms": 6424.858874
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 0.238985,
+      "exclusive_cpu_ms": 0.238985,
+      "exclusive_wall_ms": 0.225713,
+      "label": "render.minimap",
+      "wall_ms": 0.225713
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 14.511875,
+      "exclusive_cpu_ms": 14.511875,
+      "exclusive_wall_ms": 14.531039,
+      "label": "render.scene_lighting",
+      "wall_ms": 14.531039
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 573.157199,
+      "exclusive_cpu_ms": 476.993566,
+      "exclusive_wall_ms": 477.01557,
+      "label": "render.total",
+      "wall_ms": 6946.838605
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 22.459964,
+      "exclusive_cpu_ms": 22.459964,
+      "exclusive_wall_ms": 22.50378,
+      "label": "render.ui",
+      "wall_ms": 22.50378
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 23.014412,
+      "exclusive_cpu_ms": 23.014412,
+      "exclusive_wall_ms": 23.031281,
+      "label": "simulation.creatures",
+      "wall_ms": 23.031281
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 1.988009,
+      "exclusive_cpu_ms": 1.988009,
+      "exclusive_wall_ms": 1.98989,
+      "label": "simulation.player",
+      "wall_ms": 1.98989
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 913.489468,
+      "exclusive_cpu_ms": 3.427691,
+      "exclusive_wall_ms": 3.412726,
+      "label": "simulation.total",
+      "wall_ms": 913.553857
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 0.580198,
+      "exclusive_cpu_ms": 0.580198,
+      "exclusive_wall_ms": 0.5805,
+      "label": "streaming.detail_upload",
+      "wall_ms": 0.5805
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 1.163315,
+      "exclusive_cpu_ms": 1.163315,
+      "exclusive_wall_ms": 1.167516,
+      "label": "streaming.lod_schedule_upload",
+      "wall_ms": 1.167516
+    },
+    {
+      "calls": 248,
+      "cpu_ms": 885.057733,
+      "exclusive_cpu_ms": 885.057733,
+      "exclusive_wall_ms": 885.118349,
+      "label": "streaming.schedule",
+      "wall_ms": 885.118349
+    },
+    {
+      "calls": 1,
+      "cpu_ms": 0.001623,
+      "exclusive_cpu_ms": 0.001623,
+      "exclusive_wall_ms": 0.001611,
+      "label": "trees.lod_records",
+      "wall_ms": 0.001611
+    },
+    {
+      "calls": 1,
+      "cpu_ms": 0.013549,
+      "exclusive_cpu_ms": 0.013549,
+      "exclusive_wall_ms": 0.013531,
+      "label": "trees.root_miss",
+      "wall_ms": 0.013531
+    }
+  ],
+  "frames": 248,
+  "gpu": [
+    {
+      "calls": 1240,
+      "gpu_ms": 15.171734,
+      "label": "gpu.bloom_accumulate"
+    },
+    {
+      "calls": 1488,
+      "gpu_ms": 31.830896,
+      "label": "gpu.bloom_downsample"
+    },
+    {
+      "calls": 248,
+      "gpu_ms": 39.716845,
+      "label": "gpu.composite"
+    },
+    {
+      "calls": 248,
+      "gpu_ms": 1118.822608,
+      "label": "gpu.shadows"
+    },
+    {
+      "calls": 248,
+      "gpu_ms": 12.741267,
+      "label": "gpu.ui"
+    },
+    {
+      "calls": 248,
+      "gpu_ms": 3214.275062,
+      "label": "gpu.world"
+    }
+  ],
+  "notes": "CPU exclusive scopes are disjoint per thread; worker wall times overlap. GPU pass timestamps exclude uploads and queue waiting. In-flight scopes crossing measurement boundaries are omitted.",
+  "process_cpu_seconds": 1.617667017,
+  "tree_geometry_hidden": true,
+  "wall_seconds": 7.991443399
+}

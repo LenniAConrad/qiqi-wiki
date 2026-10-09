@@ -1,0 +1,165 @@
+{
+  "date": "2026-09-28",
+  "scope": "Final shared-source streaming optimization verification",
+  "checks": [
+    {
+      "check": "workspace",
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--no-fail-fast"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 732.9556622505188,
+      "changed_sources": []
+    },
+    {
+      "check": "fmt",
+      "command": [
+        "cargo",
+        "fmt",
+        "--check"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 7.696808338165283,
+      "changed_sources": []
+    },
+    {
+      "check": "lint",
+      "command": [
+        "cargo",
+        "lint"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 24.50852942466736,
+      "changed_sources": []
+    },
+    {
+      "check": "docs",
+      "command": [
+        "cargo",
+        "doc",
+        "--workspace",
+        "--no-deps"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 11.470374345779419,
+      "changed_sources": []
+    },
+    {
+      "check": "private-docs",
+      "command": [
+        "cargo",
+        "doc",
+        "-p",
+        "voxelgame-core",
+        "--no-deps",
+        "--document-private-items"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 5.103258848190308,
+      "changed_sources": []
+    },
+    {
+      "check": "devtools",
+      "command": [
+        "cargo",
+        "test",
+        "--features",
+        "devtools"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 43.99368619918823,
+      "changed_sources": []
+    },
+    {
+      "check": "adapter",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools",
+        "-p",
+        "test_game_debug.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 3.5205025672912598,
+      "changed_sources": []
+    }
+  ],
+  "tests": {
+    "workspace": {
+      "passed": 1189,
+      "failed": 0,
+      "ignored": 18
+    },
+    "devtools": {
+      "passed": 81,
+      "failed": 0,
+      "ignored": 1
+    },
+    "adapter": {
+      "passed": 15,
+      "failed": 0
+    }
+  },
+  "source_files_unchanged_during_checks": true,
+  "initial_replay_binary": {
+    "sha256": "98edc0d4a8a9f6ccb987cfbd08d1bfdf6ee8471571dcfdcdae137e2e541335b8",
+    "built_unix": 1790528915.405321
+  },
+  "final_binary_sha256": "210716cdc8014312b268666e0e7c699837812afaae14a7a2f03c6692066ee8e5",
+  "native_broad_replays": {
+    "commands": 780,
+    "assertions": 118,
+    "frames": 14745,
+    "frame_captures": 126,
+    "texture_captures": 1,
+    "successful_replays": 8,
+    "states": 766,
+    "disabled_saves": true,
+    "empty_logs": true,
+    "far_off_leaks": 0
+  },
+  "native_final_smoke_replays": {
+    "commands": 64,
+    "frame_captures_reviewed": 11,
+    "exit": 0
+  },
+  "fully_settled_village": {
+    "renderer": {
+      "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+      "detail_clip_radius_metres": 128.0,
+      "detail_clip_target_metres": 128.0,
+      "resident_far_tiles": 71,
+      "viewport": [
+        960,
+        540
+      ],
+      "visible_chunks": 958,
+      "visible_far_tiles": 32
+    },
+    "world": {
+      "arrows": 0,
+      "creatures": 19,
+      "edited_voxels": 0,
+      "explosives": 0,
+      "particles": 0,
+      "particles_active": false,
+      "resident_chunks": 3092,
+      "rifle_projectiles": 0
+    },
+    "save_writes": false,
+    "quiet_stable_windows": 2
+  },
+  "notes": [
+    "The preliminary full-check attempt ended with status 143; only the complete rerun is counted here.",
+    "The atlas assertion correction comes from concurrent animal work; the intended texture grain is preserved.",
+    "The two native builds differ only in three new spawn-egg mappings and their tests, with unchanged terrain/rendering source.",
+    "Cold starts and toggled horizons still load asynchronously; distant terrain off exposes the finite resident-world edge.",
+    "This record covers the recorded source snapshot, scenes and discrete frames, not every possible world or hardware configuration."
+  ]
+}

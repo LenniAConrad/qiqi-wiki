@@ -1,0 +1,167 @@
+{
+  "SnowyPeaks": {
+    "warmupFrames": 1440
+  },
+  "TepuiPlateau": {
+    "warmupFrames": 1440
+  },
+  "GraniteDomes": {
+    "warmupFrames": 1440
+  },
+  "VolcanicCaldera": {
+    "warmupFrames": 1440,
+    "camera": [
+      7984,
+      432,
+      20720
+    ],
+    "look": [
+      -71.25865955480728,
+      -29.12820365237655
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28",
+    "framingNote": "Airborne view from above nearby marsh, facing the volcanic basin and rim."
+  },
+  "OceanFloor": {
+    "camera": [
+      -54008,
+      8.4,
+      1142
+    ],
+    "look": [
+      38.65980825409009,
+      -8.963724695446768
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28"
+  },
+  "CoralShallows": {
+    "camera": [
+      44776,
+      8.4,
+      -24922
+    ],
+    "look": [
+      38.65980825409009,
+      -8.963724695446768
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28"
+  },
+  "DeepKelpForest": {
+    "camera": [
+      -1160,
+      8.4,
+      -51706
+    ],
+    "look": [
+      38.65980825409009,
+      -8.963724695446768
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28"
+  },
+  "Atoll": {
+    "seed": "812",
+    "x": -63872,
+    "z": 125546,
+    "height": 12,
+    "water": 12,
+    "camera": [
+      -63866,
+      14.5,
+      125540
+    ],
+    "look": [
+      -40.23635830927382,
+      -21.883287176562764
+    ],
+    "warmupFrames": 960,
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28"
+  },
+  "HotSprings": {
+    "seed": "14",
+    "x": 49209,
+    "z": -3221,
+    "height": 86,
+    "water": 86,
+    "camera": [
+      49201,
+      91,
+      -3230
+    ],
+    "look": [
+      41.6335393365702,
+      -25.019195569955478
+    ],
+    "warmupFrames": 600,
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28"
+  },
+  "RiverDelta": {
+    "camera": [
+      29312,
+      32,
+      4448
+    ],
+    "look": [
+      37.40535663140855,
+      -7.52635040134547
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28",
+    "warmupFrames": 600,
+    "framingNote": "River-delta banks looking toward an adjoining inland-delta channel."
+  },
+  "RockyCliffs": {
+    "camera": [
+      46360,
+      29,
+      -25712
+    ],
+    "look": [
+      -160.9065079995144,
+      -0.421688617655504
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28",
+    "warmupFrames": 600,
+    "framingNote": "View from above the adjoining lagoon toward the rocky coastal shoulder."
+  },
+  "CloudForest": {
+    "camera": [
+      8712,
+      294,
+      -18616
+    ],
+    "look": [
+      -119.35775354279127,
+      -13.633428335147583
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28",
+    "warmupFrames": 600,
+    "framingNote": "View downslope into cloud-forest groves, with montane forest along the edge."
+  },
+  "SeaStacks": {
+    "camera": [
+      15618,
+      19,
+      54918
+    ],
+    "look": [
+      -141.9810574068298,
+      -11.528504231999108
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28",
+    "warmupFrames": 600,
+    "framingNote": "Low weathered rock groups on the sandstone shore, with shallow sea behind."
+  },
+  "TidePools": {
+    "camera": [
+      -53526,
+      19,
+      49443
+    ],
+    "look": [
+      -136.80873932249207,
+      -13.584311254320088
+    ],
+    "surveySha256": "f5235b9f725aaaa4df355dbc20f370ca08e8754b677e695fbc065122fe8d7a28",
+    "warmupFrames": 600,
+    "framingNote": "A rocky shore beside shallow coastal water."
+  }
+}

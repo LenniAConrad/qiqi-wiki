@@ -1,0 +1,861 @@
+{
+  "date": "2026-09-28",
+  "source_changes": [
+    "crates/voxelgame-core/src/world/mod.rs",
+    "crates/voxelgame-core/src/world/surface_band_cache.rs"
+  ],
+  "binary_sha256": {
+    "before": "d5b24a2c8e9acfbddf586052e175eb260b687c66d559e629b5077a13ca092e83",
+    "after": "0bc7be83239dbb43f37a190d426ebca1eddc5cbcdfa8c0c89bbcd31e9be14db9"
+  },
+  "fixed_step_replays": {
+    "pine": {
+      "before": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-wrerddfd",
+        "phases": {
+          "early0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 18.430333591666667,
+            "main_max_cpu_ms": 280.428286,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 11.762633849999999,
+            "plan_max_cpu_ms": 259.449957,
+            "surface_band_samples": 1758,
+            "surface_cpu_ms_per_frame": 11.713038441666667,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 173,
+              "worker.lod_job": 6,
+              "generation.chunk": 551
+            },
+            "gpu_ms_per_frame": 3.7445324250000005,
+            "position_metres": [
+              -984.0,
+              91.5,
+              -1048.0
+            ],
+            "resident_chunks": 568,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "early1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 20.915913825,
+            "main_max_cpu_ms": 307.07469,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 11.908773316666666,
+            "plan_max_cpu_ms": 270.682469,
+            "surface_band_samples": 2083,
+            "surface_cpu_ms_per_frame": 13.907585724999999,
+            "prune_cpu_ms_per_frame": 2.061935958333333,
+            "async_job_completions": {
+              "worker.detail_job": 411,
+              "worker.lod_job": 12,
+              "generation.chunk": 874
+            },
+            "gpu_ms_per_frame": 10.5094274,
+            "position_metres": [
+              -984.0,
+              91.5,
+              -1048.0
+            ],
+            "resident_chunks": 1433,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "stationary": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 16.209069166666666,
+            "main_max_cpu_ms": 262.973379,
+            "plan_calls": 5,
+            "plan_cpu_ms_per_frame": 8.760984166666667,
+            "plan_max_cpu_ms": 255.088774,
+            "surface_band_samples": 1465,
+            "surface_cpu_ms_per_frame": 8.728952191666668,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 24.26785995,
+            "position_metres": [
+              -984.0,
+              91.5,
+              -1048.0
+            ],
+            "resident_chunks": 2344,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 24.666065908333334,
+            "main_max_cpu_ms": 295.803207,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 11.832166341666667,
+            "plan_max_cpu_ms": 256.770878,
+            "surface_band_samples": 2083,
+            "surface_cpu_ms_per_frame": 14.133163283333333,
+            "prune_cpu_ms_per_frame": 2.364963075,
+            "async_job_completions": {
+              "worker.detail_job": 158,
+              "worker.lod_job": 3,
+              "generation.chunk": 325
+            },
+            "gpu_ms_per_frame": 21.5523114,
+            "position_metres": [
+              -940.4518432617188,
+              91.5,
+              -1004.4488525390625
+            ],
+            "resident_chunks": 2125,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 21.060161258333334,
+            "main_max_cpu_ms": 271.217086,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 11.915711775,
+            "plan_max_cpu_ms": 263.449744,
+            "surface_band_samples": 1758,
+            "surface_cpu_ms_per_frame": 11.858578258333333,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 235,
+              "worker.lod_job": 3,
+              "generation.chunk": 713
+            },
+            "gpu_ms_per_frame": 16.623624508333332,
+            "position_metres": [
+              -895.2028198242188,
+              91.5,
+              -959.1998291015625
+            ],
+            "resident_chunks": 2819,
+            "save_writes": false,
+            "edited_voxels": 0
+          }
+        }
+      },
+      "after": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-h8mrdc3z",
+        "phases": {
+          "early0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 3.857269525,
+            "main_max_cpu_ms": 28.428091,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.021783274999999998,
+            "plan_max_cpu_ms": 0.514861,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 31,
+              "worker.lod_job": 0,
+              "generation.chunk": 226
+            },
+            "gpu_ms_per_frame": 0.6918669666666667,
+            "position_metres": [
+              -984.0,
+              91.5,
+              -1048.0
+            ],
+            "resident_chunks": 250,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "early1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 5.3090423583333335,
+            "main_max_cpu_ms": 40.571483,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.019019308333333332,
+            "plan_max_cpu_ms": 0.422688,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.007783824999999999,
+            "async_job_completions": {
+              "worker.detail_job": 93,
+              "worker.lod_job": 0,
+              "generation.chunk": 464
+            },
+            "gpu_ms_per_frame": 3.488317516666667,
+            "position_metres": [
+              -984.0,
+              91.5,
+              -1048.0
+            ],
+            "resident_chunks": 718,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "stationary": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 7.270589841666666,
+            "main_max_cpu_ms": 9.224403,
+            "plan_calls": 5,
+            "plan_cpu_ms_per_frame": 0.010508758333333333,
+            "plan_max_cpu_ms": 0.310461,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 23.63378276666667,
+            "position_metres": [
+              -984.0,
+              91.5,
+              -1048.0
+            ],
+            "resident_chunks": 2344,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 10.778720183333332,
+            "main_max_cpu_ms": 54.858208,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.3171815,
+            "plan_max_cpu_ms": 24.413981,
+            "surface_band_samples": 87,
+            "surface_cpu_ms_per_frame": 0.6486578749999999,
+            "prune_cpu_ms_per_frame": 0.3599073166666667,
+            "async_job_completions": {
+              "worker.detail_job": 154,
+              "worker.lod_job": 3,
+              "generation.chunk": 325
+            },
+            "gpu_ms_per_frame": 21.046800033333334,
+            "position_metres": [
+              -940.4518432617188,
+              91.5,
+              -1004.4488525390625
+            ],
+            "resident_chunks": 2125,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 9.63123905,
+            "main_max_cpu_ms": 41.06638,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.309222825,
+            "plan_max_cpu_ms": 24.821572,
+            "surface_band_samples": 41,
+            "surface_cpu_ms_per_frame": 0.28796878333333337,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 314,
+              "worker.lod_job": 3,
+              "generation.chunk": 826
+            },
+            "gpu_ms_per_frame": 16.306855308333333,
+            "position_metres": [
+              -895.2028198242188,
+              91.5,
+              -959.1998291015625
+            ],
+            "resident_chunks": 2941,
+            "save_writes": false,
+            "edited_voxels": 0
+          }
+        }
+      }
+    },
+    "jungle": {
+      "before": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-5wyj520m",
+        "phases": {
+          "early0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 30.406075849999997,
+            "main_max_cpu_ms": 545.285199,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 23.822044441666666,
+            "plan_max_cpu_ms": 521.990703,
+            "surface_band_samples": 1758,
+            "surface_cpu_ms_per_frame": 23.757850458333333,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 94,
+              "worker.lod_job": 2,
+              "generation.chunk": 394
+            },
+            "gpu_ms_per_frame": 4.513692316666666,
+            "position_metres": [
+              936.0,
+              75.5,
+              -984.0
+            ],
+            "resident_chunks": 417,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "early1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 33.258891675,
+            "main_max_cpu_ms": 549.860026,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 22.1684002,
+            "plan_max_cpu_ms": 515.521465,
+            "surface_band_samples": 2083,
+            "surface_cpu_ms_per_frame": 26.093206483333333,
+            "prune_cpu_ms_per_frame": 3.995429758333333,
+            "async_job_completions": {
+              "worker.detail_job": 222,
+              "worker.lod_job": 10,
+              "generation.chunk": 450
+            },
+            "gpu_ms_per_frame": 10.41446405,
+            "position_metres": [
+              936.0,
+              75.5,
+              -984.0
+            ],
+            "resident_chunks": 852,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "stationary": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 26.493393933333333,
+            "main_max_cpu_ms": 498.390718,
+            "plan_calls": 5,
+            "plan_cpu_ms_per_frame": 18.511636491666664,
+            "plan_max_cpu_ms": 489.089409,
+            "surface_band_samples": 1465,
+            "surface_cpu_ms_per_frame": 18.456987299999998,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 35.02575360833334,
+            "position_metres": [
+              936.0,
+              75.5,
+              -984.0
+            ],
+            "resident_chunks": 2051,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 38.615393225000005,
+            "main_max_cpu_ms": 494.294316,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 22.688785,
+            "plan_max_cpu_ms": 474.988441,
+            "surface_band_samples": 2083,
+            "surface_cpu_ms_per_frame": 26.615909,
+            "prune_cpu_ms_per_frame": 4.038545975,
+            "async_job_completions": {
+              "worker.detail_job": 130,
+              "worker.lod_job": 5,
+              "generation.chunk": 378
+            },
+            "gpu_ms_per_frame": 29.115408558333332,
+            "position_metres": [
+              979.5481567382812,
+              75.5,
+              -940.4518432617188
+            ],
+            "resident_chunks": 1953,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 33.91187380833333,
+            "main_max_cpu_ms": 504.006691,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 21.497701783333333,
+            "plan_max_cpu_ms": 482.71894,
+            "surface_band_samples": 1758,
+            "surface_cpu_ms_per_frame": 21.448875508333334,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 344,
+              "worker.lod_job": 6,
+              "generation.chunk": 460
+            },
+            "gpu_ms_per_frame": 20.077150824999997,
+            "position_metres": [
+              1024.7974853515625,
+              75.5,
+              -895.2028198242188
+            ],
+            "resident_chunks": 2413,
+            "save_writes": false,
+            "edited_voxels": 0
+          }
+        }
+      },
+      "after": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-multkat0",
+        "phases": {
+          "early0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 3.9902703833333333,
+            "main_max_cpu_ms": 29.843602,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.023726308333333335,
+            "plan_max_cpu_ms": 0.589036,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 21,
+              "worker.lod_job": 0,
+              "generation.chunk": 227
+            },
+            "gpu_ms_per_frame": 0.7544719416666666,
+            "position_metres": [
+              936.0,
+              75.5,
+              -984.0
+            ],
+            "resident_chunks": 254,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "early1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 5.0132006166666665,
+            "main_max_cpu_ms": 27.36121,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.020420274999999998,
+            "plan_max_cpu_ms": 0.431096,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.0064738416666666665,
+            "async_job_completions": {
+              "worker.detail_job": 23,
+              "worker.lod_job": 0,
+              "generation.chunk": 210
+            },
+            "gpu_ms_per_frame": 4.042405025,
+            "position_metres": [
+              936.0,
+              75.5,
+              -984.0
+            ],
+            "resident_chunks": 465,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "stationary": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 8.177052591666667,
+            "main_max_cpu_ms": 32.446093,
+            "plan_calls": 5,
+            "plan_cpu_ms_per_frame": 0.010192591666666667,
+            "plan_max_cpu_ms": 0.259006,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 157,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 31.784536666666668,
+            "position_metres": [
+              936.0,
+              75.5,
+              -984.0
+            ],
+            "resident_chunks": 2051,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight0": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 13.032725025,
+            "main_max_cpu_ms": 89.825057,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.516361975,
+            "plan_max_cpu_ms": 40.202548,
+            "surface_band_samples": 87,
+            "surface_cpu_ms_per_frame": 0.980649175,
+            "prune_cpu_ms_per_frame": 0.49563195,
+            "async_job_completions": {
+              "worker.detail_job": 174,
+              "worker.lod_job": 4,
+              "generation.chunk": 360
+            },
+            "gpu_ms_per_frame": 27.162767816666666,
+            "position_metres": [
+              979.5481567382812,
+              75.5,
+              -940.4518432617188
+            ],
+            "resident_chunks": 1911,
+            "save_writes": false,
+            "edited_voxels": 0
+          },
+          "flight1": {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 11.746271258333334,
+            "main_max_cpu_ms": 94.871577,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.341803925,
+            "plan_max_cpu_ms": 25.303103,
+            "surface_band_samples": 41,
+            "surface_cpu_ms_per_frame": 0.32439032500000003,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 253,
+              "worker.lod_job": 3,
+              "generation.chunk": 478
+            },
+            "gpu_ms_per_frame": 18.28831711666667,
+            "position_metres": [
+              1024.7974853515625,
+              75.5,
+              -895.2028198242188
+            ],
+            "resident_chunks": 2413,
+            "save_writes": false,
+            "edited_voxels": 0
+          }
+        }
+      }
+    }
+  },
+  "wall_time_benchmarks": {
+    "jungle-after-steady-0": {
+      "frames": 148,
+      "main_cpu_ms_per_frame": 8.781041554054053,
+      "main_max_cpu_ms": 52.329493,
+      "plan_calls": 19,
+      "plan_cpu_ms_per_frame": 0.03458326351351351,
+      "plan_max_cpu_ms": 0.313805,
+      "surface_band_samples": 0,
+      "surface_cpu_ms_per_frame": 0.0,
+      "prune_cpu_ms_per_frame": 0.009615236486486486,
+      "async_job_completions": {
+        "worker.detail_job": 409,
+        "worker.lod_job": 24,
+        "generation.chunk": 0
+      },
+      "gpu_ms_per_frame": 28.365279202702705,
+      "eligible_as_settled": false
+    },
+    "jungle-after-steady-3": {
+      "frames": 142,
+      "main_cpu_ms_per_frame": 9.477035105633803,
+      "main_max_cpu_ms": 66.133729,
+      "plan_calls": 18,
+      "plan_cpu_ms_per_frame": 0.03246976056338029,
+      "plan_max_cpu_ms": 0.28694,
+      "surface_band_samples": 0,
+      "surface_cpu_ms_per_frame": 0.0,
+      "prune_cpu_ms_per_frame": 0.010080838028169014,
+      "async_job_completions": {
+        "worker.detail_job": 330,
+        "worker.lod_job": 26,
+        "generation.chunk": 0
+      },
+      "gpu_ms_per_frame": 28.482425394366196,
+      "eligible_as_settled": false
+    },
+    "jungle-before-steady-1": {
+      "frames": 23,
+      "main_cpu_ms_per_frame": 141.61016852173913,
+      "main_max_cpu_ms": 1083.698513,
+      "plan_calls": 3,
+      "plan_cpu_ms_per_frame": 61.77728139130434,
+      "plan_max_cpu_ms": 489.133058,
+      "surface_band_samples": 1854,
+      "surface_cpu_ms_per_frame": 131.28743513043477,
+      "prune_cpu_ms_per_frame": 70.02988,
+      "async_job_completions": {
+        "worker.detail_job": 97,
+        "worker.lod_job": 21,
+        "generation.chunk": 123
+      },
+      "gpu_ms_per_frame": 20.03850595652174,
+      "eligible_as_settled": false
+    },
+    "jungle-before-steady-2": {
+      "frames": 42,
+      "main_cpu_ms_per_frame": 88.38436866666667,
+      "main_max_cpu_ms": 899.658515,
+      "plan_calls": 5,
+      "plan_cpu_ms_per_frame": 56.08631033333334,
+      "plan_max_cpu_ms": 505.930048,
+      "surface_band_samples": 2115,
+      "surface_cpu_ms_per_frame": 78.91336476190476,
+      "prune_cpu_ms_per_frame": 23.062144547619045,
+      "async_job_completions": {
+        "worker.detail_job": 141,
+        "worker.lod_job": 16,
+        "generation.chunk": 249
+      },
+      "gpu_ms_per_frame": 20.41149411904762,
+      "eligible_as_settled": false
+    },
+    "pine-after-steady-1": {
+      "frames": 152,
+      "main_cpu_ms_per_frame": 8.278811625,
+      "main_max_cpu_ms": 10.3467,
+      "plan_calls": 19,
+      "plan_cpu_ms_per_frame": 0.03213895394736842,
+      "plan_max_cpu_ms": 0.343508,
+      "surface_band_samples": 0,
+      "surface_cpu_ms_per_frame": 0.0,
+      "prune_cpu_ms_per_frame": 0.007849131578947368,
+      "async_job_completions": {
+        "worker.detail_job": 337,
+        "worker.lod_job": 0,
+        "generation.chunk": 0
+      },
+      "gpu_ms_per_frame": 23.977388335526317,
+      "eligible_as_settled": false
+    },
+    "pine-after-steady-2": {
+      "frames": 155,
+      "main_cpu_ms_per_frame": 7.9679565935483865,
+      "main_max_cpu_ms": 10.581276,
+      "plan_calls": 21,
+      "plan_cpu_ms_per_frame": 0.03558669032258065,
+      "plan_max_cpu_ms": 0.321428,
+      "surface_band_samples": 0,
+      "surface_cpu_ms_per_frame": 0.0,
+      "prune_cpu_ms_per_frame": 0.006592470967741936,
+      "async_job_completions": {
+        "worker.detail_job": 288,
+        "worker.lod_job": 0,
+        "generation.chunk": 0
+      },
+      "gpu_ms_per_frame": 24.05803108387097,
+      "eligible_as_settled": false
+    },
+    "pine-before-steady-0": {
+      "frames": 85,
+      "main_cpu_ms_per_frame": 45.15968775294118,
+      "main_max_cpu_ms": 511.165592,
+      "plan_calls": 11,
+      "plan_cpu_ms_per_frame": 31.187743529411765,
+      "plan_max_cpu_ms": 273.212993,
+      "surface_band_samples": 3873,
+      "surface_cpu_ms_per_frame": 36.82787437647059,
+      "prune_cpu_ms_per_frame": 5.800143964705883,
+      "async_job_completions": {
+        "worker.detail_job": 439,
+        "worker.lod_job": 0,
+        "generation.chunk": 360
+      },
+      "gpu_ms_per_frame": 19.630348352941176,
+      "eligible_as_settled": false
+    },
+    "pine-before-steady-3": {
+      "frames": 102,
+      "main_cpu_ms_per_frame": 40.76936180392156,
+      "main_max_cpu_ms": 541.045194,
+      "plan_calls": 13,
+      "plan_cpu_ms_per_frame": 27.573114862745097,
+      "plan_max_cpu_ms": 268.122344,
+      "surface_band_samples": 4459,
+      "surface_cpu_ms_per_frame": 31.938156029411765,
+      "prune_cpu_ms_per_frame": 4.489499862745098,
+      "async_job_completions": {
+        "worker.detail_job": 496,
+        "worker.lod_job": 0,
+        "generation.chunk": 0
+      },
+      "gpu_ms_per_frame": 23.704758598039216,
+      "eligible_as_settled": false
+    }
+  },
+  "fully_settled_replays": {
+    "pine": {
+      "before": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-s3sw_npq",
+        "warm_batches": 10,
+        "windows": [
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 16.075429841666665,
+            "main_max_cpu_ms": 238.991319,
+            "plan_calls": 5,
+            "plan_cpu_ms_per_frame": 8.752890291666667,
+            "plan_max_cpu_ms": 231.530862,
+            "surface_band_samples": 1465,
+            "surface_cpu_ms_per_frame": 8.716570125,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 24.328882616666665
+          },
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 20.587496158333334,
+            "main_max_cpu_ms": 270.875774,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 10.949950941666666,
+            "plan_max_cpu_ms": 262.79696,
+            "surface_band_samples": 2083,
+            "surface_cpu_ms_per_frame": 12.98036145,
+            "prune_cpu_ms_per_frame": 2.084332075,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 24.203072358333333
+          }
+        ],
+        "main_cpu_ms_per_frame": 18.331463,
+        "plan_cpu_ms_per_frame": 9.851420616666665,
+        "gpu_ms_per_frame": 24.2659774875
+      },
+      "after": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-b086c8gs",
+        "warm_batches": 10,
+        "windows": [
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 7.844184158333333,
+            "main_max_cpu_ms": 12.278735,
+            "plan_calls": 5,
+            "plan_cpu_ms_per_frame": 0.011375175,
+            "plan_max_cpu_ms": 0.396866,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 24.292716016666667
+          },
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 9.498107741666667,
+            "main_max_cpu_ms": 12.865175,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.011820216666666666,
+            "plan_max_cpu_ms": 0.251184,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.005280225,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 24.423555200000003
+          }
+        ],
+        "main_cpu_ms_per_frame": 8.67114595,
+        "plan_cpu_ms_per_frame": 0.011597695833333333,
+        "gpu_ms_per_frame": 24.358135608333335
+      }
+    },
+    "jungle": {
+      "before": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-l_4cutum",
+        "warm_batches": 12,
+        "windows": [
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 32.08017471666667,
+            "main_max_cpu_ms": 509.990944,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 23.889919024999998,
+            "plan_max_cpu_ms": 500.76387,
+            "surface_band_samples": 1758,
+            "surface_cpu_ms_per_frame": 23.817471633333334,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 34.41852706666667
+          },
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 34.1301602,
+            "main_max_cpu_ms": 586.861265,
+            "plan_calls": 5,
+            "plan_cpu_ms_per_frame": 20.735661999999998,
+            "plan_max_cpu_ms": 523.934465,
+            "surface_band_samples": 1790,
+            "surface_cpu_ms_per_frame": 25.436564966666666,
+            "prune_cpu_ms_per_frame": 4.812365291666667,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 34.69655935
+          }
+        ],
+        "main_cpu_ms_per_frame": 33.105167458333334,
+        "plan_cpu_ms_per_frame": 22.312790512499998,
+        "gpu_ms_per_frame": 34.557543208333335
+      },
+      "after": {
+        "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-99emg07b",
+        "warm_batches": 21,
+        "windows": [
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 8.243816183333333,
+            "main_max_cpu_ms": 12.291073,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.01622815,
+            "plan_max_cpu_ms": 0.489747,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.00391515,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 34.489023933333335
+          },
+          {
+            "frames": 120,
+            "main_cpu_ms_per_frame": 8.233067666666667,
+            "main_max_cpu_ms": 11.508458,
+            "plan_calls": 6,
+            "plan_cpu_ms_per_frame": 0.012932991666666668,
+            "plan_max_cpu_ms": 0.328846,
+            "surface_band_samples": 0,
+            "surface_cpu_ms_per_frame": 0.0,
+            "prune_cpu_ms_per_frame": 0.0,
+            "async_job_completions": {
+              "worker.detail_job": 0,
+              "worker.lod_job": 0,
+              "generation.chunk": 0
+            },
+            "gpu_ms_per_frame": 34.554859425000004
+          }
+        ],
+        "main_cpu_ms_per_frame": 8.238441925,
+        "plan_cpu_ms_per_frame": 0.014580570833333334,
+        "gpu_ms_per_frame": 34.52194167916667
+      }
+    }
+  }
+}

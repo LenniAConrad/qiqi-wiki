@@ -1,0 +1,78 @@
+{
+  "analysis_date": "2026-09-27",
+  "source_project": "Voxelgame",
+  "source_document": "docs/PERFORMANCE_ANALYSIS.md",
+  "source_document_sha256": "40687ae93490fba3e60547b4a4743078f924548e26c5078774160ac4c008e021",
+  "hardware": {
+    "cpu": "Intel Core i9-13900H",
+    "gpu": "Intel Iris Xe",
+    "backend": "Vulkan"
+  },
+  "settings": {
+    "width": 960,
+    "height": 540,
+    "shader": "Fast",
+    "view_distance_chunks": 32,
+    "distant_terrain": true,
+    "weather": "clear",
+    "day_fraction": 0.43,
+    "warmup_seconds": 20,
+    "measurement_seconds": 8,
+    "look_degrees": [
+      45,
+      -25
+    ]
+  },
+  "stationary_runs_executed": 18,
+  "stationary_profiled_settled_runs_included": 16,
+  "excluded_runs": {
+    "pine-profiled-3": "532 detail mesh jobs completed during measurement: not settled",
+    "pine-unprofiled-1": "Unprofiled overhead control; shared machine load made timing comparison inconclusive"
+  },
+  "snapshots": {
+    "voxelgame-profile": "7285e0cfa4b178e690f75ddc23b77e4b5f4fb2bd0b3ceb50df862f59760e92ce",
+    "voxelgame-profile-detailed": "27f0ad9a81991911daa5fd9d3d4d55b91e1f8c9735e5df9fef180c9fa4891de1",
+    "voxelgame-profile-final": "b8928d01e70c4cbf87df7a5773035b3863ca8696bf651ab7b7776ff11400fee4"
+  },
+  "limitations": [
+    "Two observations per condition; no confidence interval",
+    "Other compilation/testing sometimes competed for the machine",
+    "Offscreen pass timings are not windowed FPS",
+    "Tree masking changes occlusion and retains world occupancy",
+    "Later CPU traces used separately preserved instrumented snapshots",
+    "Generation-4 tree crown microbenchmark is separate from generation-9 scene timings"
+  ],
+  "copied_files_sha256": {
+    "PROFILING.md": "1a272ecba93e8a88b83ad19c2be8e1a6eed4d2ddf1bd13768f796fe3be77a079",
+    "VALIDATION.md": "28c1c96834d9e844401b480e86e3248a4de66ca75ea1ece7659f7c7a25b7aa13",
+    "bamboo-fast-1.json": "f3fc061e96386ca3e2dee490562b8f33e903e84f85c3573028938a8ef03f15e5",
+    "bamboo-fast-2.json": "09cf240d3188ba630a28f7919a1737bc11a16adf458a067cc77a3e6f83709cf1",
+    "cpu-attribution.json": "8c94d7c431788f092d5fd9016bbb1ed662594376375ed86734e95ab150ff3d82",
+    "fixtures.csv": "e4b67c9e01122bd201d8925c998c4b3044367ba98938621def24bc4f6874bc59",
+    "jungle-fast-1.json": "6dd5ea1a8ff22253c3f97072364bf0109836e03b28193e9dd9bf610f6f4eaaaf",
+    "jungle-fast-2.json": "4a554ec3f82531c5d7ada9502901449e509ea7753e2d9a91dbe078b2e3dec03b",
+    "jungle-final-windows.json": "ca03bbd9ec36bf4413438614cefd374a881aba34ff337a80c71572f0858e7b1d",
+    "jungle-hidden-1.json": "daa7d0c7e52dc29abe7facb9a50479514fd95c80af459324fbb1ac2e30930121",
+    "jungle-hidden-2.json": "01fa1e88602884dc40241178192a88b823075d40b2e26dfde985797c59d2f10d",
+    "oak-fast-1.json": "a625bcd907e6c805c6d2d46fd7574ba7e0d3397c0001573661b4597613838549",
+    "oak-fast-2.json": "62ff6c8b18eaa003850a603a4d8ffa39bc6ae49937b2805e4a782a6e9c3fbdf9",
+    "oak-hidden-1.json": "0a1ae117d95d4667fded3b8c68786a2a3db1cee0fa5243e079dfc30a50bfacf4",
+    "oak-hidden-2.json": "2adc8b5b7cf82907a74706a7e7e83faf55f38b2799894accbc6184d64386515a",
+    "open-fast-1.json": "8cf237b6c48cc8e1577a7c0b80d3ee994421886ed230b956a9ad78a18cc0455d",
+    "open-fast-2.json": "b621639312fb8155207813b14791cb42e33093c0113820a298299b8fcf8297d9",
+    "pine-fast-1.json": "b21404102c3a986e0d00674a3763f017ce11c72de56d3eeb24e60c03653ecbaa",
+    "pine-fast-2.json": "d66dbdcf54f4b2f85406f7d9d61b7d96a142f22950f1122b6a1dc1a1b3ab4323",
+    "pine-final-windows.json": "cb6bddcc3a53fad7eaa16258d56fc327377ee11fb772b473d6da47aece5b4d64",
+    "pine-hidden-1.json": "9841ac407ff07b71ac844667f6fbb84090e36b6a8bb2c10c68345f5e6baba8db",
+    "pine-hidden-2.json": "86ba10a611f61ef4149a2c4071ceee6717f76d27e5e83e17da6dbffe316d23cc",
+    "pine-profiled-3.json": "893dcd10e90cf117a7372f05bbc5106b75f63c25f33cdb6caf49aac4634360e0",
+    "profile-overhead.log": "5827fe0b356ae2b2c2ece63120d4cad1d68041d4493f49eaacbd743e9e05b940",
+    "steady-results.csv": "d9d9f7bc5738bbf55b3b3d3071e812ce6d71b91701d9fd50879c7d8d0ddaee7d",
+    "steady-results.json": "c029b6221eeac349f8a46150b83e13044f1c17fe91207b8b57dd28c772c78a88",
+    "summary.json": "fc0cda80dfa05cc9d7bd75fec8ed8cdbd532736632210b65945e54d80100355e",
+    "tree-lod-six-stages.log": "37b8520a815b066b5c885db199a5d355d7e235bd2d4c8a5967c13cd98fcde933"
+  },
+  "chart_sha256": "c06bf2d364f75c193f6bc516d504b3e970b3a70c310369a8f6be897071c069d7",
+  "recorded_date": "2026-09-28",
+  "qiqi_dev_report_sha256": "bbdd0b7153540f062fb90f63116ae0079609b969a249cb2c106c2b2fab91f248"
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "scene": "open",
+    "title": "Meadow",
+    "normal_runs": [
+      "open-fast-1",
+      "open-fast-2"
+    ],
+    "hidden_runs": [],
+    "main_cpu_ms": 8.918430298745037,
+    "streaming_cpu_ms": 4.59545010415485,
+    "render_prepare_cpu_ms": 2.8020494633082813,
+    "gpu_ms": 15.93179518788996,
+    "world_gpu_ms": 11.089829679417186,
+    "shadow_gpu_ms": 4.440628506168463,
+    "post_ui_gpu_ms": 0.4013370023043108
+  },
+  {
+    "scene": "oak",
+    "title": "Mixed grove",
+    "normal_runs": [
+      "oak-fast-1",
+      "oak-fast-2"
+    ],
+    "hidden_runs": [
+      "oak-hidden-1",
+      "oak-hidden-2"
+    ],
+    "main_cpu_ms": 8.319564164697852,
+    "streaming_cpu_ms": 4.204538246942118,
+    "render_prepare_cpu_ms": 2.689589153294503,
+    "gpu_ms": 20.175666530606115,
+    "world_gpu_ms": 14.052276549845287,
+    "shadow_gpu_ms": 5.721379893547507,
+    "post_ui_gpu_ms": 0.40201008721332365,
+    "hidden_gpu_ms": 18.09391074032258,
+    "tree_net_gpu_ms": 2.081755790283534,
+    "tree_net_gpu_percent": 10.318151259714512
+  },
+  {
+    "scene": "pine",
+    "title": "Pine hills",
+    "normal_runs": [
+      "pine-fast-1",
+      "pine-fast-2"
+    ],
+    "hidden_runs": [
+      "pine-hidden-1",
+      "pine-hidden-2"
+    ],
+    "main_cpu_ms": 10.15253546646904,
+    "streaming_cpu_ms": 4.669501810031997,
+    "render_prepare_cpu_ms": 3.6057599285149635,
+    "gpu_ms": 24.15400683941276,
+    "world_gpu_ms": 18.493834164219837,
+    "shadow_gpu_ms": 5.248352558328628,
+    "post_ui_gpu_ms": 0.4118201168642951,
+    "hidden_gpu_ms": 19.235065318468855,
+    "tree_net_gpu_ms": 4.918941520943903,
+    "tree_net_gpu_percent": 20.36490903412982
+  },
+  {
+    "scene": "jungle",
+    "title": "Rainforest",
+    "normal_runs": [
+      "jungle-fast-1",
+      "jungle-fast-2"
+    ],
+    "hidden_runs": [
+      "jungle-hidden-1",
+      "jungle-hidden-2"
+    ],
+    "main_cpu_ms": 16.232277190427215,
+    "streaming_cpu_ms": 10.023862774129746,
+    "render_prepare_cpu_ms": 3.8368065485363925,
+    "gpu_ms": 33.861148624841775,
+    "world_gpu_ms": 24.412978148536393,
+    "shadow_gpu_ms": 9.056229554509494,
+    "post_ui_gpu_ms": 0.39194092179588613,
+    "hidden_gpu_ms": 28.957549426481712,
+    "tree_net_gpu_ms": 4.903599198360062,
+    "tree_net_gpu_percent": 14.481491022908191
+  },
+  {
+    "scene": "bamboo",
+    "title": "Bamboo",
+    "normal_runs": [
+      "bamboo-fast-1",
+      "bamboo-fast-2"
+    ],
+    "hidden_runs": [],
+    "main_cpu_ms": 9.586337151087662,
+    "streaming_cpu_ms": 6.286612387808441,
+    "render_prepare_cpu_ms": 1.8900039125974026,
+    "gpu_ms": 32.93716084099026,
+    "world_gpu_ms": 25.250390728084415,
+    "shadow_gpu_ms": 7.281480447629869,
+    "post_ui_gpu_ms": 0.405289665275974
+  }
+]

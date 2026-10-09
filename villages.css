@@ -1,0 +1,41 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+.village-page .intro-row p{max-width:340px;line-height:1.85}
+.village-hero{height:auto;aspect-ratio:16/9;background:#334b44}
+.village-hero>img{display:block;object-position:center}
+.village-hero .hero-shade{background:linear-gradient(180deg,#16271b20,transparent 45%,#102619bf)}
+.village-hero .hero-bottom{gap:24px}
+.village-hero .hero-bottom>div{max-width:calc(100% - 70px)}
+.village-hero h2{font-size:clamp(28px,3.5vw,48px)}
+.village-hero .round-button{flex:none}
+.village-hero #hero-category{font-size:10px;letter-spacing:1.3px;text-transform:uppercase}
+.village-stats{grid-template-columns:.7fr 1.3fr 1fr}
+.village-stats strong{font-size:clamp(26px,2.6vw,35px)}
+.village-stats span{line-height:1.65}
+.village-filter-row{border-block:1px solid var(--line);padding:13px 0;margin:0 0 30px;gap:18px}
+.village-filter-row #result-count{white-space:normal;line-height:1.7}
+.village-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:38px 28px}
+.village-grid .card h3{font-size:29px}
+.village-grid .card-topline{line-height:1.5;letter-spacing:.8px}
+.village-grid .card>p{max-width:64ch}
+.village-grid .card-image img{object-fit:contain}
+.village-visit .method-details strong{color:var(--ink);font-weight:550}
+.village-seed{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.village-visit .village-small-note{margin-top:12px;font-size:11px}
+.village-detail{width:min(1280px,96vw);max-height:94dvh}
+.village-detail .close{z-index:2}
+.village-image-stage{display:flex;align-items:center;justify-content:center;background:#172b26;min-height:180px}
+.village-image-stage img{display:block;width:100%;height:auto;max-height:69dvh;object-fit:contain}
+.village-detail .detail-body{padding-top:23px}
+.village-detail .detail-kicker{gap:20px;line-height:1.6}
+.village-detail .detail-title-row{align-items:center}
+.village-detail .detail-title-row h2{font-size:clamp(27px,3.3vw,38px);line-height:1.15}
+.village-navigation{display:flex;gap:7px;flex:none}
+.village-navigation button{border:1px solid var(--line);border-radius:3px;background:transparent;width:44px;height:44px;font-size:19px}
+.village-navigation button:hover{background:#e7e9df}
+.village-navigation button:disabled{cursor:default;opacity:.4}
+.village-detail-footer{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;border-top:1px solid var(--line);padding-top:17px;margin-top:21px}
+.village-detail-footer p{font-size:11px;line-height:1.7;color:var(--muted);margin:0}
+.village-detail-footer a{flex:none;font-size:12px;text-underline-offset:4px;line-height:1.8}
+@media(max-width:850px){.village-page .intro-row{display:block}.village-page .intro-row p{margin-top:24px;max-width:460px}.village-grid{gap:34px 23px}.village-page .site-header nav{gap:23px}.village-stats>div{padding-left:20px}.village-stats>div:first-child{padding-left:0}}
+@media(max-width:650px){.village-page .site-header{height:auto;min-height:95px;flex-wrap:wrap;gap:17px;padding-block:18px}.village-page .site-header nav{gap:23px}.village-page h1{font-size:clamp(46px,10vw,60px)}.village-hero{aspect-ratio:4/3}.village-hero>img{object-fit:cover}.village-hero .hero-top{inset:13px 13px auto;gap:8px;font-size:7px;letter-spacing:.8px}.village-hero .hero-bottom{inset:auto 16px 16px;gap:12px}.village-hero h2{font-size:28px;margin:5px 0}.village-hero #hero-category{font-size:8px;letter-spacing:.8px}.village-hero .round-button{width:42px;height:42px;font-size:21px}.village-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 0}.village-stats>div{padding-left:0;border:0}.village-stats>div:first-child{border-right:1px solid var(--line)}.village-stats>div:nth-child(2){padding-left:18px}.village-stats>div:nth-child(3){grid-column:1/-1;padding-top:21px;border-top:1px solid var(--line)}.village-stats strong{font-size:28px}.village-stats span{font-size:10px}.village-filter-row{padding:13px 0 16px;margin-bottom:27px}.village-filter-row .filters{gap:5px}.village-filter-row .filters button{min-height:38px;padding:9px 10px;font-size:11px}.village-grid{grid-template-columns:1fr;gap:33px}.village-grid .card h3{font-size:29px}.village-grid .card-topline{font-size:9px;gap:8px}.village-image-stage{min-height:120px}.village-image-stage img{max-height:60dvh}.village-detail .detail-body{padding:21px 20px}.village-detail .detail-title-row{gap:14px}.village-detail .detail-kicker{font-size:9px}.village-detail-footer{flex-wrap:wrap}.village-detail #detail-description{font-size:13px}.village-detail .detail-note{font-size:10px}.village-navigation{gap:5px}}
+@media(max-width:370px){.village-page .site-header nav{gap:20px}.village-hero h2{font-size:24px}.village-detail .detail-title-row{align-items:flex-start;flex-direction:column}.village-navigation{align-self:flex-end}}

@@ -1,0 +1,1806 @@
+{
+  "title": "Jade Willow Village",
+  "packId": "chinese_village:pack",
+  "packVersion": "1.4.0",
+  "capturedAt": "2026-09-28T04:23:51.512135+00:00",
+  "seed": "1786640127379949800",
+  "generatorVersion": 9,
+  "description": "Whitewashed homes, crooked lanes and waterside gardens in an original southern-Chinese-inspired village pack.",
+  "provenance": {
+    "binarySha256": "ad79c71107ea5ebdd7c3f9e01f268fd71684f369094915a9ccc58dc83f453bb5",
+    "captureToolSha256": "05be5aa21b84905a8a723a08103ab6d459020d5f6c5ef78043025252cddafd2f",
+    "binary": ".cache/village-captures-20260928T041658Z/voxelgame",
+    "renderer": "Voxelgame production offscreen renderer",
+    "encoding": {
+      "format": "WebP",
+      "quality": 94,
+      "method": 6
+    },
+    "sourceNote": "Captured from the reviewed Jade Willow 1.4 devtools executable. The binary and full native replay evidence are frozen in the local cache; unrelated source edits after its build are not attributed to these pictures."
+  },
+  "structure": {
+    "behavior": "terrain-anchored structure overlay",
+    "clearance_volumes": 16,
+    "id": "chinese_village:structure/village",
+    "kind": "structure",
+    "label": "Jade Willow Village",
+    "local_bounds_metres": [
+      [
+        -49.0,
+        -6.0,
+        -40.0
+      ],
+      [
+        52.0,
+        21.5,
+        40.0
+      ]
+    ],
+    "metre_cells": 47680,
+    "placement": "Scattered { spacing_metres: 320, frequency_percent: 100, habitat: Temperate }",
+    "voxel_detail_cells": 30320
+  },
+  "shots": [
+    {
+      "id": "generated-village",
+      "title": "A village in the autumn woods",
+      "description": "The nearest naturally placed Jade Willow village on the reference seed, surrounded by autumn woodland. Visit X 36, Z 380 with the pack enabled.",
+      "category": "Village",
+      "scene": "generated",
+      "time": 0.38,
+      "anchorMetres": [
+        36,
+        37.5,
+        380
+      ],
+      "image": "images/villages/generated-village.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "a30b32ea78e7d76a9f81ab4359e4ddc3623230eeb6307d0851d7282768e94289",
+      "originalImageSha256": "2aadb0b2ddda8a2937c03eacccaae0119d340ad9b5038990e8f80293a458add0",
+      "originalPng": ".cache/village-captures-20260928T041658Z/generated/generated-village.png",
+      "camera": {
+        "positionMetres": [
+          -4.0,
+          79.0,
+          338.0
+        ],
+        "lookDegrees": [
+          45.0,
+          -30.000001907348633
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 682,
+        "visible_far_tiles": 29
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/generated"
+    },
+    {
+      "id": "overview",
+      "title": "Along the crooked lanes",
+      "description": "Staggered homes, branching lanes and small garden courts form an open settlement around the central square.",
+      "category": "Village",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/overview.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "15eee3ef172e249d5bd4a14ab59d928ff2363222a3a2b627a006ee2790c1baef",
+      "originalImageSha256": "cb3d1cb4158fc8655b97a51b8f67339c2a4e3918f34732e866af7751f9bcd75b",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/overview.png",
+      "camera": {
+        "positionMetres": [
+          -43.0,
+          61.0,
+          -40.0
+        ],
+        "lookDegrees": [
+          46.0,
+          -34.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 71,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 763,
+        "visible_far_tiles": 26
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "courtyard",
+      "title": "A sheltered courtyard",
+      "description": "White plaster fire walls frame a two-wing household, a tiled veranda and a flowering tree.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/courtyard.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "fa9d98eea33a8be5c0e20df8dff3a368898a787b75b59bfc32779aab4f7b2dca",
+      "originalImageSha256": "9b768236c456a4ebacc543fc8a67525d1a5ad556c31460728ab7cdc2ccbc3cdf",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/courtyard.png",
+      "camera": {
+        "positionMetres": [
+          -11.0,
+          21.0,
+          4.0
+        ],
+        "lookDegrees": [
+          -42.0,
+          -8.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 628,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "tea-gallery",
+      "title": "The tea-house gallery",
+      "description": "A timber street gallery and an external stair connect the two floors of the tea house.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/tea-gallery.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "06b7d69ca6502ae652ef6773e55ced702cd1b112443bacb1b7c384de1be91448",
+      "originalImageSha256": "9b5621c79625409bc7b7a33b9d142b3bfe37ccff2a08c269ab8b10577f05d89b",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/tea-gallery.png",
+      "camera": {
+        "positionMetres": [
+          6.0,
+          21.0,
+          8.0
+        ],
+        "lookDegrees": [
+          38.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 546,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "cottage-lane",
+      "title": "At the cottage door",
+      "description": "Paper lattice windows, brick plinths and timber thresholds open onto a narrow paved lane.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/cottage-lane.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "1831e79176ebcd92ac2be69d9e8fb492b65d6a843fd233dcf45b08c8e106cb17",
+      "originalImageSha256": "7716e8fb90c659b1500c84ea78c0f13057ff3bc88be1f6574066eee537897a99",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/cottage-lane.png",
+      "camera": {
+        "positionMetres": [
+          -31.0,
+          16.600000381469727,
+          5.800000190734863
+        ],
+        "lookDegrees": [
+          -19.0,
+          0.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 597,
+        "visible_far_tiles": 31
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "pond-bridge",
+      "title": "Across the lotus pond",
+      "description": "A stepped stone footbridge crosses the curved basin beside willows, bamboo and the irrigation channel.",
+      "category": "Water",
+      "scene": "inspection",
+      "time": 0.43,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/pond-bridge.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "5464ddbc46d2f6e0adc9ceaedc3b40afe4cfede09ca7b2203a9849e6bbb643c6",
+      "originalImageSha256": "62ee3435fe31ea8c76ba595c0e97dedc3b74e5adb3e5b6658e04998592b6681b",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/pond-bridge.png",
+      "camera": {
+        "positionMetres": [
+          25.0,
+          18.0,
+          18.0
+        ],
+        "lookDegrees": [
+          35.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 522,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "water-quarter",
+      "title": "The waterside quarter",
+      "description": "The pond and planted edges interrupt the village outline; gardens and working yards sit between the houses.",
+      "category": "Water",
+      "scene": "inspection",
+      "time": 0.4,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/water-quarter.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "471a0276f4e7a865d31650c511ba3485c4b7510046f9a4e9b28e72c1fb5067ab",
+      "originalImageSha256": "603b9a78eef8219320e0d699d12b228a3c9d3a2048ee5b365f1d6bd8b5f1a299",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/water-quarter.png",
+      "camera": {
+        "positionMetres": [
+          54.0,
+          76.0,
+          54.0
+        ],
+        "lookDegrees": [
+          -135.0,
+          -42.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 71,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 825,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "tea-interior",
+      "title": "Inside the tea room",
+      "description": "Low tea tables and stools furnish the upper room beside timber-framed paper screens.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.43,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/tea-interior.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "a01485e1984af1b39c1e5a8104a9a7bad2994b929c92d3377c531f7e555ae2b9",
+      "originalImageSha256": "72b0b30e98dbbeb2a4d2855cf3efa496fd00db740c8dceb5ad93ff416ef8792c",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/tea-interior.png",
+      "camera": {
+        "positionMetres": [
+          16.0,
+          20.5,
+          21.0
+        ],
+        "lookDegrees": [
+          90.0,
+          -8.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 699,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "granary",
+      "title": "Steps to the granary",
+      "description": "Half-metre timber steps and side rails lead into the raised grain store.",
+      "category": "Village",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/granary.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "2339f896aeef8861969ab600e21ffe1ef7c2e7074d929f53f85c0ec975985d16",
+      "originalImageSha256": "08a368d8bac3c37fb57fe7f4253ae8d86eeae15065a5fb198c181d25a4ee6f84",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/granary.png",
+      "camera": {
+        "positionMetres": [
+          31.5,
+          17.0,
+          -15.0
+        ],
+        "lookDegrees": [
+          180.0,
+          4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 653,
+        "visible_far_tiles": 31
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lantern-court",
+      "title": "When the lanterns glow",
+      "description": "Warm hanging lanterns light the well square and the three-tier pavilion as the sky turns to evening.",
+      "category": "Evening",
+      "scene": "inspection",
+      "time": 0.76,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lantern-court.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "6be57b7ea7ab0096e3ec24968e8762f6c930402462e2b8ef565ffa334d65bfa4",
+      "originalImageSha256": "6fa23e151a9fa858b1b87b1eb1caff536fa143425400ccbf71d6062903afbb50",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lantern-court.png",
+      "camera": {
+        "positionMetres": [
+          -10.0,
+          18.0,
+          -3.0
+        ],
+        "lookDegrees": [
+          72.0,
+          5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 788,
+        "visible_far_tiles": 29
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "courtyard-house",
+      "title": "The courtyard house",
+      "description": "Two plaster wings frame a sheltered household court, with timber trim and a flowering tree.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/courtyard-house.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "a48ebc5def35c21f5c318bec8f52fb52f7af096ef9dbb91fe59f72b951d62353",
+      "originalImageSha256": "6cb941f1ec7ae16da7383a0e261c9dd0939410ee998471b20c1dc51b923e0509",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/courtyard-house.png",
+      "camera": {
+        "positionMetres": [
+          -19.0,
+          16.299999237060547,
+          0.0
+        ],
+        "lookDegrees": [
+          0.0,
+          -3.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 704,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "tea-house",
+      "title": "The tea house",
+      "description": "A two-storey tea room opens onto its timber gallery and the lane below.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/tea-house.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "29bf22b5bf66822ba917702d0275c00e70e6e7909e260a47392f2fcd5adde12b",
+      "originalImageSha256": "3bbad32cf9459eb6938e3cb77fe893f837fc42059a2d87e2a5da3c2fc16b7680",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/tea-house.png",
+      "camera": {
+        "positionMetres": [
+          15.0,
+          16.5,
+          6.0
+        ],
+        "lookDegrees": [
+          0.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 703,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "elder-residence",
+      "title": "The elder residence",
+      "description": "Unequal house wings and a covered porch make a sheltered entrance for the village elder.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/elder-residence.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "e9ac086bfa3f7794f13ba682ca00d160de05badd4d0fc54824f58f1e9a68387f",
+      "originalImageSha256": "28ea8a2dda0fdbdf90cd04b49186847df277b5acba6e8bb5bf4a4c7ca5a5e922",
+      "originalPng": ".cache/village-final-framing-20260928T043752Z/inspection/elder-residence.png",
+      "camera": {
+        "positionMetres": [
+          -4.0,
+          17.5,
+          19.0
+        ],
+        "lookDegrees": [
+          0.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 499,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-final-framing-20260928T043752Z/inspection",
+      "reframeToolSha256": "c4a1e262214ae0bc56e43d9e1e83041d94bb557d0d2102d887addf8eac3afe68",
+      "reframeBinarySha256": "ad79c71107ea5ebdd7c3f9e01f268fd71684f369094915a9ccc58dc83f453bb5"
+    },
+    {
+      "id": "weaver-house",
+      "title": "The weaver's house",
+      "description": "A compact plaster home shares its work court with a timber loom and hanging cloth.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/weaver-house.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "8b4aa146c6651dcbcf34a841760abef6e585655f9e33dd69d1eda8087c2293f4",
+      "originalImageSha256": "ba1d948ffd72c475736f53189a5ab4c95d978529527f3cfaa97a506990f7f808",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/weaver-house.png",
+      "camera": {
+        "positionMetres": [
+          -22.0,
+          16.5,
+          0.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -7.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 690,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "herbalist-cottage",
+      "title": "The herbalist's cottage",
+      "description": "A low gabled cottage keeps herb planters and a small drying shed beside the door.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/herbalist-cottage.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "27d71e566304e814aa30212c73ec27b52bd127603c01c7f1ccbfec4bcba89f85",
+      "originalImageSha256": "6c26b976885776e7aa06233bdb6193f8c77b6e20338c61e6eb7851093a34a360",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/herbalist-cottage.png",
+      "camera": {
+        "positionMetres": [
+          -11.0,
+          16.5,
+          -6.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -7.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 678,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-gable",
+      "title": "Lane house \u00b7 gabled",
+      "description": "A stepped plaster gable and brick threshold mark one of the village's smaller homes.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-gable.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "eea93947e5bda8cf576eb80e7f7cbedad7b0eacf44f5831070113a7df9866541",
+      "originalImageSha256": "fa117df08094ec0bd0ca0559214962aa393278919ab86bda042ea599d5dbbc15",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-gable.png",
+      "camera": {
+        "positionMetres": [
+          -28.0,
+          16.299999237060547,
+          6.0
+        ],
+        "lookDegrees": [
+          -90.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 645,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-tall-east",
+      "title": "Lane house \u00b7 tall east",
+      "description": "The taller east-lane house keeps a narrow doorway beneath layered blue roof tiles.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-tall-east.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "08a12e9b6ea2c97aae4380318e2bedbd953375b9c1942fb20a54406f3da2280f",
+      "originalImageSha256": "9d2eb252af4e0892f5df6003c20143955a1f6e2abf5f34b066a34f64ae5db86e",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-tall-east.png",
+      "camera": {
+        "positionMetres": [
+          -27.0,
+          18.0,
+          15.0
+        ],
+        "lookDegrees": [
+          -90.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 660,
+        "visible_far_tiles": 31
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-hearth-east",
+      "title": "Lane house \u00b7 east hearth",
+      "description": "A home hearth opens onto the east lane beside planted stone troughs.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-hearth-east.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "a58efe04193880283cbf5634a7c3521ac75c4d59cccb899c728d7e712e42f11b",
+      "originalImageSha256": "233ecf5feb4c9acfd1806dd579a2bebac457d0907f0c257d58bf6b7c30b98b14",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-hearth-east.png",
+      "camera": {
+        "positionMetres": [
+          -28.0,
+          16.5,
+          24.0
+        ],
+        "lookDegrees": [
+          -90.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 630,
+        "visible_far_tiles": 31
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-awning-north",
+      "title": "Lane house \u00b7 north awning",
+      "description": "A timber awning shades the north approach while leaving the passage open.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-awning-north.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "8bf1b704bff64e6c79943794ed7e0c3f26fe44a5ef3f864b2b049631991013cb",
+      "originalImageSha256": "e000ad1f8b0c5ba2f134a7e749bcd0b7f22e91898c04e590d10ce6ee87463b69",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-awning-north.png",
+      "camera": {
+        "positionMetres": [
+          -36.0,
+          16.299999237060547,
+          42.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 71,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 698,
+        "visible_far_tiles": 28
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-tall-west",
+      "title": "Lane house \u00b7 tall west",
+      "description": "A narrow west-lane frontage rises behind a half-metre tiled eave.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-tall-west.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "e5671a5886ffafc576685ca0d43fdb38002c575d80f5ad121200e23d7e771b43",
+      "originalImageSha256": "d3a748ea569d382606ef73f979f8b5a3b2ae8268b973474f707557326ea1f228",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-tall-west.png",
+      "camera": {
+        "positionMetres": [
+          -36.0,
+          18.0,
+          29.0
+        ],
+        "lookDegrees": [
+          90.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 715,
+        "visible_far_tiles": 27
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-awning-east",
+      "title": "Lane house \u00b7 east awning",
+      "description": "The east awning shelters a tight turn where two crooked lanes meet.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-awning-east.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "658ceec513b8c981c3439c2fc868f9108bddc68e723ccbbf56441f52848e2782",
+      "originalImageSha256": "7d19de15e81fa0a8652e3e8e0f77f87b0b57fe06ae02ad6acac6c45fe5e7a1fd",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-awning-east.png",
+      "camera": {
+        "positionMetres": [
+          -27.0,
+          16.299999237060547,
+          -10.0
+        ],
+        "lookDegrees": [
+          -90.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 664,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-hearth-west",
+      "title": "Lane house \u00b7 west hearth",
+      "description": "A plaster hearth wall and raised brick base face the western lane.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-hearth-west.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "9689e628cb60fde7e60f2f3e5e771da8acd9d0630a3f44ef8d8238adfee1e294",
+      "originalImageSha256": "9ec0625e86624dd016aeb55b5582503094569c17e2896cc9d2c3b04fdc41da26",
+      "originalPng": ".cache/village-building-reframes-20260928T043317Z/inspection/lane-hearth-west.png",
+      "camera": {
+        "positionMetres": [
+          -34.0,
+          16.5,
+          -27.0
+        ],
+        "lookDegrees": [
+          54.0,
+          -3.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 493,
+        "visible_far_tiles": 29
+      },
+      "evidence": ".cache/village-building-reframes-20260928T043317Z/inspection",
+      "reframeToolSha256": "900ec42a5dafdaddc260830305b0f84f08dc9e7cf1247a4f0aea8d8373fc5bb3",
+      "reframeBinarySha256": "ad79c71107ea5ebdd7c3f9e01f268fd71684f369094915a9ccc58dc83f453bb5"
+    },
+    {
+      "id": "lane-tall-south",
+      "title": "Lane house \u00b7 tall south",
+      "description": "A tall southern fa\u00e7ade balances a narrow doorway with a broad tiled roof.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-tall-south.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "80e6f3b926a55cc5c474f2e5e7c18b58aa72fe71a3fcba0f5a8987b47cd1b89e",
+      "originalImageSha256": "a8bc5350f795080f0a13b0d9a58d551aeed6307d2ce58dcfc2b2f1f8c2383b3e",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-tall-south.png",
+      "camera": {
+        "positionMetres": [
+          0.0,
+          18.0,
+          -37.0
+        ],
+        "lookDegrees": [
+          0.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 730,
+        "visible_far_tiles": 27
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-awning-south",
+      "title": "Lane house \u00b7 south awning",
+      "description": "Timber side posts hold a low awning over the southern lane entrance.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-awning-south.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "2d5f9d28bebf34680b716592afbaac1a913796916616ec166d9cd7b040453d64",
+      "originalImageSha256": "892d584beaaeb7f02898485d4550ff8abee117e126c95aaf71cb8bd3a60c732a",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-awning-south.png",
+      "camera": {
+        "positionMetres": [
+          10.0,
+          16.299999237060547,
+          -35.0
+        ],
+        "lookDegrees": [
+          0.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 694,
+        "visible_far_tiles": 27
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "lane-hearth-west2",
+      "title": "Lane house \u00b7 west hearth II",
+      "description": "A second hearth-front cottage shows the varied roof and porch rhythm along the lanes.",
+      "category": "Homes",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/lane-hearth-west2.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "aad6befeef5762141b95102ba048597b69878508c2ebd3c114bbf459b1f803e3",
+      "originalImageSha256": "9af84d1b77de6a360780bf56626dc2a4a0b3d80e30cb97ceb3c2517d79c4e55b",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/lane-hearth-west2.png",
+      "camera": {
+        "positionMetres": [
+          21.0,
+          16.5,
+          -11.0
+        ],
+        "lookDegrees": [
+          90.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 687,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "kiln-yard",
+      "title": "The kiln workyard",
+      "description": "The brick kiln and covered work bay sit behind an open yard for making and firing pots.",
+      "category": "Workyards",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/kiln-yard.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "3a43da643149fe8e2e37aa8fcaf212af76ce85848d8f3f926793251816f7c3e2",
+      "originalImageSha256": "85159944b0477c5f1bc3c3f972207170a9e251f267d0e5db4bb661a8a3d971c5",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/kiln-yard.png",
+      "camera": {
+        "positionMetres": [
+          -35.0,
+          16.5,
+          -13.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 689,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "raised-granary",
+      "title": "The raised granary",
+      "description": "A raised store keeps grain above ground level behind a sheltered loading entrance.",
+      "category": "Workyards",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/raised-granary.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "73a534150439fa8a2a1b71661d532c621f6f0255e79dcda74f1e229a7a212b13",
+      "originalImageSha256": "d2f1a5759239d3961e8d0a27027cefbc66bf9669274c0f15739cc49f2bd04d38",
+      "originalPng": ".cache/village-final-framing-20260928T043752Z/inspection/raised-granary.png",
+      "camera": {
+        "positionMetres": [
+          31.5,
+          19.0,
+          -31.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 452,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-final-framing-20260928T043752Z/inspection",
+      "reframeToolSha256": "c4a1e262214ae0bc56e43d9e1e83041d94bb557d0d2102d887addf8eac3afe68",
+      "reframeBinarySha256": "ad79c71107ea5ebdd7c3f9e01f268fd71684f369094915a9ccc58dc83f453bb5"
+    },
+    {
+      "id": "livestock-shelter",
+      "title": "The livestock shelter",
+      "description": "An open timber shelter stands inside the village paddock beside its red gate rails.",
+      "category": "Workyards",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/livestock-shelter.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "301b7f49aab65ca8dbd412d0a3d5c03ca8bedbf248b405b07700713aa7fe6cdf",
+      "originalImageSha256": "aa14012edbb5833a0f4f5b60215571accd50d545637f2872843e686c3656550b",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/livestock-shelter.png",
+      "camera": {
+        "positionMetres": [
+          37.5,
+          16.5,
+          20.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -5.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 671,
+        "visible_far_tiles": 33
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "market-cloth",
+      "title": "Cloth stall",
+      "description": "A shaded market counter displays folded cloth beneath a tiled canopy.",
+      "category": "Market",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/market-cloth.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "45fab717a4bd39d367889a41e581dfd9313bd9d700174db9230d9564db3e31af",
+      "originalImageSha256": "c64c70ba3a15743d2cd8eba06e8a4a671a44514d72d0e9381c0b533e6acbf32d",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/market-cloth.png",
+      "camera": {
+        "positionMetres": [
+          14.0,
+          16.299999237060547,
+          2.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 668,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "market-produce",
+      "title": "Produce stall",
+      "description": "Fresh greens and baskets fill a small produce counter along the central market lane.",
+      "category": "Market",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/market-produce.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "29e51f303abbc3fd90235174520eeec176f517553528ddfefad39cceb8a74241",
+      "originalImageSha256": "03ad713bf53f6c0ae91092dcef6cb340e179cf5c47a7fec3e6ac6a7c120d6747",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/market-produce.png",
+      "camera": {
+        "positionMetres": [
+          19.0,
+          16.299999237060547,
+          2.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 669,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "market-pottery",
+      "title": "Pottery stall",
+      "description": "Clay vessels and a low counter give the pottery stall its own market frontage.",
+      "category": "Market",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/market-pottery.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "35267e2d6b60c629eacf656bc94b228668595cdf6b1e7a12e975dbb9ca9ee8c9",
+      "originalImageSha256": "22486807a1d0902a938a01e323fedea700ac53bfde65c1deb29e8635600adc54",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/market-pottery.png",
+      "camera": {
+        "positionMetres": [
+          24.0,
+          16.299999237060547,
+          2.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 655,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "market-tea",
+      "title": "Tea stall",
+      "description": "A compact tea counter faces the market's meeting of stone-paved paths.",
+      "category": "Market",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/market-tea.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "7c77f6fd28dbbe121b360aa2ac5275c8c406ef2a8a389826fb463bb63f68e1cc",
+      "originalImageSha256": "724975dbc191819182d49e60c2d2d90368e77243e133ec6ca30aee2822e9a42b",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/market-tea.png",
+      "camera": {
+        "positionMetres": [
+          27.0,
+          16.299999237060547,
+          2.0
+        ],
+        "lookDegrees": [
+          180.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 662,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "village-well",
+      "title": "The covered village well",
+      "description": "A timber well canopy and shared seating anchor the paved village square.",
+      "category": "Civic",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/village-well.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "bfa2011917cbb0de20167097e1a1d493fced165d580657403383088cbcbc49a2",
+      "originalImageSha256": "a56602fb32b686cc2d480e9c241258365a1c3056094d693119cdff8c2b73759e",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/village-well.png",
+      "camera": {
+        "positionMetres": [
+          0.0,
+          17.299999237060547,
+          -8.0
+        ],
+        "lookDegrees": [
+          0.0,
+          -8.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 673,
+        "visible_far_tiles": 30
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "pagoda",
+      "title": "The three-tier pagoda",
+      "description": "Three compact tiled roofs rise above the domestic houses as a village landmark.",
+      "category": "Civic",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/pagoda.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "001cfef9a76c5e08032e7f71c39acdab75b8a9471cefc99edd763dd40e3beeed",
+      "originalImageSha256": "3a0077654ef0bc731a1c5867eaf4fd629f383f550934d8274552a168ce025d6a",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/pagoda.png",
+      "camera": {
+        "positionMetres": [
+          0.0,
+          22.0,
+          0.0
+        ],
+        "lookDegrees": [
+          0.0,
+          11.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 774,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "ancestral-pavilion",
+      "title": "The ancestral pavilion",
+      "description": "An open timber pavilion shelters a modest altar and seats beside the square.",
+      "category": "Civic",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/ancestral-pavilion.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "1835b4f1f632cb4f7da020334af3c237f7654fc1aaa7ecf141f7215d19ac9ee2",
+      "originalImageSha256": "4929c81caba8531e1dc7670575d3ab619d22dab57e762a871e13b41758cb7694",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/ancestral-pavilion.png",
+      "camera": {
+        "positionMetres": [
+          8.0,
+          16.5,
+          -16.0
+        ],
+        "lookDegrees": [
+          90.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 705,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "opera-stage",
+      "title": "The opera stage",
+      "description": "An open-front timber stage faces the square beneath a broad hipped roof.",
+      "category": "Civic",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/opera-stage.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "014656321184c5300371ad4edac18a7b78742ad10f03c43c1215048290cd1f63",
+      "originalImageSha256": "19d838da8ee7e72956c36c661eae3b7271bd8651549a59111e4d9ea7b44227ca",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/opera-stage.png",
+      "camera": {
+        "positionMetres": [
+          6.0,
+          16.5,
+          7.0
+        ],
+        "lookDegrees": [
+          90.0,
+          -4.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 727,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "moon-gate",
+      "title": "The moon gate",
+      "description": "A rounded stone opening joins the lane to the gardens without enclosing another square.",
+      "category": "Civic",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/moon-gate.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "ef302b9578f10cdd2eb496895aea6478941ecdf39fac3ef8fa54951a962de22b",
+      "originalImageSha256": "aa982abe3b5908153c09a977217506d3c9892f5541789fc9df6e67944a75919e",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/moon-gate.png",
+      "camera": {
+        "positionMetres": [
+          23.0,
+          16.5,
+          1.0
+        ],
+        "lookDegrees": [
+          90.0,
+          -3.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 77,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 709,
+        "visible_far_tiles": 32
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "entrance-gate",
+      "title": "The entrance gate",
+      "description": "Lacquer-red timber frames the village entrance and the planted path beyond.",
+      "category": "Civic",
+      "scene": "inspection",
+      "time": 0.38,
+      "anchorMetres": [
+        0,
+        15.5,
+        0
+      ],
+      "image": "images/villages/entrance-gate.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "4a0606648ead82ecc1cc21eb30dd72cbd3025da80bef2a0c6db3aac4ced3dd2d",
+      "originalImageSha256": "fbd6adaea805db744d6c21cbf236e549f64bb70e4049ec097be475e2c6cd0971",
+      "originalPng": ".cache/village-captures-20260928T041658Z/inspection/entrance-gate.png",
+      "camera": {
+        "positionMetres": [
+          -57.0,
+          16.299999237060547,
+          0.0
+        ],
+        "lookDegrees": [
+          90.0,
+          -2.0
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 745,
+        "visible_far_tiles": 28
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/inspection"
+    },
+    {
+      "id": "residents",
+      "title": "Meet the village residents",
+      "description": "One of twelve original resident designs in the living village. Each generated settlement receives a different seeded group of six neutral wandering residents.",
+      "category": "Residents",
+      "scene": "generated",
+      "time": 0.43,
+      "anchorMetres": [
+        36,
+        37.5,
+        380
+      ],
+      "image": "images/villages/residents.webp",
+      "width": 960,
+      "height": 540,
+      "imageSha256": "82acc954d9ce43f1d832399a2c54aaca7cc596499969cebe66ec9d996383258e",
+      "originalImageSha256": "dd85238be07a53229531858cb804c420606981723e68d409f6e86bba66ddcd49",
+      "originalPng": ".cache/village-captures-20260928T041658Z/generated/residents.png",
+      "camera": {
+        "positionMetres": [
+          39.2055549621582,
+          38.67000198364258,
+          383.5157775878906
+        ],
+        "lookDegrees": [
+          -28.36749267578125,
+          -10.3888578414917
+        ]
+      },
+      "warmupFrames": 480,
+      "renderer": {
+        "adapter": "Intel(R) Iris(R) Xe Graphics (RPL-P)",
+        "detail_clip_radius_metres": 128.0,
+        "detail_clip_target_metres": 128.0,
+        "nearby_terrain_ready": true,
+        "resident_far_tiles": 76,
+        "viewport": [
+          960,
+          540
+        ],
+        "visible_chunks": 523,
+        "visible_far_tiles": 29
+      },
+      "evidence": ".cache/village-captures-20260928T041658Z/generated"
+    }
+  ]
+}

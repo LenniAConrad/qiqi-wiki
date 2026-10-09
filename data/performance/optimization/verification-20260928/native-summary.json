@@ -1,0 +1,12 @@
+{
+  "commands": 780,
+  "assertions": 118,
+  "frames": 14745,
+  "frame_captures": 126,
+  "texture_captures": 1,
+  "successful_replays": 8,
+  "states": 766,
+  "disabled_saves": true,
+  "empty_logs": true,
+  "far_off_leaks": 0
+}

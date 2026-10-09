@@ -1,0 +1,64 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="en"><meta charset="utf-8"><title>Atlas browser checks</title>
+<style>body{font:14px monospace;background:#f5f3eb;color:#253c30}iframe{display:block;width:1280px;height:900px;border:0}pre{white-space:pre-wrap}</style>
+<h1>Atlas browser checks</h1><pre id="report">Running…</pre><iframe src="../index.html" title="Atlas under test"></iframe>
+<script>
+'use strict';
+const results = [];
+const report = document.querySelector('#report');
+const frame = document.querySelector('iframe');
+const delay = () => new Promise(resolve => setTimeout(resolve, 50));
+function check(condition, message) { results.push({passed: Boolean(condition), message}); if (!condition) throw new Error(message); }
+frame.addEventListener('load', async () => {
+ try {
+  const d=frame.contentDocument, w=frame.contentWindow, q=s=>d.querySelector(s);
+  const cards=()=>[...d.querySelectorAll('.card')];
+  const query=value=>{q('#search').value=value;q('#search').dispatchEvent(new Event('input',{bubbles:true}));};
+  const sort=value=>{q('#sort').value=value;q('#sort').dispatchEvent(new Event('change',{bubbles:true}));};
+  check(cards().length===92,'All 92 biomes appear without pagination');
+  check(cards()[0].querySelector('h3').textContent==='Open ocean','Default order starts with the most common biome');
+  check(cards().every(c=>!/^0(?:\.0+)?%$/.test(c.querySelector('.percent').textContent)),'Rare biomes retain nonzero percentages');
+  const rarest=[...w.BIOME_ATLAS.biomes].sort((a,b)=>a.count-b.count||a.name.localeCompare(b.name))[0];
+  sort('rare');check(cards()[0].querySelector('h3').textContent===rarest.name,'Rarest-first sorting uses measured counts');
+  sort('name');check(cards()[0].querySelector('h3').textContent==='African thornveld','Alphabetical sorting works');
+  query('volcano');check(cards().length>=2,'Landscape synonyms find volcanic habitats');
+  check(cards().every(c=>c.textContent.toLowerCase().includes('volcan')||c.textContent.toLowerCase().includes('lava')),'Search results match the requested feature');
+  query('metystone');check(cards().length===1&&cards()[0].querySelector('h3').textContent==='Amethyst gorge','Metystone alias finds Amethyst gorge');
+  query('mossy cobble');check(cards().some(c=>c.querySelector('h3').textContent==='Dense forest'),'Search includes the new habitat layers');
+  check(w.BIOME_ATLAS.generatorVersion===9&&q('.hero-top').textContent.includes('GENERATOR 09'),'The catalog labels the current generator');
+  query('___nothing_here___');check(cards().length===0&&!q('#empty').hidden,'Empty search presents a recovery action');
+  q('#reset-filters').click();check(cards().length===92&&q('#empty').hidden,'Clear filters restores every biome');
+  query('stunted');check(cards().some(c=>c.querySelector('h3').textContent==='Muskeg'),'Field notes expose the smaller bog trees');
+  query('fallen fruit');check(cards().some(c=>c.querySelector('h3').textContent==='Orchard grove'),'Field notes expose orchard floor details');
+  query('veteran');check(cards().some(c=>c.querySelector('h3').textContent==='Old-growth forest'),'Field notes expose the mixed-age forest canopy');
+  q('#reset-filters').click();
+  const woodland=[...d.querySelectorAll('#filters button')].find(b=>b.textContent==='Woodlands');woodland.click();
+  check(cards().length===18,'Woodland filter shows the expected category');
+  check(woodland.getAttribute('aria-pressed')==='true','Active category is exposed accessibly');
+  query('birch grove');check(cards().length===1,'Category and text filters combine');
+  cards()[0].querySelector('button').click();
+  check(q('#detail').open&&q('#detail-title').textContent==='Birch grove','A photograph opens the correct biome dialog');
+  const birch=w.BIOME_ATLAS.biomes.find(b=>b.id==='BirchGrove');
+  check(q('#detail-location').textContent.includes(birch.seed),'The dialog includes the exact string seed');
+  check(q('#detail-habitat').textContent.includes(birch.habitat.lowGrowth),'Biome details show the matching habitat profile');
+  q('#close-detail').click();await delay();check(!q('#detail').open&&!d.body.classList.contains('modal-open'),'Closing the dialog restores page scrolling');
+  q('#reset-filters').click();sort('common');cards()[0].querySelector('button').click();q('#next').click();
+  check(q('#detail-title').textContent===w.BIOME_ATLAS.biomes[1].name,'Next image follows the active sort order');
+  q('#previous').click();check(q('#detail-title').textContent==='Open ocean','Previous image returns to the prior biome');
+  q('#close-detail').click();await delay();
+  for(const width of [1280,768,375,320]) {
+   frame.style.width=`${width}px`;await delay();
+   check(d.documentElement.scrollWidth<=d.documentElement.clientWidth+1,`No horizontal overflow at ${width}px`);
+  }
+  frame.style.width='375px';q('#hero-open').click();await delay();
+  check(q('#detail').getBoundingClientRect().width<=375,'Detail dialog fits a small viewport');
+  q('#close-detail').click();await delay();
+  const all=w.BIOME_ATLAS.biomes;
+  const loaded=await Promise.all(all.map(b=>new Promise(resolve=>{const image=new Image();image.onload=()=>resolve(image.naturalWidth===960&&image.naturalHeight===540);image.onerror=()=>resolve(false);image.src='../'+b.image;})));
+  check(loaded.every(Boolean),'All 92 photographs load at 960 × 540');
+  check(!d.querySelector('[aria-label="Search biomes"]').disabled,'Search remains usable after navigation');
+  report.dataset.result='passed';report.textContent=JSON.stringify({status:'passed',checks:results},null,2);
+ } catch(error) {report.dataset.result='failed';report.textContent=JSON.stringify({status:'failed',error:String(error),checks:results},null,2);}
+});
+</script></html>

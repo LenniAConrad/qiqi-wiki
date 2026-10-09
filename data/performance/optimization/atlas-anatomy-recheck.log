@@ -1,0 +1,19 @@
+    Finished test [optimized + debuginfo] target(s) in 0.36s
+     Running unittests src/lib.rs (target/debug/deps/voxelgame_render-88cd4ed9127f1eec)
+
+running 1 test
+thread 'atlas::tests::anatomical_part_tiles_have_their_expected_dominant_color_relationships' panicked at crates/voxelgame-render/src/atlas.rs:2890:9:
+assertion `left == right` failed
+  left: 2689
+ right: 2671
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test atlas::tests::anatomical_part_tiles_have_their_expected_dominant_color_relationships ... FAILED
+
+failures:
+
+failures:
+    atlas::tests::anatomical_part_tiles_have_their_expected_dominant_color_relationships
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 278 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `-p voxelgame-render --lib`

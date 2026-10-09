@@ -1,0 +1,6 @@
+name,seed,x,y,z,trees_in_256m_square,biome
+open,42,-24,50.5,-24,54,Meadow
+oak,9001,-1112,81.5,-920,54,DenseForest
+pine,7,-984,91.5,-1048,144,PineHighlands
+jungle,4242,936,75.5,-984,163,Rainforest
+bamboo,42,552,122,552,26,BambooThicket

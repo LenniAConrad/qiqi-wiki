@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "commands": 6,
+  "artifacts": "/home/lennart/Code/Voxelgame/.cache/debug/session-zoklru89",
+  "last_result": {
+    "audio": {
+      "footstep_count": 0,
+      "footsteps": []
+    },
+    "available_mods": [
+      "chinese_village:pack",
+      "voxelgame_verdun:pack",
+      "voxelgame_wwii:pack",
+      "zijing_nerds:pack"
+    ],
+    "day_fraction": 0.3008471727371216,
+    "generator_version": 9,
+    "inspection_subjects": [],
+    "map_locator": {
+      "center_voxels": [
+        0,
+        24
+      ],
+      "exhausted": false,
+      "query": "",
+      "result_voxels": null,
+      "searching": false,
+      "selected": null,
+      "span_metres": 512
+    },
+    "metrics": {
+      "last_render_mean_wall_ms": null,
+      "last_step_mean_wall_ms": 0.075151
+    },
+    "mobile_entities": [],
+    "mode": "creative",
+    "mods": [],
+    "nature": {
+      "birds": 0.0,
+      "cave": 0.0,
+      "forest": 0.0,
+      "night": 0.0,
+      "pond": 0.0,
+      "rain": 0.0,
+      "roof_rain": 0.0,
+      "shore": 0.0,
+      "storm": 0.0,
+      "stream": 0.0,
+      "wind": 0.08344623446464539
+    },
+    "player": {
+      "camera_forward": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "camera_mode": "First person",
+      "camera_position_metres": [
+        0.0,
+        201.6199951171875,
+        15.013896942138672
+      ],
+      "collision_height_metres": 1.7999999523162842,
+      "crawling": false,
+      "crouching": false,
+      "eye_position_metres": [
+        0.0,
+        201.6199951171875,
+        15.013896942138672
+      ],
+      "flying": true,
+      "gait_phase": 0.0,
+      "health": 100.0,
+      "hunger": 100.0,
+      "look_degrees": [
+        0.0,
+        0.0
+      ],
+      "on_ground": false,
+      "position_metres": [
+        0.0,
+        200.0,
+        15.013896942138672
+      ],
+      "submerged": false,
+      "swimming": false,
+      "thirst": 100.0,
+      "velocity_metres_per_second": [
+        0.0,
+        0.0,
+        13.099611282348633
+      ]
+    },
+    "pomodoro": {
+      "break": false,
+      "completed": 0,
+      "open": false,
+      "options_open": false,
+      "orbit": false,
+      "real_terrain": false,
+      "remaining": 1500,
+      "running": false,
+      "weather": 0
+    },
+    "renderer": null,
+    "save_writes": false,
+    "schema_version": 1,
+    "seed": "42",
+    "selected_block": "Meadow turf",
+    "settings": {
+      "debug_visible": true,
+      "far_terrain": true,
+      "lod_debug": "Off",
+      "selected_row": 0,
+      "shader": "Fast",
+      "view_distance": 64,
+      "voxel_mode": false,
+      "xray_outline": false
+    },
+    "simulation_seconds": 1.0166666666666666,
+    "status": "World started with optional mods disabled",
+    "target": null,
+    "ticks": 61,
+    "ui": {
+      "character": false,
+      "inventory": false,
+      "map_fullscreen": false,
+      "menu": false,
+      "settings": false
+    },
+    "weather": {
+      "clock_seconds": 1.0166664123535156,
+      "cloud_cover": 0.137129545211792,
+      "cloud_presence": 1.0,
+      "control": "automatic",
+      "fog": 0.013378492556512356,
+      "lightning": 0.0,
+      "rain": 0.0,
+      "resolved": "cloudy",
+      "wind": 0.08344623446464539
+    },
+    "world": {
+      "arrows": 0,
+      "creatures": 1,
+      "edited_voxels": 0,
+      "explosives": 0,
+      "particles": 0,
+      "particles_active": false,
+      "resident_chunks": 47,
+      "rifle_projectiles": 0
+    }
+  }
+}

@@ -1,0 +1,12 @@
+--- checked-native-production
++++ current-production
+@@ -5908,6 +5908,9 @@
+         Item::CAIMAN_SPAWN_EGG => Some(Species::Caiman),
+         Item::TRIOPS_SPAWN_EGG => Some(Species::Triops),
+         Item::BISON_SPAWN_EGG => Some(Species::Bison),
++        Item::BAT_SPAWN_EGG => Some(Species::Bat),
++        Item::RIVER_OTTER_SPAWN_EGG => Some(Species::RiverOtter),
++        Item::PENGUIN_SPAWN_EGG => Some(Species::Penguin),
+         _ => None,
+     }
+ }

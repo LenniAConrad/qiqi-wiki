@@ -1,0 +1,9 @@
+    Finished test [optimized + debuginfo] target(s) in 0.37s
+     Running tests/generation_timing.rs (target/debug/deps/generation_timing-8b435d87668304d2)
+
+running 1 test
+meshed 50 resident chunks (201456 vertices) in 4.481694548s (89.63389ms/chunk)
+test resident_meshing_matches_the_in_game_path ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 6.51s
+
