@@ -17,7 +17,7 @@ PUBLIC_FILES = (
     'features.html', 'guides.html', 'guide-getting-started.html',
     'guide-controls.html', 'guide-first-survival-day.html', 'guide-crafting.html',
     'guide-install-and-worlds.html',
-    'guide-troubleshooting.html', 'guide-hunting.html',
+    'guide-troubleshooting.html', 'guide-hunting.html', 'guide-seasons.html',
     'performance.html', 'scale.html', 'ABOUT.md',
     'style.css', 'wiki.css', 'features.css', 'guides.css', 'islands.css',
     'performance.css', 'scale.css',

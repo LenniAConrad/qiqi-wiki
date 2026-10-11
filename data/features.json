@@ -2678,7 +2678,12 @@
     "crates/voxelgame-core/src/settings.rs:501-509 — 'CREATIVE WORLD CONTROL' descriptions",
     "crates/voxelgame-core/src/game/music_settings.rs:102-113 — rows editable only in creative; survival says 'Time, weather, and season controls are read-only in survival'"
    ],
-   "notes": "A setting you hold stays in force after switching to survival with F4, because the environment ignores game mode (environment.rs:283-323). Settings are saved per world. 'Storm' means a rainstorm without lightning; 'Thunder' adds lightning."
+   "notes": "A setting you hold stays in force after switching to survival with F4, because the environment ignores game mode (environment.rs:283-323). Settings are saved per world. 'Storm' means a rainstorm without lightning; 'Thunder' adds lightning.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-seasons.html",
+    "label": "Seasons and the look of the world"
+   }
   },
   {
    "id": "seasons",
@@ -2699,7 +2704,12 @@
    "backlog": [
     "VOX-OWNER-VISUAL-ONLY-SEASONS"
    ],
-   "notes": "In practice the season changes only the temperature number at normal heights, since sea-level air stays between about 2.5 and 32 degrees. The wiki should describe seasons as mainly visual, with a small survival temperature effect that the owner plans to remove, and must not claim that leaves thin or grass turns snowy."
+   "notes": "In practice the season changes only the temperature number at normal heights, since sea-level air stays between about 2.5 and 32 degrees. The wiki should describe seasons as mainly visual, with a small survival temperature effect that the owner plans to remove, and must not claim that leaves thin or grass turns snowy.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-seasons.html",
+    "label": "Seasons and the look of the world"
+   }
   },
   {
    "id": "fire",

@@ -1644,6 +1644,118 @@
      ]
     }
    ]
+  },
+  {
+   "id": "seasons",
+   "page": "guide-seasons.html",
+   "number": 8,
+   "gap": null,
+   "kicker": "World",
+   "title": "Seasons and the look of the world",
+   "headline": "Seasons change<br><em>how the world looks.</em>",
+   "summary": "A year lasts 80 minutes. Each season changes colours and light. Blocks, building and tools stay the same. Snow and thinner leaves are planned, not in the game yet.",
+   "lead": "The season changes how the world looks. In survival it also nudges the air temperature. Nothing you build, mine or walk on changes with it.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "seasons",
+    "creative-world-controls"
+   ],
+   "next": [
+    "first-survival-day",
+    "controls-reference"
+   ],
+   "verification": {
+    "method": "Season length, the colours each season changes, the temperature values and the Settings > World rows come from the game source at the audited commit. The temperature formula was read from the code, not measured in play.",
+    "limits": "Source-checked, not play-tested in this guide. Season colours are described in words because no season screenshots exist yet."
+   },
+   "owns": [
+    "seasons"
+   ],
+   "partial": [
+    "seasons"
+   ],
+   "sections": [
+    {
+     "id": "cycle",
+     "title": "The four seasons",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A full year lasts 80 real minutes, so each season lasts about 20 minutes. New worlds start in summer. The order is spring, summer, autumn and winter, then back to spring. {{seasons}}"
+      },
+      {
+       "t": "p",
+       "text": "Each season changes the colours of grass, deciduous leaves, needles, blossoms and water. The sky and sunlight change too: autumn leaves turn russet, and winter light is cooler."
+      }
+     ]
+    },
+    {
+     "id": "creative-control",
+     "title": "Choose a season in creative",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Press [[Esc]] and open the World tab in Settings.",
+        "Click a Season chip, or use its arrows, to hold Spring, Summer, Autumn or Winter.",
+        "Choose Auto to go back to the normal cycle."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The Season row reads AUTO followed by the current season while the cycle runs. In survival the row only shows the current season, and you cannot change it. {{creative-world-controls}}"
+      }
+     ]
+    },
+    {
+     "id": "survival-temperature",
+     "title": "Air temperature in survival",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In survival the season moves the air temperature between about +7 C in summer and -7 C in winter, changing smoothly through spring and autumn. Time of day adds up to 9 C at midday and takes up to 4.5 C off at night. Rain lowers it by up to 2 C. {{day-night-cycle}} {{automatic-weather}}"
+      },
+      {
+       "t": "p",
+       "text": "Your body temperature follows the air. It costs health only while it is outside -12 to 48 C. At sea level the air stays between about 2.5 and 32 C, so the season alone does not hurt you. Higher ground is colder. A roof and walls pull your temperature toward 20 C. {{temperature-shelter}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "The Home tab shows the current air temperature on its Temperature line, so you can check it before a long trip."
+      }
+     ]
+    },
+    {
+     "id": "unchanged",
+     "title": "What the season does not change",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "No snow falls and no snow blocks appear.",
+        "Trees keep all their blocks. Leaves do not thin out.",
+        "Weather follows its own pattern, not the season.",
+        "The season does not change which animals appear or what crafting needs."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "planned",
+     "title": "Planned, not in the game yet",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Planned: leaves that thin out on some trees, grass that looks snowy in winter, and seasons that no longer change survival temperature. Until these ship, the game works as described above."
+      }
+     ]
+    }
+   ]
   }
  ]
 }
