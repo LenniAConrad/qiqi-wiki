@@ -892,17 +892,14 @@
     "creative",
     "survival"
    ],
-   "summary": "A small plus-shaped crosshair marks your aim and turns green-tinted when a block is in reach. With a bow, rifle or throwable it becomes a ring of dots whose size shows your current inaccuracy, shifting from orange to green as your aim steadies.",
+   "summary": "A small plus-shaped crosshair marks your aim. It inverts the colours beneath it so it stays readable over sky, grass or stone. With a bow, rifle or throwable, its four lines spread apart as your accuracy drops and close back into a plus as your aim steadies.",
    "evidence": [
-    "crates/voxelgame-render/src/reticle_ui.rs:325-345 — plus crosshair, tinted when a target exists",
-    "crates/voxelgame-render/src/reticle_ui.rs:198-271 — ring reticle sized from spread, coloured by precision",
-    "crates/voxelgame-core/src/game/readouts.rs:100-160 — ring shown for bow, rifle, throwables; sneaking and aiming steady it",
+    "crates/voxelgame-render/src/reticle_ui.rs:200-237 — accuracy gap from spread plus sway; four inverted lines drawn around the aim point",
+    "crates/voxelgame-render/src/reticle_ui.rs:280-285 — ranged weapons and throwables use the spread gap; other items keep the closed plus",
+    "crates/voxelgame-core/src/game/readouts.rs:100-160 — ranged accuracy for bow, rifle, throwables; sneaking and aiming steady it",
     "crates/voxelgame-render/src/reticle_ui.rs:305-325 — hidden in front third-person view"
    ],
-   "backlog": [
-    "VOX-OWNER-CROSSHAIR-SPREAD"
-   ],
-   "notes": "A four-line crosshair whose gap shows spread (with colour inversion) is planned to replace the ring."
+   "notes": "Changed after the audited commit dd29d91: game commit 10d7ea4 (on main) replaced the orange-to-green dotted ring and green target tint with the spreading inverted crosshair. Aircraft gun pipper rings are separate and not covered here."
   },
   {
    "id": "looking-at-card",
