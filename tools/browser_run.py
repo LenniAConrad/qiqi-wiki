@@ -241,8 +241,9 @@ def offline(client, page):
     client.navigate((ROOT / page).as_uri())
     time.sleep(0.4)
     state = client.script("return {title: document.title, styled: getComputedStyle(document.documentElement).backgroundColor,"
-                          "scripted: !!document.querySelector('#result-count') &&"
-                          " document.querySelector('#result-count').textContent.length > 0};")
+                          "scripted: !document.querySelector('script[src]') ||"
+                          " (!!document.querySelector('#result-count, #controls-count') &&"
+                          " document.querySelector('#result-count, #controls-count').textContent.length > 0)};")
     ok = bool(state["title"]) and state["styled"] not in ("", "rgba(0, 0, 0, 0)") and state["scripted"]
     print(f"{'PASS' if ok else 'FAIL'}: {page} over file:// — title {state['title']!r}, background "
           f"{state['styled']}, script ran {state['scripted']}")
@@ -250,7 +251,9 @@ def offline(client, page):
 
 
 def keyboard(client, base, page):
-    """Real key presses: '/' focuses search, typing filters, Escape clears."""
+    """Real key presses: '/' focuses search, typing filters, Escape clears.
+
+    Works on the feature ledger and on the controls reference."""
     client.size(*SIZES["desktop"])
     client.navigate(f"{base}/{page}")
     time.sleep(0.3)
@@ -258,16 +261,17 @@ def keyboard(client, base, page):
     client.keys("/")
     focused = client.script("return document.activeElement && document.activeElement.id;")
     client.keys(*"sailing")
-    filtered = client.script("return [document.querySelector('#search').value,"
-                             " document.querySelectorAll('.feature:not([hidden])').length,"
-                             " document.querySelectorAll('.feature').length];")
-    client.keys("")  # Escape
-    cleared = client.script("return [document.querySelector('#search').value,"
-                            " document.querySelectorAll('.feature:not([hidden])').length];")
-    client.keys("")  # Tab moves from search to the first status filter
+    rows = ".feature:not([hidden]), .control-row:not([hidden])"
+    field = "document.querySelector('#search, #controls-search')"
+    filtered = client.script(f"return [{field}.value, document.querySelectorAll('{rows}').length,"
+                             " document.querySelectorAll('.feature, .control-row').length];")
+    client.keys("\ue00c")  # Escape
+    cleared = client.script(f"return [{field}.value, document.querySelectorAll('{rows}').length];")
+    client.keys("\ue004")  # Tab moves from search to the first status filter (ledger only)
     tabbed = client.script("const a = document.activeElement; return a && a.closest('#filters') ? a.textContent : null;")
-    ok = (focused == "search" and filtered[0] == "sailing" and 0 < filtered[1] < filtered[2]
-          and cleared == ["", filtered[2]] and tabbed == "All")
+    has_filters = client.script("return !!document.querySelector('#filters');")
+    ok = (focused in ("search", "controls-search") and filtered[0] == "sailing" and 0 < filtered[1] < filtered[2]
+          and cleared == ["", filtered[2]] and (tabbed == "All" or not has_filters))
     print(f"{'PASS' if ok else 'FAIL'}: keyboard on {page} — '/' focused {focused!r}; 'sailing' shows "
           f"{filtered[1]} of {filtered[2]}; Escape restores {cleared[1]}; Tab reaches {tabbed!r}")
     return ok

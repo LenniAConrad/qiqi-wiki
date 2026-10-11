@@ -68,6 +68,7 @@ kbd { display: inline-block; font-family: ui-monospace, monospace; font-size: 11
 .feature-evidence p { margin: 6px 0 0; }
 
 .readiness { display: inline-block; vertical-align: 2px; margin-left: 8px; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: .4px; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); }
+.readiness-written { border-color: #4f7a58; background: #dfe9d8; color: #24452f; }
 .readiness-ready { border-color: #9fb68f; color: #24452f; }
 .readiness-blocked-planned { border-style: dashed; border-color: #b4512d; color: #8a3a1d; }
 .gap-covers { font-size: 12px !important; }

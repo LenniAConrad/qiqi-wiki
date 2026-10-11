@@ -1,0 +1,64 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+/* Player guides: shares the atlas palette and the ledger's report components. */
+.guide-page .intro-row p, .guides-index .intro-row p { max-width: 440px; }
+.guide-section { padding: 40px 0 34px; border-bottom: 1px solid var(--line); max-width: 920px; scroll-margin-top: 12px; }
+.guide-section .eyebrow { margin-bottom: 10px; }
+.guide-section h2 { font-family: var(--serif); font-size: 34px; font-weight: 400; letter-spacing: -1px; line-height: 1.15; margin: 0 0 18px; }
+.guide-section h3 { font-size: 15px; font-weight: 600; margin: 26px 0 8px; }
+.guide-section p, .guide-section li { font-size: 14px; line-height: 1.85; }
+.guide-section p { margin: 0 0 14px; max-width: 760px; }
+.guide-steps, .guide-list { max-width: 760px; margin: 0 0 18px; padding-left: 24px; }
+.guide-steps li, .guide-list li { padding: 3px 0 3px 6px; }
+.guide-steps li::marker { font-family: var(--serif); font-size: 18px; }
+.guide-section a { text-underline-offset: 3px; }
+.guide-note { max-width: 760px; margin: 18px 0; padding: 12px 16px; border-left: 3px solid var(--line); background: #f1f2ea; font-size: 13px; line-height: 1.75; }
+.guide-note strong { font-size: 10px; letter-spacing: .8px; text-transform: uppercase; }
+.guide-note-careful { border-left-color: #b4512d; background: #f6ece5; }
+.guide-note-tip { border-left-color: #4f7a58; }
+.guide-note-planned { border-left: 3px dashed #b4512d; background: transparent; }
+.guide-figure { margin: 22px 0 26px; max-width: 920px; }
+.guide-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; background: #1c2a22; }
+.guide-figure figcaption { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }
+.table-wrap { margin: 16px 0 26px; max-width: 920px; }
+.key-table, .recipe-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.recipe-table { table-layout: fixed; }
+.recipe-table th:nth-child(1) { width: 25%; }
+.recipe-table th:nth-child(2) { width: 24%; }
+.key-table caption, .recipe-table caption { text-align: left; font-family: var(--serif); font-size: 22px; padding: 0 0 10px; }
+.caption-count { font-family: var(--sans); font-size: 11px; color: var(--muted); margin-left: 8px; }
+.key-table th, .key-table td, .recipe-table th, .recipe-table td { text-align: left; vertical-align: top; padding: 9px 12px 9px 0; border-top: 1px solid var(--line); line-height: 1.65; }
+.key-table thead th, .recipe-table thead th { font-size: 10px; letter-spacing: .8px; text-transform: uppercase; color: var(--muted); font-weight: 600; border-top: 0; }
+.key-table tbody th { width: 30%; font-weight: 400; }
+.recipe-table tbody th { width: 24%; font-weight: 600; }
+.recipe-count { font-family: var(--serif); font-size: 17px; }
+.recipe-inputs { list-style: none; margin: 0; padding: 0; }
+.recipe-inputs li { font-size: 13px; line-height: 1.6; padding: 0; }
+.recipe-note { margin: 6px 0 0 !important; font-size: 12px !important; line-height: 1.7 !important; color: var(--muted); }
+.control-group { padding: 22px 0 6px; max-width: 920px; }
+.control-group h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -.4px; margin: 0 0 6px; }
+.control-modes { display: block; margin-top: 3px; font-size: 10px; letter-spacing: .8px; text-transform: uppercase; color: var(--accent); }
+.control-row[hidden], .control-group[hidden] { display: none; }
+.empty-line { color: var(--muted); font-size: 13px; }
+.guide-verification { border-bottom: 0; }
+.guide-cards { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 34px; max-width: 1100px; }
+.guide-card { border-top: 1px solid var(--line); padding: 20px 0 26px; }
+.guide-card-meta { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); }
+.guide-card h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: -.6px; line-height: 1.2; margin: 8px 0; }
+.guide-card h3 a { text-decoration: none; }
+.guide-card h3 a:hover, .guide-card h3 a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.guide-card p { font-size: 13px; line-height: 1.8; color: var(--muted); margin: 0; }
+#controls-tools { max-width: 560px; }
+@media (max-width: 760px) {
+  .guide-cards { grid-template-columns: 1fr; }
+  .guide-section h2 { font-size: 28px; }
+  .key-table thead, .recipe-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .key-table, .key-table tbody, .key-table tr, .key-table th, .key-table td,
+  .recipe-table, .recipe-table tbody, .recipe-table tr, .recipe-table th, .recipe-table td { display: block; width: auto; }
+  .key-table tbody th, .recipe-table tbody th { width: auto; padding: 12px 0 2px; border-top: 1px solid var(--line); }
+  .key-table td, .recipe-table td { border-top: 0; padding: 2px 0; }
+  .key-table td::before, .recipe-table td::before { content: attr(data-label) ": "; font-size: 10px; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); }
+  .recipe-inputs { display: inline-block; vertical-align: top; }
+  .key-table caption, .recipe-table caption { display: block; }
+  .recipe-table th:nth-child(1), .recipe-table th:nth-child(2) { width: auto; }
+  .recipe-table { table-layout: auto; }
+}

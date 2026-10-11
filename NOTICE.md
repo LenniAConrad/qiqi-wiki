@@ -31,3 +31,14 @@ explicit persistence/network limits. Sources and limitations are visible on
 scale.html. Original comparison code and all eleven naturalistic procedural
 illustrations are GPL-3.0-only under this project's existing terms. No third-party
 texture maps or proprietary Minecraft artwork are included.
+
+## Player guides — 11 October 2026
+
+`guides.html`, `guide-*.html`, `data/guides.json`, `data/recipes.json` and
+`images/guides/` are original text and data written for this project. Facts come
+from reading the Voxelgame source at the commit shown on each guide; the 37
+recipes are extracted from the game's recipe registry and rechecked by
+`tools/validate_guides.py --game`. The four screenshots are headless captures
+(1280 × 720, lossy WebP quality 80) of the original game's release build running
+against a disposable world with no packs enabled, and contain no third-party
+assets. Project GPL-3.0-only terms apply.

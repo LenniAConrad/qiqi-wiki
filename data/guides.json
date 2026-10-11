@@ -1,0 +1,986 @@
+{
+ "schema": 1,
+ "title": "Voxelgame player guides",
+ "description": "Task-based Voxelgame guides: getting started, a searchable controls reference, a first survival day and every crafting recipe, each traced to the game source.",
+ "headline": "Learn the game,<br><em>one task at a time.</em>",
+ "lead": "Short, task-based guides for what you can do in the game today. Every key, number and recipe is traced to the game's source code, and planned features stay marked as planned.",
+ "comingLead": "These guides are next, in the order players need them. Each waits on a source check and, where noted, on screenshots from a disposable headless session.",
+ "updated": "2026-10-11",
+ "guides": [
+  {
+   "id": "getting-started",
+   "page": "guide-getting-started.html",
+   "number": 1,
+   "gap": 1,
+   "kicker": "Getting started",
+   "title": "Getting started: your first session",
+   "headline": "Your first session,<br><em>from menu to saved world.</em>",
+   "summary": "The start menu, creating a world, moving, reading the screen, opening your pack, switching modes, and saving safely.",
+   "lead": "Everything you need for the first twenty minutes: starting a world, moving around, finding your pack and leaving without losing anything.",
+   "readTime": "7 min read",
+   "audience": "New players",
+   "updated": "2026-10-11",
+   "state": "complete",
+   "covers": [
+    "start-menu",
+    "worlds-page",
+    "game-modes",
+    "new-world-start",
+    "walk-and-look",
+    "mouse-capture",
+    "inventory-workspaces",
+    "hotbar-quick-slots",
+    "hud-layout",
+    "clean-view",
+    "settings-menu",
+    "escape-and-pause",
+    "saving-and-quitting",
+    "window-and-fullscreen",
+    "input-devices-and-layout"
+   ],
+   "next": [
+    "controls-reference",
+    "first-survival-day"
+   ],
+   "verification": {
+    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world.",
+    "limits": "This is a source-checked guide, not a recorded play session: nobody drove the game by keyboard for this page. Interface wording and layout can change in later game versions."
+   },
+   "sections": [
+    {
+     "id": "before",
+     "title": "Before you start",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Voxelgame is played with a keyboard and mouse only. There is no gamepad support, and keys cannot be rebound. Keys are read by position, so on an AZERTY or other layout use the keys that sit where [[W]] [[A]] [[S]] [[D]] sit on a QWERTY keyboard. {{input-devices-and-layout}}"
+      },
+      {
+       "t": "p",
+       "text": "The window opens at 1280 × 720 and cannot be made smaller than 800 × 450. Press [[F11]] or [[Alt]] + [[Enter]] to toggle borderless fullscreen; the game does not remember fullscreen between launches. {{window-and-fullscreen}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Installing and updating the game is not covered by this guide yet; it is on the list of guides still to write. On Linux, an active Pinyin input method under X11 can swallow movement keys; that problem is unresolved in the game."
+      }
+     ]
+    },
+    {
+     "id": "menu",
+     "title": "The start menu",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "images/guides/start-menu.webp",
+       "alt": "The Voxelgame start menu: a column of buttons reading Continue, Worlds, Mods, Settings, Credits, Study timer and Quit, with a wireframe cube on the left and the line 'Every shore, a new beginning'.",
+       "caption": "The start menu. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world). The panel is drawn translucent over the scene."
+      },
+      {
+       "t": "p",
+       "text": "The menu has seven entries: Continue, Worlds, Mods, Settings, Credits, Study timer and Quit. The name of the current world is shown above the buttons. {{start-menu}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Up / Down arrows",
+         "Move the selection."
+        ],
+        [
+         "Enter or click",
+         "Open the selected entry."
+        ],
+        [
+         "Esc",
+         "Go back from any sub-page to the first page."
+        ],
+        [
+         "P",
+         "Open the Study Grove focus timer (not while typing on the Worlds page)."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "[[Continue]] checks which optional mods are enabled and then enters the current world. If a mod problem is found, an error appears in a red strip and you stay on the menu.",
+        "[[Worlds]] lists your saved worlds and creates new ones (next section).",
+        "[[Mods]] turns optional content packs on or off before you enter a world.",
+        "[[Settings]] opens the same settings panel you get in a world by pressing [[Esc]]."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "The first launch shows a tumbling wireframe cube while the world loads. Later loads show only a stage text and an activity bar."
+      }
+     ]
+    },
+    {
+     "id": "world",
+     "title": "Create your first world",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Choose **Worlds** on the start menu.",
+        "Type a name. Typing both filters the list of saved worlds and names the world you are about to create.",
+        "Choose **Create world**, or press [[Enter]] while that row is selected.",
+        "Wait for the world to load; you arrive standing on the starting island."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "New worlds always open in **creative** mode: there is no seed, mode or difficulty picker. Every new world's pack already holds 12 Berries, 2 Water flasks, 1 Empty flask and 4 Alder board pieces. {{new-world-start}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "The Worlds page shows only four rows at a time and the mouse wheel does not scroll it. Use the Up and Down arrows or type to filter. Rename, backups and thumbnails are not in the game yet. {{worlds-page}}"
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "To delete a world, hold its DELETE badge, or hold the [[Delete]] key with the row selected, for 3 seconds. The world you are currently in cannot be deleted."
+      }
+     ]
+    },
+    {
+     "id": "move",
+     "title": "Look and move",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Click the world once to capture the mouse. That first click never mines or places a block. While the mouse is released (after opening a panel, pressing [[Esc]], or switching away from the window) you cannot move or look, and the game does not grab it back on its own. {{mouse-capture}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "W / A / S / D",
+         "Walk forward, left, back, right (about 4.3 m/s). You step up half-metre blocks without jumping."
+        ],
+        [
+         "Mouse",
+         "Look around."
+        ],
+        [
+         "Space",
+         "Jump about 1.25 m; hold it to jump again on every landing. A full one-metre block needs a jump."
+        ],
+        [
+         "Shift (hold)",
+         "Sneak at about 1.3 m/s; you cannot walk off an edge while sneaking."
+        ],
+        [
+         "Ctrl + W (hold)",
+         "Sprint at about 5.6 m/s."
+        ],
+        [
+         "C",
+         "Crawl through gaps 0.6 m tall; press C or Space again to stand."
+        ],
+        [
+         "F or double-tap Space",
+         "Start or stop flying (creative only). Space rises, Shift descends, Ctrl boosts."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Walking speeds do not depend on frame rate, because movement runs on a fixed 60 Hz step. {{walk-and-look}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "[[Print Screen]] releases the mouse so that you can use a system screenshot tool. The game itself has no screenshot key."
+      }
+     ]
+    },
+    {
+     "id": "hud",
+     "title": "Read the screen",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "images/guides/world-hud.webp",
+       "alt": "First-person view over a flowering meadow with a few trees. A status message is at the top left, a square compass map at the top right with a small readout of frames per second and coordinates beneath it, a crosshair in the centre and a row of ten empty hotbar slots at the bottom.",
+       "caption": "The in-game screen on a new creative world. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world)."
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Top left:** the status line. Actions report here, for example 'Collected … ×3' or 'Capacity full; block left behind'.",
+        "**Top centre:** the looking-at card, shown when you aim at a block within 6 m. [[F2]] hides or shows it.",
+        "**Top right:** the compact map, with the FPS and coordinates box beneath it. The box is on by default; turn it off in Settings > Debug.",
+        "**Middle:** the crosshair, and a small action hint under it.",
+        "**Lower left (survival only):** the four bars for health, hunger, thirst and stamina.",
+        "**Bottom:** the ten-slot hotbar and the label of the selected item."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Press [[F1]] to hide the whole HUD, the crosshair and your hands, for example before a screenshot; press it again to bring everything back. {{hud-layout}} {{clean-view}}"
+      }
+     ]
+    },
+    {
+     "id": "pack",
+     "title": "Open your pack and the hotbar",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "images/guides/inventory-build.webp",
+       "alt": "The inventory screen in creative mode. Tabs along the top read Pack, Craft, Build, Home and Journal. The Build tab is open and shows a paged grid of block icons with a search field and category buttons, and the hotbar of ten empty slots below.",
+       "caption": "The inventory in creative mode with the Build tab open. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world). The header reads 'Pack 2.5 / 80 kg'."
+      },
+      {
+       "t": "p",
+       "text": "Press [[E]] to open the inventory and press it again to close it. The tabs are Pack, Craft, Home and Journal in survival, plus Build in creative; switch with the mouse, [[Tab]] or [[Shift]] + [[Tab]]. The header always shows how much you carry out of 80 kg. {{inventory-workspaces}}"
+      },
+      {
+       "t": "h",
+       "text": "The hotbar"
+      },
+      {
+       "t": "p",
+       "text": "The hotbar has ten slots that start empty. A slot is a shortcut to an item kind, not a container, so its number is everything of that kind in your pack."
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "1 – 9, 0",
+         "Select slot 1 to 10."
+        ],
+        [
+         "Mouse wheel, [ and ]",
+         "Cycle through the slots."
+        ],
+        [
+         "Hover an item + 1 – 9 or 0",
+         "Bind that item to the slot (inventory open)."
+        ],
+        [
+         "Drag an item onto a slot",
+         "Bind it. Dragging a slot onto another swaps them; dragging a slot off the bar clears it."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "With the inventory closed, [[Tab]] cycles through the tools and weapons you carry and back to empty hands. Bindings are saved with the world. {{hotbar-quick-slots}}"
+      }
+     ]
+    },
+    {
+     "id": "modes",
+     "title": "Creative and survival",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "There are exactly two modes. Press [[F4]] at any time to switch; your pack, hotbar and position stay as they are, and each world remembers the mode you left it in. {{game-modes}}"
+      },
+      {
+       "t": "h",
+       "text": "Creative"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Blocks break instantly and placing is free; crafting is free.",
+        "The Build tab and catalog, middle-click block picking, building brushes and undo.",
+        "Flight, map travel and teleport.",
+        "Editable time, weather and season."
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Survival"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Blocks take time to mine and your pack is limited to 80 kg.",
+        "Four bars for health, hunger, thirst and stamina, shown lower left.",
+        "Falls hurt, and you eat with [[R]], drink with [[T]] and quick-craft with [[X]].",
+        "Dying returns you to your rest point and loses nothing."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Items you took from the creative catalog stay in your pack after you switch to survival. Continue with {{guide:first-survival-day|Your first survival day}}."
+      }
+     ]
+    },
+    {
+     "id": "save",
+     "title": "Pause, save and quit",
+     "blocks": [
+      {
+       "t": "figure",
+       "src": "images/guides/settings-paused.webp",
+       "alt": "The Paused settings panel with tabs General, Audio, World and Debug. Rows for field of view, horizon distance, mouse sensitivity, atmospheric fog, camera bob, frame limit, shader, GUI size and chunk fade-in are shown, with Resume, Main menu and Save and quit buttons at the bottom.",
+       "caption": "The Paused panel opened with Esc. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world)."
+      },
+      {
+       "t": "p",
+       "text": "Press [[Esc]] in the world to open Settings. The game pauses and the panel is titled 'Paused'. Esc first closes anything that is open (the pack, the large map, Study Grove), and only opens Settings when nothing is. {{settings-menu}} {{escape-and-pause}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Esc",
+         "Open Settings and release the mouse; press it again to close."
+        ],
+        [
+         "F6",
+         "Save the world right now ('World saved safely')."
+        ],
+        [
+         "Settings > Main menu",
+         "Save and return to the start menu."
+        ],
+        [
+         "Ctrl + Q, Save & quit or the window's close button",
+         "Save, then quit. If saving fails, the game stays open."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The world also autosaves about every 30 seconds whenever it has unsaved changes. Settings are stored inside each world's save, so loading another world brings back that world's settings. {{saving-and-quitting}}"
+      }
+     ]
+    }
+   ],
+   "owns": [
+    "start-menu",
+    "worlds-page",
+    "game-modes",
+    "new-world-start",
+    "walk-and-look",
+    "mouse-capture",
+    "inventory-workspaces",
+    "hotbar-quick-slots",
+    "hud-layout",
+    "clean-view",
+    "settings-menu",
+    "escape-and-pause",
+    "saving-and-quitting",
+    "window-and-fullscreen",
+    "input-devices-and-layout"
+   ],
+   "partial": [
+    "settings-menu"
+   ]
+  },
+  {
+   "id": "controls-reference",
+   "page": "guide-controls.html",
+   "number": 2,
+   "gap": 2,
+   "kicker": "Controls reference",
+   "title": "Controls reference",
+   "headline": "Every key,<br><em>and when it works.</em>",
+   "summary": "The essential keys, the keys that change meaning with context, and a searchable list of every control in the audited game.",
+   "lead": "A short list of the keys you will use all the time, then every control the audit found, grouped by what you are doing and filterable by key or action.",
+   "readTime": "3 min, then look things up",
+   "audience": "Everyone",
+   "updated": "2026-10-11",
+   "state": "complete",
+   "covers": [
+    "walk-and-look",
+    "jump",
+    "sprint",
+    "sneak-ledge-guard",
+    "crawl",
+    "swimming-diving",
+    "creative-flight",
+    "hold-to-zoom",
+    "camera-perspectives",
+    "hotbar-quick-slots",
+    "equip-tools-tab",
+    "game-modes",
+    "input-devices-and-layout",
+    "mouse-capture",
+    "saving-and-quitting"
+   ],
+   "next": [
+    "getting-started",
+    "crafting-and-recipes"
+   ],
+   "verification": {
+    "method": "The full list below is generated from the feature ledger, so each row is the key and condition recorded in that ledger entry's source audit. The essentials table was checked against the same entries.",
+    "limits": "Source-checked, not play-tested. Keys cannot be rebound in this version of the game, so this list applies to everyone."
+   },
+   "sections": [
+    {
+     "id": "essentials",
+     "title": "The keys you will use most",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "W / A / S / D",
+         "Walk. Fly horizontally in creative flight."
+        ],
+        [
+         "Mouse",
+         "Look around, once you have clicked the world to capture the pointer."
+        ],
+        [
+         "Space",
+         "Jump; rise while flying or swimming."
+        ],
+        [
+         "Shift",
+         "Sneak (ledge guard); also half-metre pieces, diving, descending and steadying a ranged weapon."
+        ],
+        [
+         "Ctrl + W",
+         "Sprint."
+        ],
+        [
+         "Left click (hold)",
+         "Mine or remove the block you aim at; hit an animal."
+        ],
+        [
+         "Right click",
+         "Place the held block (a block selected, no tool equipped); hold to draw a bow or wind up a throw."
+        ],
+        [
+         "E",
+         "Open or close the inventory."
+        ],
+        [
+         "1 – 9, 0 / wheel",
+         "Choose a hotbar slot."
+        ],
+        [
+         "Tab",
+         "Equip the next tool (inventory closed) or the next inventory tab (inventory open)."
+        ],
+        [
+         "F4",
+         "Switch between creative and survival."
+        ],
+        [
+         "R / T / X",
+         "Survival: eat, drink, quick-craft."
+        ],
+        [
+         "Esc",
+         "Close what is open, or open Settings."
+        ],
+        [
+         "F6",
+         "Save now."
+        ]
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Hold Shift while mining or placing to work on a single half-metre piece instead of a whole block."
+      }
+     ]
+    },
+    {
+     "id": "context",
+     "title": "Keys that change meaning",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Shift** is shared: sneak on the ground, half-metre mining and placing, dive in water, descend while flying, and steadier aim with a bow or rifle. {{sneak-ledge-guard}}",
+        "**Tab** equips tools when the inventory is closed and switches tabs when it is open. {{equip-tools-tab}}",
+        "**Z** zooms, but **Ctrl + Z** is undo in creative, so Z does not zoom while Ctrl is held. {{hold-to-zoom}}",
+        "**C** crawls on foot but cycles camera stations inside a vehicle or boat. {{crawl}}",
+        "**F** toggles flight in creative; in survival it only shows 'Flight is available in creative mode'. {{creative-flight}}",
+        "**F5** cycles first person, third person rear and third person front. The perspective is not saved. {{camera-perspectives}}"
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "On a non-QWERTY keyboard every key above is read by position. Use the key where it sits on a QWERTY board. {{input-devices-and-layout}}"
+      }
+     ]
+    },
+    {
+     "id": "all",
+     "title": "Every control",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Each row names the feature that owns it; follow the link for its summary and source evidence. Rows from optional packs, developer tools or features still in development carry a status label."
+      },
+      {
+       "t": "controls-all"
+      }
+     ]
+    }
+   ],
+   "owns": [
+    "jump",
+    "sprint",
+    "sneak-ledge-guard",
+    "crawl",
+    "swimming-diving",
+    "creative-flight",
+    "hold-to-zoom",
+    "camera-perspectives",
+    "equip-tools-tab"
+   ],
+   "partial": []
+  },
+  {
+   "id": "first-survival-day",
+   "page": "guide-first-survival-day.html",
+   "number": 3,
+   "gap": 3,
+   "kicker": "Survival",
+   "title": "Your first survival day",
+   "headline": "Your first survival day,<br><em>from berries to a home.</em>",
+   "summary": "Switch to survival, read the four bars, drink, eat, mine, make stone tools, cook, build a home and avoid the real dangers.",
+   "lead": "What the four bars mean, what to do in the first minutes, which crafting chain gets you tools and a roof, and what can actually hurt you.",
+   "readTime": "8 min read",
+   "audience": "New players",
+   "updated": "2026-10-11",
+   "state": "complete",
+   "covers": [
+    "game-modes",
+    "new-world-start",
+    "survival-meters",
+    "drinking-flasks",
+    "eating",
+    "mining-harvesting",
+    "mining-speed-tools",
+    "carry-capacity",
+    "stone-tools",
+    "quick-craft-x",
+    "fire-and-glass-chain",
+    "melee-attacks",
+    "animal-drops",
+    "home-crate",
+    "rest-respawn-point",
+    "trip-preparation-readout",
+    "fall-damage-hazards",
+    "death-respawn",
+    "temperature-shelter"
+   ],
+   "next": [
+    "crafting-and-recipes",
+    "controls-reference"
+   ],
+   "verification": {
+    "method": "Meter timings, damage values, recipe counts and key behaviours come from the game source at the audited commit and its own unit tests, each traced to a ledger entry.",
+    "limits": "Source-checked, not play-tested. The numbers describe this version: planned food plants, furnaces and ground items would change this guide."
+   },
+   "sections": [
+    {
+     "id": "start",
+     "title": "Switch to survival",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "New worlds begin in creative. Press [[F4]] to switch; you keep your pack, hotbar and position, and the four bars appear lower left. Every new world's pack holds 12 Berries, 2 Water flasks, 1 Empty flask and 4 Alder board pieces, and switching modes or respawning never grants more. {{new-world-start}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Items you took from the creative catalog before switching stay in your pack, so start in a fresh world if you want a true first day."
+      }
+     ]
+    },
+    {
+     "id": "bars",
+     "title": "The four bars",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "HP",
+         "Health. It regenerates slowly while both hunger and thirst stay above 65."
+        ],
+        [
+         "HUNGER",
+         "A full bar lasts about 40 minutes."
+        ],
+        [
+         "THIRST",
+         "A full bar lasts about 30 minutes."
+        ],
+        [
+         "STAMINA",
+         "Spent by sprinting, which needs more than 3% left. Resting at home refills it."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The bars do not change in creative. The starter pack is good for roughly 24 minutes of food and 21 minutes of water, which the Home tab's trip readout will tell you. {{survival-meters}} {{trip-preparation-readout}}"
+      }
+     ]
+    },
+    {
+     "id": "eat-drink",
+     "title": "Drink and eat",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "T next to water",
+         "Drink (+22 thirst) and refill every Empty flask you carry."
+        ],
+        [
+         "T away from water",
+         "Drink one carried Water flask (+35 thirst); you keep the Empty flask."
+        ],
+        [
+         "R",
+         "Eat one food: Berries first, then Venison, Raw meat, and Cooked meat last."
+        ],
+        [
+         "Click a food or flask in the Pack",
+         "Use that exact item instead."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Only four foods exist. Berries come only from the starter pack, so the renewable food is hunting, best cooked over charcoal (below). Fruit blocks and Date clusters are building blocks, not food. {{eating}} {{drinking-flasks}}"
+      }
+     ]
+    },
+    {
+     "id": "gather",
+     "title": "Mine and gather",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Hold left click on a block within 6 m. A progress bar fills and the whole one-metre block, up to eight pieces, goes straight into your pack. Hold [[Shift]] to take a single half-metre piece. Nothing drops on the ground: if the pieces do not fit, the block stays where it is and the status line says 'Capacity full; block left behind'. {{mining-harvesting}}"
+      },
+      {
+       "t": "p",
+       "text": "Your pack is limited by weight, 80 kg, not by slots. {{carry-capacity}} Any block can be mined by hand; a tool only speeds up its own material: the pickaxe about 4× on rock, glass and masonry, the hatchet about 3.6× on logs, boards and leaves, the shovel about 3.4× on loose ground. {{mining-speed-tools}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Water and other liquids cannot be collected."
+      }
+     ]
+    },
+    {
+     "id": "tools",
+     "title": "Make your first tools",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Mine a log piece from a tree and open the inventory with [[E]], then the **Craft** tab.",
+        "Choose one of the 'Split … boards' recipes: one log piece makes four board pieces.",
+        "Mine stone blocks; any of the 26 natural stones counts.",
+        "Craft a Stone hatchet, Stone pickaxe or Stone shovel, then the sword if you want to hunt. Crafting a tool equips it automatically."
+       ]
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Stone sword",
+        "Stone pickaxe",
+        "Stone hatchet",
+        "Stone shovel"
+       ]
+      },
+      {
+       "t": "p",
+       "text": "There is a single tool tier, and tools never wear out. There is no workbench: everything is crafted from the Craft tab. {{stone-tools}}"
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Do not press [[X]] to quick-craft with the starter kit. It crafts the first affordable recipe in list order, so with only boards in your pack it burns your four boards into two Charcoal. {{quick-craft-x}}"
+      }
+     ]
+    },
+    {
+     "id": "food",
+     "title": "Hunt, cook and fill flasks",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Animals never attack you. Left click one to hit it: a bare hand or ordinary tool deals 12 damage and the Stone sword deals 28. In survival what it drops goes straight into your pack; drops that do not fit are lost. {{melee-attacks}} {{animal-drops}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Burn a charcoal pile",
+        "Cook raw meat",
+        "Roast venison",
+        "Blow glass flasks",
+        "Fire glass"
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Fire work is crafting, not a placed furnace or campfire: it works anywhere. Raw meat restores 8 hunger and Cooked meat 30, and one Venison roasts into two Cooked meat. {{fire-and-glass-chain}}"
+      }
+     ]
+    },
+    {
+     "id": "home",
+     "title": "Build a home and rest",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Stand on dry, solid ground, open the **Home** tab and choose **Establish home**. It costs 8 board pieces and places a small crate 1.5 m beside you.",
+        "Move items to and from the crate by clicking rows in the Home tab; it holds up to 400 kg while you are within 6 m. Shift + click moves as many as fit.",
+        "Build a roof with cover on at least two sides next to the crate, then choose **Rest / set respawn** there."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Resting sets your respawn point and refills stamina; it does not heal or feed you. Leaves and tree trunks count as cover, plants and water do not. {{home-crate}} {{rest-respawn-point}}"
+      }
+     ]
+    },
+    {
+     "id": "danger",
+     "title": "What can hurt you",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Falls:** up to 3 m is free, each extra metre costs 5 HP, so about 23 m is fatal from full health. Only landing on solid ground counts. {{fall-damage-hazards}}",
+        "**Starvation and thirst** when the bars run empty.",
+        "**Extreme cold** only at very high altitude, and **explosions**. No drowning, lava, fire or hostile animals exist in this version.",
+        "**Death** respawns you at once at your rest point (the world's start until you rest at home) and you lose nothing. {{death-respawn}}"
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Body temperature is never shown and, with this version's numbers, heat damage cannot happen. {{temperature-shelter}}"
+      }
+     ]
+    },
+    {
+     "id": "planned",
+     "title": "Not in the game yet",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Planting and growing food, a placeable furnace with smelting and metal tools, visible items on the ground, a larger pack and achievements are planned but absent from this version. They are tracked in the {{planned-planting-food-plants|feature ledger}} and will get their own guide only after they ship."
+      }
+     ]
+    }
+   ],
+   "owns": [
+    "survival-meters",
+    "drinking-flasks",
+    "eating",
+    "mining-harvesting",
+    "mining-speed-tools",
+    "carry-capacity",
+    "stone-tools",
+    "melee-attacks",
+    "animal-drops",
+    "home-crate",
+    "rest-respawn-point",
+    "trip-preparation-readout",
+    "fall-damage-hazards",
+    "death-respawn",
+    "temperature-shelter"
+   ],
+   "partial": [
+    "melee-attacks",
+    "animal-drops",
+    "home-crate"
+   ]
+  },
+  {
+   "id": "crafting-and-recipes",
+   "page": "guide-crafting.html",
+   "number": 4,
+   "gap": 4,
+   "kicker": "Crafting",
+   "title": "Crafting and recipes",
+   "headline": "Crafting,<br><em>all 37 recipes.</em>",
+   "summary": "How the Craft tab works, which ingredients can be mixed, the quick-craft trap, and the complete recipe list with amounts.",
+   "lead": "There is no workbench: every recipe is crafted from the pack. This guide explains the panel and lists every recipe with its exact amounts.",
+   "readTime": "5 min, then look things up",
+   "audience": "Everyone",
+   "updated": "2026-10-11",
+   "state": "complete",
+   "covers": [
+    "crafting-panel",
+    "crafting-recipes",
+    "ingredient-groups",
+    "quick-craft-x",
+    "fire-and-glass-chain",
+    "lumen-crystal-supply",
+    "stone-tools"
+   ],
+   "next": [
+    "first-survival-day",
+    "controls-reference"
+   ],
+   "verification": {
+    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at the audited commit; tools/validate_guides.py can recheck all 37 names, sections and amounts against a source snapshot.",
+    "limits": "Source-checked, not play-tested. Amounts are carried pieces: 8 pieces make one full one-metre block. Recipes for furnaces, smelting and metal tools do not exist yet."
+   },
+   "sections": [
+    {
+     "id": "panel",
+     "title": "How the Craft tab works",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Open the inventory with [[E]] and choose **Craft**. Recipes are grouped into four sections: Timber, Fire & food, Materials and Tools & arms. Each ingredient shows as carried / required. Everything is crafted anywhere, with no workbench, fire or furnace. {{crafting-panel}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Up / Down arrows, mouse wheel",
+         "Select a recipe."
+        ],
+        [
+         "Left / Right arrows, or click a section",
+         "Change section."
+        ],
+        [
+         "Enter or C, or click Craft",
+         "Craft once."
+        ],
+        [
+         "Shift + Enter, Shift + C or Shift + click",
+         "Craft repeatedly until materials or space run out (at most 256 batches)."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "In survival the ingredients are spent and the result needs room in the pack. Failures read 'Missing materials for …' or 'Not enough free carry capacity'.",
+        "In creative the ingredients are free ('Creative: ingredients are free').",
+        "A crafted tool is equipped at once and a crafted boat is selected.",
+        "You cannot open the inventory while inside a vehicle."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Counts are half-metre pieces. One full one-metre block is 8 pieces, so a recipe that needs 8 of a material needs one block of it."
+      }
+     ]
+    },
+    {
+     "id": "groups",
+     "title": "Which ingredients can be mixed",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A few ingredients accept a whole group of materials, and you can mix the members freely. {{ingredient-groups}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Boards:** any species (Alder, Birch or Pine).",
+        "**Natural stone:** any of 26 natural stones.",
+        "**Hardwood or deadwood:** any hardwood log or deadwood.",
+        "**Plant fiber or Wool.**"
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Every other ingredient must be that exact material: Pale sand (not other sands), River clay (not ochre, umber, sienna, cracked or banded clay), Reeds (not Tall reeds), Limestone, Granite, Natural cobble, Moss, Chalk, Basalt, Red ironstone, Glass, Feather, Raw meat, Venison and Lumen crystal."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Not usable as natural stone: Magma stone, Iron ore chunks, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyserite and any crafted masonry."
+      }
+     ]
+    },
+    {
+     "id": "quick",
+     "title": "Quick craft with X",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "With the inventory closed, [[X]] crafts the first recipe you can currently afford, in list order, not the recipe you last selected. In creative it only shows a message. {{quick-craft-x}}"
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "The list starts with the four log-splitting recipes and then 'Burn a charcoal pile'. With boards but no logs, X turns four boards into two Charcoal."
+      }
+     ]
+    },
+    {
+     "id": "chain",
+     "title": "Fire, glass and cooking",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Fire work is crafting, not a placed furnace: burn 4 boards into 2 Charcoal, then spend Charcoal to cook meat, fire Pale sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer. Fill flasks by pressing [[T]] at water. {{fire-and-glass-chain}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Besides the 'Fire glass' recipe, the Survey workshop landmark's one-time find gives 8 Glass."
+      }
+     ]
+    },
+    {
+     "id": "recipes",
+     "title": "All 37 recipes",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Every recipe in this version, in the order the Craft tab shows them. Each makes the stated amount from the stated inputs in one craft."
+      },
+      {
+       "t": "recipes"
+      }
+     ]
+    },
+    {
+     "id": "lumen",
+     "title": "Recipes survival cannot finish yet",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Red lantern, Alder rifle, Four rifle rounds, TNT charge and Two dynamite sticks each need Lumen crystal, which does not generate naturally in the world, so a survival player cannot gather enough. They work in creative, or in survival with crystals carried over from creative by pressing [[F4]]. {{lumen-crystal-supply}}"
+      },
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "A placeable furnace or campfire, smelting, metal tools and tool durability are planned and have no recipes in this version."
+      }
+     ]
+    }
+   ],
+   "owns": [
+    "crafting-panel",
+    "crafting-recipes",
+    "ingredient-groups",
+    "quick-craft-x",
+    "fire-and-glass-chain",
+    "lumen-crystal-supply"
+   ],
+   "partial": []
+  }
+ ]
+}

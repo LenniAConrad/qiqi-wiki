@@ -1,0 +1,73 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="en"><meta charset="utf-8"><title>Player guide browser checks</title>
+<style>body{font:14px monospace}iframe{display:block;width:1280px;height:900px;border:0}pre{white-space:pre-wrap}</style>
+<h1>Player guide browser checks</h1><pre id="report">Running…</pre><iframe title="Guide under test"></iframe>
+<script>
+'use strict';
+// Serve the repository root (python3 -m http.server) and open this page, or
+// run python3 tools/browser_run.py --check tools/guides_browser_checks.html
+const frame=document.querySelector('iframe'),report=document.querySelector('#report'),results=[];
+const delay=()=>new Promise(resolve=>setTimeout(resolve,60));
+function check(ok,message){results.push({passed:!!ok,message});if(!ok)throw Error(message);}
+const open=src=>new Promise(resolve=>{frame.addEventListener('load',()=>resolve(frame.contentDocument),{once:true});frame.src=src;});
+(async()=>{
+try {
+ const guides=(await (await fetch('../data/guides.json')).json()).guides;
+ const recipes=(await (await fetch('../data/recipes.json')).json()).recipes;
+ const ledger=await (await fetch('../data/features.json')).json();
+ const featureIds=new Set(ledger.features.map(f=>f.id));
+ const index=await open('../guides.html');
+ check(index.querySelectorAll('.guide-card').length===guides.length,'The index lists every guide once');
+ for(const guide of guides) check([...index.querySelectorAll('.guide-card a')].some(a=>a.getAttribute('href')===guide.page),`The index links ${guide.page}`);
+ check(index.querySelector('nav[aria-label=Main] a[aria-current=page]').textContent==='Guides','The index marks Guides as the current page');
+ for(const guide of guides){
+  const d=await open('../'+guide.page),w=frame.contentWindow,q=selector=>d.querySelector(selector);
+  const name=guide.page;
+  check(q('h1')&&d.querySelectorAll('h1').length===1,`${name} has exactly one h1`);
+  const levels=[...d.querySelectorAll('h1,h2,h3,h4')].map(node=>Number(node.tagName[1]));
+  check(levels.every((level,at)=>at===0||level<=levels[at-1]+1),`${name}: heading levels never skip`);
+  check(d.documentElement.scrollWidth<=d.documentElement.clientWidth,`${name}: no horizontal overflow at desktop width`);
+  for(const section of guide.sections) check(q('#'+section.id)&&q('nav[aria-label="On this page"] a[href="#'+section.id+'"]'),`${name}: section ${section.id} is in the page contents`);
+  const imgs=[...d.querySelectorAll('img')];
+  for(const img of imgs){
+   img.loading='eager';
+   await new Promise(done=>img.complete?done():img.addEventListener('load',done));
+   check(img.naturalWidth>0&&img.alt.length>=20,`${name}: ${img.getAttribute('src')} loads and has descriptive alt text`);
+   check(img.closest('figure').querySelector('figcaption'),`${name}: ${img.getAttribute('src')} has a caption`);
+  }
+  for(const table of d.querySelectorAll('table')) check(table.querySelector('thead th[scope=col]')&&table.querySelector('tbody th[scope=row]'),`${name}: tables have column and row headers`);
+  for(const a of d.querySelectorAll('a[href*="features.html#f-"]')) check(featureIds.has(a.getAttribute('href').split('#f-')[1]),`${name}: ledger link ${a.getAttribute('href')} resolves`);
+  check(q('#verification')&&q('#verification').textContent.includes('Voxelgame main'),`${name} states the audited game commit`);
+ }
+ const crafting=await open('../guide-crafting.html');
+ check(crafting.querySelectorAll('.recipe-table tbody tr').length===recipes.length,`The crafting guide lists all ${recipes.length} recipes`);
+ const names=[...crafting.querySelectorAll('.recipe-table tbody th')].map(node=>node.textContent);
+ const order=['timber','fire','materials','tools'],expected=order.flatMap(key=>recipes.filter(recipe=>recipe.section===key));
+ check(names.join('|')===expected.map(recipe=>recipe.name).join('|'),'Recipes appear grouped by Craft tab section, in registry order');
+ const controls=await open('../guide-controls.html'),w=frame.contentWindow,q=selector=>controls.querySelector(selector);
+ const rows=()=>[...controls.querySelectorAll('.control-row')],shown=()=>rows().filter(row=>!row.hidden);
+ const type=async value=>{const input=q('#controls-search');input.value=value;input.dispatchEvent(new w.Event('input',{bubbles:true}));await delay();};
+ const total=ledger.features.reduce((sum,f)=>sum+(f.controls?f.controls.length:0),0);
+ check(rows().length===total,`Every one of the ${total} ledger controls is a row`);
+ check(!q('#controls-tools').hidden,'The control filter appears when scripts run');
+ check(q('#controls-count').getAttribute('role')==='status'&&q('#controls-count').textContent===`${total} controls`,'The live count announces the total');
+ await type('sprint');
+ check(shown().length>0&&shown().length<total&&shown().every(row=>row.dataset.search.includes('sprint')),'Typing filters to matching controls');
+ check([...controls.querySelectorAll('.control-group')].every(group=>group.hidden===!group.querySelector('.control-row:not([hidden])')),'Groups with no match are hidden');
+ await type('zzqx-no-such-key');
+ check(shown().length===0&&!q('#controls-empty').hidden,'An unmatched filter shows the empty message');
+ await type('');
+ check(shown().length===total&&q('#controls-empty').hidden,'Clearing the filter restores every control');
+ q('#controls-search').blur();
+ controls.dispatchEvent(new w.KeyboardEvent('keydown',{key:'/',bubbles:true}));
+ check(controls.activeElement===q('#controls-search'),'Slash focuses the control filter');
+ report.textContent=`PASS: ${results.length} checks\n`+results.map(result=>'✓ '+result.message).join('\n');
+ report.dataset.done='pass';
+} catch(error) {
+ report.textContent=`FAIL: ${error.message}\n`+results.map(result=>(result.passed?'✓ ':'✗ ')+result.message).join('\n');
+ report.dataset.done='fail';
+}
+})();
+</script>
+</html>

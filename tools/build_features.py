@@ -15,6 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "features.json"
+GUIDES = ROOT / "data" / "guides.json"
 PAGE = ROOT / "features.html"
 REPOSITORY_NOTE = "private game repository"
 
@@ -23,6 +24,7 @@ NAV = (
     ("animals.html", "Animals"),
     ("islands.html", "Islands"),
     ("villages.html", "Village"),
+    ("guides.html", "Guides"),
     ("features.html", "Features"),
     ("performance.html", "Performance"),
     ("scale.html", "Scale"),
@@ -108,6 +110,14 @@ def feature_html(feature, area, statuses, guide_states):
     return "".join(rows)
 
 
+def written_guides():
+    """Map ranked gap number to the guide that fills it, when guides exist."""
+    if not GUIDES.is_file():
+        return {}
+    guides = json.loads(GUIDES.read_text(encoding="utf-8"))["guides"]
+    return {guide["gap"]: guide for guide in guides if "gap" in guide}
+
+
 def render_page(ledger):
     statuses = {status["key"]: status for status in ledger["statuses"]}
     guide_states = {state["key"]: state for state in ledger["guideStates"]}
@@ -191,10 +201,18 @@ def render_page(ledger):
         '<div class="eyebrow">02 / WRITING ORDER</div><h2 id="next-guides-title">The guides players need next.</h2></div>'
         f'<p class="report-lead">{text(ledger["gapsLead"])}</p><ol class="priority-list gap-list">')
     by_id = {feature["id"]: feature for feature in features}
+    written = written_guides()
     for gap in sorted(ledger["guideGaps"], key=lambda item: item["rank"]):
         covered = ", ".join(f'<a href="#f-{attr(item)}">{text(by_id[item]["name"])}</a>' for item in gap["covers"])
-        add(f'<li><h3>{text(gap["title"])} <span class="readiness readiness-{attr(gap["readiness"])}">'
-            f'{text(ledger["readiness"][gap["readiness"]])}</span></h3><p>{text(gap["why"])}</p>'
+        guide = written.get(gap["rank"])
+        if guide:
+            badge = (f'<span class="readiness readiness-written">Written</span>')
+            title = f'<a href="{attr(guide["page"])}">{text(gap["title"])}</a>'
+        else:
+            badge = (f'<span class="readiness readiness-{attr(gap["readiness"])}">'
+                     f'{text(ledger["readiness"][gap["readiness"]])}</span>')
+            title = text(gap["title"])
+        add(f'<li><h3>{title} {badge}</h3><p>{text(gap["why"])}</p>'
             f'<p class="gap-covers">Covers: {covered}</p></li>')
     add("</ol></section>\n")
 

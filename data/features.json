@@ -162,8 +162,9 @@
    ],
    "notes": "Creative: instant breaking and free placing, free crafting, any tool and unlimited ammunition, the Build tab and catalog, building brushes and undo, middle-click block picking, flight, map travel and teleport, editable time/weather/season, one-hit animal removal without drops. Survival: timed mining with tool advice, carry capacity, health/hunger/thirst/stamina/temperature with HUD bars, fall damage, R eat / T drink / X quick craft, World tab read-only, respawn at your rest point. No hardcore, peaceful or difficulty settings exist (grep found none).",
    "guide": {
-    "state": "none",
-    "next": "Getting started: your first session"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -203,10 +204,11 @@
     "VOX-OWNER-START-TITLE",
     "VOX-OWNER-LOADING-SPLASH"
    ],
-   "notes": "Continue first checks the enabled mods; an error appears in a red strip and keeps you on the menu. The first launch shows a tumbling wireframe-cube loading animation; later world loads show only the stage text and an activity bar. The menu background is a dark fill with the cube mark, not a view of your world.",
+   "notes": "Continue first checks the enabled mods; an error appears in a red strip and keeps you on the menu. The first launch shows a tumbling wireframe-cube loading animation; later world loads show only the stage text and an activity bar. The source audit read the menu background as a dark fill with the cube mark; a headless capture of the audited build shows the menu panel drawn over a lit world scene with the cube, so the background of a real window is unconfirmed.",
    "guide": {
-    "state": "none",
-    "next": "Getting started: your first session"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -259,7 +261,12 @@
     "VOX-OWNER-WORLDS-FAVOURITES",
     "VOX-OWNER-WORLDS-SCREENSHOTS"
    ],
-   "notes": "There is no seed, mode or option picker: new worlds always start in creative. Only four rows show and the mouse wheel does not scroll this list, so use the arrows or type to filter. No rename, backup, favourites or thumbnails yet (planned)."
+   "notes": "There is no seed, mode or option picker: new worlds always start in creative. Only four rows show and the mouse wheel does not scroll this list, so use the arrows or type to filter. No rename, backup, favourites or thumbnails yet (planned).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "settings-menu",
@@ -310,7 +317,12 @@
     "crates/voxelgame-core/src/game/music_settings.rs:166-284 — keyboard, chip, slider, button and right-click handling",
     "crates/voxelgame-render/src/menus_ui.rs:294-450 — layout, tooltips and button labels"
    ],
-   "notes": "Settings live inside each world's save, so loading another world brings back that world's settings, and Create world copies the current ones. Hover a row label for a tooltip. Right-click stepping is undocumented."
+   "notes": "Settings live inside each world's save, so loading another world brings back that world's settings, and Create world copies the current ones. Hover a row label for a tooltip. Right-click stepping is undocumented.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "escape-and-pause",
@@ -333,7 +345,12 @@
     "crates/voxelgame-core/src/game.rs:773-788 — Study Grove, start menu, large map and Settings return before the world advances",
     "crates/voxelgame-core/src/game.rs:799-812 — Study Grove, start menu, large map and Settings return before the world advances"
    ],
-   "notes": "Esc closes the whole pack panel even while typing in its search box (use Enter to leave a search field)."
+   "notes": "Esc closes the whole pack panel even while typing in its search box (use Enter to leave a search field).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "mouse-capture",
@@ -366,8 +383,9 @@
    ],
    "notes": "Print Screen does not take a screenshot itself; the game has no screenshot key. If the system refuses the pointer grab, controls stay released with a message.",
    "guide": {
-    "state": "none",
-    "next": "Getting started: your first session"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -409,8 +427,9 @@
    ],
    "notes": "Mod toggles are also saved immediately.",
    "guide": {
-    "state": "none",
-    "next": "Getting started: your first session"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -438,7 +457,12 @@
     "VOX-OWNER-WINDOW-TITLE",
     "VOX-OWNER-DISPLAY-AWAKE"
    ],
-   "notes": "Fullscreen is not remembered between launches (no saved window state found). The owner plans a plain 'voxelgame' title and keeping the display awake; neither is present."
+   "notes": "Fullscreen is not remembered between launches (no saved window state found). The owner plans a plain 'voxelgame' title and keeping the display awake; neither is present.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "input-devices-and-layout",
@@ -455,7 +479,12 @@
     "src/input_adapter.rs:127-134 — only left, right and middle mouse buttons (Back/Forward ignored)",
     "crates/voxelgame-core/src/input.rs:14-133 — the complete key set (no F10, F12 or letters such as H, I, J, K, N, O, U, Y)"
    ],
-   "notes": "Known Linux issue: an active Pinyin input method on X11 can swallow movement keys (unresolved). Because key repeat is ignored, holding Backspace deletes one character; Ctrl+Backspace clears the Worlds search and map coordinate fields. Non-ASCII characters are dropped from names and searches (chat accepts printable ASCII). Known issue: on X11, a Pinyin input method can swallow movement keys; a reliable fix is not verified yet (game TODO.md)."
+   "notes": "Known Linux issue: an active Pinyin input method on X11 can swallow movement keys (unresolved). Because key repeat is ignored, holding Backspace deletes one character; Ctrl+Backspace clears the Worlds search and map coordinate fields. Non-ASCII characters are dropped from names and searches (chat accepts printable ASCII). Known issue: on X11, a Pinyin input method can swallow movement keys; a reliable fix is not verified yet (game TODO.md).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "new-world-start",
@@ -481,8 +510,9 @@
    ],
    "notes": "There is no mode picker when creating a world. Switching modes or respawning never grants more supplies, and items taken from the creative catalog stay in the pack after switching to survival.",
    "guide": {
-    "state": "none",
-    "next": "Getting started: your first session"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -540,8 +570,9 @@
    ],
    "notes": "Keys are physical positions: on AZERTY or other layouts use the key that sits where W is on a QWERTY board. Jumps mostly keep their take-off direction. Movement runs on a fixed 60 Hz tick, so speed does not depend on frame rate.",
    "guide": {
-    "state": "none",
-    "next": "Getting started: your first session"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -570,8 +601,9 @@
     "crates/voxelgame-core/src/player.rs:499-501 — Space cancels a crawl request"
    ],
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -602,8 +634,9 @@
    ],
    "notes": "Ctrl with only A, D or S held does not sprint. High speed also widens the view slightly (see camera-bob-and-speed-fov).",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -630,8 +663,9 @@
    ],
    "notes": "Shift is shared: it also switches mining/placing to half-metre pieces, dives while swimming, descends while flying and steadies ranged weapons.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -661,8 +695,9 @@
    ],
    "notes": "Inside a vehicle C changes camera instead. You cannot jump while crawling.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -701,8 +736,9 @@
    ],
    "notes": "Ankle-deep wading stays upright. No drowning or air meter was found in this code (grep drown/breath/oxygen); being underwater only drains stamina slowly in survival.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -748,8 +784,9 @@
    ],
    "notes": "In survival, F only shows 'Flight is available in creative mode'. Touching the ground does not end flight.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -779,8 +816,9 @@
    ],
    "notes": "Ctrl+Z is undo in creative, so Z does not zoom while Ctrl is held.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -811,8 +849,9 @@
    ],
    "notes": "The perspective is not saved; every session starts in first person.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -852,7 +891,12 @@
     "crates/voxelgame-render/src/hud.rs:353-395 — action hint below the crosshair (vehicle hints in a lower-left panel)",
     "crates/voxelgame-core/src/ui.rs:529-544 — compact map top-right, looking-at card top-centre"
    ],
-   "notes": "Opening a menu hides the gameplay HUD. The hotbar disappears while you drive a mod vehicle. Status messages stay until replaced."
+   "notes": "Opening a menu hides the gameplay HUD. The hotbar disappears while you drive a mod vehicle. Status messages stay until replaced.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "crosshair-and-reticle",
@@ -924,7 +968,12 @@
     "crates/voxelgame-render/src/viewmodel.rs:382 — first-person hands/tools hidden",
     "crates/voxelgame-render/src/highlight.rs:21 — block highlight hidden"
    ],
-   "notes": "Not saved; every load starts with the HUD shown."
+   "notes": "Not saved; every load starts with the HUD shown.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "fps-coordinates-readout",
@@ -1004,8 +1053,9 @@
    ],
    "notes": "Meters do not change in creative. There is no drowning: being underwater only slows stamina recovery.",
    "guide": {
-    "state": "none",
-    "next": "Your first survival day"
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
    }
   },
   {
@@ -1035,8 +1085,9 @@
    ],
    "notes": "Only four foods exist. Berries come only from the starter pack (no bushes); renewable food is hunting, ideally cooked with Charcoal. Fruit block and Date cluster are building blocks and cannot be eaten. No food poisoning.",
    "guide": {
-    "state": "none",
-    "next": "Your first survival day"
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
    }
   },
   {
@@ -1066,8 +1117,9 @@
    ],
    "notes": "More flasks: 'Blow glass flasks' (8 Glass + 1 Charcoal -> 2 Empty flasks). Each filled flask weighs 0.75 kg vs 0.30 kg empty, so filling needs pack room.",
    "guide": {
-    "state": "none",
-    "next": "Your first survival day"
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
    }
   },
   {
@@ -1084,7 +1136,12 @@
     "crates/voxelgame-core/src/game/home.rs:293 — Home tab shows 'Temperature: X C ambient'",
     "search: grep 'survival.temperature' crates/voxelgame-render — body temperature is not drawn on the HUD"
    ],
-   "notes": "With these numbers heat damage cannot happen (air peaks around 32 C) and cold damage needs very high altitude (roughly 600 m up on a rainy winter night, more otherwise). Body temperature itself is never displayed. Hot blocks such as Magma stone or Boiling water do not hurt."
+   "notes": "With these numbers heat damage cannot happen (air peaks around 32 C) and cold damage needs very high altitude (roughly 600 m up on a rainy winter night, more otherwise). Body temperature itself is never displayed. Hot blocks such as Magma stone or Boiling water do not hurt.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
+   }
   },
   {
    "id": "fall-damage-hazards",
@@ -1100,7 +1157,12 @@
     "crates/voxelgame-core/src/entities/mod.rs:1869-1872 — animals keep a non-hostile distance",
     "crates/voxelgame-core/src/game.rs:2025-2041 — mod-pack artillery shells can also hurt you"
    ],
-   "notes": "No drowning, lava, fire, cactus or hostile-mob damage exists in this snapshot. Fall damage only applies when landing on solid ground."
+   "notes": "No drowning, lava, fire, cactus or hostile-mob damage exists in this snapshot. Fall damage only applies when landing on solid ground.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
+   }
   },
   {
    "id": "death-respawn",
@@ -1117,7 +1179,12 @@
     "crates/voxelgame-core/src/game/home.rs:519-533 — test: items kept after respawn",
     "crates/voxelgame-core/src/game.rs:1515-1519 — falling below -10000 m also returns you"
    ],
-   "notes": "The default rest point is where the world started. Establishing a home does not move it; only Rest does. When connected to a server, the client does not apply death (multiplayer is in development)."
+   "notes": "The default rest point is where the world started. Establishing a home does not move it; only Rest does. When connected to a server, the client does not apply death (multiplayer is in development).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
+   }
   },
   {
    "id": "home-crate",
@@ -1158,7 +1225,9 @@
    ],
    "notes": "One home at a time; to move it, empty storage and Pack up. If the crate is destroyed (e.g. by TNT) the stored items are kept and Establish home within 6 m of the old spot repairs it. Pack up refunds Alder boards even if you paid with other species. Your rest point stays after packing up.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day",
     "next": "Your first survival day"
    }
   },
@@ -1178,8 +1247,9 @@
    ],
    "notes": "Leaves and tree trunks count as solid cover; plants and water do not. The shelter check runs when you press Rest; its temperature effect is re-checked every 0.5 s.",
    "guide": {
-    "state": "none",
-    "next": "Your first survival day"
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
    }
   },
   {
@@ -1196,7 +1266,12 @@
     "crates/voxelgame-core/src/game/home.rs:259-295 — preparation lines",
     "crates/voxelgame-render/src/inventory_ui.rs:526-531 — drawn in two columns"
    ],
-   "notes": "Shelter readout: 'sheltered', 'roofed, exposed sides' or 'exposed; build a roof'. The starter pack reads about 24 min of food and 21 min of water."
+   "notes": "Shelter readout: 'sheltered', 'roofed, exposed sides' or 'exposed; build a roof'. The starter pack reads about 24 min of food and 21 min of water.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
+   }
   },
   {
    "id": "planned-achievements-progression",
@@ -1268,8 +1343,9 @@
    ],
    "notes": "The header always shows 'Pack <mass> / <capacity> kg'. Journal is covered by the world/maps audit.",
    "guide": {
-    "state": "none",
-    "next": "Getting started: your first session"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -1291,7 +1367,12 @@
    "backlog": [
     "VOX-OWNER-INVENTORY-CAPACITY-1000"
    ],
-   "notes": "The same 80 kg pack is used in creative: taking catalog items is capacity-limited, but creative block placement does not use up items. The owner-requested capacity of 1000 is planned, not implemented."
+   "notes": "The same 80 kg pack is used in creative: taking catalog items is capacity-limited, but creative block placement does not use up items. The owner-requested capacity of 1000 is planned, not implemented.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
+   }
   },
   {
    "id": "pack-items-list",
@@ -1397,8 +1478,9 @@
    ],
    "notes": "Slots are bindings, not containers: the count is everything of that kind in the pack. Bindings are saved with the world. Selecting a block slot puts away any tool, since an equipped tool blocks placement. With an empty slot selected the label reads 'EMPTY HANDS | E OPEN INVENTORY'.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
    }
   },
   {
@@ -1425,8 +1507,9 @@
    ],
    "notes": "'Tools' for cycling include the stone tools, Alder bow, Alder rifle, Throwing rocks, Dynamite and spawn eggs.",
    "guide": {
-    "state": "none",
-    "next": "Controls reference"
+    "state": "complete",
+    "page": "guide-controls.html",
+    "label": "Controls reference"
    }
   },
   {
@@ -1512,8 +1595,9 @@
    ],
    "notes": "Survival: ingredients are consumed and the output needs pack room; failures say 'Missing materials for <recipe>' or 'Not enough free carry capacity'. Creative: ingredients are free ('Creative: ingredients are free'). Crafted tools are equipped; a crafted boat is selected. You cannot open the inventory while in a vehicle. The creative Build tab buttons Timber/Masonry/Coastal/Garden are hotbar material palettes, not crafting stations.",
    "guide": {
-    "state": "none",
-    "next": "Your first survival day"
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
    }
   },
   {
@@ -1537,8 +1621,9 @@
    ],
    "notes": "Recipe order starts with the four log-splitting recipes, then 'Burn a charcoal pile'. X always picks the earliest affordable recipe: with boards but no logs that is 'Burn a charcoal pile', so pressing X with the starter kit turns its 4 boards into 2 Charcoal instead of a hatchet.",
    "guide": {
-    "state": "none",
-    "next": "Crafting and recipes"
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
    }
   },
   {
@@ -1557,8 +1642,9 @@
    ],
    "notes": "Hide has no recipe use. Fruit block and Date cluster are building blocks, not food. Iron ore chunks and Bog iron have no recipe use; there is no smelting.",
    "guide": {
-    "state": "none",
-    "next": "Crafting and recipes"
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
    }
   },
   {
@@ -1579,8 +1665,9 @@
    ],
    "notes": "Exact-only ingredients include Pale sand (not other sands), River clay (not ochre/umber/sienna/cracked/banded clay), Reeds (not Tall reeds), Limestone (plaster), Granite (polish), Natural cobble and Moss (mossy cobble), Chalk, Basalt, Red ironstone, Glass, Feather, Raw meat, Venison, Lumen crystal. Not usable as natural stone: Magma stone, Iron ore chunks, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyserite and all crafted masonry. Mixed species keep their own identity in the pack until spent.",
    "guide": {
-    "state": "none",
-    "next": "Crafting and recipes"
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
    }
   },
   {
@@ -1603,8 +1690,9 @@
    ],
    "notes": "Glass in survival comes from the 'Fire glass' recipe (24 Pale sand + 1 Charcoal -> 16 Glass) or the Survey workshop find (8 Glass). Placed glass mined with any tool returns Glass pieces.",
    "guide": {
-    "state": "none",
-    "next": "Crafting and recipes"
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
    }
   },
   {
@@ -1624,8 +1712,9 @@
    ],
    "notes": "These recipes work in creative (free ingredients) or with crystals carried over from creative via F4. Glow lichen and Amethyst clusters glow but are not Lumen crystal.",
    "guide": {
-    "state": "none",
-    "next": "Crafting and recipes"
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
    }
   },
   {
@@ -1662,8 +1751,9 @@
    ],
    "notes": "Water and other liquids cannot be collected. Creative mining collects nothing and can be undone. Feedback is a status-line message plus flying chips; there is no on-block crack animation and no pickup feed.",
    "guide": {
-    "state": "none",
-    "next": "Your first survival day"
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
    }
   },
   {
@@ -1679,7 +1769,12 @@
     "crates/voxelgame-core/src/world/block.rs:226-350 — wooden, loose-ground and rock classes",
     "crates/voxelgame-core/src/game.rs:2226-2290 — mining time = hardness / tool multiplier; changing tool or target resets progress"
    ],
-   "notes": "The time is for the whole targeted 1 m block; detail (Shift) mining takes the same time for one piece. Petal carpet and Leaf litter are plants that a shovel speeds up; Bamboo and Date clusters are plants a hatchet speeds up."
+   "notes": "The time is for the whole targeted 1 m block; detail (Shift) mining takes the same time for one piece. Petal carpet and Leaf litter are plants that a shovel speeds up; Bamboo and Date clusters are plants a hatchet speeds up.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
+   }
   },
   {
    "id": "tree-felling",
@@ -1720,8 +1815,9 @@
    ],
    "notes": "No wooden or iron tier exists. The Stone sword has no mining bonus. Bow, rifle, throwing rocks and dynamite are covered by the combat audit; their recipes are in crafting-recipes.",
    "guide": {
-    "state": "none",
-    "next": "Your first survival day"
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
    }
   },
   {
@@ -3248,7 +3344,9 @@
    ],
    "notes": "Drops that do not fit are lost (there are no ground items). Killing animals in creative collects nothing. Hunting controls are covered by the combat audit.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day",
     "next": "Hunting, weapons and animals"
    }
   },
@@ -3297,7 +3395,9 @@
    ],
    "notes": "Melee does not damage characters or vehicles. Tall grass or flowers in front of an animal count as the nearer block and can block a melee hit.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day",
     "next": "Hunting, weapons and animals"
    }
   },

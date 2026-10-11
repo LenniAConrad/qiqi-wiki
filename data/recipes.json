@@ -1,0 +1,707 @@
+{
+ "schema": 1,
+ "game": {
+  "commit": "dd29d912918978b9d0e74ec1104b87c0679d793e",
+  "source": "crates/voxelgame-core/src/inventory.rs RECIPES"
+ },
+ "piecesPerBlock": 8,
+ "sections": [
+  {
+   "key": "timber",
+   "label": "Timber",
+   "gameLabel": "Timber"
+  },
+  {
+   "key": "fire",
+   "label": "Fire & food",
+   "gameLabel": "Fire & food"
+  },
+  {
+   "key": "materials",
+   "label": "Materials",
+   "gameLabel": "Materials"
+  },
+  {
+   "key": "tools",
+   "label": "Tools & arms",
+   "gameLabel": "Tools & arms"
+  }
+ ],
+ "recipes": [
+  {
+   "name": "Split alder boards",
+   "section": "timber",
+   "gameDescription": "Split one alder log piece into four board pieces",
+   "output": "Alder boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Alder log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:946-952",
+   "notes": "Counts are half-metre pieces: one full 1 m log block (8 pieces) splits into 32 boards."
+  },
+  {
+   "name": "Split birch boards",
+   "section": "timber",
+   "gameDescription": "Split one birch log piece into four pale board pieces",
+   "output": "Birch boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Birch log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:953-959"
+  },
+  {
+   "name": "Split pine boards",
+   "section": "timber",
+   "gameDescription": "Split one pine log piece into four resinous board pieces",
+   "output": "Pine boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Pine log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:960-966"
+  },
+  {
+   "name": "Split hardwood boards",
+   "section": "timber",
+   "gameDescription": "Split one hardwood or deadwood piece into four boards",
+   "output": "Alder boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Hardwood or deadwood (Oak, Fruit tree, Acacia, Willow, Mangrove, Jungle, Cherry, Giant old-growth, Palm, Mesquite, Fig or Cypress log, or Deadwood)",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:967-973",
+   "notes": "Always makes Alder boards whatever the species. Driftwood, Charred log, Mossy fallen wood, Bamboo, Cypress knees and Mangrove roots cannot be split."
+  },
+  {
+   "name": "Burn a charcoal pile",
+   "section": "fire",
+   "gameDescription": "Smoulder four board pieces into two cooking or kiln fuels",
+   "output": "Charcoal",
+   "quantity": 2,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:974-980"
+  },
+  {
+   "name": "Cook raw meat",
+   "section": "fire",
+   "gameDescription": "Grills a raw cut over charcoal into filling cooked meat",
+   "output": "Cooked meat",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Raw meat",
+     1
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:981-987",
+   "notes": "Raw meat restores 8 hunger, Cooked meat 30."
+  },
+  {
+   "name": "Roast venison",
+   "section": "fire",
+   "gameDescription": "Roasts lean venison over charcoal for a full meal",
+   "output": "Cooked meat",
+   "quantity": 2,
+   "inputs": [
+    [
+     "Venison",
+     1
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:988-994",
+   "notes": "One Venison (18 hunger raw) becomes 2 Cooked meat (30 each)."
+  },
+  {
+   "name": "Blow glass flasks",
+   "section": "fire",
+   "gameDescription": "Two empty flasks; press T at fresh water to fill them",
+   "output": "Empty flask",
+   "quantity": 2,
+   "inputs": [
+    [
+     "Glass",
+     8
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:995-1001",
+   "notes": "8 Glass pieces = one full glass block. Fill flasks by pressing T near drinkable water."
+  },
+  {
+   "name": "Fire glass",
+   "section": "materials",
+   "gameDescription": "Fires shore sand over charcoal into clear building glass",
+   "output": "Glass",
+   "quantity": 16,
+   "inputs": [
+    [
+     "Pale sand",
+     24
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1002-1008",
+   "notes": "3 blocks of Pale sand make 2 blocks of Glass. Only Pale sand works (not Sea, Fine dune, Red, Black or Shell sand). Besides this recipe, the Survey workshop landmark's one-time find gives 8 Glass."
+  },
+  {
+   "name": "Kiln-fire gray brick",
+   "section": "materials",
+   "gameDescription": "Bakes river clay into hard courtyard brick",
+   "output": "Gray brick",
+   "quantity": 8,
+   "inputs": [
+    [
+     "River clay",
+     8
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1009-1015",
+   "notes": "No kiln block exists; the recipe is crafted from the pack like every other."
+  },
+  {
+   "name": "Glaze roof tile",
+   "section": "materials",
+   "gameDescription": "Glazes clay with sand ash into weatherproof roof tile",
+   "output": "Glazed roof tile",
+   "quantity": 8,
+   "inputs": [
+    [
+     "River clay",
+     8
+    ],
+    [
+     "Pale sand",
+     8
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1016-1022"
+  },
+  {
+   "name": "Burn lime plaster",
+   "section": "materials",
+   "gameDescription": "Burns limestone into smooth whitewashed plaster",
+   "output": "White plaster",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Limestone",
+     8
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1023-1029",
+   "notes": "Only Limestone counts (Sharp limestone does not)."
+  },
+  {
+   "name": "Dress carved stone",
+   "section": "materials",
+   "gameDescription": "Dress any natural stone into fine building stone",
+   "output": "Carved stone",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1030-1036"
+  },
+  {
+   "name": "Cut sandstone",
+   "section": "materials",
+   "gameDescription": "Compacts two blocks of loose sand into one of sandstone",
+   "output": "Sandstone",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Pale sand",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1037-1043"
+  },
+  {
+   "name": "Lacquer timber",
+   "section": "materials",
+   "gameDescription": "Seals boards with fired clay lacquer for structural beams",
+   "output": "Lacquered timber",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     8
+    ],
+    [
+     "River clay",
+     4
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1044-1050"
+  },
+  {
+   "name": "Weave paper panel",
+   "section": "materials",
+   "gameDescription": "Presses shore reeds into a board-latticed screen panel",
+   "output": "Paper lattice panel",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Reeds",
+     8
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1051-1057",
+   "notes": "Only Reeds count (Tall reeds do not)."
+  },
+  {
+   "name": "Assemble red lantern",
+   "section": "materials",
+   "gameDescription": "A paper lantern around a lumen crystal; it lights its room",
+   "output": "Red lantern",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Paper lattice panel",
+     4
+    ],
+    [
+     "Lumen crystal",
+     2
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1058-1064",
+   "notes": "Makes half a block of lantern (4 pieces). Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+  },
+  {
+   "name": "Weave reed thatch",
+   "section": "materials",
+   "gameDescription": "Bind reeds with plant fiber or wool for warm roofing",
+   "output": "Reed thatch",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Reeds",
+     8
+    ],
+    [
+     "Plant fiber or Wool (mixable)",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1065-1071",
+   "notes": "Fiber comes from mining Wild flax; Wool from sheep. Raw reeds cannot stand in for the binding."
+  },
+  {
+   "name": "Dress chalk bricks",
+   "section": "materials",
+   "gameDescription": "Cuts pale chalk into masonry blocks",
+   "output": "Chalk bricks",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Chalk",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1072-1078"
+  },
+  {
+   "name": "Dress ironstone bricks",
+   "section": "materials",
+   "gameDescription": "Cuts red ironstone into warm-colored masonry",
+   "output": "Red ironstone bricks",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Red ironstone",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1079-1085"
+  },
+  {
+   "name": "Dress basalt bricks",
+   "section": "materials",
+   "gameDescription": "Cuts volcanic basalt into dark masonry",
+   "output": "Basalt bricks",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Basalt",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1086-1092"
+  },
+  {
+   "name": "Polish granite",
+   "section": "materials",
+   "gameDescription": "Smooths coarse granite into a decorative building block",
+   "output": "Polished granite",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Granite",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1093-1099",
+   "notes": "Only Granite counts (Exfoliated granite does not)."
+  },
+  {
+   "name": "Cover cobble with moss",
+   "section": "materials",
+   "gameDescription": "Beds living moss into rough cobble for weathered walls",
+   "output": "Mossy cobble",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Natural cobble",
+     8
+    ],
+    [
+     "Moss",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1100-1109"
+  },
+  {
+   "name": "Stone sword",
+   "section": "tools",
+   "gameDescription": "A dependable close-range survival weapon",
+   "output": "Stone sword",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     4
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1110-1116",
+   "notes": "Crafted tools are equipped automatically."
+  },
+  {
+   "name": "Stone pickaxe",
+   "section": "tools",
+   "gameDescription": "The fastest tool for rock and crystal",
+   "output": "Stone pickaxe",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     6
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1117-1123"
+  },
+  {
+   "name": "Stone hatchet",
+   "section": "tools",
+   "gameDescription": "A broad cutting head for every timber species",
+   "output": "Stone hatchet",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     4
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1124-1130",
+   "notes": "The 4 starter boards plus 4 pieces of any natural stone (e.g. shore gravel dug by hand) make the first hatchet."
+  },
+  {
+   "name": "Stone shovel",
+   "section": "tools",
+   "gameDescription": "A light digging tool for loose terrain",
+   "output": "Stone shovel",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     2
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1131-1137"
+  },
+  {
+   "name": "Alder bow",
+   "section": "tools",
+   "gameDescription": "A hunting bow bound with plant fiber or wool",
+   "output": "Alder bow",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     8
+    ],
+    [
+     "Plant fiber or Wool (mixable)",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1138-1144"
+  },
+  {
+   "name": "Reed-bound bow",
+   "section": "tools",
+   "gameDescription": "Twisted wetland reeds make a bowstring without animal drops",
+   "output": "Alder bow",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     8
+    ],
+    [
+     "Reeds",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1145-1151",
+   "notes": "Same Alder bow as the fiber/wool recipe, without animal drops."
+  },
+  {
+   "name": "Four arrows",
+   "section": "tools",
+   "gameDescription": "Stone-tipped arrows stabilized with feathers",
+   "output": "Arrow",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     1
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     2
+    ],
+    [
+     "Feather",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1152-1158"
+  },
+  {
+   "name": "Four reed arrows",
+   "section": "tools",
+   "gameDescription": "Reed shafts and vanes replace feathers for early hunting",
+   "output": "Arrow",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     1
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     2
+    ],
+    [
+     "Reeds",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1159-1165"
+  },
+  {
+   "name": "Four throwing rocks",
+   "section": "tools",
+   "gameDescription": "Knapped hand stones; equip and hurl them at game",
+   "output": "Throwing rock",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1166-1172",
+   "notes": "Each Throwing rock weighs 0.6 kg versus 0.125 kg per stone piece, so crafting rocks raises carried mass."
+  },
+  {
+   "name": "Alder rifle",
+   "section": "tools",
+   "gameDescription": "A stable shoulder-fired hunting rifle with automatic reload",
+   "output": "Alder rifle",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     40
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     16
+    ],
+    [
+     "Lumen crystal",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1173-1179",
+   "notes": "40 stone = 5 blocks, 16 boards = 2 blocks, 8 Lumen crystal = 1 block. Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+  },
+  {
+   "name": "Four rifle rounds",
+   "section": "tools",
+   "gameDescription": "Stone rifle shot with measured lumen propellant",
+   "output": "Rifle round",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     8
+    ],
+    [
+     "Pale sand",
+     8
+    ],
+    [
+     "Lumen crystal",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1180-1186",
+   "notes": "Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+  },
+  {
+   "name": "TNT charge",
+   "section": "tools",
+   "gameDescription": "A bounded terrain-clearing charge ignited with G",
+   "output": "TNT charge",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Pale sand",
+     32
+    ],
+    [
+     "Lumen crystal",
+     8
+    ],
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1187-1193",
+   "notes": "Makes one full TNT block (8 pieces). Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+  },
+  {
+   "name": "Two dynamite sticks",
+   "section": "tools",
+   "gameDescription": "Repacks a charge into thrown sticks with paper casing",
+   "output": "Dynamite",
+   "quantity": 2,
+   "inputs": [
+    [
+     "TNT charge",
+     4
+    ],
+    [
+     "Paper lattice panel",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1194-1200",
+   "notes": "Needs half a block of TNT, which itself needs Lumen crystal (see TNT charge)."
+  },
+  {
+   "name": "Small sailing boat",
+   "section": "timber",
+   "gameDescription": "A wooden dinghy with woven plant-fiber sails; launch on water",
+   "output": "Small sailing boat",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     32
+    ],
+    [
+     "Plant fiber or Wool (mixable)",
+     12
+    ],
+    [
+     "Reeds",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1201-1207",
+   "notes": "Listed last in the Timber section. Crafting selects the boat ready to launch; it weighs 18 kg."
+  }
+ ]
+}
