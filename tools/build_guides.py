@@ -116,7 +116,7 @@ def page_open(title, description, nav_current, body_class, skip_target, skip_lab
 
 def page_close():
     return ("</main>\n<footer><a class=\"wordmark\" href=\"index.html\">qiqi<span class=\"wordmark-light\">/ dev</span></a>"
-            "<p>An independent player guide to an original voxel world.</p><a href=\"README.md\">About this project ↗</a>"
+            "<p>An independent player guide to an original voxel world.</p><a href=\"ABOUT.md\">About this project ↗</a>"
             "</footer>\n</body></html>\n")
 
 

@@ -5,6 +5,16 @@ Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the
 
 Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; `tools/stage_site.py` selects the published files for both CI and the local gate, which checks every link inside that staged copy. No game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
 
+Publication uses an explicit list of pages, browser scripts, datasets, licences
+and public reports. Add new public files to `PUBLIC_FILES` in
+`tools/stage_site.py`; images must be recorded in the existing gallery/guide
+catalogs or the scale manifest. Unknown files stay private, including raw logs,
+source patches, engine files, saves and repository instructions. The original
+evidence archive remains in the repository. Public footers use `ABOUT.md`, and
+the performance follow-up links a public verification summary. The gate checks
+HTML and Markdown links inside the staged artifact, with publication regressions
+in `tools/test_stage_site.py`.
+
 ## Features and guide coverage ledger
 
 Open **Features** in the navigation or `features.html`. Each player-facing

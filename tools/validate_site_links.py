@@ -6,6 +6,7 @@ Pass a staged site directory (see tools/stage_site.py) to check exactly the
 files GitHub Pages publishes; the default checks the repository root.
 """
 import argparse
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -27,12 +28,18 @@ def main():
     root = parser.parse_args().root.resolve()
     failures = []
     checked = 0
-    pages = sorted(root.glob("*.html"))
+    pages = sorted(root.rglob("*.html")) if root != ROOT else sorted(root.glob("*.html"))
     assert pages, "No published HTML pages"
-    for page in pages:
-        parser = References()
-        parser.feed(page.read_text())
-        for ref in parser.refs:
+    reports = [root / name for name in ("ABOUT.md", "NOTICE.md", "PERFORMANCE_ANALYSIS.md", "PERFORMANCE_OPTIMIZATION.md", "STREAMING_IMPROVEMENTS.md")]
+    reports += sorted((root / "data" / "performance").rglob("*.md"))
+    for page in [*pages, *reports]:
+        if page.suffix == ".html":
+            parser = References()
+            parser.feed(page.read_text())
+            refs = parser.refs
+        else:
+            refs = re.findall(r'\[[^\]]*\]\(([^\s)]+)\)', page.read_text())
+        for ref in refs:
             url = urlsplit(ref)
             if url.scheme or url.netloc or not url.path:
                 continue
@@ -40,7 +47,7 @@ def main():
             path = unquote(url.path)
             target = (page.parent / path).resolve()
             if path.startswith("/") or not target.is_relative_to(root) or not target.exists():
-                failures.append(f"{page.name}: broken/non-portable reference {ref}")
+                failures.append(f"{page.relative_to(root)}: broken/non-portable reference {ref}")
     if failures:
         raise SystemExit("\n".join(failures))
     print(f"PASS: {len(pages)} pages, {checked} local static references in {root.name or root}")

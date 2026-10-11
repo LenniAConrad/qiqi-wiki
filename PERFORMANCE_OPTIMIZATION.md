@@ -153,8 +153,8 @@ rendering source are unchanged. The final executable's SHA-256 is
 `210716cdc8014312b268666e0e7c699837812afaae14a7a2f03c6692066ee8e5`.
 
 Logs, source manifests, native state summaries, visual-review sheets and the
-preserved executables are in `.cache/perfection-audit/`. The published [final verification record](data/performance/optimization/verification-20260928/verification-status.json)
-includes check counts, source hashes and native evidence summaries. Other Codex work and
+preserved executables are in `.cache/perfection-audit/`. The published [final verification record](data/performance/optimization/public-verification.md)
+summarizes check counts and native evidence. The original manifests and logs remain in the repository archive. Other Codex work and
 processes were preserved. These checks found no regressions in the tested scenes;
 they do not establish that every possible world and graphics configuration is
 free of defects.

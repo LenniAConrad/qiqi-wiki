@@ -235,9 +235,9 @@ def render_page(ledger):
         f'{text(game["branch"])}, committed {text(game["commitDate"])}. Evidence paths and line numbers refer to that '
         f"commit in the {REPOSITORY_NOTE}; later game changes can move them.</p>")
     add('<div class="evidence-links"><a href="data/features.json" download>Complete ledger · JSON ↓</a>'
-        '<a href="WIKI_PLAN.md">Wiki roadmap ↗</a></div></section>\n')
+        '<a href="guides.html#coming">Guides still to come ↗</a></div></section>\n')
     add("</main>\n<footer><a class=\"wordmark\" href=\"index.html\">qiqi<span class=\"wordmark-light\">/ dev</span></a>"
-        "<p>An independent player guide to an original voxel world.</p><a href=\"README.md\">About this project ↗</a>"
+        "<p>An independent player guide to an original voxel world.</p><a href=\"ABOUT.md\">About this project ↗</a>"
         "</footer>\n</body></html>\n")
     return "".join(out)
 
