@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # qiqi-wiki
 
-Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records base-game features, its status and its guide coverage. The practical task-based guides are still in progress; the ledger ranks the order in which they are written. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
+Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records base-game features, its status and its guide coverage. The home page links four written guides and the Atlas; unwritten categories are labelled plainly. Search reads an offline script built from the base-game ledger, guide summaries, recipes and biome catalog. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
 
 Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; `tools/stage_site.py` selects the published files for both CI and the local gate, which checks every link inside that staged copy. No game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
 
@@ -46,7 +46,7 @@ evidence as a newer commit.
 
 # qiqi-dev · Worldgen Atlas
 
-A standalone HTML/CSS/JavaScript field guide to **all 92 Voxelgame biomes, 93 animals and six island shape families**, with a **Jade Willow Village** screenshot gallery. The **Animals** navigation link opens `animals.html`, with search, animal-group and biome filters, four model views per animal, dimensions and linked habitats. Each biome entry has a real in-game photograph, field notes describing its implemented terrain and vegetation, and its measured percentage of sampled world surface. Default order is most common first.
+A standalone HTML/CSS/JavaScript field guide to **all 92 Voxelgame biomes, 93 animals and six island shape families**. The **Animals** navigation link opens `animals.html`, with search, animal-group and biome filters, four model views per animal, dimensions and linked habitats. Each biome entry has a real in-game photograph, field notes describing its implemented terrain and vegetation, and its measured percentage of sampled world surface. Default order is most common first.
 
 ## Open it
 
@@ -56,9 +56,9 @@ Double-click `index.html`, or serve this folder:
 python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
-Then visit **http://127.0.0.1:8765**. No install, bundler, accounts, external fonts, or internet connection is required. The site also works directly with `file://` because its data is loaded as a local script.
+Then visit **http://127.0.0.1:8765** for the player wiki, or **http://127.0.0.1:8765/atlas.html** for the biome gallery. No install, bundler, accounts, external fonts, or internet connection is required. The site also works directly with `file://` because its data is loaded as a local script.
 
-Search by biome name, description, or features such as **volcano**, **cliff island**, **mountain**, and **steam vents**. Filter by landscape family or change the sort order. Select a photograph to see its seed, biome location, camera position, and sample count. `/` focuses search; the dialog supports arrow navigation and Escape to close. To visit a location, use a world with its listed seed and generator 09, switch to creative mode, open **Shift+M**, enter the dialog’s **Map destination · X Z** values, then press **Enter** or **Teleport**. This selects a safe surface landing. Screenshot viewpoints are separate and may be airborne or underwater.
+In the Atlas, search by biome name, description, or features such as **volcano**, **cliff island**, **mountain**, and **steam vents**. Filter by landscape family or change the sort order. Select a photograph to see its seed, biome location, camera position, and sample count. `/` focuses search; the dialog supports arrow navigation and Escape to close. To visit a location, use a world with its listed seed and generator 09, switch to creative mode, open **Shift+M**, enter the dialog’s **Map destination · X Z** values, then press **Enter** or **Teleport**. This selects a safe surface landing. Screenshot viewpoints are separate and may be airborne or underwater.
 
 ## Animals
 
@@ -136,7 +136,7 @@ shader and WebP quality 94. The survey and photographs use a frozen build whose
 complete source and binary hashes are recorded; an old photograph is never
 relabeled as a newer generation. The frozen build combines the previously complete
 application snapshot with generation-9 terrain changes; unfinished concurrent
-animal, shader, village and profiling edits are excluded. The shared game checkout is
+animal, shader and profiling edits are excluded. The shared game checkout is
 untouched by this isolation. Every curated location is checked for biome
 identity, surface height and water level before capture.
 
@@ -149,7 +149,7 @@ island shapes, climate relationships, forest groves and open clearings remain.
 Generation 9 places these islands in unequal regions with staggered bands and
 size-aware offsets, breaking up the old regular rows and repeated gaps.
 Sparse, low limestone boulders add detail to dry atoll shores without filling
-their channels. The homepage's 28 September refresh highlights these changes
+their channels. The Atlas's 28 September refresh highlights these changes
 and links to the island maps, 4K panoramas and four terrain/climate layers.
 Older saved worlds retain their generation, so use a generation-9 world to
 visit this atlas's locations.
@@ -203,7 +203,8 @@ physical fields without adding a runtime API. Metadata and image hashes are in
 
 ## Files
 
-- `index.html`, `style.css`, `app.js`: responsive, accessible biome gallery.
+- `index.html`, `wiki.css`, `wiki-search.js`, `data/search.js`: player wiki home and offline search.
+- `atlas.html`, `style.css`, `app.js`: preserved biome gallery.
 - `islands.html`, `islands.css`, `islands.js`: island maps, panoramas and debug layers.
 - `images/islands/`, `data/islands.json`, `data/islands.js`: 36 island views and their measured catalog.
 - `images/*.webp`: 92 genuine 960 × 540 biome screenshots, encoded as WebP.
@@ -275,3 +276,12 @@ Rebuild illustrations with NumPy and Pillow:
 `images/scale/manifest.json` records the output hashes.
 Open `tools/scale_browser_checks.html` through the local server to verify
 geometry, mode/selection controls, focus, textures and responsive layout.
+
+## Rebuild the wiki interface
+
+After changing guide, recipe or ledger data, run `python3 tools/build_features.py`,
+`python3 tools/build_guides.py` and `python3 tools/build_wiki.py`. The gate rejects
+stale pages/search data and differing shared category navigation. Add public
+files explicitly to `tools/stage_site.py`. Browser checks for the home and shared
+navigation are in `tools/wiki_browser_checks.html`; the browser runner supports
+`--offline index.html --keyboard index.html`.

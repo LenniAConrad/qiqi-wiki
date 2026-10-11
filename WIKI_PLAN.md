@@ -35,3 +35,16 @@ Installation guides must cover the requested update script and installer update-
 ## Base-game publication slice — 11 October 2026
 
 The public ledger and generated controls now cover the base game only. Optional gallery files were removed from the current tree; original assets and provenance remain in Git history at `493c52c`. The source audit remains `dd29d91`; publication filtering is not a newer game audit. Guide-gap ranks retain their original IDs.
+
+## Wiki interface slice — 11 October 2026
+
+The home now provides eight player categories, the four written guides and an
+Atlas section. The original biome gallery lives at `atlas.html`; animal habitat
+links and old biome bookmarks point there. Shared category navigation is rendered
+from `tools/wiki_layout.py`. The four guide articles use a title, breadcrumb and
+contents list. An offline search script contains 320 guide, base-game feature,
+recipe and biome records. New files are explicitly allowlisted.
+
+Static validation is available in `tools/validate_wiki.py`; actual desktop/mobile,
+keyboard and file-URL browser inspection remains the parent integration gate.
+No new game facts, recipes or screenshots were added.

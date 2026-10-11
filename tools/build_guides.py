@@ -17,6 +17,7 @@ Inline markup in text fields: [[W]] renders a key cap, **text** is bold, {{featu
 
 import argparse
 from base_game import public_ledger
+from wiki_layout import header_html, footer_html
 from html import escape
 import json
 from pathlib import Path
@@ -28,15 +29,6 @@ FEATURES = ROOT / "data" / "features.json"
 RECIPES = ROOT / "data" / "recipes.json"
 INDEX_PAGE = "guides.html"
 
-NAV = (
-    ("index.html#catalog", "Biomes"),
-    ("animals.html", "Animals"),
-    ("islands.html", "Islands"),
-    ("guides.html", "Guides"),
-    ("features.html", "Features"),
-    ("performance.html", "Performance"),
-    ("scale.html", "Scale"),
-)
 MODE_LABELS = {"creative": "Creative", "survival": "Survival", "menu": "Menus", "any": "Any mode"}
 MONTHS = ("January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December")
@@ -89,14 +81,6 @@ class Context:
         return LINK_RE.sub(link, value)
 
 
-def nav_html(current):
-    links = []
-    for href, label in NAV:
-        marker = ' aria-current="page"' if href == current else ""
-        links.append(f'<a href="{href}"{marker}>{label}</a>')
-    return '<nav aria-label="Main">' + "".join(links) + "</nav>"
-
-
 def page_open(title, description, nav_current, body_class, skip_target, skip_label, edition, script=False):
     return (
         "<!doctype html>\n<!-- SPDX-License-Identifier: GPL-3.0-only -->\n"
@@ -104,21 +88,18 @@ def page_open(title, description, nav_current, body_class, skip_target, skip_lab
         '<html lang="en">\n<head>\n'
         '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n'
         f'<meta name="description" content="{attr(description)}">\n'
-        f'<meta name="theme-color" content="#253c30"><title>{text(title)} · qiqi-dev</title>\n'
+        f'<meta name="theme-color" content="#253c30"><title>{text(title)} · Qiqi wiki</title>\n'
         '<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">'
-        '<link rel="stylesheet" href="features.css"><link rel="stylesheet" href="guides.css">\n'
+        '<link rel="stylesheet" href="features.css"><link rel="stylesheet" href="guides.css">'
+        '<link rel="stylesheet" href="wiki.css">\n'
         + ('<script defer src="guides.js"></script>\n' if script else "") +
         f'</head>\n<body class="{body_class}">\n'
         f'<a class="skip" href="#{skip_target}">{text(skip_label)}</a>\n'
-        '<header class="site-header"><a class="wordmark" href="index.html"><span class="mark" aria-hidden="true">▧</span>'
-        ' qiqi<span class="wordmark-light">/ dev</span></a>' + nav_html(nav_current) +
-        f'<span class="edition">{text(edition)}</span></header>\n<main>\n')
+        + header_html(nav_current) + '\n<main>\n')
 
 
 def page_close():
-    return ("</main>\n<footer><a class=\"wordmark\" href=\"index.html\">qiqi<span class=\"wordmark-light\">/ dev</span></a>"
-            "<p>An independent player guide to an original voxel world.</p><a href=\"ABOUT.md\">About this project ↗</a>"
-            "</footer>\n</body></html>\n")
+    return '</main>\n' + footer_html() + '\n</body></html>\n'
 
 
 def key_rows(ctx, rows):
@@ -248,23 +229,25 @@ def verification_html(ctx, guide):
 def render_guide(ctx, guide):
     sections = guide["sections"]
     scripted = any(block["t"] == "controls-all" for section in sections for block in section["blocks"])
-    out = [page_open(guide["title"], guide["summary"], INDEX_PAGE, "guide-page", "guide-body",
+    out = [page_open(guide["title"], guide["summary"], guide["page"], "guide-page", "guide-body",
                      "Skip to the guide", "PLAYER GUIDE", scripted)]
     add = out.append
-    add('<section class="intro" aria-labelledby="title"><div class="eyebrow"><span class="status-dot"></span> '
-        f'GUIDE {guide["number"]:02d} / {text(guide["kicker"].upper())}</div><div class="intro-row">'
-        f'<h1 id="title">{guide["headline"]}</h1><p>{ctx.inline(guide["lead"])}</p></div></section>\n')
+    add('<nav class="wiki-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a>'
+        f'<span aria-hidden="true">/</span><a href="guides.html">Guides</a><span aria-hidden="true">/</span>'
+        f'<span aria-current="page">{text(guide["title"])}</span></nav>')
+    add('<section class="intro" aria-labelledby="title"><div class="intro-row">'
+        f'<h1 id="title">{text(guide["title"])}</h1><p>{ctx.inline(guide["lead"])}</p></div></section>\n')
     game = ctx.ledger["game"]
     add(f'<div class="study-meta">Voxelgame main <code>{text(game["commit"][:7])}</code> · {text(guide["readTime"])}'
         f' · {text(guide["audience"])} · <a href="features.html">feature ledger</a> · '
         f'<a href="{INDEX_PAGE}">all guides</a></div>\n')
-    add('<nav class="report-nav area-nav" aria-label="On this page">' + "".join(
-        f'<a href="#{attr(section["id"])}">{text(section["title"])}</a>' for section in sections) +
-        '<a href="#verification">How this was checked</a></nav>\n')
+    add('<article class="wiki-article" aria-labelledby="title"><details class="wiki-contents" open>'
+        '<summary>Contents</summary><nav aria-label="On this page"><ol>' + "".join(
+        f'<li><a href="#{attr(section["id"])}">{text(section["title"])}</a></li>' for section in sections) +
+        '<li><a href="#verification">How this was checked</a></li></ol></nav></details>\n')
     add('<div id="guide-body">\n')
-    for index, section in enumerate(sections, 1):
+    for section in sections:
         add(f'<section class="guide-section" id="{attr(section["id"])}" aria-labelledby="{attr(section["id"])}-t">'
-            f'<div class="eyebrow">{index:02d} / {len(sections):02d}</div>'
             f'<h2 id="{attr(section["id"])}-t">{text(section["title"])}</h2>')
         for block in section["blocks"]:
             add(block_html(ctx, block))
@@ -276,7 +259,7 @@ def render_guide(ctx, guide):
         for item in related:
             add(f'<li><a href="{attr(item["page"])}">{text(item["title"])}</a>: {text(item["summary"])}</li>')
         add("</ul></section>\n")
-    add("</div>\n")
+    add("</div></article>\n")
     add(page_close())
     return "".join(out)
 
@@ -289,13 +272,13 @@ def render_index(ctx):
     add = out.append
     add('<section class="intro" aria-labelledby="title"><div class="eyebrow"><span class="status-dot"></span> '
         f'PLAYER GUIDES / UPDATED {text(long_date(guides["updated"]).upper())}</div><div class="intro-row">'
-        f'<h1 id="title">{guides["headline"]}</h1><p>{text(guides["lead"])}</p></div></section>\n')
+        f'<h1 id="title">Player guides</h1><p>{text(guides["lead"])}</p></div></section>\n')
     game = ledger["game"]
     add(f'<div class="study-meta">Written against Voxelgame main <code>{text(game["commit"][:7])}</code> · committed '
         f'{text(long_date(game["commitDate"]))} · every claim is traced to the source in the '
         '<a href="features.html">feature ledger</a></div>\n')
     add(f'<section id="guide-list" class="report-section" aria-labelledby="list-t"><div class="section-heading">'
-        '<div class="eyebrow">01 / WRITTEN</div><h2 id="list-t">Start here.</h2></div><ol class="guide-cards">')
+        '<div class="eyebrow">01 / WRITTEN</div><h2 id="list-t">Written guides</h2></div><ol class="guide-cards">')
     for guide in guides["guides"]:
         add(f'<li class="guide-card"><div class="guide-card-meta">GUIDE {guide["number"]:02d} · '
             f'{text(guide["readTime"])} · {text(guide["audience"])}</div>'
@@ -304,7 +287,7 @@ def render_index(ctx):
     written = {guide["gap"] for guide in guides["guides"] if "gap" in guide}
     waiting = [gap for gap in sorted(ledger["guideGaps"], key=lambda item: item["rank"]) if gap["rank"] not in written]
     add('<section id="coming" class="report-section" aria-labelledby="coming-t"><div class="section-heading">'
-        '<div class="eyebrow">02 / NOT WRITTEN YET</div><h2 id="coming-t">Still on the list.</h2></div>'
+        '<div class="eyebrow">02 / NOT WRITTEN YET</div><h2 id="coming-t">Not written yet</h2></div>'
         f'<p class="report-lead">{text(guides["comingLead"])}</p><ol class="priority-list gap-list">')
     for gap in waiting:
         add(f'<li value="{gap["rank"]}"><h3>{text(gap["title"])} <span class="readiness readiness-{attr(gap["readiness"])}">'

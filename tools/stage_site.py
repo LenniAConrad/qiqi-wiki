@@ -13,13 +13,13 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = (
-    'index.html', 'animals.html', 'islands.html',
+    'index.html', 'atlas.html', 'animals.html', 'islands.html',
     'features.html', 'guides.html', 'guide-getting-started.html',
     'guide-controls.html', 'guide-first-survival-day.html', 'guide-crafting.html',
     'performance.html', 'scale.html', 'ABOUT.md',
-    'style.css', 'features.css', 'guides.css', 'islands.css',
+    'style.css', 'wiki.css', 'features.css', 'guides.css', 'islands.css',
     'performance.css', 'scale.css',
-    'app.js', 'animals.js', 'features.js', 'guides.js', 'islands.js',
+    'app.js', 'wiki-search.js', 'data/search.js', 'animals.js', 'features.js', 'guides.js', 'islands.js',
     'scale.js', 'favicon.svg', 'LICENSE', 'NOTICE.md',
     'PERFORMANCE_ANALYSIS.md', 'PERFORMANCE_OPTIMIZATION.md',
     'STREAMING_IMPROVEMENTS.md',

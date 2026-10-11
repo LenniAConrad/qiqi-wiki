@@ -2451,7 +2451,7 @@
    "notes": "You can read your current biome on the FPS-and-coordinates readout (see position-readout) or in the status message after map travel.",
    "guide": {
     "state": "atlas",
-    "page": "index.html#catalog",
+    "page": "atlas.html#catalog",
     "label": "Biome atlas (generation 9, 28 September)"
    }
   },
@@ -4705,7 +4705,7 @@
    "status": "planned",
    "summary": "Planned: an in-game Multiplayer menu with saved servers, direct connect, LAN discovery and hosting your own world for friends. None of these exist yet.",
    "evidence": [
-    "search: crates/voxelgame-render/src/startup_ui.rs:77-85 - main menu has only Continue, Worlds, Settings, Credits, Study timer, Quit;"
+    "search: crates/voxelgame-render/src/startup_ui.rs:77-85 - main menu has no multiplayer entry;"
    ],
    "backlog": [
     "VOX-NET-M5-LAN"

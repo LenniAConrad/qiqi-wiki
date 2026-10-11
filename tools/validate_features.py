@@ -166,7 +166,7 @@ def check_navigation():
     for page in sorted(ROOT.glob("*.html")):
         parser = NavLinks()
         parser.feed(page.read_text(encoding="utf-8"))
-        require("features.html" in parser.links, f"{page.name}: main navigation must link features.html")
+        require("atlas.html" in parser.links, f"{page.name}: main navigation must link atlas.html")
 
 
 def check_game(ledger, snapshot):

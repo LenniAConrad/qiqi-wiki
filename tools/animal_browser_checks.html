@@ -38,7 +38,7 @@ try {
  }
  check(q('#original-image').getAttribute('href')===wolf.views[3].image,'Open-image link follows the chosen view');
  check(q('#detail-size').textContent.includes('×'),'Resting dimensions are displayed');
- check([...d.querySelectorAll('#detail-habitats a')].some(a=>a.getAttribute('href')==='index.html#biome=RedwoodForest'),'Habitat links target the matching biome');
+ check([...d.querySelectorAll('#detail-habitats a')].some(a=>a.getAttribute('href')==='atlas.html#biome=RedwoodForest'),'Habitat links target the matching biome');
  q('#close-detail').click();await delay();check(!q('#detail').open&&!d.body.classList.contains('modal-open'),'Close restores scrolling');
  q('#reset-filters').click();cards()[0].querySelector('button').click();q('#next').click();
  check(q('#detail-title').textContent==='Anaconda','Next follows visible alphabetical order');
@@ -66,14 +66,14 @@ try {
    check(q('#detail-image').getAttribute('src')===animal.views[i].image,`${animal.name} view ${i+1} uses its portrait`);
   }
   const links=[...d.querySelectorAll('#detail-habitats a')].map(a=>a.getAttribute('href'));
-  check(links.length===animal.habitats.length&&animal.habitats.every(id=>links.includes(`index.html#biome=${encodeURIComponent(id)}`)),`${animal.name} links all of its habitats`);
+  check(links.length===animal.habitats.length&&animal.habitats.every(id=>links.includes(`atlas.html#biome=${encodeURIComponent(id)}`)),`${animal.name} links all of its habitats`);
   q('#close-detail').click();await delay();
  }
  const images=w.ANIMAL_ATLAS.animals.flatMap(a=>a.views.map(v=>v.image));
  const loaded=await Promise.all(images.map(src=>new Promise(resolve=>{const im=new Image();im.onload=()=>resolve(im.naturalWidth===512&&im.naturalHeight===512);im.onerror=()=>resolve(false);im.src='../'+src;})));
  check(loaded.length===all.length*4&&loaded.every(Boolean),'Every model view loads at 512 × 512');
  const load=url=>new Promise(resolve=>{frame.addEventListener('load',resolve,{once:true});frame.src=url;});
- await load('../index.html#biome=RedwoodForest');
+ await load('../atlas.html#biome=RedwoodForest');
  check(frame.contentDocument.querySelector('#detail').open&&frame.contentDocument.querySelector('#detail-title').textContent==='Coastal redwood forest','Habitat deep link opens its biome');
  check(frame.contentDocument.querySelector('#biome-wildlife').getAttribute('href')==='animals.html?biome=RedwoodForest','Biome links back to filtered wildlife');
  await load('../animals.html?biome=RedwoodForest');

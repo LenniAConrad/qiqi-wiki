@@ -10,6 +10,7 @@ the committed page to match exactly.
 
 import argparse
 from base_game import public_ledger
+from wiki_layout import header_html, footer_html
 from html import escape
 import json
 from pathlib import Path
@@ -20,15 +21,6 @@ GUIDES = ROOT / "data" / "guides.json"
 PAGE = ROOT / "features.html"
 REPOSITORY_NOTE = "private game repository"
 
-NAV = (
-    ("index.html#catalog", "Biomes"),
-    ("animals.html", "Animals"),
-    ("islands.html", "Islands"),
-    ("guides.html", "Guides"),
-    ("features.html", "Features"),
-    ("performance.html", "Performance"),
-    ("scale.html", "Scale"),
-)
 MODE_LABELS = {"creative": "Creative", "survival": "Survival", "menu": "Menus", "any": "Any mode"}
 MONTHS = ("January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December")
@@ -45,14 +37,6 @@ def attr(value):
 def long_date(iso_date):
     year, month, day = (int(part) for part in iso_date[:10].split("-"))
     return f"{day} {MONTHS[month - 1]} {year}"
-
-
-def nav_html(current):
-    links = []
-    for href, label in NAV:
-        marker = ' aria-current="page"' if href == current else ""
-        links.append(f'<a href="{href}"{marker}>{label}</a>')
-    return '<nav aria-label="Main">' + "".join(links) + "</nav>"
 
 
 def search_text(feature, area, status, pack):
@@ -138,15 +122,13 @@ def render_page(ledger):
         '<html lang="en">\n<head>\n'
         '<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n'
         f'<meta name="description" content="{attr(ledger["description"])}">\n'
-        '<meta name="theme-color" content="#253c30"><title>Features &amp; guide coverage · qiqi-dev</title>\n'
+        '<meta name="theme-color" content="#253c30"><title>Features &amp; guide coverage · Qiqi wiki</title>\n'
         '<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">'
-        '<link rel="stylesheet" href="features.css">\n'
+        '<link rel="stylesheet" href="features.css"><link rel="stylesheet" href="wiki.css">\n'
         '<script defer src="features.js"></script>\n'
         '</head>\n<body class="features-page">\n'
         '<a class="skip" href="#ledger">Skip to the feature ledger</a>\n'
-        '<header class="site-header"><a class="wordmark" href="index.html"><span class="mark" aria-hidden="true">▧</span>'
-        ' qiqi<span class="wordmark-light">/ dev</span></a>' + nav_html("features.html") +
-        '<span class="edition">PLAYER GUIDE · LEDGER</span></header>\n<main>\n')
+        + header_html('features.html') + '\n<main>\n')
     add('<section class="intro" aria-labelledby="title"><div class="eyebrow"><span class="status-dot"></span> '
         f'FEATURE LEDGER / AUDITED {text(audited.upper())}</div><div class="intro-row">'
         f'<h1 id="title">{ledger["headline"]}</h1><p>{text(ledger["lead"])}</p></div></section>\n')
@@ -236,9 +218,7 @@ def render_page(ledger):
         f"commit in the {REPOSITORY_NOTE}; later game changes can move them.</p>")
     add('<div class="evidence-links"><a href="data/features.json" download>Complete ledger · JSON ↓</a>'
         '<a href="guides.html#coming">Guides still to come ↗</a></div></section>\n')
-    add("</main>\n<footer><a class=\"wordmark\" href=\"index.html\">qiqi<span class=\"wordmark-light\">/ dev</span></a>"
-        "<p>An independent player guide to an original voxel world.</p><a href=\"ABOUT.md\">About this project ↗</a>"
-        "</footer>\n</body></html>\n")
+    add('</main>\n' + footer_html() + '\n</body></html>\n')
     return "".join(out)
 
 

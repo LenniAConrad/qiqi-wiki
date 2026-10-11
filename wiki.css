@@ -1,0 +1,82 @@
+/* SPDX-License-Identifier: GPL-3.0-only */
+/* Shared wiki chrome; atlas photography and measured data keep their layouts. */
+.site-header { height: auto; min-height: 0; display: block; padding-block: 17px 12px; }
+.site-brand { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.site-brand .wordmark { font-size: 23px; letter-spacing: -.6px; }
+.site-brand .wordmark-light { font-size: 13px; letter-spacing: 0; margin-left: 8px; color: var(--muted); }
+.site-brand .mark { font-size: 26px; color: var(--accent); margin-right: 4px; }
+.wiki-edition { font-size: 12px; color: var(--muted); }
+.site-header .wiki-nav, .site-header .atlas-nav { display: flex; flex-wrap: wrap; gap: 5px 4px; font-size: 13px; }
+.site-header nav a { padding: 6px 9px; line-height: 1.4; border-radius: 2px; }
+.site-header nav a:hover { background: #e9eddf; }
+.site-header nav [aria-current] { background: #e2e8d7; box-shadow: inset 0 -2px #57704a; text-decoration: none; font-weight: 600; }
+.site-header .atlas-nav { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 12px; }
+.ledger-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.wiki-home main, .guide-page main, .guides-index main { max-width: 1240px; }
+.wiki-home main { padding-block: 30px 45px; }
+.wiki-home h1, .guide-page h1, .guides-index h1 { font-family: var(--serif); font-size: 38px; letter-spacing: -1px; line-height: 1.2; margin: 0 0 12px; }
+.wiki-home h2 { font-size: 23px; font-weight: 500; margin: 0 0 16px; letter-spacing: -.3px; }
+.wiki-home p { font-size: 15px; line-height: 1.65; max-width: 75ch; }
+.wiki-home .home-description { margin: 0 0 20px; }
+.wiki-home section { margin-top: 30px; }
+.wiki-home a, .wiki-article a { text-underline-offset: 3px; }
+.wiki-search label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
+.wiki-search input { width: 100%; max-width: 720px; padding: 12px 14px; border: 1px solid #9aa58e; border-radius: 2px; background: #fffdf6; color: var(--ink); font-size: 16px; }
+.wiki-search .search-help, .wiki-home .home-receipt { font-size: 12px; color: var(--muted); margin: 8px 0; }
+.search-results { padding-left: 24px; max-width: 820px; }
+.search-results li { padding: 7px 0; font-size: 14px; }
+.search-results small { display: block; color: var(--muted); margin-top: 4px; line-height: 1.6; }
+.search-kind { color: var(--muted); font-size: 11px; margin-left: 8px; }
+.category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.category-grid li { min-width: 0; padding: 17px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); scroll-margin-top: 20px; }
+.category-grid h3 { font-size: 16px; font-weight: 600; margin: 0 0 9px; }
+.category-grid p { font-size: 13px; margin: 0; color: var(--muted); }
+.category-grid .category-related { margin-top: 10px; }
+.atlas-links { display: flex; flex-wrap: wrap; gap: 12px 24px; padding-left: 20px; font-size: 14px; line-height: 1.7; }
+.home-atlas { padding: 22px 24px; border: 1px solid var(--line); border-left: 4px solid #6b7960; background: #eceee3; }
+.home-atlas p { font-size: 13px; }
+.wiki-breadcrumb { padding-top: 24px; font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px; line-height: 1.8; }
+.guide-page .intro, .guides-index .intro { padding: 20px 0 14px; }
+.guide-page .intro-row, .guides-index .intro-row { display: block; }
+.guide-page .intro-row p, .guides-index .intro-row p { max-width: 74ch; margin: 10px 0 0; font-size: 15px; color: var(--ink); }
+.guide-page .study-meta, .guides-index .study-meta { padding: 10px 0 18px; font-size: 12px; }
+.wiki-article { display: grid; grid-template-columns: 215px minmax(0, 1fr); gap: 28px; align-items: start; padding-bottom: 30px; }
+.wiki-contents { border: 1px solid var(--line); background: #eeefe5; padding: 13px 15px; margin-top: 22px; }
+.wiki-contents summary { font-size: 14px; font-weight: 600; cursor: pointer; }
+.wiki-contents ol { padding-left: 18px; margin: 12px 0 0; }
+.wiki-contents li { font-size: 12px; line-height: 1.5; padding: 5px 0; }
+.wiki-contents a { text-decoration: none; }
+.wiki-contents a:hover { text-decoration: underline; }
+#guide-body { min-width: 0; }
+.guide-page .guide-section { padding: 22px 0; }
+.guide-page .guide-section h2 { font-family: var(--sans); font-size: 24px; font-weight: 550; letter-spacing: -.4px; line-height: 1.25; margin-bottom: 14px; }
+.guide-page .guide-section p, .guide-page .guide-section li { font-size: 15px; line-height: 1.7; }
+.guide-page .guide-figure { margin: 16px 0 20px; }
+.guide-page .guide-figure figcaption { font-size: 12px; }
+.guide-page .guide-verification p { font-size: 12px; color: var(--muted); }
+.guide-page .guide-verification h2 { font-size: 18px; }
+.guide-page .table-wrap { margin: 14px 0 22px; }
+.guide-page .guide-section .recipe-inputs li { font-size: 13px; }
+@media (max-width: 900px) {
+  .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wiki-article { grid-template-columns: 1fr; gap: 0; }
+  .wiki-contents { max-width: 620px; }
+  .wiki-contents ol { columns: 2; column-gap: 30px; }
+}
+@media (max-width: 650px) {
+  .site-header { padding-block: 14px 10px; }
+  .site-brand { display: block; }
+  .wiki-edition { display: none; }
+  .site-brand .wordmark-light { font-size: 12px; }
+  .site-header .wiki-nav { gap: 3px 2px; font-size: 12px; }
+  .site-header nav a { padding: 6px 7px; }
+  .wiki-home main { padding-top: 24px; }
+  .wiki-home h1, .guide-page h1, .guides-index h1 { font-size: 31px; letter-spacing: -.7px; }
+  .category-grid li { padding: 14px 12px; }
+  .category-grid h3 { font-size: 15px; }
+  .wiki-contents ol { columns: 1; }
+  .home-atlas { padding: 18px; }
+  .wiki-home p, .guide-page p, .guide-page li { overflow-wrap: anywhere; }
+  .ledger-stats { grid-template-columns: 1fr; gap: 16px; }
+  .ledger-stats > div { border: 0; padding-left: 0; }
+}

@@ -69,7 +69,7 @@ function openAnimal(id) {
   size.append(el('dt', '', 'Resting model · width × height × length'), el('dd', '', a.sizeMetres.map(n => `${Number(n.toPrecision(3))} m`).join(' × ')));
   $('#detail-size').replaceChildren(size);
   $('#detail-habitats').replaceChildren(...a.habitats.map(id => {
-    const link = el('a', '', atlas.biomes[id]); link.href = `index.html#biome=${encodeURIComponent(id)}`; return link;
+    const link = el('a', '', atlas.biomes[id]); link.href = `atlas.html#biome=${encodeURIComponent(id)}`; return link;
   }));
   $('#view-controls').replaceChildren(...a.views.map((view, i) => {
     const button = el('button', '', view.label); button.type = 'button';

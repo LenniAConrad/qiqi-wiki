@@ -242,8 +242,8 @@ def offline(client, page):
     time.sleep(0.4)
     state = client.script("return {title: document.title, styled: getComputedStyle(document.documentElement).backgroundColor,"
                           "scripted: !document.querySelector('script[src]') ||"
-                          " (!!document.querySelector('#result-count, #controls-count') &&"
-                          " document.querySelector('#result-count, #controls-count').textContent.length > 0)};")
+                          " (!!document.querySelector('#result-count, #controls-count, #search-status') &&"
+                          " document.querySelector('#result-count, #controls-count, #search-status').textContent.length > 0)};")
     ok = bool(state["title"]) and state["styled"] not in ("", "rgba(0, 0, 0, 0)") and state["scripted"]
     print(f"{'PASS' if ok else 'FAIL'}: {page} over file:// — title {state['title']!r}, background "
           f"{state['styled']}, script ran {state['scripted']}")
@@ -253,7 +253,7 @@ def offline(client, page):
 def keyboard(client, base, page):
     """Real key presses: '/' focuses search, typing filters, Escape clears.
 
-    Works on the feature ledger and on the controls reference."""
+    Works on the wiki home, feature ledger and controls reference."""
     client.size(*SIZES["desktop"])
     client.navigate(f"{base}/{page}")
     time.sleep(0.3)
@@ -261,6 +261,20 @@ def keyboard(client, base, page):
     client.keys("/")
     focused = client.script("return document.activeElement && document.activeElement.id;")
     client.keys(*"sailing")
+    if focused == "wiki-search":
+        count = client.script("return document.querySelectorAll('#search-results a').length;")
+        client.keys("\ue007")  # Enter focuses the first result.
+        result_focused = client.script("return document.activeElement === document.querySelector('#search-results a');")
+        client.keys("/")
+        client.keys("\ue00c")  # Escape clears the search.
+        cleared = client.script("return document.querySelector('#wiki-search').value === '' &&"
+                                " document.querySelector('#search-results').hidden;")
+        client.keys("\ue004")  # Tab reaches the first category article.
+        tabbed = client.script("return document.activeElement.getAttribute('href');")
+        ok = count > 0 and result_focused and cleared and tabbed == "guide-getting-started.html"
+        print(f"{'PASS' if ok else 'FAIL'}: keyboard on {page} — search results {count}, "
+              f"Enter focused result {result_focused}, Escape cleared {cleared}, Tab reached {tabbed!r}")
+        return ok
     rows = ".feature:not([hidden]), .control-row:not([hidden])"
     field = "document.querySelector('#search, #controls-search')"
     filtered = client.script(f"return [{field}.value, document.querySelectorAll('{rows}').length,"
