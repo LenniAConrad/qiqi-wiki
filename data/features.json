@@ -3287,10 +3287,9 @@
    ],
    "notes": "Drops that do not fit are lost (there are no ground items). Killing animals in creative collects nothing. Hunting controls are covered by the combat audit.",
    "guide": {
-    "state": "partial",
-    "page": "guide-first-survival-day.html",
-    "label": "Your first survival day",
-    "next": "Hunting, weapons and animals"
+    "state": "complete",
+    "page": "guide-hunting.html",
+    "label": "Hunting, weapons and animals"
    }
   },
   {
@@ -3312,8 +3311,9 @@
     "VOX-OWNER-HEROBRINE-MOD"
    ],
    "guide": {
-    "state": "none",
-    "next": "Hunting, weapons and animals"
+    "state": "complete",
+    "page": "guide-hunting.html",
+    "label": "Hunting, weapons and animals"
    }
   },
   {
@@ -3338,10 +3338,9 @@
    ],
    "notes": "Melee does not damage characters or vehicles. Tall grass or flowers in front of an animal count as the nearer block and can block a melee hit.",
    "guide": {
-    "state": "partial",
-    "page": "guide-first-survival-day.html",
-    "label": "Your first survival day",
-    "next": "Hunting, weapons and animals"
+    "state": "complete",
+    "page": "guide-hunting.html",
+    "label": "Hunting, weapons and animals"
    }
   },
   {
@@ -3380,8 +3379,9 @@
    ],
    "notes": "Arrows stop on grass, flowers and other small plants. Recipe counts are carried pieces (half-metre voxels); 'Stone' accepts any raw stone and 'Boards' any board species.",
    "guide": {
-    "state": "none",
-    "next": "Hunting, weapons and animals"
+    "state": "complete",
+    "page": "guide-hunting.html",
+    "label": "Hunting, weapons and animals"
    }
   },
   {
@@ -3415,8 +3415,9 @@
    ],
    "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of lumen crystal (one block = 8 pieces). Rounds hurt animals, characters and vehicles.",
    "guide": {
-    "state": "none",
-    "next": "Hunting, weapons and animals"
+    "state": "complete",
+    "page": "guide-hunting.html",
+    "label": "Hunting, weapons and animals"
    }
   },
   {
@@ -3441,8 +3442,9 @@
    ],
    "notes": "Rocks hurt animals only, not characters or vehicles.",
    "guide": {
-    "state": "none",
-    "next": "Hunting, weapons and animals"
+    "state": "complete",
+    "page": "guide-hunting.html",
+    "label": "Hunting, weapons and animals"
    }
   },
   {
@@ -3540,8 +3542,9 @@
    ],
    "notes": "There is no taming, riding, breeding, feeding, milking or shearing (see animal-taming-breeding).",
    "guide": {
-    "state": "none",
-    "next": "Hunting, weapons and animals"
+    "state": "complete",
+    "page": "guide-hunting.html",
+    "label": "Hunting, weapons and animals"
    }
   },
   {

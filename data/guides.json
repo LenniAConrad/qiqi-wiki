@@ -792,8 +792,6 @@
     "mining-speed-tools",
     "carry-capacity",
     "stone-tools",
-    "melee-attacks",
-    "animal-drops",
     "home-crate",
     "rest-respawn-point",
     "trip-preparation-readout",
@@ -802,8 +800,6 @@
     "temperature-shelter"
    ],
    "partial": [
-    "melee-attacks",
-    "animal-drops",
     "home-crate"
    ]
   },
@@ -1427,6 +1423,223 @@
         "If ffmpeg is missing, Music turns itself off and the status line shows **Music unavailable: ...**.",
         "After you install ffmpeg, open **Settings > Audio** and switch Music back on."
        ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hunting-and-animals",
+   "page": "guide-hunting.html",
+   "number": 7,
+   "gap": 10,
+   "kicker": "Creatures",
+   "title": "Hunting, weapons and animals",
+   "headline": "Hunt with a sword,<br><em>bow, rifle or rock.</em>",
+   "summary": "Animals never attack. Learn the melee, throwing, bow and rifle controls, and what each kill gives you.",
+   "lead": "Hunting is the renewable food in survival. No animal fights back, so the only hard part is getting close enough and keeping the weapon ready.",
+   "readTime": "4 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "melee-attacks",
+    "throwing-rocks",
+    "alder-bow",
+    "alder-rifle",
+    "animal-drops",
+    "animal-behaviour",
+    "no-hostile-mobs"
+   ],
+   "next": [
+    "first-survival-day",
+    "crafting-and-recipes"
+   ],
+   "verification": {
+    "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines.",
+    "limits": "Source-checked, not play-tested in this guide. Draw, wind-up and reload times are the code values; check them in play if they feel different."
+   },
+   "owns": [
+    "melee-attacks",
+    "throwing-rocks",
+    "alder-bow",
+    "alder-rifle",
+    "animal-drops",
+    "animal-behaviour",
+    "no-hostile-mobs"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "peaceful",
+     "title": "Animals are passive",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Every animal is passive. None of them attack, chase or damage you. Farm animals stay calm near you. Wild animals keep their distance and run when you come close. {{no-hostile-mobs}} {{animal-behaviour}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "There is no taming, riding, breeding, feeding, milking or shearing."
+      }
+     ]
+    },
+    {
+     "id": "melee",
+     "title": "Hit with a hand, tool or sword",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Get within reach of the animal and aim at it.",
+        "Left-click to hit it.",
+        "A hurt animal runs off for a few seconds. Chase it and hit it again."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "A bare hand or an ordinary tool deals 12 damage. The Stone sword deals 28. In creative, one hit removes the animal and gives you nothing. Tall grass or flowers between you and the animal can block the hit. {{melee-attacks}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Stone sword"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "rocks",
+     "title": "Throwing rocks",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Hold right click",
+         "Wind up. A full wind-up takes 0.7 s."
+        ],
+        [
+         "Release right click",
+         "Throw. A wind-up that is too short is cancelled."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Harder throws fly farther and hit harder. Each throw uses one rock in survival. Rocks hurt animals only, not you or vehicles. {{throwing-rocks}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Four throwing rocks"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "bow",
+     "title": "Alder bow and arrows",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Craft an Alder bow and some arrows.",
+        "Equip the bow. Press [[Tab]] or [[Shift]] + [[Tab]] to cycle through what you carry.",
+        "Hold right click to draw. A full draw takes 0.85 s.",
+        "Release to shoot. Letting go before about a fifth of a draw cancels the shot."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Hold right click, release",
+         "Draw and shoot."
+        ],
+        [
+         "Hold Shift",
+         "Sneak to steady your aim."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Longer draws fly faster and hit harder. In survival each shot uses one arrow, and arrows are not recovered. Arrows stop on grass, flowers and other small plants. Creative arrows are unlimited. {{alder-bow}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Alder bow",
+        "Reed-bound bow",
+        "Four arrows",
+        "Four reed arrows"
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The reed versions use reeds instead of wool or plant fiber for the string and shafts, so you do not need animal drops for them."
+      }
+     ]
+    },
+    {
+     "id": "rifle",
+     "title": "Alder rifle",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Left click",
+         "Fire."
+        ],
+        [
+         "Hold right click",
+         "Raise the sights for less spread and sway. You cannot aim while it reloads."
+        ],
+        [
+         "Hold Shift",
+         "Sneak to steady your aim."
+        ],
+        [
+         "R",
+         "Does not reload the rifle. In survival, R eats food instead."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The rifle reloads itself about one second after every shot. Survival uses one rifle round per shot; creative is unlimited. Rounds hurt animals, characters and vehicles. {{alder-rifle}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Alder rifle",
+        "Four rifle rounds"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "drops",
+     "title": "What you get from a kill",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In survival, drops go straight into your pack. Meat and venison are food, feathers make arrows, and wool can replace plant fiber. Hide has no use yet. If your pack is full, drops that do not fit are lost, because there are no items on the ground. Creative kills give nothing. {{animal-drops}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Burn a charcoal pile",
+        "Cook raw meat",
+        "Roast venison"
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Cook meat over charcoal before you eat it. Cooked meat restores much more hunger than raw meat. See {{guide:first-survival-day|Your first survival day}} for the hunger numbers."
       }
      ]
     }
