@@ -4389,8 +4389,9 @@
    ],
    "notes": "Autosave is triggered by world changes such as building, mining, home storage, journal edits or boats; just walking around or most crafting waits for the next F6 or quit. There is no crash handler, so a crash loses changes since the last save, but the previous save file stays intact.",
    "guide": {
-    "state": "none",
-    "next": "Fixing startup, sound and save problems"
+    "state": "complete",
+    "page": "guide-troubleshooting.html",
+    "label": "Fixing startup, sound and save problems"
    }
   },
   {
@@ -4486,7 +4487,9 @@
    ],
    "notes": "Because startup always opens worlds/debug/debug.vxw (or VOXELGAME_SAVE_PATH), an unreadable starting world blocks the main menu; moving that file aside lets the game start with a fresh starting world. Run the launcher from a terminal to read the message.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-troubleshooting.html",
+    "label": "Fixing startup, sound and save problems",
     "next": "Fixing startup, sound and save problems"
    }
   },
@@ -4559,7 +4562,9 @@
    ],
    "notes": "Other messages: 'GPU ran out of memory during startup', 'Nearby terrain took too long to prepare; please try again' (shown on the menu), 'audio disabled: playback command unavailable (aplay on Linux; ffplay on Windows/macOS)'. Problems loading other worlds are shown on the main menu instead. Only run.sh shows a dialog, and only for a failed build (run.sh:100-104). Linux launcher path for terminal use: ~/.local/share/voxelgame/app/launch.sh (install.sh:140).",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-troubleshooting.html",
+    "label": "Fixing startup, sound and save problems",
     "next": "Fixing startup, sound and save problems"
    }
   },
@@ -4606,7 +4611,9 @@
    ],
    "notes": "No in-game GPU diagnostics beyond the F3 overlay. macOS needs a Metal-capable GPU; Windows graphics are not yet validated. Lowering Horizon distance, turning Distant terrain off or choosing Shader None reduces GPU load.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-troubleshooting.html",
+    "label": "Fixing startup, sound and save problems",
     "next": "Fixing startup, sound and save problems"
    }
   },
@@ -4627,8 +4634,9 @@
    ],
    "notes": "After installing ffmpeg, switch Music back on in Settings > Audio. Song files may be mp3, ogg, wav or flac.",
    "guide": {
-    "state": "none",
-    "next": "Fixing startup, sound and save problems"
+    "state": "complete",
+    "page": "guide-troubleshooting.html",
+    "label": "Fixing startup, sound and save problems"
    }
   },
   {

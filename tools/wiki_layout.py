@@ -8,7 +8,7 @@ CATEGORIES = (
     ('crafting', 'Crafting', 'guide-crafting.html'),
     ('blocks', 'Blocks', None), ('mobs', 'Mobs', None),
     ('building', 'Building', None), ('exploration', 'Exploration', None),
-    ('troubleshooting', 'Troubleshooting', None),
+    ('troubleshooting', 'Troubleshooting', 'guide-troubleshooting.html'),
 )
 ATLAS = (('atlas.html', 'Biomes'), ('animals.html', 'Animals'),
          ('islands.html', 'Islands'), ('scale.html', 'Scale'),

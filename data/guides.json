@@ -1233,6 +1233,204 @@
      ]
     }
    ]
+  },
+  {
+   "id": "troubleshooting",
+   "page": "guide-troubleshooting.html",
+   "number": 6,
+   "gap": 12,
+   "kicker": "Troubleshooting",
+   "title": "Fixing startup, sound and save problems",
+   "headline": "Fix startup,<br><em>sound and saves.</em>",
+   "summary": "Find the error message, check your graphics driver and sound players, and recover a world that will not load.",
+   "lead": "Most startup failures print their reason to a terminal. Start the game from a terminal first, then use the matching section below.",
+   "readTime": "5 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "startup-error-reporting",
+    "unreadable-save",
+    "troubleshoot-graphics",
+    "audio-requirements",
+    "saving"
+   ],
+   "next": [
+    "install-and-worlds",
+    "getting-started"
+   ],
+   "verification": {
+    "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines.",
+    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet."
+   },
+   "owns": [
+    "startup-error-reporting",
+    "unreadable-save",
+    "troubleshoot-graphics",
+    "audio-requirements",
+    "saving"
+   ],
+   "partial": [
+    "startup-error-reporting",
+    "unreadable-save",
+    "troubleshoot-graphics"
+   ],
+   "sections": [
+    {
+     "id": "errors",
+     "title": "Read the startup message",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "When the game cannot start, it closes and prints the reason to the terminal. Menu and desktop launches show no error window, so start Voxelgame from a terminal to read the message."
+      },
+      {
+       "t": "list",
+       "items": [
+        "**voxelgame could not start: ...** means a bad option was given. The game exits with code 2.",
+        "**voxelgame failed: ...** means any other startup failure. The game exits with code 1."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Messages you may see:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**no Vulkan-compatible graphics adapter found**: the graphics driver is missing. See Graphics driver problems below.",
+        "**GPU ran out of memory during startup**: lower **Settings > General > Horizon distance**, then try again.",
+        "**Nearby terrain took too long to prepare; please try again**: shown on the main menu. Try again, or lower **Settings > General > Horizon distance**.",
+        "**audio disabled: playback command unavailable**: sound players are missing. See Sound and music below."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Setup failures are written to an installer log. See {{guide:install-and-worlds|Install, update and find your worlds}}."
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Problems with other worlds appear on the main menu instead of closing the game."
+      }
+     ]
+    },
+    {
+     "id": "saves",
+     "title": "Worlds that will not load",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The game never overwrites a world file it cannot read. The file stays as it is, so you can move it or try again later."
+      },
+      {
+       "t": "h",
+       "text": "A world from the Worlds list fails"
+      },
+      {
+       "t": "p",
+       "text": "The main menu shows **world could not be loaded: ...** and you stay where you were. Pick another world or fix the file, then try again."
+      },
+      {
+       "t": "h",
+       "text": "The starting world fails"
+      },
+      {
+       "t": "p",
+       "text": "The game opens the starting world, `worlds/debug/debug.vxw`, or the file named by `VOXELGAME_SAVE_PATH` when you start it. If that file cannot be read, the game closes before the main menu and prints the reason to the terminal."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Close the game.",
+        "Move the damaged `.vxw` file to a backup folder. Do not delete it.",
+        "Start the game again. A new starting world is created when the file is missing."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Moving the file aside means the game starts with a new starting world. Keep the old file if you may want its contents back. Find the data folder with {{guide:install-and-worlds|Install, update and find your worlds}}."
+      }
+     ]
+    },
+    {
+     "id": "saving",
+     "title": "Saving and losing progress",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Press **F6** in a world to save now. The game also saves when you choose **Main menu** or **Save & quit** in the Esc menu, press **Ctrl+Q**, close the window, or load or create another world. Autosave runs every 30 seconds when the world has changed."
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Autosave runs after changes such as building, mining, home storage, journal edits or boats. Walking around and most crafting wait for the next F6 or quit, so press F6 after a long crafting session."
+      },
+      {
+       "t": "p",
+       "text": "If saving fails while you quit, the game stays open. Fix the cause, such as a full disk, and save again."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "There is no crash recovery. A crash loses changes made since the last save. The previous save file is kept intact."
+      }
+     ]
+    },
+    {
+     "id": "graphics",
+     "title": "Graphics driver problems",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Voxelgame needs a working Vulkan graphics driver. On Linux it runs in an X11 or XWayland session. It has no native Wayland window."
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Debian and Fedora**: the installer adds Mesa Vulkan drivers.",
+        "**Arch**: install **vulkan-intel** or **vulkan-radeon**, or your NVIDIA driver.",
+        "**macOS**: a Metal-capable GPU is required."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The game picks your high-performance GPU first. If that fails, it falls back to a software renderer such as llvmpipe. The fallback is useful for diagnosis but too slow for normal play."
+      },
+      {
+       "t": "p",
+       "text": "To reduce GPU load, set **Settings > General > Horizon distance** lower, turn off **Settings > Debug > Distant terrain**, or set **Settings > General > Shader** to **None**."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Windows graphics have not been validated on a real Windows PC yet."
+      }
+     ]
+    },
+    {
+     "id": "sound",
+     "title": "Sound and music",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Sound effects need a player program: **aplay** from alsa-utils on Linux, or **ffplay** on Windows and macOS. The installers set these up. Without a player the game runs silently."
+      },
+      {
+       "t": "p",
+       "text": "Music also needs **ffmpeg** to decode the songs. Song files may be mp3, ogg, wav or flac."
+      },
+      {
+       "t": "list",
+       "items": [
+        "If ffmpeg is missing, Music turns itself off and the status line shows **Music unavailable: ...**.",
+        "After you install ffmpeg, open **Settings > Audio** and switch Music back on."
+       ]
+      }
+     ]
+    }
+   ]
   }
  ]
 }
