@@ -980,6 +980,259 @@
     "lumen-crystal-supply"
    ],
    "partial": []
+  },
+  {
+   "id": "install-and-worlds",
+   "page": "guide-install-and-worlds.html",
+   "number": 5,
+   "gap": 6,
+   "kicker": "Setup",
+   "title": "Install, update and find your worlds",
+   "headline": "Install the game,<br><em>keep your worlds.</em>",
+   "summary": "Install Voxelgame on Linux, Windows or macOS, update it by running the installer again, and find the folders that hold your worlds.",
+   "lead": "Each installer builds the game from the source folder and adds a launcher. Worlds and settings live in a separate data folder, so an update leaves them alone.",
+   "readTime": "4 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-11",
+   "state": "complete",
+   "covers": [
+    "install-linux",
+    "install-windows",
+    "install-macos",
+    "update-by-reinstall",
+    "setup-logs",
+    "data-locations",
+    "world-files",
+    "startup-active-world"
+   ],
+   "next": [
+    "getting-started",
+    "controls-reference"
+   ],
+   "verification": {
+    "method": "Installer steps, folder names and world file rules come from the installer scripts and the save code at the audited commit, each traced to a ledger entry. Each ledger entry lists its source lines.",
+    "limits": "Source-checked, not play-tested. Linux is the platform the installer is tested on. Windows and macOS are marked Limited because no real machine has validated them yet."
+   },
+   "owns": [
+    "install-linux",
+    "install-windows",
+    "install-macos",
+    "update-by-reinstall",
+    "setup-logs",
+    "data-locations",
+    "world-files",
+    "startup-active-world"
+   ],
+   "partial": [
+    "install-windows",
+    "install-macos",
+    "update-by-reinstall"
+   ],
+   "sections": [
+    {
+     "id": "before",
+     "title": "Before you install",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "You need an internet connection, several GB of free disk space and a working Vulkan graphics driver. On Linux the game runs in an X11 or XWayland session; it has no native Wayland window."
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Keep the extracted source folder until setup finishes. You can delete it afterwards."
+      }
+     ]
+    },
+    {
+     "id": "linux",
+     "title": "Install on Linux",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Open a terminal in the extracted source folder.",
+        "Run **bash install.sh** as your normal user. Do not use sudo; setup only uses it for system packages.",
+        "Read the plan and confirm it. Setup installs compiler and audio tools with apt-get, dnf or pacman, installs Rust, builds the game and adds Voxelgame to your application menu.",
+        "Start Voxelgame from the application menu."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "--yes",
+         "Accept the plan without asking"
+        ],
+        [
+         "--prefix PATH",
+         "Install the app into another folder"
+        ],
+        [
+         "--skip-prerequisites",
+         "Skip the tool install; use this on other distributions after installing the tools yourself (see docs/INSTALLING.md)"
+        ],
+        [
+         "--help",
+         "Show the options; changes nothing"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Setup never starts the game and never touches existing worlds."
+      }
+     ]
+    },
+    {
+     "id": "windows",
+     "title": "Install on Windows",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "The Windows installer has not been tested on a real Windows PC yet."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Double-click **install-windows.cmd**.",
+        "Confirm the plan. If Windows asks, approve the Microsoft C++ Build Tools installer.",
+        "Wait while setup downloads any missing Build Tools, Rust and FFmpeg, then builds the game.",
+        "Start Voxelgame from the Start menu. The shortcut has no Voxelgame icon."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "If the compiler setup asks you to restart Windows, restart it and run the installer again. Managed PCs may need an administrator to allow PowerShell scripts. In PowerShell, run **install-windows.ps1** with the same options as the Linux installer: -Yes or -Prefix PATH."
+      }
+     ]
+    },
+    {
+     "id": "macos",
+     "title": "Install on macOS",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "The macOS build is not validated yet. Graphics and sound are untested, and the game may fail to start on some Macs."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Double-click **Install-macOS.command** and press Return to accept the plan.",
+        "If Apple offers the Command Line Tools installer, finish it.",
+        "If Homebrew asks for your password, enter your Mac password.",
+        "Open Voxelgame.app from the Applications folder in your home folder."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The app is unsigned and not notarized. If macOS blocks it, open System Settings > Privacy & Security and choose Open Anyway. You can also run **bash install.sh** in Terminal. Do not turn off Gatekeeper."
+      },
+      {
+       "t": "p",
+       "text": "On some Macs the F4 mode key needs Fn+F4."
+      }
+     ]
+    },
+    {
+     "id": "update",
+     "title": "Update the game",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "There is no separate updater. Install a newer version the same way you installed the first one."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Close the game. [[Ctrl+Q]] saves and quits.",
+        "Extract the newer source folder.",
+        "Run its installer again: **bash install.sh**, **Install-macOS.command** or **install-windows.cmd**."
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "Your worlds and settings stay in the data folder.",
+        "If the build fails, the old version keeps working.",
+        "The launcher switches to the new version only after the new copy is complete.",
+        "Setup does not delete old versions. Delete the older folders in the app's versions folder yourself, after you have checked the new version."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Going back to an older build is not supported. It may fail to open worlds saved by a newer build."
+      }
+     ]
+    },
+    {
+     "id": "folders",
+     "title": "Where the files are",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Linux",
+         "Worlds and settings: ~/.local/share/voxelgame/data. Installer logs: ~/.local/state/voxelgame"
+        ],
+        [
+         "macOS",
+         "Worlds and settings: ~/Library/Application Support/Voxelgame. Installer logs: ~/Library/Logs/Voxelgame"
+        ],
+        [
+         "Windows",
+         "Worlds and settings: %LOCALAPPDATA%\\Voxelgame\\data. Installer logs: %LOCALAPPDATA%\\Voxelgame\\logs"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Every setup run writes a log, including failed runs. Setup prints the log path when it starts and when it ends. Its file name is install-<date>-<id>.log. On Linux and macOS, set VOXELGAME_INSTALL_LOG_DIR to change the log folder."
+      }
+     ]
+    },
+    {
+     "id": "worlds",
+     "title": "How worlds are stored",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "Each world is one .vxw file in the worlds folder inside the data folder.",
+        "The starting world is worlds/debug/debug.vxw. The menu lists it as DEBUG.",
+        "A world with a name is saved as worlds/<name>/world.vxw, with a name.txt label.",
+        "A world with an empty name is saved as worlds/world-0001/world.vxw, then world-0002, and so on."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The game stores only your changes. Untouched terrain is generated again from the world's seed. New worlds have no seed field."
+      },
+      {
+       "t": "h",
+       "text": "Continue opens the starting world"
+      },
+      {
+       "t": "p",
+       "text": "The starting world is always worlds/debug/debug.vxw, so Continue opens DEBUG after every restart. To keep playing another world, open Worlds and load it. Settings are saved per world. The settings you see right after launch belong to DEBUG."
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Close the game before you copy a world file, so the copy holds the latest save. Autosave runs about every 30 seconds after world changes such as building, mining, storage, journal edits or boats."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "The installer does not move worlds from a source checkout started with ./run.sh. Copying that worlds folder into the data folder with the game closed should work, but this is inferred from the save paths and has not been tested."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

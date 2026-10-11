@@ -4156,8 +4156,9 @@
    ],
    "notes": "Needs internet, several GB free, a working Vulkan driver and X11/XWayland. Other distributions: install the prerequisites listed in docs/INSTALLING.md:69-72 yourself, then use --skip-prerequisites. Fedora gets ffmpeg-free. INSTALLING.md says not to run setup with sudo; the script does not enforce this.",
    "guide": {
-    "state": "none",
-    "next": "Install, update and where your worlds live"
+    "state": "complete",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
    }
   },
   {
@@ -4177,7 +4178,9 @@
    ],
    "notes": "Unsigned source installer, not a notarized app: if macOS blocks it use System Settings > Privacy & Security > Open Anyway, or run `bash install.sh` in Terminal; do not disable Gatekeeper. Native macOS graphics and audio are untested, and an owner-supplied Metal startup fix is not yet integrated, so the game may fail to start. On some Macs F4 needs Fn+F4. The extracted folder can be deleted after a successful install.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds",
     "next": "Install, update and where your worlds live"
    }
   },
@@ -4201,7 +4204,9 @@
    ],
    "notes": "Not validated on a real Windows machine yet. Python, Git and winget are not needed. The Start menu shortcut sets no Voxelgame icon (install-windows.ps1:138-143). Managed PCs may need an administrator to allow scripts.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds",
     "next": "Install, update and where your worlds live"
    }
   },
@@ -4219,8 +4224,9 @@
    ],
    "notes": "Worlds from a development checkout are not moved automatically; copying the worlds folder into the data folder while the game is closed is the implied manual route (inferred from relative save paths).",
    "guide": {
-    "state": "none",
-    "next": "Install, update and where your worlds live"
+    "state": "complete",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
    }
   },
   {
@@ -4240,7 +4246,9 @@
    ],
    "notes": "Missing today: update-existing detection, version/origin checks, a check that the game is closed, rollback and clean-up of old versions (delete them yourself after checking the new one). Going back to an older build is not supported and may fail to open worlds saved by the newer one (current save format 22). A source checkout launched with./run.sh rebuilds itself when its sources change (run.sh:76-107).",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds",
     "next": "Install, update and where your worlds live"
    }
   },
@@ -4323,8 +4331,9 @@
    ],
    "notes": "There is no seed field when creating a world. Only your changes are stored; untouched terrain is regenerated from the seed.",
    "guide": {
-    "state": "none",
-    "next": "Install, update and where your worlds live"
+    "state": "complete",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
    }
   },
   {
@@ -4344,8 +4353,9 @@
    ],
    "notes": "Settings are stored per world, so the settings shown right after launch are the DEBUG world's (see per-world-settings).",
    "guide": {
-    "state": "none",
-    "next": "Install, update and where your worlds live"
+    "state": "complete",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
    }
   },
   {
@@ -4524,8 +4534,9 @@
    ],
    "notes": "VOXELGAME_INSTALL_LOG_DIR changes the Linux/macOS log folder (install.sh:63).",
    "guide": {
-    "state": "none",
-    "next": "Fixing startup, sound and save problems"
+    "state": "complete",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
    }
   },
   {
