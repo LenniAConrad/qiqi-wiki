@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "game": {
-  "commit": "dd29d912918978b9d0e74ec1104b87c0679d793e",
+  "commit": "03c651932d7c0d3778734711c582fa83d8c42b41",
   "source": "crates/voxelgame-core/src/inventory.rs RECIPES"
  },
  "piecesPerBlock": 8,
@@ -40,7 +40,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:946-952",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:953-959",
    "notes": "Counts are half-metre pieces: one full 1 m log block (8 pieces) splits into 32 boards."
   },
   {
@@ -55,7 +55,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:953-959"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:960-966"
   },
   {
    "name": "Split pine boards",
@@ -69,7 +69,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:960-966"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:967-973"
   },
   {
    "name": "Split hardwood boards",
@@ -83,7 +83,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:967-973",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:974-980",
    "notes": "Always makes Alder boards whatever the species. Driftwood, Charred log, Mossy fallen wood, Bamboo, Cypress knees and Mangrove roots cannot be split."
   },
   {
@@ -98,7 +98,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:974-980"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:981-987"
   },
   {
    "name": "Cook raw meat",
@@ -116,7 +116,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:981-987",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:988-994",
    "notes": "Raw meat restores 8 hunger, Cooked meat 30."
   },
   {
@@ -135,7 +135,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:988-994",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:995-1001",
    "notes": "One Venison (18 hunger raw) becomes 2 Cooked meat (30 each)."
   },
   {
@@ -154,7 +154,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:995-1001",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1002-1008",
    "notes": "8 Glass pieces = one full glass block. Fill flasks by pressing T near drinkable water."
   },
   {
@@ -173,7 +173,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1002-1008",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1009-1015",
    "notes": "3 blocks of Pale sand make 2 blocks of Glass. Only Pale sand works (not Sea, Fine dune, Red, Black or Shell sand). Besides this recipe, the Survey workshop landmark's one-time find gives 8 Glass."
   },
   {
@@ -192,7 +192,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1009-1015",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1016-1022",
    "notes": "No kiln block exists; the recipe is crafted from the pack like every other."
   },
   {
@@ -215,7 +215,29 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1016-1022"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1023-1029"
+  },
+  {
+   "name": "Glaze fuchsia tile",
+   "section": "materials",
+   "gameDescription": "Fires clay under a heavy petal glaze into deep pink roof tile",
+   "output": "Fuchsia glazed tile",
+   "quantity": 8,
+   "inputs": [
+    [
+     "River clay",
+     8
+    ],
+    [
+     "Wildflowers",
+     4
+    ],
+    [
+     "Charcoal",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1030-1036"
   },
   {
    "name": "Burn lime plaster",
@@ -233,8 +255,26 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1023-1029",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1037-1043",
    "notes": "Only Limestone counts (Sharp limestone does not)."
+  },
+  {
+   "name": "Tint blush plaster",
+   "section": "materials",
+   "gameDescription": "Works a few crushed wildflowers into lime plaster for soft pink walls",
+   "output": "Blush plaster",
+   "quantity": 8,
+   "inputs": [
+    [
+     "White plaster",
+     8
+    ],
+    [
+     "Wildflowers",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1044-1050"
   },
   {
    "name": "Dress carved stone",
@@ -248,7 +288,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1030-1036"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1051-1057"
   },
   {
    "name": "Cut sandstone",
@@ -262,7 +302,7 @@
      16
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1037-1043"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1058-1064"
   },
   {
    "name": "Lacquer timber",
@@ -284,7 +324,25 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1044-1050"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1065-1071"
+  },
+  {
+   "name": "Paint rose boards",
+   "section": "materials",
+   "gameDescription": "Stains alder boards rose pink with a wildflower paint",
+   "output": "Rose boards",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Alder boards",
+     8
+    ],
+    [
+     "Wildflowers",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1072-1078"
   },
   {
    "name": "Weave paper panel",
@@ -302,7 +360,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1051-1057",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1079-1085",
    "notes": "Only Reeds count (Tall reeds do not)."
   },
   {
@@ -325,7 +383,7 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1058-1064",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1086-1092",
    "notes": "Makes half a block of lantern (4 pieces). Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
@@ -344,7 +402,7 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1065-1071",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1093-1099",
    "notes": "Fiber comes from mining Wild flax; Wool from sheep. Raw reeds cannot stand in for the binding."
   },
   {
@@ -359,7 +417,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1072-1078"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1100-1106"
   },
   {
    "name": "Dress ironstone bricks",
@@ -373,7 +431,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1079-1085"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1107-1113"
   },
   {
    "name": "Dress basalt bricks",
@@ -387,7 +445,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1086-1092"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1114-1120"
   },
   {
    "name": "Polish granite",
@@ -401,7 +459,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1093-1099",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1121-1127",
    "notes": "Only Granite counts (Exfoliated granite does not)."
   },
   {
@@ -420,7 +478,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1100-1109"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1128-1137"
   },
   {
    "name": "Stone sword",
@@ -438,7 +496,7 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1110-1116",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1138-1144",
    "notes": "Crafted tools are equipped automatically."
   },
   {
@@ -457,7 +515,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1117-1123"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1145-1151"
   },
   {
    "name": "Stone hatchet",
@@ -475,7 +533,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1124-1130",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1152-1158",
    "notes": "The 4 starter boards plus 4 pieces of any natural stone (e.g. shore gravel dug by hand) make the first hatchet."
   },
   {
@@ -494,7 +552,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1131-1137"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1159-1165"
   },
   {
    "name": "Alder bow",
@@ -512,7 +570,7 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1138-1144"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1166-1172"
   },
   {
    "name": "Reed-bound bow",
@@ -530,7 +588,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1145-1151",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1173-1179",
    "notes": "Same Alder bow as the fiber/wool recipe, without animal drops."
   },
   {
@@ -553,7 +611,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1152-1158"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1180-1186"
   },
   {
    "name": "Four reed arrows",
@@ -575,7 +633,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1159-1165"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1187-1193"
   },
   {
    "name": "Four throwing rocks",
@@ -589,7 +647,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1166-1172",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1194-1200",
    "notes": "Each Throwing rock weighs 0.6 kg versus 0.125 kg per stone piece, so crafting rocks raises carried mass."
   },
   {
@@ -612,7 +670,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1173-1179",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1201-1207",
    "notes": "40 stone = 5 blocks, 16 boards = 2 blocks, 8 Lumen crystal = 1 block. Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
@@ -635,7 +693,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1180-1186",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1208-1214",
    "notes": "Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
@@ -658,7 +716,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1187-1193",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1215-1221",
    "notes": "Makes one full TNT block (8 pieces). Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
@@ -677,7 +735,7 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1194-1200",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1222-1228",
    "notes": "Needs half a block of TNT, which itself needs Lumen crystal (see TNT charge)."
   },
   {
@@ -700,7 +758,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1201-1207",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1229-1235",
    "notes": "Listed last in the Timber section. Crafting selects the boat ready to launch; it weighs 18 kg."
   }
  ]

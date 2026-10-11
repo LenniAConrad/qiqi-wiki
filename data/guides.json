@@ -151,7 +151,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Click the world once to capture the mouse. That first click never mines or places a block. While the mouse is released (after opening a panel, pressing [[Esc]], or switching away from the window) you cannot move or look, and the game does not grab it back on its own. {{mouse-capture}}"
+       "text": "Click the world once to capture the mouse. That first click never mines or places a block. While the mouse is released (after opening a panel, pressing [[Esc]], or switching away from the window) you cannot move or look. Closing a panel captures the mouse again on its own. {{mouse-capture}}"
       },
       {
        "t": "keys",
@@ -279,7 +279,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "There are exactly two modes. Press [[F4]] at any time to switch; your pack, hotbar and position stay as they are, and each world remembers the mode you left it in. {{game-modes}}"
+       "text": "There are exactly two modes. Press [[F4]] to switch, except on the start menu, in Study Grove or while connected to a server; your pack, hotbar and position stay as they are, and each world remembers the mode you left it in. {{game-modes}}"
       },
       {
        "t": "h",
@@ -484,7 +484,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "Hold Shift while mining or placing to work on a single half-metre piece instead of a whole block."
+       "text": "Hold Shift while mining or placing to work on a single half-metre piece instead of a whole block. Logs and cactus are always felled as a whole tree or stem."
       }
      ]
     },
@@ -498,7 +498,7 @@
         "**Shift** is shared: sneak on the ground, half-metre mining and placing, dive in water, descend while flying, and steadier aim with a bow or rifle. {{sneak-ledge-guard}}",
         "**Tab** equips tools when the inventory is closed and switches tabs when it is open. {{equip-tools-tab}}",
         "**Z** zooms, but **Ctrl + Z** is undo in creative, so Z does not zoom while Ctrl is held. {{hold-to-zoom}}",
-        "**C** crawls on foot but cycles camera stations inside a vehicle or boat. {{crawl}}",
+        "**C** crawls on foot. In a boat, it cycles camera stations. {{crawl}}",
         "**F** toggles flight in creative; in survival it only shows 'Flight is available in creative mode'. {{creative-flight}}",
         "**F5** cycles first person, third person rear and third person front. The perspective is not saved. {{camera-perspectives}}"
        ]
@@ -647,8 +647,8 @@
          "Eat one food: Berries first, then Venison, Raw meat, and Cooked meat last."
         ],
         [
-         "Click a food or flask in the Pack",
-         "Use that exact item instead."
+         "Click a food in the Pack",
+         "Eat it. Click a Water flask to drink, the same as T. Within reach of water, that refills your empty flasks instead of drinking."
         ]
        ]
       },
@@ -664,7 +664,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Hold left click on a block within 6 m. A progress bar fills and the whole one-metre block, up to eight pieces, goes straight into your pack. Hold [[Shift]] to take a single half-metre piece. Nothing drops on the ground: if the pieces do not fit, the block stays where it is and the status line says 'Capacity full; block left behind'. {{mining-harvesting}}"
+       "text": "Hold left click on a block within 6 m. A progress bar fills and the whole one-metre block, up to eight pieces, goes straight into your pack. Hold [[Shift]] to take a single half-metre piece of any block except a log or cactus. Logs and cactus fell the whole connected tree or stem instead, and Shift does not change that. Nothing drops on the ground: if the pieces do not fit, the block stays where it is and the status line says 'Capacity full; block left behind'. {{mining-harvesting}}"
       },
       {
        "t": "p",
@@ -814,7 +814,7 @@
    "gap": 4,
    "kicker": "Crafting",
    "title": "Crafting and recipes",
-   "headline": "Crafting,<br><em>all 37 recipes.</em>",
+   "headline": "Crafting,<br><em>all 40 recipes.</em>",
    "summary": "How the Craft tab works, which ingredients can be mixed, the quick-craft trap, and the complete recipe list with amounts.",
    "lead": "There is no workbench: every recipe is crafted from the pack. This guide explains the panel and lists every recipe with its exact amounts.",
    "readTime": "5 min, then look things up",
@@ -835,7 +835,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at the audited commit; tools/validate_guides.py can recheck all 37 names, sections and amounts against a source snapshot.",
+    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at Voxelgame 03c6519 (the other features are still from the audited commit dd29d91); tools/validate_guides.py can recheck all 40 names, sections and amounts against a source snapshot.",
     "limits": "Source-checked, not play-tested. Amounts are carried pieces: 8 pieces make one full one-metre block. Recipes for furnaces, smelting and metal tools do not exist yet."
    },
    "sections": [
@@ -908,7 +908,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Not usable as natural stone: Magma stone, Iron ore chunks, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyserite and any crafted masonry."
+       "text": "Not usable as natural stone: Magma stone, Iron ore chunks, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyserite and any crafted masonry. Sandstone is the exception: it counts as natural stone, although you can also craft it from sand."
       }
      ]
     },
@@ -944,7 +944,7 @@
     },
     {
      "id": "recipes",
-     "title": "All 37 recipes",
+     "title": "All 40 recipes",
      "blocks": [
       {
        "t": "p",
@@ -1191,7 +1191,7 @@
       },
       {
        "t": "p",
-       "text": "Every setup run writes a log, including failed runs. Setup prints the log path when it starts and when it ends. Its file name is install-<date>-<id>.log. On Linux and macOS, set VOXELGAME_INSTALL_LOG_DIR to change the log folder."
+       "text": "Setup writes a log once it starts, including runs that fail later. It prints the log path at the start, and a failed run does not repeat it. A stop before setup starts, such as a cancelled plan, leaves no log. Its file name is install-<date>-<id>.log. On Linux and macOS, set VOXELGAME_INSTALL_LOG_DIR to change the log folder."
       }
      ]
     },
@@ -1204,7 +1204,7 @@
        "items": [
         "Each world is one .vxw file in the worlds folder inside the data folder.",
         "The starting world is worlds/debug/debug.vxw. The menu lists it as DEBUG.",
-        "A world with a name is saved as worlds/<name>/world.vxw, with a name.txt label.",
+        "A world with a name is saved in a folder named from the name in lowercase letters, numbers and hyphens, for example worlds/my-island/world.vxw. If that folder already exists, a number is added (my-island-2). A name with no usable letters or numbers gets a numbered folder.",
         "A world with an empty name is saved as worlds/world-0001/world.vxw, then world-0002, and so on."
        ]
       },

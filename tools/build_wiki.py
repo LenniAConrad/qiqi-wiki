@@ -46,7 +46,7 @@ def render_home():
     cards = []
     summaries = {'getting-started': 'Create a world, move, save and switch game modes.',
                  'controls': 'Keys and actions, with the context each one needs.',
-                 'crafting': 'The crafting panel and 37 recipes with exact amounts.'}
+                 'crafting': 'The crafting panel and 40 recipes with exact amounts.'}
     for key, title, page in CATEGORIES:
         heading = f'<a href="{page}">{title}</a>' if page else title
         description = summaries.get(key, 'Not written yet')
