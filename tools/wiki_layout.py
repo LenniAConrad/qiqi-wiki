@@ -6,7 +6,7 @@ CATEGORIES = (
     ('getting-started', 'Getting started', 'guide-getting-started.html'),
     ('controls', 'Controls', 'guide-controls.html'),
     ('crafting', 'Crafting', 'guide-crafting.html'),
-    ('blocks', 'Blocks', None), ('mobs', 'Mobs', None),
+    ('blocks', 'Blocks', 'blocks.html'), ('mobs', 'Mobs', 'mobs.html'),
     ('building', 'Building', None), ('exploration', 'Exploration', None),
     ('troubleshooting', 'Troubleshooting', 'guide-troubleshooting.html'),
 )

@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # qiqi-wiki
 
-Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records base-game features, its status and its guide coverage. The home page links four written guides and the Atlas; unwritten categories are labelled plainly. Search reads an offline script built from the base-game ledger, guide summaries, recipes and biome catalog. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
+Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records base-game features, its status and its guide coverage. The home page links the written guides, Blocks and Mobs references, and the Atlas; unwritten categories are labelled plainly. Search reads an offline script built from the base-game ledger, guide summaries, recipes, blocks, animals and biome catalog. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
 
 Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; `tools/stage_site.py` selects the published files for both CI and the local gate, which checks every link inside that staged copy. No game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
 
@@ -280,7 +280,8 @@ geometry, mode/selection controls, focus, textures and responsive layout.
 ## Rebuild the wiki interface
 
 After changing guide, recipe or ledger data, run `python3 tools/build_features.py`,
-`python3 tools/build_guides.py` and `python3 tools/build_wiki.py`. The gate rejects
+`python3 tools/build_guides.py`, `python3 tools/build_blocks.py`,
+`python3 tools/build_mobs.py` and `python3 tools/build_wiki.py`. The gate rejects
 stale pages/search data and differing shared category navigation. Add public
 files explicitly to `tools/stage_site.py`. Browser checks for the home and shared
 navigation are in `tools/wiki_browser_checks.html`; the browser runner supports

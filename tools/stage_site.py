@@ -13,7 +13,7 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = (
-    'index.html', 'atlas.html', 'animals.html', 'islands.html',
+    'index.html', 'blocks.html', 'mobs.html', 'atlas.html', 'animals.html', 'islands.html',
     'features.html', 'guides.html', 'guide-getting-started.html',
     'guide-controls.html', 'guide-first-survival-day.html', 'guide-crafting.html',
     'guide-install-and-worlds.html',
@@ -28,7 +28,7 @@ PUBLIC_FILES = (
     'data/animals.js', 'data/animals.json', 'data/biomes.js', 'data/biomes.json',
     'data/captures.json', 'data/descriptions.json', 'data/features.json',
     'data/guides.json', 'data/habitats.json', 'data/islands.js', 'data/islands.json',
-    'data/provenance.json', 'data/recipes.json', 'data/scale.js',
+    'data/provenance.json', 'data/recipes.json', 'data/blocks.json', 'data/scale.js',
     'data/survey.json', 'data/viewpoints.json',
     'data/performance/summary.json', 'data/performance/steady-results.csv',
     'data/performance/cpu-attribution.json', 'data/performance/provenance.json',

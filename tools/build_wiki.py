@@ -6,6 +6,8 @@ from pathlib import Path
 import re
 
 from base_game import public_ledger
+from build_guides import recipe_anchor
+from build_mobs import habitat_names, mob_anchor
 from wiki_layout import ATLAS, CATEGORIES, header_html, footer_html
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,8 +32,15 @@ def search_records():
     for recipe in read('recipes')['recipes']:
         ingredients = ', '.join(f'{count}× {item}' for item, count in recipe['inputs'])
         add(recipe['name'], f'{recipe["quantity"]}× {recipe["output"]}; needs {ingredients}.',
-            'guide-crafting.html#recipes', 'Recipe')
-    for biome in read('biomes')['biomes']:
+            f'guide-crafting.html#{recipe_anchor(recipe["name"])}', 'Recipe')
+    for block in read('blocks')['blocks']:
+        add(block['name'], block['description'], f'blocks.html#{block["anchor"]}', 'Block')
+    biomes, habitats = read('biomes'), read('habitats')
+    for animal in read('animals')['animals']:
+        names = ', '.join(name for _, name in habitat_names(animal, habitats, biomes))
+        add(animal['name'], animal['description'] + ' Habitats: ' + names + '.',
+            f'mobs.html#{mob_anchor(animal)}', 'Mob')
+    for biome in biomes['biomes']:
         add(biome['name'], biome['description'], f'atlas.html#biome={biome["id"]}', 'Biome atlas')
     return records
 
@@ -46,7 +55,9 @@ def render_home():
     cards = []
     summaries = {'getting-started': 'Create a world, move, save and switch game modes.',
                  'controls': 'Keys and actions, with the context each one needs.',
-                 'crafting': 'The crafting panel and 40 recipes with exact amounts.'}
+                 'crafting': 'The crafting panel and 40 recipes with exact amounts.',
+                 'blocks': 'Ground, stone, wood and building materials, with recipe links.',
+                 'mobs': 'Animal families, habitats and model previews.'}
     for key, title, page in CATEGORIES:
         heading = f'<a href="{page}">{title}</a>' if page else title
         description = summaries.get(key, 'Not written yet')

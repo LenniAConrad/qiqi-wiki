@@ -80,3 +80,18 @@
   .ledger-stats { grid-template-columns: 1fr; gap: 16px; }
   .ledger-stats > div { border: 0; padding-left: 0; }
 }
+
+/* Compact reference rows share the guide tables and their mobile layout. */
+.block-swatch { display: inline-block; width: 18px; height: 18px; border: 1px solid #7e8878; border-radius: 2px; vertical-align: middle; margin-right: 8px; }
+.block-table tr { scroll-margin-top: 16px; }
+.reference-page .block-table tbody th { width: 28%; }
+.reference-page .reference-receipt { font-size: 12px; line-height: 1.7; color: var(--muted); }
+.reference-page .mob-table tbody th { width: 25%; }
+.reference-page .guide-section .mob-description { font-size: 12px; font-weight: 400; color: var(--muted); margin: 6px 0 0; }
+.mob-model { display: block; width: 72px; height: 72px; object-fit: contain; border: 1px solid var(--line); }
+.mob-table tr, .recipe-table tr { scroll-margin-top: 16px; }
+@media (max-width: 760px) {
+  .reference-page .block-table tbody th { width: auto; }
+  .reference-page .block-table td:empty { display: none; }
+  .reference-page .mob-table tbody th { width: auto; }
+}

@@ -46,7 +46,7 @@ def validate():
         assert 'href="wiki.css"' in value, f'{path.name}: shared styles missing'
         page = Page(value)
         pages[path.name] = page
-        if path.name.startswith('guide-'):
+        if path.name.startswith('guide-') or path.name in {'blocks.html', 'mobs.html'}:
             assert page.breadcrumb and page.contents, f'{path.name}: article breadcrumb/contents missing'
             assert all(href.startswith('#') and href[1:] in page.ids for href in page.anchors), \
                 f'{path.name}: contents target missing'

@@ -48,3 +48,25 @@ recipe and biome records. New files are explicitly allowlisted.
 Static validation is available in `tools/validate_wiki.py`; actual desktop/mobile,
 keyboard and file-URL browser inspection remains the parent integration gate.
 No new game facts, recipes or screenshots were added.
+
+## Blocks reference — 12 October 2026
+
+`blocks.html` lists the 177 core registry entries at Voxelgame `65364e6`, with
+base colour swatches, stable anchors and recipes linked at their existing
+`03c6519` audit. `tools/build_blocks.py --game SNAPSHOT` extracts the registry;
+`tools/validate_blocks.py --game SNAPSHOT` compares every entry to its source.
+The material-catalogue ledger entry now links this partial reference. Gathering
+methods, drops and tool requirements remain outside this source-only slice.
+Desktop/mobile, keyboard and file-URL browser review belongs to parent integration.
+
+## Mobs reference — 12 October 2026
+
+`mobs.html` groups the preserved 93-species animal atlas by family, with
+habitat names linked to the biome atlas and small previews of existing models.
+Its catalog, models and habitat provenance retain the 28 September 2026 date.
+`tools/build_mobs.py` renders it without changing the original datasets or assets.
+`tools/validate_mobs.py --game SNAPSHOT` checks that every listed species belongs
+to the supplied core registry; it does not relabel the older atlas as a new audit.
+Spawning and peaceful-animal ledger entries now link this partial reference.
+Current-snapshot Swan has no preserved atlas entry and remains outside this slice.
+Browser review remains a parent integration gate.

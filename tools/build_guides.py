@@ -115,6 +115,11 @@ def recipe_cell(items):
         f"<li><span class=\"recipe-count\">{count}×</span> {text(item)}</li>" for item, count in items) + "</ul>"
 
 
+def recipe_anchor(name):
+    """Stable target shared by the crafting reference and recipe links."""
+    return 'recipe-' + re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+
+
 def recipe_tables(ctx, block):
     wanted = block.get("sections") or [section["key"] for section in ctx.recipes["sections"]]
     names = block.get("names")
@@ -130,7 +135,7 @@ def recipe_tables(ctx, block):
         for recipe in members:
             note = f'<p class="recipe-note">{ctx.inline(recipe["notes"])}</p>' if recipe.get("notes") else ""
             rows.append(
-                f'<tr><th scope="row">{text(recipe["name"])}</th>'
+                f'<tr id="{recipe_anchor(recipe["name"])}"><th scope="row">{text(recipe["name"])}</th>'
                 f'<td data-label="Makes"><span class="recipe-count">{recipe["quantity"]}×</span> {text(recipe["output"])}</td>'
                 f'<td data-label="Needs">{recipe_cell(recipe["inputs"])}{note}</td></tr>')
         parts.append(
