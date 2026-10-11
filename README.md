@@ -1,9 +1,36 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # qiqi-wiki
 
-Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The current site is the existing atlas; the expanded practical player wiki is **planned**, not implemented yet. See [WIKI_PLAN.md](WIKI_PLAN.md) for the agent work queue.
+Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records every player-facing feature, its status and its guide coverage. The practical task-based guides are still in progress; the ledger ranks the order in which they are written. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
 
-Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; no game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
+Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; `tools/stage_site.py` selects the published files for both CI and the local gate, which checks every link inside that staged copy. No game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
+
+## Features and guide coverage ledger
+
+Open **Features** in the navigation or `features.html`. Each player-facing
+feature has one status for the audited game commit: Available, Optional pack,
+Limited, Developer tool, In development or Planned. Features also list their
+modes, verified controls, the source files and lines that support them, the
+request that tracks planned work, and the wiki page that documents them. The
+ranked writing order for practical guides and the places where the game's own
+documents disagree with its code are on the same page. Search and the status
+filters need JavaScript; the complete ledger is static HTML without it.
+
+`data/features.json` is the single source. Edit it, then regenerate and check:
+
+```sh
+tools/export_game_snapshot.sh ../Voxelgame <commit> .cache/game-<commit>
+python3 tools/build_features.py
+python3 tools/validate_features.py --game .cache/game-<commit>
+```
+
+The export reads committed objects only, so the game checkout is never
+modified. Without `--game`, the validator still checks the schema, status
+rules, guide links, navigation and that `features.html` matches a fresh render.
+With it, every cited `path:line` must exist in the exported commit. Planned
+features must name the request that tracks them and cannot claim a guide.
+Update `audited`, `game.commit` and the evidence together; never relabel old
+evidence as a newer commit.
 
 ## Preserved atlas documentation
 
@@ -215,7 +242,8 @@ physical fields without adding a runtime API. Metadata and image hashes are in
 - `data/descriptions.json`: concise field notes for the implemented terrain and vegetation.
 - `data/habitats.json`: all 92 shrub, stone/reef and ground-companion profiles from the current game habitat documentation.
 - `data/captures.json`: camera and provenance records for every screenshot. An optional `data/viewpoints.json` may hold refined photography locations for a specific generator snapshot.
-- `tools/`: reproducible survey, screenshot, data-building, and verification scripts.
+- `features.html`, `features.css`, `features.js`, `data/features.json`: the generated feature and guide-coverage ledger and its source data.
+- `tools/`: reproducible survey, screenshot, data-building, and verification scripts; `tools/stage_site.py` selects the published file set.
 - `.cache/` (ignored): raw PNGs, game replay evidence, binaries, and browser QA output.
 
 ## Refresh from the sibling game checkout

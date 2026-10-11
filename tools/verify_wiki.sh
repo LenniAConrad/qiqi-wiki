@@ -6,6 +6,8 @@ python3 tools/validate.py
 python3 tools/validate_animals.py
 python3 tools/validate_islands.py
 python3 tools/validate_villages.py
+python3 -m unittest discover -s tools -p 'test_*.py'
+python3 tools/validate_features.py
 python3 tools/validate_site_links.py
 for script in ./*.js data/*.js; do node --check "$script"; done
 # Links must also resolve in the exact file set that GitHub Pages publishes.

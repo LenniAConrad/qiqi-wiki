@@ -1,0 +1,76 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="en"><meta charset="utf-8"><title>Feature ledger browser checks</title>
+<style>body{font:14px monospace}iframe{display:block;width:1280px;height:900px;border:0}pre{white-space:pre-wrap}</style>
+<h1>Feature ledger browser checks</h1><pre id="report">Running…</pre><iframe src="../features.html" title="Feature ledger under test"></iframe>
+<script>
+'use strict';
+// Serve the repository root (python3 -m http.server) and open this page, or
+// run python3 tools/browser_run.py --check tools/features_browser_checks.html
+const frame=document.querySelector('iframe'),report=document.querySelector('#report'),results=[];
+const delay=()=>new Promise(resolve=>setTimeout(resolve,60));
+function check(ok,message){results.push({passed:!!ok,message});if(!ok)throw Error(message);}
+frame.addEventListener('load',async()=>{
+try {
+ const ledger=await (await fetch('../data/features.json')).json();
+ const d=frame.contentDocument,w=frame.contentWindow,q=selector=>d.querySelector(selector);
+ const all=()=>[...d.querySelectorAll('.feature')];
+ const shown=()=>all().filter(node=>!node.hidden);
+ const filters=()=>[...d.querySelectorAll('#filters button')];
+ const choose=async status=>{filters().find(button=>button.dataset.status===status).click();await delay();};
+ const type=async value=>{const input=q('#search');input.value=value;input.dispatchEvent(new w.Event('input',{bubbles:true}));await delay();};
+ const features=ledger.features;
+ check(all().length===features.length,'Every ledger feature is rendered once');
+ check(all().map(node=>node.id).join()===ledger.areas.flatMap(area=>features.filter(f=>f.area===area.key)).map(f=>'f-'+f.id).join(),'Features follow the area order and source order');
+ check(q('.ledger-stats strong').textContent===String(features.length),'The summary count matches the dataset');
+ check(!q('#ledger-tools').hidden&&!q('#ledger-filters-row').hidden,'Search and filters appear when scripts run');
+ check(q('#result-count').getAttribute('role')==='status'&&q('#result-count').textContent===`${features.length} of ${features.length} features`,'The live count announces all features');
+ for(const node of all()){
+  const badge=node.querySelector('.status');
+  check(badge&&badge.classList.contains('status-'+node.dataset.status),`${node.id} shows its own status badge`);
+  check(node.querySelector('.feature-evidence li'),`${node.id} lists source evidence`);
+  check(node.querySelector('h4')&&node.closest('.ledger-area').querySelector('h3'),`${node.id} sits under an area heading`);
+ }
+ for(const status of ledger.statuses.map(item=>item.key)){
+  await choose(status);
+  const expected=features.filter(f=>f.status===status).map(f=>'f-'+f.id);
+  check(shown().map(node=>node.id).join()===expected.join(),`The ${status} filter shows exactly its features`);
+  check(filters().filter(button=>button.getAttribute('aria-pressed')==='true').length===1,`Only the ${status} filter is pressed`);
+  for(const area of d.querySelectorAll('.ledger-area')) check(area.hidden===!area.querySelector('.feature:not([hidden])'),`${status}: empty areas are hidden`);
+ }
+ await choose('');
+ check(shown().length===features.length,'All restores every feature');
+ const sample=features.find(f=>f.controls&&f.controls.length)||features[0];
+ await type(sample.name.toUpperCase());
+ check(shown().some(node=>node.id==='f-'+sample.id),'Search is case-insensitive and finds a feature by name');
+ if(sample.controls){
+  await type(sample.controls[0][1].split(' ').slice(0,2).join(' '));
+  check(shown().some(node=>node.id==='f-'+sample.id),'Search matches control descriptions');
+ }
+ await type('zzqx-no-such-feature');
+ check(shown().length===0&&!q('#empty').hidden,'An unmatched search shows the empty state');
+ q('#reset-filters').click();await delay();
+ check(shown().length===features.length&&q('#search').value===''&&q('#empty').hidden,'Clear filters restores the full ledger');
+ const planned=features.find(f=>f.status==='planned'),available=features.find(f=>f.status==='available');
+ if(planned&&available){
+  await choose('planned');
+  w.location.hash='f-'+available.id;await delay();await delay();
+  check(!q('#f-'+available.id).hidden&&shown().length===features.length,'A deep link reveals its feature even when filtered out');
+ }
+ q('#search').blur();
+ d.dispatchEvent(new w.KeyboardEvent('keydown',{key:'/',bubbles:true}));
+ check(d.activeElement===q('#search'),'Slash focuses search');
+ for(const gap of ledger.guideGaps) for(const id of gap.covers) check(q('#f-'+id),`Guide gap ${gap.rank} links an existing feature`);
+ const levels=[...d.querySelectorAll('h1,h2,h3,h4')].map(node=>Number(node.tagName[1]));
+ check(levels[0]===1&&levels.every((level,index)=>index===0||level<=levels[index-1]+1),'Heading levels never skip');
+ check(d.documentElement.scrollWidth<=d.documentElement.clientWidth,'No horizontal overflow at desktop width');
+ check([...d.querySelectorAll('img')].every(img=>img.alt!==undefined),'Images have text alternatives');
+ report.textContent=`PASS: ${results.length} checks\n`+results.map(result=>'✓ '+result.message).join('\n');
+ report.dataset.done='pass';
+} catch(error) {
+ report.textContent=`FAIL: ${error.message}\n`+results.map(result=>(result.passed?'✓ ':'✗ ')+result.message).join('\n');
+ report.dataset.done='fail';
+}
+});
+</script>
+</html>
