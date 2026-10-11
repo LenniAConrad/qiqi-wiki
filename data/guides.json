@@ -73,12 +73,12 @@
       {
        "t": "figure",
        "src": "images/guides/start-menu.webp",
-       "alt": "The Voxelgame start menu: a column of buttons reading Continue, Worlds, Mods, Settings, Credits, Study timer and Quit, with a wireframe cube on the left and the line 'Every shore, a new beginning'.",
+       "alt": "The Voxelgame start menu showing world, settings and study controls, with a wireframe cube on the left.",
        "caption": "The start menu. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world). The panel is drawn translucent over the scene."
       },
       {
        "t": "p",
-       "text": "The menu has seven entries: Continue, Worlds, Mods, Settings, Credits, Study timer and Quit. The name of the current world is shown above the buttons. {{start-menu}}"
+       "text": "Use Continue to enter the current world or Worlds to choose another. Settings, Credits, Study timer and Quit are also on the start menu. The current world name appears above the buttons. {{start-menu}}"
       },
       {
        "t": "keys",
@@ -104,9 +104,8 @@
       {
        "t": "list",
        "items": [
-        "[[Continue]] checks which optional mods are enabled and then enters the current world. If a mod problem is found, an error appears in a red strip and you stay on the menu.",
+        "[[Continue]] enters the current world.",
         "[[Worlds]] lists your saved worlds and creates new ones (next section).",
-        "[[Mods]] turns optional content packs on or off before you enter a world.",
         "[[Settings]] opens the same settings panel you get in a world by pressing [[Esc]]."
        ]
       },
@@ -517,7 +516,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Each row names the feature that owns it; follow the link for its summary and source evidence. Rows from optional packs, developer tools or features still in development carry a status label."
+       "text": "Each row names the feature that owns it; follow the link for its summary and source evidence. Rows for developer tools or features still in development carry a status label."
       },
       {
        "t": "controls-all"

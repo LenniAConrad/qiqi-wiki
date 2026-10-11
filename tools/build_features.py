@@ -9,6 +9,7 @@ the committed page to match exactly.
 """
 
 import argparse
+from base_game import public_ledger
 from html import escape
 import json
 from pathlib import Path
@@ -23,7 +24,6 @@ NAV = (
     ("index.html#catalog", "Biomes"),
     ("animals.html", "Animals"),
     ("islands.html", "Islands"),
-    ("villages.html", "Village"),
     ("guides.html", "Guides"),
     ("features.html", "Features"),
     ("performance.html", "Performance"),
@@ -119,6 +119,7 @@ def written_guides():
 
 
 def render_page(ledger):
+    ledger = public_ledger(ledger)
     statuses = {status["key"]: status for status in ledger["statuses"]}
     guide_states = {state["key"]: state for state in ledger["guideStates"]}
     areas = ledger["areas"]
@@ -153,9 +154,8 @@ def render_page(ledger):
         f'{text(long_date(game["commitDate"]))} · package {text(game["packageVersion"])} · new worlds use '
         f'generation {text(game["newWorldGeneration"])} · source audit, not a play test</div>\n')
     add('<section class="stats ledger-stats" aria-label="Ledger summary">'
-        f'<div><strong>{len(features)}</strong><span>player-facing features audited</span></div>'
+        f'<div><strong>{len(features)}</strong><span>base-game features listed</span></div>'
         f'<div><strong>{playable}</strong><span>playable in the base game</span></div>'
-        f'<div><strong>{counts.get("optional-pack", 0)}</strong><span>from optional content packs</span></div>'
         f'<div><strong>{counts.get("planned", 0)}</strong><span>requested and still planned</span></div>'
         "</section>\n")
     add('<section class="report-section legend-section" aria-labelledby="legend-title"><div class="section-heading">'
@@ -175,7 +175,7 @@ def render_page(ledger):
         '<p>Grouped by what you are trying to do.<br>Open “Source evidence” for the audited code locations.</p>'
         "</div></div>\n")
     add('<div class="toolbar" id="ledger-tools" hidden><label class="search-label"><span aria-hidden="true">⌕</span>'
-        '<input id="search" type="search" placeholder="Find a feature, key or pack…" aria-label="Search features"'
+        '<input id="search" type="search" placeholder="Find a feature or key…" aria-label="Search features"'
         ' autocomplete="off"><kbd aria-hidden="true">/</kbd></label></div>\n'
         '<div class="filter-row" id="ledger-filters-row" hidden><div id="filters" class="filters" role="group"'
         ' aria-label="Filter by status"><button type="button" data-status="" aria-pressed="true">All</button>')

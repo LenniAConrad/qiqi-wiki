@@ -30,8 +30,8 @@ def ledger():
             {"id": "pack-panel", "area": "basics", "name": "Pack", "status": "available", "modes": ["survival"],
              "summary": "Open your pack.", "controls": [["E", "Open the pack"]],
              "evidence": ["src/input.rs:12 — E toggles the pack"], "guide": {"state": "none", "next": "Start"}},
-            {"id": "lab", "area": "basics", "name": "Lab", "status": "optional-pack", "pack": "Lab",
-             "summary": "A pack.", "evidence": ["mods/lab/README.md:1"]},
+            {"id": "lab", "area": "basics", "name": "Lab", "status": "partial",
+             "summary": "Limited.", "evidence": ["src/lab.rs:1"]},
             {"id": "fire", "area": "basics", "name": "Fire", "status": "planned", "summary": "Not yet.",
              "evidence": ["search: no fire blocks"], "backlog": ["VOX-OWNER-FIRE"]},
             {"id": "atlas", "area": "basics", "name": "Animals", "status": "available", "summary": "Atlas.",
@@ -65,10 +65,21 @@ class LedgerRules(unittest.TestCase):
         self.assertIn("Use &lt;b&gt; &amp;", page)
         self.assertNotIn("Use <b>", page)
 
+    def test_build_filters_optional_source_rows(self):
+        data = ledger()
+        data['features'].append({'id': 'optional-lab', 'area': 'basics', 'name': 'Lab',
+                                 'status': 'optional-pack', 'pack': 'Lab',
+                                 'summary': 'circuits:pack', 'controls': [['L', 'Open lab']],
+                                 'evidence': ['mods/lab.rs:1']})
+        page = build_features.render_page(data)
+        self.assertNotIn('optional-pack', page)
+        self.assertNotIn('circuits:pack', page)
+        self.assertNotIn('f-optional-lab', page)
+
     def test_status_and_pack_rules(self):
         self.assertRejected(lambda d: d["features"][0].update(status="done"), "unknown status")
-        self.assertRejected(lambda d: d["features"][1].pop("pack"), "name their pack")
-        self.assertRejected(lambda d: d["features"][0].update(pack="Lab"), "only optional-pack")
+        self.assertRejected(lambda d: d["features"][1].update(status="optional-pack"), "unknown status")
+        self.assertRejected(lambda d: d["features"][0].update(pack="Lab"), "cannot name a content pack")
 
     def test_planned_features_stay_honest(self):
         self.assertRejected(lambda d: d["features"][2].pop("backlog"), "cite the request")
@@ -86,7 +97,7 @@ class LedgerRules(unittest.TestCase):
         self.assertRejected(lambda d: d.update(headline="<script>x</script>"), "headline")
 
     def test_gaps_and_areas(self):
-        self.assertRejected(lambda d: d["guideGaps"][0].update(rank=2), "ranks")
+        self.assertRejected(lambda d: d["guideGaps"][0].update(rank=0), "ranks")
         self.assertRejected(lambda d: d["guideGaps"][0].update(covers=["nope"]), "unknown feature")
         self.assertRejected(lambda d: d["areas"].append({"key": "empty", "label": "E", "description": "D"}),
                             "no features")
@@ -96,7 +107,7 @@ class LedgerRules(unittest.TestCase):
         data = ledger()
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
-            for name, lines in (("src/input.rs", 20), ("mods/lab/README.md", 1), ("src/animals.rs", 4),
+            for name, lines in (("src/input.rs", 20), ("src/lab.rs", 1), ("src/animals.rs", 4),
                                 ("README.md", 2)):
                 (root / name).parent.mkdir(parents=True, exist_ok=True)
                 (root / name).write_text("x\n" * (lines - 1) + "x")

@@ -13,21 +13,21 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = (
-    'index.html', 'animals.html', 'islands.html', 'villages.html',
+    'index.html', 'animals.html', 'islands.html',
     'features.html', 'guides.html', 'guide-getting-started.html',
     'guide-controls.html', 'guide-first-survival-day.html', 'guide-crafting.html',
     'performance.html', 'scale.html', 'ABOUT.md',
-    'style.css', 'features.css', 'guides.css', 'islands.css', 'villages.css',
+    'style.css', 'features.css', 'guides.css', 'islands.css',
     'performance.css', 'scale.css',
     'app.js', 'animals.js', 'features.js', 'guides.js', 'islands.js',
-    'villages.js', 'scale.js', 'favicon.svg', 'LICENSE', 'NOTICE.md',
+    'scale.js', 'favicon.svg', 'LICENSE', 'NOTICE.md',
     'PERFORMANCE_ANALYSIS.md', 'PERFORMANCE_OPTIMIZATION.md',
     'STREAMING_IMPROVEMENTS.md',
     'data/animals.js', 'data/animals.json', 'data/biomes.js', 'data/biomes.json',
     'data/captures.json', 'data/descriptions.json', 'data/features.json',
     'data/guides.json', 'data/habitats.json', 'data/islands.js', 'data/islands.json',
     'data/provenance.json', 'data/recipes.json', 'data/scale.js',
-    'data/survey.json', 'data/viewpoints.json', 'data/villages.js', 'data/villages.json',
+    'data/survey.json', 'data/viewpoints.json',
     'data/performance/summary.json', 'data/performance/steady-results.csv',
     'data/performance/cpu-attribution.json', 'data/performance/provenance.json',
     'data/performance/PROFILING.md', 'data/performance/VALIDATION.md',
@@ -38,7 +38,7 @@ PUBLIC_FILES = (
 IMAGE_SUFFIXES = {'.webp', '.png', '.jpg', '.jpeg', '.svg'}
 IMAGE_CATALOGS = (
     'data/biomes.json', 'data/animals.json', 'data/islands.json',
-    'data/villages.json', 'data/guides.json',
+    'data/guides.json',
 )
 
 

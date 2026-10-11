@@ -5,7 +5,7 @@ Use [Player guides](guides.html) for getting started, controls, survival and
 crafting. The [feature ledger](features.html) records source evidence and guide
 coverage. [Unwritten guides](guides.html#coming) are listed separately.
 
-The biome, animal, island and village galleries retain their own dated
+The biome, animal and island galleries retain their own dated
 snapshots. Photographs come from the original game's renderer. Animal portraits
 use production models; island panoramas are labelled offline terrain renders.
 Coordinates and measurements describe the recorded builds.

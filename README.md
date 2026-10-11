@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # qiqi-wiki
 
-Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records every player-facing feature, its status and its guide coverage. The practical task-based guides are still in progress; the ledger ranks the order in which they are written. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
+Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records base-game features, its status and its guide coverage. The practical task-based guides are still in progress; the ledger ranks the order in which they are written. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
 
 Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; `tools/stage_site.py` selects the published files for both CI and the local gate, which checks every link inside that staged copy. No game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
 
@@ -18,7 +18,7 @@ in `tools/test_stage_site.py`.
 ## Features and guide coverage ledger
 
 Open **Features** in the navigation or `features.html`. Each player-facing
-feature has one status for the audited game commit: Available, Optional pack,
+feature has one status for the audited game commit: Available,
 Limited, Developer tool, In development or Planned. Features also list their
 modes, verified controls, the source files and lines that support them, the
 request that tracks planned work, and the wiki page that documents them. The
@@ -94,43 +94,6 @@ python3 tools/validate_animals.py --game ../Voxelgame
 The data builder derives the species count from the game catalog and checks every
 entry and all biome rules; a source layout change requires updating its parser. Its category assignments are field
 guide groupings. The animal browser checks are in `tools/animal_browser_checks.html`.
-
-## Jade Willow Village
-
-Open **Village** in the navigation or `villages.html`. Thirty-nine photographs
-show the lanes, courtyards, homes, waterside gardens and residents of the
-optional **Jade Willow Village 1.4.0** pack (`chinese_village:pack`). Thirty-seven
-**Inspection scene** views show the authored village at X 0, Z 0: nine overview
-and scenic photographs plus twenty-eight individual building close-ups. Two
-**Generated world** views show its placement and residents in Autumn Forest.
-Category filters and the photograph dialog keep those scene labels visible.
-Arrow keys browse the photographs and Escape closes the dialog.
-
-In the captured build, the generated village is at **X 36, Z 380**, using
-generator **9** and seed **`1786640127379949800`** with the pack enabled.
-The seed is stored as an exact decimal string in the dataset. The pack has
-twelve original resident designs; each generated village receives six seeded
-neutral wanderers.
-
-These are native **960 × 540** captures from the production offscreen renderer,
-using the Fast shader, clear daylight or evening and a hidden HUD. Each full
-frame is encoded as WebP at quality 94, method 6. `data/villages.json` records
-the images, camera positions, scene labels and capture hashes; `data/villages.js`
-is its identical offline script mirror. The page works with `file://` or the
-local server above, with no bundler.
-
-Original PNGs, native replays and the exact frozen executable remain in ignored
-`.cache/village-captures-TIMESTAMP/` directories. Village provenance identifies
-that executable, not later concurrent edits in the shared game checkout.
-To reproduce and validate the gallery from this folder:
-
-```sh
-python3 tools/capture_villages.py --binary ../Voxelgame/.cache/jade-review/voxelgame-polish-final
-python3 tools/validate_villages.py
-```
-
-The browser harness is `tools/village_browser_checks.html`. Capture and
-validation use Python and Pillow; no visible game window or player save is used.
 
 ## Performance notes
 
@@ -243,8 +206,6 @@ physical fields without adding a runtime API. Metadata and image hashes are in
 - `index.html`, `style.css`, `app.js`: responsive, accessible biome gallery.
 - `islands.html`, `islands.css`, `islands.js`: island maps, panoramas and debug layers.
 - `images/islands/`, `data/islands.json`, `data/islands.js`: 36 island views and their measured catalog.
-- `villages.html`, `villages.css`, `villages.js`: Jade Willow Village photograph gallery.
-- `images/villages/`, `data/villages.json`, `data/villages.js`: eleven village screenshots and their capture provenance.
 - `images/*.webp`: 92 genuine 960 × 540 biome screenshots, encoded as WebP.
 - `data/biomes.json`: complete ranked, downloadable catalog.
 - `data/biomes.js`: identical data packaged for offline loading.

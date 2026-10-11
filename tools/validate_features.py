@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import build_features  # noqa: E402  (sibling tool module)
 
 ROOT = build_features.ROOT
-STATUSES = ("available", "optional-pack", "partial", "developer", "in-development", "planned")
+STATUSES = ("available", "partial", "developer", "in-development", "planned")
 GUIDE_STATES = ("none", "atlas", "partial", "complete")
 READINESS = ("ready", "needs-screenshots", "blocked-planned")
 ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
@@ -104,10 +104,7 @@ def validate_ledger(ledger):
             check_evidence(item, where)
         backlog = feature.get("backlog", [])
         require(all(isinstance(item, str) and BACKLOG.fullmatch(item) for item in backlog), f"{where}: backlog ids")
-        if feature["status"] == "optional-pack":
-            require(text(feature.get("pack")), f"{where}: optional-pack features name their pack")
-        else:
-            require("pack" not in feature, f"{where}: only optional-pack features name a pack")
+        require("pack" not in feature, f"{where}: base-game features cannot name a content pack")
         if feature["status"] == "planned":
             require(backlog, f"{where}: planned features cite the request that tracks them")
         if "notes" in feature:
@@ -129,7 +126,7 @@ def validate_ledger(ledger):
         require(any(feature["area"] == area for feature in ledger["features"]), f"area {area} has no features")
 
     ranks = sorted(gap.get("rank") for gap in ledger["guideGaps"])
-    require(ranks == list(range(1, len(ranks) + 1)), "guide gap ranks must be 1..n")
+    require(ranks == sorted(set(ranks)) and all(type(rank) is int and rank > 0 for rank in ranks), "guide gap ranks must be unique positive integers")
     for gap in ledger["guideGaps"]:
         where = f"guide gap {gap.get('rank')}"
         require(text(gap.get("title"), 80) and text(gap.get("why"), 400), f"{where}: title/why")

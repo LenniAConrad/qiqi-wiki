@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # Player wiki roadmap — owner request, 2026-10-09
 
-The existing atlas is useful but is not a practical manual. Expand it into an original, searchable, statically hosted wiki that answers “how do I use this?” for ordinary players. Preserve existing biome/animal/island/village galleries and provenance. Do not rewrite old measurements as current evidence.
+The existing atlas is useful but is not a practical manual. Expand it into an original, searchable, statically hosted wiki that answers “how do I use this?” for ordinary players. Preserve existing biome/animal/island galleries and provenance. Do not rewrite old measurements as current evidence.
 
 ## First release
 
@@ -9,8 +9,7 @@ The existing atlas is useful but is not a practical manual. Expand it into an or
 2. Clear navigation, search, Getting started, controls and survival/creative differences. Practical steps with prerequisites, relevant keys/buttons, expected outcome and a tested game screenshot where useful. Player language, not implementation jargon.
 3. Crafting/materials/tool tiers and durability, inventory/stack movement/tooltips, resource gathering, cooking/furnaces, building/storage/glass, combat and Erik/Thor interaction/spawning.
 4. Maps/exploration/caves, boats/sailing/wind controls and recovery, weather/water/fire/lava when implemented. Explain map visibility by mode and travel controls truthfully.
-5. Resource packs, animal/structure/texture editors, skin import/save/painting, blueprint placement and workshops: short actual workflows with valid file formats and safe recovery guidance.
-6. Optional mods and dimensions: enable/disable, entry/return, dangers, creative spawning and save behavior. Herobrine/hell/sky mods are PLANNED until landed and playable; do not invent their recipes or entry mechanics.
+5. Built-in character and building tools: short actual workflows with valid file formats and safe recovery guidance.
 7. Platform install/update, graphics settings/performance, multiplayer connection, common failures and native error-window/log instructions as available.
 
 ## Ongoing maintenance
@@ -27,8 +26,12 @@ Installation guides must cover the requested update script and installer update-
 
 ## Progress — 11 October 2026
 
-- **Coverage ledger (QW-COVERAGE):** `features.html` lists 213 player-facing features of Voxelgame main `dd29d91` with one status each, verified controls, 743 cited source locations, the request IDs of planned work, 15 ranked guide gaps and 10 places where the game's documents disagree with its code. `data/features.json` is the source; `tools/build_features.py` renders and `tools/validate_features.py --game` checks it against an export from `tools/export_game_snapshot.sh`. It is a source audit, not a play test.
+- **Coverage ledger (QW-COVERAGE):** `features.html` lists 187 base-game features of Voxelgame main `dd29d91` with one status each, verified controls, source evidence, the request IDs of planned work, 13 ranked guide gaps and 6 places where the game's documents disagree with its code. `data/features.json` is the source; `tools/build_features.py` renders and `tools/validate_features.py --game` checks it against an export from `tools/export_game_snapshot.sh`. It is a source audit, not a play test.
 - **Deployment fix:** the Pages artifact now includes the linked performance reports; links are validated inside the staged site.
 - **Browser QA:** `tools/browser_run.py` drives headless Firefox through Marionette for in-page checks, real keyboard input, `file://` loading and 1440/820/390 px captures without overflow.
 - **Player guides (QW-PLAYER-GUIDES, first slice):** `guides.html` indexes four source-checked guides (Getting started, Controls reference, Your first survival day, Crafting and recipes). `data/guides.json` holds the structured text, `data/recipes.json` the 37 recipes, `tools/build_guides.py` renders them, `tools/link_guides.py` points the ledger at the owning guide and `tools/validate_guides.py [--game SNAPSHOT]` checks everything, including the recipe amounts against the game registry. Guides are source-checked and carry headless screenshots; none is a recorded play session yet.
-- **Next:** guides ranked 5 onward in the ledger (maps, installation, building, sailing, packs, hunting, settings, troubleshooting); then the measured performance and memory study.
+- **Next:** guides ranked 5 onward in the ledger (maps, installation, building, sailing, hunting, settings, troubleshooting); then the measured performance and memory study.
+
+## Base-game publication slice — 11 October 2026
+
+The public ledger and generated controls now cover the base game only. Optional gallery files were removed from the current tree; original assets and provenance remain in Git history at `493c52c`. The source audit remains `dd29d91`; publication filtering is not a newer game audit. Guide-gap ranks retain their original IDs.

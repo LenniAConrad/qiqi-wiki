@@ -16,6 +16,7 @@ Inline markup in text fields: [[W]] renders a key cap, **text** is bold, {{featu
 """
 
 import argparse
+from base_game import public_ledger
 from html import escape
 import json
 from pathlib import Path
@@ -31,7 +32,6 @@ NAV = (
     ("index.html#catalog", "Biomes"),
     ("animals.html", "Animals"),
     ("islands.html", "Islands"),
-    ("villages.html", "Village"),
     ("guides.html", "Guides"),
     ("features.html", "Features"),
     ("performance.html", "Performance"),
@@ -64,6 +64,7 @@ class Context:
 
     def __init__(self, guides, ledger, recipes):
         self.guides = guides
+        ledger = public_ledger(ledger)
         self.ledger = ledger
         self.recipes = recipes
         self.features = {feature["id"]: feature for feature in ledger["features"]}

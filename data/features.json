@@ -1,9 +1,9 @@
 {
  "schema": 1,
  "title": "Voxelgame features and wiki coverage",
- "description": "Every player-facing Voxelgame feature with its current status, controls, source evidence and wiki guide coverage. Planned features stay labelled until they ship.",
+ "description": "Base-game features, controls and guide coverage for Voxelgame, with status and source evidence for the audited commit.",
  "headline": "What’s in the game,<br><em>and how to learn it.</em>",
- "lead": "Every player-facing system in the latest landed Voxelgame, checked against its source code. Planned features stay labelled until they ship.",
+ "lead": "The base-game systems and controls at the audited commit. Each entry records what is available, what is limited and where to find a written guide.",
  "legendLead": "Each feature has exactly one status for the audited game version. Creative and survival differences are noted on the feature. A planned feature is never described as playable here, even when work on it has started.",
  "gapsLead": "Practical, task-based guides ranked by how many players need them and whether the feature is ready to document. Each guide will be checked in a disposable headless game session before it is published.",
  "docNotesLead": "The audit compared the game’s own README and documents with its code. Where they disagree, this ledger follows the code, and the mismatch is listed here for the game’s maintainers.",
@@ -20,11 +20,6 @@
    "key": "available",
    "label": "Available",
    "description": "In the normal game. No pack, developer build or command-line option is needed."
-  },
-  {
-   "key": "optional-pack",
-   "label": "Optional pack",
-   "description": "Enable the named content pack on the Mods screen before entering a world."
   },
   {
    "key": "partial",
@@ -117,14 +112,9 @@
    "description": "The 94 animals and how they behave, and hunting with the bow, rifle, rocks and explosives."
   },
   {
-   "key": "packs",
-   "label": "Optional content packs",
-   "description": "The six compiled packs on the Mods screen and what each one adds."
-  },
-  {
    "key": "customize",
-   "label": "Character, editors & resource packs",
-   "description": "Your character’s look, the editing tools and resource packs."
+   "label": "Character and built-in tools",
+   "description": "Held items, your character portrait and the status of built-in editing tools."
   },
   {
    "key": "settings",
@@ -175,7 +165,7 @@
    "modes": [
     "menu"
    ],
-   "summary": "The start menu offers Continue, Worlds, Mods, Settings, Credits, Study timer and Quit, with the current world's name shown above the buttons. Use the mouse or the Up/Down arrows and Enter; Esc returns from any sub-page.",
+   "summary": "The start menu offers Continue and Worlds for opening worlds, plus Settings, Credits, Study timer and Quit, with the current world's name shown above the buttons. Use the mouse or the Up/Down arrows and Enter; Esc returns from any sub-page.",
    "controls": [
     [
      "Up / Down arrows",
@@ -204,7 +194,7 @@
     "VOX-OWNER-START-TITLE",
     "VOX-OWNER-LOADING-SPLASH"
    ],
-   "notes": "Continue first checks the enabled mods; an error appears in a red strip and keeps you on the menu. The first launch shows a tumbling wireframe-cube loading animation; later world loads show only the stage text and an activity bar. The source audit read the menu background as a dark fill with the cube mark; a headless capture of the audited build shows the menu panel drawn over a lit world scene with the cube, so the background of a real window is unconfirmed.",
+   "notes": "The first launch shows a tumbling wireframe-cube loading animation; later world loads show only the stage text and an activity bar. The source audit read the menu background as a dark fill with the cube mark; a headless capture of the audited build shows the menu panel drawn over a lit world scene with the cube, so the background of a real window is unconfirmed.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -425,7 +415,6 @@
     "src/app.rs:161-165 — window close saves first",
     "src/app.rs:610-614 — Main menu saves, then opens the start menu"
    ],
-   "notes": "Mod toggles are also saved immediately.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -803,10 +792,6 @@
     [
      "Z (hold)",
      "Zoom in (on foot, pointer captured, pack closed, Ctrl not held)"
-    ],
-    [
-     "Right mouse (hold)",
-     "Zoom (inside a mod vehicle)"
     ]
    ],
    "evidence": [
@@ -838,7 +823,7 @@
     ],
     [
      "F5 or C",
-     "Cycle the vehicle's camera stations (inside a vehicle or boat)"
+     "Cycle the boat's camera stations (inside a boat)"
     ]
    ],
    "evidence": [
@@ -891,7 +876,7 @@
     "crates/voxelgame-render/src/hud.rs:353-395 — action hint below the crosshair (vehicle hints in a lower-left panel)",
     "crates/voxelgame-core/src/ui.rs:529-544 — compact map top-right, looking-at card top-centre"
    ],
-   "notes": "Opening a menu hides the gameplay HUD. The hotbar disappears while you drive a mod vehicle. Status messages stay until replaced.",
+   "notes": "Opening a menu hides the gameplay HUD. Status messages stay until replaced.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -907,11 +892,11 @@
     "creative",
     "survival"
    ],
-   "summary": "A small plus-shaped crosshair marks your aim and turns green-tinted when a block is in reach. With a bow, rifle, throwable or mod gun it becomes a ring of dots whose size shows your current inaccuracy, shifting from orange to green as your aim steadies.",
+   "summary": "A small plus-shaped crosshair marks your aim and turns green-tinted when a block is in reach. With a bow, rifle or throwable it becomes a ring of dots whose size shows your current inaccuracy, shifting from orange to green as your aim steadies.",
    "evidence": [
     "crates/voxelgame-render/src/reticle_ui.rs:325-345 — plus crosshair, tinted when a target exists",
     "crates/voxelgame-render/src/reticle_ui.rs:198-271 — ring reticle sized from spread, coloured by precision",
-    "crates/voxelgame-core/src/game/readouts.rs:100-160 — ring shown for bow, rifle, throwables and mod weapons; sneaking and aiming steady it",
+    "crates/voxelgame-core/src/game/readouts.rs:100-160 — ring shown for bow, rifle, throwables; sneaking and aiming steady it",
     "crates/voxelgame-render/src/reticle_ui.rs:305-325 — hidden in front third-person view"
    ],
    "backlog": [
@@ -928,7 +913,7 @@
     "creative",
     "survival"
    ],
-   "summary": "When you aim at a block within 6 m, a card at the top-centre shows its 3D icon, name, distance and mining advice ('CREATIVE INSTANT BREAK', a recommended tool, or 'NO SPECIAL TOOL NEEDED'). Animals and mod vehicles get their own card with health. Press F2 to hide or show it.",
+   "summary": "When you aim at a block within 6 m, a card at the top-centre shows its 3D icon, name, distance and mining advice ('CREATIVE INSTANT BREAK', a recommended tool, or 'NO SPECIAL TOOL NEEDED'). Animals get their own card with health. Press F2 to hide or show it.",
    "controls": [
     [
      "F2",
@@ -1070,7 +1055,7 @@
    "controls": [
     [
      "R",
-     "Eat the first available food (survival, on foot, no mod weapon selected)"
+     "Eat the first available food (survival, on foot)"
     ],
     [
      "Click a food in Pack",
@@ -1707,8 +1692,7 @@
    "evidence": [
     "search: grep 'GLOWSTONE' crates/voxelgame-core/src/world/ — no generator placements",
     "crates/voxelgame-core/src/game/exploration.rs:240 — single GLOWSTONE voxel at the Stone overlook",
-    "crates/voxelgame-core/src/world/block/table.rs:66-67 — GLOWSTONE is the 'Lumen crystal' block",
-    "search: grep -ri 'glowstone|lumen' mods/ — no optional pack places it"
+    "crates/voxelgame-core/src/world/block/table.rs:66-67 — GLOWSTONE is the 'Lumen crystal' block"
    ],
    "notes": "These recipes work in creative (free ingredients) or with crystals carried over from creative via F4. Glow lichen and Amethyst clusters glow but are not Lumen crystal.",
    "guide": {
@@ -1860,7 +1844,7 @@
     "VOX-OWNER-MINERAL-EXPANSION",
     "VOX-OWNER-COPPER-BRONZE"
    ],
-   "notes": "Iron ore chunks and Bog iron can be mined and placed but have no recipe or smelting use. No copper, tin, bronze, gold, platinum, diamond or marble exists. Blocks with no survival source: Amethyst cluster (creative only), Jade glazed tile (creative or the optional Jade Willow village pack), Home crate (Home tab only). Pink options are natural: Pink blossom leaves, Petal carpet, Fireweed, Polished granite (pink-gray)."
+   "notes": "Iron ore chunks and Bog iron can be mined and placed but have no recipe or smelting use. No copper, tin, bronze, gold, platinum, diamond or marble exists. Blocks with no survival source: Amethyst cluster (creative only), Jade glazed tile (creative), Home crate (Home tab only). Pink options are natural: Pink blossom leaves, Petal carpet, Fireweed, Polished granite (pink-gray)."
   },
   {
    "id": "planned-furnace-metals",
@@ -1974,7 +1958,7 @@
     "crates/voxelgame-render/src/highlight.rs:20-108 — removal outline sized to the edit scale; valid placement adds a textured ghost plus place outline;",
     "crates/voxelgame-core/src/game/readouts.rs:10-73 — no preview with a tool equipped or empty hands; whole-block mode uses the 1 m cell across the aimed face;",
     "crates/voxelgame-core/src/world/raycast.rs:29-38 — interaction ray stops at the first non-air, non-liquid voxel",
-    "crates/voxelgame-core/src/game/mod_vehicles.rs:123-133 — bow, rifle, throwables, mod handheld weapons and vehicles disable block interaction (no outline)"
+    "crates/voxelgame-core/src/game/mod_vehicles.rs:123-133 — bow, rifle, throwables and vehicles disable block interaction (no outline)"
    ],
    "backlog": [
     "VOX-OWNER-BLOCK-PLACEMENT-PREVIEW"
@@ -2062,7 +2046,7 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/game.rs:1817-1822 — creative-only pick, message 'Selected <block> | RMB place'",
-    "crates/voxelgame-core/src/game/hotbar.rs:367-381 — selects an existing slot or holds the block; puts tools and mod weapons away"
+    "crates/voxelgame-core/src/game/hotbar.rs:367-381 — selects an existing slot or holds the block; puts tools away"
    ],
    "notes": "Picks the exact material (for example Meadow turf, not the Loam it drops). Does nothing in survival."
   },
@@ -2093,11 +2077,11 @@
     "creative",
     "survival"
    ],
-   "summary": "Only blocks can be placed; tools, food and other items cannot. Nothing is placed inside your body, into occupied cells, in survival without enough pieces, or while a tool, bow, rifle, throwable or mod weapon is in hand or you are in a vehicle; the Home crate is protected and edits stop at the world's save limit.",
+   "summary": "Only blocks can be placed; tools, food and other items cannot. Nothing is placed inside your body, into occupied cells, in survival without enough pieces, or while a tool, bow, rifle or throwable is in hand or you are in a vehicle; the Home crate is protected and edits stop at the world's save limit.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:351-356 — only items that map to a block are placeable",
     "crates/voxelgame-core/src/game/readouts.rs:11-16 — no placement with a tool equipped or empty hands",
-    "crates/voxelgame-core/src/game/mod_vehicles.rs:123-133 — ranged weapons, throwables, mod weapons and vehicles disable block interaction",
+    "crates/voxelgame-core/src/game/mod_vehicles.rs:123-133 — ranged weapons, throwables and vehicles disable block interaction",
     "crates/voxelgame-core/src/game.rs:1893-1904 — refusal messages"
    ],
    "notes": "Multiplayer specifics belong to the platform area. TNT ignition and dynamite are refused on servers."
@@ -2114,7 +2098,7 @@
    "controls": [
     [
      "B",
-     "Next brush; clears any corner selection and copied selection (creative, not holding a bow, rifle, throwable or mod weapon)"
+     "Next brush; clears any corner selection and copied selection (creative, not holding a bow, rifle or throwable)"
     ],
     [
      "Tool: <brush> button",
@@ -2407,7 +2391,7 @@
    "area": "building",
    "name": "Mechanical building (switches, doors, machines)",
    "status": "planned",
-   "summary": "There are no doors, switches, levers, pistons or item-moving machines to build. The optional Circuit Lab simulates DC circuits on a separate board that cannot drive world blocks.",
+   "summary": "There are no doors, switches, levers, pistons or item-moving machines to build.",
    "evidence": [
     "crates/voxelgame-core/src/world/block/table.rs — 174 blocks; grep 'door|switch|lever|piston|hopper|conveyor|gate|button' finds none",
     "docs/CIRCUIT_LAB.md:69-79 — the board is a render-only preview; terrain component placement is not implemented"
@@ -2513,7 +2497,7 @@
     "VOX-OWNER-CAVE-MAPS",
     "VOX-OWNER-DRIPSTONE-CAVES"
    ],
-   "notes": "Caves do not appear on the map. They are absent from battlefield-terrain pack worlds (The Iron Harvest; caves.rs:124). There are no stalactites, dripstone, ores or lights inside caves."
+   "notes": "Caves do not appear on the map. There are no stalactites, dripstone, ores or lights inside caves."
   },
   {
    "id": "geological-landmarks",
@@ -2756,28 +2740,6 @@
    ],
    "backlog": [
     "VOX-OWNER-FLOWING-LAVA"
-   ],
-   "guide": {
-    "state": "none",
-    "next": "Not in the game yet"
-   }
-  },
-  {
-   "id": "dimension-travel",
-   "area": "world",
-   "name": "Other dimensions (hell, sky realm) and portals",
-   "status": "planned",
-   "modes": [
-    "any"
-   ],
-   "summary": "There is only one world. There are no portals, other dimensions or realms.",
-   "evidence": [
-    "search: grep -i 'dimension|portal|nether|realm|hell' in crates/voxelgame-core/src and src — no gameplay matches (only size 'dimensions' fields)"
-   ],
-   "backlog": [
-    "VOX-OWNER-DIMENSION-TRAVEL",
-    "VOX-OWNER-HELL-DIMENSION",
-    "VOX-OWNER-SKY-DIMENSION"
    ],
    "guide": {
     "state": "none",
@@ -3071,24 +3033,6 @@
    }
   },
   {
-   "id": "map-structure-marker",
-   "area": "maps",
-   "name": "Gold V marker for the nearest village or structure",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Jade Willow Village",
-   "summary": "When a structure pack such as Jade Willow Village is enabled, both maps show a gold diamond with a V pointing to the nearest generated structure, held at the map edge when it is out of view. The fullscreen map adds a 'GOLD V <name> N M AWAY | X Z' line. With no structure pack enabled, there is no V.",
-   "evidence": [
-    "crates/voxelgame-core/src/game/structures.rs:16-38 — waypoints exist only for registered Structure content",
-    "crates/voxelgame-core/src/game/structures.rs:557-566 — nearest waypoint",
-    "crates/voxelgame-render/src/map_ui.rs:41-99 — gold V diamond held at the map rim",
-    "crates/voxelgame-render/src/map_ui.rs:460-477 — GOLD V text line"
-   ]
-  },
-  {
    "id": "map-player-marker",
    "area": "maps",
    "name": "Player arrow on the map",
@@ -3271,8 +3215,7 @@
    "evidence": [
     "crates/voxelgame-core/src/save.rs:100 — saving at the helm writes the cockpit position",
     "crates/voxelgame-core/src/game/sailing.rs:9-13 — sailing_save_position",
-    "crates/voxelgame-core/src/sailing.rs:26-32 — saved boat record (position, yaw, health)",
-    "crates/voxelgame-core/src/game/sailing.rs:166-168 — installing optional packs never deletes player boats"
+    "crates/voxelgame-core/src/sailing.rs:26-32 — saved boat record (position, yaw, health)"
    ],
    "guide": {
     "state": "none",
@@ -3358,7 +3301,7 @@
    "modes": [
     "any"
    ],
-   "summary": "All animals are passive: they never attack, chase or damage you. Characters are neutral and unarmed, and The Iron Harvest soldiers only shoot at each other.",
+   "summary": "All animals are passive: they never attack, chase or damage you.",
    "evidence": [
     "crates/voxelgame-core/src/entities/mod.rs:3 — 'Passive creature spawning'",
     "crates/voxelgame-core/src/entities/mod.rs:1763 — 'Bounded population of passive animals'",
@@ -3468,7 +3411,7 @@
    "evidence": [
     "crates/voxelgame-core/src/game/ranged_input.rs:194-236 — firing, ammo use, messages",
     "crates/voxelgame-core/src/game.rs:1011-1019 — sight raising only when not reloading",
-    "crates/voxelgame-core/src/game.rs:1115-1120 — in survival R eats food unless a mod weapon or vehicle is active"
+    "crates/voxelgame-core/src/game.rs:1115-1120 — in survival R eats food (on foot)"
    ],
    "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of lumen crystal (one block = 8 pieces). Rounds hurt animals, characters and vehicles.",
    "guide": {
@@ -3513,7 +3456,7 @@
    ],
    "summary": "Ranged spread depends on how you stand: sneaking (Shift) tightens it, moving or being in the air widens it, a fuller bow draw or the rifle's raised sights steady it, and each shot briefly opens the reticle.",
    "evidence": [
-    "crates/voxelgame-core/src/game/readouts.rs:100-212 — spread and sway rules for bow, rifle, throwables, mod weapons and mounted guns"
+    "crates/voxelgame-core/src/game/readouts.rs:100-212 — spread and sway rules for bow, rifle, throwables"
    ]
   },
   {
@@ -3579,7 +3522,7 @@
     "crates/voxelgame-core/src/ui.rs:180-183 — eggs listed only in the MOBS tab, not ALL",
     "crates/voxelgame-core/src/game/ranged_input.rs:68-74 — egg throw speed and '<animal> egg away!'"
    ],
-   "notes": "A thrown egg is consumed only in survival (if carried there). Hatched animals despawn like wild ones when you move more than 180 m away. These are different from the B-key character eggs of the content packs."
+   "notes": "A thrown egg is consumed only in survival (if carried there). Hatched animals despawn like wild ones when you move more than 180 m away."
   },
   {
    "id": "animal-behaviour",
@@ -3636,721 +3579,6 @@
    "backlog": [
     "VOX-PLAY-004",
     "VOX-PLAY-005"
-   ]
-  },
-  {
-   "id": "mods-page-enable-packs",
-   "area": "packs",
-   "name": "Mods page: switch content packs on or off",
-   "status": "available",
-   "modes": [
-    "menu"
-   ],
-   "summary": "On the start menu choose Mods, then click a pack (or select it with the arrow keys and press Enter, Left or Right) to switch it between [ ON ] and [ OFF ]. Enabled packs load when you press Play. There are six packs and all start switched off.",
-   "controls": [
-    [
-     "Arrow Up / Arrow Down",
-     "Move between packs and the Back button (Mods page)"
-    ],
-    [
-     "Click, Enter, Arrow Left or Arrow Right",
-     "Toggle the selected pack on or off (Mods page)"
-    ],
-    [
-     "Esc or Back",
-     "Return to the first start-menu page (Mods page)"
-    ],
-    [
-     "Esc, then the Main Menu button",
-     "Save the world and return to the start menu so packs can be changed (in a world)"
-    ]
-   ],
-   "evidence": [
-    "src/mods.rs:33-48 — six providers registered, sorted by manifest ID",
-    "src/mods.rs:127-137 — test asserts six manifests and that none is default-enabled",
-    "crates/voxelgame-core/src/game/startup.rs:270-308 — Mods page arrow/Enter/Left/Right/click toggling and Back",
-    "crates/voxelgame-core/src/game/startup.rs:465-477 — status message '<name> enabled/disabled'"
-   ],
-   "notes": "Pack descriptions are not shown on the Mods page, only name, state, ID and version (e.g. 'chinese_village:pack V1.4.0'). Packs cannot be toggled from inside a running world.",
-   "guide": {
-    "state": "none",
-    "next": "Content packs and what each adds"
-   }
-  },
-  {
-   "id": "pack-jade-willow-village",
-   "area": "packs",
-   "name": "Jade Willow Village pack (owner wants it renamed Chinese Village)",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Jade Willow Village",
-   "summary": "Adds up to three Chinese-style villages on temperate land beyond the starting meadow, with courtyard homes, a tea house, pagoda, shrine, lanes and gardens, and six residents per village. A gold V on the compact map (M) and fullscreen map (Shift+M) points to the nearest village. The Mods page currently calls it 'Jade Willow Village' (ID chinese_village:pack, v1.4.0).",
-   "controls": [
-    [
-     "M / Shift+M",
-     "Gold V marker points to the nearest village; the fullscreen map shows its distance and coordinates (on foot)"
-    ]
-   ],
-   "evidence": [
-    "mods/voxelgame-chinese-village/src/lib.rs:26 — ID chinese_village:pack, display_name 'Jade Willow Village', default_enabled false",
-    "mods/voxelgame-chinese-village/src/lib.rs:116-129 — ID chinese_village:pack, display_name 'Jade Willow Village', default_enabled false",
-    "mods/voxelgame-chinese-village/src/village/mod.rs:517-544 — blueprint label 'Jade Willow Village', Scattered placement",
-    "crates/voxelgame-core/src/game/structures.rs:9-40 — villages are stamped as a session overlay, never written to the save;"
-   ],
-   "backlog": [
-    "VOX-OWNER-DIRECT-MOD-NAMES"
-   ],
-   "notes": "Terrain-changing packs (The Iron Harvest) can leave no suitable village site. With many packs on, the shared 32-slot limit leaves fewer residents. A rename of this pack to Chinese Village is requested and not in this version.",
-   "guide": {
-    "state": "atlas",
-    "page": "villages.html",
-    "label": "Village gallery (pack 1.4.0)",
-    "next": "Content packs and what each adds"
-   }
-  },
-  {
-   "id": "village-residents",
-   "area": "packs",
-   "name": "Village residents",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Jade Willow Village",
-   "summary": "Twelve named residents (for example 'Mei Lin the Tea Master', 'Wei Shan the Carpenter', 'Grandmother Yun the Herbalist') wander and pause around their homes. Right-click one to get a short text reply, Shift+right-click to make them sit or stand. They are unarmed, have no voices and 40 HP; a killed resident disappears and returns when the world is next started.",
-   "evidence": [
-    "mods/voxelgame-chinese-village/src/characters.rs:85-127 — player-visible resident labels and walking speeds",
-    "mods/voxelgame-chinese-village/src/characters.rs:170-193 — Pedestrian kind, Neutral, 40 HP, no sounds, no weapons",
-    "crates/voxelgame-core/src/vehicle/garrison.rs:183-256 — any pedestrian without a voice-only sound set gets the shared text replies",
-    "crates/voxelgame-core/src/vehicle/garrison.rs:144-180 — dead pedestrians are removed"
-   ],
-   "notes": "Residents use the same seven generic lines as Thor (e.g. 'Got any chocolate?'), prefixed with their name; the village README does not mention conversation at all. Job titles are descriptive only; residents do not work."
-  },
-  {
-   "id": "village-catalog-placement",
-   "area": "packs",
-   "name": "Raise an extra village from the creative catalog",
-   "status": "optional-pack",
-   "modes": [
-    "creative"
-   ],
-   "pack": "Jade Willow Village",
-   "summary": "In creative mode, open the catalog's MODS tab and click 'Jade Willow Village' (its card reads USE: CLICK TO RAISE AHEAD) to build a village about 10 m in front of you; residents move in if character slots are free.",
-   "evidence": [
-    "crates/voxelgame-core/src/game/hotbar.rs:186-216 — structure catalog entry stamps ahead and moves residents in",
-    "crates/voxelgame-render/src/item_labels.rs:116 — 'USE: CLICK TO RAISE AHEAD'",
-    "crates/voxelgame-core/src/game/structures.rs:446-521 — stamping extends the session-only structure overlay",
-    "crates/voxelgame-core/src/save/write.rs:116-136 — no structure list is saved"
-   ],
-   "notes": "Code reading indicates a catalog-raised village is session-only: it is not saved, so after reloading only the blocks you edited inside it remain. Verify in-game before documenting. Fails with 'No room in the session structure budget' when the overlay budget is used up."
-  },
-  {
-   "id": "pack-circuit-lab",
-   "area": "packs",
-   "name": "Circuit Lab pack",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Circuit Lab",
-   "summary": "Enable Circuit Lab, enter a single-player world and press L to open a DC circuit workbench: connect resistors, batteries, current sources, wires, switches, lamps, voltmeters and ammeters between junctions, then read voltages, currents, power and equations. It uses no resources and can place a display board in the world.",
-   "controls": [
-    [
-     "L",
-     "Open the circuit workbench (single-player world, pack enabled)"
-    ],
-    [
-     "Esc",
-     "Close the workbench"
-    ],
-    [
-     "Enter",
-     "Recalculate (Test) (workbench)"
-    ],
-    [
-     "Space",
-     "Open/close the inspected switch (workbench)"
-    ],
-    [
-     "Delete",
-     "Delete the inspected component (workbench)"
-    ],
-    [
-     "Ctrl+Z",
-     "Undo the last circuit edit (workbench)"
-    ]
-   ],
-   "evidence": [
-    "mods/voxelgame-circuits/src/lib.rs:14 — ID circuits:pack, display_name 'Circuit Lab', default_enabled false, no content definitions",
-    "crates/voxelgame-core/src/game.rs:731-760 — L opens the workbench while the pack is enabled",
-    "crates/voxelgame-core/src/game.rs:1581-1587 — only enabled when not connected to a server",
-    "crates/voxelgame-core/src/circuits/controls.rs:50-85 — Esc, Enter, Delete, Space, Ctrl+Z handling"
-   ],
-   "notes": "Single-player only. Disabling the pack keeps the saved board. Detailed editor workflow (terminal A/B placement, Inspect, Set Ground, examples) is from docs/CIRCUIT_LAB.md and was not re-verified line by line here.",
-   "guide": {
-    "state": "none",
-    "next": "Content packs and what each adds"
-   }
-  },
-  {
-   "id": "pack-sundown-protocol",
-   "area": "packs",
-   "name": "Sundown Protocol: Strike Designator",
-   "status": "optional-pack",
-   "modes": [
-    "creative"
-   ],
-   "pack": "Sundown Protocol",
-   "summary": "Take the Strike Designator from the creative catalog's MODS tab. Right-click marks a point up to 320 m away, right-click again to confirm and start a 12-second countdown; Shift+right-click clears the mark or aborts until the last 1.5 s. A warhead falls from 300 m and leaves a 48 m crater inside a 96 m scorched ring.",
-   "controls": [
-    [
-     "Right click",
-     "Mark the point under the crosshair (up to 320 m), then right click again to confirm (designator held)"
-    ],
-    [
-     "Shift + right click",
-     "Clear the mark, or abort a called-in strike until 1.5 s before release (designator held)"
-    ],
-    [
-     "Left click",
-     "Show the designator hint (designator held)"
-    ]
-   ],
-   "evidence": [
-    "mods/voxelgame-sundown/src/lib.rs:24 — ID voxelgame_sundown:pack, display_name 'Sundown Protocol', default off",
-    "mods/voxelgame-sundown/src/lib.rs:38-49 — ID voxelgame_sundown:pack, display_name 'Sundown Protocol', default off",
-    "mods/voxelgame-sundown/src/data.rs:18-27 — 'Sundown warhead', designator label 'Strike Designator'",
-    "crates/voxelgame-core/src/game/strike_designation.rs:9-75 — mark / confirm / abort input and messages incl. 'DANGER CLOSE'"
-   ],
-   "notes": "Creative players are thrown by the blast but not hurt; survival players are hurt (cover helps less than against TNT). Selecting another item puts the designator away without cancelling a strike. The crater stays in the save even if the pack is disabled later. The designator is a catalog item, so survival use is only possible through a quick slot bound in creative during the same session.",
-   "guide": {
-    "state": "none",
-    "next": "Content packs and what each adds"
-   }
-  },
-  {
-   "id": "pack-iron-harvest-terrain",
-   "area": "packs",
-   "name": "The Iron Harvest: shelled battlefield terrain",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "The Iron Harvest",
-   "summary": "Turns ordinary land into a churned battlefield of overlapping shell craters (some flooded), mud, gravel and clay, trench lines every 48 m and dead stumps instead of trees. Disabling the pack brings the original landscape back next session; your own block edits are kept.",
-   "evidence": [
-    "mods/voxelgame-verdun/src/lib.rs:26 — ID voxelgame_verdun:pack, display_name 'The Iron Harvest', default off",
-    "mods/voxelgame-verdun/src/lib.rs:57-71 — ID voxelgame_verdun:pack, display_name 'The Iron Harvest', default off",
-    "crates/voxelgame-core/src/game/content_install.rs:60-76 — terrain profile only reshapes generation; disabling restores terrain next session;",
-    "crates/voxelgame-core/src/game/content_install.rs:20-27 — with a terrain profile active, the three expedition landmarks are not placed"
-   ],
-   "notes": "The whole world's dry land is reshaped, not one area. Expedition landmarks (journal supply finds) are absent while this pack is enabled, and villages may find no suitable site.",
-   "guide": {
-    "state": "none",
-    "next": "Content packs and what each adds"
-   }
-  },
-  {
-   "id": "iron-harvest-garrisons",
-   "area": "packs",
-   "name": "Trench garrisons (The Iron Harvest)",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "The Iron Harvest",
-   "summary": "Two lines of seven riflemen ('Eastern rifleman' and 'Central rifleman') hold the two trench lines nearest where your session starts and trade fire across the gap. They shoot only at each other, never at you; a fallen soldier lies where he fell and his post is refilled after about 22 seconds.",
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/garrison.rs:385-395 — soldiers target only the nearest opposing soldier",
-    "crates/voxelgame-core/src/vehicle/garrison.rs:526-575 — soldiers target only the nearest opposing soldier",
-    "crates/voxelgame-core/src/vehicle/garrison.rs:603-629 — relief restores the soldier at his post",
-    "crates/voxelgame-core/src/vehicle/targeting.rs:9-39 — soldiers can be hit by player arrows, rifle rounds and mod weapons"
-   ],
-   "notes": "Soldiers use the shared 32-slot limit and take priority over village residents. The Trench Service Rifle has no handheld model, so players cannot use it. Soldiers have no spawn eggs; clicking a soldier in the creative MODS tab moves an existing soldier ahead of you and heals him (vehicle/spawn.rs:72-127)."
-  },
-  {
-   "id": "pack-iron-skies-tracks",
-   "area": "packs",
-   "name": "Iron Skies & Tracks: vehicles and field weapons",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Adds 11 drivable machines that appear around where each session starts: two heavy tanks, two all-terrain cars, two fighters, two heavy frigates and a capital ship (in nearby open water) and two towed field howitzers, plus four handheld field weapons in the creative catalog.",
-   "evidence": [
-    "mods/voxelgame-wwii/src/lib.rs:32-59 — ID voxelgame_wwii:pack, display_name 'Iron Skies & Tracks', v1.4.0, default off",
-    "mods/voxelgame-wwii/src/lib.rs:103-114 — ID voxelgame_wwii:pack, display_name 'Iron Skies & Tracks', v1.4.0, default off",
-    "crates/voxelgame-core/src/game/content_install.rs:28-29 — vehicles are placed around the player's position at session start",
-    "crates/voxelgame-core/src/vehicle.rs:568-690 — populate places vehicles, ships at water berths, and loads handheld weapons"
-   ],
-   "notes": "Vehicles, damage, ammunition and wrecks are never saved; they reappear fresh near your position each session. Licensing caution for the wiki: the two tanks and two fighters use converted third-party geometry and textures with unresolved licensing and national insignia; avoid publishing images of those four vehicles.",
-   "guide": {
-    "state": "none",
-    "next": "Content packs and what each adds"
-   }
-  },
-  {
-   "id": "vehicle-boarding",
-   "area": "packs",
-   "name": "Boarding and leaving vehicles (V)",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Stand within 9 m of a vehicle (the HUD shows 'PRESS V TO ENTER <NAME>') and press V to take control; press V again to stop and get out. Ships measure the distance from their whole hull, so you can board from either side, the bow, the stern or the deck. Characters and soldiers cannot be entered.",
-   "controls": [
-    [
-     "V",
-     "Enter the nearest vehicle within 9 m, or stop and exit the one you control (on foot / in a vehicle)"
-    ],
-    [
-     "C or F5",
-     "Cycle the vehicle's camera stations (in a vehicle)"
-    ],
-    [
-     "Hold Alt",
-     "Free look; guns keep their last aim (in a vehicle)"
-    ],
-    [
-     "Hold right click",
-     "Zoom the view (in a vehicle)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle.rs:826-861 — nearest enterable vehicle; pedestrians and infantry excluded",
-    "crates/voxelgame-core/src/game/mod_vehicles.rs:108-122 — 'PRESS V TO ENTER <LABEL>' prompt",
-    "crates/voxelgame-core/src/vehicle.rs:980-998 — C/F5 camera cycling",
-    "crates/voxelgame-core/src/game.rs:986 — right-click zoom while aboard"
-   ],
-   "notes": "While aboard, E does not open the inventory and the hotbar is hidden.",
-   "guide": {
-    "state": "none",
-    "next": "Iron Skies & Tracks vehicles"
-   }
-  },
-  {
-   "id": "tank-controls",
-   "area": "packs",
-   "name": "Driving and firing a tank",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Hold W/S for forward/reverse power and A/D to steer (tanks can turn on the spot); Space brakes. The mouse aims the turret; the wheel or Q (Shift+Q backwards) switches between the main cannon and roof machine gun. Left click fires, R reloads, hold Shift for the gunner scope. Tanks flatten trees they drive into.",
-   "controls": [
-    [
-     "W / S",
-     "Forward / reverse power (pulling back while rolling forward brakes first) (tank)"
-    ],
-    [
-     "A / D",
-     "Steer (tank)"
-    ],
-    [
-     "Space",
-     "Brake (tank)"
-    ],
-    [
-     "Mouse",
-     "Aim turret and gun (tank)"
-    ],
-    [
-     "Wheel or Q / Shift+Q",
-     "Cycle cannon and roof MG (tank)"
-    ],
-    [
-     "Left click",
-     "Fire selected gun (tank)"
-    ],
-    [
-     "R",
-     "Reload selected gun from the unlimited reserve (tank)"
-    ],
-    [
-     "Hold Shift",
-     "Gunner scope (tank)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/occupied.rs:233-275 — W/S drive, A/D steer, Space brake, opposing input brakes first",
-    "crates/voxelgame-core/src/vehicle.rs:871 — in-game tank control hint",
-    "crates/voxelgame-core/src/vehicle.rs:947-972 — wheel/Q/Shift+Q mounted weapon cycling",
-    "crates/voxelgame-core/src/game.rs:997-1010 — Shift gunner scope in tank/ship/howitzer"
-   ],
-   "notes": "Felled trees and shell craters are normal block edits, so they persist in the world save.",
-   "guide": {
-    "state": "none",
-    "next": "Iron Skies & Tracks vehicles"
-   }
-  },
-  {
-   "id": "car-controls",
-   "area": "packs",
-   "name": "Driving an all-terrain car",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Hold W/S to drive forward/back and A/D to turn the front wheels; the car only turns while moving and cannot spin on the spot. Space brakes. Cars carry no weapons.",
-   "controls": [
-    [
-     "W / S",
-     "Drive forward / reverse (car)"
-    ],
-    [
-     "A / D",
-     "Steer the front wheels (car)"
-    ],
-    [
-     "Space",
-     "Brake (car)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/occupied.rs:280-305 — front-wheel steering geometry; no turning when stationary",
-    "crates/voxelgame-core/src/vehicle.rs:872-873 — in-game car control hint"
-   ],
-   "guide": {
-    "state": "none",
-    "next": "Iron Skies & Tracks vehicles"
-   }
-  },
-  {
-   "id": "fighter-controls",
-   "area": "packs",
-   "name": "Flying a fighter",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "W/S raise and lower the throttle, A/D roll, Page Up/Page Down move the elevator (pitch) and Q/E apply rudder; the mouse moves a steering cursor the aircraft turns toward. Left click fires the guns, R reloads. Hard turns bleed speed.",
-   "controls": [
-    [
-     "W / S",
-     "Raise / lower throttle (fighter)"
-    ],
-    [
-     "A / D",
-     "Roll (fighter)"
-    ],
-    [
-     "Page Up / Page Down",
-     "Elevator (pitch) (fighter)"
-    ],
-    [
-     "Q / E",
-     "Rudder (fighter)"
-    ],
-    [
-     "Mouse",
-     "Steer the flight cursor (fighter)"
-    ],
-    [
-     "Left click / R",
-     "Fire guns / reload (fighter)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/occupied.rs:577-579 — W/S drive the throttle",
-    "crates/voxelgame-core/src/vehicle/occupied.rs:605-609 — A/D roll, PageDown/PageUp pitch, E/Q rudder",
-    "crates/voxelgame-core/src/vehicle/tests.rs:2965-2967 — test comment: pitch moved to the page keys when W and S became the throttle"
-   ],
-   "guide": {
-    "state": "none",
-    "next": "Iron Skies & Tracks vehicles"
-   }
-  },
-  {
-   "id": "ship-controls",
-   "area": "packs",
-   "name": "Commanding a frigate or the capital ship",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Tap or hold W/S to set a lasting ahead/astern engine order (the ship keeps going when you let go), A/D for rudder and Space for all-stop. Point the mouse at the target and the guns elevate automatically. The wheel or Q (Shift+Q back) selects batteries; left click fires, R reloads, Shift holds the gunner scope, C cycles bridge, gun director and chase views.",
-   "controls": [
-    [
-     "W / S",
-     "Adjust persistent engine order (AHEAD / ASTERN) (ship)"
-    ],
-    [
-     "A / D",
-     "Rudder (ship)"
-    ],
-    [
-     "Space",
-     "All stop (ship)"
-    ],
-    [
-     "Wheel or Q / Shift+Q",
-     "Cycle batteries (frigate: main, forward, after, AA; capital ship: both mains, each end, each secondary beam, AA)"
-    ],
-    [
-     "Left click",
-     "Fire (a loaded main battery fires two shells) (ship)"
-    ],
-    [
-     "C",
-     "Bridge, gun director, chase camera (ship)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/occupied.rs:770-790 — engine order, all-stop, rudder",
-    "crates/voxelgame-core/src/vehicle.rs:877 — in-game ship control hint",
-    "src/mods.rs:349-488 — test: V boards the frigate, three Q presses select AA, C switches to AA turret view, released W keeps way,…"
-   ],
-   "guide": {
-    "state": "none",
-    "next": "Iron Skies & Tracks vehicles"
-   }
-  },
-  {
-   "id": "howitzer-controls",
-   "area": "packs",
-   "name": "Crewing a towed field howitzer",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Pressing V at an R-9 Stormrange or F-11 Feldsturm puts you at the gun sight. W/S/A/D only push the trail slowly a short way; the mouse trains and elevates the barrel for a high-arc shot. Left click fires, R reloads, Shift uses the sight.",
-   "controls": [
-    [
-     "W / S / A / D",
-     "Manhandle and swing the trail at walking pace (howitzer)"
-    ],
-    [
-     "Mouse / Left click / R",
-     "Elevate and train / fire / reload (howitzer)"
-    ],
-    [
-     "C",
-     "Gun, sight, chase views (howitzer)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle.rs:879 — in-game howitzer control hint",
-    "mods/voxelgame-wwii/src/data.rs:3577-3615 — howitzer definitions",
-    "mods/voxelgame-wwii/src/data.rs:3142-3180 — Eastern 152 / Central 105 field howitzer guns"
-   ],
-   "notes": "Movement details are from the hint text and README; the towed movement code path was only skimmed.",
-   "guide": {
-    "state": "none",
-    "next": "Iron Skies & Tracks vehicles"
-   }
-  },
-  {
-   "id": "vehicle-weapons-damage",
-   "area": "packs",
-   "name": "Vehicle weapons, ammunition, damage and wrecks",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Each mounted gun has its own finite magazine shown on the vehicle HUD; R refills it from an unlimited reserve. Arrows, rifle rounds and gunfire reduce a vehicle's structure; at zero it stops and stays as a wreck for the rest of the session. TNT and dynamite do not damage vehicles; the Sundown blast does. Shell impacts dig small craters and hurt animals and survival players near the impact, including you.",
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/weapons.rs:8-180 — mounted firing, magazines and cooldowns",
-    "crates/voxelgame-core/src/vehicle/targeting.rs:108-157 — direct hits reduce structure; zero disables the vehicle",
-    "crates/voxelgame-core/src/game.rs:1401-1458 — hit / 'disabled | wreck remains in place' messages",
-    "crates/voxelgame-core/src/game.rs:2001-2041 — shell splash hurts creatures and the survival player"
-   ],
-   "notes": "There is no hostile vehicle AI, fuel or carried ammunition. Clicking a vehicle in the creative MODS tab moves the first unoccupied copy about 6 m ahead and fully restores its structure and magazines, even if it was a wreck."
-  },
-  {
-   "id": "field-weapons-handheld",
-   "area": "packs",
-   "name": "Handheld field weapons (Iron Skies & Tracks)",
-   "status": "optional-pack",
-   "modes": [
-    "creative"
-   ],
-   "pack": "Iron Skies & Tracks",
-   "summary": "Four guns appear in the creative catalog's MODS tab: M91 Timberline Field Rifle, K98 Ridge Field Rifle, P41 Roundwell Machine Carbine and M40 Foldwire Machine Carbine. Click one to draw it; click it again or select anything else to put it away. Hold right click to aim down the sights, left click to fire, R to reload from an unlimited reserve.",
-   "controls": [
-    [
-     "Click in MODS tab or bound quick slot",
-     "Draw / put away the weapon (creative)"
-    ],
-    [
-     "Hold right click",
-     "Aim down sights (lower sensitivity) (weapon drawn)"
-    ],
-    [
-     "Left click",
-     "Fire (weapon drawn)"
-    ],
-    [
-     "R",
-     "Reload the magazine (weapon drawn)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/game/hotbar.rs:159-171 — catalog entry equips or holsters the weapon",
-    "crates/voxelgame-core/src/game/mod_vehicles.rs:40-54 — only draw path is catalog or quick slot",
-    "crates/voxelgame-core/src/vehicle.rs:1018-1021 — R starts a handheld reload",
-    "src/mods.rs:490-551 — test: right-click aim lowers sensitivity and resets on context changes"
-   ],
-   "notes": "No survival ammunition is used. Rounds hurt animals (with drops in survival), characters and vehicles. Quick-slot bindings to these guns are cleared when the world reloads."
-  },
-  {
-   "id": "pack-eric-thor",
-   "area": "packs",
-   "name": "Eric & Thor pack",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Eric & Thor",
-   "summary": "Adds two neutral walking characters, Eric (stocky, red-blue-apricot shirt) and Thor (tall, glasses, scarf and satchel), who appear near where each session starts and wander within about 28 m of where they appeared. The Mods page lists it as 'Eric & Thor' (ID zijing_nerds:pack, v1.3.0).",
-   "evidence": [
-    "mods/voxelgame-zijing-nerds/src/lib.rs:24 — ID zijing_nerds:pack, display_name 'Eric & Thor', default off",
-    "mods/voxelgame-zijing-nerds/src/lib.rs:59-73 — ID zijing_nerds:pack, display_name 'Eric & Thor', default off",
-    "mods/voxelgame-zijing-nerds/src/data.rs:47-84 — two Pedestrian archetypes labelled 'Eric' and 'Thor' (internal IDs use 'erik')",
-    "mods/voxelgame-zijing-nerds/src/data.rs:133-161 — two Pedestrian archetypes labelled 'Eric' and 'Thor' (internal IDs use 'erik')"
-   ],
-   "notes": "Player-visible name is 'Eric' (code IDs and backlog say Erik). Characters are never saved.",
-   "guide": {
-    "state": "none",
-    "next": "Content packs and what each adds"
-   }
-  },
-  {
-   "id": "npc-spawn-eggs",
-   "area": "packs",
-   "name": "Character spawn eggs (B key)",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Eric & Thor or Jade Willow Village",
-   "summary": "With Eric & Thor or Jade Willow Village enabled, press B on foot to draw a character spawn egg, press B again to cycle through the characters and finally pocket the eggs. Left or right click places the selected character on the ground where you aim (up to 8 m). Every placement adds a new character until the 32-slot limit for vehicles and characters is full.",
-   "controls": [
-    [
-     "B",
-     "Draw, cycle, then pocket character spawn eggs (on foot, character pack enabled)"
-    ],
-    [
-     "Left or right click",
-     "Place the selected character where you aim (egg drawn)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle.rs:1000-1017 — B draws/cycles/pockets eggs; no game-mode check",
-    "crates/voxelgame-core/src/vehicle/spawn.rs:139-181 — either mouse button places; full limit rejects without moving anyone",
-    "crates/voxelgame-core/src/game.rs:1261-1287 — messages '<name> spawn egg | B cycles / pockets | LMB/RMB place', '<name> steps out of the egg!', 'No room…",
-    "crates/voxelgame-core/src/vehicle.rs:612-624 — only Pedestrian characters get eggs (no soldiers or vehicles)"
-   ],
-   "notes": "Egg placement itself is high confidence; the B/brush interplay is a code-reading inference worth checking in game."
-  },
-  {
-   "id": "npc-conversation-sitting",
-   "area": "packs",
-   "name": "Talking to characters and asking them to sit",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Eric & Thor or Jade Willow Village",
-   "summary": "Aim at Thor or a village resident within 3.5 m and right-click (with no bow, rifle or throwable in hand) to get the next of seven short text replies. The character turns to face you and pauses for about 8 s, and the text panel clears after 12 s or when a character is hit. Eric answers only with a voice clip and no text. Shift+right-click makes a character sit or stand up.",
-   "controls": [
-    [
-     "Right click",
-     "Talk (next reply) (aiming at a character within 3.5 m)"
-    ],
-    [
-     "Shift + right click",
-     "Sit down / stand up (aiming at a character within 3.5 m)"
-    ]
-   ],
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/garrison.rs:183-256 — conversation, sit toggle, Eric voice-only replies",
-    "crates/voxelgame-core/src/game.rs:1684-1711 — right-click dispatch skipped while holding bow, rifle or throwable",
-    "crates/voxelgame-core/src/game.rs:1434-1437 — hitting a character clears the panel"
-   ],
-   "notes": "Replies never give or take items ('Got any chocolate?' is just text). If the character is hurt, the first line becomes a complaint. Characters also sit on their own during rest pauses; a sitting character stands when hit or when the ground under them is removed."
-  },
-  {
-   "id": "npc-health-death",
-   "area": "packs",
-   "name": "Character health and death",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Eric & Thor, Jade Willow Village or The Iron Harvest",
-   "summary": "Eric and Thor have 240 HP, village residents 40 and soldiers 74. Arrows, alder-rifle rounds, mod weapons and vehicle guns hurt them, and walls block shots; melee hits and thrown rocks do not. A killed character disappears (soldiers stay down until relieved) and returns when the world is next started.",
-   "evidence": [
-    "crates/voxelgame-core/src/vehicle/targeting.rs:108-157 — projectile hit on characters; hurt/plea voice reactions",
-    "crates/voxelgame-core/src/vehicle/garrison.rs:144-180 — dead Pedestrian characters removed",
-    "crates/voxelgame-core/src/game.rs:1364-1373 — thrown rocks only test animals",
-    "crates/voxelgame-core/src/game.rs:1787-1815 — melee only tests animals"
-   ],
-   "notes": "Characters never fight back or flee."
-  },
-  {
-   "id": "npc-voices",
-   "area": "packs",
-   "name": "Eric and Thor voice clips",
-   "status": "optional-pack",
-   "modes": [
-    "creative",
-    "survival"
-   ],
-   "pack": "Eric & Thor",
-   "summary": "At this build Thor has 28 owner-recorded clips (calm singing and speech, greetings, hurt, pleas, conversation replies) and Eric has 2 recorded clips that play now and then and when you talk to him. Only one voice plays at a time, within 16 m, and it gets louder as you approach and follows the speaker.",
-   "evidence": [
-    "mods/voxelgame-zijing-nerds/src/voices.rs:9-16 — eric_idle_dead_drunk and eric_idle_nonono still registered",
-    "mods/voxelgame-zijing-nerds/src/data.rs:154-158 — Eric's walker uses the eric_ clips",
-    "mods/voxelgame-zijing-nerds/src/data.rs:86-89 — Thor uses the thor_ clips",
-    "crates/voxelgame-core/src/vehicle/garrison.rs:9-143 — event tags, idle rotation and damage reactions"
-   ],
-   "backlog": [
-    "VOX-OWNER-REMOVE-ERIK-VOICE"
-   ],
-   "notes": "The owner queued removal of Eric's voice on 2026-10-11 (Eric keeps his non-voice behaviour); do not present Eric's voice as permanent. Village residents have no voices. Removal of Eric’s voice was requested on 11 October 2026 and is not in this version."
-  },
-  {
-   "id": "mods-creative-catalog-tab",
-   "area": "packs",
-   "name": "MODS tab in the creative catalog",
-   "status": "optional-pack",
-   "modes": [
-    "creative"
-   ],
-   "pack": "Any content pack",
-   "summary": "With packs enabled, the creative catalog gets a MODS tab: click a vehicle to bring one in front of you, a character to create a new copy, a field weapon to equip it, the Jade Willow Village card to raise a village, or the Strike Designator to draw it. Mod items can be bound to quick slots, but those bindings are cleared when the world reloads.",
-   "evidence": [
-    "crates/voxelgame-core/src/game/creative_catalog.rs:33-55 — weapons with models, mobiles, structures and the warhead are listed",
-    "crates/voxelgame-core/src/ui.rs:128-130 — 'MODS' tab; mod items appear only in ALL/MODS/STARRED/RECENT",
-    "crates/voxelgame-core/src/ui.rs:160 — 'MODS' tab; mod items appear only in ALL/MODS/STARRED/RECENT",
-    "crates/voxelgame-core/src/ui.rs:170-178 — 'MODS' tab; mod items appear only in ALL/MODS/STARRED/RECENT"
    ]
   },
   {
@@ -4412,7 +3640,7 @@
    "area": "customize",
    "name": "Developer inspection and gallery tools",
    "status": "developer",
-   "summary": "Developers can browse, place and capture models, textures and pack blueprints in a disposable headless session and export creature, gear and character galleries. These are review tools: they edit nothing, write no saves and are absent from normal builds.",
+   "summary": "Developers can browse, place and capture models and textures in a disposable headless session and export creature, gear and character galleries. These are review tools: they edit nothing, write no saves and are absent from normal builds.",
    "evidence": [
     "src/main.rs:9-10 — --debug-stdio needs a devtools build",
     "src/main.rs:45-56 — --debug-stdio needs a devtools build",
@@ -4429,35 +3657,12 @@
    "summary": "Changing how your explorer looks (skins, import/export or painting) is requested but not in the game. Everyone uses the same built-in outfit.",
    "evidence": [
     "crates/voxelgame-render/src/player_avatar.rs:11-15 — fixed coat, trousers, leather, skin and scarf colours",
-    "crates/voxelgame-core/src/settings.rs:206-242 — no appearance setting",
-    "search: grep -w -i 'skin' over crates/, src/, mods/ — only that colour constant, creature coat textures and NPC data"
+    "crates/voxelgame-core/src/settings.rs:206-242 — no appearance setting"
    ],
    "backlog": [
     "VOX-OWNER-PLAYER-SKIN-EDITOR",
     "VOX-OWNER-RESOURCE-EDITOR-FEATURES"
    ],
-   "guide": {
-    "state": "none",
-    "next": "Not in the game yet"
-   }
-  },
-  {
-   "id": "resource-packs",
-   "area": "customize",
-   "name": "Resource and texture packs",
-   "status": "planned",
-   "summary": "Players cannot load or choose resource or texture packs: all textures are built into the game, and the Mods screen only switches compiled content packs. There is no pack folder or file format yet.",
-   "evidence": [
-    "crates/voxelgame-render/src/atlas.rs:125-130 — textures compiled into the program",
-    "crates/voxelgame-render/src/atlas.rs:234 — textures compiled into the program",
-    "crates/voxelgame-core/src/settings.rs:206-242 — no pack setting",
-    "src/mods.rs:30-40 — only compiled providers"
-   ],
-   "backlog": [
-    "VOX-OWNER-RESOURCE-PACKS",
-    "VOX-OWNER-RESOURCE-EDITOR-FEATURES"
-   ],
-   "notes": "'Resource pack' in code and docs refers to imported atlas artwork being replaced, not a player feature.",
    "guide": {
     "state": "none",
     "next": "Not in the game yet"
@@ -4470,7 +3675,7 @@
    "status": "planned",
    "summary": "There is no in-game animal editor, animal painter, pixel-density control or live pose preview. Animals are built into the game's code, and only developers can export them for review.",
    "evidence": [
-    "search: grep -i 'workshop|painter|animal.editor|editor' over crates/, src/, mods/ — no editor code;",
+    "search: grep -i 'workshop|painter|animal.editor|editor' over crates/, src/ — no editor code;",
     "crates/voxelgame-core/src/entities/models.rs — species geometry is code",
     "crates/voxelgame-render/Cargo.toml:32-34 — creature export needs the creature-gallery feature"
    ],
@@ -4489,11 +3694,9 @@
    "area": "customize",
    "name": "Structure Workshop and player blueprints",
    "status": "planned",
-   "summary": "You cannot save your own builds as blueprints, import or export them, or place one with a movable ghost and a materials list in survival. The nearest tools today are the creative Copy brush (512 half-metre cells, this session only) and raising pack blueprints in creative.",
+   "summary": "You cannot save your own builds as blueprints, import or export them, or place one with a movable ghost and a materials list in survival. The nearest tools today are the creative Copy brush (512 half-metre cells, this session only).",
    "evidence": [
-    "crates/voxelgame-core/src/content/definitions.rs:528-564 — blueprints exist only as compiled pack data; stamped cells are never saved",
     "crates/voxelgame-core/src/game/structures.rs:446-521 — stamping supports only X/Z mirroring for generated sites",
-    "crates/voxelgame-core/src/game/hotbar.rs:186-214 — pack blueprints raise instantly with no preview or confirm",
     "crates/voxelgame-core/src/game/building.rs:233-263 — Copy clipboard"
    ],
    "backlog": [
@@ -5170,11 +4373,11 @@
    ],
    "evidence": [
     "src/app.rs:592-598 — F6 saves and resets the autosave timer",
-    "src/app.rs:652-657 — autosave only when the world or Circuit Lab board changed",
+    "src/app.rs:652-657 — autosave only when the world changed",
     "src/app.rs:161-166 — window close, Ctrl+Q, Main menu and Quit all save first and stop if saving fails",
     "src/app.rs:201-212 — window close, Ctrl+Q, Main menu and Quit all save first and stop if saving fails"
    ],
-   "notes": "Autosave is triggered by world changes such as building, mining, home storage, journal edits, boats or Circuit Lab; just walking around or most crafting waits for the next F6 or quit. There is no crash handler, so a crash loses changes since the last save, but the previous save file stays intact.",
+   "notes": "Autosave is triggered by world changes such as building, mining, home storage, journal edits or boats; just walking around or most crafting waits for the next F6 or quit. There is no crash handler, so a crash loses changes since the last save, but the previous save file stays intact.",
    "guide": {
     "state": "none",
     "next": "Fixing startup, sound and save problems"
@@ -5189,11 +4392,10 @@
     "creative",
     "survival"
    ],
-   "summary": "A save keeps your position and view, game mode, health, hunger, thirst, stamina and temperature, inventory, quick-slot bindings and selection, equipped tool, every block you changed (with water state), time/weather/season controls, enabled content packs, home crate and rest point, one saved build palette, journal places and expedition finds, the map destination, sailing boats, the Circuit Lab board and your settings. Animals, spawned mod vehicles and characters, projectiles, primed TNT and Study Grove timers are not saved.",
+   "summary": "A save keeps your position and view, game mode, health, hunger, thirst, stamina and temperature, inventory, quick-slot bindings and selection, equipped tool, every block you changed (with water state), time/weather/season controls, home crate and rest point, one saved build palette, journal places and expedition finds, the map destination, sailing boats and your settings. Animals, projectiles, primed TNT and Study Grove timers are not saved.",
    "evidence": [
     "crates/voxelgame-core/src/save/write.rs:112-137 — complete list of saved sections",
     "crates/voxelgame-core/src/save/write.rs:150-170 — position, mode, day clock and survival meters",
-    "crates/voxelgame-core/src/save/write.rs:239-248 — quick slots bound to session-only mod items are saved empty",
     "crates/voxelgame-core/src/pomodoro.rs:3 — study timer is session-only"
    ],
    "notes": "Session-only (reset on load): Performance (F3), Chunk borders (F7), LOD view (F8), the FPS and coordinates readout (on by default) and Study Grove settings/counts. Creative and survival worlds use the same format; the mode is stored."
@@ -5201,16 +4403,16 @@
   {
    "id": "per-world-settings",
    "area": "platform",
-   "name": "Settings and packs are stored inside each world",
+   "name": "Settings are stored inside each world",
    "status": "partial",
    "modes": [
     "any"
    ],
-   "summary": "Graphics, audio and GUI settings and the enabled content packs are saved inside each world file. A new world copies your current settings and packs; loading another world switches to that world's own settings.",
+   "summary": "Graphics, audio and GUI settings are saved inside each world file. A new world copies your current settings; loading another world switches to that world's own settings.",
    "evidence": [
-    "crates/voxelgame-core/src/save/write.rs:193-236 — settings, GUI size, packs and audio preferences in the world file",
-    "crates/voxelgame-core/src/save/write.rs:251-261 — settings, GUI size, packs and audio preferences in the world file",
-    "src/app.rs:540-549 — a new world copies the current settings and enabled packs",
+    "crates/voxelgame-core/src/save/write.rs:193-236 — settings, GUI size and audio preferences in the world file",
+    "crates/voxelgame-core/src/save/write.rs:251-261 — settings, GUI size and audio preferences in the world file",
+    "src/app.rs:540-549 — a new world copies the current settings",
     "src/app.rs:560-575 — loading a world replaces the whole game state, settings included"
    ],
    "backlog": [
@@ -5219,7 +4421,7 @@
    "notes": "Because the game always starts on the DEBUG world, settings you changed while in another world appear again only when you load that world. An owner request to refine per-world settings restore is open.",
    "guide": {
     "state": "none",
-    "next": "Content packs and what each adds"
+    "next": "Settings and performance"
    }
   },
   {
@@ -5344,7 +4546,7 @@
    "backlog": [
     "VOX-OWNER-NATIVE-ERROR-WINDOW"
    ],
-   "notes": "Other messages: 'GPU ran out of memory during startup', 'Nearby terrain took too long to prepare; please try again' (shown on the menu), 'audio disabled: playback command unavailable (aplay on Linux; ffplay on Windows/macOS)'. Problems loading other worlds or mods are shown on the main menu instead. Only run.sh shows a dialog, and only for a failed build (run.sh:100-104). Linux launcher path for terminal use: ~/.local/share/voxelgame/app/launch.sh (install.sh:140).",
+   "notes": "Other messages: 'GPU ran out of memory during startup', 'Nearby terrain took too long to prepare; please try again' (shown on the menu), 'audio disabled: playback command unavailable (aplay on Linux; ffplay on Windows/macOS)'. Problems loading other worlds are shown on the main menu instead. Only run.sh shows a dialog, and only for a failed build (run.sh:100-104). Linux launcher path for terminal use: ~/.local/share/voxelgame/app/launch.sh (install.sh:140).",
    "guide": {
     "state": "none",
     "next": "Fixing startup, sound and save problems"
@@ -5447,7 +4649,7 @@
     "VOX-NET-SERVER-REPORTS",
     "VOX-NET-SEC-QUINN-FLOOR"
    ],
-   "notes": "Limits in this build: in survival, damage and death are not applied while connected; animals, inventories and crafting are not shared; water flow comes from the server (game.rs:1338-1340); content packs are not part of multiplayer and Circuit Lab is disabled (game.rs:1581-1586). The first server you join is trusted and pinned in known_servers.txt; a changed certificate is refused. Identity files client-certificate.der/client-key.der live in ~/.local/state/voxelgame. LAN/loopback only: the network library has known denial-of-service defects."
+   "notes": "Limits in this build: in survival, damage and death are not applied while connected; animals, inventories and crafting are not shared; water flow comes from the server (game.rs:1338-1340). The first server you join is trusted and pinned in known_servers.txt; a changed certificate is refused. Identity files client-certificate.der/client-key.der live in ~/.local/state/voxelgame. LAN/loopback only: the network library has known denial-of-service defects."
   },
   {
    "id": "mp-dedicated-server",
@@ -5503,7 +4705,7 @@
    "status": "planned",
    "summary": "Planned: an in-game Multiplayer menu with saved servers, direct connect, LAN discovery and hosting your own world for friends. None of these exist yet.",
    "evidence": [
-    "search: crates/voxelgame-render/src/startup_ui.rs:77-85 - main menu has only Continue, Worlds, Mods, Settings, Credits, Study timer, Quit;"
+    "search: crates/voxelgame-render/src/startup_ui.rs:77-85 - main menu has only Continue, Worlds, Settings, Credits, Study timer, Quit;"
    ],
    "backlog": [
     "VOX-NET-M5-LAN"
@@ -5711,22 +4913,6 @@
    "why": "Wind, tacking and the helm controls are not obvious without a walkthrough."
   },
   {
-   "rank": 9,
-   "title": "Content packs and what each adds",
-   "covers": [
-    "mods-page-enable-packs",
-    "per-world-settings",
-    "pack-jade-willow-village",
-    "pack-circuit-lab",
-    "pack-sundown-protocol",
-    "pack-iron-harvest-terrain",
-    "pack-iron-skies-tracks",
-    "pack-eric-thor"
-   ],
-   "readiness": "needs-screenshots",
-   "why": "Six packs change the world in different ways, and some changes are kept in the save."
-  },
-  {
    "rank": 10,
    "title": "Hunting, weapons and animals",
    "covers": [
@@ -5770,20 +4956,6 @@
    "why": "Fatal errors currently appear only in a terminal, so players need to know where logs and saves are."
   },
   {
-   "rank": 13,
-   "title": "Iron Skies & Tracks vehicles",
-   "covers": [
-    "vehicle-boarding",
-    "tank-controls",
-    "car-controls",
-    "fighter-controls",
-    "ship-controls",
-    "howitzer-controls"
-   ],
-   "readiness": "ready",
-   "why": "Each vehicle type has its own keys, and the fighter keys in the game README are wrong."
-  },
-  {
    "rank": 14,
    "title": "Study Grove focus timer",
    "covers": [
@@ -5799,10 +4971,8 @@
    "covers": [
     "fire",
     "flowing-lava",
-    "dimension-travel",
     "waterfalls-dripstone",
     "planned-doors-chests-furniture",
-    "resource-packs",
     "player-skins"
    ],
    "readiness": "blocked-planned",
@@ -5810,23 +4980,6 @@
   }
  ],
  "docNotes": [
-  {
-   "topic": "Six content packs, not five",
-   "detail": "The game README counts five compiled packs and leaves Circuit Lab out of its pack table; the Mods screen lists six.",
-   "evidence": [
-    "README.md:543",
-    "src/mods.rs:33-48"
-   ]
-  },
-  {
-   "topic": "Fighter controls",
-   "detail": "The README and the in-game hint say W/S move the elevator and Shift/Ctrl set the throttle. The code uses W/S for throttle and Page Up/Page Down for pitch; the pack’s own README matches the code.",
-   "evidence": [
-    "README.md:588",
-    "crates/voxelgame-core/src/vehicle/occupied.rs:577-609",
-    "crates/voxelgame-core/src/vehicle.rs:875"
-   ]
-  },
   {
    "topic": "Seasons are not yet visual-only",
    "detail": "The design philosophy says seasons are visual only, but in survival the season still moves the air temperature by up to 7 °C, which can matter on the highest peaks on winter nights.",
@@ -5878,27 +5031,12 @@
     "src/launch.rs:164-166 — --connect/--name options; needs a window",
     "src/launch.rs:296-303 — --connect/--name options; needs a window"
    ]
-  },
-  {
-   "topic": "On-foot weapon hint mentions Q",
-   "detail": "With a pack field weapon drawn on foot, the hint offers Q and Shift+Q, but Q only cycles mounted guns inside vehicles.",
-   "evidence": [
-    "crates/voxelgame-render/src/menus_ui.rs:260-268"
-   ]
-  },
-  {
-   "topic": "The Iron Harvest trench spacing",
-   "detail": "The pack README gives 96 m between trench lines in one place; the code and the same README elsewhere use 48 m.",
-   "evidence": [
-    "mods/voxelgame-verdun/README.md:159-160",
-    "mods/voxelgame-verdun/src/data.rs:47"
-   ]
   }
  ],
  "method": [
   {
    "title": "Source, not memory",
-   "text": "The audit read an exact export of the audited commit: input handling, menus, crafting, survival, building, world, maps, sailing, content packs, combat, platform and settings code. Every feature cites at least one file and line, and the game’s own documents were checked against that code."
+   "text": "The audit read an exact export of the audited commit: input handling, menus, crafting, survival, building, world, maps, sailing, combat, platform and settings code. Every feature cites at least one file and line, and the game’s own documents were checked against that code."
   },
   {
    "title": "Planned means absent",

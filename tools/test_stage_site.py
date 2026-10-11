@@ -8,6 +8,7 @@ import tempfile
 import unittest
 
 import stage_site
+import validate_base_game
 
 
 class PublicationTests(unittest.TestCase):
@@ -98,6 +99,26 @@ class PublicationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             stage_site.stage(self.output, self.root)
         self.assertFalse(self.output.exists())
+
+    def test_optional_content_regression_in_staged_artifact(self):
+        stage_site.stage(self.output, self.root)
+        validate_base_game.validate(self.output)
+        path = self.output / 'data/features.json'
+        for payload in ('{"status":"optional-pack"}', *validate_base_game.PACK_IDS):
+            with self.subTest(payload=payload):
+                path.write_text(payload)
+                with self.assertRaisesRegex(ValueError, 'pack ID'):
+                    validate_base_game.validate(self.output)
+        path.write_text('{}')
+        page = self.output / 'index.html'
+        for payload in ('<nav><a href="mods.html">Mods</a></nav>',
+                        '<nav><a href="#future">Mods</a></nav>',
+                        '<nav><a href="villages.html">Village</a></nav>'):
+            page.write_text(payload)
+            with self.assertRaisesRegex(ValueError, 'navigation'):
+                validate_base_game.validate(self.output)
+        page.write_text('<nav><a href="guide-crafting.html">Crafting</a></nav><p>Open the Pack tab.</p>')
+        validate_base_game.validate(self.output)
 
     def test_nonempty_output_and_source_directory_rejected(self):
         self.output.mkdir()
