@@ -848,17 +848,17 @@
     "creative",
     "survival"
    ],
-   "summary": "Walking gently bobs the camera; turn it off in Settings > General > Camera bob. Moving fast widens the view by up to 5 degrees beyond your field-of-view setting, and there is no option to turn that widening off.",
+   "summary": "Walking gently bobs the camera; turn it off in Settings > General > Camera bob. Speed FOV widens the view by up to 5 degrees at high horizontal speed, reaching full widening at about 16 m/s; jumps and falls do not change it. Turn it off with Settings > General > Speed FOV. When you lose at least 1 HP, the camera dips briefly by up to 7 cm; Settings > General > Damage bob sets this to Off, Reduced or Full (Full by default).",
    "evidence": [
-    "crates/voxelgame-render/src/lib.rs:2143-2151 — widening uses the player's full velocity, including vertical speed",
+    "crates/voxelgame-core/src/game.rs:89-104 — Speed FOV maximum, ease time and target from horizontal speed",
+    "crates/voxelgame-core/src/game.rs:93-99 — damage dip size, rate and minimum damage",
+    "crates/voxelgame-core/src/game.rs:1661 — camera position takes the damage dip",
+    "crates/voxelgame-render/src/lib.rs:2148-2160 — field of view adds the speed boost unless Speed FOV is off",
+    "crates/voxelgame-core/src/settings.rs:323-325 — Target info, Speed FOV and Damage bob defaults",
     "crates/voxelgame-core/src/player.rs:780-790 — bob strength follows walking speed",
     "crates/voxelgame-core/src/player.rs:349 — camera position applies bob only when enabled"
    ],
-   "backlog": [
-    "VOX-OWNER-SPRINT-JUMP-FOV",
-    "VOX-OWNER-DAMAGE-BOB"
-   ],
-   "notes": "Because the widening reads total velocity, jumps and falls also change the field of view, not only sprinting. No reduced-motion or comfort option exists; owner fixes are planned (VOX-OWNER-SPRINT-JUMP-FOV). There is no camera bob when taking damage (VOX-OWNER-DAMAGE-BOB is planned)."
+   "notes": "Speed FOV reads horizontal speed only and eases over about 0.3 s, so a sprint-jump no longer pumps the view. Vehicles use their own speed boost, which the Speed FOV row also turns off. Aiming, interaction rays and projectiles stay on the player's eye, so the damage dip does not move what you hit. Hunger, cold, respawn and loading never trigger the damage dip. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541."
   },
   {
    "id": "hud-layout",
@@ -869,14 +869,14 @@
     "creative",
     "survival"
    ],
-   "summary": "During play the status line sits top-left, the looking-at card top-centre, the compact map top-right with the FPS/coordinates box beneath it, the crosshair and action hint in the middle, the four survival bars lower-left (survival only) and the ten-slot hotbar with its item label at the bottom.",
+   "summary": "During play the status line sits top-left, the looking-at card top-right just left of the compact map, the compact map top-right with the FPS/coordinates box beneath it, the crosshair and action hint in the middle, the four survival bars lower-left (survival only) and the ten-slot hotbar with its item label at the bottom.",
    "evidence": [
     "crates/voxelgame-render/src/hud.rs:118-138 — order of HUD layers",
     "crates/voxelgame-render/src/hud.rs:219-312 — status line, chat, vehicle instruments, cards, map, readout",
     "crates/voxelgame-render/src/hud.rs:353-395 — action hint below the crosshair (vehicle hints in a lower-left panel)",
-    "crates/voxelgame-core/src/ui.rs:529-544 — compact map top-right, looking-at card top-centre"
+    "crates/voxelgame-core/src/ui.rs:594-600 — looking-at card right-aligned at top, 10 units left of the compact map"
    ],
-   "notes": "Opening a menu hides the gameplay HUD. Status messages stay until replaced.",
+   "notes": "Opening a menu hides the gameplay HUD. Status messages stay until replaced. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -910,7 +910,7 @@
     "creative",
     "survival"
    ],
-   "summary": "When you aim at a block within 6 m, a card at the top-centre shows its 3D icon, name, distance and mining advice ('CREATIVE INSTANT BREAK', a recommended tool, or 'NO SPECIAL TOOL NEEDED'). Animals get their own card with health. Press F2 to hide or show it.",
+   "summary": "When you aim at a block within 6 m, a card at the top right, just left of the compact map, shows its 3D icon, name, distance and mining advice ('CREATIVE INSTANT BREAK', a recommended tool, or 'NO SPECIAL TOOL NEEDED'). Animals get their own card with health. Press F2 to hide or show it, or use the Target info row in Settings > General.",
    "controls": [
     [
      "F2",
@@ -918,15 +918,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:950-958 — F2 toggle and messages",
-    "crates/voxelgame-render/src/hud.rs:232-238 — card shown only with a target and no menu open",
-    "crates/voxelgame-render/src/hud.rs:295-301 — card shown only with a target and no menu open",
+    "crates/voxelgame-core/src/game.rs:989-995 — F2 toggle and messages",
+    "crates/voxelgame-core/src/settings.rs:323 — Target info is on by default",
+    "crates/voxelgame-render/src/hud.rs:236-250 — card shown only with a target, the setting on and no menu open",
+    "crates/voxelgame-core/src/ui.rs:594-600 — right-aligned card rectangle",
     "crates/voxelgame-render/src/target_ui.rs:26-65 — mining advice and badge"
    ],
-   "backlog": [
-    "VOX-OWNER-TARGET-INFO-PANEL"
-   ],
-   "notes": "The F2 choice is not saved and there is no Settings row for it; a right-aligned card with a persistent setting is planned."
+   "notes": "The Target info setting (General tab, shown as TARGET INFO (F2)) is saved with each world, so F2 and the row change the same value. The card is hidden while a menu is open. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541."
   },
   {
    "id": "clean-view",
@@ -984,17 +982,15 @@
     "creative",
     "survival"
    ],
-   "summary": "Actions report in the top-left status line, for example 'Collected <block> x<pieces>', 'Capacity full; block left behind' or 'Inventory opened'. Mined blocks throw debris and play a break sound, and pieces go straight into your pack. Taking damage only lowers the HP bar: there is no hurt sound, red flash or camera bob.",
+   "summary": "Actions report in the top-left status line, for example 'Collected <block> x<pieces>', 'Capacity full; block left behind' or 'Inventory opened'. Mined blocks throw debris and play a break sound, and pieces go straight into your pack. Taking damage lowers the HP bar and dips the camera briefly (see Camera bob and speed field of view); there is no hurt sound or red flash.",
    "evidence": [
     "crates/voxelgame-render/src/hud.rs:256-260 — status line drawing",
     "crates/voxelgame-core/src/game.rs:2408-2451 — capacity check, debris, 'Collected' / 'Carved' text and break sound",
     "crates/voxelgame-core/src/game.rs:1911-1937 — animal drops go into the pack ('Collected from ...')",
+    "crates/voxelgame-core/src/game.rs:93-99 — damage dip on real health loss",
     "crates/voxelgame-core/src/events.rs:11 — sound cue list has no player-hurt cue"
    ],
-   "backlog": [
-    "VOX-OWNER-DAMAGE-BOB"
-   ],
-   "notes": "There are no dropped item entities; a full pack leaves the block in place. With FPS and coordinates off, the latest status message is also shown in the window title."
+   "notes": "There are no dropped item entities; a full pack leaves the block in place. With FPS and coordinates off, the latest status message is also shown in the window title. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541."
   },
   {
    "id": "move-through-leaves",

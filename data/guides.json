@@ -43,7 +43,7 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world.",
+    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit.",
     "limits": "This is a source-checked guide, not a recorded play session: nobody drove the game by keyboard for this page. Interface wording and layout can change in later game versions."
    },
    "sections": [
@@ -211,7 +211,7 @@
        "t": "list",
        "items": [
         "**Top left:** the status line. Actions report here, for example 'Collected … ×3' or 'Capacity full; block left behind'.",
-        "**Top centre:** the looking-at card, shown when you aim at a block within 6 m. [[F2]] hides or shows it.",
+        "**Top right, left of the map:** the looking-at card, shown when you aim at a block within 6 m. [[F2]] hides or shows it, the same as Settings > General > Target info.",
         "**Top right:** the compact map, with the FPS and coordinates box beneath it. The box is on by default; turn it off in Settings > Debug.",
         "**Middle:** the crosshair, and a small action hint under it.",
         "**Lower left (survival only):** the four bars for health, hunger, thirst and stamina.",
@@ -325,7 +325,7 @@
       },
       {
        "t": "p",
-       "text": "Press [[Esc]] in the world to open Settings. The game pauses and the panel is titled 'Paused'. Esc first closes anything that is open (the pack, the large map, Study Grove), and only opens Settings when nothing is. {{settings-menu}} {{escape-and-pause}}"
+       "text": "Press [[Esc]] in the world to open Settings. The game pauses and the panel is titled 'Paused'. Esc first closes anything that is open (the pack, the large map, Study Grove), and only opens Settings when nothing is. The General tab also has Speed FOV (widens the view at high speed), Damage bob (Off, Reduced or Full camera dip when hurt) and Target info. {{settings-menu}} {{escape-and-pause}}"
       },
       {
        "t": "keys",
