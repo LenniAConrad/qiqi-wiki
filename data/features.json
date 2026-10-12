@@ -2025,7 +2025,9 @@
     "crates/voxelgame-core/src/world/door.rs:771 — World::open_leaf_in: an open leaf blocks the player and walking animals (player.rs:981, entities/mod.rs:4082) (550a0189)",
     "crates/voxelgame-core/src/world/door.rs:762 — room_for_block refuses hand placement into a voxel an open leaf stands in (550a0189)",
     "crates/voxelgame-core/src/world/door.rs:41 — SWING_SECONDS = 0.35 for the leaf turn (Voxelgame ca443762)",
-    "crates/voxelgame-core/src/game.rs:1533 — Game::update advances the door swings each frame"
+    "crates/voxelgame-core/src/game.rs:1533 — Game::update advances the door swings each frame",
+    "crates/voxelgame-core/src/game/doors.rs:45-49 — hanging is refused while a player or animal stands in the leaves' space (1c6dc40a)",
+    "crates/voxelgame-core/src/game/building.rs:155 — edit_refusal also refuses undo and redo that would fill the space an open leaf stands in (1c6dc40a)"
    ],
    "notes": "Doors cannot be hung or opened on a server yet (doors.rs:74, 117). Blueprints skip door leaves, so doors are not copied.",
    "guide": {
@@ -5342,7 +5344,8 @@
     "crates/voxelgame-server/src/config.rs:65 — default bind port is 27015 (voxelgame_net::DEFAULT_PORT)",
     "crates/voxelgame-core/src/game/carried_player.rs:19 — CarriedPlayer keeps survival needs, inventory, hotbar, tool, home, palette and journal",
     "src/net_client/hosting.rs:33 — the owner's carried player is handed to the host every second (CARRY_INTERVAL)",
-    "crates/voxelgame-server/src/background.rs:130 — the host keeps the newest carried player for every save"
+    "crates/voxelgame-server/src/background.rs:130 — the host keeps the newest carried player for every save",
+    "crates/voxelgame-core/src/game/carried_player.rs:17 — the carried player includes the rest point, so resting while hosting is kept after Stop hosting (55d524d6)"
    ],
    "notes": "Source commits fb873488, df372280, 8e03a3b7, 1fd84b33 and 8e4963a4 at Voxelgame origin/main; described from source, not play-tested. A save is served where it lies; the owner plays on as the save's player, carrying the inventory and tools the save holds. Items gained or spent while hosting are kept on every save. A server's world, the Structure Workshop and an unsaved world are not hosted.",
    "backlog": [
