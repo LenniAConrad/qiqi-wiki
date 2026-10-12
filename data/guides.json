@@ -3509,9 +3509,243 @@
    ]
   },
   {
+   "id": "moving-and-aiming",
+   "page": "guide-moving-and-aiming.html",
+   "number": 18,
+   "gap": null,
+   "kicker": "Moving and aiming",
+   "title": "Aiming, camera and on-screen feedback",
+   "headline": "Aim it, read it,<br><em>feel the camera.</em>",
+   "summary": "Read the crosshair and looking-at card, steady ranged aim, set the camera effects and follow the status line and collection feed.",
+   "lead": "This guide explains what the screen tells you while you move and aim, and the camera settings that change how movement feels.",
+   "readTime": "5 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "crosshair-and-reticle",
+    "aim-steadiness",
+    "looking-at-card",
+    "feedback-messages",
+    "camera-bob-and-speed-fov",
+    "collection-feed",
+    "water-splashes"
+   ],
+   "next": [
+    "controls-reference",
+    "building-basics"
+   ],
+   "verification": {
+    "method": "Crosshair spread, aim steadiness, the looking-at card, the status line, camera effects, the collection feed and water effects come from the feature ledger, which cites Voxelgame source lines. The numbers were rechecked at Voxelgame commit 0494a0ce: 6 m target reach, Speed FOV 5 degrees reaching full at 16 m/s with a 0.3 s ease, a 7 cm damage dip on hits of at least 1 HP, 5 feed rows shown for 4 s with a 0.8 s fade, and 14 splash droplets.",
+    "limits": "Source-checked, not play-tested, and without screenshots. Judge the bob and dip strength in play. Spread amounts are internal values, so the guide describes their direction rather than exact degrees."
+   },
+   "owns": [
+    "crosshair-and-reticle",
+    "aim-steadiness",
+    "looking-at-card",
+    "feedback-messages",
+    "camera-bob-and-speed-fov",
+    "collection-feed",
+    "water-splashes"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "crosshair",
+     "title": "Read the crosshair",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The plus-shaped crosshair marks where your aim lands. It inverts the colours under it, so it stays readable over sky, grass and stone. It is hidden in the front third-person view. {{crosshair-and-reticle}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "With a bow, rifle or throwable in hand, the four lines spread apart as your accuracy drops. They close back into a plus as your aim steadies.",
+        "Other items keep the closed plus."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "steady",
+     "title": "Steady ranged aim",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The spread of a bow, rifle or throwable depends on how you stand, move and shoot. {{aim-steadiness}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Hold Shift (crouch)",
+         "Tightens the spread."
+        ],
+        [
+         "Moving on foot",
+         "Widens the spread. Faster movement widens it more."
+        ],
+        [
+         "In the air",
+         "Widens the spread."
+        ],
+        [
+         "Bow draw",
+         "A fuller draw steadies the aim."
+        ],
+        [
+         "Rifle sights",
+         "Raising the rifle's sights steadies the aim."
+        ],
+        [
+         "Each shot",
+         "Briefly opens the reticle."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "id": "looking-at",
+     "title": "Read the looking-at card",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "When you aim at a block within 6 m, a card at the top right of the screen shows it. The card sits just left of the compact map. {{looking-at-card}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "The card shows the block's 3D icon, name and distance.",
+        "The mining advice is one of: \"CREATIVE INSTANT BREAK\", the recommended tool, or \"NO SPECIAL TOOL NEEDED\".",
+        "An animal gets its own card, with its health."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "F2",
+         "Hide or show the card in the world."
+        ],
+        [
+         "Settings > General > TARGET INFO (F2)",
+         "The same setting. It is saved with each world."
+        ]
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "The card is hidden while a menu is open."
+      }
+     ]
+    },
+    {
+     "id": "status",
+     "title": "Status line and pickups",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Actions report in the status line at the top left. {{feedback-messages}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Mining reports \"Collected <block> x<pieces>\". Pieces go straight into your pack.",
+        "A full pack says \"Capacity full; block left behind\". The block stays in the world.",
+        "Opening your pack says \"Inventory opened\".",
+        "Mined blocks throw debris and play a break sound. Dropped items are not on the ground yet."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Taking damage has no hurt sound and no red flash. The camera dip is the only cue. See the camera section below."
+      }
+     ]
+    },
+    {
+     "id": "camera",
+     "title": "Camera bob, speed view and damage dip",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Three camera effects change how movement and hits feel. Each has a row in Settings > General. {{camera-bob-and-speed-fov}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "CAMERA BOB",
+         "Walking gently bobs the camera. Turn it off here."
+        ],
+        [
+         "SPEED FOV",
+         "Off or On. On widens the view by up to 5 degrees at high horizontal speed, reaching full widening at about 16 m/s. Jumps and falls do not change it."
+        ],
+        [
+         "DAMAGE BOB",
+         "Off, Reduced or Full. Full is the default. After a hit of at least 1 HP, the camera dips up to 7 cm at Full and half that at Reduced."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "Speed FOV eases over about 0.3 s, so a sprint-jump does not pump the view.",
+        "Vehicles have their own speed effect, which the SPEED FOV row also turns off.",
+        "Only real health loss causes the dip. Hunger, cold, respawn and loading do not.",
+        "The dip does not move what you aim at. Aiming and interaction still use your eye position."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "collection",
+     "title": "Collection feed (survival)",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In survival, a small feed in the lower-right corner lists what you gained, for example \"+3 Oak wood\". {{collection-feed}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Gains come from mined blocks, felled trees, hunted animals, filled flasks, exploration finds and packed boats or homes.",
+        "A gain of an item that is already listed adds to its row.",
+        "Up to five rows show. Each stays for about 4 seconds and fades over its last 0.8 s.",
+        "Creative mining, crafting, the creative catalog, home storage and loading a save show nothing."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "water",
+     "title": "Water sounds and splashes",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "{{water-splashes}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Stepping or falling into water plays a splash sound and throws droplets from the surface.",
+        "Moving through water releases bubbles and a swim sound about every 1.4 m.",
+        "Rain makes small ripple splashes on surfaces.",
+        "Boats leave no bow spray or wake."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 18,
+   "number": 19,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",

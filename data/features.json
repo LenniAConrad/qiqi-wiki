@@ -868,7 +868,12 @@
     "crates/voxelgame-core/src/player.rs:780-790 — bob strength follows walking speed",
     "crates/voxelgame-core/src/player.rs:349 — camera position applies bob only when enabled"
    ],
-   "notes": "Speed FOV reads horizontal speed only and eases over about 0.3 s, so a sprint-jump no longer pumps the view. Vehicles use their own speed boost, which the Speed FOV row also turns off. Aiming, interaction rays and projectiles stay on the player's eye, so the damage dip does not move what you hit. Hunger, cold, respawn and loading never trigger the damage dip. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541."
+   "notes": "Speed FOV reads horizontal speed only and eases over about 0.3 s, so a sprint-jump no longer pumps the view. Vehicles use their own speed boost, which the Speed FOV row also turns off. Aiming, interaction rays and projectiles stay on the player's eye, so the damage dip does not move what you hit. Hunger, cold, respawn and loading never trigger the damage dip. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "hud-layout",
@@ -909,7 +914,12 @@
     "crates/voxelgame-core/src/game/readouts.rs:100-160 — ranged accuracy for bow, rifle, throwables; sneaking and aiming steady it",
     "crates/voxelgame-render/src/reticle_ui.rs:305-325 — hidden in front third-person view"
    ],
-   "notes": "Changed after the audited commit dd29d91: game commit 10d7ea4 (on main) replaced the orange-to-green dotted ring and green target tint with the spreading inverted crosshair. Aircraft gun pipper rings are separate and not covered here."
+   "notes": "Changed after the audited commit dd29d91: game commit 10d7ea4 (on main) replaced the orange-to-green dotted ring and green target tint with the spreading inverted crosshair. Aircraft gun pipper rings are separate and not covered here.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "looking-at-card",
@@ -934,7 +944,12 @@
     "crates/voxelgame-core/src/ui.rs:594-600 — right-aligned card rectangle",
     "crates/voxelgame-render/src/target_ui.rs:26-65 — mining advice and badge"
    ],
-   "notes": "The Target info setting (General tab, shown as TARGET INFO (F2)) is saved with each world, so F2 and the row change the same value. The card is hidden while a menu is open. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541."
+   "notes": "The Target info setting (General tab, shown as TARGET INFO (F2)) is saved with each world, so F2 and the row change the same value. The card is hidden while a menu is open. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "clean-view",
@@ -1005,7 +1020,12 @@
     "crates/voxelgame-core/src/game.rs:93-99 — damage dip on real health loss",
     "crates/voxelgame-core/src/events.rs:11 — sound cue list has no player-hurt cue"
    ],
-   "notes": "There are no dropped item entities; a full pack leaves the block in place. With FPS and coordinates off, the latest status message is also shown in the window title. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541."
+   "notes": "There are no dropped item entities; a full pack leaves the block in place. With FPS and coordinates off, the latest status message is also shown in the window title. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "collection-feed",
@@ -1023,7 +1043,12 @@
     "crates/voxelgame-render/src/pickup_feed_ui.rs:11-40 — row drawing, '+N' count, newest row at the bottom",
     "crates/voxelgame-core/src/game/pickup_feed.rs:293-300 — creative mining and a full pack show nothing (test)"
    ],
-   "notes": "Added from Voxelgame b261ea8 (after 4bd6541). The feed is a status-only display; dropped item entities are still planned (planned-ground-drops). A soft pickup sound plays at most every 0.2 s."
+   "notes": "Added from Voxelgame b261ea8 (after 4bd6541). The feed is a status-only display; dropped item entities are still planned (planned-ground-drops). A soft pickup sound plays at most every 0.2 s.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "move-through-leaves",
@@ -3494,7 +3519,12 @@
    ],
    "backlog": [
     "VOX-OWNER-WATER-SPLASHES"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "animal-drops",
@@ -3685,7 +3715,12 @@
    "summary": "Ranged spread depends on how you stand: sneaking (Shift) tightens it, moving or being in the air widens it, a fuller bow draw or the rifle's raised sights steady it, and each shot briefly opens the reticle.",
    "evidence": [
     "crates/voxelgame-core/src/game/readouts.rs:100-212 — spread and sway rules for bow, rifle, throwables"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "animal-species-roster",
