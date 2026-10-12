@@ -3988,7 +3988,7 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > General > GUI size scales HUD text and menus: Auto (default, adapts from 800x450 up to 4K), Small, Normal or Large.",
+   "summary": "Settings > General > GUI size scales HUD text and menus: Auto (default, 1.25x up to 1280x720 and 1.5x from 1920x1080 up), Small, Normal or Large.",
    "evidence": [
     "crates/voxelgame-core/src/settings.rs:83-121",
     "crates/voxelgame-core/src/settings.rs:264",

@@ -2576,7 +2576,7 @@
         "**Frame limit**: 60 (default), 120, 240 or Unlimited. The game does not use vsync, so this limit sets the pace. Study Grove always runs at about 30 FPS. {{frame-limit}}",
         "**Atmospheric fog**: Light, Balanced (default) or Dense. Dense hides far terrain. The haze gets stronger with a longer horizon. Weather fog is separate. {{atmospheric-fog}}",
         "**Field of view**: 60 to 96 degrees, in steps of 2 (default 72). A wider view shows more without changing how fast you move. {{field-of-view}}",
-        "**GUI size**: Auto (default), Small, Normal or Large. Auto adapts from 800x450 up to 4K. {{gui-size}}",
+        "**GUI size**: Auto (default), Small, Normal or Large. Auto uses 1.25x up to 1280x720 and 1.5x from 1920x1080 up. Small is 1.0x, Normal 1.25x and Large 1.75x. A small window caps the size so the UI still fits at least 800x450. {{gui-size}}",
         "**Chunk fade-in**: on by default. New terrain fades in over 0.6 seconds. Turn it off to make terrain appear at once. Terrain prepared on the loading screen is always fully visible. {{chunk-fade-in}}"
        ]
       }
