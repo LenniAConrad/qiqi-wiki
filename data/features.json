@@ -2349,6 +2349,55 @@
    ]
   },
   {
+   "id": "survival-blueprints",
+   "area": "building",
+   "name": "Survival blueprint builds (paid from the pack)",
+   "status": "available",
+   "modes": [
+    "survival"
+   ],
+   "summary": "In survival, B takes the Blueprint tool out and puts it away; it is then the only build tool. Aim to see the ghost (red while you lack pieces), then right click to build the selected blueprint. Each half-metre voxel that changes costs one piece of the item its block drops when mined; voxels already in place cost nothing. A short build is refused whole and the status names the missing items. Turn with R, lift with Page Up / Page Down, pick with Left / Right.",
+   "controls": [
+    [
+     "B",
+     "Take the Blueprint tool out or put it away (survival)"
+    ],
+    [
+     "Right click",
+     "Build the selected blueprint, paid from the pack, as one transaction (survival, Blueprint)"
+    ],
+    [
+     "R",
+     "Turn the ghost 90 degrees (survival, Blueprint)"
+    ],
+    [
+     "Page Up / Page Down",
+     "Lift the ghost 1 m (survival, Blueprint)"
+    ],
+    [
+     "Left / Right arrows",
+     "Choose the next or previous saved blueprint (survival, Blueprint)"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/game/blueprint_materials.rs:38-52 — placement_cost: one piece per changed voxel, paid with Block::dropped, unchanged voxels cost nothing",
+    "crates/voxelgame-core/src/game/blueprint_materials.rs:118-124 — build_blueprint_from_inventory: one transaction, checks before any spend",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:298-310 — survival_blueprint_gesture: B takes out and puts away",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:592-596 — survival placement spends pieces and reports them",
+    "crates/voxelgame-core/src/game/building.rs:218-225 — survival keeps only the Blueprint gesture",
+    "crates/voxelgame-render/src/blueprint_materials_ui.rs — carried / needed list under the compact map"
+   ],
+   "notes": "Checked at Voxelgame ee6fa20 (commits 960f2c7, ee6fa20). Survival saving was not confirmed in play: the gesture code also accepts Shift + right click there, so the guide labels it unverified. Blueprints still refuse to place on servers (\"Blueprints aren't available on servers yet\"). Source for d7bbadb is the online raise of mod blueprints only, so it changes no base-game wording.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   },
+   "backlog": [
+    "VOX-OWNER-BLUEPRINT-SURVIVAL"
+   ]
+  },
+  {
    "id": "build-undo-redo",
    "area": "building",
    "name": "Undo and redo building",
@@ -3864,14 +3913,13 @@
    "area": "customize",
    "name": "Structure Workshop and player blueprints",
    "status": "planned",
-   "summary": "In survival you cannot save a build as a blueprint, import or export one, or place one with a materials list. Creative blueprints are available (see Creative blueprints). Blueprints also do not work on servers yet.",
+   "summary": "Importing or exporting blueprints, sharing them, and a Structure Workshop are not in the game. Saving and placing blueprints is in Creative blueprints and Survival blueprint builds. Blueprints do not work on servers yet.",
    "evidence": [
     "crates/voxelgame-core/src/game/structures.rs:446-521 — stamping supports only X/Z mirroring for generated sites",
     "crates/voxelgame-core/src/game/building.rs:233-263 — Copy clipboard"
    ],
    "backlog": [
     "VOX-OWNER-STRUCTURE-WORKSHOP",
-    "VOX-OWNER-BLUEPRINT-SURVIVAL",
     "VOX-OWNER-BLUEPRINT-INTEGRATION"
    ]
   },

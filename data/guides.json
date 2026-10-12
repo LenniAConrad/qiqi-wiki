@@ -2037,7 +2037,8 @@
     "brush-bench-railing-roof",
     "build-undo-redo",
     "build-workspace-palettes",
-    "creative-blueprints"
+    "creative-blueprints",
+    "survival-blueprints"
    ],
    "next": [
     "maps-and-finding-your-way",
@@ -2059,7 +2060,8 @@
     "brush-bench-railing-roof",
     "build-undo-redo",
     "build-workspace-palettes",
-    "creative-blueprints"
+    "creative-blueprints",
+    "survival-blueprints"
    ],
    "partial": [],
    "sections": [
@@ -2156,7 +2158,11 @@
      "blocks": [
       {
        "t": "p",
-       "text": "A blueprint is a build you save and place again. Blueprints are for creative mode. You cannot place them while connected to a server yet."
+       "text": "A blueprint is a build you save and place again. In creative mode it is free to place. In survival, placing it uses pieces from your pack. Blueprints do not work on servers yet."
+      },
+      {
+       "t": "h",
+       "text": "Save a blueprint (creative)"
       },
       {
        "t": "steps",
@@ -2166,6 +2172,23 @@
         "Aim at the opposite ground corner and press [[Shift]] + right-click again. The blueprint saves everything built above the lower corner inside the box.",
         "Aim where you want it. The ghost shows the result. Right-click to build it. The whole build is one undo step, so [[Ctrl]]+[[Z]] removes it."
        ]
+      },
+      {
+       "t": "h",
+       "text": "Build a blueprint in survival"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Press [[B]] to take the Blueprint tool out. Press [[B]] again to put it away. In survival it is the only build tool, so [[B]] is the only key you need.",
+        "Aim where you want the build. The ghost turns red when you lack pieces.",
+        "Check the list on screen. It shows each material as carried / needed.",
+        "Right-click to build. The build is paid for in one go, or refused whole."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Each half-metre piece you change costs one piece of the item that block drops when mined. A whole block is 8 pieces. Dirt-type turf costs dirt. Voxels that already hold the right block cost nothing. If you lack any material, nothing is built or spent, and the status names the missing items."
       },
       {
        "t": "keys",
@@ -2200,7 +2223,7 @@
       {
        "t": "note",
        "kind": "planned",
-       "text": "Using blueprints in survival, sharing or importing them, and a materials list are planned but absent from this version. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
+       "text": "Sharing or importing blueprints and a survival materials list are not in this version. Saving a blueprint in survival is not checked in play yet. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
       }
      ]
     },
