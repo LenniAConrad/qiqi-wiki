@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "game": {
-  "commit": "03c651932d7c0d3778734711c582fa83d8c42b41",
+  "commit": "fb873488f320fcf0bd62178f84684506fafc3968",
   "source": "crates/voxelgame-core/src/inventory.rs RECIPES"
  },
  "piecesPerBlock": 8,
@@ -737,6 +737,51 @@
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1222-1228",
    "notes": "Needs half a block of TNT, which itself needs Lumen crystal (see TNT charge)."
+  },
+  {
+   "name": "Wooden door",
+   "section": "timber",
+   "gameDescription": "A one-metre double door of framed boards; hang it on solid ground",
+   "output": "Wooden door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1254-1260",
+   "notes": "One block of boards. The door comes down whole when you break it."
+  },
+  {
+   "name": "Wide wooden door",
+   "section": "timber",
+   "gameDescription": "A two-metre folding double door for barns and halls",
+   "output": "Wide wooden door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1261-1267",
+   "notes": "Two blocks of boards."
+  },
+  {
+   "name": "Wooden chest",
+   "section": "timber",
+   "gameDescription": "A lidded board chest that keeps things where you set it down",
+   "output": "Wooden chest",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1268-1274",
+   "notes": "One block of boards. Set it down with right click; break it to take it up."
   },
   {
    "name": "Small sailing boat",

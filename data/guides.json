@@ -819,7 +819,7 @@
    "gap": 4,
    "kicker": "Crafting",
    "title": "Crafting and recipes",
-   "headline": "Crafting,<br><em>all 40 recipes.</em>",
+   "headline": "Crafting,<br><em>all 43 recipes.</em>",
    "summary": "How the Craft tab works, which ingredients can be mixed, the quick-craft trap, and the complete recipe list with amounts.",
    "lead": "There is no workbench: every recipe is crafted from the pack. This guide explains the panel and lists every recipe with its exact amounts.",
    "readTime": "5 min, then look things up",
@@ -845,7 +845,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at Voxelgame 03c6519 (the other features are still from the audited commit dd29d91); tools/validate_guides.py can recheck all 40 names, sections and amounts against a source snapshot.",
+    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at Voxelgame fb873488 (the other features are still from the audited commit dd29d91); tools/validate_guides.py can recheck all 43 names, sections and amounts against a source snapshot.",
     "limits": "Source-checked, not play-tested. Amounts are carried pieces: 8 pieces make one full one-metre block. Recipes for furnaces, smelting and metal tools do not exist yet."
    },
    "sections": [
@@ -1038,7 +1038,7 @@
     },
     {
      "id": "recipes",
-     "title": "All 40 recipes",
+     "title": "All 43 recipes",
      "blocks": [
       {
        "t": "p",

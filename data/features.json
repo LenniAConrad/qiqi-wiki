@@ -1689,7 +1689,7 @@
     "creative",
     "survival"
    ],
-   "summary": "All 40 recipes in this version. Counts are half-metre pieces (8 pieces = one full 1 m block); all are crafted from the Craft tab with no station, and creative crafting is free.",
+   "summary": "All 43 recipes in this version. Counts are half-metre pieces (8 pieces = one full 1 m block); all are crafted from the Craft tab with no station, and creative crafting is free.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:940-1208 — RECIPES registry (all recipes)",
     "crates/voxelgame-core/src/inventory.rs:1472-1502 — test only checks that ingredients are blocks, drops or crafted items, not that blocks generate in the world"
@@ -5482,7 +5482,7 @@
     "lumen-crystal-supply"
    ],
    "readiness": "ready",
-   "why": "All 40 recipes are verified; the guide can also warn that X may burn the starter boards and that Lumen crystal is scarce."
+   "why": "All 43 recipes are verified; the guide can also warn that X may burn the starter boards and that Lumen crystal is scarce."
   },
   {
    "rank": 5,

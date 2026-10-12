@@ -55,7 +55,7 @@ def render_home():
     cards = []
     summaries = {'getting-started': 'Create a world, move, save and switch game modes.',
                  'controls': 'Keys and actions, with the context each one needs.',
-                 'crafting': 'The crafting panel and 40 recipes with exact amounts.',
+                 'crafting': 'The crafting panel and 43 recipes with exact amounts.',
                  'blocks': 'Ground, stone, wood and building materials, with recipe links.',
                  'mobs': 'Animal families, habitats and model previews.'}
     for key, title, page in CATEGORIES:

@@ -6,7 +6,7 @@ Checks the guide schema, that every cited ledger feature exists, that planned
 features are only mentioned inside planned notes, that figures exist with the
 declared size, that every owned feature links back to its guide, that the
 generated pages exactly match a fresh render, and that every page links to the
-guides index. With --game, also checks the 40 recipes (names, sections and
+guides index. With --game, also checks every recipe (names, sections and
 amounts) against the recipe registry in an exported game snapshot.
 """
 
