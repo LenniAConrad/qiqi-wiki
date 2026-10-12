@@ -11,6 +11,9 @@ ROOT = Path(__file__).resolve().parents[1]
 FAMILIES = (('mammals', 'Mammals'), ('birds', 'Birds'),
             ('reptiles-amphibians', 'Reptiles & amphibians'),
             ('fish', 'Fish'), ('invertebrates', 'Invertebrates'))
+# Voxelgame Species::ALL at the recorded snapshot; the atlas predates Swan.
+GAME_SOURCE_COMMIT = '4bd6541'
+GAME_SPECIES_COUNT = 94
 
 
 def read_catalogs():
@@ -63,7 +66,11 @@ def render(animals, habitats, biomes):
     out.append(f'<p class="reference-receipt">Animal atlas: {animals["catalogCount"]} species, '
                f'<time datetime="{animals["date"]}">{animals["date"]}</time>. '
                '<a href="data/animals.json">Model and habitat provenance</a>. '
-               'These are static model previews, individually framed rather than shown at a shared scale.</p>')
+               'These are static model previews, individually framed rather than shown at a shared scale.</p>'
+               f'<p class="reference-receipt">The game source at commit {GAME_SOURCE_COMMIT} lists '
+               f'{GAME_SPECIES_COUNT} species. Swan is the one missing here: it has a freshwater habitat '
+               '(wetland fen, flooded grassland, inland delta and river delta) but no model preview in the '
+               'preserved atlas, so it has no row yet.</p>')
     return ''.join(out) + article_close()
 
 
