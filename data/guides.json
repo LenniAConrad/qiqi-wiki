@@ -2384,7 +2384,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Doors are built from boards. A small door is one metre wide and two metres tall. A wide door is two metres wide and three metres tall and folds in two halves. {{doors}}"
+       "text": "Doors are built from boards. A small door is one metre wide and two metres tall, with one leaf. A wide door is two metres wide and three metres tall, with two one-metre leaves. {{doors}}"
       },
       {
        "t": "list",
@@ -2392,9 +2392,10 @@
         "**Wooden door:** one block of boards. Craft it in the Timber section.",
         "**Wide wooden door:** two blocks of boards.",
         "Hold the door and right click solid ground to hang it. The spot needs free space and solid ground under it.",
-        "Right click a hung door to open it, and right click again to close it.",
+        "Right click a hung door to open it, and right click again to close it. A door swings away from the player who opens it, from either side.",
+        "A door will not open if anything other than air, water or plants is in its swing path. Clear the space and try again.",
         "You cannot close a door while you stand in its opening. Step out first.",
-        "Breaking any part of a door takes the whole door down. In survival it goes back into your pack if there is room; if the pack is full, it is left hanging."
+        "Hitting the door itself takes the whole door down. In survival it goes back into your pack if there is room; if the pack is full, it is left hanging. Mining a block next to an open leaf leaves the door standing."
        ]
       },
       {

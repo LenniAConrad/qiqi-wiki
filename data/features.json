@@ -2000,7 +2000,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Two craftable wooden doors: a one-metre double door and a two-metre folding wide door. Right click hangs one on solid ground, right click opens and closes it, and breaking any part takes the whole door down.",
+   "summary": "Two craftable wooden doors: a one-metre single leaf and a two-metre wide door with two leaves. Right click hangs one on solid ground, right click opens and closes it, and hitting the door takes the whole door down.",
    "controls": [
     [
      "Right click with a door held",
@@ -2017,8 +2017,9 @@
     "crates/voxelgame-core/src/world/door.rs:30-35 — Small is one metre wide and two tall, Wide two metres wide and three tall",
     "crates/voxelgame-core/src/game/doors.rs:66-112 — hanging needs free space and solid ground, survival uses a carried door",
     "crates/voxelgame-core/src/game/doors.rs:114-145 — open and close; closing is refused while you stand in the opening",
-    "crates/voxelgame-core/src/game/doors.rs:146-170 — breaking any leaf removes the whole door; survival returns it to the pack or leaves it hanging when full",
-    "crates/voxelgame-core/src/game/blueprint.rs:661-662 — door leaves are skipped by blueprints"
+    "crates/voxelgame-core/src/game/doors.rs:146-170 — hitting a leaf removes the whole door; survival returns it to the pack or leaves it hanging when full; mining beside a leaf keeps it standing",
+    "crates/voxelgame-core/src/game/blueprint.rs:661-662 — door leaves are skipped by blueprints",
+    "crates/voxelgame-core/src/world/door.rs:534-538 — a door opens only if its swing path holds air, liquid or plants"
    ],
    "notes": "Doors cannot be hung or opened on a server yet (doors.rs:74, 117). Blueprints skip door leaves, so doors are not copied.",
    "guide": {
