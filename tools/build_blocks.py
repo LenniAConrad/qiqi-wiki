@@ -43,7 +43,7 @@ FAMILY_MEMBERS = {
     'building': '''PLANKS BIRCH_PLANKS PINE_PLANKS GRAY_BRICK GLAZED_ROOF_TILE
         IMPERIAL_ROOF_TILE LACQUERED_WOOD PAPER_PANEL WHITE_PLASTER CARVED_STONE
         CHALK_BRICKS RED_ROCK_BRICKS MOSSY_COBBLE BASALT_BRICKS POLISHED_GRANITE
-        REED_THATCH PINK_PLASTER ROSE_BOARDS FUCHSIA_TILE''',
+        REED_THATCH PINK_PLASTER ROSE_BOARDS FUCHSIA_TILE DOOR WIDE_DOOR CHEST''',
     'glass-light': 'GLOWSTONE GLASS RED_LANTERN GLOW_LICHEN IMPACT_GLASS AMETHYST_CLUSTER',
     'water-ice': '''WATER WARM_WATER DARK_WATER FRESH_WATER BLACK_WATER BOILING_WATER
         ICE GLACIER_ICE BLACK_ICE ICE_SPIRE CREVASSE_ICE''',
@@ -56,6 +56,8 @@ FAMILY_MEMBERS = {
     'utility': 'AIR TNT CAMP_CRATE BEEHIVE',
 }
 FAMILY_BY_BLOCK = {name: family for family, names in FAMILY_MEMBERS.items() for name in names.split()}
+# The open leaf of a placed door is a state of DOOR, not an item a player holds.
+STATE_ONLY = {'DOOR_OPEN'}
 CREATIVE_ONLY = {'IMPERIAL_ROOF_TILE': 'Jade glazed tile (creative)',
                  'AMETHYST_CLUSTER': 'Amethyst cluster (creative only)'}
 ROW = re.compile(r'\s*([A-Z][A-Z_0-9]*)\s*=\s*(\d+),\s*("(?:[^"\\]|\\.)*"),\s*\[([^\]]+)\];')
@@ -104,6 +106,9 @@ REED_THATCH|Reed thatch is woven reed and flax roofing for light coastal buildin
 FLAX|Wild flax grows in blue-flowered colonies in open temperate meadows.
 PINK_PLASTER|Blush plaster is lime plaster tinted light pink with flower petals.
 ROSE_BOARDS|Rose boards are timber boards painted medium rose pink.
+DOOR|A wooden door is a one-metre double door you hang on solid ground. Craft it from boards and right click to open or close it.
+WIDE_DOOR|A wide wooden door is a two-metre folding double door for barns and halls.
+CHEST|A wooden chest is a lidded storage block. Right click to set it down and open it.
 FUCHSIA_TILE|Fuchsia glazed tile is fired clay roof tile with a deep pink glaze.
 OAK_WOOD|Oak logs are heavy timber.
 OAK_LEAVES|Oak leaves form broad foliage in dense forests.
@@ -279,7 +284,7 @@ def build_data(game, recipes, ledger):
     if not re.fullmatch(r'[0-9a-f]{40}', commit):
         raise ValueError('Snapshot must supply a full audited commit')
     source = (game / TABLE).read_bytes()
-    blocks = parse_table(source.decode())
+    blocks = [b for b in parse_table(source.decode()) if b['symbol'] not in STATE_ONLY]
     catalogue = next(f for f in ledger['features'] if f['id'] == 'block-materials-catalogue')
     for block in blocks:
         symbol = block['symbol']

@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "game": {
-    "commit": "65364e6df780e9631c9a427dfae38fdb0f974ab2",
+    "commit": "fb873488f320fcf0bd62178f84684506fafc3968",
     "source": "crates/voxelgame-core/src/world/block/table.rs",
-    "sourceSha256": "ff02fd4da3097a9d7e87e1ef613fe4811af09692d1b50413b5c224a96dafa591"
+    "sourceSha256": "7ce4d461b9f2137b87ea390af500d709d94c7eb76c0408855cd78169024923ad"
   },
   "recipeGame": {
-    "commit": "03c651932d7c0d3778734711c582fa83d8c42b41",
+    "commit": "fb873488f320fcf0bd62178f84684506fafc3968",
     "source": "crates/voxelgame-core/src/inventory.rs RECIPES"
   },
   "acquisitionGame": {
@@ -16,7 +16,7 @@
     "packageVersion": "0.1.0",
     "newWorldGeneration": 10
   },
-  "catalogCount": 177,
+  "catalogCount": 180,
   "families": [
     {
       "id": "ground",
@@ -378,7 +378,7 @@
         0.47
       ],
       "sourceDescription": "Kiln-fired gray courtyard brick.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:98",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:99",
       "anchor": "block-gray-brick",
       "family": "building",
       "description": "Gray brick is kiln-fired courtyard brick.",
@@ -396,7 +396,7 @@
         0.31
       ],
       "sourceDescription": "Dark blue-gray glazed roof tile.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:100",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:101",
       "anchor": "block-glazed-roof-tile",
       "family": "building",
       "description": "Glazed roof tile has a dark blue-gray finish.",
@@ -414,7 +414,7 @@
         0.28
       ],
       "sourceDescription": "Jade-green glazed ceremonial roof tile.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:102",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:103",
       "anchor": "block-imperial-roof-tile",
       "family": "building",
       "description": "Jade glazed tile is a green ceremonial roof tile.",
@@ -431,7 +431,7 @@
         0.08
       ],
       "sourceDescription": "Red-lacquered structural timber.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:104",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:105",
       "anchor": "block-lacquered-wood",
       "family": "building",
       "description": "Lacquered timber is structural wood with a red finish.",
@@ -449,7 +449,7 @@
         0.69
       ],
       "sourceDescription": "Wood-latticed rice-paper screen panel.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:106",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:107",
       "anchor": "block-paper-panel",
       "family": "building",
       "description": "A paper lattice panel is a rice-paper screen in a wooden lattice.",
@@ -467,7 +467,7 @@
         0.79
       ],
       "sourceDescription": "Smooth whitewashed lime plaster.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:108",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:109",
       "anchor": "block-white-plaster",
       "family": "building",
       "description": "White plaster is smooth whitewashed lime plaster.",
@@ -485,7 +485,7 @@
         0.53
       ],
       "sourceDescription": "Finely dressed carved gray stone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:110",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:111",
       "anchor": "block-carved-stone",
       "family": "building",
       "description": "Carved stone is finely dressed gray stone.",
@@ -503,7 +503,7 @@
         0.1
       ],
       "sourceDescription": "Warm-glowing red paper lantern.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:112",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:113",
       "anchor": "block-red-lantern",
       "family": "glass-light",
       "description": "A red lantern gives off a warm glow.",
@@ -521,7 +521,7 @@
         0.7
       ],
       "sourceDescription": "Pale dressed chalk masonry.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:117",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:118",
       "anchor": "block-chalk-bricks",
       "family": "building",
       "description": "Chalk bricks are pale dressed masonry.",
@@ -539,7 +539,7 @@
         0.18
       ],
       "sourceDescription": "Rust-red iron-rich sedimentary stone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:119",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:120",
       "anchor": "block-red-rock",
       "family": "stone",
       "description": "Red ironstone is rust-red sedimentary stone rich in iron."
@@ -554,7 +554,7 @@
         0.19
       ],
       "sourceDescription": "Dressed red ironstone masonry.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:121",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:122",
       "anchor": "block-red-rock-bricks",
       "family": "building",
       "description": "Red ironstone bricks are dressed stone masonry.",
@@ -572,7 +572,7 @@
         0.22
       ],
       "sourceDescription": "Weathered cobble with a living moss covering.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:123",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:124",
       "anchor": "block-mossy-cobble",
       "family": "building",
       "description": "Mossy cobble is weathered stone covered with living moss.",
@@ -590,7 +590,7 @@
         0.28
       ],
       "sourceDescription": "Dressed dark volcanic basalt masonry.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:125",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:126",
       "anchor": "block-basalt-bricks",
       "family": "building",
       "description": "Basalt bricks are dressed dark volcanic masonry.",
@@ -608,7 +608,7 @@
         0.46
       ],
       "sourceDescription": "Smooth pink-gray crystalline granite.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:127",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:128",
       "anchor": "block-polished-granite",
       "family": "building",
       "description": "Polished granite is smooth pink-gray crystalline stone.",
@@ -626,7 +626,7 @@
         0.2
       ],
       "sourceDescription": "Small ochre-capped fungi growing beside damp fallen timber.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:129",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:130",
       "anchor": "block-woodland-fungi",
       "family": "plants",
       "description": "Woodland fungi have small ochre caps and grow beside damp fallen timber."
@@ -641,7 +641,7 @@
         0.48
       ],
       "sourceDescription": "Pale feathery seed heads that distinguish open pampas grassland.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:131",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:132",
       "anchor": "block-plume-grass",
       "family": "plants",
       "description": "Plume grass has pale feathery seed heads in open pampas grassland."
@@ -656,7 +656,7 @@
         0.29
       ],
       "sourceDescription": "Stiff straw-green tufts rooted in sheltered coastal sand.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:133",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:134",
       "anchor": "block-dune-grass",
       "family": "plants",
       "description": "Dune grass grows in stiff straw-green tufts in sheltered coastal sand."
@@ -671,7 +671,7 @@
         0.12
       ],
       "sourceDescription": "Small fallen orchard fruit, harvested into the existing fruit item.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:135",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:136",
       "anchor": "block-fallen-fruit",
       "family": "plants",
       "description": "Fallen orchard fruit can be harvested as fruit."
@@ -686,7 +686,7 @@
         0.19
       ],
       "sourceDescription": "Player-built storage crate anchoring a home.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:137",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:138",
       "anchor": "block-camp-crate",
       "family": "utility",
       "description": "A home crate is a storage crate that anchors a player-built home."
@@ -701,7 +701,7 @@
         0.25
       ],
       "sourceDescription": "Woven reed and flax roofing for light coastal buildings.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:139",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:140",
       "anchor": "block-reed-thatch",
       "family": "building",
       "description": "Reed thatch is woven reed and flax roofing for light coastal buildings.",
@@ -719,7 +719,7 @@
         0.4
       ],
       "sourceDescription": "Blue-flowered flax grown in open temperate meadow colonies.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:141",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:142",
       "anchor": "block-flax",
       "family": "plants",
       "description": "Wild flax grows in blue-flowered colonies in open temperate meadows."
@@ -734,7 +734,7 @@
         0.75
       ],
       "sourceDescription": "Smooth lime plaster tinted a light blush pink with flower petals.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:147",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:148",
       "anchor": "block-pink-plaster",
       "family": "building",
       "description": "Blush plaster is lime plaster tinted light pink with flower petals.",
@@ -752,7 +752,7 @@
         0.59
       ],
       "sourceDescription": "Timber boards painted a medium rose pink.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:149",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:150",
       "anchor": "block-rose-boards",
       "family": "building",
       "description": "Rose boards are timber boards painted medium rose pink.",
@@ -770,12 +770,66 @@
         0.44
       ],
       "sourceDescription": "Deep fuchsia-glazed fired clay roof tile.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:151",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:152",
       "anchor": "block-fuchsia-tile",
       "family": "building",
       "description": "Fuchsia glazed tile is fired clay roof tile with a deep pink glaze.",
       "recipes": [
         "Glaze fuchsia tile"
+      ]
+    },
+    {
+      "symbol": "DOOR",
+      "id": 89,
+      "name": "Wooden door",
+      "color": [
+        0.55,
+        0.36,
+        0.18
+      ],
+      "sourceDescription": "Closed leaf of a small wooden door; the door's facing, hinge and fold ride in the voxel's block state ([`crate::world::door`]).",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:155",
+      "anchor": "block-door",
+      "family": "building",
+      "description": "A wooden door is a one-metre double door you hang on solid ground. Craft it from boards and right click to open or close it.",
+      "recipes": [
+        "Wooden door"
+      ]
+    },
+    {
+      "symbol": "WIDE_DOOR",
+      "id": 94,
+      "name": "Wide wooden door",
+      "color": [
+        0.55,
+        0.36,
+        0.18
+      ],
+      "sourceDescription": "Closed leaf of a wide two-metre wooden door.",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:159",
+      "anchor": "block-wide-door",
+      "family": "building",
+      "description": "A wide wooden door is a two-metre folding double door for barns and halls.",
+      "recipes": [
+        "Wide wooden door"
+      ]
+    },
+    {
+      "symbol": "CHEST",
+      "id": 95,
+      "name": "Wooden chest",
+      "color": [
+        0.5,
+        0.31,
+        0.15
+      ],
+      "sourceDescription": "Wooden storage chest filling one metre cell; the facing of its front rides in the voxel's block state ([`crate::world::chest`]).",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:162",
+      "anchor": "block-chest",
+      "family": "building",
+      "description": "A wooden chest is a lidded storage block. Right click to set it down and open it.",
+      "recipes": [
+        "Wooden chest"
       ]
     },
     {
@@ -788,7 +842,7 @@
         0.085
       ],
       "sourceDescription": "Heavy oak branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:153",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:164",
       "anchor": "block-oak-wood",
       "family": "wood",
       "description": "Oak logs are heavy timber."
@@ -803,7 +857,7 @@
         0.12
       ],
       "sourceDescription": "Broad dense-forest oak foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:155",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:166",
       "anchor": "block-oak-leaves",
       "family": "wood",
       "description": "Oak leaves form broad foliage in dense forests."
@@ -818,7 +872,7 @@
         0.1
       ],
       "sourceDescription": "Soft living moss groundcover.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:157",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:168",
       "anchor": "block-moss",
       "family": "plants",
       "description": "Moss is soft living groundcover."
@@ -833,7 +887,7 @@
         0.09
       ],
       "sourceDescription": "Moss-covered wood used by fallen logs.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:159",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:170",
       "anchor": "block-mossy-wood",
       "family": "wood",
       "description": "Mossy fallen wood is fallen timber covered with moss."
@@ -848,7 +902,7 @@
         0.54
       ],
       "sourceDescription": "Mixed temperate wildflowers.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:161",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:172",
       "anchor": "block-wildflowers",
       "family": "plants",
       "description": "Wildflowers are a mix of temperate flowers."
@@ -863,7 +917,7 @@
         0.15
       ],
       "sourceDescription": "Tall meadow grass.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:163",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:174",
       "anchor": "block-tall-grass",
       "family": "plants",
       "description": "Tall grass grows in meadows."
@@ -878,7 +932,7 @@
         0.1
       ],
       "sourceDescription": "Wild-bee hive comb and casing.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:165",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:176",
       "anchor": "block-beehive",
       "family": "utility",
       "description": "A beehive contains wild-bee comb and its casing."
@@ -893,7 +947,7 @@
         0.12
       ],
       "sourceDescription": "Fruit-tree branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:167",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:178",
       "anchor": "block-fruit-wood",
       "family": "wood",
       "description": "Fruit tree logs form branches and trunks."
@@ -908,7 +962,7 @@
         0.61
       ],
       "sourceDescription": "Pale orchard blossom foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:169",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:180",
       "anchor": "block-blossom-leaves",
       "family": "wood",
       "description": "Blossom leaves form pale orchard foliage."
@@ -923,7 +977,7 @@
         0.12
       ],
       "sourceDescription": "A compact block of ripe orchard fruit.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:171",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:182",
       "anchor": "block-fruit",
       "family": "plants",
       "description": "A fruit block is a compact block of ripe orchard fruit."
@@ -938,7 +992,7 @@
         0.1
       ],
       "sourceDescription": "Needle-rich dark forest soil.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:173",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:184",
       "anchor": "block-podzol",
       "family": "ground",
       "description": "Podzol is dark forest soil rich in needles."
@@ -953,7 +1007,7 @@
         0.96
       ],
       "sourceDescription": "Loose powder snow.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:175",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:186",
       "anchor": "block-snow",
       "family": "ground",
       "description": "Snow is loose powder snow."
@@ -968,7 +1022,7 @@
         0.88
       ],
       "sourceDescription": "Compressed load-bearing snow.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:177",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:188",
       "anchor": "block-packed-snow",
       "family": "ground",
       "description": "Packed snow is compressed snow that can bear weight."
@@ -983,7 +1037,7 @@
         0.39
       ],
       "sourceDescription": "Cold turf locked by permafrost.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:179",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:190",
       "anchor": "block-frozen-turf",
       "family": "ground",
       "description": "Frozen turf is cold turf locked by permafrost."
@@ -998,7 +1052,7 @@
         0.86
       ],
       "sourceDescription": "Clear frozen water.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:181",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:192",
       "anchor": "block-ice",
       "family": "water-ice",
       "description": "Ice is clear frozen water."
@@ -1013,7 +1067,7 @@
         0.82
       ],
       "sourceDescription": "Dense blue glacial ice.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:183",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:194",
       "anchor": "block-glacier-ice",
       "family": "water-ice",
       "description": "Glacier ice is dense blue ice."
@@ -1028,7 +1082,7 @@
         0.25
       ],
       "sourceDescription": "Dark, exceptionally smooth lake ice.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:185",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:196",
       "anchor": "block-black-ice",
       "family": "water-ice",
       "description": "Black ice is dark, exceptionally smooth lake ice."
@@ -1043,7 +1097,7 @@
         0.09
       ],
       "sourceDescription": "Waterlogged taiga peat.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:187",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:198",
       "anchor": "block-peat",
       "family": "ground",
       "description": "Peat is waterlogged taiga soil."
@@ -1058,7 +1112,7 @@
         0.46
       ],
       "sourceDescription": "Pale branching lichen.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:189",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:200",
       "anchor": "block-lichen",
       "family": "plants",
       "description": "Lichen has pale branching growth."
@@ -1073,7 +1127,7 @@
         0.39
       ],
       "sourceDescription": "Layered pale sandstone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:191",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:202",
       "anchor": "block-sandstone",
       "family": "stone",
       "description": "Sandstone is pale layered stone.",
@@ -1091,7 +1145,7 @@
         0.2
       ],
       "sourceDescription": "Ribbed desert cactus.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:193",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:204",
       "anchor": "block-cactus",
       "family": "plants",
       "description": "A cactus is a ribbed desert plant."
@@ -1106,7 +1160,7 @@
         0.17
       ],
       "sourceDescription": "Brittle dry-country shrub.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:195",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:206",
       "anchor": "block-dry-shrub",
       "family": "plants",
       "description": "A dry shrub is a brittle plant from dry country."
@@ -1121,7 +1175,7 @@
         0.12
       ],
       "sourceDescription": "Iron-rich red desert sand.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:197",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:208",
       "anchor": "block-red-sand",
       "family": "ground",
       "description": "Red sand is desert sand rich in iron."
@@ -1136,7 +1190,7 @@
         0.1
       ],
       "sourceDescription": "Cemented red sandstone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:199",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:210",
       "anchor": "block-red-sandstone",
       "family": "stone",
       "description": "Red sandstone is cemented red sand."
@@ -1151,7 +1205,7 @@
         0.2
       ],
       "sourceDescription": "Sun-bleached grassland turf.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:201",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:212",
       "anchor": "block-dry-turf",
       "family": "ground",
       "description": "Dry turf is sun-bleached grassland turf."
@@ -1166,7 +1220,7 @@
         0.1
       ],
       "sourceDescription": "Twisted acacia branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:203",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:214",
       "anchor": "block-acacia-wood",
       "family": "wood",
       "description": "Acacia logs form twisted branches and trunks."
@@ -1181,7 +1235,7 @@
         0.12
       ],
       "sourceDescription": "Flat-canopy acacia foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:205",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:216",
       "anchor": "block-acacia-leaves",
       "family": "wood",
       "description": "Acacia leaves form a flat canopy."
@@ -1196,7 +1250,7 @@
         0.19
       ],
       "sourceDescription": "Naturally banded mesa clay with several strata.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:207",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:218",
       "anchor": "block-banded-clay",
       "family": "ground",
       "description": "Banded clay is mesa clay with several natural layers."
@@ -1211,7 +1265,7 @@
         0.35
       ],
       "sourceDescription": "Weathered boulder stone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:209",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:220",
       "anchor": "block-boulder-stone",
       "family": "stone",
       "description": "Boulder stone is weathered rock."
@@ -1226,7 +1280,7 @@
         0.12
       ],
       "sourceDescription": "Saturated marsh mud.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:211",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:222",
       "anchor": "block-mud",
       "family": "ground",
       "description": "Mud is saturated marsh soil."
@@ -1241,7 +1295,7 @@
         0.18
       ],
       "sourceDescription": "Tall wetland reeds.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:213",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:224",
       "anchor": "block-reeds",
       "family": "plants",
       "description": "Reeds are tall wetland plants."
@@ -1256,7 +1310,7 @@
         0.2
       ],
       "sourceDescription": "Pale flexible willow branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:215",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:226",
       "anchor": "block-willow-wood",
       "family": "wood",
       "description": "Willow logs are pale, flexible timber."
@@ -1271,7 +1325,7 @@
         0.19
       ],
       "sourceDescription": "Hanging willow foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:217",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:228",
       "anchor": "block-willow-leaves",
       "family": "wood",
       "description": "Willow leaves hang from the tree."
@@ -1286,7 +1340,7 @@
         0.16
       ],
       "sourceDescription": "Tiny floating duckweed leaves.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:219",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:230",
       "anchor": "block-duckweed",
       "family": "plants",
       "description": "Duckweed has tiny leaves that float on water."
@@ -1301,7 +1355,7 @@
         0.1
       ],
       "sourceDescription": "Salt-tolerant mangrove branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:221",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:232",
       "anchor": "block-mangrove-wood",
       "family": "wood",
       "description": "Mangrove logs form salt-tolerant branches and trunks."
@@ -1316,7 +1370,7 @@
         0.08
       ],
       "sourceDescription": "Exposed arching mangrove roots.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:223",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:234",
       "anchor": "block-mangrove-roots",
       "family": "wood",
       "description": "Mangrove roots form exposed arches."
@@ -1331,7 +1385,7 @@
         0.08
       ],
       "sourceDescription": "Tall rainforest jungle branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:225",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:236",
       "anchor": "block-jungle-wood",
       "family": "wood",
       "description": "Jungle logs form tall rainforest branches and trunks."
@@ -1346,7 +1400,7 @@
         0.15
       ],
       "sourceDescription": "Large rainforest jungle foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:227",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:238",
       "anchor": "block-jungle-leaves",
       "family": "wood",
       "description": "Jungle leaves form large rainforest foliage."
@@ -1361,7 +1415,7 @@
         0.12
       ],
       "sourceDescription": "Hanging rainforest vines.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:229",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:240",
       "anchor": "block-vines",
       "family": "plants",
       "description": "Vines hang in rainforests."
@@ -1376,7 +1430,7 @@
         0.18
       ],
       "sourceDescription": "Broad understory fern.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:231",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:242",
       "anchor": "block-fern",
       "family": "plants",
       "description": "A fern is a broad understory plant."
@@ -1391,7 +1445,7 @@
         0.2
       ],
       "sourceDescription": "Long underwater kelp.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:233",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:244",
       "anchor": "block-kelp",
       "family": "plants",
       "description": "Kelp is long underwater vegetation."
@@ -1406,7 +1460,7 @@
         0.31
       ],
       "sourceDescription": "Short ocean-floor seagrass.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:235",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:246",
       "anchor": "block-seagrass",
       "family": "plants",
       "description": "Seagrass is short vegetation on the ocean floor."
@@ -1421,7 +1475,7 @@
         0.22
       ],
       "sourceDescription": "Red branching coral.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:237",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:248",
       "anchor": "block-coral-red",
       "family": "plants",
       "description": "Red coral forms branching growths."
@@ -1436,7 +1490,7 @@
         0.12
       ],
       "sourceDescription": "Gold branching coral.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:239",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:250",
       "anchor": "block-coral-gold",
       "family": "plants",
       "description": "Gold coral forms branching growths."
@@ -1451,7 +1505,7 @@
         0.72
       ],
       "sourceDescription": "Blue branching coral.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:241",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:252",
       "anchor": "block-coral-blue",
       "family": "plants",
       "description": "Blue coral forms branching growths."
@@ -1466,7 +1520,7 @@
         0.59
       ],
       "sourceDescription": "Fine pale sand washed by the sea.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:243",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:254",
       "anchor": "block-sea-sand",
       "family": "ground",
       "description": "Sea sand is fine pale sand washed by the sea."
@@ -1481,7 +1535,7 @@
         0.44
       ],
       "sourceDescription": "Rough naturally broken cobble.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:245",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:256",
       "anchor": "block-cobble",
       "family": "stone",
       "description": "Natural cobble is rough, naturally broken stone."
@@ -1496,7 +1550,7 @@
         0.77
       ],
       "sourceDescription": "Hardy flowers growing among mountain rocks.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:247",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:258",
       "anchor": "block-mountain-flowers",
       "family": "plants",
       "description": "Mountain flowers are hardy flowers growing among rocks."
@@ -1511,7 +1565,7 @@
         0.2
       ],
       "sourceDescription": "Dark volcanic basalt.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:249",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:260",
       "anchor": "block-basalt",
       "family": "stone",
       "description": "Basalt is dark volcanic stone."
@@ -1526,7 +1580,7 @@
         0.13
       ],
       "sourceDescription": "Glassy volcanic obsidian.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:251",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:262",
       "anchor": "block-obsidian",
       "family": "stone",
       "description": "Obsidian is glassy volcanic stone."
@@ -1541,7 +1595,7 @@
         0.045
       ],
       "sourceDescription": "Hot cracked magma stone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:253",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:264",
       "anchor": "block-magma-stone",
       "family": "stone",
       "description": "Magma stone is hot, cracked rock."
@@ -1556,7 +1610,7 @@
         0.3
       ],
       "sourceDescription": "Loose gray volcanic ash.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:255",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:266",
       "anchor": "block-ash",
       "family": "ground",
       "description": "Volcanic ash is loose gray material."
@@ -1571,7 +1625,7 @@
         0.57
       ],
       "sourceDescription": "Pale mineral crust around geothermal water.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:257",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:268",
       "anchor": "block-mineral-crust",
       "family": "stone",
       "description": "Mineral crust forms pale deposits around geothermal water."
@@ -1586,7 +1640,7 @@
         0.57
       ],
       "sourceDescription": "Naturally heated, mineral-tinted water.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:259",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:270",
       "anchor": "block-warm-water",
       "family": "water-ice",
       "description": "Warm mineral water is naturally heated and tinted by minerals."
@@ -1601,7 +1655,7 @@
         0.4
       ],
       "sourceDescription": "Porous geothermal steam vent.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:261",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:272",
       "anchor": "block-steam-vent",
       "family": "stone",
       "description": "A steam vent is a porous geothermal opening."
@@ -1616,7 +1670,7 @@
         0.16
       ],
       "sourceDescription": "Jointed bamboo culm from a temperate thicket.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:267",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:278",
       "anchor": "block-bamboo",
       "family": "wood",
       "description": "Bamboo forms jointed stems in temperate thickets."
@@ -1631,7 +1685,7 @@
         0.12
       ],
       "sourceDescription": "Tender non-colliding bamboo shoot.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:269",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:280",
       "anchor": "block-bamboo-shoot",
       "family": "plants",
       "description": "Bamboo shoots are tender shoots you can walk through."
@@ -1646,7 +1700,7 @@
         0.23
       ],
       "sourceDescription": "Rose-barked cherry branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:271",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:282",
       "anchor": "block-cherry-wood",
       "family": "wood",
       "description": "Cherry logs have rose-coloured bark."
@@ -1661,7 +1715,7 @@
         0.69
       ],
       "sourceDescription": "Dense pink cherry-blossom foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:273",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:284",
       "anchor": "block-cherry-blossom-leaves",
       "family": "wood",
       "description": "Pink blossom leaves form dense cherry foliage."
@@ -1676,7 +1730,7 @@
         0.75
       ],
       "sourceDescription": "Thin carpet of fallen pink petals.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:275",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:286",
       "anchor": "block-petal-carpet",
       "family": "ground",
       "description": "A petal carpet is a thin layer of fallen pink petals."
@@ -1691,7 +1745,7 @@
         0.08
       ],
       "sourceDescription": "Golden autumn foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:277",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:288",
       "anchor": "block-amber-leaves",
       "family": "wood",
       "description": "Amber leaves are golden autumn foliage."
@@ -1706,7 +1760,7 @@
         0.075
       ],
       "sourceDescription": "Deep orange-red autumn foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:279",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:290",
       "anchor": "block-russet-leaves",
       "family": "wood",
       "description": "Russet leaves are deep orange-red autumn foliage."
@@ -1721,7 +1775,7 @@
         0.08
       ],
       "sourceDescription": "Thin carpet of dry fallen leaves.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:281",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:292",
       "anchor": "block-leaf-litter",
       "family": "ground",
       "description": "Leaf litter is a thin carpet of dry fallen leaves."
@@ -1736,7 +1790,7 @@
         0.56
       ],
       "sourceDescription": "Low purple heathland flowers.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:283",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:294",
       "anchor": "block-heather",
       "family": "plants",
       "description": "Heather has low purple flowers in heathland."
@@ -1751,7 +1805,7 @@
         0.76
       ],
       "sourceDescription": "Tall violet lavender flowers.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:285",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:296",
       "anchor": "block-lavender",
       "family": "plants",
       "description": "Lavender has tall violet flowers."
@@ -1766,7 +1820,7 @@
         0.13
       ],
       "sourceDescription": "Dark fertile grassland turf.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:287",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:298",
       "anchor": "block-rich-turf",
       "family": "ground",
       "description": "Rich turf is dark fertile grassland turf."
@@ -1781,7 +1835,7 @@
         0.76
       ],
       "sourceDescription": "Soft white rolling-downs chalk.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:289",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:300",
       "anchor": "block-chalk",
       "family": "stone",
       "description": "Chalk is soft white stone from rolling downs."
@@ -1796,7 +1850,7 @@
         0.25
       ],
       "sourceDescription": "Hard dark flint embedded in chalk country.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:291",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:302",
       "anchor": "block-flint",
       "family": "stone",
       "description": "Flint is hard dark stone embedded in chalk country."
@@ -1811,7 +1865,7 @@
         0.18
       ],
       "sourceDescription": "Closely cropped downs grass.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:293",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:304",
       "anchor": "block-short-grass",
       "family": "plants",
       "description": "Short grass is closely cropped grass from the downs."
@@ -1826,7 +1880,7 @@
         0.15
       ],
       "sourceDescription": "Fine wetland sedge.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:295",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:306",
       "anchor": "block-sedge",
       "family": "plants",
       "description": "Sedge is fine wetland vegetation."
@@ -1841,7 +1895,7 @@
         0.075
       ],
       "sourceDescription": "Massive old-growth trunk material used by two-by-two trees.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:297",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:308",
       "anchor": "block-giant-wood",
       "family": "wood",
       "description": "Giant old-growth logs form the trunks of two-by-two trees."
@@ -1856,7 +1910,7 @@
         0.23
       ],
       "sourceDescription": "Weathered fallen or standing dead timber.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:299",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:310",
       "anchor": "block-deadwood",
       "family": "wood",
       "description": "Deadwood is weathered fallen or standing dead timber."
@@ -1871,7 +1925,7 @@
         0.9
       ],
       "sourceDescription": "Wind-carved vertical packed-ice formation.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:301",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:312",
       "anchor": "block-ice-spire",
       "family": "water-ice",
       "description": "An ice spire is a wind-carved formation of packed ice."
@@ -1886,7 +1940,7 @@
         0.26
       ],
       "sourceDescription": "Cold, deep fjord water.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:303",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:314",
       "anchor": "block-dark-water",
       "family": "water-ice",
       "description": "Dark fjord water is cold, deep water."
@@ -1901,7 +1955,7 @@
         0.36
       ],
       "sourceDescription": "Loose angular slate fragments.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:305",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:316",
       "anchor": "block-slate-scree",
       "family": "stone",
       "description": "Slate scree consists of loose angular slate fragments."
@@ -1916,7 +1970,7 @@
         0.49
       ],
       "sourceDescription": "Faintly luminous aurora-country lichen.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:307",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:318",
       "anchor": "block-glow-lichen",
       "family": "glass-light",
       "description": "Glow lichen gives off faint light in aurora country."
@@ -1931,7 +1985,7 @@
         0.86
       ],
       "sourceDescription": "Old compacted alpine snow.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:309",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:320",
       "anchor": "block-firn",
       "family": "ground",
       "description": "Firn is old compacted alpine snow."
@@ -1946,7 +2000,7 @@
         0.84
       ],
       "sourceDescription": "Blue ice exposed inside a snowfield crevasse.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:311",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:322",
       "anchor": "block-crevasse-ice",
       "family": "water-ice",
       "description": "Crevasse ice is blue ice exposed inside a snowfield crevasse."
@@ -1961,7 +2015,7 @@
         0.075
       ],
       "sourceDescription": "Fire-blackened timber.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:313",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:324",
       "anchor": "block-charred-wood",
       "family": "wood",
       "description": "A charred log is fire-blackened timber."
@@ -1976,7 +2030,7 @@
         0.54
       ],
       "sourceDescription": "Pink pioneer flower growing after a forest burn.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:315",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:326",
       "anchor": "block-fireweed",
       "family": "plants",
       "description": "Fireweed has pink flowers and grows after a forest burn."
@@ -1991,7 +2045,7 @@
         0.17
       ],
       "sourceDescription": "Ringed tropical palm trunk material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:317",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:328",
       "anchor": "block-palm-wood",
       "family": "wood",
       "description": "Palm logs form ringed tropical trunks."
@@ -2006,7 +2060,7 @@
         0.14
       ],
       "sourceDescription": "Broad radial palm foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:319",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:330",
       "anchor": "block-palm-fronds",
       "family": "wood",
       "description": "Palm fronds form broad radial foliage."
@@ -2021,7 +2075,7 @@
         0.08
       ],
       "sourceDescription": "Compact cluster of ripe dates.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:321",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:332",
       "anchor": "block-dates",
       "family": "plants",
       "description": "A date cluster is a compact cluster of ripe dates."
@@ -2036,7 +2090,7 @@
         0.7
       ],
       "sourceDescription": "Clear oasis water.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:323",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:334",
       "anchor": "block-fresh-water",
       "family": "water-ice",
       "description": "Fresh water is clear oasis water."
@@ -2051,7 +2105,7 @@
         0.8
       ],
       "sourceDescription": "Crystalline salt-flat crust.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:325",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:336",
       "anchor": "block-salt",
       "family": "ground",
       "description": "A salt block is crystalline salt-flat crust."
@@ -2066,7 +2120,7 @@
         0.35
       ],
       "sourceDescription": "Sun-baked polygonal clay.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:327",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:338",
       "anchor": "block-cracked-clay",
       "family": "ground",
       "description": "Cracked clay is sun-baked clay with polygonal cracks."
@@ -2081,7 +2135,7 @@
         0.43
       ],
       "sourceDescription": "Deep loose dune sand.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:329",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:340",
       "anchor": "block-fine-sand",
       "family": "ground",
       "description": "Fine dune sand forms deep, loose deposits."
@@ -2096,7 +2150,7 @@
         0.095
       ],
       "sourceDescription": "Thorny scrub-country mesquite timber.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:331",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:342",
       "anchor": "block-mesquite-wood",
       "family": "wood",
       "description": "Mesquite logs are thorny scrub-country timber."
@@ -2111,7 +2165,7 @@
         0.13
       ],
       "sourceDescription": "Dense non-colliding thorn bush.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:333",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:344",
       "anchor": "block-thorn-bush",
       "family": "plants",
       "description": "Thorn bushes are dense bushes you can walk through."
@@ -2126,7 +2180,7 @@
         0.13
       ],
       "sourceDescription": "Yellow-orange painted-hills clay.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:335",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:346",
       "anchor": "block-ochre-clay",
       "family": "ground",
       "description": "Ochre clay is yellow-orange clay from painted hills."
@@ -2141,7 +2195,7 @@
         0.13
       ],
       "sourceDescription": "Dark brown painted-hills clay.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:337",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:348",
       "anchor": "block-umber-clay",
       "family": "ground",
       "description": "Umber clay is dark brown clay from painted hills."
@@ -2156,7 +2210,7 @@
         0.16
       ],
       "sourceDescription": "Warm red-brown painted-hills clay.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:339",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:350",
       "anchor": "block-sienna-clay",
       "family": "ground",
       "description": "Sienna clay is warm red-brown clay from painted hills."
@@ -2171,7 +2225,7 @@
         0.59
       ],
       "sourceDescription": "Pale soluble karst limestone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:341",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:352",
       "anchor": "block-limestone",
       "family": "stone",
       "description": "Limestone is pale soluble karst stone."
@@ -2186,7 +2240,7 @@
         0.55
       ],
       "sourceDescription": "Jagged exposed karst limestone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:343",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:354",
       "anchor": "block-sharp-limestone",
       "family": "stone",
       "description": "Sharp limestone is jagged exposed karst stone."
@@ -2201,7 +2255,7 @@
         0.1
       ],
       "sourceDescription": "Long hanging karst vine.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:345",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:356",
       "anchor": "block-hanging-vine",
       "family": "plants",
       "description": "A hanging vine is a long vine from karst country."
@@ -2216,7 +2270,7 @@
         0.24
       ],
       "sourceDescription": "Moist cloud-forest epiphyte moss.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:347",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:358",
       "anchor": "block-epiphyte-moss",
       "family": "plants",
       "description": "Epiphyte moss is moist moss from cloud forests."
@@ -2231,7 +2285,7 @@
         0.2
       ],
       "sourceDescription": "Pale tropical fig branch or log material.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:349",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:360",
       "anchor": "block-fig-wood",
       "family": "wood",
       "description": "Fig logs are pale tropical timber."
@@ -2246,7 +2300,7 @@
         0.2
       ],
       "sourceDescription": "Broad glossy cloud-forest foliage.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:351",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:362",
       "anchor": "block-broad-leaves",
       "family": "wood",
       "description": "Broad leaves form glossy cloud-forest foliage."
@@ -2261,7 +2315,7 @@
         0.11
       ],
       "sourceDescription": "Rust-dark iron-rich bog deposit.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:353",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:364",
       "anchor": "block-bog-iron",
       "family": "stone",
       "description": "Bog iron is a rust-dark deposit rich in iron."
@@ -2276,7 +2330,7 @@
         0.69
       ],
       "sourceDescription": "White-tufted peat-bog grass.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:355",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:366",
       "anchor": "block-cotton-grass",
       "family": "plants",
       "description": "Cotton grass has white tufts in peat bogs."
@@ -2291,7 +2345,7 @@
         0.11
       ],
       "sourceDescription": "Dark water-loving cypress timber.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:357",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:368",
       "anchor": "block-cypress-wood",
       "family": "wood",
       "description": "Cypress logs are dark timber from water-loving trees."
@@ -2306,7 +2360,7 @@
         0.13
       ],
       "sourceDescription": "Raised cypress root knee.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:359",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:370",
       "anchor": "block-cypress-knees",
       "family": "wood",
       "description": "Cypress knees are raised roots."
@@ -2321,7 +2375,7 @@
         0.1
       ],
       "sourceDescription": "Tannin-dark bayou water.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:361",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:372",
       "anchor": "block-black-water",
       "family": "water-ice",
       "description": "Black water is bayou water darkened by tannins."
@@ -2336,7 +2390,7 @@
         0.16
       ],
       "sourceDescription": "Hanging veil of bayou moss.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:363",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:374",
       "anchor": "block-moss-veil",
       "family": "plants",
       "description": "A moss veil is hanging bayou moss."
@@ -2351,7 +2405,7 @@
         0.18
       ],
       "sourceDescription": "Very tall flooded-grassland reeds.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:365",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:376",
       "anchor": "block-tall-reeds",
       "family": "plants",
       "description": "Tall reeds grow very tall in flooded grassland."
@@ -2366,7 +2420,7 @@
         0.22
       ],
       "sourceDescription": "Floating flowering water-lily pad.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:367",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:378",
       "anchor": "block-water-lily",
       "family": "plants",
       "description": "A water lily has a floating pad and flowers."
@@ -2381,7 +2435,7 @@
         0.34
       ],
       "sourceDescription": "Rain-darkened tepui stone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:369",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:380",
       "anchor": "block-wet-stone",
       "family": "stone",
       "description": "Wet stone is rain-darkened tepui rock."
@@ -2396,7 +2450,7 @@
         0.34
       ],
       "sourceDescription": "Rosette-shaped tropical bromeliad.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:371",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:382",
       "anchor": "block-bromeliad",
       "family": "plants",
       "description": "A bromeliad is a tropical plant shaped like a rosette."
@@ -2411,7 +2465,7 @@
         0.18
       ],
       "sourceDescription": "Bright tepui endemic flowers.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:373",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:384",
       "anchor": "block-endemic-flowers",
       "family": "plants",
       "description": "Endemic flowers are bright flowers native to tepuis."
@@ -2426,7 +2480,7 @@
         0.13
       ],
       "sourceDescription": "Volcanic black beach sand.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:375",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:386",
       "anchor": "block-black-sand",
       "family": "ground",
       "description": "Black sand is volcanic beach sand."
@@ -2441,7 +2495,7 @@
         0.68
       ],
       "sourceDescription": "Pale shell-fragment beach sand.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:377",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:388",
       "anchor": "block-shell-sand",
       "family": "ground",
       "description": "Shell sand is pale beach sand made of shell fragments."
@@ -2456,7 +2510,7 @@
         0.36
       ],
       "sourceDescription": "Salt-bleached driftwood.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:379",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:390",
       "anchor": "block-driftwood",
       "family": "wood",
       "description": "Driftwood is salt-bleached timber."
@@ -2471,7 +2525,7 @@
         0.45
       ],
       "sourceDescription": "Tide-pool rock armored with barnacles.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:381",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:392",
       "anchor": "block-barnacle-rock",
       "family": "stone",
       "description": "Barnacle rock is tide-pool stone covered with barnacles."
@@ -2486,7 +2540,7 @@
         0.56
       ],
       "sourceDescription": "Colorful tide-pool anemone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:383",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:394",
       "anchor": "block-anemone",
       "family": "plants",
       "description": "An anemone is a colourful tide-pool animal."
@@ -2501,7 +2555,7 @@
         0.12
       ],
       "sourceDescription": "Small tide-pool starfish.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:385",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:396",
       "anchor": "block-starfish",
       "family": "plants",
       "description": "A starfish is a small tide-pool animal."
@@ -2516,7 +2570,7 @@
         0.31
       ],
       "sourceDescription": "Horizontally bedded sea-stack sandstone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:387",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:398",
       "anchor": "block-layered-sandstone",
       "family": "stone",
       "description": "Layered sandstone has horizontal beds in sea stacks."
@@ -2531,7 +2585,7 @@
         0.7
       ],
       "sourceDescription": "White-capped guano-covered sea-stack rock.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:389",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:400",
       "anchor": "block-guano-rock",
       "family": "stone",
       "description": "Guano rock is sea-stack stone capped with white guano."
@@ -2546,7 +2600,7 @@
         0.13
       ],
       "sourceDescription": "Tall deep-ocean kelp.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:391",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:402",
       "anchor": "block-giant-kelp",
       "family": "plants",
       "description": "Giant kelp is tall deep-ocean vegetation."
@@ -2561,7 +2615,7 @@
         0.27
       ],
       "sourceDescription": "Rough stone anchoring a giant kelp holdfast.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:393",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:404",
       "anchor": "block-holdfast-rock",
       "family": "stone",
       "description": "Holdfast rock is rough stone anchoring giant kelp."
@@ -2576,7 +2630,7 @@
         0.39
       ],
       "sourceDescription": "Glass fused by a meteor impact.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:395",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:406",
       "anchor": "block-impact-glass",
       "family": "glass-light",
       "description": "Impact glass is glass fused by a meteor impact."
@@ -2591,7 +2645,7 @@
         0.14
       ],
       "sourceDescription": "Heat-darkened meteor-field stone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:397",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:408",
       "anchor": "block-scorched-stone",
       "family": "stone",
       "description": "Scorched stone is heat-darkened meteor-field rock."
@@ -2606,7 +2660,7 @@
         0.27
       ],
       "sourceDescription": "Exposed chunk of iron ore.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:399",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:410",
       "anchor": "block-iron-ore",
       "family": "stone",
       "description": "Iron ore chunks are exposed pieces of iron ore."
@@ -2621,7 +2675,7 @@
         0.69
       ],
       "sourceDescription": "Porous white geyser-basin stone.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:401",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:412",
       "anchor": "block-geyserite",
       "family": "stone",
       "description": "Geyserite is porous white stone from geyser basins."
@@ -2636,7 +2690,7 @@
         0.66
       ],
       "sourceDescription": "Hazardously hot geothermal water.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:403",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:414",
       "anchor": "block-boiling-water",
       "family": "water-ice",
       "description": "Boiling water is hazardously hot geothermal water."
@@ -2651,7 +2705,7 @@
         0.12
       ],
       "sourceDescription": "Bright yellow sulfur crust.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:405",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:416",
       "anchor": "block-sulfur-crust",
       "family": "stone",
       "description": "Sulfur crust is a bright yellow deposit."
@@ -2666,7 +2720,7 @@
         0.15
       ],
       "sourceDescription": "Ropy cooled basaltic lava surface.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:407",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:418",
       "anchor": "block-pahoehoe",
       "family": "stone",
       "description": "Pahoehoe stone is cooled basaltic lava with a ropy surface."
@@ -2681,7 +2735,7 @@
         0.14
       ],
       "sourceDescription": "Rough recently cooled lava rock.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:409",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:420",
       "anchor": "block-lava-rock",
       "family": "stone",
       "description": "Lava rock is rough, recently cooled lava."
@@ -2696,7 +2750,7 @@
         0.39
       ],
       "sourceDescription": "Coarse crystalline granite.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:411",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:422",
       "anchor": "block-granite",
       "family": "stone",
       "description": "Granite is coarse crystalline stone."
@@ -2711,7 +2765,7 @@
         0.5
       ],
       "sourceDescription": "Pale exfoliating granite slab.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:413",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:424",
       "anchor": "block-exfoliated-granite",
       "family": "stone",
       "description": "Exfoliated granite forms pale slabs with peeling layers."
@@ -2726,7 +2780,7 @@
         0.33
       ],
       "sourceDescription": "Thin layered slate quarry rock.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:415",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:426",
       "anchor": "block-slate-shale",
       "family": "stone",
       "description": "Slate shale is thin layered quarry rock."
@@ -2741,7 +2795,7 @@
         0.65
       ],
       "sourceDescription": "Solid violet amethyst.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:417",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:428",
       "anchor": "block-amethyst-block",
       "family": "stone",
       "description": "An amethyst block is solid violet amethyst."
@@ -2756,7 +2810,7 @@
         0.94
       ],
       "sourceDescription": "Pointed luminous amethyst growth.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:419",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:430",
       "anchor": "block-amethyst-cluster",
       "family": "glass-light",
       "description": "An amethyst cluster is a pointed, luminous growth.",
@@ -2773,7 +2827,7 @@
         0.14
       ],
       "sourceDescription": "Near-black gorge bedrock.",
-      "evidence": "crates/voxelgame-core/src/world/block/table.rs:421",
+      "evidence": "crates/voxelgame-core/src/world/block/table.rs:432",
       "anchor": "block-dark-stone",
       "family": "stone",
       "description": "Dark gorge stone is near-black bedrock."
