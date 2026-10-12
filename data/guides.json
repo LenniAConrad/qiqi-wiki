@@ -821,7 +821,7 @@
    "lead": "There is no workbench: every recipe is crafted from the pack. This guide explains the panel and lists every recipe with its exact amounts.",
    "readTime": "5 min, then look things up",
    "audience": "Everyone",
-   "updated": "2026-10-11",
+   "updated": "2026-10-12",
    "state": "complete",
    "covers": [
     "crafting-panel",
@@ -830,7 +830,11 @@
     "quick-craft-x",
     "fire-and-glass-chain",
     "lumen-crystal-supply",
-    "stone-tools"
+    "stone-tools",
+    "tree-felling",
+    "material-sources",
+    "pack-items-list",
+    "item-info-previews"
    ],
    "next": [
     "first-survival-day",
@@ -945,6 +949,72 @@
      ]
     },
     {
+     "id": "gathering",
+     "title": "Gathering and reading the pack",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Cutting a log on a natural tree, or a cactus stem, brings down that piece and everything growing from it. Cut the bottom log to take the whole tree. Cut a branch and the trunk below it stays standing. {{tree-felling}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "In survival the chop takes as long as all the wood and leaves it removes together. All of it goes into your pack.",
+        "If the whole harvest does not fit, the status line says 'Need X capacity free to collect this connected tree' and nothing is cut.",
+        "A log you placed yourself breaks like any other block, one piece at a time.",
+        "A finished tree reports 'Felled a tree' with the number of logs and leaves."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Shores mix River clay (below sea level), Shore gravel and Pale sand. Desert ground is Pale sand. Reeds grow in wetlands. Wild flax grows in some meadows of worlds made with the current generator. Feathers, wool and meat come from animals. {{material-sources}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Older worlds have no Wild flax, so use Wool for bindings there."
+      },
+      {
+       "t": "p",
+       "text": "The Pack tab lists everything you carry. Tools come first, then food and drink, blocks, materials and spawn eggs. Each group is sorted by name. {{pack-items-list}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Left click an item",
+         "Use it, select it or equip it. A material with no use says it is stored as a crafting resource."
+        ],
+        [
+         "Hover an item, then press 1-9 or 0",
+         "Bind it to that hotbar slot."
+        ],
+        [
+         "Drag an item onto a hotbar slot",
+         "Bind it to that slot while the inventory is open."
+        ],
+        [
+         "Mouse wheel, or Prev / Next",
+         "Page through the items."
+        ],
+        [
+         "Click Items or Character",
+         "Switch between the item list and a turning character portrait."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Hover an item to see its name, quantity, category and click hints. The side panel turns the item in 3D and shows what it is for, where it comes from, which recipe uses it, and how much pack room one piece takes. {{item-info-previews}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "'USED IN' shows only the first recipe that names the exact item. Some stones count through the natural-stone group, so their panel can say 'USE: PLACE / BUILD' even when a recipe accepts them."
+      }
+     ]
+    },
+    {
      "id": "recipes",
      "title": "All 40 recipes",
      "blocks": [
@@ -979,7 +1049,11 @@
     "ingredient-groups",
     "quick-craft-x",
     "fire-and-glass-chain",
-    "lumen-crystal-supply"
+    "lumen-crystal-supply",
+    "tree-felling",
+    "material-sources",
+    "pack-items-list",
+    "item-info-previews"
    ],
    "partial": []
   },

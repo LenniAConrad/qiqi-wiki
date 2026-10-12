@@ -1451,7 +1451,12 @@
    "backlog": [
     "VOX-OWNER-COMPACT-INVENTORY"
    ],
-   "notes": "Tools are listed with short names (Sword, Pickaxe, Hatchet, Shovel, Bow, Rifle; water flask as 'Flask') per. Clicking a material with no use shows '<item> is stored as a crafting resource'."
+   "notes": "Tools are listed with short names (Sword, Pickaxe, Hatchet, Shovel, Bow, Rifle; water flask as 'Flask') per. Clicking a material with no use shows '<item> is stored as a crafting resource'.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
   },
   {
    "id": "item-info-previews",
@@ -1472,7 +1477,12 @@
    "backlog": [
     "VOX-OWNER-INVENTORY-ICON-DEFECTS"
    ],
-   "notes": "'USED IN' shows only the first recipe that names the exact item, so stones that only count through the natural-stone group (for example Shore gravel) show 'USE: PLACE / BUILD' even though tools accept them. Categories: BUILDING BLOCK, EQUIPMENT, AMMUNITION, CONSUMABLE, CRAFTING RESOURCE, VEHICLE."
+   "notes": "'USED IN' shows only the first recipe that names the exact item, so stones that only count through the natural-stone group (for example Shore gravel) show 'USE: PLACE / BUILD' even though tools accept them. Categories: BUILDING BLOCK, EQUIPMENT, AMMUNITION, CONSUMABLE, CRAFTING RESOURCE, VEHICLE.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
   },
   {
    "id": "hotbar-quick-slots",
@@ -1832,7 +1842,12 @@
     "crates/voxelgame-core/src/inventory.rs:425-427 — log tooltip: cutting it removes its children",
     "crates/voxelgame-core/src/game/tests.rs:4000 — chop time, whole-tree collection, capacity refusal"
    ],
-   "notes": "Cutting the root removes the whole tree; cutting a branch keeps the trunk below. If the whole harvest does not fit you get 'Need X kg free to collect this connected tree' and nothing is cut. Logs you placed yourself mine like ordinary blocks. Status shows 'Felled a tree: N <log> and M <leaves>'."
+   "notes": "Cutting the root removes the whole tree; cutting a branch keeps the trunk below. If the whole harvest does not fit you get 'Need X kg free to collect this connected tree' and nothing is cut. Logs you placed yourself mine like ordinary blocks. Status shows 'Felled a tree: N <log> and M <leaves>'.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
   },
   {
    "id": "stone-tools",
@@ -1875,7 +1890,12 @@
     "crates/voxelgame-core/src/world/generator/ecology.rs:438-449 — Wild flax only in Meadow, Flower meadow and Rolling downs of current-generation worlds",
     "crates/voxelgame-core/src/world/generator/surface.rs:177-182 — clay on alluvial terraces, marshes and river deltas"
    ],
-   "notes": "Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Lumen crystal has no practical survival source (see lumen-crystal-supply)."
+   "notes": "Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Lumen crystal has no practical survival source (see lumen-crystal-supply).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
   },
   {
    "id": "block-materials-catalogue",
