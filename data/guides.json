@@ -673,7 +673,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Hold left click on a block within 6 m. A progress bar fills and the whole one-metre block, up to eight pieces, goes straight into your pack. Hold [[Shift]] to take a single half-metre piece of any block except a log or cactus. Logs and cactus fell the whole connected tree or stem instead, and Shift does not change that. Nothing drops on the ground: if the pieces do not fit, the block stays where it is and the status line says 'Capacity full; block left behind'. {{mining-harvesting}}"
+       "text": "Hold left click on a block within 6 m. A progress bar fills and the whole one-metre block, up to eight pieces, goes straight into your pack. Each swing that lands while you mine gives a soft tap of the block's sound. Letting go or breaking the block makes no tap. Hold [[Shift]] to take a single half-metre piece of any block except a log or cactus. Logs and cactus fell the whole connected tree or stem instead, and Shift does not change that. Nothing drops on the ground: if the pieces do not fit, the block stays where it is and the status line says 'Capacity full; block left behind'. {{mining-harvesting}}"
       },
       {
        "t": "p",
@@ -2395,7 +2395,7 @@
         "**Wooden door:** one block of boards. Craft it in the Timber section.",
         "**Wide wooden door:** two blocks of boards.",
         "Hold the door and right click solid ground to hang it. The spot needs free space and solid ground under it.",
-        "Right click a hung door to open it, and right click again to close it. A door swings away from the player who opens it, from either side.",
+        "Right click a hung door to open it, and right click again to close it. A door swings away from the player who opens it, from either side. It has its own opening and closing sound.",
         "The leaves turn on their hinges over 0.35 seconds, easing in and settling gently. Using a door again while it is moving turns it back from where it stands.",
         "A door will not open if anything other than air, water or plants is in its swing path. It also will not open while you or an animal stands where the leaves sweep. Clear the space and try again.",
         "An open leaf stands a metre out of the doorway. You and walking animals cannot walk through it, and you cannot place a block into the space it stands in.",
@@ -2423,7 +2423,7 @@
        "items": [
         "**Wooden chest:** one block of boards. Craft it in the Timber section.",
         "Hold the chest and right click to set it down. It fills the metre cell under the ghost, with the latch toward you.",
-        "Right click a chest within 6 m to open its Chest tab. Your pack and the chest sit side by side.",
+        "Right click a chest within 6 m to open its Chest tab. Your pack and the chest sit side by side. The lid makes an opening sound, and a closing sound when the Chest tab shuts or you walk out of reach.",
         "Click an item to move one across. Shift+click moves all of that item.",
         "A chest holds up to 250 capacity and up to 64 kinds of item.",
         "To take a chest up, break it. In survival it goes back into your pack with everything inside, but only if the pack has room for all of it. In creative, empty it first."
