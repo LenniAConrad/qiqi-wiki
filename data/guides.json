@@ -1756,6 +1756,253 @@
      ]
     }
    ]
+  },
+  {
+   "id": "maps-and-finding-your-way",
+   "page": "guide-maps.html",
+   "number": 9,
+   "gap": 5,
+   "kicker": "Exploration",
+   "title": "Maps and finding your way back",
+   "headline": "Mark it, find it,<br><em>get back to it.</em>",
+   "summary": "Use the compact and fullscreen maps, the biome locator, Journal places and destinations. Keep a build easy to find after a long trip.",
+   "lead": "Two maps show the generated terrain. You can mark places, set a destination and search for biomes. Your own builds are not drawn on the maps, so save a place before you travel far.",
+   "readTime": "5 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "compact-map",
+    "fullscreen-map",
+    "map-locator",
+    "map-coordinate-teleport",
+    "map-click-travel",
+    "map-right-click-markers",
+    "journal-places",
+    "destination-beacon",
+    "map-player-marker",
+    "survival-map-chart",
+    "position-readout"
+   ],
+   "next": [
+    "first-survival-day",
+    "controls-reference"
+   ],
+   "verification": {
+    "method": "Keys, limits and map behaviour come from the feature ledger, which cites the game source lines for each entry. Map sizes, zoom range, the 16-place Journal limit and the 320 m beacon are code values.",
+    "limits": "Source-checked, not play-tested in this guide. Compare the zoom steps and the beacon height with what you see in play."
+   },
+   "owns": [
+    "compact-map",
+    "fullscreen-map",
+    "map-locator",
+    "map-coordinate-teleport",
+    "map-click-travel",
+    "map-right-click-markers",
+    "journal-places",
+    "destination-beacon",
+    "map-player-marker",
+    "survival-map-chart",
+    "position-readout"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "two-maps",
+     "title": "Two maps",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The compact map is a small north-up view in the top-right corner. It shows about 128 m around you and is on by default. The fullscreen map covers 512 m at first and can zoom out to about 131 km. {{compact-map}} {{fullscreen-map}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "M",
+         "Show or hide the compact map."
+        ],
+        [
+         "Shift + M",
+         "Open or close the fullscreen map."
+        ],
+        [
+         "Esc",
+         "Close the fullscreen map."
+        ]
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "The maps show generated terrain only. Blocks you place or dig do not appear on them."
+      }
+     ]
+    },
+    {
+     "id": "fullscreen",
+     "title": "Look around the fullscreen map",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Press Shift + M to open the map. The world pauses while it is open.",
+        "Scroll the mouse wheel over the map to zoom in or out.",
+        "Drag with the left mouse button to look around. Dragging does not move you.",
+        "Press BACK TO PLAYER in the side panel to centre the map on you again."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The readout under the map shows the X and Z position under the cursor and its distance from you. With the cursor off the map, it shows the map centre. {{map-player-marker}} Your position is a gold arrow that points the way you face."
+      }
+     ]
+    },
+    {
+     "id": "markers",
+     "title": "Mark places",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Open the fullscreen map.",
+        "Right-click the spot you want. The game adds a pin named Marker 1, Marker 2 and so on, and sets it as your destination.",
+        "Right-click an existing pin to remove it."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Markers use the same 16-place limit as the Journal. Rename them in the Journal to give them a clear name. {{map-right-click-markers}}"
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Right-clicking a pin removes it even when it is a named Journal place. If the game says the Journal is full, remove a place first."
+      }
+     ]
+    },
+    {
+     "id": "journal",
+     "title": "Save places in the Journal",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Press E, then Tab to reach the Journal. You can also click the Journal button on the fullscreen map.",
+        "Type a name and an optional note in the Name and Note fields. Press Enter to finish typing.",
+        "Click Pin this location to save the spot where you stand. A blank name becomes Place 1, Place 2 and so on.",
+        "Click a place to select it, make it your destination, or change its text. Click Save selected note to keep the changes."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The Journal holds 16 places and lists each one with its distance from you. Use Prev and Next to page through them. Places are saved per world. {{journal-places}}"
+      }
+     ]
+    },
+    {
+     "id": "destination",
+     "title": "Set a destination",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The destination is the place the maps and the screen point to. It can be a map marker, a Journal place or an expedition site. {{destination-beacon}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "On both maps it shows as an amber +.",
+        "In the world it shows as an amber light column about 320 m tall.",
+        "On screen it shows as a gold diamond with the name and distance. The diamond sticks to the screen edge when the place is out of view. It reads HERE within 3 m."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "There is no clear button. Pick another place to change the destination, or remove the selected place to clear it. With no destination, the maps show your home crate as a + instead. {{home-crate}}"
+      }
+     ]
+    },
+    {
+     "id": "locator",
+     "title": "Find a biome or landmark",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Open the fullscreen map and click the search field on the left.",
+        "Type a name, such as crystal, meteorite, caldera or lava tunnel. The list filters as you type.",
+        "Press Enter, or click a result. The map centres on the first match, highlights it in cyan and drops a pin with the distance and coordinates.",
+        "Press FIND NEXT to search outward for another match, or CLEAR to remove the pin and highlight."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The locator does not move you. Pan the map first if you want to search from another spot, because the search starts at the map centre. {{map-locator}} The list includes Volcano, Cliff island, Mountain range and all 92 biomes."
+      }
+     ]
+    },
+    {
+     "id": "travel",
+     "title": "Travel by map (creative only)",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In creative you can jump to a place from the map. Survival maps are a chart only."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Click a spot on the fullscreen map without dragging. You land on a clear spot there.",
+        "Or click the COORDINATES field, type X Z, or X Y Z for an exact height, and press Enter or TELEPORT."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Teleporting does not save where you came from, and there is no go back button. Save a Journal place before you jump. You must leave a vehicle or boat helm first. {{map-click-travel}} {{map-coordinate-teleport}}"
+      },
+      {
+       "t": "p",
+       "text": "In survival, clicking the map only shows a reminder. Zooming, dragging, the locator and markers still work. {{survival-map-chart}}"
+      }
+     ]
+    },
+    {
+     "id": "coordinates",
+     "title": "Read your coordinates",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The small readout at the top right shows FPS, your X, Y and Z in metres, and your biome. It is on by default. Turn it off in Settings > Debug with FPS and coordinates. It is hidden while a panel is open. {{position-readout}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "North is -Z and east is +X.",
+        "Write the numbers down before a long trip. They are the same numbers the coordinates field uses."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "lost-build",
+     "title": "Get back to a lost build",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Stand at the build and open the Journal. Press PIN THIS LOCATION and give it a name.",
+        "Before you travel far, open the fullscreen map and check the place shows as a pin.",
+        "To return, select the place in the Journal and make it your destination. Then follow the beacon or the diamond."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The maps show terrain, not your builds. A destination pin is the way back when a build is hard to recognise in the terrain."
+      }
+     ]
+    }
+   ]
   }
  ]
 }

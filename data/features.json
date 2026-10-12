@@ -2777,8 +2777,9 @@
    ],
    "notes": "The terrain moves in 4 m jumps because the view snaps to the sample spacing (map.rs:126-134). Like the fullscreen map, it shows only generated terrain: your builds and dug or blasted ground do not appear.",
    "guide": {
-    "state": "none",
-    "next": "Maps and finding your way home"
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
    }
   },
   {
@@ -2833,8 +2834,9 @@
    ],
    "notes": "With the pointer off the map, the readout shows 'CENTER X.. Y.. Z..': the map centre (your position rounded to the sample spacing, plus any panning) and your height. Terrain gets light slope shading from neighbouring heights (map.rs:302-309), but no elevation number is shown. Opening Settings also pauses the world.",
    "guide": {
-    "state": "none",
-    "next": "Maps and finding your way home"
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
    }
   },
   {
@@ -2881,8 +2883,9 @@
    ],
    "notes": "The search starts from the map centre, not from you, so pan the map first to search somewhere else. In survival the locator still reveals everything, because there is no fog of war. The highlight and pin stay on the compact map until you press Clear.",
    "guide": {
-    "state": "none",
-    "next": "Maps and finding your way home"
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
    }
   },
   {
@@ -2913,7 +2916,12 @@
     "crates/voxelgame-core/src/game/map.rs:283-315 — travel closes the map and reports 'Teleported to X Y Z | <biome>'",
     "crates/voxelgame-render/src/map_locator_ui.rs:160-218 — field, TELEPORT / CREATIVE MODE ONLY button, 'X Z = SAFE SURFACE LANDING' hint"
    ],
-   "notes": "Single-player players can press F4 to switch to creative. Teleporting saves no 'previous location' and there is no 'go back' button, so add a Journal place before jumping."
+   "notes": "Single-player players can press F4 to switch to creative. Teleporting saves no 'previous location' and there is no 'go back' button, so add a Journal place before jumping.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
+   }
   },
   {
    "id": "map-click-travel",
@@ -2933,7 +2941,12 @@
    "evidence": [
     "crates/voxelgame-core/src/game/map.rs:226-251 — click versus drag, creative check, vehicle check, landing search",
     "crates/voxelgame-render/src/map_ui.rs:117-123 — hint 'CLICK TO TRAVEL' in creative, 'DRAG TO LOOK AROUND' otherwise"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
+   }
   },
   {
    "id": "map-right-click-markers",
@@ -2957,8 +2970,9 @@
    ],
    "notes": "Removal works on any saved pin, including named Journal places, so a right-click in the wrong spot can delete a place. Removing one says 'Removed <name>'. With 16 places saved, the game says 'Journal holds 16 places; remove one to make room'.",
    "guide": {
-    "state": "none",
-    "next": "Maps and finding your way home"
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
    }
   },
   {
@@ -3009,8 +3023,9 @@
    ],
    "notes": "Names longer than the byte limit stop accepting characters, so non-Latin names hold fewer characters. Places use absolute world positions and are kept per world.",
    "guide": {
-    "state": "none",
-    "next": "Maps and finding your way home"
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
    }
   },
   {
@@ -3031,8 +3046,9 @@
    ],
    "notes": "There is no separate 'clear destination' button. Picking another place changes it, and removing the selected place clears it (exploration.rs:381-393). The diamond is part of the HUD, so clean view (F1) hides it.",
    "guide": {
-    "state": "none",
-    "next": "Maps and finding your way home"
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
    }
   },
   {
@@ -3053,7 +3069,12 @@
    ],
    "backlog": [
     "VOX-OWNER-MAP-PLAYER-MARKER"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
+   }
   },
   {
    "id": "survival-map-chart",
@@ -3073,8 +3094,9 @@
     "VOX-OWNER-SURVIVAL-MAP-EXPLORATION"
    ],
    "guide": {
-    "state": "none",
-    "next": "Maps and finding your way home"
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
    }
   },
   {
@@ -3093,7 +3115,12 @@
     "crates/voxelgame-render/src/hud.rs:227 — shown only when no panel is open",
     "crates/voxelgame-core/src/settings.rs:422 — setting name 'FPS AND COORDINATES'"
    ],
-   "notes": "Useful for writing down coordinates before teleporting. North is -Z and east is +X."
+   "notes": "Useful for writing down coordinates before teleporting. North is -Z and east is +X.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
+   }
   },
   {
    "id": "sailing-launch-and-pack",
