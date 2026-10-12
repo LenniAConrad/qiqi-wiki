@@ -2472,6 +2472,8 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/game/blueprint_desk.rs:287-340 — gesture: arrows pick, R turns, PgUp/PgDn lift, Delete twice removes, Shift+RMB marks corners, RMB places",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:341-365 — open_structure_capture: placed structure's name offered, 'Enter updates it' (716d72c7)",
+    "crates/voxelgame-render/src/selection_outline.rs:1 — capture box outline and a post on each marked corner (716d72c7)",
     "crates/voxelgame-core/src/game/blueprint_desk.rs:24-31 — library limit 64, ghost face cap, lift limit 64 m",
     "crates/voxelgame-core/src/game/blueprint_desk.rs:362-420 — status texts and save note (water, carved cells, crate cells left out)",
     "crates/voxelgame-core/src/game/blueprint.rs:39 — MAX_BLUEPRINT_EXTENT 256 half-metre cells (128 m)",

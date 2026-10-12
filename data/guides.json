@@ -2483,8 +2483,9 @@
        "items": [
         "Press [[B]] until the brush says **Blueprint**. You can also pick it in **E > Build**.",
         "Aim at a ground corner of the build and press [[Shift]] + right-click. The status says **First corner set**.",
-        "Aim at the opposite ground corner and press [[Shift]] + right-click again. The **Structures** panel opens with a picture of what was taken. Nothing is saved yet.",
+        "Aim at the opposite ground corner and press [[Shift]] + right-click again. The **Structures** panel opens with a picture of what was taken. Nothing is saved yet. Until then, each corner you marked shows a post, and the box that would be saved is outlined. To cancel, press [[Shift]] + right-click on the same corner again.",
         "Type a name and press **Save**. A name that is taken needs a second press to replace it. **Keep both** saves a copy called Name 2. Closing the panel discards the capture.",
+        "If you just placed a saved blueprint, its name is filled in and the panel says **Enter updates it**. Press **Enter**, then **Enter** again, to replace that file. Type another name to keep both.",
         "Aim where you want it. The ghost shows the result. Right-click to build it. The whole build is one undo step, so [[Ctrl]]+[[Z]] removes it."
        ]
       },
