@@ -36,7 +36,8 @@
     "escape-and-pause",
     "saving-and-quitting",
     "window-and-fullscreen",
-    "input-devices-and-layout"
+    "input-devices-and-layout",
+    "credits"
    ],
    "next": [
     "controls-reference",
@@ -106,7 +107,8 @@
        "items": [
         "[[Continue]] enters the current world.",
         "[[Worlds]] lists your saved worlds and creates new ones (next section).",
-        "[[Settings]] opens the same settings panel you get in a world by pressing [[Esc]]."
+        "[[Settings]] opens the same settings panel you get in a world by pressing [[Esc]].",
+        "[[Credits]] shows seven title cards on a black stage: the maker, thanks and a dedication. Each card stays for 12 seconds and the set loops. Press [[Esc]], [[Enter]] or [[Space]], or choose **Skip credits**, to go back. There are no Previous or Next buttons yet. The normal music playlist keeps playing."
        ]
       },
       {
@@ -376,7 +378,8 @@
     "escape-and-pause",
     "saving-and-quitting",
     "window-and-fullscreen",
-    "input-devices-and-layout"
+    "input-devices-and-layout",
+    "credits"
    ],
    "partial": [
     "settings-menu"

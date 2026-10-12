@@ -539,7 +539,12 @@
     "VOX-OWNER-CREDITS-NAVIGATION",
     "VOX-OWNER-CREDITS-MUSIC"
    ],
-   "notes": "No Previous/Next card controls and no dedicated credits music yet (both planned)."
+   "notes": "No Previous/Next card controls and no dedicated credits music yet (both planned).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "walk-and-look",
