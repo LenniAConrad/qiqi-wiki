@@ -1152,6 +1152,7 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/game/consumables.rs:91-110 — T near water fills flasks, otherwise drinks a flask",
+    "crates/voxelgame-core/src/game/consumables.rs:144-152 — a solid block between the player and the water stops the T drink",
     "crates/voxelgame-core/src/game/consumables.rs:148-172 — fills every empty flask that fits",
     "crates/voxelgame-core/src/game.rs:1121-1123 — T handled in survival",
     "crates/voxelgame-core/src/game/tests.rs:4235 — flask filling tests"
@@ -5336,6 +5337,7 @@
     "crates/voxelgame-render/src/startup_ui.rs:340-345 — the page shows the address others join",
     "src/app.rs:591-635 — hosting starts an in-process server for the world in play",
     "src/app.rs:645-651 — Stop hosting saves the world and clears the hosted address",
+    "crates/voxelgame-server/src/background.rs:146 — hosted save waits for the disk; a refused save keeps the world hosted",
     "src/net_client/hosting.rs:30-31 — the LAN address is found without sending anything",
     "crates/voxelgame-server/src/config.rs:65 — default bind port is 27015 (voxelgame_net::DEFAULT_PORT)",
     "crates/voxelgame-core/src/game/carried_player.rs:19 — CarriedPlayer keeps survival needs, inventory, hotbar, tool, home, palette and journal",

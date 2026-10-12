@@ -664,6 +664,11 @@
       {
        "t": "p",
        "text": "Only four foods exist. Berries come only from the starter pack, so the renewable food is hunting, best cooked over charcoal (below). Fruit blocks and Date clusters are building blocks, not food. {{eating}} {{drinking-flasks}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "T only reaches water that you can see from your chest. A solid block between you and the water stops the drink; remove the block or step to the open side."
       }
      ]
     },
@@ -4660,6 +4665,10 @@
         "Other players type their name in **NAME** and choose **Join server**.",
         "Choose **Stop hosting** when you are done. The world is saved, everyone is disconnected and your save loads for single play."
        ]
+      },
+      {
+       "t": "p",
+       "text": "If the save fails, for example because the disk is full, the status line says why. The world stays hosted and in play, so make room and try again. F6 and the 30-second autosave also report a failed save."
       },
       {
        "t": "list",
