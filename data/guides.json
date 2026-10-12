@@ -2235,7 +2235,8 @@
     "building-in-water",
     "placement-restrictions",
     "doors",
-    "wooden-chests"
+    "wooden-chests",
+    "flowing-water"
    ],
    "next": [
     "maps-and-finding-your-way",
@@ -2263,9 +2264,12 @@
     "building-in-water",
     "placement-restrictions",
     "doors",
-    "wooden-chests"
+    "wooden-chests",
+    "flowing-water"
    ],
-   "partial": [],
+   "partial": [
+    "flowing-water"
+   ],
    "sections": [
     {
      "id": "place",
@@ -2315,6 +2319,30 @@
         "In survival, your pack does not have 8 pieces of the material for a whole block.",
         "The world already holds 200,000 changed blocks. New building is refused, and the save warns before the limit. {{placement-restrictions}}"
        ]
+      }
+     ]
+    },
+    {
+     "id": "flowing-water",
+     "title": "Flowing water (creative)",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The Water block in the creative catalog is a flowing source. Right-click with Water selected to place one. It spreads up to 7 half-metre cells sideways and pours down over edges. Flowing water does not go away on its own. {{flowing-water}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Placing a block into water replaces that water cell.",
+        "Digging next to the sea or a lake lets water flow into the new gap.",
+        "Survival players cannot pick up or place water. There are no buckets.",
+        "The other five water types are blocks. They do not flow."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "To stop unwanted flowing water, fill each wet cell with blocks. On a multiplayer server the server runs the water."
       }
      ]
     },

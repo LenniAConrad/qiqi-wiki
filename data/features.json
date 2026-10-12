@@ -3646,7 +3646,12 @@
     "crates/voxelgame-core/src/world/mod.rs:1528-1534 — placed Water becomes a source; other blocks clear flow",
     "crates/voxelgame-core/src/world/mod.rs:2008-2050 — tick_fluids: only Block::WATER flows; no recession logic"
    ],
-   "notes": "To get rid of unwanted flowing water, fill each wet cell with blocks. Water from creative building brushes behaves the same way. On a multiplayer server the server runs the water."
+   "notes": "To get rid of unwanted flowing water, fill each wet cell with blocks. Water from creative building brushes behaves the same way. On a multiplayer server the server runs the water.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "water-splashes",
