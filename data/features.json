@@ -2128,7 +2128,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, B cycles nine brushes: Block, Line, Wall, Floor, Replace, Copy, Bench, Railing and Roof. Every brush except Block builds with the block in your hand, shows the result as a ghost first, and changes at most 512 half-metre pieces (64 whole blocks) per action.",
+   "summary": "In creative, B cycles ten brushes: Block, Line, Wall, Floor, Replace, Copy, Blueprint, Bench, Railing and Roof. Every brush except Block and Blueprint builds with the block in your hand, shows the result as a ghost first, and changes at most 512 half-metre pieces (64 whole blocks) per action.",
    "controls": [
     [
      "B",
@@ -2140,7 +2140,7 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/building.rs:15-70 — the nine brushes and their order",
+    "crates/voxelgame-core/src/building.rs:15-70 — the ten brushes and their order",
     "crates/voxelgame-core/src/game/building.rs:198-214 — creative-only; B cycles and clears selection and clipboard",
     "crates/voxelgame-render/src/hotbar_ui.rs:83-104 — caption '<Brush> | <size> | RMB build | R rotate | B tool | Ctrl+Z undo'",
     "crates/voxelgame-core/src/game/building.rs:14-38 — selection label 'W x H x D m | N pieces' or 'Selection exceeds 512 pieces'"
@@ -2288,6 +2288,65 @@
     "page": "guide-building.html",
     "label": "Building basics and creative tools"
    }
+  },
+  {
+   "id": "creative-blueprints",
+   "area": "building",
+   "name": "Creative blueprints (save and place builds)",
+   "status": "available",
+   "modes": [
+    "creative"
+   ],
+   "summary": "In creative, B to the Blueprint brush. Shift + right click two ground corners to save everything built inside that box. Aim to see the ghost, right click to build it as one undo step; R turns it and Page Up / Page Down lift it. Up to 64 blueprints are kept.",
+   "controls": [
+    [
+     "B",
+     "Next brush; select Blueprint (creative)"
+    ],
+    [
+     "Shift + right click, then Shift + right click",
+     "Save the box between two ground corners (creative, Blueprint)"
+    ],
+    [
+     "Right click",
+     "Build the selected blueprint at the ghost (creative, Blueprint)"
+    ],
+    [
+     "R",
+     "Turn the ghost 90 degrees (creative, Blueprint)"
+    ],
+    [
+     "Page Up / Page Down",
+     "Lift the ghost 1 m (creative, Blueprint)"
+    ],
+    [
+     "Left / Right arrows",
+     "Choose the next or previous saved blueprint (creative, Blueprint)"
+    ],
+    [
+     "Delete, twice",
+     "Delete the selected blueprint and its file (creative, Blueprint)"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:287-340 — gesture: arrows pick, R turns, PgUp/PgDn lift, Delete twice removes, Shift+RMB marks corners, RMB places",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:24-31 — library limit 64, ghost face cap, lift limit 64 m",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:362-420 — status texts and save note (water, carved cells, crate cells left out)",
+    "crates/voxelgame-core/src/game/blueprint.rs:39 — MAX_BLUEPRINT_EXTENT 256 half-metre cells (128 m)",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:342-343 — creative mode and Blueprint brush only",
+    "src/worlds.rs:46-50 — blueprints folder, VOXELGAME_BLUEPRINT_DIR overrides it",
+    "crates/voxelgame-render/src/hotbar_ui.rs — Blueprint key caption in creative"
+   ],
+   "notes": "Checked at Voxelgame e19e688 (commits 99cc8a6, 316eca2, e19e688). Refused while connected to a server (\"Blueprints aren't available on servers yet\"). Placement is refused over player-built pieces, the Camp crate or the player's own cell. Blueprint files are .blueprint text files; without a blueprints folder they last for the session only.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   },
+   "backlog": [
+    "VOX-OWNER-BLUEPRINT-DATA",
+    "VOX-OWNER-BLUEPRINT-GHOST"
+   ]
   },
   {
    "id": "build-undo-redo",
@@ -3789,15 +3848,13 @@
    "area": "customize",
    "name": "Structure Workshop and player blueprints",
    "status": "planned",
-   "summary": "You cannot save your own builds as blueprints, import or export them, or place one with a movable ghost and a materials list in survival. The nearest tools today are the creative Copy brush (512 half-metre cells, this session only).",
+   "summary": "In survival you cannot save a build as a blueprint, import or export one, or place one with a materials list. Creative blueprints are available (see Creative blueprints). Blueprints also do not work on servers yet.",
    "evidence": [
     "crates/voxelgame-core/src/game/structures.rs:446-521 — stamping supports only X/Z mirroring for generated sites",
     "crates/voxelgame-core/src/game/building.rs:233-263 — Copy clipboard"
    ],
    "backlog": [
     "VOX-OWNER-STRUCTURE-WORKSHOP",
-    "VOX-OWNER-BLUEPRINT-DATA",
-    "VOX-OWNER-BLUEPRINT-GHOST",
     "VOX-OWNER-BLUEPRINT-SURVIVAL",
     "VOX-OWNER-BLUEPRINT-INTEGRATION"
    ]

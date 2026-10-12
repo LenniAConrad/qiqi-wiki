@@ -2036,7 +2036,8 @@
     "brush-copy-paste",
     "brush-bench-railing-roof",
     "build-undo-redo",
-    "build-workspace-palettes"
+    "build-workspace-palettes",
+    "creative-blueprints"
    ],
    "next": [
     "maps-and-finding-your-way",
@@ -2057,7 +2058,8 @@
     "brush-copy-paste",
     "brush-bench-railing-roof",
     "build-undo-redo",
-    "build-workspace-palettes"
+    "build-workspace-palettes",
+    "creative-blueprints"
    ],
    "partial": [],
    "sections": [
@@ -2122,7 +2124,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "In creative mode, press B to move to the next brush. The order is Block, Line, Wall, Floor, Replace, Copy, Bench, Railing and Roof. You can also pick a brush from the E > Build tab. {{creative-brush-cycle}}"
+       "text": "In creative mode, press B to move to the next brush. The order is Block, Line, Wall, Floor, Replace, Copy, Blueprint, Bench, Railing and Roof. You can also pick a brush from the E > Build tab. {{creative-brush-cycle}}"
       },
       {
        "t": "list",
@@ -2133,17 +2135,72 @@
         "Floor: Same two clicks. The floor stays level at the height of the first corner.",
         "Replace: Aim at a block of the material to swap and right-click. Aim at the opposite corner and right-click again. Matching blocks in the box become the block in your hand. {{brush-replace}}",
         "Copy: Right-click two opposite corners to copy every block in that box except air and the Camp crate. Water and plants are copied too. Right-click again to paste at the ghost. R turns the paste 90 degrees. B discards the copy. {{brush-copy-paste}}",
+        "Blueprint: Save a build, then place it again. See the Blueprints section. {{creative-blueprints}}",
         "Bench, Railing, Roof: One right-click stamps a fixed shape at the ghost. Press R first to turn it 90 degrees. {{brush-bench-railing-roof}}"
        ]
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Every brush except Block shows a ghost first. One action changes at most 512 half-metre pieces (64 whole blocks). If a cell holds a solid block, nothing is built. Water and plants do not block a build. Replace is the exception: it swaps only the material you aim at. Hold Shift on the first click for half-metre steps."
+       "text": "Every brush except Block shows a ghost first. One action changes at most 512 half-metre pieces (64 whole blocks). Blueprints have their own limits. If a cell holds a solid block, nothing is built. Water and plants do not block a build. Replace is the exception: it swaps only the material you aim at. Hold Shift on the first click for half-metre steps."
       },
       {
        "t": "p",
        "text": "Pressing B clears a corner selection or a copied selection. Copies are lost when you change brush or leave the world."
+      }
+     ]
+    },
+    {
+     "id": "blueprints",
+     "title": "Blueprints",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A blueprint is a build you save and place again. Blueprints are for creative mode. You cannot place them while connected to a server yet."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Press [[B]] until the brush says **Blueprint**. You can also pick it in **E > Build**.",
+        "Aim at a ground corner of the build and press [[Shift]] + right-click. The status says **First corner set**.",
+        "Aim at the opposite ground corner and press [[Shift]] + right-click again. The blueprint saves everything built above the lower corner inside the box.",
+        "Aim where you want it. The ghost shows the result. Right-click to build it. The whole build is one undo step, so [[Ctrl]]+[[Z]] removes it."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "R",
+         "Turn the ghost 90 degrees."
+        ],
+        [
+         "Page Up / Page Down",
+         "Lift the ghost 1 m up or down."
+        ],
+        [
+         "Left / Right arrows",
+         "Choose another saved blueprint."
+        ],
+        [
+         "Delete, twice",
+         "Delete the selected blueprint and its file."
+        ]
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "The save leaves out water, cells you carved out of the terrain and the Camp crate. The status line says how many. A blueprint can be up to 128 m along any side and you can keep up to 64. Placement is refused if it would build over blocks you placed yourself or the Camp crate, or on top of you. Step back and try again."
+      },
+      {
+       "t": "p",
+       "text": "Saved blueprints are plain files with the `.blueprint` extension in a folder named `blueprints`. The game looks for that folder where it starts. Without it, blueprints last only until you leave the session."
+      },
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Using blueprints in survival, sharing or importing them, and a materials list are planned but absent from this version. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
       }
      ]
     },
