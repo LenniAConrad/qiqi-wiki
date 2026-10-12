@@ -5233,7 +5233,7 @@
    "modes": [
     "any"
    ],
-   "summary": "Start the Multiplayer page from the start menu: type a SERVER (HOST or HOST:PORT) and a NAME, then Join server. The last 8 servers are listed. You can also start the game with --connect=HOST[:PORT] (port 27015 by default) and --name=NAME. You see other players, can build together and chat, and the server's world is never written into your own saves.",
+   "summary": "Start the Multiplayer page from the start menu: type a SERVER (HOST or HOST:PORT) and a NAME, then Join server. Esc on the loading screen stops a join. The last 8 servers are listed. You can also start the game with --connect=HOST[:PORT] (port 27015 by default) and --name=NAME. You see other players, can build together and chat, and the server's world is never written into your own saves.",
    "controls": [
     [
      "Multiplayer (start menu)",
@@ -5256,9 +5256,12 @@
     "crates/voxelgame-core/src/game/startup.rs:499 — main menu Multiplayer entry opens the page",
     "crates/voxelgame-core/src/game/startup_multiplayer.rs:103-109 — Tab switches fields; Enter joins (line 143)",
     "crates/voxelgame-core/src/game/startup_multiplayer.rs:12-16 — 260-character address, 32-byte name, 8 remembered servers",
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:240-241 — an address with a space inside is refused: \"A server address has no spaces\"",
     "crates/voxelgame-render/src/startup_ui.rs:336-349 — Multiplayer page labels SERVER and NAME",
     "src/launch.rs:164-166 — --connect/--name options; needs a window",
-    "src/app.rs:365-374 — joining replaces loading the local world"
+    "src/app.rs:365-374 — joining replaces loading the local world",
+    "src/app.rs:710-723 — Esc on the loading screen stops a join (\"Stopped joining\"); a join welcomed before Esc leaves the server again",
+    "src/net_client.rs:49 — JOIN_TIMEOUT is 15 s for the whole join, name lookup included"
    ],
    "backlog": [
     "VOX-NET-M2-EDITS",

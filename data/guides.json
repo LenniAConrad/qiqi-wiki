@@ -4599,14 +4599,17 @@
        "t": "steps",
        "items": [
         "Choose **Multiplayer** on the start menu.",
-        "Type the server address in **SERVER**, as HOST or HOST:PORT. The port is 27015 unless you give one. No spaces.",
+        "Type the server address in **SERVER**, as HOST or HOST:PORT. The port is 27015 unless you give one. Leave out spaces: the page refuses an address with a space inside it.",
         "Type the name others see in **NAME**, up to 32 bytes. Leave it empty to use your login name. [[Tab]] switches between the two fields.",
         "Press [[Enter]], or choose **Join server**. To reuse one of the last 8 servers, click its row."
        ]
       },
       {
        "t": "p",
-       "text": "Joining saves your local world first. If you are already on a server, the game waits for your last block edits to reach it before leaving. The server's world is never saved to your computer. A failed join stays on the page with the reason. A server is added to the list only after it welcomes you and its world matches."
+       "text": "Joining saves your local world first. If you are already on a server, the game waits for your last block edits to reach it before leaving. The server's world is never saved to your computer. A failed join stays on the page with the reason. A server is added to the list only after it welcomes you and its world matches."},
+      {
+       "t": "p",
+       "text": "A join gives up after 15 seconds in all. The time includes looking up the server name. To stop a join while it is loading, press [[Esc]] on the loading screen. The page then says **Stopped joining**. If the server had already welcomed you, you leave it again."
       },
       {
        "t": "p",
