@@ -2019,7 +2019,9 @@
     "crates/voxelgame-core/src/game/doors.rs:114-145 — open and close; closing is refused while you stand in the opening",
     "crates/voxelgame-core/src/game/doors.rs:146-170 — hitting a leaf removes the whole door; survival returns it to the pack or leaves it hanging when full; mining beside a leaf keeps it standing",
     "crates/voxelgame-core/src/game/blueprint.rs:661-662 — door leaves are skipped by blueprints",
-    "crates/voxelgame-core/src/world/door.rs:534-538 — a door opens only if its swing path holds air, liquid or plants"
+    "crates/voxelgame-core/src/world/door.rs:534-538 — a door opens only if its swing path holds air, liquid or plants",
+    "crates/voxelgame-core/src/world/door.rs:41 — SWING_SECONDS = 0.35 for the leaf turn (Voxelgame ca443762)",
+    "crates/voxelgame-core/src/game.rs:1533 — Game::update advances the door swings each frame"
    ],
    "notes": "Doors cannot be hung or opened on a server yet (doors.rs:74, 117). Blueprints skip door leaves, so doors are not copied.",
    "guide": {
