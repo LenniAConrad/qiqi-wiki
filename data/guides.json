@@ -1069,7 +1069,7 @@
    "lead": "Each installer builds the game from the source folder and adds a launcher. Worlds and settings live in a separate data folder, so an update leaves them alone.",
    "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-11",
+   "updated": "2026-10-12",
    "state": "complete",
    "covers": [
     "install-linux",
@@ -1079,7 +1079,11 @@
     "setup-logs",
     "data-locations",
     "world-files",
-    "startup-active-world"
+    "startup-active-world",
+    "system-requirements",
+    "uninstall",
+    "build-from-source",
+    "app-icon"
    ],
    "next": [
     "getting-started",
@@ -1097,12 +1101,19 @@
     "setup-logs",
     "data-locations",
     "world-files",
-    "startup-active-world"
+    "startup-active-world",
+    "system-requirements",
+    "uninstall",
+    "build-from-source",
+    "app-icon"
    ],
    "partial": [
     "install-windows",
     "install-macos",
-    "update-by-reinstall"
+    "update-by-reinstall",
+    "system-requirements",
+    "uninstall",
+    "app-icon"
    ],
    "sections": [
     {
@@ -1308,6 +1319,66 @@
        "text": "The installer does not move worlds from a source checkout started with ./run.sh. Copying that worlds folder into the data folder with the game closed should work, but this is inferred from the save paths and has not been tested."
       }
      ]
+    },
+    {
+     "id": "requirements",
+     "title": "Requirements",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Linux with a Vulkan graphics driver and an X11 or XWayland session is the tested platform. The Windows (64-bit Intel or AMD, Windows 10 or 11) and macOS (Apple Silicon, or Intel with a Metal GPU) installers are included, but no real machine has checked graphics and sound on them yet. {{system-requirements}}"
+      },
+      {
+       "t": "p",
+       "text": "The first build needs internet access and several GB of free disk space. The README's 60 FPS target assumes at least an integrated GPU. Software Vulkan (llvmpipe) is only for diagnostics."
+      }
+     ]
+    },
+    {
+     "id": "uninstall",
+     "title": "Uninstall",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "There is no uninstaller. Delete the app folder and its launcher by hand. {{uninstall}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Linux:** delete the app folder, `~/.local/share/voxelgame/app` by default, and `~/.local/share/applications/voxelgame.desktop`.",
+        "**macOS:** delete `~/Applications/Voxelgame.app`.",
+        "**Windows:** delete the app folder and the Voxelgame shortcut in your Start menu Programs folder. The FFmpeg copy in `%LOCALAPPDATA%\\Voxelgame\\tools` stays unless you delete it too.",
+        "Compilers, Rust, Homebrew and audio tools that setup installed stay on the PC."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Your worlds stay in the data folder until you delete it. Deleting the data folder removes all worlds for good, so copy any world you want to keep first."
+      }
+     ]
+    },
+    {
+     "id": "developer",
+     "title": "Build from source",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Developers can build the game without the installer. With Rust 1.75 or newer and the Linux packages installed, run `cargo run --release --locked --bin voxelgame`, or `./run.sh`. {{build-from-source}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "`run.sh` rebuilds only when sources, assets or Cargo files are newer than the program. It shows a small Preparing the game window while it builds.",
+        "Started this way, worlds live in the worlds folder inside the source folder.",
+        "Optional: `aplay` (alsa-utils) for sound and `ffmpeg` for music."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The Linux menu entry and the macOS app use the Voxelgame cube icon. The Windows Start menu shortcut and the game window have no icon. {{app-icon}}"
+      }
+     ]
     }
    ]
   },
@@ -1330,7 +1401,8 @@
     "unreadable-save",
     "troubleshoot-graphics",
     "audio-requirements",
-    "saving"
+    "saving",
+    "lag-spike-log"
    ],
    "next": [
     "install-and-worlds",
@@ -1345,7 +1417,8 @@
     "unreadable-save",
     "troubleshoot-graphics",
     "audio-requirements",
-    "saving"
+    "saving",
+    "lag-spike-log"
    ],
    "partial": [
     "startup-error-reporting",
@@ -1504,6 +1577,28 @@
         "If ffmpeg is missing, Music turns itself off and the status line shows **Music unavailable: ...**.",
         "After you install ffmpeg, open **Settings > Audio** and switch Music back on."
        ]
+      }
+     ]
+    },
+    {
+     "id": "lag-spikes",
+     "title": "Record lag spikes for a bug report",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "With the Performance overlay (F3) on, a frame that takes at least 25 ms and more than twice your frame budget is written to a log. Turn F3 off to stop recording. {{lag-spike-log}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Linux:** `~/.local/state/voxelgame/lag-spikes.jsonl`, or inside `$XDG_STATE_HOME/voxelgame` if that variable is set.",
+        "Each entry has the world seed, your position, the frame cost and up to eight of the slowest causes."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "The F3 panel shows the log status: armed, recording, dropped or unavailable. Attach the file when you report a slow frame."
       }
      ]
     }
@@ -3665,7 +3760,9 @@
     "feedback-messages",
     "camera-bob-and-speed-fov",
     "collection-feed",
-    "water-splashes"
+    "water-splashes",
+    "held-items-first-person",
+    "character-tab-portrait"
    ],
    "next": [
     "controls-reference",
@@ -3682,7 +3779,9 @@
     "feedback-messages",
     "camera-bob-and-speed-fov",
     "collection-feed",
-    "water-splashes"
+    "water-splashes",
+    "held-items-first-person",
+    "character-tab-portrait"
    ],
    "partial": [],
    "sections": [
@@ -3873,6 +3972,20 @@
         "Rain makes small ripple splashes on surfaces.",
         "Boats leave no bow spray or wake."
        ]
+      }
+     ]
+    },
+    {
+     "id": "held-items",
+     "title": "Held items and the character portrait",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A block you select is shown as a small textured cube in your right hand. Tools are held on the right, and the bow sits left of centre with its own string hand. Empty hands show nothing. In survival, a block you no longer carry disappears from your hand. F1 hides held items in the clean view. {{held-items-first-person}}"
+      },
+      {
+       "t": "p",
+       "text": "Press E, stay on Pack and click Character to see a 3D portrait of your explorer. Move the pointer across it to turn the model. It shows Creative or your health, and what you are holding. There are no appearance, outfit or skin options. Remote players in multiplayer use the same fixed explorer model. {{character-tab-portrait}}"
       }
      ]
     }

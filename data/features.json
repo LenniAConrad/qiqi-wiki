@@ -2480,7 +2480,7 @@
     "crates/voxelgame-core/src/game/building.rs:218-225 — survival keeps only the Blueprint gesture",
     "crates/voxelgame-render/src/blueprint_materials_ui.rs — carried / needed list under the compact map"
    ],
-   "notes": "Checked at Voxelgame ee6fa20 (commits 960f2c7, ee6fa20). Survival saving was not confirmed in play: the gesture code also accepts Shift + right click there, so the guide labels it unverified. Blueprints still refuse to place on servers (\"Blueprints aren't available on servers yet\"). Source for d7bbadb is the online raise of mod blueprints only, so it changes no base-game wording.",
+   "notes": "Checked at Voxelgame ee6fa20 (commits 960f2c7, ee6fa20). Survival saving was not confirmed in play: the gesture code also accepts Shift + right click there, so the guide labels it unverified. Blueprints still refuse to place on servers (\"Blueprints aren't available on servers yet\").",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3974,7 +3974,12 @@
     "VOX-OWNER-HELD-BOW-TOOLS",
     "VOX-OWNER-FIRST-PERSON-HANDS"
    ],
-   "notes": "Owner-requested changes (full-size held block, right-side bow, visible empty hand, punch and place motions) are planned and not in this snapshot. F1 clean view hides held items."
+   "notes": "Owner-requested changes (full-size held block, right-side bow, visible empty hand, punch and place motions) are planned and not in this snapshot. F1 clean view hides held items.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "character-tab-portrait",
@@ -4005,7 +4010,12 @@
    "backlog": [
     "VOX-OWNER-PLAYER-SKIN-EDITOR"
    ],
-   "notes": "Remote players in multiplayer use the same fixed explorer model."
+   "notes": "Remote players in multiplayer use the same fixed explorer model.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-moving-and-aiming.html",
+    "label": "Aiming, camera and on-screen feedback"
+   }
   },
   {
    "id": "developer-asset-inspection",
@@ -4551,7 +4561,12 @@
     "install-windows.ps1:18-20 — Windows installer refuses non-Windows and non-AMD64 systems",
     "crates/voxelgame-render/src/loading.rs:53-68 — prefers a high-performance GPU, falls back to a software adapter"
    ],
-   "notes": "The first build needs internet and several GB of free disk space. README says the 60 FPS target assumes at least an integrated GPU; software Vulkan (llvmpipe) is for diagnostics only (README.md:155-156)."
+   "notes": "The first build needs internet and several GB of free disk space. README says the 60 FPS target assumes at least an integrated GPU; software Vulkan (llvmpipe) is for diagnostics only (README.md:155-156).",
+   "guide": {
+    "state": "partial",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
+   }
   },
   {
    "id": "install-linux",
@@ -4681,7 +4696,12 @@
     "install-windows.ps1:76 — FFmpeg copy under %LOCALAPPDATA%\\Voxelgame\\tools",
     "install-windows.ps1:101-104 — FFmpeg copy under %LOCALAPPDATA%\\Voxelgame\\tools"
    ],
-   "notes": "Rust, Homebrew, compilers and audio tools stay installed. On Windows the FFmpeg copy in %LOCALAPPDATA%\\Voxelgame\\tools also remains. Deleting the data folder removes all worlds permanently."
+   "notes": "Rust, Homebrew, compilers and audio tools stay installed. On Windows the FFmpeg copy in %LOCALAPPDATA%\\Voxelgame\\tools also remains. Deleting the data folder removes all worlds permanently.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
+   }
   },
   {
    "id": "build-from-source",
@@ -4695,7 +4715,12 @@
     "run.sh:13-18 — a second click focuses the running game before any rebuild",
     "run.sh:97-106 — failed build closes the splash and shows a KDialog error when available"
    ],
-   "notes": "Developer route. Optional aplay (alsa-utils) for sound and ffmpeg for music (README.md:153)."
+   "notes": "Developer route. Optional aplay (alsa-utils) for sound and ffmpeg for music (README.md:153).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
+   }
   },
   {
    "id": "loading-screen",
@@ -5039,7 +5064,12 @@
     "src/profiling.rs:149-197 — entries and the panel's log status ('armed', 'recording', 'dropped', 'unavailable')",
     "src/app.rs:578-583 — measuring only while the overlay is on"
    ],
-   "notes": "Entries include world seed, position, frame cost and up to eight contributors, which makes them useful for bug reports. See data-locations for the macOS/Windows path caveats."
+   "notes": "Entries include world seed, position, frame cost and up to eight contributors, which makes them useful for bug reports. See data-locations for the macOS/Windows path caveats.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-troubleshooting.html",
+    "label": "Fixing startup, sound and save problems"
+   }
   },
   {
    "id": "troubleshoot-graphics",
@@ -5250,7 +5280,12 @@
    "backlog": [
     "VOX-OWNER-STANDALONE-BLOCK-ICON"
    ],
-   "notes": "Icon artwork is excluded from this snapshot, so its look is unverified. A redesigned standalone block icon is planned."
+   "notes": "Icon artwork is excluded from this snapshot, so its look is unverified. A redesigned standalone block icon is planned.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-install-and-worlds.html",
+    "label": "Install, update and find your worlds"
+   }
   }
  ],
  "guideGaps": [
