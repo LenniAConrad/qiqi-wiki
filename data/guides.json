@@ -2230,6 +2230,7 @@
     "build-undo-redo",
     "build-workspace-palettes",
     "creative-blueprints",
+    "structure-library",
     "survival-blueprints",
     "middle-click-pick",
     "building-in-water",
@@ -2244,7 +2245,7 @@
    ],
    "verification": {
     "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS).",
-    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only."
+    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only. The structure library (naming, O, pictures) was checked at 9f915bcb, not play-tested."
    },
    "owns": [
     "block-targeting-feedback",
@@ -2259,6 +2260,7 @@
     "build-undo-redo",
     "build-workspace-palettes",
     "creative-blueprints",
+    "structure-library",
     "survival-blueprints",
     "middle-click-pick",
     "building-in-water",
@@ -2268,7 +2270,8 @@
     "flowing-water"
    ],
    "partial": [
-    "flowing-water"
+    "flowing-water",
+    "structure-library"
    ],
    "sections": [
     {
@@ -2480,7 +2483,8 @@
        "items": [
         "Press [[B]] until the brush says **Blueprint**. You can also pick it in **E > Build**.",
         "Aim at a ground corner of the build and press [[Shift]] + right-click. The status says **First corner set**.",
-        "Aim at the opposite ground corner and press [[Shift]] + right-click again. The blueprint saves everything built above the lower corner inside the box.",
+        "Aim at the opposite ground corner and press [[Shift]] + right-click again. The **Structures** panel opens with a picture of what was taken. Nothing is saved yet.",
+        "Type a name and press **Save**. A name that is taken needs a second press to replace it. **Keep both** saves a copy called Name 2. Closing the panel discards the capture.",
         "Aim where you want it. The ghost shows the result. Right-click to build it. The whole build is one undo step, so [[Ctrl]]+[[Z]] removes it."
        ]
       },
@@ -2535,6 +2539,46 @@
        "t": "note",
        "kind": "planned",
        "text": "Sharing or importing blueprints and a survival materials list are not in this version. Saving a blueprint in survival is not checked in play yet. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
+      }
+     ]
+    },
+    {
+     "id": "structure-library",
+     "title": "Structure library",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Press [[O]] to open the library. Each saved structure has its own picture. The picked one is shown large, with its size and piece count."
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "O",
+         "Open the library."
+        ],
+        [
+         "Up / Down arrows",
+         "Pick the previous or next structure."
+        ],
+        [
+         "Delete",
+         "Delete the picked structure. Press it twice to confirm."
+        ],
+        [
+         "Escape",
+         "Close the library."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Rename writes the new file before the old one is removed, so a failed rename keeps the original. The library holds up to 64 structures and does not search yet."
+      },
+      {
+       "t": "note",
+       "text": "Checked at Voxelgame 9f915bcb. Not yet play-tested for this guide.",
+       "kind": "careful"
       }
      ]
     },

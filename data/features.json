@@ -2439,7 +2439,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, B to the Blueprint brush. Shift + right click two ground corners to save everything built inside that box. Aim to see the ghost, right click to build it as one undo step; R turns it and Page Up / Page Down lift it. Up to 64 blueprints are kept.",
+   "summary": "In creative, B to the Blueprint brush. Shift + right click two ground corners, then name and save what was built inside that box. Aim to see the ghost, right click to build it as one undo step; R turns it and Page Up / Page Down lift it. Up to 64 blueprints are kept.",
    "controls": [
     [
      "B",
@@ -2447,7 +2447,7 @@
     ],
     [
      "Shift + right click, then Shift + right click",
-     "Save the box between two ground corners (creative, Blueprint)"
+     "Mark the box between two ground corners (creative, Blueprint); then name and save it in the Structures panel"
     ],
     [
      "Right click",
@@ -2489,6 +2489,53 @@
     "VOX-OWNER-BLUEPRINT-DATA",
     "VOX-OWNER-BLUEPRINT-GHOST"
    ]
+  },
+  {
+   "id": "structure-library",
+   "area": "building",
+   "name": "Structure library (name, save and browse)",
+   "status": "partial",
+   "modes": [
+    "creative"
+   ],
+   "summary": "Shift + right click two ground corners opens the Structures panel with a picture of the capture. Type a name and Save; a taken name needs a second press to replace it, or Keep both. O opens the library with a picture of each saved structure; rename, and delete after a second press.",
+   "controls": [
+    [
+     "O",
+     "Open the structure library (creative, Blueprint)"
+    ],
+    [
+     "Up / Down arrows",
+     "Pick the previous or next saved structure in the library"
+    ],
+    [
+     "Enter",
+     "Save the capture under the typed name"
+    ],
+    [
+     "Delete, twice",
+     "Delete the picked structure from the library"
+    ],
+    [
+     "Escape",
+     "Close the panel; an unsaved capture is discarded"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:387 — O opens the library",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:439 — Escape closes the panel",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:465-476 — Up/Down pick, Enter saves, Delete removes after a second press",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:210 — store writes the file, rename keeps the old one until the new is written",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:34 — MAX_LIBRARY_BLUEPRINTS 64",
+    "crates/voxelgame-render/src/structure_library_ui.rs:1 — library panel with 64 x 48 thumbnails and the large picture",
+    "crates/voxelgame-core/src/game/blueprint_desk/library_tests.rs:168 — Keep both test"
+   ],
+   "notes": "Checked at Voxelgame 9f915bcb (library_tests.rs covers capture, Keep both, O and delete). Not play-tested in a running game for this guide. Keep both saves a copy as 'Name 2'. The library does not search yet. Blueprints are refused on servers, as for creative blueprints.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "survival-blueprints",
