@@ -3177,8 +3177,9 @@
    ],
    "notes": "A failed launch says 'Boat needs clear water and room for its hull and mast (8 boats maximum)' and uses nothing. Wrecked boats (0 HP) cannot be boarded or packed and are cleared when you next launch (vehicle/sailing.rs:125-141). Boats are disabled on multiplayer servers ('Boats aren't available on servers yet', game/sailing.rs:49). The recipe belongs to the survival audit and is listed here only for reference.",
    "guide": {
-    "state": "none",
-    "next": "Sailing a boat"
+    "state": "complete",
+    "page": "guide-sailing.html",
+    "label": "Sailing a boat"
    }
   },
   {
@@ -3229,8 +3230,9 @@
    ],
    "notes": "There is no reverse. The boat can turn while stopped. It stops dead if the hull would run aground or hit another boat, and it can only turn where the new heading still has water under the whole hull (vehicle/sailing.rs:159-205), so a grounded boat may need packing up and relaunching. Leaving the helm stops the boat immediately. Opening the pack (E) pauses the boat (game.rs:1149).",
    "guide": {
-    "state": "none",
-    "next": "Sailing a boat"
+    "state": "complete",
+    "page": "guide-sailing.html",
+    "label": "Sailing a boat"
    }
   },
   {
@@ -3255,8 +3257,9 @@
    ],
    "notes": "Because the wind direction never changes in a world, the same routes are always upwind. The HUD bearing 'TO n DEG' is not a compass bearing: 0 deg points to +Z (south on the map) and 90 deg to +X (east) (vehicle_ui.rs:112). Read the flags instead. Seasons do not affect the wind.",
    "guide": {
-    "state": "none",
-    "next": "Sailing a boat"
+    "state": "complete",
+    "page": "guide-sailing.html",
+    "label": "Sailing a boat"
    }
   },
   {
@@ -3275,8 +3278,9 @@
     "crates/voxelgame-core/src/sailing.rs:26-32 — saved boat record (position, yaw, health)"
    ],
    "guide": {
-    "state": "none",
-    "next": "Sailing a boat"
+    "state": "complete",
+    "page": "guide-sailing.html",
+    "label": "Sailing a boat"
    }
   },
   {

@@ -2205,6 +2205,198 @@
      ]
     }
    ]
+  },
+  {
+   "id": "sailing-a-boat",
+   "page": "guide-sailing.html",
+   "number": 11,
+   "gap": 8,
+   "kicker": "Water",
+   "title": "Sailing a boat",
+   "headline": "Launch it, steer it,<br><em>read the wind.</em>",
+   "summary": "Launch and pack up the Small sailing boat, take the helm, set the sails, tack upwind and save your boats.",
+   "lead": "The Small sailing boat floats on any water in the game. You launch it from the hotbar, steer it from the helm and set the sails to catch the wind. Boats are not available on multiplayer servers yet.",
+   "readTime": "5 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "sailing-launch-and-pack",
+    "sailing-helm-controls",
+    "sailing-wind-and-tacking",
+    "sailing-saving"
+   ],
+   "next": [
+    "controls-reference",
+    "maps-and-finding-your-way"
+   ],
+   "verification": {
+    "method": "Launch, pack, helm keys, sail and steering behaviour, wind speeds and saving come from the feature ledger, which cites the game source lines for each entry. The 6 m launch and pack range, 9 m helm range, 18 kg carrying capacity, 8-boat limit and 45 degree no-push zone are code values.",
+    "limits": "Source-checked, not play-tested in this guide and without screenshots. Test the tacking advice and the 45 degree no-push zone on open water before you rely on them."
+   },
+   "owns": [
+    "sailing-launch-and-pack",
+    "sailing-helm-controls",
+    "sailing-wind-and-tacking",
+    "sailing-saving"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "launch",
+     "title": "Launch a boat",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Crafting the Small sailing boat selects it, ready to launch. Launching it works in creative and survival, and the boat can float on any water: sea, lakes and all six water types, at their real surface height. {{sailing-launch-and-pack}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Select the Small sailing boat in your hotbar or inventory.",
+        "Look at open water within 6 m and right-click. The boat appears on the water.",
+        "In survival, the launch uses one boat item. In creative, the boat comes from the catalog and no item is used."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "The launch needs water under the whole hull and clear room for the mast. If it fails, the game says \"Boat needs clear water and room for its hull and mast (8 boats maximum)\" and nothing is used. You can have up to 8 boats in the world at once."
+      }
+     ]
+    },
+    {
+     "id": "pack",
+     "title": "Pack up a boat",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Packing a boat puts it back into your pack, so you can carry it to another lake or sea. {{sailing-launch-and-pack}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Walk up to a boat that has nobody at the helm and look at it from within 6 m.",
+        "Hold Shift and right-click. You can hold any item.",
+        "The boat goes into your pack. In survival, the boat item comes back to you."
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "You need 18 kg of free carrying capacity. A boat that is too heavy for your pack cannot be packed.",
+        "A boat with 0 health (wrecked) cannot be boarded or packed. The game clears it the next time you launch a boat."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Boats are not available on multiplayer servers yet. The game refuses with \"Boats aren't available on servers yet\"."
+      }
+     ]
+    },
+    {
+     "id": "helm",
+     "title": "Take the helm and sail",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "You can walk and jump on the wooden deck like normal ground. The helm is where you steer and set the sails. {{sailing-helm-controls}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "V",
+         "Take the helm, or step back to the cockpit. You must be within 9 m of the boat or on its deck."
+        ],
+        [
+         "W (hold)",
+         "Raise the sails. They follow over about 2 seconds."
+        ],
+        [
+         "S (hold)",
+         "Reef the sails (lower the setting)."
+        ],
+        [
+         "Space",
+         "Lower the sails completely."
+        ],
+        [
+         "A / D",
+         "Steer left or right. The rudder eases in and recentres."
+        ],
+        [
+         "C or F5",
+         "Switch between first-person and chase view."
+        ],
+        [
+         "Hold Alt",
+         "Look around freely without turning the boat."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "There is no reverse. Lower the sails to slow down, and steer to turn.",
+        "The boat can turn while it is stopped.",
+        "The boat stops dead if its hull would run aground or hit another boat. It can only turn where the new heading still has water under the whole hull. If the boat is stuck on the shore, pack it up and launch it again.",
+        "Stepping off the helm stops the boat at once. Opening your pack with E pauses it."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "wind",
+     "title": "Wind and tacking",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Each world has one wind direction, and it never changes. The wind strength depends on the weather: about 2.8 m/s in clear weather and up to 8.5 m/s in a thunderstorm. Seasons do not change the wind. {{sailing-wind-and-tacking}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Running with the wind (sailing straight downwind) is fastest.",
+        "Sailing across the wind gives about two-thirds of the wind speed.",
+        "Within 45 degrees of sailing straight into the wind, the sails give no push. To go upwind, zig-zag: sail one side of the wind, then turn across it to the other side. This is called tacking."
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Read the flags"
+      },
+      {
+       "t": "list",
+       "items": [
+        "The red pennant at the top of the mast points downwind, the way the air travels.",
+        "The HUD flag shows the wind with the bow of your boat at the top of the screen."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "The HUD bearing reads \"TO n DEG\", but it is not a compass bearing. 0 degrees points to +Z, which is south on the map, and 90 degrees points to +X, which is east. Use the flags to judge the wind."
+      }
+     ]
+    },
+    {
+     "id": "saving",
+     "title": "Boats and saving",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Up to 8 launched boats are saved with their position, heading and health. Your boats are still there when you load the world. {{sailing-saving}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "If you save while at the helm, you reload standing in the stopped boat's cockpit, not at the helm. Press V to take the helm again."
+      }
+     ]
+    }
+   ]
   }
  ]
 }
