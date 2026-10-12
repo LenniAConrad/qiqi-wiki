@@ -261,7 +261,7 @@
     "VOX-OWNER-WORLDS-BACKUP",
     "VOX-OWNER-WORLDS-SCREENSHOTS"
    ],
-   "notes": "There is no seed, mode or option picker: new worlds always start in creative. Only four rows show and the mouse wheel does not scroll this list, so use the arrows or type to filter. Stars (Voxelgame 7a7396a) are kept in worlds/favourites.txt, not in the save. No rename, backup or thumbnails yet (planned).",
+   "notes": "There is no seed, mode or option picker: new worlds always start in creative. Only four rows show and the mouse wheel does not scroll this list, so use the arrows or type to filter. Stars (Voxelgame 7a7396a) are kept in worlds/favourites.txt, not in the save. Each row shows the world's last picture; the main menu and loading screen show the active world's picture (ea67abf4, 84166c45). No rename or backup yet (planned).",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -2505,7 +2505,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "Shift + right click two ground corners opens the Structures panel with a picture of the capture. Type a name and Save; a taken name needs a second press to replace it, or Keep both. O opens the library with a picture of each saved structure; rename, and delete after a second press.",
+   "summary": "Shift + right click two ground corners opens the Structures panel with a picture of the capture. Type a name and Save; a taken name needs a second press to replace it, or Keep both. O opens the library with a picture of each saved structure; type part of a name in its search field to narrow the list; rename, and delete after a second press.",
    "controls": [
     [
      "O",
@@ -2537,7 +2537,7 @@
     "crates/voxelgame-render/src/structure_library_ui.rs:1 — library panel with 64 x 48 thumbnails and the large picture",
     "crates/voxelgame-core/src/game/blueprint_desk/library_tests.rs:168 — Keep both test"
    ],
-   "notes": "Checked at Voxelgame 9f915bcb (library_tests.rs covers capture, Keep both, O and delete). Not play-tested in a running game for this guide. Keep both saves a copy as 'Name 2'. The library does not search yet. Blueprints are refused on servers, as for creative blueprints.",
+   "notes": "Checked at Voxelgame 9f915bcb (library_tests.rs covers capture, Keep both, O and delete). Not play-tested in a running game for this guide. Keep both saves a copy as 'Name 2'. The library search narrows the list to names containing the typed text (8ef8aed4). Blueprints are refused on servers, as for creative blueprints.",
    "guide": {
     "state": "partial",
     "page": "guide-building.html",

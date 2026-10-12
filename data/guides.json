@@ -138,7 +138,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "The Worlds page shows only four rows at a time and the mouse wheel does not scroll it. Use the Up and Down arrows or type to filter. Rename, backups and thumbnails are not in the game yet. {{worlds-page}}"
+       "text": "The Worlds page shows only four rows at a time and the mouse wheel does not scroll it. Use the Up and Down arrows or type to filter. Each row shows the picture of that world's last visit. Rename and backups are not in the game yet. {{worlds-page}}"
       },
       {
        "t": "note",
@@ -2576,7 +2576,7 @@
       },
       {
        "t": "p",
-       "text": "Rename writes the new file before the old one is removed, so a failed rename keeps the original. The library holds up to 64 structures and does not search yet."
+       "text": "Rename writes the new file before the old one is removed, so a failed rename keeps the original. The library holds up to 64 structures. Click the search field above the list and type part of a name to narrow it. Enter ends the search and keeps the matches, and Up and Down pick among them."
       },
       {
        "t": "note",
