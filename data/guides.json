@@ -2038,15 +2038,18 @@
     "build-undo-redo",
     "build-workspace-palettes",
     "creative-blueprints",
-    "survival-blueprints"
+    "survival-blueprints",
+    "middle-click-pick",
+    "building-in-water",
+    "placement-restrictions"
    ],
    "next": [
     "maps-and-finding-your-way",
     "controls-reference"
    ],
    "verification": {
-    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values.",
-    "limits": "Source-checked, not play-tested in this guide. The block outline and ghost may look different in later builds."
+    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS).",
+    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only."
    },
    "owns": [
     "block-targeting-feedback",
@@ -2061,7 +2064,10 @@
     "build-undo-redo",
     "build-workspace-palettes",
     "creative-blueprints",
-    "survival-blueprints"
+    "survival-blueprints",
+    "middle-click-pick",
+    "building-in-water",
+    "placement-restrictions"
    ],
    "partial": [],
    "sections": [
@@ -2085,6 +2091,34 @@
        "t": "note",
        "kind": "limit",
        "text": "If any part of the target cell is occupied, the whole block is refused and the outline turns red. You cannot place a block inside yourself. Plants and water in the target cell are overwritten."
+      }
+     ]
+    },
+    {
+     "id": "pick-water-and-limits",
+     "title": "Picking, water and placement limits",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In creative, middle-click the block you aim at to pick it. If the block is already in a hotbar slot, that slot is selected. Otherwise the block is held without changing your other slots. Aiming at a door picks the closed door. Middle-click does nothing in survival. {{middle-click-pick}}"
+      },
+      {
+       "t": "p",
+       "text": "Your aim passes through water to the first solid block. Stand on the shore and aim at a lake or sea bed, then build up from it. You cannot click the water surface itself. Placed blocks replace water and plants in their cell. {{building-in-water}}"
+      },
+      {
+       "t": "p",
+       "text": "A block is refused, with a message in the status line, when:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Only blocks can be placed. Tools, food and other items cannot.",
+        "Your hands are empty, or a tool, bow, rifle or throwing rock is in hand.",
+        "A solid block is in the target cell.",
+        "In survival, your pack does not have 8 pieces of the material for a whole block.",
+        "The world already holds 200,000 changed blocks. New building is refused, and the save warns before the limit. {{placement-restrictions}}"
+       ]
       }
      ]
     },

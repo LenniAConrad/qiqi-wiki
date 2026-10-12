@@ -2107,7 +2107,12 @@
     "crates/voxelgame-core/src/game.rs:1817-1822 — creative-only pick, message 'Selected <block> | RMB place'",
     "crates/voxelgame-core/src/game/hotbar.rs:367-381 — selects an existing slot or holds the block; puts tools away"
    ],
-   "notes": "Picks the exact material (for example Meadow turf, not the Loam it drops). Does nothing in survival."
+   "notes": "Picks the exact material (for example Meadow turf, not the Loam it drops). Does nothing in survival.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "building-in-water",
@@ -2125,7 +2130,12 @@
     "crates/voxelgame-core/src/world/block.rs:421-424 — liquids are replaceable",
     "crates/voxelgame-core/src/game.rs:2381-2392 — breaking a plant that shares its cell with water leaves water, not an air pocket"
    ],
-   "notes": "To bridge water, build out from the shore or up from the bed. Water flow belongs to the world/water pages."
+   "notes": "To bridge water, build out from the shore or up from the bed. Water flow belongs to the world/water pages.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "placement-restrictions",
@@ -2136,14 +2146,18 @@
     "creative",
     "survival"
    ],
-   "summary": "Only blocks can be placed; tools, food and other items cannot. Nothing is placed inside your body, into occupied cells, in survival without enough pieces, or while a tool, bow, rifle or throwable is in hand or you are in a vehicle; the Home crate is protected and edits stop at the world's save limit.",
+   "summary": "Only blocks can be placed; tools, food and other items cannot. Nothing is placed in occupied cells, in survival without enough pieces, or while a tool, bow, rifle or throwing rock is in hand; the Home crate is protected and edits stop at the world's save limit.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:351-356 — only items that map to a block are placeable",
     "crates/voxelgame-core/src/game/readouts.rs:11-16 — no placement with a tool equipped or empty hands",
-    "crates/voxelgame-core/src/game/mod_vehicles.rs:123-133 — ranged weapons, throwables and vehicles disable block interaction",
     "crates/voxelgame-core/src/game.rs:1893-1904 — refusal messages"
    ],
-   "notes": "Multiplayer specifics belong to the platform area. TNT ignition and dynamite are refused on servers."
+   "notes": "Multiplayer specifics belong to the platform area. TNT ignition and dynamite are refused on servers.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "creative-brush-cycle",
