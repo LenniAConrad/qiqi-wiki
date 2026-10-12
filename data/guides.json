@@ -3658,7 +3658,8 @@
    "covers": [
     "animal-natural-spawning",
     "animal-calls",
-    "animal-spawn-eggs"
+    "animal-spawn-eggs",
+    "animal-species-roster"
    ],
    "next": [
     "hunting-and-animals",
@@ -3666,13 +3667,14 @@
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "Spawn rules come from crates/voxelgame-core/src/entities/mod.rs at Voxelgame 51169272: the 36-animal cap, 32 m spawn cells, the empty-cell roll, the 96 m height limit, the 180 m removal distance, the per-species caps and the biome species groups. Call rules come from has_ambient_call, ambient_call and the 24 m falloff in the same file. Egg rules come from ranged_input.rs (wind-up, survival use, 64-creature limit for thrown eggs in entities/mod.rs) and ui.rs (MOBS tab only). A search of the game code found no spawn-egg crafting recipe.",
+    "method": "Spawn rules come from crates/voxelgame-core/src/entities/mod.rs at Voxelgame 51169272 (spawn rules) and 98c662d6 (species roster: Species::ALL has 94 entries; names from name()): the 36-animal cap, 32 m spawn cells, the empty-cell roll, the 96 m height limit, the 180 m removal distance, the per-species caps and the biome species groups. Call rules come from has_ambient_call, ambient_call and the 24 m falloff in the same file. Egg rules come from ranged_input.rs (wind-up, survival use, 64-creature limit for thrown eggs in entities/mod.rs) and ui.rs (MOBS tab only). A search of the game code found no spawn-egg crafting recipe.",
     "limits": "Source-checked, not play-tested in this guide. No captures of spawned animals exist yet. Exact spawn counts depend on the terrain around you, so the numbers here are caps, not what you will always see."
    },
    "owns": [
     "animal-natural-spawning",
     "animal-calls",
-    "animal-spawn-eggs"
+    "animal-spawn-eggs",
+    "animal-species-roster"
    ],
    "partial": [],
    "sections": [
@@ -3731,6 +3733,20 @@
        "t": "note",
        "kind": "limit",
        "text": "A call's loudness is set when it starts. It does not change as the animal or you move."
+      }
+     ]
+    },
+    {
+     "id": "species",
+     "title": "All 94 species",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The game has 94 animal species, from cows and rabbits to whales, giant squid, bats and swans. Each one has its own spawn cap and biome groups. {{animal-species-roster}}"
+      },
+      {
+       "t": "p",
+       "text": "Cow, pig, chicken, deer, sheep, rabbit, fox, boar, goat, frog, gull, goose, buffalo, duck, beaver, wild horse, bear, zebra, giraffe, elephant, hippo, salmon, trout, carp, turkey, peafowl, wolf, panther, tiger, lion, crab, turtle, crocodile, whale, ostrich, kangaroo, butterfly, roadrunner, gazelle, fly, hummingbird, orca, sunbird, gorilla, rattlesnake, hammerhead shark, lobster, Komodo dragon, capuchin monkey, cave centipede, moose, raccoon, blobfish, seal, cockroach, shoebill, snow leopard, crow, alligator snapping turtle, mantis shrimp, emu, platypus, Tasmanian devil, leafcutter ant, bald eagle, tarantula hawk, frilled shark, mimic octopus, toucan, maned wolf, anaconda, anteater, gelada monkey, jerboa, terrapin, comb jelly, giant squid, Devils Hole pupfish, catfish, flying fish, potoo, mudskipper, rhinoceros, sugar glider, skunk, banana slug, blue jay, caiman, triops, bison, bat, river otter, penguin, swan."
       }
      ]
     },

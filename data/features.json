@@ -3878,9 +3878,9 @@
    ],
    "notes": "The full list lives in crates/voxelgame-core/src/entities/mod.rs (Species::ALL and name()); the egg table, with display labels, is crates/voxelgame-core/src/inventory/spawn_eggs.rs. This wiki’s animal atlas is a 28 September snapshot with 93 species; the Swan was added to the game afterwards.",
    "guide": {
-    "state": "atlas",
-    "page": "animals.html",
-    "label": "Animal atlas (93 species, 28 September)"
+    "state": "complete",
+    "page": "guide-creatures.html",
+    "label": "Animal spawning, calls and spawn eggs"
    }
   },
   {
