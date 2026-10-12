@@ -2539,6 +2539,41 @@
        "text": "Saved blueprints are plain files with the `.blueprint` extension in a folder named `blueprints`. The game looks for that folder where it starts. Without it, blueprints last only until you leave the session."
       },
       {
+       "t": "h",
+       "text": "Structure workshop"
+      },
+      {
+       "t": "p",
+       "text": "The Structure workshop is a flat creative world for designing a build away from your home. Choose **Structure workshop** on the main menu. It is always creative, at midday, with no animals. Your current world is saved first."
+      },
+      {
+       "t": "p",
+       "text": "Build as you would anywhere, then save the build as a blueprint. Choose **Leave workshop** to return to the world you came from. The flat ground is never part of a blueprint, and you can travel without reaching an edge."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "The flat workshop has not been checked in play yet. This page follows the game source and its tests."
+      },
+      {
+       "t": "p",
+       "text": "Workshops made before this change are listed in **Worlds** with **(legacy workshop)**. Opening one keeps its original terrain, platform, player position and builds. The main menu makes a new flat workshop and does not change the old save."
+      },
+      {
+       "t": "h",
+       "text": "Move a build from a legacy workshop"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Open the legacy workshop from **Worlds**.",
+        "Save the build as a blueprint (see Save a blueprint, creative above).",
+        "Choose **Leave workshop** to return to your world, then choose **Structure workshop** on the main menu.",
+        "Select the saved blueprint and check its ghost in the new workshop.",
+        "Keep the legacy workshop until you have checked the copy. It stays available for more edits."
+       ]
+      },
+      {
        "t": "note",
        "kind": "planned",
        "text": "Sharing or importing blueprints and a survival materials list are not in this version. Saving a blueprint in survival is not checked in play yet. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
@@ -4607,7 +4642,8 @@
       },
       {
        "t": "p",
-       "text": "Joining saves your local world first. If you are already on a server, the game waits for your last block edits to reach it before leaving. The server's world is never saved to your computer. A failed join stays on the page with the reason. A server is added to the list only after it welcomes you and its world matches."},
+       "text": "Joining saves your local world first. If you are already on a server, the game waits for your last block edits to reach it before leaving. The server's world is never saved to your computer. A failed join stays on the page with the reason. A server is added to the list only after it welcomes you and its world matches."
+      },
       {
        "t": "p",
        "text": "A join gives up after 15 seconds in all. The time includes looking up the server name. To stop a join while it is loading, press [[Esc]] on the loading screen. The page then says **Stopped joining**. If the server had already welcomed you, you leave it again."
@@ -4623,7 +4659,7 @@
         "Read the address on the page. Other players type it in **SERVER**. The port is 27015 when it is free; otherwise the page shows another port, so type the port too.",
         "Other players type their name in **NAME** and choose **Join server**.",
         "Choose **Stop hosting** when you are done. The world is saved, everyone is disconnected and your save loads for single play."
-      ]
+       ]
       },
       {
        "t": "list",
@@ -4632,7 +4668,7 @@
         "To join a server, choose Stop hosting first.",
         "Loading or creating another world, opening the Structure Workshop or quitting stops hosting first. The world is saved before it stops.",
         "Hosting starts with your saved position, inventory, hotbar, tool, home and journal. Items you collect or use while hosting are saved with the world, and single play resumes from there."
-      ]
+       ]
       },
       {
        "t": "p",

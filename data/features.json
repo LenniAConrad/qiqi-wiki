@@ -4191,8 +4191,9 @@
    "area": "customize",
    "name": "Structure Workshop and player blueprints",
    "status": "planned",
-   "summary": "Importing or exporting blueprints, sharing them, and a Structure Workshop are not in the game. Saving and placing blueprints is in Creative blueprints and Survival blueprint builds. Blueprints do not work on servers yet.",
+   "summary": "Importing or exporting blueprints and sharing them are not in the game. The main menu's Structure workshop is a flat creative world for building and saving blueprints; it is source-checked only. Blueprints do not work on servers yet.",
    "evidence": [
+    "README.md:719-727 — legacy (elevated) workshops stay in Worlds; main menu makes a separate flat workshop",
     "crates/voxelgame-core/src/game/structures.rs:446-521 — stamping supports only X/Z mirroring for generated sites",
     "crates/voxelgame-core/src/game/building.rs:233-263 — Copy clipboard"
    ],
