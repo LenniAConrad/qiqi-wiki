@@ -2746,7 +2746,12 @@
     "VOX-OWNER-FLOWING-LAVA",
     "VOX-OWNER-FIRE"
    ],
-   "notes": "No code damages players from magma stone, boiling water or steam vents (grep for MAGMA_STONE/BOILING_WATER/STEAM_VENT outside generation and rendering finds no gameplay use). Steam vents are static blocks with no steam particles."
+   "notes": "No code damages players from magma stone, boiling water or steam vents (grep for MAGMA_STONE/BOILING_WATER/STEAM_VENT outside generation and rendering finds no gameplay use). Steam vents are static blocks with no steam particles.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-volcanoes-water-and-expeditions.html",
+    "label": "Volcanoes, water and expedition sites"
+   }
   },
   {
    "id": "rivers-lakes-wetlands",
@@ -2762,7 +2767,12 @@
     "crates/voxelgame-core/src/world/generator.rs:54 — MAX_INLAND_LAKE_LEVEL = sea + 62",
     "crates/voxelgame-core/src/world/generator.rs:3670-3690 — water kind to block: Water, Fresh water, Black water, Warm mineral water, Boiling water, Ice/Black ice",
     "crates/voxelgame-core/src/world/mod.rs:2008-2050 — only player-placed or disturbed water flows"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-volcanoes-water-and-expeditions.html",
+    "label": "Volcanoes, water and expedition sites"
+   }
   },
   {
    "id": "waterfalls-dripstone",
@@ -2796,7 +2806,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Generation-10 worlds have three small landmarks within about 300 m of spawn: the Survey workshop to the east, the Reed refuge to the south-west and the Stone overlook to the north-east. Click one in the Journal to make it your destination. Walk to within 12 m of it on foot to discover it, then press Find in the Journal while still nearby to collect its one-time supplies.",
+   "summary": "Generation-10 worlds have three small landmarks in squares about 240 m wide, centred about 215, 340 and 440 m from spawn: the Survey workshop to the east, the Reed refuge to the south-west and the Stone overlook to the north-east. Click one in the Journal to make it your destination. Walk to within 12 m of it on foot to discover it, then press Find in the Journal while still nearby to collect its one-time supplies.",
    "controls": [
     [
      "E, then Tab to Journal (or the Journal button on the…",
@@ -2820,7 +2830,12 @@
    "backlog": [
     "VOX-OWNER-DISCOVERIES-HOME"
    ],
-   "notes": "If no dry, level spot is found near a site's base position, that site is skipped, so a world can have fewer than three. The site buildings are regenerated each session and do not show on the map, but any blocks you mine or place there are kept. Without enough pack space the game says 'Leave pack space; the find will wait here'. You can still harvest the site's blocks after taking the find. The Reed refuge has a small fresh-water pool, the workshop has a glass block and carved-stone floor, and the overlook has a Lumen crystal light (exploration.rs:192-242)."
+   "notes": "If no dry, level spot is found near a site's base position, that site is skipped, so a world can have fewer than three. The site buildings are regenerated each session and do not show on the map, but any blocks you mine or place there are kept. Without enough pack space the game says 'Leave pack space; the find will wait here'. You can still harvest the site's blocks after taking the find. The Reed refuge has a small fresh-water pool, the workshop has a glass block and carved-stone floor, and the overlook has a Lumen crystal light (exploration.rs:192-242).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-volcanoes-water-and-expeditions.html",
+    "label": "Volcanoes, water and expedition sites"
+   }
   },
   {
    "id": "day-night-cycle",

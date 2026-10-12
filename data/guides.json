@@ -3852,9 +3852,152 @@
    ]
   },
   {
+   "id": "volcanoes-water-and-expeditions",
+   "page": "guide-volcanoes-water-and-expeditions.html",
+   "number": 20,
+   "gap": null,
+   "kicker": "World",
+   "title": "Volcanoes, water and expedition sites",
+   "headline": "Volcanoes, water and expedition sites<br><em>volcanic ground, the kinds of water, and the three finds.</em>",
+   "summary": "Some islands have volcanoes of solid, cooled rock. Lakes, rivers, wetlands and hot springs each have their own kind of water. New worlds have three expedition sites with a one-time supply find.",
+   "lead": "This page covers the volcanic ground, the kinds of water you will find, and how to reach and collect the three expedition sites in a new world.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "volcanoes",
+    "rivers-lakes-wetlands",
+    "expedition-sites"
+   ],
+   "next": [
+    "caves-and-landmarks",
+    "maps-and-finding-your-way",
+    "sailing-a-boat"
+   ],
+   "verification": {
+    "method": "Volcano shapes and ages come from crates/voxelgame-core/src/world/generator/relief.rs at Voxelgame 0494a0ce (volcano_plan, lines 172-195). Surface water kinds come from crates/voxelgame-core/src/world/generator.rs at the same commit (surface water material, lines 3666-3690), and the inland lake limit from MAX_INLAND_LAKE_LEVEL (sea level + 62 m, line 54). Block names come from crates/voxelgame-core/src/world/block/table.rs. Expedition placement, discovery, collection and find contents come from crates/voxelgame-core/src/game/exploration.rs in the same commit; the Journal labels come from crates/voxelgame-render/src/inventory_ui.rs.",
+    "limits": "Source-checked, not play-tested in this guide. A site is skipped when its square has no dry, level spot, so some new worlds may have fewer than three. The site squares are the code's rule; the exact site is somewhere inside its square. Source HEAD has moved past this pin, so the values here are from 0494a0ce."
+   },
+   "owns": [
+    "volcanoes",
+    "rivers-lakes-wetlands",
+    "expedition-sites"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "volcanoes",
+     "title": "Volcanoes and volcanic ground",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Some islands have a volcano. Each one has one of three shapes. {{volcanoes}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Shield volcano: a broad, low mountain.",
+        "Stratovolcano: a steeper cone.",
+        "Breached caldera: a summit crater with one side broken open. These are older and more worn down."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Older volcanoes are more eroded and more overgrown. Volcanic ground is made of basalt, obsidian, volcanic ash, lava rock, pahoehoe stone and magma stone."
+      },
+      {
+       "t": "p",
+       "text": "Magma stone glows, but it does not heat you or set anything on fire. Steam vents and warm or boiling pools are found in the geothermal ground beside the volcanoes."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "There is no molten lava and nothing burns. Steam vents are plain blocks: they do not make steam clouds. Flowing lava and fire are not in the game yet."
+      }
+     ]
+    },
+    {
+     "id": "water",
+     "title": "Lakes, rivers and wetlands",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Islands have river channels, inland lakes, marshes, bogs, mangroves, bayous and frozen lakes. Inland lakes sit no higher than 62 m above sea level. {{rivers-lakes-wetlands}}"
+      },
+      {
+       "t": "p",
+       "text": "Natural water stays still. Rivers do not flow and do not push you. Water you place or dig out does flow."
+      },
+      {
+       "t": "p",
+       "text": "The kind of water depends on where it is:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Ocean: Water.",
+        "Lakes and rivers: Fresh water.",
+        "Warm wetlands (marshes, bogs, mangroves and bayous): Black water.",
+        "Hot springs and geothermal ground: Warm mineral water. The hottest pools are Boiling water.",
+        "Frozen lakes: Ice or Black ice. Frozen sea: Ice, Black ice or Glacier ice."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Boiling water and steam do not hurt you in this version."
+      }
+     ]
+    },
+    {
+     "id": "expeditions",
+     "title": "Expedition sites",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Worlds made in the current generation (generation 10) have three small expedition sites near spawn. Each site is somewhere inside a square about 240 m wide. The three squares are centred about 215 m, 340 m and 440 m from spawn. The site ground must be dry and level. {{expedition-sites}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Older worlds have no expedition sites. If the game cannot find a dry, level spot in a square, that site is missing."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Press E, then Tab to the Journal. The three sites are listed. A '?' means you have not found it yet, and a '+' means you have.",
+        "Click a site name to make it your destination. A beacon and an on-screen marker show the way.",
+        "Walk on the ground to within 12 m of the site. The status line says 'Discovered' and the site name.",
+        "Stay within 12 m, open the Journal and click Find next to the site. You must be on foot, not flying, sailing or riding.",
+        "Check that you have pack space. If you do not, the game says the find will wait there, so free some space and try again."
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "Survey workshop: 16 Alder boards and 8 Glass.",
+        "Reed refuge: 16 Reeds.",
+        "Stone overlook: 8 Chalk and 8 Basalt."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "After you collect a find, its button reads Taken. Use Craft to turn the materials into buildings."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Each find can be collected only once, and the game saves that it was taken. Collect it before your pack is full; a find that does not fit waits at the site."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 20,
+   "number": 21,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",
