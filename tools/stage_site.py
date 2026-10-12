@@ -19,6 +19,7 @@ PUBLIC_FILES = (
     'guide-install-and-worlds.html',
     'guide-troubleshooting.html', 'guide-hunting.html', 'guide-seasons.html', 'guide-maps.html', 'guide-building.html',
     'guide-sailing.html',
+    'guide-not-in-game.html',
     'performance.html', 'scale.html', 'ABOUT.md',
     'style.css', 'wiki.css', 'features.css', 'guides.css', 'islands.css',
     'performance.css', 'scale.css',

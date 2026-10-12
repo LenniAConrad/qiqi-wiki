@@ -5,7 +5,7 @@
  "headline": "Learn the game,<br><em>one task at a time.</em>",
  "lead": "Short, task-based guides for what you can do in the game today. Every key, number and recipe is traced to the game's source code, and planned features stay marked as planned.",
  "comingLead": "These guides are next, in the order players need them. Each waits on a source check and, where noted, on screenshots from a disposable headless session.",
- "updated": "2026-10-11",
+ "updated": "2026-10-12",
  "guides": [
   {
    "id": "getting-started",
@@ -2394,6 +2394,119 @@
        "t": "note",
        "kind": "tip",
        "text": "If you save while at the helm, you reload standing in the stopped boat's cockpit, not at the helm. Press V to take the helm again."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "not-in-the-game-yet",
+   "page": "guide-not-in-game.html",
+   "number": 12,
+   "gap": 15,
+   "kicker": "Reference",
+   "title": "Not in the game yet",
+   "headline": "Not in the game yet,<br><em>and what to do instead.</em>",
+   "summary": "Fire, lava, waterfalls and dripstone, doors and furniture, and player skins are not in this version. Here is what is missing and what you can do today.",
+   "lead": "This page answers the common “is this in the game?” questions. Each item is checked against the game source for the audited version. Planned features are marked as planned, and no guide describes how they work until they ship.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "fire",
+    "flowing-lava",
+    "waterfalls-dripstone",
+    "planned-doors-chests-furniture",
+    "player-skins"
+   ],
+   "next": [
+    "controls-reference",
+    "maps-and-finding-your-way"
+   ],
+   "verification": {
+    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042.",
+    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships."
+   },
+   "owns": [],
+   "partial": [],
+   "sections": [
+    {
+     "id": "fire",
+     "title": "Fire",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "There is no fire you can light, spread or put out. Explosions show a brief flash and burst and leave nothing burning. {{fire}}"
+      },
+      {
+       "t": "p",
+       "text": "The FIRE & FOOD crafting tab holds recipes only: charcoal, cooked meat, glass and flasks are made instantly there, with no campfire or furnace to place. {{fire-and-glass-chain}}"
+      },
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Campfires, furnaces and spreading fire are not in the game yet."
+      }
+     ]
+    },
+    {
+     "id": "lava",
+     "title": "Lava",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "There is no lava liquid. Volcanic areas and lava tubes are solid rock: basalt, obsidian, lava rock, pahoehoe and magma stone. Lava tubes are cooled and walkable. Nothing flows, burns or cools into stone. {{flowing-lava}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Only water flows in this version, so there is no lava pool to avoid."
+      }
+     ]
+    },
+    {
+     "id": "waterfalls",
+     "title": "Waterfalls and dripstone",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "There are no natural waterfalls, stalactites, stalagmites or dripstone caves. Water you place in creative mode can pour over an edge, but no cascade is drawn and the waterfall sound is not used. {{waterfalls-dripstone}}"
+      }
+     ]
+    },
+    {
+     "id": "storage",
+     "title": "Doors, chests and furniture",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Doors, placeable storage chests, closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. The Home crate is the only storage. {{planned-doors-chests-furniture}}"
+      }
+     ]
+    },
+    {
+     "id": "skins",
+     "title": "Player skins",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Your explorer wears one built-in outfit with fixed colours. There is no skin editor, and no skin import or export. {{player-skins}}"
+      }
+     ]
+    },
+    {
+     "id": "when-it-ships",
+     "title": "When a feature ships",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A feature moves off this page only after the game ships it and its source is checked. Its own guide then replaces the entry here."
       }
      ]
     }
