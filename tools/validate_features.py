@@ -104,6 +104,7 @@ def validate_ledger(ledger):
             check_evidence(item, where)
         backlog = feature.get("backlog", [])
         require(all(isinstance(item, str) and BACKLOG.fullmatch(item) for item in backlog), f"{where}: backlog ids")
+        require(not any("MOD" in item for item in backlog), f"{where}: optional-mod tracker id on the base-game ledger")
         require("pack" not in feature, f"{where}: base-game features cannot name a content pack")
         if feature["status"] == "planned":
             require(backlog, f"{where}: planned features cite the request that tracks them")

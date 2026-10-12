@@ -3314,9 +3314,7 @@
     "crates/voxelgame-core/src/entities/mod.rs:1868-1872 — farm animals stay calm; wild animals keep a non-hostile distance",
     "crates/voxelgame-core/src/vehicle/garrison.rs:526-575 — soldiers target opposing soldiers only"
    ],
-   "backlog": [
-    "VOX-OWNER-HEROBRINE-MOD"
-   ],
+   "backlog": [],
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
