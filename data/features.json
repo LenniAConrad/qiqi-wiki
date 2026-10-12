@@ -1070,7 +1070,7 @@
    "backlog": [
     "VOX-OWNER-MOVE-THROUGH-LEAVES"
    ],
-   "notes": "Leaf litter on the ground is a plant and can be walked through."
+   "notes": "Fallen leaves on the ground is a plant and can be walked through."
   },
   {
    "id": "survival-meters",
@@ -1480,7 +1480,7 @@
    "backlog": [
     "VOX-OWNER-INVENTORY-ICON-DEFECTS"
    ],
-   "notes": "'USED IN' shows only the first recipe that names the exact item, so stones that only count through the natural-stone group (for example Shore gravel) show 'USE: PLACE / BUILD' even though tools accept them. Categories: BUILDING BLOCK, EQUIPMENT, AMMUNITION, CONSUMABLE, CRAFTING RESOURCE, VEHICLE.",
+   "notes": "'USED IN' shows only the first recipe that names the exact item, so stones that only count through the natural-stone group (for example Gravel) show 'USE: PLACE / BUILD' even though tools accept them. Categories: BUILDING BLOCK, EQUIPMENT, AMMUNITION, CONSUMABLE, CRAFTING RESOURCE, VEHICLE.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1694,7 +1694,7 @@
     "crates/voxelgame-core/src/inventory.rs:940-1208 — RECIPES registry (all recipes)",
     "crates/voxelgame-core/src/inventory.rs:1472-1502 — test only checks that ingredients are blocks, drops or crafted items, not that blocks generate in the world"
    ],
-   "notes": "Hide has no recipe use. Fruit block and Date cluster are building blocks, not food. Iron ore chunks and Bog iron have no recipe use; there is no smelting.",
+   "notes": "Hide has no recipe use. Fruit block and Date cluster are building blocks, not food. Iron ore and Bog iron have no recipe use; there is no smelting.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1714,10 +1714,10 @@
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:477-510 — group lookup and labels ('boards of any species', 'natural stone (mix types)', 'hardwood or deadwood', 'fiber…",
     "crates/voxelgame-core/src/inventory.rs:770-790 — group members are spent in list order within one atomic craft",
-    "crates/voxelgame-core/src/inventory.rs:1374-1402 — test: refined materials (glass, lumen crystal, bricks, polished granite, dirt, magma stone) do not count as…",
+    "crates/voxelgame-core/src/inventory.rs:1374-1402 — test: refined materials (glass, glow crystal, bricks, polished granite, dirt, magma stone) do not count as…",
     "crates/voxelgame-render/src/inventory_ui.rs:167-176 — carried count sums the whole group"
    ],
-   "notes": "Exact-only ingredients include Pale sand (not other sands), River clay (not ochre/umber/sienna/cracked/banded clay), Reeds (not Tall reeds), Limestone (plaster), Granite (polish), Natural cobble and Moss (mossy cobble), Chalk, Basalt, Red ironstone, Glass, Feather, Raw meat, Venison, Lumen crystal. Not usable as natural stone: Magma stone, Iron ore chunks, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyserite and all crafted masonry. Mixed species keep their own identity in the pack until spent.",
+   "notes": "Exact-only ingredients include Sand (not other sands), Clay (not ochre/umber/sienna/cracked/banded clay), Reeds (not Tall reeds), Limestone (plaster), Granite (polish), Cobblestone and Moss (mossy cobble), Chalk, Basalt, Red rock, Glass, Feather, Raw meat, Venison, Glow crystal. Not usable as natural stone: Magma stone, Iron ore, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyser stone and all crafted masonry. Mixed species keep their own identity in the pack until spent.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1732,7 +1732,7 @@
    "modes": [
     "survival"
    ],
-   "summary": "Fire work is instant crafting, not a placed furnace or campfire: burn 4 boards into 2 Charcoal, then use Charcoal to cook meat, fire Pale sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer.",
+   "summary": "Fire work is instant crafting, not a placed furnace or campfire: burn 4 boards into 2 Charcoal, then use Charcoal to cook meat, fire Sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:974-1029 — charcoal, cooking, flask, glass, brick, tile and plaster recipes",
     "crates/voxelgame-core/src/inventory.rs:1504-1518 — test: charcoal -> cooked meat -> flasks loop",
@@ -1742,7 +1742,7 @@
     "VOX-PLAY-007",
     "VOX-OWNER-SURVIVAL-PLAYTHROUGH"
    ],
-   "notes": "Glass in survival comes from the 'Fire glass' recipe (24 Pale sand + 1 Charcoal -> 16 Glass) or the Survey workshop find (8 Glass). Placed glass mined with any tool returns Glass pieces.",
+   "notes": "Glass in survival comes from the 'Fire glass' recipe (24 Sand + 1 Charcoal -> 16 Glass) or the Survey workshop find (8 Glass). Placed glass mined with any tool returns Glass pieces.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1752,18 +1752,18 @@
   {
    "id": "lumen-crystal-supply",
    "area": "crafting",
-   "name": "Lumen-crystal recipes in survival",
+   "name": "Glow-crystal recipes in survival",
    "status": "partial",
    "modes": [
     "survival"
    ],
-   "summary": "Red lanterns, the Alder rifle, rifle rounds, TNT and dynamite all need Lumen crystal, which does not generate naturally, so survival players cannot gather enough to craft them.",
+   "summary": "Red lanterns, the Alder rifle, rifle rounds, TNT and dynamite all need Glow crystal, which does not generate naturally, so survival players cannot gather enough to craft them.",
    "evidence": [
     "search: grep 'GLOWSTONE' crates/voxelgame-core/src/world/ — no generator placements",
     "crates/voxelgame-core/src/game/exploration.rs:240 — single GLOWSTONE voxel at the Stone overlook",
-    "crates/voxelgame-core/src/world/block/table.rs:66-67 — GLOWSTONE is the 'Lumen crystal' block"
+    "crates/voxelgame-core/src/world/block/table.rs:66-67 — GLOWSTONE is the 'Glow crystal' block"
    ],
-   "notes": "These recipes work in creative (free ingredients) or with crystals carried over from creative via F4. Glow lichen and Amethyst clusters glow but are not Lumen crystal.",
+   "notes": "These recipes work in creative (free ingredients) or with crystals carried over from creative via F4. Glow lichen and Amethyst clusters glow but are not Glow crystal.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1794,7 +1794,7 @@
     "crates/voxelgame-core/src/game.rs:1824-1848 — survival mining progress vs creative instant break",
     "crates/voxelgame-core/src/game.rs:2379-2426 — drops go directly into the pack; full pack restores the block ('Capacity full; block left behind')",
     "crates/voxelgame-core/src/game.rs:2395-2399 — Wild flax yields Plant fiber",
-    "crates/voxelgame-core/src/world/block.rs:543-551 — Meadow turf drops Loam, Snow drops Packed snow, Fallen orchard fruit drops Fruit block;"
+    "crates/voxelgame-core/src/world/block.rs:543-551 — Meadow turf drops Dirt, Snow drops Packed snow, Fallen fruit drops Fruit block;"
    ],
    "backlog": [
     "VOX-OWNER-BLOCK-TREE-DROPS",
@@ -1822,7 +1822,7 @@
     "crates/voxelgame-core/src/world/block.rs:226-350 — wooden, loose-ground and rock classes",
     "crates/voxelgame-core/src/game.rs:2226-2290 — mining time = hardness / tool multiplier; changing tool or target resets progress"
    ],
-   "notes": "The time is for the whole targeted 1 m block; detail (Shift) mining takes the same time for one piece. Petal carpet and Leaf litter are plants that a shovel speeds up; Bamboo and Date clusters are plants a hatchet speeds up.",
+   "notes": "The time is for the whole targeted 1 m block; detail (Shift) mining takes the same time for one piece. Fallen petals and Fallen leaves are plants that a shovel speeds up; Bamboo and Date clusters are plants a hatchet speeds up.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1886,14 +1886,14 @@
    "modes": [
     "survival"
    ],
-   "summary": "Natural stone and wood are everywhere; Pale sand and River clay line shores, Reeds grow in wetlands, Wild flax (for fiber) grows in meadows of new worlds, and feathers, wool and meat come from animals.",
+   "summary": "Natural stone and wood are everywhere; Sand and Clay line shores, Reeds grow in wetlands, Wild flax (for fiber) grows in meadows of new worlds, and feathers, wool and meat come from animals.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator.rs:3737-3748 — shore deposits of River clay (below sea level), Shore gravel and Pale sand",
-    "crates/voxelgame-core/src/world/generator/surface.rs:444 — Desert surface is Pale sand",
+    "crates/voxelgame-core/src/world/generator.rs:3737-3748 — shore deposits of Clay (below sea level), Gravel and Sand",
+    "crates/voxelgame-core/src/world/generator/surface.rs:444 — Desert surface is Sand",
     "crates/voxelgame-core/src/world/generator/ecology.rs:438-449 — Wild flax only in Meadow, Flower meadow and Rolling downs of current-generation worlds",
     "crates/voxelgame-core/src/world/generator/surface.rs:177-182 — clay on alluvial terraces, marshes and river deltas"
    ],
-   "notes": "Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Lumen crystal has no practical survival source (see lumen-crystal-supply).",
+   "notes": "Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Glow crystal has no practical survival source (see lumen-crystal-supply).",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1909,11 +1909,11 @@
     "creative",
     "survival"
    ],
-   "summary": "There are 173 block types (including 6 kinds of water), all in the creative catalog; 19 of them can be crafted. Metals and gems are limited to decorative stone blocks: Iron ore chunks, Bog iron, Red ironstone, Amethyst and Lumen crystal.",
+   "summary": "There are 173 block types (including 6 kinds of water), all in the creative catalog; 19 of them can be crafted. Metals and gems are limited to decorative stone blocks: Iron ore, Bog iron, Red rock, Amethyst and Glow crystal.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:1586-1597 — every non-air block is in the creative catalog",
-    "crates/voxelgame-core/src/world/generator/surface.rs:116-121 — Iron ore chunks speckle sedimentary bedrock",
-    "crates/voxelgame-core/src/world/generator/structures.rs:278-283 — meteorites of Iron ore chunks and Impact glass",
+    "crates/voxelgame-core/src/world/generator/surface.rs:116-121 — Iron ore speckle sedimentary bedrock",
+    "crates/voxelgame-core/src/world/generator/structures.rs:278-283 — meteorites of Iron ore and Impact glass",
     "crates/voxelgame-core/src/world/generator/surface.rs:193-197 — Bog iron in peat hollows"
    ],
    "backlog": [
@@ -1923,7 +1923,7 @@
     "VOX-OWNER-MINERAL-EXPANSION",
     "VOX-OWNER-COPPER-BRONZE"
    ],
-   "notes": "Iron ore chunks and Bog iron can be mined and placed but have no recipe or smelting use. No copper, tin, bronze, gold, platinum, diamond or marble exists. Blocks with no survival source: Amethyst cluster (creative only), Jade glazed tile (creative), Home crate (Home tab only). Pink options are natural: Pink blossom leaves, Petal carpet, Fireweed, Polished granite (pink-gray).",
+   "notes": "Iron ore and Bog iron can be mined and placed but have no recipe or smelting use. No copper, tin, bronze, gold, platinum, diamond or marble exists. Blocks with no survival source: Amethyst cluster (creative only), Green roof tile (creative), Home crate (Home tab only). Pink options are natural: Pink blossom leaves, Fallen petals, Fireweed, Polished granite (pink-gray).",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -2212,7 +2212,7 @@
     "crates/voxelgame-core/src/game.rs:1817-1822 — creative-only pick, message 'Selected <block> | RMB place'",
     "crates/voxelgame-core/src/game/hotbar.rs:367-381 — selects an existing slot or holds the block; puts tools away"
    ],
-   "notes": "Picks the exact material (for example Meadow turf, not the Loam it drops). Does nothing in survival.",
+   "notes": "Picks the exact material (for example Meadow turf, not the Dirt it drops). Does nothing in survival.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -2691,7 +2691,7 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1751-1765 — G ignition; 'Aim at a TNT charge and press G to ignite'; refused when connected",
+    "crates/voxelgame-core/src/game.rs:1751-1765 — G ignition; 'Aim at a TNT and press G to ignite'; refused when connected",
     "crates/voxelgame-core/src/game.rs:1940-2001 — flood fill of face/edge/corner-touching TNT; charges removed from the world;",
     "crates/voxelgame-core/src/explosives.rs:40-73 — lit charges are physical: they pop up, fall, bounce, slide and float",
     "crates/voxelgame-core/src/explosives.rs:200-229 — lit charges are physical: they pop up, fall, bounce, slide and float"
@@ -2938,7 +2938,7 @@
    "evidence": [
     "crates/voxelgame-core/src/world/generator/terrain_profile.rs:814-826 — river drainage channels",
     "crates/voxelgame-core/src/world/generator.rs:54 — MAX_INLAND_LAKE_LEVEL = sea + 62",
-    "crates/voxelgame-core/src/world/generator.rs:3670-3690 — water kind to block: Water, Fresh water, Black water, Warm mineral water, Boiling water, Ice/Black ice",
+    "crates/voxelgame-core/src/world/generator.rs:3670-3690 — water kind to block: Water, Fresh water, Black water, Hot spring water, Boiling water, Ice/Black ice",
     "crates/voxelgame-core/src/world/mod.rs:2008-2050 — only player-placed or disturbed water flows"
    ],
    "guide": {
@@ -3003,7 +3003,7 @@
    "backlog": [
     "VOX-OWNER-DISCOVERIES-HOME"
    ],
-   "notes": "If no dry, level spot is found near a site's base position, that site is skipped, so a world can have fewer than three. The site buildings are regenerated each session and do not show on the map, but any blocks you mine or place there are kept. Without enough pack space the game says 'Leave pack space; the find will wait here'. You can still harvest the site's blocks after taking the find. The Reed refuge has a small fresh-water pool, the workshop has a glass block and carved-stone floor, and the overlook has a Lumen crystal light (exploration.rs:192-242).",
+   "notes": "If no dry, level spot is found near a site's base position, that site is skipped, so a world can have fewer than three. The site buildings are regenerated each session and do not show on the map, but any blocks you mine or place there are kept. Without enough pack space the game says 'Leave pack space; the find will wait here'. You can still harvest the site's blocks after taking the find. The Reed refuge has a small fresh-water pool, the workshop has a glass block and carved-stone floor, and the overlook has a Glow crystal light (exploration.rs:192-242).",
    "guide": {
     "state": "complete",
     "page": "guide-volcanoes-water-and-expeditions.html",
@@ -3872,7 +3872,7 @@
     "crates/voxelgame-core/src/game.rs:1011-1019 — sight raising only when not reloading",
     "crates/voxelgame-core/src/game.rs:1115-1120 — in survival R eats food (on foot)"
    ],
-   "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of lumen crystal (one block = 8 pieces). Rounds hurt animals and vehicles.",
+   "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of glow crystal (one block = 8 pieces). Rounds hurt animals and vehicles.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5484,7 +5484,7 @@
     "lumen-crystal-supply"
    ],
    "readiness": "ready",
-   "why": "All 43 recipes are verified; the guide can also warn that X may burn the starter boards and that Lumen crystal is scarce."
+   "why": "All 43 recipes are verified; the guide can also warn that X may burn the starter boards and that Glow crystal is scarce."
   },
   {
    "rank": 5,
@@ -5638,8 +5638,8 @@
    ]
   },
   {
-   "topic": "The alder rifle needs Lumen crystal",
-   "detail": "The README calls the rifle craftable. Its recipe needs 8 Lumen crystal pieces, and a survival world contains a single piece at one landmark, so rifles, rounds, TNT and dynamite are effectively creative-only.",
+   "topic": "The alder rifle needs Glow crystal",
+   "detail": "The README calls the rifle craftable. Its recipe needs 8 Glow crystal pieces, and a survival world contains a single piece at one landmark, so rifles, rounds, TNT and dynamite are effectively creative-only.",
    "evidence": [
     "README.md:360-361",
     "crates/voxelgame-core/src/inventory.rs:1173-1179",

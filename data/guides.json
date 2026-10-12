@@ -913,12 +913,12 @@
       },
       {
        "t": "p",
-       "text": "Every other ingredient must be that exact material: Pale sand (not other sands), River clay (not ochre, umber, sienna, cracked or banded clay), Reeds (not Tall reeds), Limestone, Granite, Natural cobble, Moss, Chalk, Basalt, Red ironstone, Glass, Feather, Raw meat, Venison and Lumen crystal."
+       "text": "Every other ingredient must be that exact material: Sand (not other sands), Clay (not ochre, umber, sienna, cracked or banded clay), Reeds (not Tall reeds), Limestone, Granite, Cobblestone, Moss, Chalk, Basalt, Red rock, Glass, Feather, Raw meat, Venison and Glow crystal."
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Not usable as natural stone: Magma stone, Iron ore chunks, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyserite and any crafted masonry. Sandstone is the exception: it counts as natural stone, although you can also craft it from sand."
+       "text": "Not usable as natural stone: Magma stone, Iron ore, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyser stone and any crafted masonry. Sandstone is the exception: it counts as natural stone, although you can also craft it from sand."
       }
      ]
     },
@@ -943,7 +943,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Fire work is crafting, not a placed furnace: burn 4 boards into 2 Charcoal, then spend Charcoal to cook meat, fire Pale sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer. Fill flasks by pressing [[T]] at water. {{fire-and-glass-chain}}"
+       "text": "Fire work is crafting, not a placed furnace: burn 4 boards into 2 Charcoal, then spend Charcoal to cook meat, fire Sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer. Fill flasks by pressing [[T]] at water. {{fire-and-glass-chain}}"
       },
       {
        "t": "note",
@@ -971,7 +971,7 @@
       },
       {
        "t": "p",
-       "text": "Shores mix River clay (below sea level), Shore gravel and Pale sand. Desert ground is Pale sand. Reeds grow in wetlands. Wild flax grows in some meadows of worlds made with the current generator. Feathers, wool and meat come from animals. {{material-sources}}"
+       "text": "Shores mix Clay (below sea level), Gravel and Sand. Desert ground is Sand. Reeds grow in wetlands. Wild flax grows in some meadows of worlds made with the current generator. Feathers, wool and meat come from animals. {{material-sources}}"
       },
       {
        "t": "note",
@@ -1029,9 +1029,9 @@
       {
        "t": "list",
        "items": [
-        "Six block types are water: Water, Warm mineral water, Dark fjord water, Fresh water, Black water and Boiling water.",
-        "Iron ore chunks and Bog iron can be mined and placed. No recipe uses them, and the game has no smelting yet.",
-        "Lumen crystal is the gem that recipes use. It does not generate naturally; see the section on recipes survival cannot finish yet."
+        "Six block types are water: Water, Hot spring water, Dark fjord water, Fresh water, Black water and Boiling water.",
+        "Iron ore and Bog iron can be mined and placed. No recipe uses them, and the game has no smelting yet.",
+        "Glow crystal is the gem that recipes use. It does not generate naturally; see the section on recipes survival cannot finish yet."
        ]
       }
      ]
@@ -1055,7 +1055,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Red lantern, Alder rifle, Four rifle rounds, TNT charge and Two dynamite sticks each need Lumen crystal, which does not generate naturally in the world, so a survival player cannot gather enough. They work in creative, or in survival with crystals carried over from creative by pressing [[F4]]. {{lumen-crystal-supply}}"
+       "text": "Red lantern, Alder rifle, Four rifle rounds, TNT and Two dynamite sticks each need Glow crystal, which does not generate naturally in the world, so a survival player cannot gather enough. They work in creative, or in survival with crystals carried over from creative by pressing [[F4]]. {{lumen-crystal-supply}}"
       },
       {
        "t": "note",
@@ -3261,7 +3261,7 @@
    "title": "Explosives: TNT and dynamite",
    "headline": "Blow up blocks<br><em>with TNT and dynamite.</em>",
    "summary": "Place and light TNT with G, read the blast reach, throw dynamite, and see which explosives survival can craft.",
-   "lead": "TNT and dynamite break blocks in a wide circle. Blasted blocks are destroyed, not collected. Creative players can use them freely. In survival, both need Lumen crystal, which the world does not generate naturally.",
+   "lead": "TNT and dynamite break blocks in a wide circle. Blasted blocks are destroyed, not collected. Creative players can use them freely. In survival, both need Glow crystal, which the world does not generate naturally.",
    "readTime": "4 min read",
    "audience": "Everyone",
    "updated": "2026-10-12",
@@ -3418,18 +3418,18 @@
       {
        "t": "recipes",
        "names": [
-        "TNT charge",
+        "TNT",
         "Two dynamite sticks"
        ]
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Both recipes need Lumen crystal. The world does not generate it naturally, and a survival world usually has one half-metre piece at the Stone overlook landmark. The game places that landmark only when it finds a dry flat spot near its fixed base. You cannot make TNT or dynamite from gathered materials alone. {{lumen-crystal-supply}}"
+       "text": "Both recipes need Glow crystal. The world does not generate it naturally, and a survival world usually has one half-metre piece at the Stone overlook landmark. The game places that landmark only when it finds a dry flat spot near its fixed base. You cannot make TNT or dynamite from gathered materials alone. {{lumen-crystal-supply}}"
       },
       {
        "t": "p",
-       "text": "One TNT charge recipe makes 8 pieces, one whole block. Two dynamite sticks need 4 TNT charges and 2 Paper lattice panels."
+       "text": "One TNT recipe makes 8 pieces, one whole block. Two dynamite sticks need 4 TNT and 2 Paper screens."
       }
      ]
     },
@@ -4330,7 +4330,7 @@
         "Ocean: Water.",
         "Lakes and rivers: Fresh water.",
         "Warm wetlands (marshes, bogs, mangroves and bayous): Black water.",
-        "Hot springs and geothermal ground: Warm mineral water. The hottest pools are Boiling water.",
+        "Hot springs and geothermal ground: Hot spring water. The hottest pools are Boiling water.",
         "Frozen lakes: Ice or Black ice. Frozen sea: Ice, Black ice or Glacier ice."
        ]
       },

@@ -43,7 +43,8 @@ FAMILY_MEMBERS = {
     'building': '''PLANKS BIRCH_PLANKS PINE_PLANKS GRAY_BRICK GLAZED_ROOF_TILE
         IMPERIAL_ROOF_TILE LACQUERED_WOOD PAPER_PANEL WHITE_PLASTER CARVED_STONE
         CHALK_BRICKS RED_ROCK_BRICKS MOSSY_COBBLE BASALT_BRICKS POLISHED_GRANITE
-        REED_THATCH PINK_PLASTER ROSE_BOARDS FUCHSIA_TILE DOOR WIDE_DOOR CHEST''',
+        REED_THATCH PINK_PLASTER ROSE_BOARDS FUCHSIA_TILE DOOR WIDE_DOOR CHEST
+        MARBLE POLISHED_MARBLE MARBLE_BRICKS CARVED_MARBLE''',
     'glass-light': 'GLOWSTONE GLASS RED_LANTERN GLOW_LICHEN IMPACT_GLASS AMETHYST_CLUSTER',
     'water-ice': '''WATER WARM_WATER DARK_WATER FRESH_WATER BLACK_WATER BOILING_WATER
         ICE GLACIER_ICE BLACK_ICE ICE_SPIRE CREVASSE_ICE''',
@@ -58,25 +59,25 @@ FAMILY_MEMBERS = {
 FAMILY_BY_BLOCK = {name: family for family, names in FAMILY_MEMBERS.items() for name in names.split()}
 # The open leaf of a placed door is a state of DOOR, not an item a player holds.
 STATE_ONLY = {'DOOR_OPEN'}
-CREATIVE_ONLY = {'IMPERIAL_ROOF_TILE': 'Jade glazed tile (creative)',
+CREATIVE_ONLY = {'IMPERIAL_ROOF_TILE': 'Green roof tile (creative)',
                  'AMETHYST_CLUSTER': 'Amethyst cluster (creative only)'}
 ROW = re.compile(r'\s*([A-Z][A-Z_0-9]*)\s*=\s*(\d+),\s*("(?:[^"\\]|\\.)*"),\s*\[([^\]]+)\];')
 # Player sentences stay close to the registry's documentation; no inferred drops.
 DESCRIPTIONS = dict(line.split('|', 1) for line in """
 AIR|Air is empty space you can move through.
 GRASS|Meadow turf covers the surface of meadows.
-DIRT|Loam lies beneath the surface.
-STONE|Slate is a dense rock.
-SAND|Pale sand is loose sand found on shores.
+DIRT|Dirt lies beneath the surface.
+STONE|Stone is a dense rock.
+SAND|Sand is loose sand found on shores.
 WATER|Water flows and can be swum through.
 WOOD|Alder logs form branches and trunks.
 LEAVES|Alder leaves form the tree’s foliage.
 PLANKS|Alder boards are crafted from alder wood.
-GLOWSTONE|Lumen crystal gives off coloured light.
+GLOWSTONE|Glow crystal gives off coloured light.
 GLASS|Glass is translucent fired glass.
-TNT|A TNT charge is an explosive you can ignite.
-GRAVEL|Shore gravel consists of loose rounded stones in shoreline deposits.
-CLAY|River clay is dense clay beneath wet shorelines.
+TNT|TNT is an explosive. Place it, then press G to ignite it.
+GRAVEL|Gravel consists of loose rounded stones in shoreline deposits.
+CLAY|Clay is dense clay beneath wet shorelines.
 BIRCH_WOOD|Birch logs have pale bark.
 BIRCH_LEAVES|Birch leaves form light foliage.
 BIRCH_PLANKS|Birch boards are pale crafted boards.
@@ -84,43 +85,47 @@ PINE_WOOD|Pine logs are dark timber.
 PINE_NEEDLES|Pine needles form dense evergreen foliage.
 PINE_PLANKS|Pine boards are warm-coloured crafted boards.
 GRAY_BRICK|Gray brick is kiln-fired courtyard brick.
-GLAZED_ROOF_TILE|Glazed roof tile has a dark blue-gray finish.
-IMPERIAL_ROOF_TILE|Jade glazed tile is a green ceremonial roof tile.
-LACQUERED_WOOD|Lacquered timber is structural wood with a red finish.
+GLAZED_ROOF_TILE|Gray roof tile has a dark blue-gray finish.
+IMPERIAL_ROOF_TILE|Green roof tile is a green ceremonial roof tile.
+LACQUERED_WOOD|Red lacquered wood is structural wood with a red finish.
 PAPER_PANEL|A paper lattice panel is a rice-paper screen in a wooden lattice.
 WHITE_PLASTER|White plaster is smooth whitewashed lime plaster.
 CARVED_STONE|Carved stone is finely dressed gray stone.
+MARBLE|Marble is white stone with soft gray veins. Dress limestone with chalk to make it.
+POLISHED_MARBLE|Polished marble is smooth, bright marble. Rub marble with sand to polish it.
+MARBLE_BRICKS|Marble bricks are dressed marble laid in offset courses.
+CARVED_MARBLE|Carved marble has fluted column sides and a rosette panel.
 RED_LANTERN|A red lantern gives off a warm glow.
 CHALK_BRICKS|Chalk bricks are pale dressed masonry.
-RED_ROCK|Red ironstone is rust-red sedimentary stone rich in iron.
-RED_ROCK_BRICKS|Red ironstone bricks are dressed stone masonry.
-MOSSY_COBBLE|Mossy cobble is weathered stone covered with living moss.
+RED_ROCK|Red rock is rust-red sedimentary stone rich in iron.
+RED_ROCK_BRICKS|Red rock bricks are dressed stone masonry.
+MOSSY_COBBLE|Mossy cobblestone is weathered stone covered with living moss.
 BASALT_BRICKS|Basalt bricks are dressed dark volcanic masonry.
 POLISHED_GRANITE|Polished granite is smooth pink-gray crystalline stone.
 WOODLAND_FUNGI|Woodland fungi have small ochre caps and grow beside damp fallen timber.
 PLUME_GRASS|Plume grass has pale feathery seed heads in open pampas grassland.
 DUNE_GRASS|Dune grass grows in stiff straw-green tufts in sheltered coastal sand.
-FALLEN_FRUIT|Fallen orchard fruit can be harvested as fruit.
+FALLEN_FRUIT|Fallen fruit can be harvested as fruit.
 CAMP_CRATE|A home crate is a storage crate that anchors a player-built home.
 REED_THATCH|Reed thatch is woven reed and flax roofing for light coastal buildings.
 FLAX|Wild flax grows in blue-flowered colonies in open temperate meadows.
-PINK_PLASTER|Blush plaster is lime plaster tinted light pink with flower petals.
-ROSE_BOARDS|Rose boards are timber boards painted medium rose pink.
+PINK_PLASTER|Pink plaster is lime plaster tinted light pink with flower petals.
+ROSE_BOARDS|Pink boards are timber boards painted medium rose pink.
 DOOR|A wooden door is a one-metre double door you hang on solid ground. Craft it from boards and right click to open or close it.
 WIDE_DOOR|A wide wooden door is a two-metre folding double door for barns and halls.
 CHEST|A wooden chest is a lidded storage block. Right click to set it down and open it.
-FUCHSIA_TILE|Fuchsia glazed tile is fired clay roof tile with a deep pink glaze.
+FUCHSIA_TILE|Pink roof tile is fired clay roof tile with a deep pink glaze.
 OAK_WOOD|Oak logs are heavy timber.
 OAK_LEAVES|Oak leaves form broad foliage in dense forests.
 MOSS|Moss is soft living groundcover.
-MOSSY_WOOD|Mossy fallen wood is fallen timber covered with moss.
+MOSSY_WOOD|Mossy log is fallen timber covered with moss.
 WILDFLOWERS|Wildflowers are a mix of temperate flowers.
 TALL_GRASS|Tall grass grows in meadows.
 BEEHIVE|A beehive contains wild-bee comb and its casing.
 FRUIT_WOOD|Fruit tree logs form branches and trunks.
 BLOSSOM_LEAVES|Blossom leaves form pale orchard foliage.
 FRUIT|A fruit block is a compact block of ripe orchard fruit.
-PODZOL|Podzol is dark forest soil rich in needles.
+PODZOL|Forest soil is dark forest soil rich in needles.
 SNOW|Snow is loose powder snow.
 PACKED_SNOW|Packed snow is compressed snow that can bear weight.
 FROZEN_TURF|Frozen turf is cold turf locked by permafrost.
@@ -138,7 +143,7 @@ DRY_TURF|Dry turf is sun-bleached grassland turf.
 ACACIA_WOOD|Acacia logs form twisted branches and trunks.
 ACACIA_LEAVES|Acacia leaves form a flat canopy.
 BANDED_CLAY|Banded clay is mesa clay with several natural layers.
-BOULDER_STONE|Boulder stone is weathered rock.
+BOULDER_STONE|Boulder is weathered rock.
 MUD|Mud is saturated marsh soil.
 REEDS|Reeds are tall wetland plants.
 WILLOW_WOOD|Willow logs are pale, flexible timber.
@@ -156,23 +161,23 @@ CORAL_RED|Red coral forms branching growths.
 CORAL_GOLD|Gold coral forms branching growths.
 CORAL_BLUE|Blue coral forms branching growths.
 SEA_SAND|Sea sand is fine pale sand washed by the sea.
-COBBLE|Natural cobble is rough, naturally broken stone.
+COBBLE|Cobblestone is rough, naturally broken stone.
 MOUNTAIN_FLOWERS|Mountain flowers are hardy flowers growing among rocks.
 BASALT|Basalt is dark volcanic stone.
 OBSIDIAN|Obsidian is glassy volcanic stone.
 MAGMA_STONE|Magma stone is hot, cracked rock.
 ASH|Volcanic ash is loose gray material.
 MINERAL_CRUST|Mineral crust forms pale deposits around geothermal water.
-WARM_WATER|Warm mineral water is naturally heated and tinted by minerals.
+WARM_WATER|Hot spring water is naturally heated and tinted by minerals.
 STEAM_VENT|A steam vent is a porous geothermal opening.
 BAMBOO|Bamboo forms jointed stems in temperate thickets.
 BAMBOO_SHOOT|Bamboo shoots are tender shoots you can walk through.
 CHERRY_WOOD|Cherry logs have rose-coloured bark.
 CHERRY_BLOSSOM_LEAVES|Pink blossom leaves form dense cherry foliage.
 PETAL_CARPET|A petal carpet is a thin layer of fallen pink petals.
-AMBER_LEAVES|Amber leaves are golden autumn foliage.
-RUSSET_LEAVES|Russet leaves are deep orange-red autumn foliage.
-LEAF_LITTER|Leaf litter is a thin carpet of dry fallen leaves.
+AMBER_LEAVES|Golden leaves are golden autumn foliage.
+RUSSET_LEAVES|Red leaves are deep orange-red autumn foliage.
+LEAF_LITTER|Fallen leaves are a thin carpet of dry leaves.
 HEATHER|Heather has low purple flowers in heathland.
 LAVENDER|Lavender has tall violet flowers.
 RICH_TURF|Rich turf is dark fertile grassland turf.
@@ -184,10 +189,10 @@ GIANT_WOOD|Giant old-growth logs form the trunks of two-by-two trees.
 DEADWOOD|Deadwood is weathered fallen or standing dead timber.
 ICE_SPIRE|An ice spire is a wind-carved formation of packed ice.
 DARK_WATER|Dark fjord water is cold, deep water.
-SLATE_SCREE|Slate scree consists of loose angular slate fragments.
+SLATE_SCREE|Loose stone consists of loose angular slate fragments.
 GLOW_LICHEN|Glow lichen gives off faint light in aurora country.
-FIRN|Firn is old compacted alpine snow.
-CREVASSE_ICE|Crevasse ice is blue ice exposed inside a snowfield crevasse.
+FIRN|Old snow is old compacted alpine snow.
+CREVASSE_ICE|Blue ice is ice exposed inside a snowfield crevasse.
 CHARRED_WOOD|A charred log is fire-blackened timber.
 FIREWEED|Fireweed has pink flowers and grows after a forest burn.
 PALM_WOOD|Palm logs form ringed tropical trunks.
@@ -196,29 +201,29 @@ DATES|A date cluster is a compact cluster of ripe dates.
 FRESH_WATER|Fresh water is clear oasis water.
 SALT|A salt block is crystalline salt-flat crust.
 CRACKED_CLAY|Cracked clay is sun-baked clay with polygonal cracks.
-FINE_SAND|Fine dune sand forms deep, loose deposits.
+FINE_SAND|Dune sand forms deep, loose deposits.
 MESQUITE_WOOD|Mesquite logs are thorny scrub-country timber.
 THORN_BUSH|Thorn bushes are dense bushes you can walk through.
-OCHRE_CLAY|Ochre clay is yellow-orange clay from painted hills.
-UMBER_CLAY|Umber clay is dark brown clay from painted hills.
-SIENNA_CLAY|Sienna clay is warm red-brown clay from painted hills.
+OCHRE_CLAY|Yellow clay is yellow-orange clay from painted hills.
+UMBER_CLAY|Dark brown clay is dark brown clay from painted hills.
+SIENNA_CLAY|Red-brown clay is warm red-brown clay from painted hills.
 LIMESTONE|Limestone is pale soluble karst stone.
 SHARP_LIMESTONE|Sharp limestone is jagged exposed karst stone.
 HANGING_VINE|A hanging vine is a long vine from karst country.
-EPIPHYTE_MOSS|Epiphyte moss is moist moss from cloud forests.
+EPIPHYTE_MOSS|Tree moss is moist moss from cloud forests.
 FIG_WOOD|Fig logs are pale tropical timber.
 BROAD_LEAVES|Broad leaves form glossy cloud-forest foliage.
 BOG_IRON|Bog iron is a rust-dark deposit rich in iron.
 COTTON_GRASS|Cotton grass has white tufts in peat bogs.
 CYPRESS_WOOD|Cypress logs are dark timber from water-loving trees.
-CYPRESS_KNEES|Cypress knees are raised roots.
+CYPRESS_KNEES|Cypress roots are raised roots.
 BLACK_WATER|Black water is bayou water darkened by tannins.
 MOSS_VEIL|A moss veil is hanging bayou moss.
 TALL_REEDS|Tall reeds grow very tall in flooded grassland.
 WATER_LILY|A water lily has a floating pad and flowers.
 WET_STONE|Wet stone is rain-darkened tepui rock.
 BROMELIAD|A bromeliad is a tropical plant shaped like a rosette.
-ENDEMIC_FLOWERS|Endemic flowers are bright flowers native to tepuis.
+ENDEMIC_FLOWERS|Rare flowers are bright flowers native to tepuis.
 BLACK_SAND|Black sand is volcanic beach sand.
 SHELL_SAND|Shell sand is pale beach sand made of shell fragments.
 DRIFTWOOD|Driftwood is salt-bleached timber.
@@ -228,21 +233,21 @@ STARFISH|A starfish is a small tide-pool animal.
 LAYERED_SANDSTONE|Layered sandstone has horizontal beds in sea stacks.
 GUANO_ROCK|Guano rock is sea-stack stone capped with white guano.
 GIANT_KELP|Giant kelp is tall deep-ocean vegetation.
-HOLDFAST_ROCK|Holdfast rock is rough stone anchoring giant kelp.
+HOLDFAST_ROCK|Kelp rock is rough stone anchoring giant kelp.
 IMPACT_GLASS|Impact glass is glass fused by a meteor impact.
 SCORCHED_STONE|Scorched stone is heat-darkened meteor-field rock.
-IRON_ORE|Iron ore chunks are exposed pieces of iron ore.
-GEYSERITE|Geyserite is porous white stone from geyser basins.
+IRON_ORE|Iron ore is exposed pieces of iron ore.
+GEYSERITE|Geyser stone is porous white stone from geyser basins.
 BOILING_WATER|Boiling water is hazardously hot geothermal water.
 SULFUR_CRUST|Sulfur crust is a bright yellow deposit.
-PAHOEHOE|Pahoehoe stone is cooled basaltic lava with a ropy surface.
+PAHOEHOE|Smooth lava rock is cooled basaltic lava with a ropy surface.
 LAVA_ROCK|Lava rock is rough, recently cooled lava.
 GRANITE|Granite is coarse crystalline stone.
-EXFOLIATED_GRANITE|Exfoliated granite forms pale slabs with peeling layers.
-SLATE_SHALE|Slate shale is thin layered quarry rock.
+EXFOLIATED_GRANITE|Flaking granite forms pale slabs with peeling layers.
+SLATE_SHALE|Shale is thin layered quarry rock.
 AMETHYST_BLOCK|An amethyst block is solid violet amethyst.
 AMETHYST_CLUSTER|An amethyst cluster is a pointed, luminous growth.
-DARK_STONE|Dark gorge stone is near-black bedrock.
+DARK_STONE|Dark stone is near-black bedrock.
 """.strip().splitlines())
 
 

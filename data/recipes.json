@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "game": {
-  "commit": "fb873488f320fcf0bd62178f84684506fafc3968",
+  "commit": "741d883bad3b97798a91db17b624563fd2d8ff7e",
   "source": "crates/voxelgame-core/src/inventory.rs RECIPES"
  },
  "piecesPerBlock": 8,
@@ -84,7 +84,7 @@
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:974-980",
-   "notes": "Always makes Alder boards whatever the species. Driftwood, Charred log, Mossy fallen wood, Bamboo, Cypress knees and Mangrove roots cannot be split."
+   "notes": "Always makes Alder boards whatever the species. Driftwood, Charred log, Mossy log, Bamboo, Cypress roots and Mangrove roots cannot be split."
   },
   {
    "name": "Burn a charcoal pile",
@@ -165,7 +165,7 @@
    "quantity": 16,
    "inputs": [
     [
-     "Pale sand",
+     "Sand",
      24
     ],
     [
@@ -174,7 +174,7 @@
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1009-1015",
-   "notes": "3 blocks of Pale sand make 2 blocks of Glass. Only Pale sand works (not Sea, Fine dune, Red, Black or Shell sand). Besides this recipe, the Survey workshop landmark's one-time find gives 8 Glass."
+   "notes": "3 blocks of Sand make 2 blocks of Glass. Only Sand works (not Sea, Fine dune, Red, Black or Shell sand). Besides this recipe, the Survey workshop landmark's one-time find gives 8 Glass."
   },
   {
    "name": "Kiln-fire gray brick",
@@ -184,7 +184,7 @@
    "quantity": 8,
    "inputs": [
     [
-     "River clay",
+     "Clay",
      8
     ],
     [
@@ -199,15 +199,15 @@
    "name": "Glaze roof tile",
    "section": "materials",
    "gameDescription": "Glazes clay with sand ash into weatherproof roof tile",
-   "output": "Glazed roof tile",
+   "output": "Gray roof tile",
    "quantity": 8,
    "inputs": [
     [
-     "River clay",
+     "Clay",
      8
     ],
     [
-     "Pale sand",
+     "Sand",
      8
     ],
     [
@@ -218,14 +218,14 @@
    "evidence": "crates/voxelgame-core/src/inventory.rs:1023-1029"
   },
   {
-   "name": "Glaze fuchsia tile",
+   "name": "Glaze pink roof tile",
    "section": "materials",
    "gameDescription": "Fires clay under a heavy petal glaze into deep pink roof tile",
-   "output": "Fuchsia glazed tile",
+   "output": "Pink roof tile",
    "quantity": 8,
    "inputs": [
     [
-     "River clay",
+     "Clay",
      8
     ],
     [
@@ -259,10 +259,10 @@
    "notes": "Only Limestone counts (Sharp limestone does not)."
   },
   {
-   "name": "Tint blush plaster",
+   "name": "Tint pink plaster",
    "section": "materials",
    "gameDescription": "Works a few crushed wildflowers into lime plaster for soft pink walls",
-   "output": "Blush plaster",
+   "output": "Pink plaster",
    "quantity": 8,
    "inputs": [
     [
@@ -298,7 +298,7 @@
    "quantity": 8,
    "inputs": [
     [
-     "Pale sand",
+     "Sand",
      16
     ]
    ],
@@ -308,7 +308,7 @@
    "name": "Lacquer timber",
    "section": "materials",
    "gameDescription": "Seals boards with fired clay lacquer for structural beams",
-   "output": "Lacquered timber",
+   "output": "Red lacquered wood",
    "quantity": 8,
    "inputs": [
     [
@@ -316,7 +316,7 @@
      8
     ],
     [
-     "River clay",
+     "Clay",
      4
     ],
     [
@@ -327,10 +327,10 @@
    "evidence": "crates/voxelgame-core/src/inventory.rs:1065-1071"
   },
   {
-   "name": "Paint rose boards",
+   "name": "Paint pink boards",
    "section": "materials",
    "gameDescription": "Stains alder boards rose pink with a wildflower paint",
-   "output": "Rose boards",
+   "output": "Pink boards",
    "quantity": 8,
    "inputs": [
     [
@@ -348,7 +348,7 @@
    "name": "Weave paper panel",
    "section": "materials",
    "gameDescription": "Presses shore reeds into a board-latticed screen panel",
-   "output": "Paper lattice panel",
+   "output": "Paper screen",
    "quantity": 8,
    "inputs": [
     [
@@ -371,11 +371,11 @@
    "quantity": 4,
    "inputs": [
     [
-     "Paper lattice panel",
+     "Paper screen",
      4
     ],
     [
-     "Lumen crystal",
+     "Glow crystal",
      2
     ],
     [
@@ -384,7 +384,7 @@
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1086-1092",
-   "notes": "Makes half a block of lantern (4 pieces). Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "notes": "Makes half a block of lantern (4 pieces). Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
    "name": "Weave reed thatch",
@@ -420,14 +420,78 @@
    "evidence": "crates/voxelgame-core/src/inventory.rs:1100-1106"
   },
   {
-   "name": "Dress ironstone bricks",
+   "name": "Dress marble",
    "section": "materials",
-   "gameDescription": "Cuts red ironstone into warm-colored masonry",
-   "output": "Red ironstone bricks",
+   "gameDescription": "Dresses limestone into white veined marble, whitened with a little chalk",
+   "output": "Marble",
    "quantity": 8,
    "inputs": [
     [
-     "Red ironstone",
+     "Limestone",
+     8
+    ],
+    [
+     "Chalk",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1162-1168"
+  },
+  {
+   "name": "Polish marble",
+   "section": "materials",
+   "gameDescription": "Rubs marble smooth and bright with sand as the abrasive",
+   "output": "Polished marble",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Marble",
+     8
+    ],
+    [
+     "Sand",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1169-1175"
+  },
+  {
+   "name": "Dress marble bricks",
+   "section": "materials",
+   "gameDescription": "Cuts marble into dressed bricks for offset courses",
+   "output": "Marble bricks",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Marble",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1176-1182"
+  },
+  {
+   "name": "Carve marble",
+   "section": "materials",
+   "gameDescription": "Carves fluted column sides and a rosette panel into marble",
+   "output": "Carved marble",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Marble",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1183-1189"
+  },
+  {
+   "name": "Dress red rock bricks",
+   "section": "materials",
+   "gameDescription": "Cuts red ironstone into warm-colored masonry",
+   "output": "Red rock bricks",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Red rock",
      8
     ]
    ],
@@ -460,17 +524,17 @@
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1121-1127",
-   "notes": "Only Granite counts (Exfoliated granite does not)."
+   "notes": "Only Granite counts (Flaking granite does not)."
   },
   {
-   "name": "Cover cobble with moss",
+   "name": "Cover cobblestone with moss",
    "section": "materials",
    "gameDescription": "Beds living moss into rough cobble for weathered walls",
-   "output": "Mossy cobble",
+   "output": "Mossy cobblestone",
    "quantity": 8,
    "inputs": [
     [
-     "Natural cobble",
+     "Cobblestone",
      8
     ],
     [
@@ -534,7 +598,7 @@
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1152-1158",
-   "notes": "The 4 starter boards plus 4 pieces of any natural stone (e.g. shore gravel dug by hand) make the first hatchet."
+   "notes": "The 4 starter boards plus 4 pieces of any natural stone (e.g. gravel dug by hand) make the first hatchet."
   },
   {
    "name": "Stone shovel",
@@ -666,12 +730,12 @@
      16
     ],
     [
-     "Lumen crystal",
+     "Glow crystal",
      8
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1201-1207",
-   "notes": "40 stone = 5 blocks, 16 boards = 2 blocks, 8 Lumen crystal = 1 block. Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "notes": "40 stone = 5 blocks, 16 boards = 2 blocks, 8 Glow crystal = 1 block. Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
    "name": "Four rifle rounds",
@@ -685,30 +749,30 @@
      8
     ],
     [
-     "Pale sand",
+     "Sand",
      8
     ],
     [
-     "Lumen crystal",
+     "Glow crystal",
      8
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1208-1214",
-   "notes": "Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "notes": "Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
-   "name": "TNT charge",
+   "name": "TNT",
    "section": "tools",
    "gameDescription": "A bounded terrain-clearing charge ignited with G",
-   "output": "TNT charge",
+   "output": "TNT",
    "quantity": 8,
    "inputs": [
     [
-     "Pale sand",
+     "Sand",
      32
     ],
     [
-     "Lumen crystal",
+     "Glow crystal",
      8
     ],
     [
@@ -717,7 +781,7 @@
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1215-1221",
-   "notes": "Makes one full TNT block (8 pieces). Needs Lumen crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "notes": "Makes one full TNT block (8 pieces). Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
   },
   {
    "name": "Two dynamite sticks",
@@ -727,16 +791,16 @@
    "quantity": 2,
    "inputs": [
     [
-     "TNT charge",
+     "TNT",
      4
     ],
     [
-     "Paper lattice panel",
+     "Paper screen",
      2
     ]
    ],
    "evidence": "crates/voxelgame-core/src/inventory.rs:1222-1228",
-   "notes": "Needs half a block of TNT, which itself needs Lumen crystal (see TNT charge)."
+   "notes": "Needs half a block of TNT, which itself needs Glow crystal (see TNT)."
   },
   {
    "name": "Wooden door",
