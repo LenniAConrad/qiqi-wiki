@@ -5336,9 +5336,12 @@
     "src/app.rs:591-635 — hosting starts an in-process server for the world in play",
     "src/app.rs:645-651 — Stop hosting saves the world and clears the hosted address",
     "src/net_client/hosting.rs:30-31 — the LAN address is found without sending anything",
-    "crates/voxelgame-server/src/config.rs:65 — default bind port is 27015 (voxelgame_net::DEFAULT_PORT)"
+    "crates/voxelgame-server/src/config.rs:65 — default bind port is 27015 (voxelgame_net::DEFAULT_PORT)",
+    "crates/voxelgame-core/src/game/carried_player.rs:19 — CarriedPlayer keeps survival needs, inventory, hotbar, tool, home, palette and journal",
+    "src/net_client/hosting.rs:33 — the owner's carried player is handed to the host every second (CARRY_INTERVAL)",
+    "crates/voxelgame-server/src/background.rs:130 — the host keeps the newest carried player for every save"
    ],
-   "notes": "Source commits fb873488, df372280 and 8e03a3b7 at Voxelgame origin/main; described from source, not play-tested. A save is served where it lies; the owner plays on as the save's player. A server's world, the Structure Workshop and an unsaved world are not hosted.",
+   "notes": "Source commits fb873488, df372280, 8e03a3b7, 1fd84b33 and 8e4963a4 at Voxelgame origin/main; described from source, not play-tested. A save is served where it lies; the owner plays on as the save's player, carrying the inventory and tools the save holds. Items gained or spent while hosting are kept on every save. A server's world, the Structure Workshop and an unsaved world are not hosted.",
    "backlog": [
     "VOX-NET-M5-LAN"
    ]
