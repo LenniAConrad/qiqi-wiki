@@ -981,7 +981,12 @@
     "crates/voxelgame-core/src/game.rs:632 — on by default",
     "crates/voxelgame-core/src/game/music_settings.rs:115-119 — toggled from Settings"
    ],
-   "notes": "Not saved: it is on again after every load. Coordinates are in metres, the same units as the large map's X Z / X Y Z entry."
+   "notes": "Not saved: it is on again after every load. Coordinates are in metres, the same units as the large map's X Z / X Y Z entry.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "feedback-messages",
@@ -3814,8 +3819,9 @@
    ],
    "notes": "Cinematic costs frame time rather than extra memory (settings.rs:160-165). Saved with the world.",
    "guide": {
-    "state": "none",
-    "next": "Settings and performance"
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
    }
   },
   {
@@ -3836,8 +3842,9 @@
    ],
    "notes": "Large horizons are expensive: an offscreen Intel Iris Xe test measured about 1.8-1.9 GiB of distant-terrain vertex buffers and roughly 37-39 ms world GPU passes at 256-512 chunks. A 1024-chunk option is planned, not present.",
    "guide": {
-    "state": "none",
-    "next": "Settings and performance"
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
    }
   },
   {
@@ -3855,8 +3862,9 @@
     "src/launch.rs:147 — --uncap ignores the saved limit"
    ],
    "guide": {
-    "state": "none",
-    "next": "Settings and performance"
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
    }
   },
   {
@@ -3876,8 +3884,9 @@
    ],
    "notes": "Weather fog is separate and still applies.",
    "guide": {
-    "state": "none",
-    "next": "Settings and performance"
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
    }
   },
   {
@@ -3893,8 +3902,9 @@
     "crates/voxelgame-core/src/settings.rs:444 — tooltip"
    ],
    "guide": {
-    "state": "none",
-    "next": "Settings and performance"
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
    }
   },
   {
@@ -3911,7 +3921,12 @@
     "crates/voxelgame-core/src/settings.rs:264",
     "crates/voxelgame-core/src/settings.rs:301",
     "crates/voxelgame-core/src/settings.rs:478-481"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "voxel-view",
@@ -3927,7 +3942,12 @@
     "crates/voxelgame-core/src/settings.rs:219-222",
     "crates/voxelgame-core/src/settings.rs:259-260",
     "crates/voxelgame-core/src/settings.rs:299"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "distant-terrain-toggle",
@@ -3943,7 +3963,12 @@
     "crates/voxelgame-core/src/settings.rs:265",
     "crates/voxelgame-core/src/settings.rs:482-485",
     "src/app.rs:666-673 — far terrain streaming uses the setting"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "chunk-fade-in",
@@ -3959,7 +3984,12 @@
     "crates/voxelgame-core/src/settings.rs:266",
     "crates/voxelgame-core/src/settings.rs:440-443",
     "crates/voxelgame-render/src/frame.rs:714"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "performance-overlay",
@@ -3985,8 +4015,9 @@
    ],
    "notes": "In normal windowed play the GPU section reads 'GPU timing unavailable in this view'; GPU pass timings exist only in devtools offscreen profiles. Resets to off on every world load.",
    "guide": {
-    "state": "none",
-    "next": "Settings and performance"
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
    }
   },
   {
@@ -4017,7 +4048,12 @@
     "crates/voxelgame-core/src/settings.rs:42-67 — LOD view modes and tooltips",
     "crates/voxelgame-core/src/settings.rs:460-477 — LOD view modes and tooltips"
    ],
-   "notes": "Same controls on the Settings Debug tab. Session-only: all reset to off when a world loads. Work in creative and survival."
+   "notes": "Same controls on the Settings Debug tab. Session-only: all reset to off when a world loads. Work in creative and survival.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "gpu-timing-live",
@@ -4077,7 +4113,12 @@
     "crates/voxelgame-core/src/settings.rs:486-489",
     "src/app.rs:640 — applied every frame"
    ],
-   "notes": "Saved with the world. There is no separate effects or ambience volume."
+   "notes": "Saved with the world. There is no separate effects or ambience volume.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "music-player",
@@ -4099,7 +4140,12 @@
     "VOX-OWNER-MUSIC-ALBUM-ART",
     "VOX-OWNER-CREDITS-MUSIC"
    ],
-   "notes": "Saved with the world. 'No music installed' appears when no songs are found. There is no 'Now playing' pop-up or album art yet; music is a single ordered playlist, not chosen by place or weather."
+   "notes": "Saved with the world. 'No music installed' appears when no songs are found. There is no 'Now playing' pop-up or album art yet; music is a single ordered playlist, not chosen by place or weather.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "nature-ambience",
@@ -4114,7 +4160,12 @@
     "crates/voxelgame-core/src/ambience.rs:9-60 — ambience layers and underwater/cave rules",
     "src/audio.rs:133-160 — silent whenever a menu or panel is open"
    ],
-   "notes": "No separate toggle. Birdsong timing (rises after sunrise, fades by noon) is from README.md:500-503, not separately verified."
+   "notes": "No separate toggle. Birdsong timing (rises after sunrise, fades by noon) is from README.md:500-503, not separately verified.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance"
+   }
   },
   {
    "id": "credits-music",
@@ -4521,7 +4572,9 @@
    ],
    "notes": "Because the game always starts on the DEBUG world, settings you changed while in another world appear again only when you load that world. An owner request to refine per-world settings restore is open.",
    "guide": {
-    "state": "none",
+    "state": "partial",
+    "page": "guide-settings-performance.html",
+    "label": "Settings and performance",
     "next": "Settings and performance"
    }
   },
