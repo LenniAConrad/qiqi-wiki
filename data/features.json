@@ -4294,8 +4294,9 @@
    ],
    "notes": "Buttons: Start/resume or Pause, Reset phase, To break/To study (switches without counting a focus session), Weather (Clear, Rain, Snow, Sunset), Music, Chimes, Auto-next, Animation, and -/+ for Focus and Break. Duration changes apply on reset or the next phase. Settings and the completed count are session-only and reset when the game restarts or the world changes. Study Grove's Music option (on by default) plays the playlist even when Music is off in Settings; your Settings choice returns when you leave. In survival your needs and the world clock are paused.",
    "guide": {
-    "state": "none",
-    "next": "Study Grove focus timer"
+    "state": "complete",
+    "page": "guide-study-grove.html",
+    "label": "Study Grove focus timer"
    }
   },
   {
@@ -4316,8 +4317,9 @@
    ],
    "notes": "Your player, needs and clock stay paused and leaving restores your normal view. Switching backdrop resets the weather choice and closes Options.",
    "guide": {
-    "state": "none",
-    "next": "Study Grove focus timer"
+    "state": "complete",
+    "page": "guide-study-grove.html",
+    "label": "Study Grove focus timer"
    }
   },
   {

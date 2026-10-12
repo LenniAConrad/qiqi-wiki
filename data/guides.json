@@ -2702,9 +2702,180 @@
    ]
   },
   {
+   "id": "study-grove",
+   "page": "guide-study-grove.html",
+   "number": 13,
+   "gap": 14,
+   "kicker": "Focus",
+   "title": "Study Grove focus timer",
+   "headline": "Study Grove,<br><em>a focus timer inside the game.</em>",
+   "summary": "How to open Study Grove, run focus and break phases, change the lengths and choose a backdrop.",
+   "lead": "Study Grove is a countdown timer over a voxel landscape. It starts with 25 minutes of focus and 5 minutes of break, and it pauses the game while it is open.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "study-grove",
+    "study-grove-real-terrain"
+   ],
+   "next": [
+    "settings-and-performance",
+    "not-in-the-game-yet"
+   ],
+   "verification": {
+    "method": "Each button label, default, range and key comes from the game source at the audited commit, e19e688: the timer logic in pomodoro.rs, the key handling in game.rs and the button labels in the render code. The start-menu entry and the P key are checked in the same commit.",
+    "limits": "Source-checked, not play-tested, and no screenshots exist yet. Chime and music timing depend on your audio setup."
+   },
+   "owns": [
+    "study-grove",
+    "study-grove-real-terrain"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "open",
+     "title": "Open Study Grove",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "In a world, press [[P]].",
+        "On the start menu, click **Study timer**.",
+        "Press [[P]] while you type in a search or name box and nothing opens. On the Worlds page, [[P]] also does nothing, so you can type a world name."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The world stops while Study Grove is open. In survival your needs and the world clock are paused too. Close it with [[Esc]] or **Back**. {{study-grove}}"
+      }
+     ]
+    },
+    {
+     "id": "timer",
+     "title": "Start and pause the timer",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The timer starts paused. Press [[Space]] or click **Start / resume** to run it, and **Pause** to stop it."
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Space",
+         "Start or pause the timer."
+        ],
+        [
+         "Tab or Arrow keys",
+         "Move to the next or previous button."
+        ],
+        [
+         "Enter",
+         "Press the selected button."
+        ],
+        [
+         "Esc or Back",
+         "Leave Study Grove. The timer pauses."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Reset phase** starts the current phase again from the beginning.",
+        "**To break** and **To study** switch phase at once. A switch does not count as a finished focus session.",
+        "The count of finished focus sessions is shown while Study Grove is open. It only goes up when a focus phase runs to the end.",
+        "A chime plays when a phase changes. Near the end of a break you hear a reminder 30 seconds before it ends. {{study-grove}}"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "lengths",
+     "title": "Change the lengths",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Focus** has - and + buttons. It goes from 5 to 90 minutes in steps of 5. The default is 25.",
+        "**Break** has - and + buttons. It goes from 1 to 30 minutes in steps of 1. The default is 5."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "While the timer is paused, a change to a length applies at once. While it runs, the new length applies when the next phase starts."
+      }
+     ]
+    },
+    {
+     "id": "options",
+     "title": "Chimes, music, auto-next and animation",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Chimes** turns the phase chimes and the break reminder on or off. On by default.",
+        "**Music** plays the music playlist while Study Grove is open, even when Music is off in Settings. Your Settings choice comes back when you leave. On by default.",
+        "**Auto-next** starts the next phase by itself when one ends. Turn it off to stop at the end of each phase. On by default.",
+        "**Animation** moves the scenery. Turn it off to hold the scene still. On by default.",
+        "**Weather** changes the look of the landscape: Clear, Rain, Snow or Sunset. It does not change your world's weather."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Planned: a small album-art picture beside the song title. Today the song title shows in Study Grove only as text. {{now-playing-album-art}}"
+      }
+     ]
+    },
+    {
+     "id": "real-terrain",
+     "title": "Study over your own world",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Click **Backdrop** to switch from the landscape to **Backdrop: Real terrain**. The timer then sits over your actual world, so you can study with your builds in view. {{study-grove-real-terrain}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Camera: Your view** keeps the viewpoint you had.",
+        "**Camera: Slow orbit** turns slowly about 12 m around that point, above the treetops. Turn Animation off to hold it still.",
+        "**Weather** cycles through World, Clear, Rain, Mist and Sunset. The world's saved weather does not change.",
+        "**Options** shows every timer control over the compact timer. In the compact view, the other controls stay hidden until you click Options."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Your player, needs and clock stay paused. Leaving Study Grove puts your normal view back. Switching the backdrop resets the weather choice and closes Options."
+      }
+     ]
+    },
+    {
+     "id": "limits",
+     "title": "What to know",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "Study Grove always runs at about 30 frames per second, whatever the frame limit is set to. {{frame-limit}}",
+        "The settings and the finished-session count reset when you restart the game or change world."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Planned: keeping the screen awake during long sessions. Today your system's power settings decide when the screen dims. {{display-awake}}"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 13,
+   "number": 14,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",
