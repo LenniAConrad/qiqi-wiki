@@ -4569,7 +4569,12 @@
     "src/app/startup.rs:28-29 — logo only when opening the game; later loads show stage and bar",
     "src/app/startup.rs:79-111 — logo only when opening the game; later loads show stage and bar"
    ],
-   "notes": "No percentage is shown; the window stays responsive to resizing and closing."
+   "notes": "No percentage is shown; the window stays responsive to resizing and closing.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-saves.html",
+    "label": "Saves and world files"
+   }
   },
   {
    "id": "single-instance",
@@ -4586,7 +4591,12 @@
     "src/single_instance.rs:26-35 — per-user socket in XDG_RUNTIME_DIR or the temp folder",
     "src/single_instance.rs:105-119 — per-user socket in XDG_RUNTIME_DIR or the temp folder"
    ],
-   "notes": "Headless screenshot/benchmark runs can run alongside the open game."
+   "notes": "Headless screenshot/benchmark runs can run alongside the open game.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-saves.html",
+    "label": "Saves and world files"
+   }
   },
   {
    "id": "world-files",
@@ -4683,7 +4693,12 @@
     "crates/voxelgame-core/src/save/write.rs:150-170 — position, mode, day clock and survival meters",
     "crates/voxelgame-core/src/pomodoro.rs:3 — study timer is session-only"
    ],
-   "notes": "Session-only (reset on load): Performance (F3), Chunk borders (F7), LOD view (F8), the FPS and coordinates readout (on by default) and Study Grove settings/counts. Creative and survival worlds use the same format; the mode is stored."
+   "notes": "Session-only (reset on load): Performance (F3), Chunk borders (F7), LOD view (F8), the FPS and coordinates readout (on by default) and Study Grove settings/counts. Creative and survival worlds use the same format; the mode is stored.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-saves.html",
+    "label": "Saves and world files"
+   }
   },
   {
    "id": "per-world-settings",
@@ -4726,7 +4741,12 @@
     "crates/voxelgame-core/src/game/home.rs:151 — home crate placement refused at the budget",
     "crates/voxelgame-core/src/world/mod.rs:2345-2350 — spreading water never pushes the save past the limit",
     "crates/voxelgame-core/src/save/write.rs:94-98 — save refused above 200,000 edits"
-   ]
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-saves.html",
+    "label": "Saves and world files"
+   }
   },
   {
    "id": "save-compatibility",
@@ -4741,7 +4761,12 @@
     "crates/voxelgame-core/src/save.rs:60-89 — checks size, file signature and version",
     "crates/voxelgame-core/src/save/load.rs:27-35 — saved generator version restored"
    ],
-   "notes": "Error texts: 'not a voxelgame save', 'world predates the half-metre voxel grid; a new world is required', 'world was saved by a newer version of voxelgame', 'debug save exceeds the 8 MiB safety budget'."
+   "notes": "Error texts: 'not a voxelgame save', 'world predates the half-metre voxel grid; a new world is required', 'world was saved by a newer version of voxelgame', 'debug save exceeds the 8 MiB safety budget'.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-saves.html",
+    "label": "Saves and world files"
+   }
   },
   {
    "id": "unreadable-save",

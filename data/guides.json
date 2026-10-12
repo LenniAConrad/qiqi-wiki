@@ -3244,9 +3244,148 @@
    ]
   },
   {
+   "id": "saves",
+   "page": "guide-saves.html",
+   "number": 16,
+   "gap": null,
+   "kicker": "World",
+   "title": "Saves and world files",
+   "headline": "Saves and world files<br><em>what is kept, and the limits.</em>",
+   "summary": "A world save keeps your character, inventory, settings and every block you changed. Each world is capped at 200,000 changed blocks and 8 MiB.",
+   "lead": "A world file keeps what you change: your character, your inventory, your settings and the blocks you edit. Terrain you never touch is not stored; the game rebuilds it from the world's seed. This page shows what a save keeps, when it saves, and where the limits are.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "save-contents",
+    "save-limits",
+    "save-compatibility",
+    "single-instance",
+    "loading-screen"
+   ],
+   "next": [
+    "install-and-worlds",
+    "troubleshooting",
+    "settings-and-performance"
+   ],
+   "verification": {
+    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs.",
+    "limits": "Source-checked, not play-tested in this guide. No save-file or loading-screen captures exist yet, so the loading screen is described in words."
+   },
+   "owns": [
+    "save-contents",
+    "save-limits",
+    "save-compatibility",
+    "single-instance",
+    "loading-screen"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "keeps",
+     "title": "What a save keeps",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Saving writes the whole world file. It keeps:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Your position, view direction and game mode (creative or survival).",
+        "In survival: health, hunger, thirst, stamina and temperature.",
+        "Your inventory, hotbar bindings and selected slot, and the tool you hold.",
+        "Every block you changed, with its water state.",
+        "Time of day, weather and season controls.",
+        "Your home crate and rest point, and one saved build palette.",
+        "Journal places, expedition finds and the map destination.",
+        "Up to 8 sailing boats, with their position, heading and health.",
+        "The settings for that world. {{save-contents}}"
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Not saved: animals, projectiles, primed TNT and Study Grove timers. These reset when you load the world. The Performance overlay (F3), Chunk borders (F7), LOD view (F8) and the FPS and coordinates readout are also session-only, so they reset on load."
+      }
+     ]
+    },
+    {
+     "id": "when",
+     "title": "When the game saves",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "[[F6]] saves now and shows 'World saved safely'.",
+        "Autosave runs about every 30 seconds, but only when the world has changed.",
+        "Building, mining, home storage, journal edits and boats count as changes. Walking around and most crafting do not, so they wait for the next save.",
+        "Choosing Main menu, Save & quit or Quit, pressing [[Ctrl]]+[[Q]], closing the window, or loading or creating another world all save first."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "If a save fails while you are quitting, the game stays open, so the changes are not lost. {{saving}}"
+      }
+     ]
+    },
+    {
+     "id": "limits",
+     "title": "Save limits",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "Each world file is capped at 8 MiB.",
+        "A world holds up to 200,000 changed blocks. Beyond that, new building is refused with 'Save edit budget reached'. Spreading water never pushes a save past the limit.",
+        "From 190,000 changed blocks, the status line warns 'saving stops at 200000' about every 20 seconds.",
+        "A home crate, blueprint or structure that would go past the limit is not placed."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "There is no backup button. To keep a copy, close the game and copy the world's folder. {{save-limits}}"
+      }
+     ]
+    },
+    {
+     "id": "versions",
+     "title": "Older and newer saves",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "A world keeps the terrain generator it was created with, so land you have not changed stays the same. New worlds use generation 10. {{world-generation-version}}",
+        "A world saved before the half-metre block grid is refused with 'world predates the half-metre voxel grid; a new world is required'. Create a new world instead.",
+        "A world saved by a newer version of the game is refused by an older one with 'world was saved by a newer version of voxelgame'. Update the game to open it.",
+        "A file that is not a Voxelgame save is refused with 'not a voxelgame save'."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "If a world will not open, read {{unreadable-save}}. {{save-compatibility}}"
+      }
+     ]
+    },
+    {
+     "id": "opening",
+     "title": "Opening the game",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "Only one copy of the game runs per user. Opening it again brings the open window to the front and shows 'Voxelgame was already open; click the world to recapture the mouse'. {{single-instance}}",
+        "When the game first opens, a tumbling wireframe cube settles into the Voxelgame logo above the current loading stage and an activity bar. Later world loads show only the stage and the bar. There is no percentage. {{loading-screen}}"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 16,
+   "number": 17,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",
