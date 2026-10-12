@@ -4121,7 +4121,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "A block you select is shown as a small textured cube in your right hand. Tools are held on the right, and the bow sits left of centre with its own string hand. Empty hands show nothing. In survival, a block you no longer carry disappears from your hand. F1 hides held items in the clean view. {{held-items-first-person}}"
+       "text": "A block you select is shown as a small textured cube in your right hand. Tools are held on the right, and the bow sits left of centre with its own string hand. With nothing in hand, or with a block you no longer carry in survival, your bare right arm rests low on the right. Hold left click to swing a tool, bare hand or held block; bows and rifles do not swing. Placing a block plays one swing. The swing is visual only. A held sailing boat shows no hand. F1 hides held items in the clean view. {{held-items-first-person}}"
       },
       {
        "t": "p",

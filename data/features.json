@@ -4068,19 +4068,21 @@
     "creative",
     "survival"
    ],
-   "summary": "A selected block is shown as a small textured cube gripped in your right hand; tools are held on the right and the bow left of centre with a separate string hand. Empty hands show nothing, and in survival a block you no longer carry disappears from your hand.",
+   "summary": "A selected block is shown as a small textured cube gripped in your right hand; tools are held on the right and the bow left of centre with a separate string hand. With nothing in hand, or a block you no longer carry in survival, a bare right arm shows low on the right. Holding left click swings tools, bare hands and held blocks (not bows or rifles), and placing a block plays one swing. A held sailing boat shows no hand.",
    "evidence": [
-    "crates/voxelgame-render/src/viewmodel.rs:381-401 — nothing drawn without a tool or held block; survival needs at least one carried piece",
-    "crates/voxelgame-render/src/viewmodel.rs:418-439 — held block: 0.36 m cube 0.85 m ahead, right of centre, with a gripping hand",
-    "crates/voxelgame-render/src/viewmodel.rs:540-544 — tool anchor right of centre",
-    "crates/voxelgame-render/src/viewmodel.rs:700-730 — bow held left of the aim"
+    "crates/voxelgame-render/src/viewmodel.rs:387-404 — held block, else bare right arm; nothing for a held sailing boat",
+    "crates/voxelgame-render/src/viewmodel.rs:728 — build_empty_hand_viewmodel: bare arm sways with the walk and jabs toward the aim on the swing clock",
+    "crates/voxelgame-core/src/game.rs:2010-2015 — primary button held restarts the swing for tools, bare hands and blocks (not bow or rifle)",
+    "crates/voxelgame-core/src/game.rs:2127 — placing a block sets one swing",
+    "crates/voxelgame-core/src/game.rs:1060 — swing decays over 0.32 s; visual only, reach and mining unchanged",
+    "crates/voxelgame-render/src/viewmodel.rs:544 — build_tool_viewmodel: tools anchored right of centre",
+    "crates/voxelgame-render/src/viewmodel.rs:770 — build_bow_viewmodel: bow held left of the aim"
    ],
    "backlog": [
     "VOX-OWNER-HELD-BLOCK-APPEARANCE",
-    "VOX-OWNER-HELD-BOW-TOOLS",
-    "VOX-OWNER-FIRST-PERSON-HANDS"
+    "VOX-OWNER-HELD-BOW-TOOLS"
    ],
-   "notes": "Owner-requested changes (full-size held block, right-side bow, visible empty hand, punch and place motions) are planned and not in this snapshot. F1 clean view hides held items.",
+   "notes": "Owner-requested changes (full-size held block, right-side bow) are planned and not in this snapshot. The visible bare hand, punch/mine/place swing and plain block fist landed in Voxelgame d1def9ef. F1 clean view hides held items.",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
