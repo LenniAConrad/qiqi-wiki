@@ -1535,7 +1535,12 @@
     "crates/voxelgame-core/src/game/creative_catalog.rs:154-169 — removing carried items",
     "crates/voxelgame-core/src/game/inventory_input.rs:65-86 — search, paging, clicks"
    ],
-   "notes": "Bricks, plaster and roof tiles count as rock, so they appear under TERRAIN rather than BUILD. Taking items is limited by the 80 kg pack, but placing blocks in creative is free."
+   "notes": "Bricks, plaster and roof tiles count as rock, so they appear under TERRAIN rather than BUILD. Taking items is limited by the 80 kg pack, but placing blocks in creative is free.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "crafting-panel",
@@ -1958,8 +1963,9 @@
    ],
    "notes": "Colour words approximate shader values; on-screen tone depends on lighting and post-processing. The owner has asked to remove both outline boxes and make the full-block ghost show correct full-size texturing (VOX-OWNER-BLOCK-PLACEMENT-PREVIEW); not in this snapshot, so screenshots will need refreshing if it lands. Ghost UVs span 0-1 per face regardless of size, a plausible source of the owner-reported enlarged texture; not visually verified here.",
    "guide": {
-    "state": "none",
-    "next": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {
@@ -1986,8 +1992,9 @@
    ],
    "notes": "Plants and water in the target cell are overwritten; plants are not collected (code reading). If any part of the 1 m cell is occupied the whole block is refused (red outline); hold Shift to place half-metre pieces instead. Status messages: 'Cannot place a block inside the player', 'That space is already occupied', 'Need 8 <block> pieces to place a block (N carried)'. In creative, fill quick slots from E > Build or a palette preset.",
    "guide": {
-    "state": "none",
-    "next": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {
@@ -2018,8 +2025,9 @@
    ],
    "notes": "Holding Shift also makes you sneak on foot, dive while swimming and descend while flying. There are no slabs, stairs, rotated or sloped blocks; every partial shape is built from half-metre voxels.",
    "guide": {
-    "state": "none",
-    "next": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {
@@ -2106,8 +2114,9 @@
    ],
    "notes": "Brushes need a block in hand; with a tool equipped right click does nothing. Status messages: 'First corner set | aim at the other corner and right click', 'Built N pieces | Ctrl+Z undoes', 'Selection blocked: occupied cells, player, crate, or edit budget'.",
    "guide": {
-    "state": "none",
-    "next": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {
@@ -2139,7 +2148,12 @@
     "crates/voxelgame-core/src/game/building.rs:117-128 — every cell must be free (air, water or plants), outside the player and not the Home crate",
     "tools/debug_scenarios/building_expeditions.json — normal-input Line build of 8 voxels, Ctrl+Z to 0, Ctrl+Shift+Z back to 8"
    ],
-   "notes": "If any cell is occupied nothing is built. Line, Wall and Floor corners are ghost positions (where a block would go), unlike Copy and Replace, which use the blocks you aim at."
+   "notes": "If any cell is occupied nothing is built. Line, Wall and Floor corners are ghost positions (where a block would go), unlike Copy and Replace, which use the blocks you aim at.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "brush-replace",
@@ -2165,7 +2179,12 @@
     "crates/voxelgame-core/src/game/building.rs:103-113 — second corner is the aimed block; only cells of the first material change",
     "crates/voxelgame-core/src/game/building.rs:117-128 — Replace may overwrite solid cells, unlike other brushes"
    ],
-   "notes": "The 512-piece limit counts the whole box, including cells that are not replaced. Hold Shift on the first click for half-metre steps."
+   "notes": "The 512-piece limit counts the whole box, including cells that are not replaced. Hold Shift on the first click for half-metre steps.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "brush-copy-paste",
@@ -2202,8 +2221,9 @@
    ],
    "notes": "Pasting never overwrites existing blocks; the whole paste is refused if any cell is occupied. The copy is lost when you change brush or leave the world.",
    "guide": {
-    "state": "none",
-    "next": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {
@@ -2229,7 +2249,12 @@
     "crates/voxelgame-core/src/game/building.rs:57-101 — fixed half-metre patterns rotated about the ghost",
     "crates/voxelgame-core/src/game/building.rs:264-268 — no corner selection for these brushes"
    ],
-   "notes": "Pattern sizes are fixed and always use half-metre pieces; every cell must be free. Hold Shift to position on the half-metre grid."
+   "notes": "Pattern sizes are fixed and always use half-metre pieces; every cell must be free. Hold Shift to position on the half-metre grid.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
   },
   {
    "id": "build-undo-redo",
@@ -2262,8 +2287,9 @@
    ],
    "notes": "Survival actions and explosions are never recorded. History is not saved; leaving the world clears it. Empty history shows 'No building history in this session'.",
    "guide": {
-    "state": "none",
-    "next": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {
@@ -2301,8 +2327,9 @@
    ],
    "notes": "Choosing a preset overwrites your current quick slots, so Save palette first if you want them back. Catalog search, categories and taking items belong to the menus area.",
    "guide": {
-    "state": "none",
-    "next": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {

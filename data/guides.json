@@ -2003,6 +2003,208 @@
      ]
     }
    ]
+  },
+  {
+   "id": "building-basics",
+   "page": "guide-building.html",
+   "number": 10,
+   "gap": 7,
+   "kicker": "Building",
+   "title": "Building basics and creative tools",
+   "headline": "Place it, shape it,<br><em>undo the mistakes.</em>",
+   "summary": "Place whole blocks and half-metre pieces, use the creative brushes, copy and paste, and undo your work.",
+   "lead": "A whole block is a 1 m cube. Hold Shift to work with half-metre pieces. In creative mode, the brushes build lines, walls, floors and copies in one action, and Ctrl+Z undoes your last building action.",
+   "readTime": "6 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "block-targeting-feedback",
+    "whole-block-placement",
+    "half-metre-detail-building",
+    "creative-catalog",
+    "creative-brush-cycle",
+    "brush-line-wall-floor",
+    "brush-replace",
+    "brush-copy-paste",
+    "brush-bench-railing-roof",
+    "build-undo-redo",
+    "build-workspace-palettes"
+   ],
+   "next": [
+    "maps-and-finding-your-way",
+    "controls-reference"
+   ],
+   "verification": {
+    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values.",
+    "limits": "Source-checked, not play-tested in this guide. The block outline and ghost may look different in later builds."
+   },
+   "owns": [
+    "block-targeting-feedback",
+    "whole-block-placement",
+    "half-metre-detail-building",
+    "creative-catalog",
+    "creative-brush-cycle",
+    "brush-line-wall-floor",
+    "brush-replace",
+    "brush-copy-paste",
+    "brush-bench-railing-roof",
+    "build-undo-redo",
+    "build-workspace-palettes"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "place",
+     "title": "Place a block",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Select a block in the hotbar with keys 1 to 0, or pick it from the Build catalog in creative.",
+        "Aim at the face where you want the block. A ghost shows the cell it will fill.",
+        "Right-click to place one block. The held item must be a block; with a tool equipped, right-click does nothing."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "A whole block is eight half-metre pieces. In survival, each whole block uses 8 pieces of that material from your pack, and the game says so if you are short. Creative placement is free. {{whole-block-placement}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "If any part of the target cell is occupied, the whole block is refused and the outline turns red. You cannot place a block inside yourself. Plants and water in the target cell are overwritten."
+      }
+     ]
+    },
+    {
+     "id": "pieces",
+     "title": "Half-metre pieces",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Hold Shift to work on one half-metre piece instead of a whole cube. Use it for half steps, thin walls, trim and carving. There are no slabs, stairs or sloped blocks; you build those shapes from pieces. {{half-metre-detail-building}} {{block-targeting-feedback}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Shift + Right click",
+         "Place one half-metre piece."
+        ],
+        [
+         "Shift + Left click",
+         "Carve one half-metre piece, from any block."
+        ],
+        [
+         "F1",
+         "Clean view. Hides the outline, ghost and HUD while you play."
+        ]
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Holding Shift also sneaks on foot, dives in water and descends while flying."
+      }
+     ]
+    },
+    {
+     "id": "brushes",
+     "title": "Creative brushes",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In creative mode, press B to move to the next brush. The order is Block, Line, Wall, Floor, Replace, Copy, Bench, Railing and Roof. You can also pick a brush from the E > Build tab. {{creative-brush-cycle}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Block: Right-click to place one block.",
+        "Line: Right-click once to set the first corner, aim at the far end and right-click again. The line follows the longer direction. {{brush-line-wall-floor}}",
+        "Wall: Same two clicks. The wall stands upright along the longer horizontal direction.",
+        "Floor: Same two clicks. The floor stays level at the height of the first corner.",
+        "Replace: Aim at a block of the material to swap and right-click. Aim at the opposite corner and right-click again. Matching blocks in the box become the block in your hand. {{brush-replace}}",
+        "Copy: Right-click two opposite corners to copy the solid blocks in that box. Right-click again to paste at the ghost. R turns the paste 90 degrees. B discards the copy. {{brush-copy-paste}}",
+        "Bench, Railing, Roof: One right-click stamps a fixed shape at the ghost. Press R first to turn it 90 degrees. {{brush-bench-railing-roof}}"
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Every brush except Block shows a ghost first. One action changes at most 512 half-metre pieces (64 whole blocks). If any cell is occupied, nothing is built. Hold Shift on the first click for half-metre steps."
+      },
+      {
+       "t": "p",
+       "text": "Pressing B clears a corner selection or a copied selection. Copies are lost when you change brush or leave the world."
+      }
+     ]
+    },
+    {
+     "id": "undo",
+     "title": "Undo and redo",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Ctrl+Z",
+         "Undo the last building action."
+        ],
+        [
+         "Ctrl+Shift+Z",
+         "Redo."
+        ],
+        [
+         "Undo and Redo buttons",
+         "The same actions, in the E > Build tab."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Undo covers brush actions, single blocks placed and blocks or trees you mined in creative. {{build-undo-redo}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Undo is refused with \"Undo blocked\" if the cells changed since, if it would put a block inside you, or if it would pass the save's edit limit. Survival actions and explosions are not recorded. History is cleared when you leave the world."
+      }
+     ]
+    },
+    {
+     "id": "build-tab",
+     "title": "The Build tab and palettes",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The E > Build tab holds a searchable catalog of every item, the brush button, Undo and Redo, four preset palettes and a Save palette button. The Build tab is only offered in creative. {{creative-catalog}} {{build-workspace-palettes}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Click an item to take one. Shift-click to take as many as fit in your pack.",
+        "Right-click an item to remove one you carry. Shift-right-click removes all of them.",
+        "Middle-click an item to star it.",
+        "Hover an item and press 1 to 0, or drag it onto a slot, to bind it to the hotbar."
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Click Timber, Masonry, Coastal or Garden to fill the ten quick slots with that set. Slot 1 is selected.",
+        "Click Save palette to store your current ten slots.",
+        "Shift-click Save palette to load them back."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "A preset replaces all ten quick slots. Click Save palette first if you want to keep them."
+      }
+     ]
+    }
+   ]
   }
  ]
 }
