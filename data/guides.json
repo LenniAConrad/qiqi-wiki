@@ -2987,7 +2987,7 @@
        "items": [
         "One half-metre charge or one dynamite stick: about 1.5 m.",
         "One whole TNT block: about 4.25 m.",
-        "A touching group of TNT: up to about 10.5 m."
+        "A touching group of TNT: up to about 10.5 m, which needs about 62 touching TNT blocks."
        ]
       },
       {
@@ -3026,7 +3026,7 @@
         "Select Dynamite in your hotbar.",
         "Hold right click to wind up. A longer wind-up throws farther.",
         "Release to throw. The fuse starts on release.",
-        "Take cover. The stick goes off 2.3 seconds later, where it stops."
+        "Take cover. The stick goes off 2.3 seconds after you throw it, where it is then. It sticks to the first surface it hits."
        ]
       },
       {
@@ -3068,7 +3068,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Both recipes need Lumen crystal. The world does not generate it naturally, and a survival world has one piece at the Stone overlook landmark. You cannot make TNT or dynamite from gathered materials alone. {{lumen-crystal-supply}}"
+       "text": "Both recipes need Lumen crystal. The world does not generate it naturally, and a survival world usually has one half-metre piece at the Stone overlook landmark. The game places that landmark only when it finds a dry flat spot near its fixed base. You cannot make TNT or dynamite from gathered materials alone. {{lumen-crystal-supply}}"
       },
       {
        "t": "p",
