@@ -209,7 +209,7 @@
    "modes": [
     "menu"
    ],
-   "summary": "Worlds lists your saves, current world first, then alphabetically. Type to filter the list or to name a new world, then choose Create world. Click a row or press Enter to load it. To delete a world, hold its DELETE badge or the Delete key for 3 seconds; the current world cannot be deleted.",
+   "summary": "Worlds lists your saves, current world first, then starred worlds, then the rest by name. Type to filter the list or to name a new world, then choose Create world. Click a row or press Enter to load it. Star a world with its star button or Tab, and show only starred worlds with the Starred button or Shift+Tab. To delete a world, hold its DELETE badge or the Delete key for 3 seconds; the current world cannot be deleted.",
    "controls": [
     [
      "Typing",
@@ -236,22 +236,32 @@
      "Delete that world after 3 s (Worlds page, not the current world)"
     ],
     [
+     "Tab (row selected) or click the star",
+     "Star or unstar that world (Worlds page)"
+    ],
+    [
+     "Shift+Tab or the Starred button",
+     "Show only starred worlds, or the full list again (Worlds page)"
+    ],
+    [
      "Esc or Back",
      "Return to the start menu (Worlds page)"
     ]
    ],
    "evidence": [
     "crates/voxelgame-core/src/game/startup.rs:207-269 — typing, arrows, clicks and Enter",
+    "crates/voxelgame-core/src/game/startup.rs:289-293 — Tab stars the selected world, Shift+Tab toggles starred-only",
+    "src/worlds.rs:119 — starred saves sort right after the active one",
+    "src/worlds.rs:129-170 — worlds/favourites.txt keyed by canonical save path",
     "crates/voxelgame-core/src/game/startup.rs:379-434 — hold-to-delete, current world refused",
     "crates/voxelgame-core/src/game/startup.rs:436-463 — load / create / back",
     "src/worlds.rs:43-113 — discovery, current world first, then by name"
    ],
    "backlog": [
     "VOX-OWNER-WORLDS-BACKUP",
-    "VOX-OWNER-WORLDS-FAVOURITES",
     "VOX-OWNER-WORLDS-SCREENSHOTS"
    ],
-   "notes": "There is no seed, mode or option picker: new worlds always start in creative. Only four rows show and the mouse wheel does not scroll this list, so use the arrows or type to filter. No rename, backup, favourites or thumbnails yet (planned).",
+   "notes": "There is no seed, mode or option picker: new worlds always start in creative. Only four rows show and the mouse wheel does not scroll this list, so use the arrows or type to filter. Stars (Voxelgame 7a7396a) are kept in worlds/favourites.txt, not in the save. No rename, backup or thumbnails yet (planned).",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",

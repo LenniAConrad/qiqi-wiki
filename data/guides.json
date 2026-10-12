@@ -140,6 +140,11 @@
       },
       {
        "t": "note",
+       "kind": "tip",
+       "text": "To keep a world near the top, click the star at the left of its row, or press [[Tab]] with the row selected. Starred worlds are listed right after the current world. Choose **Starred** (or press [[Shift]]+[[Tab]]) to show only starred worlds. Stars are saved in the worlds folder, not in the world."
+      },
+      {
+       "t": "note",
        "kind": "careful",
        "text": "To delete a world, hold its DELETE badge, or hold the [[Delete]] key with the row selected, for 3 seconds. The world you are currently in cannot be deleted."
       }
@@ -1200,6 +1205,7 @@
        "t": "list",
        "items": [
         "Each world is one .vxw file in the worlds folder inside the data folder.",
+        "Stars from the Worlds page are kept in worlds/favourites.txt, one save path per line, not inside the world file.",
         "The starting world is worlds/debug/debug.vxw. The menu lists it as DEBUG.",
         "A world with a name is saved in a folder named from the name in lowercase letters, numbers and hyphens, for example worlds/my-island/world.vxw. If that folder already exists, a number is added (my-island-2). A name with no usable letters or numbers gets a numbered folder.",
         "A world with an empty name is saved as worlds/world-0001/world.vxw, then world-0002, and so on."
