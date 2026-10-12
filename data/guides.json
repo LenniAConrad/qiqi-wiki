@@ -238,11 +238,11 @@
        "t": "figure",
        "src": "images/guides/inventory-build.webp",
        "alt": "The inventory screen in creative mode. Tabs along the top read Pack, Craft, Build, Home and Journal. The Build tab is open and shows a paged grid of block icons with a search field and category buttons, and the hotbar of ten empty slots below.",
-       "caption": "The inventory in creative mode with the Build tab open. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world). The header reads 'Pack 2.5 / 80 kg'."
+       "caption": "The inventory in creative mode with the Build tab open. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world). This capture predates the capacity change: the header now reads 'Capacity: X / 1000'."
       },
       {
        "t": "p",
-       "text": "Press [[E]] to open the inventory and press it again to close it. The tabs are Pack, Craft, Home and Journal in survival, plus Build in creative; switch with the mouse, [[Tab]] or [[Shift]] + [[Tab]]. The header always shows how much you carry out of 80 kg. The Pack tab lists carried items as icons with quantity numbers; hover an icon to see its name. {{inventory-workspaces}}"
+       "text": "Press [[E]] to open the inventory and press it again to close it. The tabs are Pack, Craft, Home and Journal in survival, plus Build in creative; switch with the mouse, [[Tab]] or [[Shift]] + [[Tab]]. The header always shows how much you carry out of 1000 capacity. The Pack tab lists carried items as icons with quantity numbers; hover an icon to see its name. {{inventory-workspaces}}"
       },
       {
        "t": "h",
@@ -307,7 +307,7 @@
       {
        "t": "list",
        "items": [
-        "Blocks take time to mine and your pack is limited to 80 kg.",
+        "Blocks take time to mine and your pack is limited to 1000 capacity.",
         "Four bars for health, hunger, thirst and stamina, shown lower left.",
         "Falls hurt, and you eat with [[R]], drink with [[T]] and quick-craft with [[X]].",
         "Dying returns you to your rest point and loses nothing."
@@ -674,7 +674,7 @@
       },
       {
        "t": "p",
-       "text": "Your pack is limited by weight, 80 kg, not by slots. {{carry-capacity}} Any block can be mined by hand; a tool only speeds up its own material: the pickaxe about 4× on rock, glass and masonry, the hatchet about 3.6× on logs, boards and leaves, the shovel about 3.4× on loose ground. {{mining-speed-tools}}"
+       "text": "Your pack is limited by capacity, 1000, not by slots. {{carry-capacity}} Any block can be mined by hand; a tool only speeds up its own material: the pickaxe about 4× on rock, glass and masonry, the hatchet about 3.6× on logs, boards and leaves, the shovel about 3.4× on loose ground. {{mining-speed-tools}}"
       },
       {
        "t": "note",
@@ -748,7 +748,7 @@
        "t": "steps",
        "items": [
         "Stand on dry, solid ground, open the **Home** tab and choose **Establish home**. It costs 8 board pieces and places a small crate 1.5 m beside you.",
-        "Move items to and from the crate by clicking rows in the Home tab; it holds up to 400 kg while you are within 6 m. Shift + click moves as many as fit.",
+        "Move items to and from the crate by clicking rows in the Home tab; it holds up to 400 capacity while you are within 6 m. Shift + click moves as many as fit.",
         "Build a roof with cover on at least two sides next to the crate, then choose **Rest / set respawn** there."
        ]
       },
@@ -2454,7 +2454,7 @@
     "maps-and-finding-your-way"
    ],
    "verification": {
-    "method": "Launch, pack, helm keys, sail and steering behaviour, wind speeds and saving come from the feature ledger, which cites the game source lines for each entry. The 6 m launch and pack range, 9 m helm range, 18 kg carrying capacity, 8-boat limit and 45 degree no-push zone are code values.",
+    "method": "Launch, pack, helm keys, sail and steering behaviour, wind speeds and saving come from the feature ledger, which cites the game source lines for each entry. The 6 m launch and pack range, 9 m helm range, 18 capacity of free pack room, 8-boat limit and 45 degree no-push zone are code values.",
     "limits": "Source-checked, not play-tested in this guide and without screenshots. Test the tacking advice and the 45 degree no-push zone on open water before you rely on them."
    },
    "owns": [
@@ -2507,7 +2507,7 @@
       {
        "t": "list",
        "items": [
-        "You need 18 kg of free carrying capacity. A boat that is too heavy for your pack cannot be packed.",
+        "You need 18 capacity of free pack room. A boat that is too heavy for your pack cannot be packed.",
         "A boat with 0 health (wrecked) cannot be boarded or packed. The game clears it the next time you launch a boat."
        ]
       },

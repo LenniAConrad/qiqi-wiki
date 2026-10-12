@@ -1151,7 +1151,7 @@
     "crates/voxelgame-core/src/game.rs:1121-1123 — T handled in survival",
     "crates/voxelgame-core/src/game/tests.rs:4235 — flask filling tests"
    ],
-   "notes": "More flasks: 'Blow glass flasks' (8 Glass + 1 Charcoal -> 2 Empty flasks). Each filled flask weighs 0.75 kg vs 0.30 kg empty, so filling needs pack room.",
+   "notes": "More flasks: 'Blow glass flasks' (8 Glass + 1 Charcoal -> 2 Empty flasks). Each filled flask takes 0.75 capacity vs 0.30 empty, so filling needs pack room.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1231,7 +1231,7 @@
     "creative",
     "survival"
    ],
-   "summary": "In the Home tab, Establish home while standing on dry, solid ground: it costs 8 board pieces (free in creative) and places a small crate 1.5 m beside you. The crate stores up to 400 kg while you are within 6 m.",
+   "summary": "In the Home tab, Establish home while standing on dry, solid ground: it costs 8 board pieces (free in creative) and places a small crate 1.5 m beside you. The crate stores up to 400 capacity while you are within 6 m.",
    "controls": [
     [
      "Click Establish home",
@@ -1254,7 +1254,7 @@
     "crates/voxelgame-core/src/game/home.rs:106-170 — establish and repair",
     "crates/voxelgame-core/src/game/home.rs:194-221 — pack up needs empty storage and pack room; refunds 8 Alder boards",
     "crates/voxelgame-core/src/game/home.rs:223-257 — transfers",
-    "crates/voxelgame-render/src/inventory_ui.rs:464-539 — Home tab layout ('Storage: needs 8 board pieces', 'Home: X / 400 kg')"
+    "crates/voxelgame-render/src/inventory_ui.rs:464-539 — Home tab layout ('Storage: needs 8 board pieces', 'Home: X / 400')"
    ],
    "backlog": [
     "VOX-OWNER-CHESTS"
@@ -1377,7 +1377,7 @@
     "crates/voxelgame-core/src/game/inventory_input.rs:10-13 — survival falls back from Build to Pack",
     "crates/voxelgame-render/src/inventory_ui.rs:28-56 — header shows VOXELGAME, pack mass, and tab buttons"
    ],
-   "notes": "The header always shows 'Pack <mass> / <capacity> kg'. Journal is covered by the world/maps audit.",
+   "notes": "The header always shows 'Capacity: <carried> / <capacity>'. Journal is covered by the world/maps audit.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -1393,17 +1393,17 @@
     "creative",
     "survival"
    ],
-   "summary": "Your pack is limited by total weight, not slots: 80 kg, with no stack limit. Blocks are carried as half-metre pieces; a full 1 m block is 8 pieces and weighs what the block weighs.",
+   "summary": "Your pack is limited by total capacity, not slots: 1000 capacity, with no stack limit. Blocks are carried as half-metre pieces; a full 1 m block is 8 pieces and weighs what the block weighs.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:587-605 — Inventory has quantities and a mass capacity, no slots",
     "crates/voxelgame-core/src/inventory.rs:678-695 — adding stops at the remaining capacity",
     "crates/voxelgame-core/src/inventory.rs:1246-1252 — test: no stack ceiling, only mass",
-    "crates/voxelgame-render/src/inventory_ui.rs:29-40 — 'Pack X / Y kg' header"
+    "crates/voxelgame-render/src/inventory_ui.rs:29-40 — 'Capacity: X / Y' label"
    ],
    "backlog": [
     "VOX-OWNER-INVENTORY-CAPACITY-1000"
    ],
-   "notes": "The same 80 kg pack is used in creative: taking catalog items is capacity-limited, but creative block placement does not use up items. The owner-requested capacity of 1000 is planned, not implemented.",
+   "notes": "The same 1000 capacity pack is used in creative: taking catalog items is capacity-limited, but creative block placement does not use up items. The owner-requested capacity of 1000 is planned, not implemented.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1470,7 +1470,7 @@
    "summary": "Hovering an item shows its name, quantity, category and click hints; the side panel shows a rotating 3D model with a description, where it comes from, what uses it, and its weight per piece.",
    "evidence": [
     "crates/voxelgame-render/src/inventory_ui.rs:83-120 — rotating model preview and label",
-    "crates/voxelgame-render/src/inventory_ui.rs:214-224 — description, source, use and 'kg per piece' lines",
+    "crates/voxelgame-render/src/inventory_ui.rs:214-224 — description, source, use and 'capacity per piece' lines",
     "crates/voxelgame-render/src/inventory_ui.rs:225-242 — hover tooltip text",
     "crates/voxelgame-render/src/item_labels.rs:65-135 — category, SOURCE/RECIPE and USE/USED IN labels"
    ],
@@ -1603,7 +1603,7 @@
     "crates/voxelgame-core/src/game/creative_catalog.rs:154-169 — removing carried items",
     "crates/voxelgame-core/src/game/inventory_input.rs:65-86 — search, paging, clicks"
    ],
-   "notes": "Bricks, plaster and roof tiles count as rock, so they appear under TERRAIN rather than BUILD. Taking items is limited by the 80 kg pack, but placing blocks in creative is free.",
+   "notes": "Bricks, plaster and roof tiles count as rock, so they appear under TERRAIN rather than BUILD. Taking items is limited by the 1000 capacity pack, but placing blocks in creative is free.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -1842,7 +1842,7 @@
     "crates/voxelgame-core/src/inventory.rs:425-427 — log tooltip: cutting it removes its children",
     "crates/voxelgame-core/src/game/tests.rs:4000 — chop time, whole-tree collection, capacity refusal"
    ],
-   "notes": "Cutting the root removes the whole tree; cutting a branch keeps the trunk below. If the whole harvest does not fit you get 'Need X kg free to collect this connected tree' and nothing is cut. Logs you placed yourself mine like ordinary blocks. Status shows 'Felled a tree: N <log> and M <leaves>'.",
+   "notes": "Cutting the root removes the whole tree; cutting a branch keeps the trunk below. If the whole harvest does not fit you get 'Need X capacity free to collect this connected tree' and nothing is cut. Logs you placed yourself mine like ordinary blocks. Status shows 'Felled a tree: N <log> and M <leaves>'.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1966,20 +1966,19 @@
   {
    "id": "planned-inventory-overhaul",
    "area": "crafting",
-   "name": "Capacity 1000 and compact inventory grid",
+   "name": "Compact inventory grid",
    "status": "planned",
    "modes": [
     "creative",
     "survival"
    ],
-   "summary": "A capacity of 1000 (labelled Capacity, not kg) and a compact icon-grid inventory with hover tooltips are planned; today the pack is 80 kg shown as boxed rows with names.",
+   "summary": "A compact icon-grid inventory with hover tooltips is planned. The pack capacity is already 1000 (labelled Capacity, no kg); today the pack is shown as boxed rows with names.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:609 — capacity 80",
-    "crates/voxelgame-render/src/inventory_ui.rs:29-33 — 'kg' label and boxed name rows",
-    "crates/voxelgame-render/src/inventory_ui.rs:307-347 — 'kg' label and boxed name rows"
+    "crates/voxelgame-render/src/inventory_ui.rs:29-33 — 'Capacity' label and boxed name rows",
+    "crates/voxelgame-render/src/inventory_ui.rs:307-347 — 'Capacity' label and boxed name rows"
    ],
    "backlog": [
-    "VOX-OWNER-INVENTORY-CAPACITY-1000",
     "VOX-OWNER-COMPACT-INVENTORY",
     "VOX-OWNER-INVENTORY-ICON-DEFECTS"
    ]
@@ -3444,7 +3443,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Select the Small sailing boat and right-click open water within 6 m to launch it. It floats on any water: sea, lakes and all six water types, at their real surface height. To carry it again, look at an unoccupied boat within 6 m and Shift-right-click, with 18 kg of free carrying capacity. Survival uses up and returns the boat item; creative launches from the catalog without using one.",
+   "summary": "Select the Small sailing boat and right-click open water within 6 m to launch it. It floats on any water: sea, lakes and all six water types, at their real surface height. To carry it again, look at an unoccupied boat within 6 m and Shift-right-click, with 18 capacity free in your pack. Survival uses up and returns the boat item; creative launches from the catalog without using one.",
    "controls": [
     [
      "Right-click open water",
