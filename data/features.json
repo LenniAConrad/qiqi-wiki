@@ -1256,9 +1256,7 @@
     "crates/voxelgame-core/src/game/home.rs:223-257 — transfers",
     "crates/voxelgame-render/src/inventory_ui.rs:464-539 — Home tab layout ('Storage: needs 8 board pieces', 'Home: X / 400')"
    ],
-   "backlog": [
-    "VOX-OWNER-CHESTS"
-   ],
+   "backlog": [],
    "notes": "One home at a time; to move it, empty storage and Pack up. If the crate is destroyed (e.g. by TNT) the stored items are kept and Establish home within 6 m of the old spot repairs it. Pack up refunds Alder boards even if you paid with other species. Your rest point stays after packing up.",
    "guide": {
     "state": "partial",
@@ -2022,19 +2020,17 @@
   {
    "id": "planned-doors-chests-furniture",
    "area": "building",
-   "name": "Storage chests and furniture",
+   "name": "Furniture",
    "status": "planned",
    "modes": [
     "creative",
     "survival"
    ],
-   "summary": "Placeable storage chests, closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version; the single Home crate is the only storage.",
+   "summary": "Closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. Wooden chests are available.",
    "evidence": [
-    "search: grep -ri 'chest|closet|furniture|chair' crates/ src/ — no gameplay hits (only a shader comment)",
-    "crates/voxelgame-core/src/expedition.rs:12-17 — the Home crate is the only storage container"
+    "search: grep -ri 'closet|furniture|chair|extendable' crates/ src/ — no gameplay hits"
    ],
    "backlog": [
-    "VOX-OWNER-CHESTS",
     "VOX-OWNER-FURNITURE-SET",
     "VOX-OWNER-EXTENDABLE-TABLES",
     "VOX-OWNER-FURNITURE-WOOD-VARIANTS"
@@ -2042,6 +2038,48 @@
    "guide": {
     "state": "none",
     "next": "Not in the game yet"
+   }
+  },
+  {
+   "id": "wooden-chests",
+   "area": "building",
+   "name": "Wooden chests",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "A one-metre board chest from one block of boards. Set it down with a right click, open its Chest tab within 6 m with a right click, move items with clicks, and take it up by breaking it, which returns its contents to the pack when there is room.",
+   "controls": [
+    [
+     "Right click with a chest held",
+     "Set it down in the ghost's metre cell"
+    ],
+    [
+     "Right click a chest within 6 m",
+     "Open its Chest tab"
+    ],
+    [
+     "Click an item in the Chest tab",
+     "Move one across"
+    ],
+    [
+     "Shift + click an item",
+     "Move all of that item"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/inventory.rs:1268-1274 — Wooden chest: one block of planks in Timber",
+    "crates/voxelgame-core/src/game/chests.rs:17-23 — 64 kinds, 250 capacity, 512 chests, 6 m reach",
+    "crates/voxelgame-core/src/game/chests.rs:68 — set down refused while connected to a server",
+    "crates/voxelgame-core/src/game/chests.rs:114 — open refused while connected to a server",
+    "crates/voxelgame-core/src/game/chests.rs:158-170 — taking up moves the chest and its contents into the pack together"
+   ],
+   "notes": "Connected clients refuse chests until servers replicate contents. Blasts, track crushing, creative edits, brushes, copy and blueprint capture leave chest cells alone.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
    }
   },
   {

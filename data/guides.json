@@ -2211,7 +2211,8 @@
     "middle-click-pick",
     "building-in-water",
     "placement-restrictions",
-    "doors"
+    "doors",
+    "wooden-chests"
    ],
    "next": [
     "maps-and-finding-your-way",
@@ -2238,7 +2239,8 @@
     "middle-click-pick",
     "building-in-water",
     "placement-restrictions",
-    "doors"
+    "doors",
+    "wooden-chests"
    ],
    "partial": [],
    "sections": [
@@ -2348,6 +2350,32 @@
        "t": "note",
        "kind": "limit",
        "text": "Doors cannot be hung or opened on a server yet. Blueprints skip door leaves, so a door is not copied."
+      }
+     ]
+    },
+    {
+     "id": "chests",
+     "title": "Wooden chests",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A wooden chest is one metre cube of storage. It keeps items where you set it down, so you can leave things at a build site. {{wooden-chests}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Wooden chest:** one block of boards. Craft it in the Timber section.",
+        "Hold the chest and right click to set it down. It fills the metre cell under the ghost, with the latch toward you.",
+        "Right click a chest within 6 m to open its Chest tab. Your pack and the chest sit side by side.",
+        "Click an item to move one across. Shift+click moves all of that item.",
+        "A chest holds up to 250 capacity and up to 64 kinds of item.",
+        "To take a chest up, break it. In survival it goes back into your pack with everything inside, but only if the pack has room for all of it. In creative, empty it first."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Chests cannot be set down, opened or taken up on a server yet. Blasts, tracks, brushes, copy and blueprints leave chest cells alone."
       }
      ]
     },
@@ -4347,7 +4375,7 @@
    "kicker": "Reference",
    "title": "Not in the game yet",
    "headline": "Not in the game yet,<br><em>and what to do instead.</em>",
-   "summary": "Fire, lava, waterfalls and dripstone, doors and furniture, and player skins are not in this version. Here is what is missing and what you can do today.",
+   "summary": "Fire, lava, waterfalls and dripstone, furniture, and player skins are not in this version. Here is what is missing and what you can do today.",
    "lead": "This page answers the common “is this in the game?” questions. Each item is checked against the game source for the audited version. Planned features are marked as planned, and no guide describes how they work until they ship.",
    "readTime": "3 min read",
    "audience": "Everyone",
@@ -4425,7 +4453,7 @@
       {
        "t": "note",
        "kind": "planned",
-       "text": "Placeable storage chests, closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. The Home crate is the only storage. {{planned-doors-chests-furniture}}"
+       "text": "Closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. Wooden chests are in the game now: see {{wooden-chests}} in Building. {{planned-doors-chests-furniture}}"
       }
      ]
     },
