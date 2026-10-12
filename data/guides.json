@@ -4626,7 +4626,7 @@
         "Your computer must stay on and on the same network as the players.",
         "To join a server, choose Stop hosting first.",
         "Loading or creating another world, opening the Structure Workshop or quitting stops hosting first. The world is saved before it stops.",
-        "Hosting starts where your player stood in the save, and single play resumes from there."
+        "Hosting starts where your player stood in the save, and single play resumes from there. Items you collect while hosting are not kept yet, so only the world and your position are saved when you stop."
       ]
       },
       {
