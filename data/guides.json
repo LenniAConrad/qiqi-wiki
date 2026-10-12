@@ -3383,9 +3383,135 @@
    ]
   },
   {
+   "id": "creatures",
+   "page": "guide-creatures.html",
+   "number": 17,
+   "gap": null,
+   "kicker": "Creatures",
+   "title": "Animal spawning, calls and spawn eggs",
+   "headline": "Animal spawning, calls and spawn eggs<br><em>where animals appear, and how to place them.</em>",
+   "summary": "Wild animals appear around you as you explore, depending on the biome. Up to 36 can be around you at once. Creative mode has a spawn egg for each of the 94 species.",
+   "lead": "Wild animals appear on their own as you walk, sail and fly around the world. Which ones you see depends on the biome and nearby water. This page covers where animals appear, how many there can be, which species call, and how to use creative spawn eggs.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "animal-natural-spawning",
+    "animal-calls",
+    "animal-spawn-eggs"
+   ],
+   "next": [
+    "hunting-and-animals",
+    "building-basics",
+    "crafting-and-recipes"
+   ],
+   "verification": {
+    "method": "Spawn rules come from crates/voxelgame-core/src/entities/mod.rs at Voxelgame 51169272: the 36-animal cap, 32 m spawn cells, the empty-cell roll, the 96 m height limit, the 180 m removal distance, the per-species caps and the biome species groups. Call rules come from has_ambient_call, ambient_call and the 24 m falloff in the same file. Egg rules come from ranged_input.rs (wind-up, survival use, 64-creature limit for thrown eggs in entities/mod.rs) and ui.rs (MOBS tab only). A search of the game code found no spawn-egg crafting recipe.",
+    "limits": "Source-checked, not play-tested in this guide. No captures of spawned animals exist yet. Exact spawn counts depend on the terrain around you, so the numbers here are caps, not what you will always see."
+   },
+   "owns": [
+    "animal-natural-spawning",
+    "animal-calls",
+    "animal-spawn-eggs"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "where",
+     "title": "Where animals appear",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The game checks squares of ground about 32 m across near you, as you move. About one square in five is left empty. In the others, one animal may appear, picked from the species that fit that biome. {{animal-natural-spawning}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Up to 36 wild animals can be around you at the same time.",
+        "Each biome has its own small group of species. A meadow, a forest and a snowy tundra have different animals.",
+        "Wetlands, fens, flooded grasslands and deltas can have swans.",
+        "Each species has a cap. Wolves, bears, foxes and the big cats: 3 at a time. Boars, goats, buffalo, bison and giraffes: 5. Rabbits, frogs, ducks and river fish: 8.",
+        "Fish and other water animals appear only where the water is deep enough for them.",
+        "Animals do not appear on built roofs or on ledges around lanterns."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "height",
+     "title": "Flying and distance",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "New animals do not appear while you are more than 96 m above the ground. Spawning starts again once you come back down near the ground."
+      },
+      {
+       "t": "p",
+       "text": "Any animal more than 180 m from you is removed from the world."
+      }
+     ]
+    },
+    {
+     "id": "calls",
+     "title": "Animal calls",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "25 species make calls: cows, pigs, chickens, sheep, goats, frogs, gulls, geese, swans, ducks, wild horses, wolves, crows, bears, boars, buffalo, bison, elephants, turkeys, blue jays, foxes, lions, tigers, snow leopards and panthers. {{animal-calls}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "You hear a call from an animal within about 24 m. The closer it is, the louder it sounds.",
+        "When several animals are close, the game picks one caller at a time and rotates through them.",
+        "Blue jays and crows call only while woodland birds are active."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "A call's loudness is set when it starts. It does not change as the animal or you move."
+      }
+     ]
+    },
+    {
+     "id": "eggs",
+     "title": "Creative spawn eggs",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The creative catalog has a MOBS tab with a spawn egg for each of the 94 species. The ALL tab does not list eggs. Spawn eggs cannot be crafted. {{animal-spawn-eggs}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Open the creative catalog and choose the **MOBS** tab.",
+        "Take the egg of the species you want. It becomes the item you hold.",
+        "Hold the right mouse button to wind up the throw. Release it to throw the egg.",
+        "The animal hatches where the egg lands."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "A quick tap is not enough. If you release too early, the game says 'Too hasty — wind up before releasing' and nothing is thrown."
+      },
+      {
+       "t": "list",
+       "items": [
+        "A thrown egg can add animals above the normal 36 limit, but the world never holds more than 64 creatures in total.",
+        "In survival, a thrown egg uses one you are carrying. Eggs have no crafting recipe."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 17,
+   "number": 18,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",

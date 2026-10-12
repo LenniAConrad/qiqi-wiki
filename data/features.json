@@ -3727,7 +3727,12 @@
     "crates/voxelgame-core/src/entities/mod.rs:2598-2916 — biome species groups (all 94 species referenced)",
     "crates/voxelgame-core/src/save/write.rs:116-136 — no animal data in the save"
    ],
-   "notes": "Animals do not spawn on built roofs or manufactured floors, and spawning waits while you fly high above the ground."
+   "notes": "Animals do not spawn on built roofs or manufactured floors, and spawning waits while you fly high above the ground.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-creatures.html",
+    "label": "Animal spawning, calls and spawn eggs"
+   }
   },
   {
    "id": "animal-spawn-eggs",
@@ -3750,7 +3755,12 @@
     "crates/voxelgame-core/src/ui.rs:180-183 — eggs listed only in the MOBS tab, not ALL",
     "crates/voxelgame-core/src/game/ranged_input.rs:68-74 — egg throw speed and '<animal> egg away!'"
    ],
-   "notes": "A thrown egg is consumed only in survival (if carried there). Hatched animals despawn like wild ones when you move more than 180 m away."
+   "notes": "A thrown egg is consumed only in survival (if carried there). Hatched animals despawn like wild ones when you move more than 180 m away.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-creatures.html",
+    "label": "Animal spawning, calls and spawn eggs"
+   }
   },
   {
    "id": "animal-behaviour",
@@ -3791,7 +3801,12 @@
    "backlog": [
     "VOX-OWNER-MOVING-MOB-AUDIO"
    ],
-   "notes": "An animal call's loudness is fixed when it starts; it does not follow the animal or change as you move (character voices do)."
+   "notes": "An animal call's loudness is fixed when it starts; it does not follow the animal or change as you move (character voices do).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-creatures.html",
+    "label": "Animal spawning, calls and spawn eggs"
+   }
   },
   {
    "id": "animal-taming-breeding",

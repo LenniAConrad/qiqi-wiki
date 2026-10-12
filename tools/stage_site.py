@@ -18,7 +18,7 @@ PUBLIC_FILES = (
     'guide-controls.html', 'guide-first-survival-day.html', 'guide-crafting.html',
     'guide-install-and-worlds.html',
     'guide-troubleshooting.html', 'guide-hunting.html', 'guide-seasons.html', 'guide-maps.html', 'guide-building.html',
-    'guide-sailing.html', 'guide-explosives.html', 'guide-weather-day-night.html', 'guide-saves.html',
+    'guide-sailing.html', 'guide-explosives.html', 'guide-weather-day-night.html', 'guide-saves.html', 'guide-creatures.html',
     'guide-not-in-game.html', 'guide-settings-performance.html', 'guide-study-grove.html',
     'performance.html', 'scale.html', 'ABOUT.md',
     'style.css', 'wiki.css', 'features.css', 'guides.css', 'islands.css',
