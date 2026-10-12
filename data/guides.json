@@ -4244,9 +4244,105 @@
    ]
   },
   {
+   "id": "islands-and-biomes",
+   "page": "guide-islands-and-biomes.html",
+   "number": 21,
+   "gap": null,
+   "kicker": "World",
+   "title": "Islands, biomes and world generations",
+   "headline": "Islands and biomes<br><em>the endless sea, the 92 biomes and why old worlds keep their terrain.</em>",
+   "summary": "A world is an endless sea of island groups. It has 92 named biomes, and each world keeps the terrain rules it was made with.",
+   "lead": "This page explains the shape of a world: the sea and its islands, the starting island, the biomes you can find, and why a saved world keeps its own terrain.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "archipelago-and-starting-island",
+    "biomes-92",
+    "world-generation-version"
+   ],
+   "next": [
+    "maps-and-finding-your-way",
+    "caves-and-landmarks",
+    "saves"
+   ],
+   "verification": {
+    "method": "Voxelgame a83e0c42, located by item name: crates/voxelgame-core/src/world/generator/archipelago.rs island tiers, atoll shape and fused cell pairs; world/generator.rs MIN_SATELLITE_STRAIT (240 m) and GeneratorVersion::Current = 10; Biome::ALL (92 entries) and generated_naturally() (true for every biome); game.rs with_seed (always Current) and save load restoring the saved generation; world/generator/terrain_profile.rs starting-island relief; crates/voxelgame-render/src/inventory_ui.rs Journal expedition text.",
+    "limits": "Source-checked, not play-tested. Island sizes are internal envelope values, so the tiers are described, not measured. The spawn point itself was not traced in code. Biome locations depend on the seed, so this page gives no map positions."
+   },
+   "owns": [
+    "archipelago-and-starting-island",
+    "biomes-92",
+    "world-generation-version"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "islands",
+     "title": "The endless sea and its islands",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A world is an endless sea. Island groups sit in it, and open ocean separates one group from the next. {{archipelago-and-starting-island}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Small islets and palm-ringed atolls.",
+        "Regional and large islands.",
+        "Rare continent-sized landmasses."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "A small islet sits at least 240 m of open water away from the main island it belongs to."
+      },
+      {
+       "t": "p",
+       "text": "Your world begins on the starting island, at the origin (X 0, Z 0). Its terrain is gentler than the destination islands, and it is very unlikely to have a volcano."
+      }
+     ]
+    },
+    {
+     "id": "biomes",
+     "title": "92 biomes",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A world has 92 named biomes. They range from meadows, orchards and bamboo thickets to salt flats, kelp forests, meteor fields and surface lava tubes. Every one of them can appear in a natural world. {{biomes-92}}"
+      },
+      {
+       "t": "p",
+       "text": "The map locator can find any of the 92 biomes, so you can travel to one you have not seen yet. See the maps guide for how to set a destination."
+      }
+     ]
+    },
+    {
+     "id": "generations",
+     "title": "World generations",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Each world keeps the terrain rules it was made with. Worlds made with Create world use generation 10. A saved world keeps its generation when it loads, so an update does not reshape land you have already built on. {{world-generation-version}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "No screen shows the generation number. The Journal's expedition section says \"Landmarks appear in new generation-10 worlds\" when your world is older."
+      },
+      {
+       "t": "p",
+       "text": "A generation 1 world cannot contain meteor fields, surface lava tubes or amethyst gorges. To see them, create a new world."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 21,
+   "number": 22,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",

@@ -2684,7 +2684,12 @@
     "src/app.rs:540-543 — Create world builds Game::with_seed(new_world_seed())",
     "crates/voxelgame-core/src/save/load.rs:27-35 — the saved generation is restored on load"
    ],
-   "notes": "No screen shows the generation number. The only in-game hint is the Journal's expedition section, which says 'Landmarks appear in new generation-10 worlds' when the world is older. Generation-1 worlds cannot contain meteor fields, surface lava tubes or amethyst gorges."
+   "notes": "No screen shows the generation number. The only in-game hint is the Journal's expedition section, which says 'Landmarks appear in new generation-10 worlds' when the world is older. Generation-1 worlds cannot contain meteor fields, surface lava tubes or amethyst gorges.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-islands-and-biomes.html",
+    "label": "Islands, biomes and world generations"
+   }
   },
   {
    "id": "world-seed-selection",
@@ -2719,9 +2724,9 @@
    ],
    "notes": "You can read your current biome on the FPS-and-coordinates readout (see position-readout) or in the status message after map travel.",
    "guide": {
-    "state": "atlas",
-    "page": "atlas.html#catalog",
-    "label": "Biome atlas (generation 9, 28 September)"
+    "state": "complete",
+    "page": "guide-islands-and-biomes.html",
+    "label": "Islands, biomes and world generations"
    }
   },
   {
@@ -2741,9 +2746,9 @@
    ],
    "notes": "The size figures are internal envelope values, not measured coastline lengths, so the wiki should say only 'several kilometres across'. The starting island keeps its size in every generation (archipelago.rs:159-163). Coordinates: north is -Z, south is +Z and east is +X.",
    "guide": {
-    "state": "atlas",
-    "page": "islands.html",
-    "label": "Island atlas (generation 9)"
+    "state": "complete",
+    "page": "guide-islands-and-biomes.html",
+    "label": "Islands, biomes and world generations"
    }
   },
   {
