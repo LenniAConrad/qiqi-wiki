@@ -1477,7 +1477,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Every animal is passive. None of them attack, chase or damage you. Farm animals stay calm near you. Wild animals keep their distance and run when you come close. {{no-hostile-mobs}} {{animal-behaviour}}"
+       "text": "Every animal is passive. None of them attack, chase or damage you. Farm animals stay calm near you. Small wild animals, such as rabbits and foxes, keep their distance and run when you come close. Any animal runs for a few seconds after you hurt it. {{no-hostile-mobs}} {{animal-behaviour}}"
       },
       {
        "t": "note",
@@ -1611,7 +1611,7 @@
       },
       {
        "t": "p",
-       "text": "The rifle reloads itself about one second after every shot. Survival uses one rifle round per shot; creative is unlimited. Rounds hurt animals, characters and vehicles. {{alder-rifle}}"
+       "text": "The rifle reloads itself about one second after every shot. Survival uses one rifle round per shot; creative is unlimited. Rounds hurt animals and vehicles. {{alder-rifle}}"
       },
       {
        "t": "recipes",
@@ -1707,7 +1707,7 @@
       },
       {
        "t": "p",
-       "text": "The Season row reads AUTO followed by the current season while the cycle runs. In survival the row only shows the current season, and you cannot change it. {{creative-world-controls}}"
+       "text": "The Season row reads AUTO / and the current season while the cycle runs. If a creative player fixed the season, the row shows that season instead. In survival you cannot change the row. {{creative-world-controls}}"
       }
      ]
     },
@@ -1847,7 +1847,7 @@
       {
        "t": "steps",
        "items": [
-        "Press Shift + M to open the map. The world pauses while it is open.",
+        "Press Shift + M to open the map. When you play offline, the world pauses while it is open. On a server, the world keeps running.",
         "Scroll the mouse wheel over the map to zoom in or out.",
         "Drag with the left mouse button to look around. Dragging does not move you.",
         "Press BACK TO PLAYER in the side panel to centre the map on you again."
@@ -1992,7 +1992,7 @@
       {
        "t": "steps",
        "items": [
-        "Stand at the build and open the Journal. Press PIN THIS LOCATION and give it a name.",
+        "Stand at the build and open the Journal. Type a name in the Name box, then press Pin this location. To rename a place, select it, edit the name and press Save selected note.",
         "Before you travel far, open the fullscreen map and check the place shows as a pin.",
         "To return, select the place in the Journal and make it your destination. Then follow the beacon or the diamond."
        ]
@@ -2064,7 +2064,7 @@
        "items": [
         "Select a block in the hotbar with keys 1 to 0, or pick it from the Build catalog in creative.",
         "Aim at the face where you want the block. A ghost shows the cell it will fill.",
-        "Right-click to place one block. The held item must be a block; with a tool equipped, right-click does nothing."
+        "Right-click to place one block. The held item must be a block. With a bow, rifle or throwing rock in hand, right-click aims or throws instead."
        ]
       },
       {
@@ -2095,7 +2095,7 @@
         ],
         [
          "Shift + Left click",
-         "Carve one half-metre piece, from any block."
+         "Carve one half-metre piece from a block. Logs and cactus still fell the whole tree or stem."
         ],
         [
          "F1",
@@ -2126,14 +2126,14 @@
         "Wall: Same two clicks. The wall stands upright along the longer horizontal direction.",
         "Floor: Same two clicks. The floor stays level at the height of the first corner.",
         "Replace: Aim at a block of the material to swap and right-click. Aim at the opposite corner and right-click again. Matching blocks in the box become the block in your hand. {{brush-replace}}",
-        "Copy: Right-click two opposite corners to copy the solid blocks in that box. Right-click again to paste at the ghost. R turns the paste 90 degrees. B discards the copy. {{brush-copy-paste}}",
+        "Copy: Right-click two opposite corners to copy every block in that box except air and the Camp crate. Water and plants are copied too. Right-click again to paste at the ghost. R turns the paste 90 degrees. B discards the copy. {{brush-copy-paste}}",
         "Bench, Railing, Roof: One right-click stamps a fixed shape at the ghost. Press R first to turn it 90 degrees. {{brush-bench-railing-roof}}"
        ]
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Every brush except Block shows a ghost first. One action changes at most 512 half-metre pieces (64 whole blocks). If any cell is occupied, nothing is built. Hold Shift on the first click for half-metre steps."
+       "text": "Every brush except Block shows a ghost first. One action changes at most 512 half-metre pieces (64 whole blocks). If a cell holds a solid block, nothing is built. Water and plants do not block a build. Replace is the exception: it swaps only the material you aim at. Hold Shift on the first click for half-metre steps."
       },
       {
        "t": "p",

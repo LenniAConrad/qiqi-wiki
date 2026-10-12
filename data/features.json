@@ -2130,7 +2130,7 @@
     "crates/voxelgame-render/src/hotbar_ui.rs:83-104 — caption '<Brush> | <size> | RMB build | R rotate | B tool | Ctrl+Z undo'",
     "crates/voxelgame-core/src/game/building.rs:14-38 — selection label 'W x H x D m | N pieces' or 'Selection exceeds 512 pieces'"
    ],
-   "notes": "Brushes need a block in hand; with a tool equipped right click does nothing. Status messages: 'First corner set | aim at the other corner and right click', 'Built N pieces | Ctrl+Z undoes', 'Selection blocked: occupied cells, player, crate, or edit budget'.",
+   "notes": "Brushes need a block in hand; bows, rifles and throwing rocks use right click to aim or throw instead. Status messages: 'First corner set | aim at the other corner and right click', 'Built N pieces | Ctrl+Z undoes', 'Selection blocked: occupied cells, player, crate, or edit budget'.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -2166,7 +2166,7 @@
     "crates/voxelgame-core/src/game/building.rs:117-128 — every cell must be free (air, water or plants), outside the player and not the Home crate",
     "tools/debug_scenarios/building_expeditions.json — normal-input Line build of 8 voxels, Ctrl+Z to 0, Ctrl+Shift+Z back to 8"
    ],
-   "notes": "If any cell is occupied nothing is built. Line, Wall and Floor corners are ghost positions (where a block would go), unlike Copy and Replace, which use the blocks you aim at.",
+   "notes": "If a cell holds a solid block nothing is built, except with Replace, which only swaps the material you aim at. Water and plants do not block a build. Line, Wall and Floor corners are ghost positions (where a block would go), unlike Copy and Replace, which use the blocks you aim at.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3490,7 +3490,7 @@
     "crates/voxelgame-core/src/game.rs:1011-1019 — sight raising only when not reloading",
     "crates/voxelgame-core/src/game.rs:1115-1120 — in survival R eats food (on foot)"
    ],
-   "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of lumen crystal (one block = 8 pieces). Rounds hurt animals, characters and vehicles.",
+   "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of lumen crystal (one block = 8 pieces). Rounds hurt animals and vehicles.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
