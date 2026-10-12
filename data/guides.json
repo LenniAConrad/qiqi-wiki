@@ -213,6 +213,7 @@
         "**Top left:** the status line. Actions report here, for example 'Collected … ×3' or 'Capacity full; block left behind'.",
         "**Top right, left of the map:** the looking-at card, shown when you aim at a block within 6 m. [[F2]] hides or shows it, the same as Settings > General > Target info.",
         "**Top right:** the compact map, with the FPS and coordinates box beneath it. The box is on by default; turn it off in Settings > Debug.",
+        "**Lower right:** the collection feed. It shows what you gained, for example '+3 Oak wood', for a few seconds. Crafting, creative mining and home storage do not show there.",
         "**Middle:** the crosshair, and a small action hint under it.",
         "**Lower left (survival only):** the four bars for health, hunger, thirst and stamina.",
         "**Bottom:** the ten-slot hotbar and the label of the selected item."
@@ -236,7 +237,7 @@
       },
       {
        "t": "p",
-       "text": "Press [[E]] to open the inventory and press it again to close it. The tabs are Pack, Craft, Home and Journal in survival, plus Build in creative; switch with the mouse, [[Tab]] or [[Shift]] + [[Tab]]. The header always shows how much you carry out of 80 kg. {{inventory-workspaces}}"
+       "text": "Press [[E]] to open the inventory and press it again to close it. The tabs are Pack, Craft, Home and Journal in survival, plus Build in creative; switch with the mouse, [[Tab]] or [[Shift]] + [[Tab]]. The header always shows how much you carry out of 80 kg. The Pack tab lists carried items as icons with quantity numbers; hover an icon to see its name. {{inventory-workspaces}}"
       },
       {
        "t": "h",

@@ -993,6 +993,24 @@
    "notes": "There are no dropped item entities; a full pack leaves the block in place. With FPS and coordinates off, the latest status message is also shown in the window title. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541."
   },
   {
+   "id": "collection-feed",
+   "area": "moving",
+   "name": "Lower-right collection feed",
+   "status": "available",
+   "modes": [
+    "survival"
+   ],
+   "summary": "A small feed in the lower-right corner shows what you gained from the world, for example '+3 Oak wood': mined blocks, felled trees, hunted animals, filled flasks, exploration finds and packed boats or homes. Gains of an item that is already listed add to its row. Up to five rows show, each for about four seconds, fading over its last 0.8 s. Creative mining, crafting, the creative catalog, home storage and loading a save show nothing.",
+   "evidence": [
+    "crates/voxelgame-core/src/game/pickup_feed.rs:1-30 — what counts as a gain, row limits, timing constants",
+    "crates/voxelgame-core/src/game/pickup_feed.rs:23-29 — PICKUP_FEED_ROWS, PICKUP_ROW_SECONDS, PICKUP_FADE_SECONDS, PICKUP_CUE_INTERVAL",
+    "crates/voxelgame-core/src/ui.rs:636-653 — feed column in the lower-right corner",
+    "crates/voxelgame-render/src/pickup_feed_ui.rs:11-40 — row drawing, '+N' count, newest row at the bottom",
+    "crates/voxelgame-core/src/game/pickup_feed.rs:293-300 — creative mining and a full pack show nothing (test)"
+   ],
+   "notes": "Added from Voxelgame b261ea8 (after 4bd6541). The feed is a status-only display; dropped item entities are still planned (planned-ground-drops). A soft pickup sound plays at most every 0.2 s."
+  },
+  {
    "id": "move-through-leaves",
    "area": "moving",
    "name": "Moving and climbing through leaves",
@@ -1868,12 +1886,12 @@
   {
    "id": "planned-ground-drops",
    "area": "crafting",
-   "name": "Items on the ground, dropping and pickup feed",
+   "name": "Items on the ground and manual dropping",
    "status": "planned",
    "modes": [
     "survival"
    ],
-   "summary": "Visible dropped items, deliberate item dropping and a corner '+3 Wood' pickup feed are planned; today mined blocks and animal drops go straight into the pack and only a status message reports them.",
+   "summary": "Visible dropped items and deliberate item dropping are planned. Today mined blocks and animal drops go straight into the pack; the lower-right collection feed and the status line report them.",
    "evidence": [
     "crates/voxelgame-core/src/game.rs:2415-2416 — 'Item entities are a later milestone'",
     "search: grep -ri 'drop_item|ItemEntity|pickup' crates/voxelgame-core — no item-entity system"
