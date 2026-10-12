@@ -2806,7 +2806,12 @@
    "backlog": [
     "VOX-OWNER-DARKER-NIGHTS"
    ],
-   "notes": "In survival, time of day also changes the air temperature by up to 9 degrees (see seasons). The world clock stops while the fullscreen map or Settings is open."
+   "notes": "In survival, time of day also changes the air temperature by up to 9 degrees (see seasons). The world clock stops while the fullscreen map or Settings is open.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-weather-day-night.html",
+    "label": "Day, night and weather"
+   }
   },
   {
    "id": "automatic-weather",
@@ -2827,7 +2832,12 @@
    "backlog": [
     "VOX-OWNER-REGIONAL-WEATHER"
    ],
-   "notes": "Weather changes sailing wind strength. In survival, rain lowers the air temperature by up to 2 degrees."
+   "notes": "Weather changes sailing wind strength. In survival, rain lowers the air temperature by up to 2 degrees.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-weather-day-night.html",
+    "label": "Day, night and weather"
+   }
   },
   {
    "id": "creative-world-controls",
