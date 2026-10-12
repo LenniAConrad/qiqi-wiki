@@ -2115,7 +2115,8 @@
     "survival-blueprints",
     "middle-click-pick",
     "building-in-water",
-    "placement-restrictions"
+    "placement-restrictions",
+    "doors"
    ],
    "next": [
     "maps-and-finding-your-way",
@@ -2141,7 +2142,8 @@
     "survival-blueprints",
     "middle-click-pick",
     "building-in-water",
-    "placement-restrictions"
+    "placement-restrictions",
+    "doors"
    ],
    "partial": [],
    "sections": [
@@ -2225,6 +2227,32 @@
        "t": "note",
        "kind": "careful",
        "text": "Holding Shift also sneaks on foot, dives in water and descends while flying."
+      }
+     ]
+    },
+    {
+     "id": "doors",
+     "title": "Doors",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Doors are built from boards. A small door is one metre wide and two metres tall. A wide door is two metres wide and three metres tall and folds in two halves. {{doors}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Wooden door:** one block of boards. Craft it in the Timber section.",
+        "**Wide wooden door:** two blocks of boards.",
+        "Hold the door and right click solid ground to hang it. The spot needs free space and solid ground under it.",
+        "Right click a hung door to open it, and right click again to close it.",
+        "You cannot close a door while you stand in its opening. Step out first.",
+        "Breaking any part of a door takes the whole door down. In survival it goes back into your pack if there is room; if the pack is full, it is left hanging."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Doors cannot be hung or opened on a server yet. Blueprints skip door leaves, so a door is not copied."
       }
      ]
     },
@@ -4183,12 +4211,12 @@
     },
     {
      "id": "storage",
-     "title": "Doors, chests and furniture",
+     "title": "Chests and furniture",
      "blocks": [
       {
        "t": "note",
        "kind": "planned",
-       "text": "Doors, placeable storage chests, closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. The Home crate is the only storage. {{planned-doors-chests-furniture}}"
+       "text": "Placeable storage chests, closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. The Home crate is the only storage. {{planned-doors-chests-furniture}}"
       }
      ]
     },
