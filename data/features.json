@@ -5227,17 +5227,31 @@
    "modes": [
     "any"
    ],
-   "summary": "There is no Multiplayer menu yet. From a terminal you can start the game with --connect=HOST[:PORT] (port 27015 by default) and --name=NAME to join a running voxelgame-server. You see other players, can build together and chat, and the server's world is never written into your own saves.",
+   "summary": "Start the Multiplayer page from the start menu: type a SERVER (HOST or HOST:PORT) and a NAME, then Join server. The last 8 servers are listed. You can also start the game with --connect=HOST[:PORT] (port 27015 by default) and --name=NAME. You see other players, can build together and chat, and the server's world is never written into your own saves.",
    "controls": [
+    [
+     "Multiplayer (start menu)",
+     "Open the Multiplayer page"
+    ],
+    [
+     "Tab",
+     "Switch between SERVER and NAME"
+    ],
+    [
+     "Enter",
+     "Join the server in SERVER, or the selected server row"
+    ],
     [
      "voxelgame --connect=HOST[:PORT] --name=NAME",
      "Join a server instead of opening a local world (command line)"
     ]
    ],
    "evidence": [
+    "crates/voxelgame-core/src/game/startup.rs:499 — main menu Multiplayer entry opens the page",
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:103-109 — Tab switches fields; Enter joins (line 143)",
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:12-16 — 260-character address, 32-byte name, 8 remembered servers",
+    "crates/voxelgame-render/src/startup_ui.rs:336-349 — Multiplayer page labels SERVER and NAME",
     "src/launch.rs:164-166 — --connect/--name options; needs a window",
-    "src/launch.rs:296-303 — --connect/--name options; needs a window",
-    "src/launch.rs:309-312 — --connect/--name options; needs a window",
     "src/app.rs:365-374 — joining replaces loading the local world"
    ],
    "backlog": [
@@ -5248,7 +5262,7 @@
     "VOX-NET-SERVER-REPORTS",
     "VOX-NET-SEC-QUINN-FLOOR"
    ],
-   "notes": "Limits in this build: in survival, damage and death are not applied while connected; animals, inventories and crafting are not shared; water flow comes from the server (game.rs:1338-1340). The first server you join is trusted and pinned in known_servers.txt; a changed certificate is refused. Identity files client-certificate.der/client-key.der live in ~/.local/state/voxelgame. LAN/loopback only: the network library has known denial-of-service defects."
+   "notes": "Limits in this build: in survival, damage and death are not applied while connected; animals, inventories and crafting are not shared; water flow comes from the server (game.rs:1338-1340). A server is remembered only after it welcomes you and its world matches. The first server you join is trusted and pinned in known_servers.txt; a changed certificate is refused. Identity files client-certificate.der/client-key.der live in ~/.local/state/voxelgame. LAN/loopback only: the network library has known denial-of-service defects."
   },
   {
    "id": "mp-dedicated-server",
@@ -5302,9 +5316,9 @@
    "area": "platform",
    "name": "Multiplayer menu, Host world / Open to LAN and LAN discovery",
    "status": "planned",
-   "summary": "Planned: an in-game Multiplayer menu with saved servers, direct connect, LAN discovery and hosting your own world for friends. None of these exist yet.",
+   "summary": "Planned: LAN discovery and hosting your own world for friends from the Multiplayer page. Joining a server by address and the saved-server list already exist (mp-join-server). Hosting and LAN discovery do not exist yet.",
    "evidence": [
-    "search: crates/voxelgame-render/src/startup_ui.rs:77-85 - main menu has no multiplayer entry;"
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:1-16 — Multiplayer page joins servers only; no host or LAN list"
    ],
    "backlog": [
     "VOX-NET-M5-LAN"

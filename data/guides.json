@@ -4590,11 +4590,24 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Multiplayer is in development. There is no Multiplayer menu yet, and the parts below are only partly finished. {{mp-join-server}}"
+       "text": "Multiplayer is in development. The start menu has a Multiplayer page for joining a server. LAN hosting and server admin tools are not done. {{mp-join-server}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Choose **Multiplayer** on the start menu.",
+        "Type the server address in **SERVER**, as HOST or HOST:PORT. The port is 27015 unless you give one. No spaces.",
+        "Type the name others see in **NAME**, up to 32 bytes. Leave it empty to use your login name. [[Tab]] switches between the two fields.",
+        "Press [[Enter]], or choose **Join server**. To reuse one of the last 8 servers, click its row."
+       ]
       },
       {
        "t": "p",
-       "text": "From a terminal you can join a running server with --connect=HOST[:PORT] and --name=NAME, for example voxelgame --connect=HOST --name=NAME. The port is 27015 unless you give one. You see other players, can build together and chat. Your own saves are never changed by the server's world."
+       "text": "Joining saves your local world first. If you are already on a server, the game waits for your last block edits to reach it before leaving. The server's world is never saved to your computer. A failed join stays on the page with the reason. A server is added to the list only after it welcomes you and its world matches."
+      },
+      {
+       "t": "p",
+       "text": "You can also start the game with --connect=HOST[:PORT] and --name=NAME, for example voxelgame --connect=HOST --name=NAME. You see other players, can build together and chat."
       },
       {
        "t": "list",
