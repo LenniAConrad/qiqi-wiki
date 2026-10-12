@@ -3743,9 +3743,118 @@
    ]
   },
   {
+   "id": "caves-and-landmarks",
+   "page": "guide-caves-and-landmarks.html",
+   "number": 19,
+   "gap": null,
+   "kicker": "World",
+   "title": "Caves and geological landmarks",
+   "headline": "Caves and geological landmarks<br><em>rare rock features, and what each one is like.</em>",
+   "summary": "Some hills have a cave with one of three layouts. Rare large sites such as meteor craters, amethyst gorges and lava tubes appear on certain ground. Caves are small and bounded, not deep networks.",
+   "lead": "Caves and landmarks are not on every hill or valley. This page covers where caves open, the three cave layouts, and the landmark sites you can find in the base game.",
+   "readTime": "3 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "complete",
+   "covers": [
+    "caves",
+    "geological-landmarks"
+   ],
+   "next": [
+    "maps-and-finding-your-way",
+    "hunting-and-animals",
+    "building-basics"
+   ],
+   "verification": {
+    "method": "Cave rules come from crates/voxelgame-core/src/world/generator/caves.rs at Voxelgame 0494a0ce: one candidate per 384 m cell, 132 m passage radius, the 32 m hillside and 10 m entrance height rules, the 100 m entrance offset, the three layouts and the floor grade. Landmark rules come from crates/voxelgame-core/src/world/generator/regions.rs in the same commit: the 220-320 m site radius, the 512 m origin exclusion, the water and volcanic checks, the site kinds by ground type and the crater, gorge and lava tube sizes. Cave ambience comes from crates/voxelgame-core/src/ambience.rs.",
+    "limits": "Source-checked, not play-tested in this guide. Sizes are the code's ranges, so a site you find may look different. Sites are rare and depend on the seed, so this page does not give a map location."
+   },
+   "owns": [
+    "caves",
+    "geological-landmarks"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "caves",
+     "title": "Hillside caves",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A cave is one bounded site. Every passage stays within about 132 m of the cave's centre, so it is not a deep network of tunnels. {{caves}}"
+      },
+      {
+       "t": "p",
+       "text": "A cave needs a hill at least 32 m above sea level. Its entrance is cut into the hillside about 100 m from the cave's centre, on ground at least 10 m above sea level."
+      },
+      {
+       "t": "p",
+       "text": "Each cave uses one of three layouts:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Fork and chamber: a central chamber with passages that branch off it.",
+        "Loop: two routes go around a solid rock mass and meet again.",
+        "Pillared hall: a broad, high hall held up by four rock pillars."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Floors climb in walkable half-metre steps. A cave ambience plays when you are under a roof."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Caves do not show on the map. Inside a cave there are no stalactites, dripstone, ores or lights."
+      },
+      {
+       "t": "p",
+       "text": "Planned, not in the game yet: deeper cave networks, cave maps and dripstone caves."
+      }
+     ]
+    },
+    {
+     "id": "landmarks",
+     "title": "Geological landmarks",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Landmarks are rare sites about 220 to 320 m across. They do not form on water or lakes, on the ground within 512 m of the world's origin, or on very rugged ground. {{geological-landmarks}}"
+      },
+      {
+       "t": "p",
+       "text": "The ground decides which site you find:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Meteor crater: a bowl with a raised rim and two smaller craters beside it. Only on ground that is not volcanic.",
+        "Amethyst gorge: a winding canyon, 36 to 60 m wide and 24 to 54 m deep, through crystal-studded rock.",
+        "Lava tube: a walkable, roofed passage with two open skylights. Only on volcanic ground.",
+        "Geyser basin and hot-spring terraces: only on volcanic ground.",
+        "Cold uplands: ice spires, moraine ridges, outwash plains and firn domes.",
+        "Warm, wet ground: karst towers and tepui mesas. Warm, dry ground: spring oases.",
+        "Other ground: granite domes, limestone pavements and slate quarries."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Worlds made before the game recorded generator versions (Legacy worlds) have no landmark sites."
+      },
+      {
+       "t": "p",
+       "text": "Sites are rare. Most of the map has none."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 19,
+   "number": 20,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",
