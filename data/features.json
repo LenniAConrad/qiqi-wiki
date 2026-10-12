@@ -5318,12 +5318,19 @@
   {
    "id": "mp-menu-lan-hosting",
    "area": "platform",
-   "name": "Multiplayer menu, Host world / Open to LAN and LAN discovery",
-   "status": "planned",
-   "summary": "Planned: LAN discovery and hosting your own world for friends from the Multiplayer page. Joining a server by address and the saved-server list already exist (mp-join-server). Hosting and LAN discovery do not exist yet.",
+   "name": "Multiplayer menu: Host this world (LAN hosting)",
+   "status": "partial",
+   "summary": "Host this world on the Multiplayer page serves the world in play on this computer's LAN address, on port 27015 when it is free. Others type the address shown on the page and join. Stop hosting saves the world and disconnects everyone. LAN discovery (a list of games on the network) is not built.",
    "evidence": [
-    "crates/voxelgame-core/src/game/startup_multiplayer.rs:1-16 — Multiplayer page joins servers only; no host or LAN list"
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:221 — the button after the server list asks the app to host or stop hosting",
+    "crates/voxelgame-render/src/startup_ui.rs:470-473 — the button reads Stop hosting while hosted, otherwise Host this world",
+    "crates/voxelgame-render/src/startup_ui.rs:340-345 — the page shows the address others join",
+    "src/app.rs:591-635 — hosting starts an in-process server for the world in play",
+    "src/app.rs:645-651 — Stop hosting saves the world and clears the hosted address",
+    "src/net_client/hosting.rs:30-31 — the LAN address is found without sending anything",
+    "crates/voxelgame-server/src/config.rs:65 — default bind port is 27015 (voxelgame_net::DEFAULT_PORT)"
    ],
+   "notes": "Source commits fb873488, df372280 and 8e03a3b7 at Voxelgame origin/main; described from source, not play-tested. A save is served where it lies; the owner plays on as the save's player. A server's world, the Structure Workshop and an unsaved world are not hosted.",
    "backlog": [
     "VOX-NET-M5-LAN"
    ]

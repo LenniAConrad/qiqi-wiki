@@ -4501,6 +4501,7 @@
     "planned-doors-chests-furniture",
     "player-skins",
     "mp-join-server",
+    "mp-menu-lan-hosting",
     "mp-dedicated-server",
     "mp-chat"
    ],
@@ -4591,7 +4592,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Multiplayer is in development. The start menu has a Multiplayer page for joining a server. LAN hosting and server admin tools are not done. {{mp-join-server}}"
+       "text": "Multiplayer is in development. The start menu has a Multiplayer page for joining a server and for hosting your world on your network. Hosting is described from source and not play-tested yet. LAN discovery and server admin tools are not done. {{mp-join-server}} {{mp-menu-lan-hosting}}"
       },
       {
        "t": "steps",
@@ -4605,6 +4606,28 @@
       {
        "t": "p",
        "text": "Joining saves your local world first. If you are already on a server, the game waits for your last block edits to reach it before leaving. The server's world is never saved to your computer. A failed join stays on the page with the reason. A server is added to the list only after it welcomes you and its world matches."
+      },
+      {
+       "t": "p",
+       "text": "To host your world for players on your network, use Host this world on the same page:"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Choose **Host this world** between Join and Back. The button reads **Stop hosting** while the world is hosted.",
+        "Read the address on the page. Other players type it in **SERVER**. The port is 27015 when it is free; otherwise the page shows another port, so type the port too.",
+        "Other players type their name in **NAME** and choose **Join server**.",
+        "Choose **Stop hosting** when you are done. The world is saved, everyone is disconnected and your save loads for single play."
+      ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "Your computer must stay on and on the same network as the players.",
+        "To join a server, choose Stop hosting first.",
+        "Loading or creating another world, opening the Structure Workshop or quitting stops hosting first. The world is saved before it stops.",
+        "Hosting starts where your player stood in the save, and single play resumes from there."
+      ]
       },
       {
        "t": "p",
