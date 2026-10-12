@@ -1918,7 +1918,12 @@
     "VOX-OWNER-MINERAL-EXPANSION",
     "VOX-OWNER-COPPER-BRONZE"
    ],
-   "notes": "Iron ore chunks and Bog iron can be mined and placed but have no recipe or smelting use. No copper, tin, bronze, gold, platinum, diamond or marble exists. Blocks with no survival source: Amethyst cluster (creative only), Jade glazed tile (creative), Home crate (Home tab only). Pink options are natural: Pink blossom leaves, Petal carpet, Fireweed, Polished granite (pink-gray)."
+   "notes": "Iron ore chunks and Bog iron can be mined and placed but have no recipe or smelting use. No copper, tin, bronze, gold, platinum, diamond or marble exists. Blocks with no survival source: Amethyst cluster (creative only), Jade glazed tile (creative), Home crate (Home tab only). Pink options are natural: Pink blossom leaves, Petal carpet, Fireweed, Polished granite (pink-gray).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
   },
   {
    "id": "planned-furnace-metals",

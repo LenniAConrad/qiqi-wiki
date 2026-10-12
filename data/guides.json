@@ -834,7 +834,8 @@
     "tree-felling",
     "material-sources",
     "pack-items-list",
-    "item-info-previews"
+    "item-info-previews",
+    "block-materials-catalogue"
    ],
    "next": [
     "first-survival-day",
@@ -1015,6 +1016,24 @@
      ]
     },
     {
+     "id": "materials",
+     "title": "Block types and water kinds",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The block table at Voxelgame f3143de9 has 180 block types, not counting Air. Each has its own name and colour. Recipes on this page name the blocks they use. {{block-materials-catalogue}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Six block types are water: Water, Warm mineral water, Dark fjord water, Fresh water, Black water and Boiling water.",
+        "Iron ore chunks and Bog iron can be mined and placed. No recipe uses them, and the game has no smelting yet.",
+        "Lumen crystal is the gem that recipes use. It does not generate naturally; see the section on recipes survival cannot finish yet."
+       ]
+      }
+     ]
+    },
+    {
      "id": "recipes",
      "title": "All 40 recipes",
      "blocks": [
@@ -1053,7 +1072,8 @@
     "tree-felling",
     "material-sources",
     "pack-items-list",
-    "item-info-previews"
+    "item-info-previews",
+    "block-materials-catalogue"
    ],
    "partial": []
   },
