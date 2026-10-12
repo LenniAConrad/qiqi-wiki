@@ -4571,7 +4571,7 @@
       {
        "t": "note",
        "kind": "planned",
-       "text": "Closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. Wooden chests are in the game now: see {{wooden-chests}} in Building. {{planned-doors-chests-furniture}}"
+       "text": "Closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. Wooden chests and wooden doors are in the game now: see {{wooden-chests}} and {{doors}} in Building. {{planned-doors-chests-furniture}}"
       }
      ]
     },

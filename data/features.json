@@ -2039,7 +2039,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. Wooden chests are available.",
+   "summary": "Closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. Wooden doors and wooden chests are available (see those rows).",
    "evidence": [
     "search: grep -ri 'closet|furniture|chair|extendable' crates/ src/ — no gameplay hits"
    ],
