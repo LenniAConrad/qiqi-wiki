@@ -2454,7 +2454,12 @@
     "crates/voxelgame-core/src/explosives.rs:40-73 — lit charges are physical: they pop up, fall, bounce, slide and float",
     "crates/voxelgame-core/src/explosives.rs:200-229 — lit charges are physical: they pop up, fall, bounce, slide and float"
    ],
-   "notes": "In survival TNT is crafted and a whole block spends 8 pieces. Pressing G on one whole block reports an '8-charge TNT cluster' because each block counts as 8 half-metre charges. Lit charges are not saved: quitting while a fuse burns loses that TNT (README.md:674-675). On multiplayer servers G shows 'Explosives aren't available on servers yet'."
+   "notes": "In survival TNT is crafted and a whole block spends 8 pieces. Pressing G on one whole block reports an '8-charge TNT cluster' because each block counts as 8 half-metre charges. Lit charges are not saved: quitting while a fuse burns loses that TNT (README.md:674-675). On multiplayer servers G shows 'Explosives aren't available on servers yet'.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-explosives.html",
+    "label": "Explosives: TNT and dynamite"
+   }
   },
   {
    "id": "explosion-effects",
@@ -2472,7 +2477,12 @@
     "crates/voxelgame-core/src/explosives.rs:105-131 — yield normalised per whole block",
     "crates/voxelgame-core/src/game/tests.rs:3788-3812 — a dense cluster reaches stone a single block cannot"
    ],
-   "notes": "Derived from the formulas: one whole TNT block cannot break obsidian (strength at most 4.25 + 0.55 < 5.0), and solid rock gives way only close to the charge. Values marked 'about' are computed from code constants, not measured in play. The cleared count in the status line is in half-metre voxels. Explosions are not undoable."
+   "notes": "Derived from the formulas: one whole TNT block cannot break obsidian (strength at most 4.25 + 0.55 < 5.0), and solid rock gives way only close to the charge. Values marked 'about' are computed from code constants, not measured in play. The cleared count in the status line is in half-metre voxels. Explosions are not undoable.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-explosives.html",
+    "label": "Explosives: TNT and dynamite"
+   }
   },
   {
    "id": "dynamite-throwing",
@@ -2496,7 +2506,12 @@
     "crates/voxelgame-core/src/projectile.rs:893-902 — falls again if its support is removed",
     "crates/voxelgame-core/src/projectile.rs:983-990 — falls again if its support is removed"
    ],
-   "notes": "Creative throws are unlimited; survival spends one stick per throw. You cannot place blocks while dynamite is in hand. Refused on multiplayer servers. Opening a menu cancels a wind-up."
+   "notes": "Creative throws are unlimited; survival spends one stick per throw. You cannot place blocks while dynamite is in hand. Refused on multiplayer servers. Opening a menu cancels a wind-up.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-explosives.html",
+    "label": "Explosives: TNT and dynamite"
+   }
   },
   {
    "id": "mechanical-building",

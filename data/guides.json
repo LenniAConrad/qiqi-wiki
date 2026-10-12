@@ -2873,9 +2873,205 @@
    ]
   },
   {
+   "id": "explosives",
+   "page": "guide-explosives.html",
+   "number": 14,
+   "gap": null,
+   "kicker": "Building",
+   "title": "Explosives: TNT and dynamite",
+   "headline": "Blow up blocks<br><em>with TNT and dynamite.</em>",
+   "summary": "Place and light TNT with G, read the blast reach, throw dynamite, and see which explosives survival can craft.",
+   "lead": "TNT and dynamite break blocks in a wide circle. Blasted blocks are destroyed, not collected. Creative players can use them freely. In survival, both need Lumen crystal, which the world does not generate naturally.",
+   "readTime": "4 min read",
+   "audience": "Everyone",
+   "updated": "2026-10-12",
+   "state": "partial",
+   "covers": [
+    "tnt-place-and-ignite",
+    "explosion-effects",
+    "dynamite-throwing",
+    "lumen-crystal-supply"
+   ],
+   "next": [
+    "building-basics",
+    "crafting-and-recipes",
+    "not-in-the-game-yet"
+   ],
+   "verification": {
+    "method": "Controls, fuse times, blast reach, damage rules and dynamite throwing come from the game source at the ledger's audited commit dd29d91 (game.rs, explosives.rs, projectile.rs, ranged_input.rs, inventory.rs). Blast distances are calculated from code constants, not measured in play.",
+    "limits": "Source-checked, not play-tested in this guide. No explosion screenshots exist yet, so the blast sizes are not checked against a headless capture."
+   },
+   "owns": [
+    "tnt-place-and-ignite",
+    "explosion-effects",
+    "dynamite-throwing"
+   ],
+   "partial": [
+    "explosion-effects"
+   ],
+   "sections": [
+    {
+     "id": "place-and-light",
+     "title": "Place and light TNT",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Select TNT in your hotbar.",
+        "Right click a surface to place a whole block. Hold Shift and right click to place one half-metre charge.",
+        "Aim at the TNT, within 6 m, and press [[G]].",
+        "Step back. The fuse lasts 2.6 seconds."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Right click",
+         "Place a whole TNT block."
+        ],
+        [
+         "Shift + right click",
+         "Place one half-metre charge."
+        ],
+        [
+         "G",
+         "Light the aimed TNT and every TNT piece touching it, even diagonally."
+        ],
+        [
+         "Left click",
+         "Mine TNT back without lighting it."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Lit TNT pops loose and can fall, roll or float before it blows. Touching pieces go off together as one blast. {{tnt-place-and-ignite}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "G does not work on multiplayer servers. The game shows \"Explosives aren't available on servers yet\"."
+      }
+     ]
+    },
+    {
+     "id": "blast-size",
+     "title": "How far a blast reaches",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "One half-metre charge or one dynamite stick: about 1.5 m.",
+        "One whole TNT block: about 4.25 m.",
+        "A touching group of TNT: up to about 10.5 m."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "A whole TNT block cannot break obsidian. Solid stone only gives way close to the charge. Blocks between the charge and a target absorb part of the blast, and water absorbs a lot of it. {{explosion-effects}}"
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Explosions cannot be undone. Blasted blocks are gone. The status line counts cleared half-metre voxels."
+      }
+     ]
+    },
+    {
+     "id": "damage",
+     "title": "Damage and knockback",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In survival, players near a blast lose health and are knocked back. Creative players take no damage. Creatures are hurt in both modes."
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Stand well back before you light a group. The blast reaches about 10.5 m from the largest group."
+      }
+     ]
+    },
+    {
+     "id": "dynamite",
+     "title": "Throw dynamite",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Select Dynamite in your hotbar.",
+        "Hold right click to wind up. A longer wind-up throws farther.",
+        "Release to throw. The fuse starts on release.",
+        "Take cover. The stick goes off 2.3 seconds later, where it stops."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Right click (hold, then release)",
+         "Wind up and throw a dynamite stick."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "The stick sticks to the first surface it hits, including walls and ceilings.",
+        "You cannot place blocks while you hold dynamite.",
+        "Opening a menu cancels a wind-up.",
+        "Creative throws are unlimited. Survival uses one stick per throw.",
+        "Dynamite does not work on multiplayer servers."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "{{dynamite-throwing}}"
+      }
+     ]
+    },
+    {
+     "id": "survival-craft",
+     "title": "Crafting TNT and dynamite in survival",
+     "blocks": [
+      {
+       "t": "recipes",
+       "names": [
+        "TNT charge",
+        "Two dynamite sticks"
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Both recipes need Lumen crystal. The world does not generate it naturally, and a survival world has one piece at the Stone overlook landmark. You cannot make TNT or dynamite from gathered materials alone. {{lumen-crystal-supply}}"
+      },
+      {
+       "t": "p",
+       "text": "One TNT charge recipe makes 8 pieces, one whole block. Two dynamite sticks need 4 TNT charges and 2 Paper lattice panels."
+      }
+     ]
+    },
+    {
+     "id": "saves",
+     "title": "What a quit or reload does",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "Lit TNT and burning dynamite are not saved. Quitting during a fuse loses that TNT.",
+        "Explosions are not recorded in build history."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 14,
+   "number": 15,
    "gap": 15,
    "kicker": "Reference",
    "title": "Not in the game yet",
