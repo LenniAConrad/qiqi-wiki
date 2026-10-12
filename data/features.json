@@ -1141,13 +1141,13 @@
    "modes": [
     "survival"
    ],
-   "summary": "Your body temperature drifts toward the air temperature and costs health only outside -12 to 48 C. Air temperature depends on time of day, season, rain and altitude (not biome); a roof and walls pull it toward 20 C.",
+   "summary": "Your body temperature drifts toward the air temperature and costs health only outside -12 to 48 C. Air temperature depends on time of day, rain and altitude (not season or biome); a roof and walls pull it toward 20 C.",
    "evidence": [
     "crates/voxelgame-core/src/game/home.rs:77-96 — roof and wall probes",
     "crates/voxelgame-core/src/game/home.rs:293 — Home tab shows 'Temperature: X C ambient'",
     "search: grep 'survival.temperature' crates/voxelgame-render — body temperature is not drawn on the HUD"
    ],
-   "notes": "With these numbers heat damage cannot happen (air peaks around 32 C) and cold damage needs very high altitude (roughly 600 m up on a rainy winter night, more otherwise). Body temperature itself is never displayed. Hot blocks such as Magma stone or Boiling water do not hurt.",
+   "notes": "With these numbers heat damage cannot happen (air peaks around 25 C at sea level) and cold damage needs very high altitude (roughly 860 blocks above sea level on a rainy night, about 940 on a dry night). Body temperature itself is never displayed. Hot blocks such as Magma stone or Boiling water do not hurt.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -2821,17 +2821,18 @@
     "creative",
     "survival"
    ],
-   "summary": "A year is 80 real minutes, about 20 minutes per season, and new worlds start in summer. Seasons tint grass, deciduous leaves, needles, blossoms, water, sky and sunlight, for example russet autumn foliage and a cooler winter light. Leaves never thin out and nothing turns snowy. In survival, seasons also shift the air temperature, from +7 degrees in summer to -7 in winter, so they are not purely visual yet.",
+   "summary": "A year is 80 real minutes, about 20 minutes per season, and new worlds start in summer. Seasons tint grass, deciduous leaves, needles, blossoms, water, sky and sunlight, for example russet autumn foliage and a cooler winter light. Leaves never thin out and nothing turns snowy. Seasons do not change survival air temperature (commit 150cd60), so they only change how the world looks.",
    "evidence": [
     "crates/voxelgame-render/src/shader.wgsl:987-1103 — seasonal colour palettes (grass, foliage, evergreen, blossom, autumn leaves, water)",
     "crates/voxelgame-render/src/sky_light.rs:12-38 — seasonal sky and sun tint and strength",
+    "crates/voxelgame-core/src/environment.rs:408-411 — temperature_offset is rain only (150cd60)",
     "crates/voxelgame-core/src/game.rs:1099-1108 — survival temperature uses ambient_temperature, with shelter pulling it toward 20 degrees",
     "crates/voxelgame-core/src/game/home.rs:293 — Home tab shows 'Temperature: N C ambient'"
    ],
    "backlog": [
     "VOX-OWNER-VISUAL-ONLY-SEASONS"
    ],
-   "notes": "In practice the season changes only the temperature number at normal heights, since sea-level air stays between about 2.5 and 32 degrees. The wiki should describe seasons as mainly visual, with a small survival temperature effect that the owner plans to remove, and must not claim that leaves thin or grass turns snowy.",
+   "notes": "Seasons are visual only: environment.rs temperature_offset is rain only since 150cd60, with regression tests. The wiki must not claim that leaves thin or grass turns snowy until those ship.",
    "guide": {
     "state": "partial",
     "page": "guide-seasons.html",
@@ -5218,11 +5219,11 @@
  "docNotes": [
   {
    "topic": "Seasons are not yet visual-only",
-   "detail": "The design philosophy says seasons are visual only, but in survival the season still moves the air temperature by up to 7 °C, which can matter on the highest peaks on winter nights.",
+   "detail": "Commit 150cd60 removed the seasonal survival air-temperature swing, so seasons are visual only for temperature. Leaves that thin and snowy grass remain planned.",
    "evidence": [
     "docs/PHILOSOPHY.md:27",
-    "crates/voxelgame-core/src/environment.rs:409",
-    "crates/voxelgame-core/src/game.rs:2572"
+    "crates/voxelgame-core/src/environment.rs:408-411",
+    "crates/voxelgame-core/src/game.rs:2674-2679"
    ]
   },
   {
