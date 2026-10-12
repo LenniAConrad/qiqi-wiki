@@ -4442,7 +4442,7 @@
    "kicker": "Reference",
    "title": "Not in the game yet",
    "headline": "Not in the game yet,<br><em>and what to do instead.</em>",
-   "summary": "Fire, lava, waterfalls and dripstone, furniture, and player skins are not in this version. Here is what is missing and what you can do today.",
+   "summary": "Fire, lava, waterfalls and dripstone, furniture, player skins and multiplayer are not finished in this version. Here is what is missing and what you can do today.",
    "lead": "This page answers the common “is this in the game?” questions. Each item is checked against the game source for the audited version. Planned features are marked as planned, and no guide describes how they work until they ship.",
    "readTime": "3 min read",
    "audience": "Everyone",
@@ -4453,7 +4453,10 @@
     "flowing-lava",
     "waterfalls-dripstone",
     "planned-doors-chests-furniture",
-    "player-skins"
+    "player-skins",
+    "mp-join-server",
+    "mp-dedicated-server",
+    "mp-chat"
    ],
    "next": [
     "controls-reference",
@@ -4532,6 +4535,39 @@
        "t": "note",
        "kind": "planned",
        "text": "Your explorer wears one built-in outfit with fixed colours. There is no skin editor, and no skin import or export. {{player-skins}}"
+      }
+     ]
+    },
+    {
+     "id": "multiplayer",
+     "title": "Multiplayer",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Multiplayer is in development. There is no Multiplayer menu yet, and the parts below are only partly finished. {{mp-join-server}}"
+      },
+      {
+       "t": "p",
+       "text": "From a terminal you can join a running server with --connect=HOST[:PORT] and --name=NAME, for example voxelgame --connect=HOST --name=NAME. The port is 27015 unless you give one. You see other players, can build together and chat. Your own saves are never changed by the server's world."
+      },
+      {
+       "t": "list",
+       "items": [
+        "Use it on a LAN or the same computer only.",
+        "In survival, damage and death do not apply while you are connected.",
+        "Animals, inventories and crafting are not shared.",
+        "Water flow comes from the server.",
+        "The first server you join is trusted. If its certificate later changes, the game refuses to connect."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Build a server from source with the separate voxelgame-server program. The installers do not build it. voxelgame-server --world DIR hosts a world on 127.0.0.1:27015, and the server console accepts /list, /say, /save, /stop and /help. {{mp-dedicated-server}}"
+      },
+      {
+       "t": "p",
+       "text": "While connected, press Enter to open the chat line and Enter again to send it. Press Esc to cancel. Messages stay on screen for 10 seconds, and your keys do not move the player while you type. {{mp-chat}}"
       }
      ]
     },
