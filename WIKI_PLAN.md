@@ -98,8 +98,9 @@ loads the recorded original. Twenty-four derivatives add 486,830 image bytes
 to the deployable collection; they do not replace source images or receipts.
 
 Matched cold-profile Firefox measurements against `185455d`, at 1440 × 900
-and 390 × 844, recorded the following local encoded response bodies. The
-extra request is the small thumbnail lookup script.
+and 390 × 844, recorded the following sums of exposed response-body sizes. Mobile values
+omit HTML when Firefox reports a zero-sized navigation entry; see the measurement
+correction below. The extra request is the small thumbnail lookup script.
 
 | Initial page | Before | After | Requests before → after |
 | --- | ---: | ---: | ---: |
@@ -141,8 +142,9 @@ The following are matched cold-profile Firefox observations against `07c1204`.
 Desktop content viewport was 1440 × 814; mobile was a fully visible 390 × 844
 iframe, at device pixel ratio 1. The home row is its initial view. Other rows
 include the initial page and the first gallery/reference/guide image after
-scrolling. Bytes count completed encoded response bodies, including HTML,
-styles and scripts. Request counts include the small new gallery helper.
+scrolling. Bytes are browser-reported response-body sums. The mobile rows omit HTML
+(see the measurement correction below); desktop rows include it. Request counts
+include the small new gallery helper.
 
 | Page and viewport | Before → after bytes | Requests | Settled seconds |
 | --- | ---: | ---: | ---: |
@@ -227,3 +229,23 @@ the selected Craft-tab recipe and reports missing materials. Only that row's
 receipts and the affected guide verification notes were refreshed. The save
 rollback note already said format 29 after the milestone update; it required
 no correction. No new gameplay test is claimed.
+
+The final browser review checks both histories at 1440/820/390/320 px, real
+keyboard source disclosures, date links and page switching, mobile navigation,
+search, and desktop/mobile file URLs with and without JavaScript. Before/after
+home captures and native reading views were inspected. The two histories add
+no image downloads or runtime dataset request. Their uncompressed HTML files
+are 53,912 and 23,308 bytes; there was no previous published changelog to measure.
+Home HTML/styles/search grow by 5,004 uncompressed bytes; image files are unchanged.
+
+| New page | Desktop reported bytes / requests | Mobile requests | Local settled seconds: desktop / mobile / constrained mobile |
+| --- | ---: | ---: | --- |
+| Game history | 97,140 / 7 | 6 | 1.582 / 58.269 / 35.402 |
+| Wiki history | 66,536 / 7 | 6 | 43.131 / 24.979 / 60.668 |
+
+Both mobile byte sums expose 42,947 bytes of styles/scripts and omit the HTML
+navigation body; complete mobile byte totals are unavailable from these readings.
+The constrained profile shares 200,000 B/s with 150 ms response latency. Heavy
+shared-disk contention affected these single observations, including browser
+startup. These are not LCP, real-phone results or a speedup claim. Raw and
+corrected receipts are retained; live Pages verification follows the normal land.
