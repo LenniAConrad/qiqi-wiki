@@ -47,5 +47,6 @@ function open(src){return new Promise((resolve,reject)=>{
  window.__RESULT={passed:true,checks:results};
 }catch(error){window.__RESULT={passed:false,error:String(error),checks:results};}
 report.textContent=JSON.stringify(window.__RESULT,null,2);
+report.dataset.done=window.__RESULT.passed?'pass':'fail';
 })();
 </script></html>
