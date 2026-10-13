@@ -1017,7 +1017,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Actions report in the top-left status line, for example 'Collected <block> x<pieces>', 'Capacity full; block left behind' or 'Inventory opened'. Mined blocks throw debris and play a break sound, and pieces go straight into your pack. Taking damage lowers the HP bar and dips the camera briefly (see Camera bob and speed field of view); there is no hurt sound or red flash.",
+   "summary": "Actions report in the top-left status line, for example 'Collected <block> x<pieces>', 'Capacity full; block left behind' or 'Inventory opened'. Mined blocks throw debris and play a break sound, and pieces go straight into your pack. Taking damage lowers the HP bar and dips the camera briefly (see Camera bob and speed field of view). A sudden loss of at least 1 HP plays a short hurt voice; there is no red flash.",
    "evidence": [
     "crates/voxelgame-render/src/hud.rs:256-260 — status line drawing",
     "crates/voxelgame-core/src/game.rs:2408-2451 — capacity check, debris, 'Collected' / 'Carved' text and break sound",
@@ -3720,7 +3720,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Stepping or falling into water plays a splash sound and throws droplets from the surface. Moving through water releases bubbles and a swim sound about every 1.4 m. Rain makes small ripple splashes on surfaces. Boats leave no bow spray or wake.",
+   "summary": "Wading into water plays a small splash, and a fall at hard-landing speed plays a big splash with more droplets; another splash needs about 2 m of dry ground first. Moving through water releases bubbles and a swim sound about every 1.4 m. Rain makes small ripple splashes on surfaces. Boats leave no bow spray or wake.",
    "evidence": [
     "crates/voxelgame-core/src/game/audio.rs:49-66 — splash cue and 14 droplets when your feet enter water",
     "crates/voxelgame-core/src/game/audio.rs:88-96 — bubbles and swim sound every 1.4 m",

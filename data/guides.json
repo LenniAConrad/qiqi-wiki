@@ -1774,7 +1774,7 @@
       },
       {
        "t": "p",
-       "text": "Longer draws fly faster and hit harder. In survival each shot uses one arrow, and arrows are not recovered. Arrows stop on grass, flowers and other small plants. Creative arrows are unlimited. {{alder-bow}}"
+       "text": "Longer draws fly faster and hit harder. In survival each shot uses one arrow, and arrows are not recovered. Arrows stop on grass, flowers and other small plants. An arrow that lands in grass or leaves makes a soft rustle. Other impacts make a thunk that fades out by about 48 m. Creative arrows are unlimited. {{alder-bow}}"
       },
       {
        "t": "recipes",
@@ -4108,7 +4108,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Taking damage has no hurt sound and no red flash. The camera dip is the only cue. See the camera section below."
+       "text": "A sudden loss of at least 1 HP, from a hit, a fall or a blast, plays a short hurt voice. Voices are at least half a second apart, and slow health drains stay silent. There is no red flash. The camera dip is also a cue. See the camera section below."
       }
      ]
     },
@@ -4178,7 +4178,8 @@
       {
        "t": "list",
        "items": [
-        "Stepping or falling into water plays a splash sound and throws droplets from the surface.",
+        "Wading into water plays a small splash. A fall at hard-landing speed plays a big splash with more droplets.",
+        "After you leave the water, walk about 2 m on dry ground before the next splash plays.",
         "Moving through water releases bubbles and a swim sound about every 1.4 m.",
         "Rain makes small ripple splashes on surfaces.",
         "Boats leave no bow spray or wake."
