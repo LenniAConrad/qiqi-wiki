@@ -4795,7 +4795,7 @@
    "backlog": [
     "VOX-OWNER-UPDATE-INSTALLER"
    ],
-   "notes": "Missing today: update-existing detection, version/origin checks, a check that the game is closed, rollback and clean-up of old versions (delete them yourself after checking the new one). Going back to an older build is not supported and may fail to open worlds saved by the newer one (current save format 22). A source checkout launched with./run.sh rebuilds itself when its sources change (run.sh:76-107).",
+   "notes": "Missing today: update-existing detection, version/origin checks, a check that the game is closed, rollback and clean-up of old versions (delete them yourself after checking the new one). Going back to an older build is not supported and may fail to open worlds saved by the newer one (current save format 28, save.rs:45). A source checkout launched with./run.sh rebuilds itself when its sources change (run.sh:76-107).",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
