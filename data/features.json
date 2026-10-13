@@ -1196,8 +1196,7 @@
    "summary": "Falls of up to 3 m are free; each extra metre costs 5 HP, so about 23 m is fatal from full health. Animals never attack; besides falls, only starvation, thirst, extreme cold and explosions hurt you.",
    "evidence": [
     "crates/voxelgame-core/src/player.rs:725-731 — 'three-block safe fall'",
-    "crates/voxelgame-core/src/entities/mod.rs:1869-1872 — animals keep a non-hostile distance",
-    "crates/voxelgame-core/src/game.rs:2025-2041 — mod-pack artillery shells can also hurt you"
+    "crates/voxelgame-core/src/entities/mod.rs:1869-1872 — animals keep a non-hostile distance"
    ],
    "notes": "No drowning, lava, fire, cactus or hostile-mob damage exists in this snapshot. Fall damage only applies when landing on solid ground.",
    "guide": {
