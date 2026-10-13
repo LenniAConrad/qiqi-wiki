@@ -16,6 +16,7 @@ Inline markup in text fields: [[W]] renders a key cap, **text** is bold, {{featu
 """
 
 import argparse
+from build_gallery_previews import attributes as preview_attributes
 from base_game import public_ledger
 from wiki_layout import TOPICS, header_html, footer_html, topic_for_guide
 from html import escape
@@ -187,8 +188,12 @@ def controls_reference(ctx, block):
 
 def figure(ctx, block):
     width, height = block.get("size", [1280, 720])
-    return (f'<figure class="guide-figure"><img src="{attr(block["src"])}" width="{width}" height="{height}"'
-            f' alt="{attr(block["alt"])}" loading="lazy" decoding="async"><figcaption>{ctx.inline(block["caption"])}'
+    sizes = ('(max-width: 760px) 88vw, (max-width: 1050px) calc(89vw - 211px), '
+             '(max-width: 1279px) calc(89vw - 260px), (max-width: 1499px) calc(1020px - 11vw), 876px')
+    responsive = preview_attributes(block['src'], 'guides', sizes)
+    return (f'<figure class="guide-figure"><a href="{attr(block["src"])}" aria-label="Open full-size screenshot: {attr(block["alt"])}">'
+            f'<img {responsive} width="{width}" height="{height}"'
+            f' alt="{attr(block["alt"])}" loading="lazy" decoding="async"></a><figcaption>{ctx.inline(block["caption"])}'
             "</figcaption></figure>")
 
 

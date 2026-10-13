@@ -51,3 +51,15 @@ recipes are extracted from the game's recipe registry and rechecked by
 (1280 × 720, lossy WebP quality 80) of the original game's release build running
 against a disposable world with no packs enabled, and contain no third-party
 assets. Project GPL-3.0-only terms apply.
+
+
+## Responsive gallery and guide previews — 13 October 2026
+
+The biome, animal and guide collections have smaller WebP derivatives for
+cards, small reference rows and mobile screens. `data/gallery-previews.json`
+records source and output hashes, dimensions, filter and encoder settings.
+Sources are the unchanged original game captures and model renders described
+above; their capture dates and licences still apply. After displayed-size
+comparisons, these collections use Lanczos with WebP quality 90 (landscapes
+and portraits) or 86 (guide screenshots). This does not establish a filter
+preset for future images. Original views remain available on demand.

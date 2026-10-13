@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """Render a compact animal reference from the preserved atlas catalogs."""
 from html import escape
+from build_gallery_previews import attributes as preview_attributes
 import json
 from pathlib import Path
 
@@ -56,7 +57,7 @@ def render(animals, habitats, biomes):
                               for bid, name in habitat_names(animal, habitats, biomes))
             view = model_view(animal)
             model = (f'<a href="{escape(view["image"])}"><img class="mob-model" '
-                     f'src="{escape(view["image"])}" width="72" height="72" loading="lazy" decoding="async" '
+                     f'{preview_attributes(view["image"], "animals", "72px")} width="72" height="72" loading="lazy" decoding="async" '
                      f'alt="{escape(animal["name"])} — {escape(view["label"])}"></a>' if view else '')
             anchor = mob_anchor(animal)
             out.append(f'<tr id="{anchor}"><th scope="row"><a href="#{anchor}">'

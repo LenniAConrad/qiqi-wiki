@@ -21,6 +21,8 @@ class References(HTMLParser):
         for name, value in attrs:
             if name in {"href", "src"} and value:
                 self.refs.append(value)
+            elif name == 'srcset' and value:
+                self.refs.extend(candidate.strip().split()[0] for candidate in value.split(',') if candidate.strip())
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

@@ -120,3 +120,69 @@ the browser lookup. Browser review compares actual desktop/mobile previews
 and verifies full-size images load only after opening a view. The home,
 animal/biome galleries, guide images and eventual changelog still need the
 rest of the full image-performance acceptance; QW-ASTRA-IMAGE-PERF stays open.
+
+
+## Image loading, galleries and guides — 13 October 2026
+
+The home and biome gallery now use 480/640-pixel previews; animal cards use
+192/320 pixels, and the Mobs reference uses 72/144-pixel candidates for its
+72-pixel cells. Four guide screenshots have 640/960-pixel previews and keyboard
+accessible links to their originals. High-density displays can choose larger
+candidates, including the source image. The main landscape remains eager and
+high priority; below-fold pictures retain lazy loading and async decoding.
+
+The 564 derivatives add 7,398,146 bytes. The complete published image collection
+therefore grows from 25,350,862 to 32,749,008 bytes: full views still need the
+preserved originals. The benefit is smaller page requests, not a smaller
+full-gallery archive. Original image bytes, game dates and capture receipts
+are unchanged. The ledger's image-coverage note records this distinction.
+
+The following are matched cold-profile Firefox observations against `07c1204`.
+Desktop content viewport was 1440 × 814; mobile was a fully visible 390 × 844
+iframe, at device pixel ratio 1. The home row is its initial view. Other rows
+include the initial page and the first gallery/reference/guide image after
+scrolling. Bytes count completed encoded response bodies, including HTML,
+styles and scripts. Request counts include the small new gallery helper.
+
+| Page and viewport | Before → after bytes | Requests | Settled seconds |
+| --- | ---: | ---: | ---: |
+| index.html · desktop | 301,492 → 234,007 | 8 → 8 | 1.165 → 1.095 |
+| animals.html · desktop | 445,296 → 357,532 | 23 → 24 | 3.107 → 20.053 |
+| atlas.html · desktop | 1,729,729 → 604,031 | 21 → 21 | 2.672 → 9.726 |
+| mobs.html · desktop | 273,158 → 186,248 | 20 → 20 | 13.152 → 2.220 |
+| guide-getting-started.html · desktop | 107,020 → 97,252 | 8 → 8 | 8.941 → 5.989 |
+| index.html · mobile | 293,940 → 216,394 | 7 → 7 | 1.185 → 1.181 |
+| animals.html · mobile | 336,066 → 293,215 | 12 → 13 | 11.268 → 3.172 |
+| atlas.html · mobile | 497,626 → 208,596 | 10 → 11 | 10.514 → 4.156 |
+| mobs.html · mobile | 67,400 → 43,790 | 9 → 9 | 4.390 → 3.240 |
+| guide-getting-started.html · mobile | 85,052 → 58,534 | 7 → 7 | 3.832 → 5.580 |
+
+The bounded mobile network model shares 200,000 B/s across responses and adds
+150 ms response latency. Each timing below is one observation on the shared
+host, including the settling interval; disk contention was observed during
+this work. These are not LCP, real-phone, or general loading-speed guarantees.
+
+| Page / same checkpoint | Before → after seconds, constrained mobile |
+| --- | ---: |
+| index.html | 2.887 → 2.524 |
+| animals.html | 5.399 → 6.260 |
+| atlas.html | 7.968 → 160.995 |
+| mobs.html | 5.189 → 8.548 |
+| guide-getting-started.html | 5.714 → 43.705 |
+
+The guide timing worsened in the constrained run despite fewer bytes. Report
+that observation alongside the reductions; do not infer universal time gains.
+Early incomplete runs are superseded: the measurement helper now excludes
+images outside either viewport axis and its mobile iframe fits entirely inside
+the parent viewport. Otherwise browser chrome can clip the iframe's bottom,
+so native lazy loading correctly defers images the child thinks are visible.
+A local temporary wrapper also permits real mobile `file://` checks.
+
+The preview gate checks source/derivative hashes, dimensions, complete width
+sets, original-byte savings and the generated helper. `srcset` candidates are
+included in staged relative-link validation. Content-specific filter and encoder
+receipts live in `data/gallery-previews.json`; regeneration is in README.
+Initial quality-92 guide previews could be heavier than their sources; inspected
+quality-86 versions resolved that, and a regression rejects larger derivatives.
+Fresh game captures, habitat scenes, the changelog and its loading measurements,
+CI maintenance and the final handoff remain separate overhaul work.

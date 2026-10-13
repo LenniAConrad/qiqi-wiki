@@ -56,11 +56,12 @@ for mode,width,height,bps,latency in [('desktop',1440,900,0,0),('mobile',390,844
                 start=time.monotonic()
                 if width<500:b.framed(c,base+'/'+page,width,height)
                 else:c.size(width,height);c.navigate(base+'/'+page)
-                for phase in (['initial','first-gallery-row'] if page in ['animals.html','islands.html','atlas.html'] else ['initial']):
-                    if phase=='first-gallery-row':c.script("document.querySelector('#grid').scrollIntoView({behavior:'instant'});")
+                media_selector = c.script("return document.querySelector('#grid') ? '#grid' : document.querySelector('.mob-model') ? '.mob-model' : document.querySelector('.guide-figure') ? '.guide-figure' : null;")
+                for phase in (['initial', 'first-media-row'] if media_selector else ['initial']):
+                    if phase=='first-media-row':c.script("document.querySelector(arguments[0]).scrollIntoView({behavior:'instant',block:'start',inline:'nearest'});", media_selector)
                     previous=None;stable=0
                     for _ in range(160):
-                        counts=c.script("return [performance.getEntriesByType('resource').length,[...document.images].filter(i=>i.getClientRects().length&&i.getBoundingClientRect().top<innerHeight&&i.getBoundingClientRect().bottom>0&&!i.complete).length];")
+                        counts=c.script("return [performance.getEntriesByType('resource').length,[...document.images].filter(i=>i.getClientRects().length&&i.getBoundingClientRect().top<innerHeight&&i.getBoundingClientRect().bottom>0&&i.getBoundingClientRect().left<innerWidth&&i.getBoundingClientRect().right>0&&!i.complete).length];")
                         stable=stable+1 if counts==previous and counts[1]==0 else 0;previous=counts
                         if stable>=3:break
                         time.sleep(.25)
@@ -70,4 +71,4 @@ for mode,width,height,bps,latency in [('desktop',1440,900,0,0),('mobile',390,844
                     entries=data['navigation']+data['resources']
                     row={'page':page,'mode':mode,'phase':phase,'viewport':[width,height],'network':{'bytesPerSecond':bps,'addedResponseLatencyMs':latency,'cache':'fresh profile per page, disabled HTTP cache','origin':base},'requests':len(entries),'encodedBytes':sum(e['encoded'] for e in entries),'transferBytes':sum(e['transfer'] for e in entries),'settledSeconds':round(time.monotonic()-start,3),**data}
                     rows.append(row);print(page,mode,phase,row['requests'],row['encodedBytes'],row['settledSeconds'],flush=True)
-                    args.out.write_text(json.dumps({'method':'Firefox headless; fresh profile PER PAGE, cache disabled. Initial viewport, then first gallery row. Wait for visible images and three stable 250ms request-count samples. Constrained local profile shares 200000 bytes/s across responses and adds150 ms response latency. Not a real phone or LCP benchmark.','measuredAt':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'root':str(args.root),'rows':rows},indent=2)+'\n')
+                    args.out.write_text(json.dumps({'method':'Firefox headless; fresh profile PER PAGE, cache disabled. Initial viewport, then first gallery/reference/guide image. Mobile iframe fully inside the parent viewport; visible images intersect both viewport axes. Wait for visible images and three stable 250ms request-count samples. Constrained local profile shares 200000 bytes/s across responses and adds150 ms response latency. Not a real phone or LCP benchmark.','measuredAt':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'root':str(args.root),'rows':rows},indent=2)+'\n')

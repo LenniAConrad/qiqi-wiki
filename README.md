@@ -312,3 +312,39 @@ tree with `--root /path/to/snapshot`. Add `--base https://lenniaconrad.github.io
 for live Pages measurements without synthetic throttling. Raw request records
 stay in the chosen private output file; timing observations include a settling
 interval and are not LCP or real-phone measurements.
+
+
+## Responsive gallery and guide images
+
+Run `python3 tools/build_gallery_previews.py` after refreshing the biome, animal
+or guide catalogs, then rebuild the guide, Mobs, Features and wiki pages using
+the commands above. `data/gallery-previews.json` pins each original and derivative
+hash, dimensions, content-specific filter, quality and encoder version. The gate
+rejects stale captures, missing widths, changed derivatives, previews that are
+larger than their original, and missing `srcset`
+files in the staged site. `image-previews.js` is generated from the same profiles;
+its small path rules avoid another copy of the full catalogs in the browser.
+
+Biome/home cards use 480/640-pixel candidates plus the 960-pixel originals.
+Animal cards use 192/320-pixel portraits; 72/144-pixel candidates serve the small
+Mobs reference. High-density displays may choose larger candidates, up to the
+original. Only the first resting portrait has derivatives; other poses load
+when selected in the viewer. Guide screenshots use 640/960-pixel candidates
+plus their 1280-pixel original, which can also be opened from the image link.
+Static images keep responsive selection with JavaScript disabled. Full originals
+remain published because gallery controls and screenshot links need them.
+
+These are derivatives of the existing dated captures, not a fresh game/media
+audit. Reinspect the filters and displayed detail when replacing those captures.
+BOX, Lanczos and nearest were compared on terrain and small animal details;
+BOX and Lanczos were also compared on the menu screenshot. Lanczos was chosen
+for these collections, with WebP quality 90 for portraits/landscapes and 86 for
+screenshots. No game texture or geometry is changed.
+
+`tools/measure_loading.py` now also scrolls to the first animal-reference or
+guide image. It counts images as visible only when they intersect both viewport
+axes; an image outside a horizontally scrolling table must not stall a run.
+The mobile iframe fits entirely inside the parent viewport so browser chrome
+cannot leave its bottom images invisible to native lazy loading.
+Compare identical runner versions and profiles. Time readings on a busy shared
+host need the same caution as the network model described above.

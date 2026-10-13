@@ -183,7 +183,23 @@ def framed(client, url, width, height):
     client.size(width + 200, height)
     wrapper = ("<!doctype html><body style='margin:0'><iframe id='frame' src='" + url +
                f"' style='display:block;border:0;width:{width}px;height:{height}px'></iframe>")
-    client.navigate("data:text/html;charset=utf-8," + quote(wrapper))
+    if url.startswith('file:'):
+        # A data: parent cannot embed local files in Firefox. Use a disposable
+        # local wrapper for a genuine mobile file:// check instead.
+        cache = ROOT / '.cache'
+        cache.mkdir(exist_ok=True)
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.html', dir=cache) as local:
+            local.write(wrapper)
+            local.flush()
+            client.navigate(Path(local.name).as_uri())
+    else:
+        client.navigate("data:text/html;charset=utf-8," + quote(wrapper))
+    # SetWindowRect includes browser chrome. The entire mobile iframe must be
+    # inside the outer viewport, otherwise Firefox correctly delays lazy images
+    # near its clipped bottom while the child reports them as visible.
+    missing_height = client.script("return Math.max(0, arguments[0] - innerHeight);", height)
+    if missing_height:
+        client.size(width + 200, height + missing_height)
     frame = client.command("WebDriver:FindElement", {"using": "css selector", "value": "#frame"})[ELEMENT]
     client.command("WebDriver:SwitchToFrame", {"element": frame})
     deadline = time.monotonic() + 30

@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """Build the wiki home, offline search index and shared atlas navigation."""
 from html import escape
+from build_gallery_previews import attributes as preview_attributes
 import json
 from pathlib import Path
 import re
@@ -84,7 +85,9 @@ def render_home():
             '<a href="features.html">feature ledger</a>.</p></noscript>'
             '<p class="start-here">New here? <a href="guide-getting-started.html">Start your first session</a>.</p></div>'
             '<figure class="home-landscape"><a href="atlas.html#biome=FlowerMeadow">'
-            '<img src="images/FlowerMeadow.webp" width="960" height="540" decoding="async" fetchpriority="high" '
+            '<img ' + preview_attributes('images/FlowerMeadow.webp', 'biomes',
+                '(max-width: 760px) min(88vw, 560px), (min-width: 1500px) 507px, 38vw') +
+            ' width="960" height="540" decoding="async" fetchpriority="high" '
             'alt="A Voxelgame flower meadow: stepped grassy ground, scattered flowers and trees on the hills."></a>'
             '<figcaption><a href="atlas.html#biome=FlowerMeadow">Flower meadow</a> · Generation 9 atlas photograph, '
             '28 September 2026.</figcaption></figure></div>'
@@ -143,6 +146,18 @@ def apply_chrome(value, page):
     if page == 'islands.html' and 'src="data/island-thumbnails.js"' not in value:
         value = value.replace('<script defer src="islands.js">',
                               '<script defer src="data/island-thumbnails.js"></script><script defer src="islands.js">')
+    if page in ('atlas.html', 'animals.html') and 'src="image-previews.js"' not in value:
+        script = 'app.js' if page == 'atlas.html' else 'animals.js'
+        value = value.replace(f'<script defer src="{script}">',
+                              f'<script defer src="image-previews.js"></script><script defer src="{script}">')
+    if page == 'atlas.html':
+        catalog = read('biomes')
+        featured = next(b for b in catalog['biomes'] if b['id'] == catalog['featuredId'])
+        attrs = preview_attributes(featured['image'], 'biomes',
+                                   '(max-width: 650px) 88vw, (min-width: 1500px) 1300px, 89vw')
+        value = re.sub(r'<img id="hero-image"[^>]*>',
+                       f'<img id="hero-image" {attrs} alt="{escape(featured["name"])}" '
+                       'fetchpriority="high" decoding="async" width="960" height="540">', value)
     return value.replace('index.html#catalog', 'atlas.html#catalog').replace('· qiqi-dev', '· Qiqi wiki')
 
 

@@ -38,7 +38,10 @@ function render() {
     const article = el('article', 'card');
     const button = el('button', 'card-image'); button.type = 'button';
     button.setAttribute('aria-label', `Explore ${a.name}`);
-    const image = el('img'); image.src = a.views[0].image; image.alt = `${a.name}, resting model in three-quarter view`;
+    const image = el('img');
+    window.WIKI_IMAGE_PREVIEWS.set(image, a.views[0].image, 'animals',
+      '(max-width: 650px) 42vw, (max-width: 1000px) 28vw, (min-width: 1500px) 300px, 21vw', 192);
+    image.alt = `${a.name}, resting model in three-quarter view`;
     image.width = 512; image.height = 512; image.loading = 'lazy'; image.decoding = 'async';
     const arrow = el('span', 'image-open', '↗'); arrow.setAttribute('aria-hidden', 'true');
     button.append(image, arrow); button.addEventListener('click', () => openAnimal(a.id));

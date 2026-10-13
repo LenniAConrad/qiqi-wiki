@@ -44,7 +44,9 @@ function render() {
     button.type = 'button';
     button.setAttribute('aria-label', `Explore ${b.name}, rank ${b.rank}, ${percent(b.percent)} sampled coverage`);
     const img = el('img');
-    img.src = b.image; img.alt = `${b.name}: ${b.description}`;
+    window.WIKI_IMAGE_PREVIEWS.set(img, b.image, 'biomes',
+      '(max-width: 650px) 88vw, (max-width: 1000px) 43vw, (min-width: 1500px) 415px, 28vw');
+    img.alt = `${b.name}: ${b.description}`;
     img.width = 960; img.height = 540; img.loading = 'lazy'; img.decoding = 'async';
     const arrow = el('span', 'image-open', '↗'); arrow.setAttribute('aria-hidden', 'true');
     button.append(img, arrow); button.addEventListener('click', () => openBiome(b.id));
@@ -109,7 +111,7 @@ document.addEventListener('keydown', (event) => {
   else if (event.key === '/' && !dialog.open && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) { event.preventDefault(); search.focus(); }
 });
 const featured = biomes.find(b => b.id === atlas.featuredId);
-$('#hero-image').src = featured.image; $('#hero-image').alt = `${featured.name}: ${featured.description}`;
+$('#hero-image').alt = `${featured.name}: ${featured.description}`;
 $('#hero-name').textContent = featured.name;
 $('#sample-stat').textContent = `${(atlas.totalSamples / 1e6).toFixed(2)}M`;
 render();
