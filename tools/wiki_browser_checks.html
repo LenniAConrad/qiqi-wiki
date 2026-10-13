@@ -8,20 +8,26 @@
 // Parent runs this harness with tools/browser_run.py; it also works over file://.
 const frame=document.querySelector('iframe'),report=document.querySelector('#report'),results=[];
 const delay=()=>new Promise(resolve=>setTimeout(resolve,80));
-function check(ok,message){results.push({passed:!!ok,message});if(!ok)throw Error(message);}
-const open=src=>new Promise(resolve=>{frame.addEventListener('load',()=>resolve(frame.contentDocument),{once:true});frame.src=src;});
+function check(ok,message){results.push({passed:!!ok,message});report.textContent=`${results.length} checks: ${ok?'PASS':'FAIL'} ${message}`;if(!ok)throw Error(message);}
+const open=src=>new Promise((resolve,reject)=>{
+ const loaded=()=>{clearTimeout(timer);resolve(frame.contentDocument);};
+ const timer=setTimeout(()=>{frame.removeEventListener('load',loaded);reject(Error('Page did not finish loading: '+src));},30000);
+ frame.addEventListener('load',loaded,{once:true});frame.src=src;
+});
 (async()=>{try {
  const d=await open('../index.html'),w=frame.contentWindow;
  check(d.querySelector('h1').textContent==='Voxelgame','Home names the game');
- check(d.querySelectorAll('.category-grid li').length===8,'Eight player categories');
- check(d.querySelectorAll('.category-grid li p:first-of-type').length===8,'Every category has a description or writing status');
+ check(d.querySelectorAll('.topic-directory > li').length===10,'Ten real player topics');
+ check(d.querySelectorAll('.topic-directory h3 a').length===10,'Every topic opens its own index');
+ check(!d.querySelector('#categories').textContent.includes('Not written yet'),'Written topics have no stale placeholders');
  check(!d.querySelector('#wiki-search-panel').hidden,'Offline search data loads');
  check(w.QIQI_SEARCH.every(r=>!/(optional-pack|:pack\b)/i.test(JSON.stringify(r))),'Search has base-game records');
  const input=d.querySelector('#wiki-search');
  d.body.dispatchEvent(new w.KeyboardEvent('keydown',{key:'/',bubbles:true}));
  check(d.activeElement===input,'Slash focuses search');
- input.value='stone axe';input.dispatchEvent(new w.Event('input',{bubbles:true}));
- check(d.querySelectorAll('#search-results a').length>0,'Search returns stone axe records');
+ input.value='stone pickaxe';input.dispatchEvent(new w.Event('input',{bubbles:true}));
+ check(d.querySelectorAll('#search-results a').length>0,'Search returns stone pickaxe records');
+ check(d.querySelector('#search-results a').getAttribute('href').includes('recipe-stone-pickaxe'),'Exact recipe title ranks above incidental mentions');
  input.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Enter',bubbles:true}));
  check(d.activeElement===d.querySelector('#search-results a'),'Enter focuses the first result');
  input.focus();input.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));
@@ -29,18 +35,42 @@ const open=src=>new Promise(resolve=>{frame.addEventListener('load',()=>resolve(
  input.value='zzzznotawikientry';input.dispatchEvent(new w.Event('input',{bubbles:true}));
  check(d.querySelector('#search-status').textContent.startsWith('No results'),'No-result feedback');
  const nav=[...d.querySelectorAll('nav[aria-label=Main] a')].map(a=>a.getAttribute('href'));
- for(const width of [1440,390]) {
+ for(const width of [1440,320,390]) {
   frame.style.width=width+'px';await delay();
   check(d.documentElement.scrollWidth<=width+1,`Home has no horizontal overflow at ${width}px`);
  }
- for(const name of ['guide-getting-started.html','guide-controls.html','guide-first-survival-day.html','guide-crafting.html','atlas.html','animals.html','islands.html','scale.html','performance.html','features.html','guides.html']) {
+ const topics=(await(await fetch('../data/topics.json')).json()).topics;
+ const guides=(await(await fetch('../data/guides.json')).json()).guides;
+ for(const name of [...topics.map(t=>t.page),...guides.map(g=>g.page),'blocks.html','mobs.html','atlas.html','animals.html','islands.html','scale.html','performance.html','features.html','guides.html']) {
   const p=await open('../'+name);
   check(JSON.stringify([...p.querySelectorAll('nav[aria-label=Main] a')].map(a=>a.getAttribute('href')))===JSON.stringify(nav),`${name} shares category navigation`);
   check(p.querySelector('.site-header [aria-current]'),`${name} has a current-page marker`);
-  if(name.startsWith('guide-'))check(p.querySelector('.wiki-breadcrumb')&&p.querySelector('.wiki-contents'),`${name} has article navigation`);
+  if(name.startsWith('guide-')||name.startsWith('topic-')) {
+   check(p.querySelector('.wiki-breadcrumb')&&p.querySelector('.wiki-contents'),`${name} has article navigation`);
+   check(!p.querySelector('.wiki-contents').open,`${name} mobile contents stays compact`);
+   for(const a of p.querySelectorAll('nav[aria-label="On this page"] a')) check(p.querySelector(a.getAttribute('href')),`${name}: ${a.getAttribute('href')} exists`);
+  }
+  check(!p.querySelector('.site-menu').open,`${name} starts with a compact mobile menu`);
+  p.querySelector('.site-menu summary').click();
+  check(p.querySelector('.site-menu').open,`${name} mobile menu opens`);
+  check(p.querySelector('nav[aria-label=Main] a').getBoundingClientRect().height>=40,`${name} mobile navigation has usable touch targets`);
   await delay();check(p.documentElement.scrollWidth<=390+1,`${name} has no horizontal overflow at 390px`);
  }
+ const building=await open('../topic-building.html');
+ check(building.querySelector('#articles a').getAttribute('href')==='guide-building.html','Building index leads directly to its written guide');
+ const article=await open('../guide-building.html');
+ check(article.querySelector('.wiki-breadcrumb a[href="topic-building.html"]'),'Building article links back to its topic');
+ article.body.dispatchEvent(new frame.contentWindow.KeyboardEvent('keydown',{key:'/',bubbles:true}));
+ for(let n=0;n<40&&!frame.contentWindow.location.pathname.endsWith('/index.html');n++)await delay();
+ check(frame.contentWindow.location.pathname.endsWith('/index.html')&&frame.contentWindow.location.hash==='#search','Slash opens wiki search from an article');
+ const home=await open('../index.html?qa=search-link#search');
+ await delay();
+ check(home.activeElement===home.querySelector('#wiki-search'),'Header search destination focuses the input');
+ await open('../index.html#biome=FlowerMeadow');
+ for(let n=0;n<40&&!frame.contentWindow.location.pathname.endsWith('/atlas.html');n++)await delay();
+ check(frame.contentWindow.location.pathname.endsWith('/atlas.html')&&frame.contentWindow.location.hash==='#biome=FlowerMeadow','Old biome bookmarks retain their target');
  window.__browserChecks={passed:results.every(r=>r.passed),results};
  report.textContent=results.map(r=>'PASS '+r.message).join('\n');
-}catch(error){window.__browserChecks={passed:false,results,error:String(error)};report.textContent=results.map(r=>(r.passed?'PASS ':'FAIL ')+r.message).join('\n')+'\n'+error.stack;}})();
+ report.dataset.done='pass';
+}catch(error){window.__browserChecks={passed:false,results,error:String(error)};report.textContent=results.map(r=>(r.passed?'PASS ':'FAIL ')+r.message).join('\n')+'\n'+error.stack;report.dataset.done='fail';}})();
 </script>

@@ -13,6 +13,9 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = (
+    'topic-getting-started.html', 'topic-controls.html', 'topic-blocks.html', 'topic-crafting.html',
+    'topic-building.html', 'topic-mobs.html', 'topic-exploration.html', 'topic-items.html',
+    'topic-vehicles.html', 'topic-troubleshooting.html', 'data/topics.json', 'wiki-ui.js',
     'index.html', 'blocks.html', 'mobs.html', 'atlas.html', 'animals.html', 'islands.html',
     'features.html', 'guides.html', 'guide-getting-started.html',
     'guide-controls.html', 'guide-first-survival-day.html', 'guide-crafting.html',

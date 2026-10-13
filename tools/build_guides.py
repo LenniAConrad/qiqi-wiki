@@ -17,7 +17,7 @@ Inline markup in text fields: [[W]] renders a key cap, **text** is bold, {{featu
 
 import argparse
 from base_game import public_ledger
-from wiki_layout import header_html, footer_html
+from wiki_layout import TOPICS, header_html, footer_html, topic_for_guide
 from html import escape
 import json
 from pathlib import Path
@@ -92,6 +92,7 @@ def page_open(title, description, nav_current, body_class, skip_target, skip_lab
         '<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">'
         '<link rel="stylesheet" href="features.css"><link rel="stylesheet" href="guides.css">'
         '<link rel="stylesheet" href="wiki.css">\n'
+        '<script defer src="wiki-ui.js"></script>\n'
         + ('<script defer src="guides.js"></script>\n' if script else "") +
         f'</head>\n<body class="{body_class}">\n'
         f'<a class="skip" href="#{skip_target}">{text(skip_label)}</a>\n'
@@ -237,8 +238,10 @@ def render_guide(ctx, guide):
     out = [page_open(guide["title"], guide["summary"], guide["page"], "guide-page", "guide-body",
                      "Skip to the guide", "PLAYER GUIDE", scripted)]
     add = out.append
+    topic = topic_for_guide(guide['id'])
+    parent_href, parent_label = (topic['page'], topic['title']) if topic else ('guides.html', 'All guides')
     add('<nav class="wiki-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a>'
-        f'<span aria-hidden="true">/</span><a href="guides.html">Guides</a><span aria-hidden="true">/</span>'
+        f'<span aria-hidden="true">/</span><a href="{parent_href}">{text(parent_label)}</a><span aria-hidden="true">/</span>'
         f'<span aria-current="page">{text(guide["title"])}</span></nav>')
     add('<section class="intro" aria-labelledby="title"><div class="intro-row">'
         f'<h1 id="title">{text(guide["title"])}</h1><p>{ctx.inline(guide["lead"])}</p></div></section>\n')
@@ -258,9 +261,10 @@ def render_guide(ctx, guide):
             add(block_html(ctx, block))
         add("</section>\n")
     add(verification_html(ctx, guide))
-    related = [ctx.by_slug[slug] for slug in guide.get("next", [])]
+    slugs = list(dict.fromkeys(guide.get('next', []) + (topic['guides'] if topic else [])))
+    related = [ctx.by_slug[slug] for slug in slugs if slug != guide['id'] and slug in ctx.by_slug][:4]
     if related:
-        add('<section class="guide-section" aria-labelledby="next-t"><h2 id="next-t">Keep going</h2><ul class="guide-list">')
+        add('<section class="guide-section" id="related" aria-labelledby="next-t"><h2 id="next-t">Related articles</h2><ul class="guide-list">')
         for item in related:
             add(f'<li><a href="{attr(item["page"])}">{text(item["title"])}</a>: {text(item["summary"])}</li>')
         add("</ul></section>\n")
@@ -275,6 +279,8 @@ def render_index(ctx):
     out = [page_open("Player guides", guides["description"], INDEX_PAGE, "guides-index",
                      "guide-list", "Skip to the guide list", "PLAYER GUIDES")]
     add = out.append
+    add('<nav class="wiki-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a>'
+        '<span aria-hidden="true">/</span><span aria-current="page">All guides</span></nav>')
     add('<section class="intro" aria-labelledby="title"><div class="eyebrow"><span class="status-dot"></span> '
         f'PLAYER GUIDES / UPDATED {text(long_date(guides["updated"]).upper())}</div><div class="intro-row">'
         f'<h1 id="title">Player guides</h1><p>{text(guides["lead"])}</p></div></section>\n')
@@ -282,6 +288,8 @@ def render_index(ctx):
     add(f'<div class="study-meta">Written against Voxelgame main <code>{text(game["commit"][:7])}</code> · committed '
         f'{text(long_date(game["commitDate"]))} · every claim is traced to the source in the '
         '<a href="features.html">feature ledger</a></div>\n')
+    add('<nav class="guide-topic-links" aria-label="Browse by topic">' + ''.join(
+        f'<a href="{topic["page"]}">{text(topic["title"])}</a>' for topic in TOPICS) + '</nav>')
     add(f'<section id="guide-list" class="report-section" aria-labelledby="list-t"><div class="section-heading">'
         '<div class="eyebrow">01 / WRITTEN</div><h2 id="list-t">Written guides</h2></div><ol class="guide-cards">')
     for guide in guides["guides"]:

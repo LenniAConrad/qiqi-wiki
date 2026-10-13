@@ -24,7 +24,10 @@
       return;
     }
     const matches = records.filter(record => query.every(term => record.terms.includes(term)));
-    matches.sort((a, b) => (a.kind === 'Guide' ? -1 : 0) - (b.kind === 'Guide' ? -1 : 0));
+    const score = record => (normalize(record.title) === normalize(input.value.trim()) ? 20 : 0) +
+      (query.every(term => normalize(record.title).includes(term)) ? 5 : 0) +
+      (record.kind === 'Guide' ? 2 : record.kind === 'Topic' ? 1 : 0);
+    matches.sort((a, b) => score(b) - score(a));
     results.hidden = matches.length === 0;
     status.textContent = matches.length ? `${matches.length} results${matches.length > 24 ? '; showing the first 24' : ''}.` : 'No results. Try another word.';
     for (const record of matches.slice(0, 24)) {
@@ -45,6 +48,7 @@
   input.addEventListener('keydown', event => {
     if (event.key === 'Escape') { input.value = ''; render(); }
     if (event.key === 'Enter') {
+      event.preventDefault();
       const first = results.querySelector('a');
       if (first) first.focus();
     }
@@ -56,5 +60,9 @@
       input.focus();
     }
   });
+  const focusFromLink = () => { if (location.hash === '#search') input.focus(); };
+  window.addEventListener('hashchange', focusFromLink);
+  window.addEventListener('load', focusFromLink, { once: true });
   render();
+  focusFromLink();
 })();

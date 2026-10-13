@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "topics": [
+    {
+      "id": "getting-started", "title": "Getting started", "page": "topic-getting-started.html",
+      "summary": "Your first world, creative and survival play, and saving your progress.",
+      "guides": ["getting-started", "first-survival-day", "study-grove", "not-in-the-game-yet"],
+      "references": [["guide-install-and-worlds.html", "Install or update the game"], ["guide-controls.html#essentials", "Essential controls"]],
+      "related": ["controls", "crafting", "troubleshooting"]
+    },
+    {
+      "id": "controls", "title": "Controls", "page": "topic-controls.html",
+      "summary": "Find a key, understand the crosshair and adjust the camera.",
+      "guides": ["controls-reference", "moving-and-aiming"],
+      "references": [["guide-controls.html#all", "Search every documented control"], ["guide-settings-performance.html#general", "Mouse sensitivity, field of view and display settings"]],
+      "related": ["getting-started", "building", "vehicles"]
+    },
+    {
+      "id": "blocks", "title": "Blocks and materials", "page": "topic-blocks.html",
+      "summary": "Look up building materials, colours and links to their recipes.",
+      "guides": [],
+      "references": [["blocks.html", "Block and material catalogue"], ["guide-crafting.html#materials", "Building materials and glass"], ["guide-crafting.html#gathering", "Gathering materials"], ["guide-building.html#pieces", "Whole blocks and smaller pieces"]],
+      "related": ["crafting", "building", "items"]
+    },
+    {
+      "id": "crafting", "title": "Crafting", "page": "topic-crafting.html",
+      "summary": "Open the crafting panel and look up ingredients and quantities.",
+      "guides": ["crafting-and-recipes"],
+      "references": [["guide-crafting.html#recipes", "Complete recipe tables"], ["guide-crafting.html#chain", "Tool progression"], ["guide-crafting.html#lumen", "Lumen crystal equipment"]],
+      "related": ["blocks", "items", "getting-started"]
+    },
+    {
+      "id": "building", "title": "Building", "page": "topic-building.html",
+      "summary": "Place blocks, use doors and chests, and save structures for later.",
+      "guides": ["building-basics"],
+      "references": [["guide-building.html#doors", "Placing and opening doors"], ["guide-building.html#chests", "Chests and storage"], ["guide-building.html#blueprints", "Blueprint placement"], ["guide-building.html#structure-library", "The structure library"], ["guide-building.html#undo", "Undo and redo"]],
+      "related": ["blocks", "crafting", "exploration"]
+    },
+    {
+      "id": "mobs", "title": "Animals and mobs", "page": "topic-mobs.html",
+      "summary": "Animal families, habitats, spawning, calls and interactions.",
+      "guides": ["creatures", "hunting-and-animals"],
+      "references": [["mobs.html", "Animal family reference"], ["animals.html", "Animal portrait gallery"], ["guide-creatures.html#eggs", "Spawn eggs"], ["guide-hunting.html#peaceful", "Peaceful animals and hunting"]],
+      "related": ["exploration", "items", "getting-started"]
+    },
+    {
+      "id": "exploration", "title": "Biomes and exploration", "page": "topic-exploration.html",
+      "summary": "Read the map, find your way home and explore islands, caves and weather.",
+      "guides": ["maps-and-finding-your-way", "islands-and-biomes", "caves-and-landmarks", "volcanoes-water-and-expeditions", "weather-and-day-night", "seasons"],
+      "references": [["atlas.html", "Biome photographs and field notes"], ["islands.html", "Island maps and panoramas"], ["guide-maps.html#lost-build", "Find a lost build"], ["scale.html", "World scale comparison"]],
+      "related": ["vehicles", "mobs", "building"]
+    },
+    {
+      "id": "items", "title": "Items and equipment", "page": "topic-items.html",
+      "summary": "Tools, weapons, explosives, food and the items in your pack.",
+      "guides": ["explosives"],
+      "references": [["guide-getting-started.html#pack", "Inventory and the hotbar"], ["guide-first-survival-day.html#tools", "Making your first tools"], ["guide-hunting.html", "Bows, rifles and hunting"], ["guide-first-survival-day.html#eat-drink", "Food, thirst and drinking"], ["guide-crafting.html#lumen", "Lumen crystal equipment"]],
+      "related": ["crafting", "mobs", "getting-started"]
+    },
+    {
+      "id": "vehicles", "title": "Vehicles", "page": "topic-vehicles.html",
+      "summary": "Build and launch a boat, take the helm and sail with the wind.",
+      "guides": ["sailing-a-boat"],
+      "references": [["guide-sailing.html#launch", "Building and launching a boat"], ["guide-sailing.html#helm", "Boat controls"], ["guide-sailing.html#wind", "Reading the wind"], ["guide-sailing.html#saving", "Saving and recovering a boat"]],
+      "related": ["exploration", "controls", "crafting"]
+    },
+    {
+      "id": "troubleshooting", "title": "Troubleshooting", "page": "topic-troubleshooting.html",
+      "summary": "Installation, updates, saves, sound, display settings and common failures.",
+      "guides": ["troubleshooting", "install-and-worlds", "settings-and-performance", "saves"],
+      "references": [["guide-troubleshooting.html#errors", "Startup errors"], ["guide-troubleshooting.html#saves", "Missing worlds"], ["guide-settings-performance.html#slow", "When the game is slow"], ["performance.html", "Dated performance measurements"]],
+      "related": ["getting-started", "controls", "building"]
+    }
+  ]
+}

@@ -5742,6 +5742,10 @@
  ],
  "method": [
   {
+   "title": "Finding a guide",
+   "text": "The wiki topic indexes group the written base-game guides by task, with article contents, related reading and an offline search. Navigation was reorganized on 13 October 2026; the game audit and each article's evidence keep their own dates. Topic coverage does not imply that a planned game feature is available."
+  },
+  {
    "title": "Source, not memory",
    "text": "The audit read an exact export of the audited commit: input handling, menus, crafting, survival, building, world, maps, sailing, combat, platform and settings code. Every feature cites at least one file and line, and the game’s own documents were checked against that code."
   },

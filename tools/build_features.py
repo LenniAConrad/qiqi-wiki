@@ -126,6 +126,7 @@ def render_page(ledger):
         '<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">'
         '<link rel="stylesheet" href="features.css"><link rel="stylesheet" href="wiki.css">\n'
         '<script defer src="features.js"></script>\n'
+        '<script defer src="wiki-ui.js"></script>\n'
         '</head>\n<body class="features-page">\n'
         '<a class="skip" href="#ledger">Skip to the feature ledger</a>\n'
         + header_html('features.html') + '\n<main>\n')

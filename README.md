@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # qiqi-wiki
 
-Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The site contains the existing atlas and a source-audited **Features** ledger (`features.html`) that records base-game features, its status and its guide coverage. The home page links the written guides, Blocks and Mobs references, and the Atlas; unwritten categories are labelled plainly. Search reads an offline script built from the base-game ledger, guide summaries, recipes, blocks, animals and biome catalog. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
+Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. Ten topic indexes connect the written player guides, blocks and animal references, and the preserved atlas. The source-audited **Features** ledger (`features.html`) records base-game features, status and guide coverage. Search uses a local script built from topics, guides, features, recipes, blocks, animals and biomes. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
 
 Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; `tools/stage_site.py` selects the published files for both CI and the local gate, which checks every link inside that staged copy. No game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
 
@@ -9,8 +9,8 @@ Publication uses an explicit list of pages, browser scripts, datasets, licences
 and public reports. Add new public files to `PUBLIC_FILES` in
 `tools/stage_site.py`; images must be recorded in the existing gallery/guide
 catalogs or the scale manifest. Unknown files stay private, including raw logs,
-source patches, engine files, saves and repository instructions. The original
-evidence archive remains in the repository. Public footers use `ABOUT.md`, and
+source patches, engine files, saves and repository instructions. Private capture
+evidence is preserved separately. Public footers use `ABOUT.md`, and
 the performance follow-up links a public verification summary. The gate checks
 HTML and Markdown links inside the staged artifact, with publication regressions
 in `tools/test_stage_site.py`.
@@ -279,10 +279,18 @@ geometry, mode/selection controls, focus, textures and responsive layout.
 
 ## Rebuild the wiki interface
 
+`data/topics.json` assigns each written guide to exactly one topic, supplies
+quick section links and connects related topics. To add an article, register it
+there as well as in `data/guides.json`; the gate rejects orphaned or multiply
+assigned guides and broken anchors. Topic indexes use `topic-<id>.html`.
+
 After changing guide, recipe or ledger data, run `python3 tools/build_features.py`,
 `python3 tools/build_guides.py`, `python3 tools/build_blocks.py`,
 `python3 tools/build_mobs.py` and `python3 tools/build_wiki.py`. The gate rejects
 stale pages/search data and differing shared category navigation. Add public
 files explicitly to `tools/stage_site.py`. Browser checks for the home and shared
 navigation are in `tools/wiki_browser_checks.html`; the browser runner supports
-`--offline index.html --keyboard index.html`.
+`--offline index.html --keyboard index.html --mobile-menu index.html`.
+`wiki-ui.js` enhances the native mobile menu; the full menu remains usable
+without JavaScript. The home search link also works from a local file URL.
+The home meadow photo retains its 28 September 2026 generation-9 receipt.

@@ -70,3 +70,22 @@ to the supplied core registry; it does not relabel the older atlas as a new audi
 Spawning and peaceful-animal ledger entries now link this partial reference.
 Current-snapshot Swan has no preserved atlas entry and remains outside this slice.
 Browser review remains a parent integration gate.
+
+## Topic structure — 13 October 2026
+
+Ten topic indexes now organize all 22 existing guides, the blocks and animal
+references, and the preserved galleries. Building, exploration, equipment and
+vehicle topics lead to their written articles; the home no longer labels
+published work as unwritten. Article breadcrumbs identify the owning topic.
+Related articles, quick section links and 643 offline search records connect
+the existing material without changing game facts or audit dates.
+
+`data/topics.json` owns this structure. `tools/build_wiki.py` renders the home,
+topic pages, shared gallery navigation and search. The shared reading layout
+uses the game's turf, soil and sand palette, with a dated atlas photograph on
+the home. A native disclosure provides mobile navigation; without JavaScript,
+navigation remains open and every topic and article can still be read.
+
+The finite overhaul's fresh captures, full game/wiki changelog and measured
+image-loading work are separate remaining slices. Do not label the full
+overhaul complete based on this navigation delivery.

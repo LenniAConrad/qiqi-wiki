@@ -163,12 +163,14 @@ def run_check(client, base, harness, timeout=120):
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
         state = client.script("const r = document.querySelector('#report');"
-                              "return r ? {done: r.dataset.done || '', text: r.textContent} : null;")
+                              "const done = r?.dataset.done ||"
+                              " ({passed:'pass', failed:'fail'}[r?.dataset.result] || '');"
+                              "return r ? {done, text: r.textContent} : null;")
         if state and state["done"]:
             print(state["text"].rstrip())
             return state["done"] == "pass"
         time.sleep(0.25)
-    raise TimeoutError(f"{harness} did not finish within {timeout} s")
+    raise TimeoutError(f"{harness} did not finish within {timeout} s; last report: {state}")
 
 
 ELEMENT = "element-6066-11e4-a52e-4f735466cecf"
@@ -241,8 +243,9 @@ def offline(client, page):
     client.navigate((ROOT / page).as_uri())
     time.sleep(0.4)
     state = client.script("return {title: document.title, styled: getComputedStyle(document.documentElement).backgroundColor,"
-                          "scripted: !document.querySelector('script[src]') ||"
-                          " (!!document.querySelector('#result-count, #controls-count, #search-status') &&"
+                          "scripted: (!document.querySelector('script[src=\"wiki-ui.js\"]') ||"
+                          " document.querySelector('.site-menu')?.dataset.enhanced === 'true') &&"
+                          " (!document.querySelector('#result-count, #controls-count, #search-status') ||"
                           " document.querySelector('#result-count, #controls-count, #search-status').textContent.length > 0)};")
     ok = bool(state["title"]) and state["styled"] not in ("", "rgba(0, 0, 0, 0)") and state["scripted"]
     print(f"{'PASS' if ok else 'FAIL'}: {page} over file:// — title {state['title']!r}, background "
@@ -291,12 +294,34 @@ def keyboard(client, base, page):
     return ok
 
 
+def mobile_menu(client, base, page):
+    """Exercise the native disclosure with real keys in a narrow iframe."""
+    framed(client, f'{base}/{page}', *SIZES['mobile'])
+    client.script("document.querySelector('.site-menu summary').focus();")
+    initially_closed = client.script("return !document.querySelector('.site-menu').open;")
+    client.keys('\ue007')  # Enter opens the disclosure.
+    client.keys('\ue004')  # Tab enters its navigation.
+    entered = client.script("return document.querySelector('.site-menu').open &&"
+                            " document.activeElement === document.querySelector('.wiki-nav a');")
+    client.keys('\ue00c')
+    closed = client.script("return !document.querySelector('.site-menu').open &&"
+                           " document.activeElement === document.querySelector('.site-menu summary');")
+    client.keys('\ue004')
+    skipped = client.script("return !document.activeElement.closest('.site-menu');")
+    client.command('WebDriver:SwitchToParentFrame')
+    ok = initially_closed and entered and closed and skipped
+    print(f"{'PASS' if ok else 'FAIL'}: mobile keyboard on {page} — starts closed {initially_closed}, "
+          f"Enter/Tab enters {entered}, Escape returns focus {closed}, closed menu skipped {skipped}")
+    return ok
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--check", action="append", default=[], help="in-browser check harness (repo path)")
     parser.add_argument("--capture", action="append", default=[], help="page to capture at three widths")
     parser.add_argument("--offline", action="append", default=[], help="page that must work over file://")
     parser.add_argument("--keyboard", action="append", default=[], help="ledger page for real key presses")
+    parser.add_argument("--mobile-menu", action="append", default=[], help="page for mobile menu keyboard checks")
     parser.add_argument("--out", type=Path, default=ROOT / ".cache" / "browser-qa")
     args = parser.parse_args()
     ok = True
@@ -305,6 +330,8 @@ def main():
             ok &= run_check(client, base, harness)
         for page in args.keyboard:
             ok &= keyboard(client, base, page)
+        for page in args.mobile_menu:
+            ok &= mobile_menu(client, base, page)
         for page in args.offline:
             ok &= offline(client, page)
         for page in args.capture:

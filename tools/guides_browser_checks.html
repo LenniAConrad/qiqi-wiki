@@ -20,7 +20,7 @@ try {
  const index=await open('../guides.html');
  check(index.querySelectorAll('.guide-card').length===guides.length,'The index lists every guide once');
  for(const guide of guides) check([...index.querySelectorAll('.guide-card a')].some(a=>a.getAttribute('href')===guide.page),`The index links ${guide.page}`);
- check(index.querySelector('nav[aria-label=Main] a[aria-current=page]').textContent==='Guides','The index marks Guides as the current page');
+ check(index.querySelector('nav[aria-label=Main] a[aria-current=page]').textContent==='All guides','The index marks All guides as the current page');
  for(const guide of guides){
   const d=await open('../'+guide.page),w=frame.contentWindow,q=selector=>d.querySelector(selector);
   const name=guide.page;
