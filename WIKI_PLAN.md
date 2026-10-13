@@ -443,8 +443,8 @@ short natural descriptions and useful imagery. The landing page and navigation
 need to emphasize those routes. The public changelog should group actual shipped
 player-visible changes by calendar day, with brief “Fixed” or “Changed” entries.
 Commit hashes, development narratives and gate/performance receipts belong in
-the retained internal evidence. The landing/catalog revision is described below. The daily changelog and fresh
-biome captures remain separate open units in the same finite assignment.
+the retained internal evidence. The landing/catalog revision is described below. The daily changelog revision is described below; fresh biome captures remain
+open in the same finite assignment.
 
 
 ## Concise landing and catalog — 13 October 2026
@@ -481,3 +481,37 @@ Source images are unchanged; the catalog search script is now 85,412 bytes.
 Raw measurements and final visual receipts are retained in the worker's
 `player-home/` scratch, with before/after/final images under
 `renders/qiqi-wiki/astra-player-home/`.
+
+
+## Brief daily changelog — 13 October 2026
+
+The game and wiki histories now show short plain-language bullets under their
+calendar dates. All 21 existing date URLs and both history pages are preserved.
+Eighty-four public summaries cover 86 recorded entries; two internal-only rows
+keep their evidence without an announcement. All 82 original narratives and
+references, plus the five compatibility records, remain intact in the maintenance
+dataset. Four already-landed wiki changes extend its reviewed cutoff to fbd5f19:
+initial histories, corrected X guidance, the 94-species portraits and the new home.
+The game cutoff remains 5856103c; this is not a new audit of later game changes.
+
+The complete history JSON is excluded from Pages. Public entries and search
+use only reviewed summaries/titles; no fallback exposes an internal narrative.
+The validator requires short explicit summaries or an internal-only reason,
+while preserving all source-date/reachability checks. Short updating reminders
+use a native collapsed disclosure. The two browser harnesses that still expected
+the former home/menu names have been updated to the delivered catalog navigation.
+README records the repeatable update and publication checks. Fresh biome/habitat
+captures and the full overhaul handoff remain open.
+
+The normal static check passes 82 tests, 44 pages and 3,731 relative references;
+the staged site has 1,210 files and excludes the internal chronology. Read-only
+source checks verify 704 game commits with 230 references and 107 wiki commits
+with 70 references. Actual desktop/mobile review, keyboard date links/history
+switching/update disclosure, search, local files and no-JavaScript reading pass.
+Both the daily-history and existing guide browser harnesses pass.
+
+Generated game-history HTML falls from 53,577 to 12,861 bytes; wiki history from
+22,973 to 5,067 bytes. These are exact uncompressed file sizes, not transfer or
+timing measurements. No images or runtime dataset requests were added. Raw
+before/after captures, file hashes, source archive and review receipts are in
+`daily-changelog/` scratch and `renders/qiqi-wiki/astra-daily-changelog/`.

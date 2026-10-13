@@ -13,7 +13,7 @@ HEX = re.compile(r'[0-9a-f]{40}')
 
 
 def validate(data):
-    assert data['schema'] == 1
+    assert data['schema'] == 2
     reviewed = date.fromisoformat(data['reviewed'])
     sources = {item['id']: item for item in data['sources']}
     assert set(sources) == {'game', 'wiki'} and len(data['sources']) == 2
@@ -34,6 +34,8 @@ def validate(data):
         days[source['id']].append(period['date'])
         assert source['first']['date'] <= period['date'] <= source['last']['date'], 'Date outside covered range'
         assert period['title'].strip() and period['entries']
+        assert period['publicTitle'].strip() and len(period['publicTitle']) <= 100
+        assert any(row['publicSummary'] is not None for row in period['entries']), 'Empty public date group'
         for row in period['entries']:
             validate_entry(row, source)
             assert all(ref['date'] == period['date'] for ref in row['refs']), 'Backdated source in date group'
@@ -48,6 +50,14 @@ def validate(data):
 
 def validate_entry(row, source):
     assert row['kind'] in KINDS and row['area'].strip() and row['text'].strip()
+    assert 'publicSummary' in row, 'Review a public summary explicitly'
+    summary = row['publicSummary']
+    if summary is None:
+        assert row.get('privateReason', '').strip(), 'Explain an internal-only entry'
+    else:
+        assert isinstance(summary, str) and summary.strip() and len(summary) <= 220, 'Keep public entries brief'
+        assert not re.search(r'\b(?:[0-9a-f]{8,40}|commits?|gate|receipts?)\b', summary, re.I), \
+            'Keep development receipts out of public summaries'
     assert row['refs'], 'A change needs source evidence'
     assert len({ref['commit'] for ref in row['refs']}) == len(row['refs'])
     for ref in row['refs']:

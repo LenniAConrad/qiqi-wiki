@@ -36,12 +36,37 @@ class History(unittest.TestCase):
     def test_source_text_is_escaped_and_private_links_are_absent(self):
         data = copy.deepcopy(read())
         row = next(p for p in data['periods'] if p['source'] == 'game')['entries'][0]
-        row['text'] = '<img src="untrusted" onerror="alert(1)">'
+        row['publicSummary'] = 'Changed <img src="untrusted" onerror="alert(1)">'
         page = render(data, 'game')
         self.assertNotIn('<img', page)
         self.assertIn('&lt;img', page)
         self.assertNotIn('github.com/LenniAConrad/qiqi/commit/', page)
-        self.assertIn('github.com/LenniAConrad/qiqi-wiki/commit/', render(data, 'wiki'))
+        self.assertNotIn('github.com/LenniAConrad/qiqi-wiki/commit/', render(data, 'wiki'))
+
+    def test_public_pages_do_not_reveal_internal_narratives_or_hashes(self):
+        data = read()
+        for source in data['sources']:
+            page = render(data, source['id'])
+            self.assertNotIn('commit', page.lower())
+            for period in data['periods']:
+                if period['source'] != source['id']:
+                    continue
+                self.assertIn(f'id="{period["id"]}"', page)
+                for row in period['entries']:
+                    self.assertNotIn(row['text'], page)
+                    for ref in row['refs']:
+                        self.assertNotIn(ref['commit'][:8], page)
+
+    def test_unreviewed_or_technical_public_summaries_are_rejected(self):
+        for summary in ('Changed commit abcdef12.', 'Fixed gate receipts.', 'x' * 221):
+            data = read()
+            data['periods'][0]['entries'][0]['publicSummary'] = summary
+            with self.subTest(summary=summary), self.assertRaises(AssertionError):
+                validate(data)
+        data = read()
+        del data['periods'][0]['entries'][0]['publicSummary']
+        with self.assertRaises((AssertionError, KeyError)):
+            validate(data)
 
 
 if __name__ == '__main__':

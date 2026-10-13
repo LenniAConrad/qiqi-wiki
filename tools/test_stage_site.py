@@ -35,7 +35,7 @@ class PublicationTests(unittest.TestCase):
             'AGENTS.md', 'WIKI_PLAN.md', 'README.md', 'VERIFICATION.md',
             'new-agent-notes.md', 'game.js', 'crates/core/src/main.rs',
             'target/release/voxelgame', 'saves/world.json', 'tools/helper.html',
-            'data/new-internal-record.json', 'data/performance/raw-build.log',
+            'data/new-internal-record.json', 'data/changelog.json', 'data/performance/raw-build.log',
             'data/performance/optimization/source-before.json',
             'data/performance/optimization/verification-20260928/verification-status.json',
             'data/performance/optimization/verification-20260928/native-production-delta.patch',

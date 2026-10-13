@@ -324,47 +324,50 @@ geometry, mode/selection controls, focus, textures and responsive layout.
 
 ## Maintain the changelog
 
-`changelog.html` and `changelog-wiki.html` separate game changes from website
-changes. `data/changelog.json` is the curated source. Dates use the committer's
-recorded timezone; they are not release dates. The game source cutoff and the
-wiki source cutoff are independent. Neither is the page's deployment revision.
+`changelog.html` and `changelog-wiki.html` show brief changes grouped by calendar
+day, with stable date anchors. `data/changelog.json` is the maintenance source
+(schema 2); it is deliberately excluded from the Pages artifact. Keep the full
+original `text`, `refs`, source ranges and compatibility evidence there.
 
-For an update, read the commits after the recorded `sources[].last.commit` in
-each repository. Check relevant patches and current source, especially save,
-network and blueprint formats. Group actual player-facing base-game changes by
-date, with full commit hashes and their committer dates in `refs`. Omit plans,
-internal-only changes and optional content. Retain old groups and stable IDs.
-If a feature was corrected later, describe both changes on their actual dates.
-Do not turn source review into a claim of a fresh gameplay test.
+For an update, read changes after each repository's recorded
+`sources[].last.commit`, including relevant patches. Use actual base-game or
+wiki changes, their recorded calendar dates and full source hashes in `refs`.
+Keep one group per source/day and preserve existing IDs. Source dates are not
+invented release dates. Do not add optional content or planned work.
 
-Advance the reviewed cutoff and `commitCount` only through the history actually
-reviewed. `git rev-list --count COMMIT` counts that pinned history. Check tags
-and hosted releases separately; an inaccessible endpoint is not evidence of
-no releases. Public wiki commit links are available; game identifiers remain
-plain text while that repository is unavailable to public requests. Recheck
-that condition before changing `publicCommitLinks`.
+Each entry has a `publicSummary`: one plain sentence, up to 220 characters,
+such as “Fixed doors opening toward the player.” No hashes, commit terminology,
+gate receipts or performance narratives belong in the public entry. The full
+internal narrative must remain. For an internal-only change, explicitly set
+`publicSummary` to null and provide `privateReason`; never delete its evidence.
+Each date also has a brief `publicTitle` for search. Compatibility reminders
+have their own short summaries in the collapsed “Updating a world” note.
+
+Advance the reviewed cutoff and `commitCount` only through history actually
+reviewed. Preserve the independent game and wiki cutoffs; this does not refresh
+the older feature audit. Verify the history by reading Git objects:
 
 ```sh
 python3 tools/build_changelog.py
 python3 tools/build_features.py
-python3 tools/build_guides.py
-python3 tools/build_blocks.py
-python3 tools/build_mobs.py
 python3 tools/build_wiki.py
 python3 tools/validate_changelog.py --game /path/to/Voxelgame --wiki .
 bash tools/verify_wiki.sh
 ```
 
-The optional repository checks read Git objects only. They reject an incorrect
-history count, missing root, unreachable source hash or mismatched commit date.
-The ordinary gate also rejects stale HTML, missing receipts, backdated groups,
-invalid ranges and missing earliest/latest coverage. Update the coverage note
-in `data/features.json` without moving the full feature audit's older source pin.
-Review desktop/mobile, keyboard source disclosures, date anchors, page switching,
-search and `file://` with `tools/changelog_browser_checks.html` and the browser
-runner. Both histories are complete static HTML; no image or dataset request is
-needed to read them. Measure each page with `tools/measure_loading.py`, then
-verify the normal Pages run and live bytes/MIME before reporting delivery.
+The optional repository checks reject wrong counts, missing roots, unreachable
+hashes and mismatched dates without changing either checkout. The normal gate
+also rejects missing evidence, backdated groups, unreviewed/overlong summaries,
+stale pages and lost earliest/latest coverage. Publication regressions ensure
+the raw chronology stays out of Pages. Record coverage changes in the ledger
+without advancing its old game pin.
+
+Review both histories at desktop/mobile sizes, real keyboard date/history
+navigation, the update disclosure, search and `file://`, including no-JavaScript
+reading. `tools/changelog_browser_checks.html` covers the public presentation.
+Both pages contain the full dated lists as static HTML, with no image or runtime
+dataset requests. Verify the normal Pages deployment and live bytes/MIME; confirm
+that the internal history JSON is absent from the deployed site.
 
 ## Rebuild the wiki interface
 

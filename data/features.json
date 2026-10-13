@@ -5743,7 +5743,7 @@
  "method": [
   {
    "title": "Dated change history",
-   "text": "The game and wiki changelogs separately review their available source histories through 13 October 2026 (game 5856103c; wiki 17fbfdb3). They group additions, changes and fixes and record save/network compatibility. This source-history review does not replace the older feature audit or the dates on individual guide and gallery receipts."
+   "text": "The game and wiki changelogs group brief player-facing changes by calendar day. Full source narratives, hashes and date receipts remain in the maintenance dataset, outside the Pages artifact. The game review still ends at 5856103c; wiki history now includes the reviewed portrait and home updates through fbd5f19. This presentation change does not refresh the feature audit or individual game/gallery evidence."
   },
   {
    "title": "Dated gallery images",

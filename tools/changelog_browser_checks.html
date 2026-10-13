@@ -24,21 +24,23 @@ function open(src){return new Promise((resolve,reject)=>{
   const anchors=[...d.querySelectorAll('nav[aria-label="On this page"] a')];
   check(anchors.length>=count,page+': date navigation');
   check(anchors.every(a=>d.getElementById(a.hash.slice(1))),page+': every date anchor resolves');
-  const source=d.querySelector('.change-sources');source.querySelector('summary').click();
-  check(source.open&&source.querySelectorAll('li').length>0,page+': source disclosure opens');
-  source.querySelector('summary').click();check(!source.open,page+': source disclosure closes');
+  check(!d.querySelector('.change-sources, .change-range, code'),page+': source receipts stay out of public entries');
+  check(!/\bcommit(?:s)?\b|\b[a-f0-9]{8,40}\b/i.test(d.querySelector('#guide-body').innerText),page+': no commit terminology or hashes');
+  check([...d.querySelectorAll('.change-date .change-list li')].every(li=>li.textContent.length<=220),page+': brief daily entries');
   for(const width of [1440,820,390,320]){
    frame.style.width=width+'px';await delay();
    check(d.documentElement.scrollWidth<=width+1,page+': no overflow at '+width);
   }
   if(page==='changelog.html'){
-   const text=d.getElementById('compatibility').textContent;
-   check(text.includes('format 29')&&text.includes('protocol 16')&&text.includes('version 1'),'Separate current compatibility formats');
-   check(!d.querySelector('a[href^="https://github.com/LenniAConrad/qiqi/commit/"]'),'Unavailable game history has no dead public commit links');
-  }else check(!!d.querySelector('a[href^="https://github.com/LenniAConrad/qiqi-wiki/commit/"]'),'Public wiki source links present');
+   const note=d.getElementById('compatibility');
+   note.querySelector('summary').click();check(note.open,'Updating reminder opens');
+   check(note.textContent.includes('matching game versions'),'Updating reminder keeps useful compatibility advice');
+   note.querySelector('summary').click();check(!note.open,'Updating reminder closes');
+  }
+
  }
  const d=await open('../index.html'),w=frame.contentWindow,input=d.querySelector('#wiki-search');
- check(!!d.querySelector('.wiki-nav a[href="changelog.html"]')&&!!d.querySelector('.home-changelog a'),'Home and main navigation expose history');
+ check(!!d.querySelector('.wiki-nav a[href="changelog.html"]')&&!!d.querySelector('.home-updates a'),'Home and main navigation expose history');
  input.value='changelog';input.dispatchEvent(new w.Event('input',{bubbles:true}));
  check([...d.querySelectorAll('#search-results a')].some(a=>a.getAttribute('href')==='changelog.html'),'Search finds game history');
  check([...d.querySelectorAll('#search-results a')].some(a=>a.getAttribute('href')==='changelog-wiki.html'),'Search finds wiki history');

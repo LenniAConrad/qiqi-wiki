@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "reviewed": "2026-10-13",
   "sources": [
     {
@@ -31,10 +31,10 @@
         "date": "2026-10-09"
       },
       "last": {
-        "commit": "17fbfdb36b89ac5c182d6570e86c4920874b2e9e",
+        "commit": "fbd5f199376c0f6aebaad1a7b512b1f553293c6f",
         "date": "2026-10-13"
       },
-      "commitCount": 93,
+      "commitCount": 107,
       "tags": [],
       "publicCommitLinks": true,
       "releases": "none",
@@ -63,7 +63,8 @@
           "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
           "date": "2026-10-13"
         }
-      ]
+      ],
+      "publicSummary": "Back up your world before trying an older game version. Newer saves may not open in older versions."
     },
     {
       "kind": "Compatibility",
@@ -78,7 +79,8 @@
           "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
           "date": "2026-10-13"
         }
-      ]
+      ],
+      "publicSummary": "Older worlds keep their original terrain. Very old worlds from before the smaller building grid are not converted."
     },
     {
       "kind": "Compatibility",
@@ -101,7 +103,8 @@
           "commit": "5f1052e624c7461cb5d5ab0ee9ed59fab4afa3f6",
           "date": "2026-10-13"
         }
-      ]
+      ],
+      "publicSummary": "Use matching game versions on the server and each player’s computer."
     },
     {
       "kind": "Compatibility",
@@ -112,7 +115,8 @@
           "commit": "f8dec3b526371af258b3cefbd5f5b570fb54773e",
           "date": "2026-10-12"
         }
-      ]
+      ],
+      "publicSummary": "Older workshops remain in Worlds with their builds intact. Use blueprints to move a build to a new flat workshop."
     },
     {
       "kind": "Compatibility",
@@ -131,7 +135,8 @@
           "commit": "208a24f1e1cbdb1334820c956b82b47cc5057eb1",
           "date": "2026-10-13"
         }
-      ]
+      ],
+      "publicSummary": "Blueprints leave out doors. A blueprint using unsupported blocks may not load."
     }
   ],
   "periods": [
@@ -182,7 +187,8 @@
               "commit": "1d67f699d305e5deba1b6a8ed6fe3c8058bdd5cb",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Updated the guides for LAN play, doors, survival milestones and aiming."
         },
         {
           "kind": "Fixed",
@@ -197,7 +203,8 @@
               "commit": "b5a33722e7c9d0e32dfe96de878682b3e5e6715f",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed the door and sailing references."
         },
         {
           "kind": "Changed",
@@ -208,7 +215,8 @@
               "commit": "185455dab9f2d0c20dd6b7e9dfd017befcb6af33",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Added topic pages and clearer links between guides."
         },
         {
           "kind": "Changed",
@@ -227,9 +235,59 @@
               "commit": "17fbfdb36b89ac5c182d6570e86c4920874b2e9e",
               "date": "2026-10-13"
             }
+          ],
+          "publicSummary": "Changed gallery images to load smaller previews, with full-size views available when opened."
+        },
+        {
+          "kind": "Added",
+          "area": "History",
+          "text": "Game and wiki histories were published separately with dated entries and source evidence.",
+          "publicSummary": "Added game and wiki changelogs.",
+          "refs": [
+            {
+              "commit": "a9f06f289822e32b5ed4d4c512e7d553bbfb51a5",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Crafting",
+          "text": "The X quick-craft guidance was corrected to use the selected recipe.",
+          "publicSummary": "Fixed the quick-craft instructions for X.",
+          "refs": [
+            {
+              "commit": "b2c4d2069b7fde67a5a0b5977ac1706582a35295",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Animals",
+          "text": "The gallery was refreshed from frozen game source 9e946731 with 376 reviewed studio portraits for all 94 species, including Swan.",
+          "publicSummary": "Updated portraits for all 94 animals, including Swan.",
+          "refs": [
+            {
+              "commit": "21708f29734ca21f0eb0ca3788ea509afd9e6857",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Home",
+          "text": "The landing page became a concise survival/creative introduction and catalog with an eight-destination menu, item descriptions and catalog-focused search.",
+          "publicSummary": "Changed the home and navigation to focus on biomes, mobs and items.",
+          "refs": [
+            {
+              "commit": "fbd5f199376c0f6aebaad1a7b512b1f553293c6f",
+              "date": "2026-10-13"
+            }
           ]
         }
-      ]
+      ],
+      "publicTitle": "Catalog navigation, animal portraits and guides"
     },
     {
       "id": "wiki-2026-10-12",
@@ -254,7 +312,8 @@
               "commit": "562fa6483a41b7581bcc76e2b77f0f4dfebbf6b5",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added catalogs of blocks and animals."
         },
         {
           "kind": "Added",
@@ -321,7 +380,8 @@
               "commit": "e883eccd9195943e838c97de4b1e7d649cb41d65",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added guides to building, sailing, hunting, weather, caves and exploration."
         },
         {
           "kind": "Added",
@@ -356,7 +416,8 @@
               "commit": "8e4e35e9957de0f1d7ff54ebfc7a18813b6fb986",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added help for doors, chests, blueprints and the structure library."
         },
         {
           "kind": "Fixed",
@@ -395,7 +456,8 @@
               "commit": "ea4e122c898efe872b5d9243e5516265c15a1869",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Fixed recipe amounts and descriptions of controls, materials and sound."
         },
         {
           "kind": "Changed",
@@ -422,7 +484,8 @@
               "commit": "cfdafdf00ff15a74ea914256140cf6165c26df1c",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Updated the multiplayer guide for LAN hosting and saved inventory."
         },
         {
           "kind": "Added",
@@ -437,9 +500,11 @@
               "commit": "342e98437262b5d352b95245a1904ac52c4f0a62",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added help for startup, sound and save problems."
         }
-      ]
+      ],
+      "publicTitle": "The practical guide collection"
     },
     {
       "id": "wiki-2026-10-11",
@@ -464,7 +529,8 @@
               "commit": "ddd7fd64f76e67f091369ae1cf47f5c82038495a",
               "date": "2026-10-11"
             }
-          ]
+          ],
+          "publicSummary": "Added getting-started guides, controls, crafting recipes and installation help."
         },
         {
           "kind": "Changed",
@@ -475,7 +541,8 @@
               "commit": "3c98d0766d140225b54673bdb068933dc032c3c7",
               "date": "2026-10-11"
             }
-          ]
+          ],
+          "publicSummary": "Added shared navigation and offline search."
         },
         {
           "kind": "Fixed",
@@ -494,9 +561,11 @@
               "commit": "e9ae0e722c6717d951cbc79cc4d557f9280868dd",
               "date": "2026-10-11"
             }
-          ]
+          ],
+          "publicSummary": "Changed the wiki to cover the base game only and fixed missing report links."
         }
-      ]
+      ],
+      "publicTitle": "Player guides and a feature ledger"
     },
     {
       "id": "wiki-2026-10-09",
@@ -513,7 +582,8 @@
               "commit": "ae659a32bbdacab90b3ddea24c5f4a74db63e7a9",
               "date": "2026-10-09"
             }
-          ]
+          ],
+          "publicSummary": "Published the biome, animal and island atlas as a standalone wiki."
         },
         {
           "kind": "Fixed",
@@ -524,9 +594,12 @@
               "commit": "d4955a4bfa1280da28ce728b83985c4f687c0abd",
               "date": "2026-10-09"
             }
-          ]
+          ],
+          "publicSummary": null,
+          "privateReason": "Internal deployment or rebuild change; no separate catalog announcement."
         }
-      ]
+      ],
+      "publicTitle": "The standalone wiki"
     },
     {
       "id": "game-2026-10-13",
@@ -547,7 +620,8 @@
               "commit": "2596d051c5443f9df3d287ff3c42ed1b42adbf38",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Added fifteen survival milestones and saved progress."
         },
         {
           "kind": "Changed",
@@ -562,7 +636,8 @@
               "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Changed world saves to store more block types and survival milestones."
         },
         {
           "kind": "Changed",
@@ -577,7 +652,8 @@
               "commit": "5f1052e624c7461cb5d5ab0ee9ed59fab4afa3f6",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Added placing, opening and removing doors on servers."
         },
         {
           "kind": "Added",
@@ -596,7 +672,8 @@
               "commit": "c20231d79507e49ca4e48ca4f3f84d9a119819f8",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Added a list of local hosted worlds and visible swings from other players."
         },
         {
           "kind": "Fixed",
@@ -619,7 +696,8 @@
               "commit": "763d04556ca7e0cb4f01fc239e3656ae3bc099b5",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed hosted saves losing the owner's rest point or reporting success before saving finished."
         },
         {
           "kind": "Fixed",
@@ -638,7 +716,8 @@
               "commit": "b70d279a2e844516bf3de82932a92fb9040fbf28",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed removing a Journal pin deleting unrelated destinations."
         },
         {
           "kind": "Fixed",
@@ -657,7 +736,8 @@
               "commit": "f6dde4cae8f449479a2f87ee8fd947cd844d4305",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed door placement, respawning and undo overlapping open doors."
         },
         {
           "kind": "Fixed",
@@ -676,7 +756,8 @@
               "commit": "4147f1941ae0270af98e1558b319040ab3382eea",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed X to repeat the selected recipe. Mining now chips the struck face and shows growing cracks."
         },
         {
           "kind": "Fixed",
@@ -691,7 +772,8 @@
               "commit": "a9d24cec238a2acca1247f54d1ac1eb35e57fe24",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed drinking through diagonal obstructions and losing ammunition when a shot cannot launch."
         },
         {
           "kind": "Changed",
@@ -706,7 +788,8 @@
               "commit": "5856103c4d15fd12a2118e72d0b51bbb9f074895",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Changed held-item motion and made View bob also control walking sway."
         },
         {
           "kind": "Fixed",
@@ -733,7 +816,8 @@
               "commit": "6b528554a95b01ddf3cdb86584873f8ad17aaadc",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed world and structure searches, structure updates and sideways item icons."
         },
         {
           "kind": "Fixed",
@@ -760,9 +844,11 @@
               "commit": "70fcc43e2bc311218476d99f8a7f511c1a8453a1",
               "date": "2026-10-13"
             }
-          ]
+          ],
+          "publicSummary": "Fixed terrain recovery after a loading failure and long waits while joining an unresponsive server."
         }
-      ]
+      ],
+      "publicTitle": "Milestones, shared doors and safer saves"
     },
     {
       "id": "game-2026-10-12",
@@ -791,7 +877,8 @@
               "commit": "1e2ab1552b7183518cc26518f96347054f0c654f",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added usable wooden doors and chests, with opening and closing sounds."
         },
         {
           "kind": "Fixed",
@@ -818,7 +905,8 @@
               "commit": "5d4d87c38c7d014a936e6344c4c8bf8732109adb",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Changed doors to swing smoothly away from the opener while keeping their full size."
         },
         {
           "kind": "Added",
@@ -845,7 +933,8 @@
               "commit": "acedd430a02bb8d5135e29b6cb38bcc81f3c563e",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added blueprint capture, movable previews and building from saved structures."
         },
         {
           "kind": "Added",
@@ -864,7 +953,8 @@
               "commit": "8ef8aed479870157629e0f4a9c1b468cc1b34062",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added names, preview pictures and search to the structure library."
         },
         {
           "kind": "Fixed",
@@ -883,7 +973,8 @@
               "commit": "7bc6f7d543ad77bbdd55e8842949aa4bd5eaf6e1",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Fixed saved selections, water restoration on undo and blueprint material costs."
         },
         {
           "kind": "Added",
@@ -906,7 +997,8 @@
               "commit": "f8dec3b526371af258b3cefbd5f5b570fb54773e",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added a flat creative workshop. Older workshops keep their existing builds."
         },
         {
           "kind": "Added",
@@ -929,7 +1021,8 @@
               "commit": "ea67abf42fb651783eb6e77937ea0b8194390be9",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added favourite worlds and pictures of saved worlds."
         },
         {
           "kind": "Added",
@@ -952,7 +1045,8 @@
               "commit": "fb873488f320fcf0bd62178f84684506fafc3968",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added a Multiplayer menu for joining servers and hosting a world on the local network."
         },
         {
           "kind": "Fixed",
@@ -975,7 +1069,8 @@
               "commit": "8e4963a4906dbe407ffc9fa7608e76b551eaddcc",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Fixed hosted saving of the owner's inventory, tools, chests and boats."
         },
         {
           "kind": "Fixed",
@@ -998,7 +1093,8 @@
               "commit": "5edfb5a4e09daefe5689d7bbd9bc84fdf950ba5b",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added Escape to cancel joining and fixed server edits damaging whole doors and chests."
         },
         {
           "kind": "Changed",
@@ -1025,7 +1121,8 @@
               "commit": "2987e38fb50dac5e91e8945219ab5e33473007ce",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Changed the inventory to an item grid and added a feed of gathered materials."
         },
         {
           "kind": "Changed",
@@ -1044,7 +1141,8 @@
               "commit": "88bb9052ada3d5022c63d2581e268c2a26b2ccce",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Changed the map marker and smoothed map scrolling. Fixed sky showing through distant ground."
         },
         {
           "kind": "Added",
@@ -1059,7 +1157,8 @@
               "commit": "741d883bad3b97798a91db17b624563fd2d8ff7e",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added marble building blocks and simpler block names."
         },
         {
           "kind": "Changed",
@@ -1078,7 +1177,8 @@
               "commit": "609e33df33176e54b28ece56b007f7d90cb6b2e4",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Changed fish and whale swimming and added gentle cruising for whales, orcas and sharks."
         },
         {
           "kind": "Fixed",
@@ -1093,7 +1193,8 @@
               "commit": "a5e3410be87b16f51f2a1014e260953044966239",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Fixed seasons changing survival temperature and walls allowing drinking through them."
         },
         {
           "kind": "Changed",
@@ -1112,9 +1213,11 @@
               "commit": "3af3d3e585a89affbe11ccafe657a166a5bf98c9",
               "date": "2026-10-12"
             }
-          ]
+          ],
+          "publicSummary": "Added hand and block swings and improved mining, water-entry and impact sounds."
         }
-      ]
+      ],
+      "publicTitle": "Doors, chests, blueprints and LAN hosting"
     },
     {
       "id": "game-2026-10-11",
@@ -1131,7 +1234,8 @@
               "commit": "552077c0b5b22437249d864465f7e4d0a7d5bb3a",
               "date": "2026-10-11"
             }
-          ]
+          ],
+          "publicSummary": "Added blush plaster, rose boards and fuchsia glazed tile."
         },
         {
           "kind": "Changed",
@@ -1150,7 +1254,8 @@
               "commit": "10d7ea4b5745dea5b1aad3d488a49ba6ce58afb7",
               "date": "2026-10-11"
             }
-          ]
+          ],
+          "publicSummary": "Changed the target card and crosshair, and added adjustable Speed FOV and Damage bob."
         },
         {
           "kind": "Changed",
@@ -1169,7 +1274,8 @@
               "commit": "c2b37ef95c81103a5658428c00a41df2f866d9de",
               "date": "2026-10-11"
             }
-          ]
+          ],
+          "publicSummary": "Changed fox and maned wolf proportions and fixed elephant knees."
         },
         {
           "kind": "Fixed",
@@ -1180,9 +1286,12 @@
               "commit": "b37b12db4d669b7dde9765062f0a11f0078a3838",
               "date": "2026-10-11"
             }
-          ]
+          ],
+          "publicSummary": null,
+          "privateReason": "Internal deployment or rebuild change; no separate catalog announcement."
         }
-      ]
+      ],
+      "publicTitle": "Building colours and aiming feedback"
     },
     {
       "id": "game-2026-10-10",
@@ -1199,9 +1308,11 @@
               "commit": "b0d5ac9e2d0019cf0c23b4ed9967b7706a2aead0",
               "date": "2026-10-10"
             }
-          ]
+          ],
+          "publicSummary": "Changed 32 common textures to original artwork."
         }
-      ]
+      ],
+      "publicTitle": "Original material artwork"
     },
     {
       "id": "game-2026-10-08",
@@ -1218,9 +1329,11 @@
               "commit": "42fd500cf689df168951e943285f133bb6ef3789",
               "date": "2026-10-08"
             }
-          ]
+          ],
+          "publicSummary": "Added source-install scripts for Linux, macOS and Windows."
         }
-      ]
+      ],
+      "publicTitle": "Desktop installation"
     },
     {
       "id": "game-2026-10-06",
@@ -1245,7 +1358,8 @@
               "commit": "78b45ed104822835c3beba12e0b4e40f1f7cf7bb",
               "date": "2026-10-06"
             }
-          ]
+          ],
+          "publicSummary": "Fixed respawning at blocked rest points, drinking reach and dynamite floating after losing support."
         },
         {
           "kind": "Fixed",
@@ -1264,7 +1378,8 @@
               "commit": "0646c21b2605010d796fff35793acb5b960db89a",
               "date": "2026-10-06"
             }
-          ]
+          ],
+          "publicSummary": "Fixed invalid camera angles and oversized windows."
         },
         {
           "kind": "Fixed",
@@ -1283,7 +1398,8 @@
               "commit": "fe41fc7828132a5d4f39dd0dd80a66a68df1b456",
               "date": "2026-10-06"
             }
-          ]
+          ],
+          "publicSummary": "Improved server trust-error messages."
         },
         {
           "kind": "Changed",
@@ -1306,9 +1422,11 @@
               "commit": "a73a684715779c10edd6671fa668f81b6e4c11e6",
               "date": "2026-10-06"
             }
-          ]
+          ],
+          "publicSummary": "Changed snow leopard, seal and maned wolf models and fish swimming."
         }
-      ]
+      ],
+      "publicTitle": "Safer rest points and interaction"
     },
     {
       "id": "game-2026-10-05",
@@ -1341,7 +1459,8 @@
               "commit": "5306b32ccf49d78e721e21d7830f1d4d9e1f35a3",
               "date": "2026-10-05"
             }
-          ]
+          ],
+          "publicSummary": "Added player chat and returning from a server to a local world."
         },
         {
           "kind": "Fixed",
@@ -1372,7 +1491,8 @@
               "commit": "e25c08db1df889038561f8be6b5fd1484e05748e",
               "date": "2026-10-05"
             }
-          ]
+          ],
+          "publicSummary": "Fixed joining, refused building edits and preserving final edits when leaving a server."
         },
         {
           "kind": "Fixed",
@@ -1391,7 +1511,8 @@
               "commit": "d6f60d90c7b96fa93d719b0d527a16c152d53a28",
               "date": "2026-10-05"
             }
-          ]
+          ],
+          "publicSummary": "Fixed water outside save boundaries and missing server-save error messages."
         },
         {
           "kind": "Changed",
@@ -1446,7 +1567,8 @@
               "commit": "8f273441b448d52893b81fc43584c5bafdf9f611",
               "date": "2026-10-05"
             }
-          ]
+          ],
+          "publicSummary": "Changed several animal models, including horses, elephants, sharks and birds."
         },
         {
           "kind": "Fixed",
@@ -1473,9 +1595,11 @@
               "commit": "3fecf71557231fddbd1f8f3a80fd850005235e60",
               "date": "2026-10-05"
             }
-          ]
+          ],
+          "publicSummary": "Fixed animal feet sliding during stops and starts and added breathing and blinks to hoofed animals."
         }
-      ]
+      ],
+      "publicTitle": "Chat, connection recovery and animal revisions"
     },
     {
       "id": "game-2026-10-04",
@@ -1492,7 +1616,8 @@
               "commit": "c2809a6bbd5031b0c916b49b3e2ff365cac95843",
               "date": "2026-10-04"
             }
-          ]
+          ],
+          "publicSummary": "Added saved-world search, held confirmation before deletion and clearer map markers."
         },
         {
           "kind": "Added",
@@ -1527,7 +1652,8 @@
               "commit": "d9fa4ff8a673f48fd01a1aa2d914c36303994713",
               "date": "2026-10-04"
             }
-          ]
+          ],
+          "publicSummary": "Added the first multiplayer movement and shared building."
         },
         {
           "kind": "Changed",
@@ -1546,7 +1672,8 @@
               "commit": "62cfd16896e940ee407935d3743d9fdfcb6d8850",
               "date": "2026-10-04"
             }
-          ]
+          ],
+          "publicSummary": "Changed local and multiplayer movement for smoother camera motion."
         },
         {
           "kind": "Fixed",
@@ -1569,7 +1696,8 @@
               "commit": "e88b36e85c43d37e28e476d1203b308a7cf7b0a9",
               "date": "2026-10-04"
             }
-          ]
+          ],
+          "publicSummary": "Fixed loading invalid world edits and saving when a server stops."
         },
         {
           "kind": "Fixed",
@@ -1588,7 +1716,8 @@
               "commit": "304fbdfc9d1be442201201ea4c495220147ca9a0",
               "date": "2026-10-04"
             }
-          ]
+          ],
+          "publicSummary": "Fixed terrain failing to resume loading and improved nearby loading while flying."
         },
         {
           "kind": "Changed",
@@ -1635,7 +1764,8 @@
               "commit": "0dccff4e8c5f15fed1f8aa01a7a0b8dea5a1a484",
               "date": "2026-10-04"
             }
-          ]
+          ],
+          "publicSummary": "Added distinct swimming, crawling and walking motions for more animals."
         },
         {
           "kind": "Changed",
@@ -1706,9 +1836,11 @@
               "commit": "cef2ad2f4a0fbb4a990679db6ac2c8f623f1ef88",
               "date": "2026-10-04"
             }
-          ]
+          ],
+          "publicSummary": "Changed several animal models and coats, including foxes, bears, birds and butterflies."
         }
-      ]
+      ],
+      "publicTitle": "World browsing and the first networked game"
     },
     {
       "id": "game-2026-10-01",
@@ -1725,7 +1857,8 @@
               "commit": "b387a2eb3c30827d0feb53563d758008abf30682",
               "date": "2026-10-01"
             }
-          ]
+          ],
+          "publicSummary": "Added inventory workspaces, creative brushes, home storage and expedition records."
         },
         {
           "kind": "Added",
@@ -1736,9 +1869,11 @@
               "commit": "89eaf74d52435030e6e47f41d62674f4c087e718",
               "date": "2026-10-01"
             }
-          ]
+          ],
+          "publicSummary": "Added a craftable sailing boat with moving sails, a walkable deck and saved position."
         }
-      ]
+      ],
+      "publicTitle": "Building workspaces and sailing"
     },
     {
       "id": "game-2026-09-30",
@@ -1755,7 +1890,8 @@
               "commit": "70e15204b2505cc1adaaedda489d9bbb0d782d56",
               "date": "2026-09-30"
             }
-          ]
+          ],
+          "publicSummary": "Fixed terrain transitions, ice, cactus joins and excavated structures while exploring."
         },
         {
           "kind": "Added",
@@ -1766,9 +1902,11 @@
               "commit": "7f21be349d44ac080e496540427e03f28706c09d",
               "date": "2026-09-30"
             }
-          ]
+          ],
+          "publicSummary": "Added a longer, 512-chunk view-distance option."
         }
-      ]
+      ],
+      "publicTitle": "Longer horizons and steadier streaming"
     },
     {
       "id": "game-2026-09-28",
@@ -1785,7 +1923,8 @@
               "commit": "ff38fb7dcf4dd98726af375cbb46cb18ea6cdf1b",
               "date": "2026-09-28"
             }
-          ]
+          ],
+          "publicSummary": "Added animated Study Grove scenes, weather, music and session cues."
         },
         {
           "kind": "Changed",
@@ -1804,7 +1943,8 @@
               "commit": "1a21c60f3894a52f7f2cdb3c77b3f27ab0241750",
               "date": "2026-09-28"
             }
-          ]
+          ],
+          "publicSummary": "Changed loading feedback, trees, ice spires, leaf colours and cloud shadows."
         },
         {
           "kind": "Fixed",
@@ -1823,9 +1963,11 @@
               "commit": "1a21c60f3894a52f7f2cdb3c77b3f27ab0241750",
               "date": "2026-09-28"
             }
-          ]
+          ],
+          "publicSummary": "Fixed animals standing on steps, horizon seams and lighting on edited structures."
         }
-      ]
+      ],
+      "publicTitle": "Study scenes, loading and wildlife"
     },
     {
       "id": "game-2026-09-26",
@@ -1842,7 +1984,8 @@
               "commit": "bc28842b1a2ff126e8b672c0246fcb10b5556815",
               "date": "2026-09-26"
             }
-          ]
+          ],
+          "publicSummary": "Added biome and landmark finding, ambience, swimming, crawling and third-person views."
         },
         {
           "kind": "Changed",
@@ -1853,9 +1996,11 @@
               "commit": "bc28842b1a2ff126e8b672c0246fcb10b5556815",
               "date": "2026-09-26"
             }
-          ]
+          ],
+          "publicSummary": "Changed mountains, islands, biome transitions, lighting and water."
         }
-      ]
+      ],
+      "publicTitle": "Exploration and movement"
     },
     {
       "id": "game-2026-09-24",
@@ -1872,9 +2017,11 @@
               "commit": "24fd4d1d6683abf0884903d63d9e4571055e7cd0",
               "date": "2026-09-24"
             }
-          ]
+          ],
+          "publicSummary": "Changed terrain rendering and weather."
         }
-      ]
+      ],
+      "publicTitle": "Terrain and weather"
     },
     {
       "id": "game-2026-09-23",
@@ -1891,9 +2038,11 @@
               "commit": "ebd4fea6c25ad5c82d38b729a44643a1074fee25",
               "date": "2026-09-23"
             }
-          ]
+          ],
+          "publicSummary": "Fixed sun glare, night visibility and noisy terrain textures."
         }
-      ]
+      ],
+      "publicTitle": "Clearer lighting"
     },
     {
       "id": "game-2026-08-18",
@@ -1910,7 +2059,8 @@
               "commit": "34b5574b36acd461e850e1f114385602e2df809c",
               "date": "2026-08-18"
             }
-          ]
+          ],
+          "publicSummary": "Changed building to use half-metre pieces and added more cooking, glass and material recipes."
         },
         {
           "kind": "Changed",
@@ -1925,7 +2075,8 @@
               "commit": "f2d1a98c090c1b8f866140b8ada3b6ecb9ffb391",
               "date": "2026-08-18"
             }
-          ]
+          ],
+          "publicSummary": "Changed lighting settings and improved leaves, clouds and underwater light."
         },
         {
           "kind": "Fixed",
@@ -1944,9 +2095,11 @@
               "commit": "8b3da153e53c066ddec7b08ca1ecb6857e37c61d",
               "date": "2026-08-18"
             }
-          ]
+          ],
+          "publicSummary": "Fixed wave foam and cracks between water surfaces."
         }
-      ]
+      ],
+      "publicTitle": "Material pieces, crafting and water"
     },
     {
       "id": "game-2026-08-17",
@@ -1963,7 +2116,8 @@
               "commit": "9c35dc37dbca966837ae47e6efa224341db00932",
               "date": "2026-08-17"
             }
-          ]
+          ],
+          "publicSummary": "Fixed distorted terrain and moving sea surfaces far from the starting area."
         },
         {
           "kind": "Changed",
@@ -1974,9 +2128,11 @@
               "commit": "9c35dc37dbca966837ae47e6efa224341db00932",
               "date": "2026-08-17"
             }
-          ]
+          ],
+          "publicSummary": "Added more varied branching shapes to trees."
         }
-      ]
+      ],
+      "publicTitle": "Distant views and varied trees"
     },
     {
       "id": "game-2026-08-16",
@@ -1993,9 +2149,11 @@
               "commit": "6c39b717820ae80f3fd369fdcc406f693bdc8652",
               "date": "2026-08-16"
             }
-          ]
+          ],
+          "publicSummary": "Added the first sandbox with terrain, trees, gentle survival and an inventory."
         }
-      ]
+      ],
+      "publicTitle": "The first sandbox"
     }
   ]
 }
