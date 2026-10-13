@@ -587,7 +587,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Meter timings, damage values, recipe counts and key behaviours come from the game source at the audited commit and its own unit tests, each traced to a ledger entry.",
+    "method": "Meter timings, damage values, recipe counts and key behaviours come from the game source at the audited commit and its own unit tests, each traced to a ledger entry. The X shortcut was separately checked at Voxelgame 5856103c (change a6d56495): it repeats the selected Craft-tab recipe.",
     "limits": "Source-checked, not play-tested. The numbers describe this version: planned food plants, furnaces and ground items would change this guide."
    },
    "sections": [
@@ -721,7 +721,7 @@
       {
        "t": "note",
        "kind": "careful",
-       "text": "Do not press [[X]] to quick-craft with the starter kit. It crafts the first affordable recipe in list order, so with only boards in your pack it burns your four boards into two Charcoal. {{quick-craft-x}}"
+       "text": "Choose the recipe you want on the **Craft** tab first. With the inventory closed, [[X]] repeats that recipe once. If materials are missing, it shows a message instead of making a different recipe. {{quick-craft-x}}"
       }
      ]
     },
@@ -891,7 +891,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at Voxelgame fb873488 (the other features are still from the audited commit dd29d91); tools/validate_guides.py can recheck all 43 names, sections and amounts against a source snapshot.",
+    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at Voxelgame fb873488 (the other features are still from the audited commit dd29d91); tools/validate_guides.py can recheck all 43 names, sections and amounts against a source snapshot. The X shortcut was separately checked at Voxelgame 5856103c (change a6d56495): it repeats the selected Craft-tab recipe.",
     "limits": "Source-checked, not play-tested. Amounts are carried pieces: 8 pieces make one full one-metre block. Recipes for furnaces, smelting and metal tools do not exist yet."
    },
    "sections": [

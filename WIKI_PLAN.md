@@ -209,3 +209,11 @@ explicit. The older feature and gallery receipts are unchanged.
 README describes incremental maintenance. The pages work without JavaScript or
 images; source disclosures, date links and switching use native HTML. Browser,
 payload and actual Pages receipts are required before closing this slice.
+
+The same source review found the X shortcut still documented as choosing the
+first affordable recipe. Its ledger row, generated controls/crafting text and
+first-survival-day note now follow `a6d56495`, checked at `5856103c`: X repeats
+the selected Craft-tab recipe and reports missing materials. Only that row's
+receipts and the affected guide verification notes were refreshed. The save
+rollback note already said format 29 after the milestone update; it required
+no correction. No new gameplay test is claimed.

@@ -1696,18 +1696,18 @@
    "modes": [
     "survival"
    ],
-   "summary": "With the inventory closed, X crafts the first recipe you can currently afford, in recipe-list order, not the recipe you selected. In creative it only shows a message.",
+   "summary": "With the inventory closed, X repeats the recipe selected on the Craft tab once. If it needs materials, nothing is crafted and a message names the missing recipe. In creative it only shows a message.",
    "controls": [
     [
      "X",
-     "Craft the first affordable recipe once (survival, on foot, inventory closed)"
+     "Repeat the selected Craft-tab recipe once (survival, on foot, inventory closed)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1310-1315 — X calls quick craft when the inventory is closed and you are not in a vehicle",
-    "crates/voxelgame-core/src/game/crafting.rs:123-140 — first affordable recipe in list order; creative shows 'Crafting uses carried resources in survival'"
+    "crates/voxelgame-core/src/game.rs:1502-1506 \u2014 X repeats the selected recipe when the inventory is closed and the player is not in a vehicle",
+    "crates/voxelgame-core/src/game/crafting.rs:130-147 \u2014 selected recipe, missing-material message and creative refusal"
    ],
-   "notes": "Recipe order starts with the four log-splitting recipes, then 'Burn a charcoal pile'. X always picks the earliest affordable recipe: with boards but no logs that is 'Burn a charcoal pile', so pressing X with the starter kit turns its 4 boards into 2 Charcoal instead of a hatchet.",
+   "notes": "This row was source-checked at Voxelgame 5856103c on 13 October 2026; the change landed in a6d56495. Select a recipe on the Craft tab before using X. The shortcut no longer falls back to the first affordable recipe or spends the starter boards on an unrelated recipe. This is a source check, not a new gameplay test.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
