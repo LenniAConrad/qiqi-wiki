@@ -4676,12 +4676,12 @@
         "Choose **Host this world** between Join and Back. The button reads **Stop hosting** while the world is hosted.",
         "Read the address on the page. Other players type it in **SERVER**. The port is 27015 when it is free; otherwise the page shows another port, so type the port too.",
         "Other players type their name in **NAME** and choose **Join server**.",
-        "Choose **Stop hosting** when you are done. The world is saved, everyone is disconnected and your save loads for single play."
+        "Choose **Stop hosting** when you are done. The world is saved, everyone is disconnected and your save loads for single play. Blocks you placed just before you stop are saved too."
        ]
       },
       {
        "t": "p",
-       "text": "If the save fails, for example because the disk is full, the status line says why. The world stays hosted and in play, so make room and try again. F6 and the 30-second autosave also report a failed save."
+       "text": "If the save fails, for example because the disk is full, the status line says why. The world stays hosted and in play, so make room and try again. F6 and the 30-second autosave also report a failed save. If the save fails while you stop hosting, the world still stops and reopens from the copy on disk. The status line reads \"Hosting stopped, but its last save failed\"."
       },
       {
        "t": "list",
