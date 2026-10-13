@@ -4548,6 +4548,7 @@
     "player-skins",
     "mp-join-server",
     "mp-menu-lan-hosting",
+    "mp-lan-world-list",
     "mp-dedicated-server",
     "mp-chat"
    ],
@@ -4638,7 +4639,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Multiplayer is in development. The start menu has a Multiplayer page for joining a server and for hosting your world on your network. Hosting is described from source and not play-tested yet. LAN discovery and server admin tools are not done. {{mp-join-server}} {{mp-menu-lan-hosting}}"
+       "text": "Multiplayer is in development. The start menu has a Multiplayer page for joining a server, for joining worlds hosted on your network and for hosting your world. Hosting and the network list are described from source and not play-tested yet. Server admin tools are not done. {{mp-join-server}} {{mp-lan-world-list}} {{mp-menu-lan-hosting}}"
       },
       {
        "t": "steps",
@@ -4656,6 +4657,10 @@
       {
        "t": "p",
        "text": "A join gives up after 15 seconds in all. The time includes looking up the server name. To stop a join while it is loading, press [[Esc]] on the loading screen. The page then says **Stopped joining**. If the server had already welcomed you, you leave it again."
+      },
+      {
+       "t": "p",
+       "text": "Worlds hosted on your network appear above your remembered servers while the Multiplayer page is open. The list shows up to 8 worlds, each with its name and address, and updates by itself. Only worlds on the same local network appear. Select a row and press Enter, or click it, to join. Your own hosted world is not listed. A world from another game version is shown as a world for another game version. If the selected world stops hosting, the selection moves to Join server."
       },
       {
        "t": "p",

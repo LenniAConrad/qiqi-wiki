@@ -5333,7 +5333,7 @@
    "area": "platform",
    "name": "Multiplayer menu: Host this world (LAN hosting)",
    "status": "partial",
-   "summary": "Host this world on the Multiplayer page serves the world in play on this computer's LAN address, on port 27015 when it is free. Others type the address shown on the page and join. Stop hosting saves the world and disconnects everyone. LAN discovery (a list of games on the network) is not built.",
+   "summary": "Host this world on the Multiplayer page serves the world in play on this computer's LAN address, on port 27015 when it is free. Others type the address shown on the page and join. Stop hosting saves the world and disconnects everyone. The page lists hosted worlds on your local network separately (see the LAN world list row).",
    "evidence": [
     "crates/voxelgame-core/src/game/startup_multiplayer.rs:221 — the button after the server list asks the app to host or stop hosting",
     "crates/voxelgame-render/src/startup_ui.rs:470-473 — the button reads Stop hosting while hosted, otherwise Host this world",
@@ -5349,6 +5349,25 @@
     "crates/voxelgame-core/src/game/carried_player.rs:17 — the carried player includes the rest point, so resting while hosting is kept after Stop hosting (55d524d6)"
    ],
    "notes": "Source commits fb873488, df372280, 8e03a3b7, 1fd84b33 and 8e4963a4 at Voxelgame origin/main; described from source, not play-tested. A save is served where it lies; the owner plays on as the save's player, carrying the inventory and tools the save holds. Items gained or spent while hosting are kept on every save. A server's world, the Structure Workshop and an unsaved world are not hosted.",
+   "backlog": [
+    "VOX-NET-M5-LAN"
+   ]
+  },
+  {
+   "id": "mp-lan-world-list",
+   "area": "platform",
+   "name": "Multiplayer menu: list of worlds hosted on the LAN",
+   "status": "partial",
+   "summary": "While the Multiplayer page is open, it lists worlds hosted on your local network: up to 8, each with its name and address, above the remembered servers. Enter or a click joins the selected row. Your own hosted world is not listed, and a world from another game version shows as one. The list updates by itself; if the selected world stops hosting, the selection moves to Join server.",
+   "evidence": [
+    "crates/voxelgame-net/src/discovery.rs:26-40 — discovery group 239.255.27.15, port 27016, 1.5 s announce, 5 s lifetime, 8 worlds, 128-byte beacon",
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:32 — MAX_LAN_WORLDS is 8",
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:92-93 — the list is set while the page is open and cut to 8",
+    "src/net_client/discovery.rs:47-66 — own world is filtered out; another protocol version shows as a world for another game version",
+    "crates/voxelgame-render/src/startup_ui.rs:442-490 — LAN rows are drawn above remembered servers with the LAN badge",
+    "src/net_client/hosting.rs:205-211 — hosting starts the LAN announcer for the hosted world"
+   ],
+   "notes": "Source commit f8cdb531 at Voxelgame origin/main (VOX-NET-M5-LAN slice 3). Described from source and the debug scenario tools/debug_scenarios/multiplayer_lan.json; not play-tested on two computers. Only worlds on the same local network send beacons (multicast time to live 1).",
    "backlog": [
     "VOX-NET-M5-LAN"
    ]
