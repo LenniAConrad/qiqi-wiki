@@ -285,6 +285,50 @@ Rebuild illustrations with NumPy and Pillow:
 Open `tools/scale_browser_checks.html` through the local server to verify
 geometry, mode/selection controls, focus, textures and responsive layout.
 
+## Maintain the changelog
+
+`changelog.html` and `changelog-wiki.html` separate game changes from website
+changes. `data/changelog.json` is the curated source. Dates use the committer's
+recorded timezone; they are not release dates. The game source cutoff and the
+wiki source cutoff are independent. Neither is the page's deployment revision.
+
+For an update, read the commits after the recorded `sources[].last.commit` in
+each repository. Check relevant patches and current source, especially save,
+network and blueprint formats. Group actual player-facing base-game changes by
+date, with full commit hashes and their committer dates in `refs`. Omit plans,
+internal-only changes and optional content. Retain old groups and stable IDs.
+If a feature was corrected later, describe both changes on their actual dates.
+Do not turn source review into a claim of a fresh gameplay test.
+
+Advance the reviewed cutoff and `commitCount` only through the history actually
+reviewed. `git rev-list --count COMMIT` counts that pinned history. Check tags
+and hosted releases separately; an inaccessible endpoint is not evidence of
+no releases. Public wiki commit links are available; game identifiers remain
+plain text while that repository is unavailable to public requests. Recheck
+that condition before changing `publicCommitLinks`.
+
+```sh
+python3 tools/build_changelog.py
+python3 tools/build_features.py
+python3 tools/build_guides.py
+python3 tools/build_blocks.py
+python3 tools/build_mobs.py
+python3 tools/build_wiki.py
+python3 tools/validate_changelog.py --game /path/to/Voxelgame --wiki .
+bash tools/verify_wiki.sh
+```
+
+The optional repository checks read Git objects only. They reject an incorrect
+history count, missing root, unreachable source hash or mismatched commit date.
+The ordinary gate also rejects stale HTML, missing receipts, backdated groups,
+invalid ranges and missing earliest/latest coverage. Update the coverage note
+in `data/features.json` without moving the full feature audit's older source pin.
+Review desktop/mobile, keyboard source disclosures, date anchors, page switching,
+search and `file://` with `tools/changelog_browser_checks.html` and the browser
+runner. Both histories are complete static HTML; no image or dataset request is
+needed to read them. Measure each page with `tools/measure_loading.py`, then
+verify the normal Pages run and live bytes/MIME before reporting delivery.
+
 ## Rebuild the wiki interface
 
 `data/topics.json` assigns each written guide to exactly one topic, supplies

@@ -51,7 +51,7 @@ def validate():
         assert 'src="wiki-ui.js"' in value, f'{path.name}: mobile navigation script missing'
         page = Page(value)
         pages[path.name] = page
-        if path.name.startswith(('guide-', 'topic-')) or path.name in {'blocks.html', 'mobs.html'}:
+        if path.name.startswith(('guide-', 'topic-', 'changelog')) or path.name in {'blocks.html', 'mobs.html'}:
             assert page.breadcrumb and page.contents, f'{path.name}: article breadcrumb/contents missing'
             assert all(href.startswith('#') and href[1:] in page.ids for href in page.anchors), \
                 f'{path.name}: contents target missing'

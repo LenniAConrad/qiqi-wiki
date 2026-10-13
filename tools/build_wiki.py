@@ -8,6 +8,7 @@ import re
 
 from base_game import public_ledger
 from build_guides import recipe_anchor
+from build_changelog import read as read_changelog, search_records as history_records
 from build_mobs import habitat_names, mob_anchor
 from reference_layout import article_open, article_close
 from wiki_layout import ATLAS, TOPICS, header_html, footer_html
@@ -46,6 +47,7 @@ def search_records():
             f'mobs.html#{mob_anchor(animal)}', 'Mob')
     for biome in biomes['biomes']:
         add(biome['name'], biome['description'], f'atlas.html#biome={biome["id"]}', 'Biome atlas')
+    records.extend(history_records(read_changelog()))
     return records
 
 
@@ -101,6 +103,10 @@ def render_home():
             '<li><a href="guide-building.html#doors">Place a door</a></li>'
             '<li><a href="guide-maps.html#lost-build">Find your way home</a></li>'
             '<li><a href="guide-troubleshooting.html">Fix a problem</a></li></ul></section>'
+            '<section class="home-changelog"><h2>What changed?</h2>'
+            '<p><a href="changelog.html">Game changelog</a> · '
+            '<a href="changelog-wiki.html">Wiki updates</a></p>'
+            '<p>Dated additions, fixes and notes for updating saved worlds.</p></section>'
             '<section class="home-atlas" aria-labelledby="atlas-title"><h2 id="atlas-title">The world atlas</h2>'
             '<p>Photographs, animal portraits and island maps. Each collection records its capture date and source.</p>'
             '<ul class="atlas-links">' + atlas_links + '</ul></section></aside></div>'

@@ -41,7 +41,7 @@ const open=src=>new Promise((resolve,reject)=>{
  }
  const topics=(await(await fetch('../data/topics.json')).json()).topics;
  const guides=(await(await fetch('../data/guides.json')).json()).guides;
- for(const name of [...topics.map(t=>t.page),...guides.map(g=>g.page),'blocks.html','mobs.html','atlas.html','animals.html','islands.html','scale.html','performance.html','features.html','guides.html']) {
+ for(const name of [...topics.map(t=>t.page),...guides.map(g=>g.page),'blocks.html','mobs.html','atlas.html','animals.html','islands.html','scale.html','performance.html','features.html','guides.html','changelog.html','changelog-wiki.html']) {
   const p=await open('../'+name);
   check(JSON.stringify([...p.querySelectorAll('nav[aria-label=Main] a')].map(a=>a.getAttribute('href')))===JSON.stringify(nav),`${name} shares category navigation`);
   check(p.querySelector('.site-header [aria-current]'),`${name} has a current-page marker`);

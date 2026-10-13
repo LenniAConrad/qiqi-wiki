@@ -12,7 +12,7 @@ ATLAS = (('atlas.html', 'Biomes'), ('animals.html', 'Animals'),
          ('performance.html', 'Performance'), ('features.html', 'Features'))
 NAV = (('index.html', 'Home'),) + tuple(
     (page, label) for _, label, page in CATEGORIES
-) + (('guides.html', 'All guides'), ('atlas.html', 'Atlas'))
+) + (('guides.html', 'All guides'), ('atlas.html', 'Atlas'), ('changelog.html', 'Changelog'))
 GUIDE_SLUGS = {guide['page']: guide['id'] for guide in json.loads((DATA / 'guides.json').read_text())['guides']}
 
 
@@ -40,6 +40,8 @@ def links_html(links, current, related=None):
 def nav_html(current):
     topic = topic_for_page(current)
     related = topic['page'] if topic else None
+    if current == 'changelog-wiki.html':
+        related = 'changelog.html'
     if current in {href for href, _ in ATLAS} and current != 'atlas.html':
         related = 'atlas.html'
     elif current.startswith('guide-') and not topic:
@@ -60,5 +62,5 @@ def header_html(current):
 def footer_html():
     return ('<footer><a class="wordmark" href="index.html">Qiqi</a>'
             '<p>Voxelgame player wiki · Base game</p><nav aria-label="Footer">'
-            '<a href="guides.html">All guides</a><a href="features.html">Coverage and sources</a>'
+            '<a href="guides.html">All guides</a><a href="changelog.html">Changelog</a><a href="features.html">Coverage and sources</a>'
             '<a href="ABOUT.md">About and provenance</a><a href="LICENSE">Licence</a></nav></footer>')

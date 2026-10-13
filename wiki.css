@@ -97,6 +97,24 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .reference-page .mob-table tbody th { width: 25%; }
 .reference-page .guide-section .mob-description { font-size: 12px; font-weight: 400; color: var(--muted); margin: 6px 0 0; }
 .mob-model { display: block; width: 72px; height: 72px; object-fit: contain; border: 1px solid var(--line); }
+.home-changelog { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 22px; }
+.change-switch { display: flex; flex-wrap: wrap; gap: 10px 24px; border-bottom: 2px solid var(--line); }
+.change-switch a { display: inline-block; padding: 10px 0; min-height: 44px; }
+.change-switch [aria-current] { font-weight: 700; text-decoration-thickness: 2px; }
+.change-cutoff { color: var(--muted); font-size: 13px; }
+.changelog-page .change-title { font-size: 18px; color: var(--ink); margin-top: -8px; }
+.changelog-page .change-list { list-style: none; padding: 0; }
+.change-list > li { border-bottom: 1px solid var(--line); padding: 15px 0; }
+.change-list > li:last-child { border: 0; }
+.changelog-page .change-label { color: var(--muted); font-size: 12px; font-weight: 700; margin: 0 0 5px; }
+.changelog-page .change-list p { margin-top: 0; }
+.change-sources { font-size: 12px; color: var(--muted); }
+.change-sources summary { cursor: pointer; padding: 6px 0; width: fit-content; }
+.changelog-page .change-sources ul { display: flex; flex-wrap: wrap; gap: 5px 20px; list-style: none; padding: 5px 0; }
+.change-back { font-size: 12px; }
+.change-range dt { font-weight: 700; margin-top: 12px; }
+.change-range dd { margin: 4px 0 0; }
+.change-range code { overflow-wrap: anywhere; font-size: 12px; }
 @media (max-width: 1050px) {
   .site-header .wiki-nav { gap: 0 16px; }
   .home-opening { gap: 30px; }

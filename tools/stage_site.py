@@ -13,6 +13,7 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_FILES = (
+    'changelog.html', 'changelog-wiki.html', 'data/changelog.json',
     'topic-getting-started.html', 'topic-controls.html', 'topic-blocks.html', 'topic-crafting.html',
     'topic-building.html', 'topic-mobs.html', 'topic-exploration.html', 'topic-items.html',
     'topic-vehicles.html', 'topic-troubleshooting.html', 'data/topics.json', 'wiki-ui.js',

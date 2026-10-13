@@ -12,6 +12,7 @@ python3 tools/validate_features.py
 python3 tools/validate_guides.py
 python3 tools/validate_blocks.py
 python3 tools/validate_mobs.py
+python3 tools/validate_changelog.py
 python3 tools/validate_wiki.py
 python3 tools/validate_site_links.py
 for script in ./*.js data/*.js; do node --check "$script"; done

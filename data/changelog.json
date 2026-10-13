@@ -1,0 +1,2001 @@
+{
+  "schema": 1,
+  "reviewed": "2026-10-13",
+  "sources": [
+    {
+      "id": "game",
+      "title": "Game",
+      "page": "changelog.html",
+      "repository": "https://github.com/LenniAConrad/qiqi",
+      "first": {
+        "commit": "6c39b717820ae80f3fd369fdcc406f693bdc8652",
+        "date": "2026-08-16"
+      },
+      "last": {
+        "commit": "5856103c4d15fd12a2118e72d0b51bbb9f074895",
+        "date": "2026-10-13"
+      },
+      "commitCount": 704,
+      "tags": [],
+      "publicCommitLinks": false,
+      "releases": "unavailable",
+      "checked": "2026-10-13"
+    },
+    {
+      "id": "wiki",
+      "title": "Wiki",
+      "page": "changelog-wiki.html",
+      "repository": "https://github.com/LenniAConrad/qiqi-wiki",
+      "first": {
+        "commit": "ae659a32bbdacab90b3ddea24c5f4a74db63e7a9",
+        "date": "2026-10-09"
+      },
+      "last": {
+        "commit": "17fbfdb36b89ac5c182d6570e86c4920874b2e9e",
+        "date": "2026-10-13"
+      },
+      "commitCount": 93,
+      "tags": [],
+      "publicCommitLinks": true,
+      "releases": "none",
+      "checked": "2026-10-13"
+    }
+  ],
+  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test.",
+  "gaps": [
+    "The game history starts with a large snapshot on 16 August 2026. Earlier development and changes between recorded snapshots cannot be dated more precisely.",
+    "There are no tags in either inspected checkout. The public game release endpoint returned 404 during review, so game releases could not be verified. The wiki release endpoint returned an empty list. No release numbers are inferred from package metadata.",
+    "Optional content, internal refactors, test-only changes and development plans are omitted. Some recorded days therefore have no entry. Broad early snapshots can only support grouped summaries.",
+    "Wiki history begins with the standalone import on 9 October. Older atlas capture dates describe preserved media, not earlier commits in this repository.",
+    "The cutoff is explicit below. Later commits are not covered until the next review; this chronology does not refresh the dates or receipts in older guides and galleries."
+  ],
+  "compatibility": [
+    {
+      "kind": "Compatibility",
+      "area": "Save files",
+      "text": "At the reviewed game revision, saves are written as format 29 and formats 10–29 are accepted. Format 28 widened stored block IDs; format 29 stores survival milestones. Keep a separate copy of your world before trying an older build: there is no downgrade conversion.",
+      "refs": [
+        {
+          "commit": "208a24f1e1cbdb1334820c956b82b47cc5057eb1",
+          "date": "2026-10-13"
+        },
+        {
+          "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
+          "date": "2026-10-13"
+        }
+      ]
+    },
+    {
+      "kind": "Compatibility",
+      "area": "Older terrain",
+      "text": "Saves before format 10 predate the half-metre grid and are refused, not converted. Supported saved worlds retain their generator selection; updating the game does not turn an old world into the newest terrain generation.",
+      "refs": [
+        {
+          "commit": "bc28842b1a2ff126e8b672c0246fcb10b5556815",
+          "date": "2026-09-26"
+        },
+        {
+          "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
+          "date": "2026-10-13"
+        }
+      ]
+    },
+    {
+      "kind": "Compatibility",
+      "area": "Multiplayer",
+      "text": "The reviewed client and server use protocol 16. Protocol and terrain/build checks can refuse a mismatched peer, so update both ends together. The LAN features described here do not imply full shared survival or public-internet readiness.",
+      "refs": [
+        {
+          "commit": "4c8170fc17cc5ab75899e56abbceafedf124bbb9",
+          "date": "2026-10-04"
+        },
+        {
+          "commit": "6dd7dbc97aa36225f977341b871436a8fbe3679f",
+          "date": "2026-10-04"
+        },
+        {
+          "commit": "7d2e80ef8c88fb9ae316e065eb53ad8453cb3747",
+          "date": "2026-10-13"
+        },
+        {
+          "commit": "5f1052e624c7461cb5d5ab0ee9ed59fab4afa3f6",
+          "date": "2026-10-13"
+        }
+      ]
+    },
+    {
+      "kind": "Compatibility",
+      "area": "Structure workshop",
+      "text": "New flat workshops are separate saves. Elevated workshops remain in Worlds as legacy workshops with their builds intact. Move a build through the Blueprint library and check the copy before removing the original.",
+      "refs": [
+        {
+          "commit": "f8dec3b526371af258b3cefbd5f5b570fb54773e",
+          "date": "2026-10-12"
+        }
+      ]
+    },
+    {
+      "kind": "Compatibility",
+      "area": "Blueprint files",
+      "text": "The reviewed blueprint format is version 1 and records blocks by stable name. Doors are excluded from captures. Newer or unknown content can be refused; the world-save format number is not the blueprint format number.",
+      "refs": [
+        {
+          "commit": "99cc8a687754114f8d358d9a7e795bbe5aabe749",
+          "date": "2026-10-12"
+        },
+        {
+          "commit": "5d4d87c38c7d014a936e6344c4c8bf8732109adb",
+          "date": "2026-10-12"
+        },
+        {
+          "commit": "208a24f1e1cbdb1334820c956b82b47cc5057eb1",
+          "date": "2026-10-13"
+        }
+      ]
+    }
+  ],
+  "periods": [
+    {
+      "id": "wiki-2026-10-13",
+      "source": "wiki",
+      "date": "2026-10-13",
+      "title": "Connected topics and smaller image requests",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Current features",
+          "text": "Guides record LAN discovery, other players’ swings, hosted-save failures and rest points, Journal pin safety, swimming motions, drinking obstructions, milestone progress and server doors. Each change retains its own source receipt.",
+          "refs": [
+            {
+              "commit": "f045bd16cca60ddee51572084a5344d6a3474c2d",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "311b35aa2d1fcfa1ff97386e74f57c1bda7ba72a",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "25fc891e0a1cc7be55316b24438cf26420d5caf7",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "49147a64870e6ff1e7bfdb7b11e070e964439d83",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "1d3a2724d81503558e2a02c3b2fcdb3722708b66",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "90ef2615f1042f365867e0057a93299bb739e1a5",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "fac8d93f65a3552daba2e18712d4c77a093aadbb",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "3967f1d8c6fe1edc26b04a692f624a256493cb7c",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "1d67f699d305e5deba1b6a8ed6fe3c8058bdd5cb",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Source references",
+          "text": "Door and sailing references are corrected without relabelling the older full feature audit as a fresh one.",
+          "refs": [
+            {
+              "commit": "a7f902c58385b0e76fb6dc90d76a21c8f1c044d0",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "b5a33722e7c9d0e32dfe96de878682b3e5e6715f",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Navigation",
+          "text": "Ten topic indexes connect all 22 guides, with breadcrumbs, related reading, mobile navigation and 643 offline search records at this revision.",
+          "refs": [
+            {
+              "commit": "185455dab9f2d0c20dd6b7e9dfd017befcb6af33",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Image loading",
+          "text": "Island cards load 480/960-pixel previews. Biome, animal and guide views gain responsive images sized for their display. Full-quality originals remain available on demand; capture dates and source images are unchanged.",
+          "refs": [
+            {
+              "commit": "07c1204ce3f50c47f021f632c8455e702dbd35df",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "8cf6acb0e0474a93bd66a38f311cd3b74f9c8173",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "17fbfdb36b89ac5c182d6570e86c4920874b2e9e",
+              "date": "2026-10-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wiki-2026-10-12",
+      "source": "wiki",
+      "date": "2026-10-12",
+      "title": "The practical guide collection",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "References",
+          "text": "Blocks and Mobs references join the atlas. The animal roster distinguishes the 94-species source catalogue from the preserved 93-species portrait collection.",
+          "refs": [
+            {
+              "commit": "cc7d6d33449bf80bde6b6ee326839a341de67964",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "3034b9c276e46c7c0bad4e4d3f8aed9da6e4e6d8",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "562fa6483a41b7581bcc76e2b77f0f4dfebbf6b5",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Playing",
+          "text": "New guides cover hunting, seasons, maps, building, sailing, explosives, settings, Study Grove, weather, saves, creatures, movement, caves, volcanoes and islands.",
+          "refs": [
+            {
+              "commit": "1cefbbbe364f4eae420651af2b924e89a0d092e5",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "f86d7618f0afe1f8ebb1771e813984c437089dcf",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "70b7dbd1ccb64faa6b78e42ecc083447524359ba",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "ffcc771812c387d6da637c7238bd205a70c87807",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "21fc2e4b3e19f6bcce7b013d7151c78b2a4499b3",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "caef2fe715379db7cbeaa1141398980589e9a69e",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "3d2aff742dd204612f1953ffd37097ac29722126",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "4c6608462574ca9863bb8eba64f8fd313ff2293d",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "661cd58068bcd3bf825c18856bffec30de90cf70",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "4ec920f06c4f099a718a83b2cdadb4168360d294",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "a38f882a3f9290aa72c50ebe793bd47a8250a4c3",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "97475865f517a3b738197343c4567e12279f3647",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "1ee016af3fc982281e6c7ecb81eaf28fed2c50bd",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "62eb8f0a0e89c010920c92d7613d84c07dc5352e",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "e883eccd9195943e838c97de4b1e7d649cb41d65",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Building",
+          "text": "The building guide expands to doors, chests, blueprint capture, named libraries, search, flat workshops and migration from elevated workshops. Their recipes and block entries are added.",
+          "refs": [
+            {
+              "commit": "3f536f9bbaccd5307c1257a3faaa5ae359d80b79",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "d5fedc02c82d791b95c0a63a0560e1f0195df492",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "5df7ab6ae0ca89a415cb6b291e525b4ccfaebe9c",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "7786fd2024b0ab9e402c234261c83c1d01283894",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "5da1197854ef62017880306def3a399b1034d199",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "a2a738fed5d1fc4d1c6a025f40b2a9790203b9d0",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "8e4e35e9957de0f1d7ff54ebfc7a18813b6fb986",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Accuracy",
+          "text": "Recipe quantities, explosives, seasonal temperature, interface scale, carrying capacity, aiming feedback and sound descriptions are corrected against source. Marble entries and current block names replace the earlier catalogue values.",
+          "refs": [
+            {
+              "commit": "fde298210e38131136044096aacb34b462aa0597",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "1e9f64ed4230ed2ccd5c82185ac6e828c4234dcf",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "06623a5816b6c0e03396c52336414e759b4d49e2",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "682bff230e928550ee527148c435e5cb0e7eeca9",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "6ee2180e4929c7f090b908825e8e48422102c960",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "06a699cb12d31ceec56fb639086a013e5f0649a8",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "041630af217887f84c9d5e9185486ffd3e0470d9",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "ea4e122c898efe872b5d9243e5516265c15a1869",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Multiplayer coverage",
+          "text": "Documentation tracks the new Multiplayer menu, LAN hosting, join cancellation and open-door collision. The earlier warning about losing hosted inventory is superseded after the game fixes persistence.",
+          "refs": [
+            {
+              "commit": "7ff0f356064f2f60cf534669d9dd54727de82d5f",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "e596b3cc8433660e46b59f44c9d0e18e26cc8028",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "423a5062ac7086723b047dbf411fe94f26c53277",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "e8702b9f1f5340d579342f6560da62a7657b7123",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "cfdafdf00ff15a74ea914256140cf6165c26df1c",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Troubleshooting",
+          "text": "Startup, sound and save problems gain a guide, with requirements, uninstall information and lag-log locations added to the related articles.",
+          "refs": [
+            {
+              "commit": "9ca1e7755c00d7d67ecb85ce2c3c9ec238e20af8",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "342e98437262b5d352b95245a1904ac52c4f0a62",
+              "date": "2026-10-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wiki-2026-10-11",
+      "source": "wiki",
+      "date": "2026-10-11",
+      "title": "Player guides and a feature ledger",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Guides",
+          "text": "A source-audited feature ledger, four starting guides, a searchable controls reference and the initial 37-recipe table are published. Installation, updating and world management get their own guide.",
+          "refs": [
+            {
+              "commit": "bcbb3d8ab2deb17c7c2525309a7dbe27298fb808",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "c2b376161834a930c82cc98fc07231b72ee16a0f",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "ddd7fd64f76e67f091369ae1cf47f5c82038495a",
+              "date": "2026-10-11"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Navigation",
+          "text": "The home becomes a player-guide directory with shared categories, article navigation and offline search.",
+          "refs": [
+            {
+              "commit": "3c98d0766d140225b54673bdb068933dc032c3c7",
+              "date": "2026-10-11"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Publication",
+          "text": "Pages uses an explicit public-file list, the wiki is restricted to the base game, and linked performance reports are included and checked in the deployed file set.",
+          "refs": [
+            {
+              "commit": "493c52cd994ae4b0a9594d203f758ffc0d697146",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "55905b451ba83ead13958a21e665176243b6e6b1",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "e9ae0e722c6717d951cbc79cc4d557f9280868dd",
+              "date": "2026-10-11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wiki-2026-10-09",
+      "source": "wiki",
+      "date": "2026-10-09",
+      "title": "The standalone wiki",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Atlas",
+          "text": "The owner’s existing biome, animal and island atlas becomes a standalone wiki with static validation and GitHub Pages deployment. Preserved captures and performance reports keep their original dates.",
+          "refs": [
+            {
+              "commit": "ae659a32bbdacab90b3ddea24c5f4a74db63e7a9",
+              "date": "2026-10-09"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Publication",
+          "text": "Asset-notice staging is corrected so the static site can deploy.",
+          "refs": [
+            {
+              "commit": "d4955a4bfa1280da28ce728b83985c4f687c0abd",
+              "date": "2026-10-09"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-13",
+      "source": "game",
+      "date": "2026-10-13",
+      "title": "Milestones, shared doors and safer saves",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Survival",
+          "text": "Fifteen saved survival milestones appear on an inventory tab. Follow-up fixes make previously unreachable milestones attainable and give their announcements a separate line.",
+          "refs": [
+            {
+              "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "2596d051c5443f9df3d287ff3c42ed1b42adbf38",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Save compatibility",
+          "text": "Format 28 stores wider block identifiers; format 29 then adds milestone progress. The reviewed build reads formats 10–29 and writes 29. An older build cannot read a save written in a newer format.",
+          "refs": [
+            {
+              "commit": "208a24f1e1cbdb1334820c956b82b47cc5057eb1",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Network compatibility",
+          "text": "Protocol 15 carries wider block identifiers; protocol 16 adds hanging, swinging and removing doors on servers. Use matching client and server builds.",
+          "refs": [
+            {
+              "commit": "7d2e80ef8c88fb9ae316e065eb53ad8453cb3747",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "5f1052e624c7461cb5d5ab0ee9ed59fab4afa3f6",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "The menu lists worlds hosted on the local network. Other players’ punches, mining strokes and placements become visible, and remote door swings animate instead of snapping.",
+          "refs": [
+            {
+              "commit": "f8cdb531743932f813429e62c140393a3eaed5fb",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "46ef04ba9b66762a2faebe71503da5df56dd0c21",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "c20231d79507e49ca4e48ca4f3f84d9a119819f8",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "Hosted saves wait for disk completion and show failures. They retain the owner’s rest point and settle pending edits before saving. Save publication syncs the containing directory and rejects oversized saves before writing.",
+          "refs": [
+            {
+              "commit": "146d4f827eec2f03782149885ec4a85e57f52d12",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "55d524d65b04c4d785ece48ab2502aa2fa50c0d1",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "41908f28c89299642ae70e76a4c4f137f5f1ec05",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "763d04556ca7e0cb4f01fc239e3656ae3bc099b5",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Destinations and home",
+          "text": "Removing Journal pins preserves unrelated destinations. A missing hosted destination no longer makes the save unloadable, and lost home-crate repair uses a dry supported site.",
+          "refs": [
+            {
+              "commit": "c22f84a88570be5bff99569289144cfc8d023d27",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "19705adb66c502025d7230f8864c85995b7a4ab8",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "b70d279a2e844516bf3de82932a92fb9040fbf28",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Doors",
+          "text": "Swings wait for their leaves to be drawn. Respawns, reloads and undo avoid open leaves; door placement checks players and animals. A server refusal restores the whole door.",
+          "refs": [
+            {
+              "commit": "4e4d908f7f2bdc1a4d9a2dea74d8560f675363af",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "1c6dc40ac2b281129cccc8f6efb51aeb3a173ddd",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "f6dde4cae8f449479a2f87ee8fd947cd844d4305",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Crafting and mining",
+          "text": "X repeats the recipe selected on the Craft tab instead of spending resources on the first affordable recipe. Mining blows chip the struck face and cracks advance as the block is worked.",
+          "refs": [
+            {
+              "commit": "a6d564956c5c693a6e8b8c2adf728ec202e39549",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "65a0f51fa45b634adca1d4ced41d321b01531950",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "4147f1941ae0270af98e1558b319040ab3382eea",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Drinking and projectiles",
+          "text": "The drinking line checks each crossed voxel, including diagonal obstructions. A throw or shot that cannot launch keeps its item or ammunition. Projectile rest is determined by speed rather than a single step’s distance.",
+          "refs": [
+            {
+              "commit": "da52f269777a468c634fae938f0694dd5e3827b6",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "a9d24cec238a2acca1247f54d1ac1eb35e57fe24",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Camera and held items",
+          "text": "Newly equipped items rise into view. Disabling View bob also stills walking sway. Speed FOV and damage dips use real frame time, keeping their pace below 20 FPS.",
+          "refs": [
+            {
+              "commit": "301e28f654f2c8d01253ed5cd7f5a3ac8fdedcb1",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "5856103c4d15fd12a2118e72d0b51bbb9f074895",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Menus and pictures",
+          "text": "World and structure searches share Unicode-aware case folding, structure updates find the exact existing file, and world pictures move off the frame’s GPU wait and disk-writing path. Item icon tiles stand upright.",
+          "refs": [
+            {
+              "commit": "ee5ffbb0b4f35c8b64b8dc11db26ea075ac108dd",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "5bd2b06f62fcca09e2a54a6268061fa2f0e1cb4b",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "51dc8961edea86d8de5ec5d1dd921702541f719f",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "a3e6f4647b418f0ea9061f3d30975f8cd89b45ea",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "6b528554a95b01ddf3cdb86584873f8ad17aaadc",
+              "date": "2026-10-13"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Streaming and joining",
+          "text": "Generation and map-detail workers recover from panics; synchronous generation fallback is bounded. Silent server addresses cannot each consume the whole join deadline.",
+          "refs": [
+            {
+              "commit": "05b740d84b538c91870ff6dbf9ccdeec006e034e",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "fb2dea334131859c6d9538057f0821643c22ac54",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "669db134cb464b3b553a9c5c62856bf0c5524232",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "9237a4301d11bfd130ffb42d3dc8734a78ec7dbf",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "70fcc43e2bc311218476d99f8a7f511c1a8453a1",
+              "date": "2026-10-13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-12",
+      "source": "game",
+      "date": "2026-10-12",
+      "title": "Doors, chests, blueprints and LAN hosting",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Doors and storage",
+          "text": "Wooden doors can be hung, opened, closed and removed whole. Wooden chests can be placed, filled, opened and taken up. Open and close sounds accompany both.",
+          "refs": [
+            {
+              "commit": "0a369aee4e32a4df76a0941f49484d7619fba4cb",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "a1bd3df1acc67e137a46d7fa39838abd2c744c4a",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "ab5288196af6d20eeceabec375522f8360f949f6",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "1e2ab1552b7183518cc26518f96347054f0c654f",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Doors",
+          "text": "Full-width leaves swing away from the opener and animate around their hinges. Open leaves block bodies and placements, avoid one another, and stay out of ordinary copying and blueprint capture.",
+          "refs": [
+            {
+              "commit": "aabd3174cf1a307daaeead4785c851f7395cd63b",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "9152d0391c727cf0c15b10111f1281be86cfd1ea",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "ca44376272bf09cd8252a93735f805ffc3e6a828",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "550a0189a865712342900da38ff28aaf939a6054",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "5d4d87c38c7d014a936e6344c4c8bf8732109adb",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Blueprints",
+          "text": "The Blueprint tool captures player builds into portable files, previews a turned and raised ghost, and builds from it. Survival builds spend the listed materials; servers apply accepted builds as one shared transaction.",
+          "refs": [
+            {
+              "commit": "99cc8a687754114f8d358d9a7e795bbe5aabe749",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "316eca2b195c88a8b1cdd32c4f4f94dd60530231",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "e19e68889bf6a60f58b1343656d534e685e054ea",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "960f2c78985950d67758bfdbdef13f142c4f69a5",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "acedd430a02bb8d5135e29b6cb38bcc81f3c563e",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Structure library",
+          "text": "Saved structures have names and real preview pictures. Capture corners show an outline, placed structures can be updated, and the library can be searched by name.",
+          "refs": [
+            {
+              "commit": "9f915bcbd7c4fc5403c55adc715f2c2b1ac1d02c",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "716d72c70f02b10f1e475606ed68ed246a499431",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "8ef8aed479870157629e0f4a9c1b468cc1b34062",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Blueprints",
+          "text": "The tool keeps the saved selection, restores flowing water on undo, skips unreadable library entries, charges fibre for flax and refuses builds beyond the world edge. Updating a file refuses to overwrite another instance’s changes.",
+          "refs": [
+            {
+              "commit": "74fb7a7524c2492fe2c4bc5e39ad09f69c41811c",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "8f7e9fd17b9365dce370be8b75c2c28c6ab249f8",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "7bc6f7d543ad77bbdd55e8842949aa4bd5eaf6e1",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Structure workshop",
+          "text": "The main menu opens a separate creative workshop. The later flat-world change supplies continuous ground; old elevated workshops keep their original terrain and builds and remain available in Worlds.",
+          "refs": [
+            {
+              "commit": "484c85291d52df6d9420a9df27bdf83f0dea61b7",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "1b5c331296b9e84325252eb1c48b8d9a58eb76db",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "fb388cdea9b5beae20dad0d62dbcf4a639cc8998",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "f8dec3b526371af258b3cefbd5f5b570fb54773e",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Worlds",
+          "text": "Favourites move starred worlds to the top. Saved worlds gain their own last-played pictures, also used by the main menu and loading screen.",
+          "refs": [
+            {
+              "commit": "7a7396af3fe995fcfedcc75c129a055823a24cbd",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "a0650515f4304538a655ae120bce6e40274d26f4",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "f3143de921923035d40cdcb6942357049422fb08",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "ea67abf42fb651783eb6e77937ea0b8194390be9",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "The Multiplayer menu can join a typed or remembered server and host the saved world currently in play on the LAN. Hosting runs separately from the client’s frame loop.",
+          "refs": [
+            {
+              "commit": "3f7d4c4deee167e65df066406225f93400e076f5",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "8e03a3b73b6b24056362a9e1d55614fe9c8be3df",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "df3722800f94cecead5d3f28cba8811891af8333",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "fb873488f320fcf0bd62178f84684506fafc3968",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Hosted saves",
+          "text": "Server saving moves off the simulation thread. Hosted worlds retain chests, boats and the owner’s player; a follow-up preserves the owner’s carried inventory and tools when saving.",
+          "refs": [
+            {
+              "commit": "26d0f007b79ec3d84acb9aa7c51ecf813ffeec5e",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "ed9c5dd8dd8d9e35262506b79bcfbbb47a32cdcb",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "1fd84b331d9aab280b7aece7e9c9a871cb9bd179",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "8e4963a4906dbe407ffc9fa7608e76b551eaddcc",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Joining and building online",
+          "text": "Escape cancels a join; name lookup shares the join deadline. Unreadable remembered-server lists are preserved. Server edits and raises protect whole doors and chests, and nearby water is not delayed by distant openings.",
+          "refs": [
+            {
+              "commit": "7643e14c1ea665aea879945ea5de9c03f6524d7b",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "bfdbebc7242b2443c1c347e620a1a3d41a75db4f",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "e1aac4ec7696ac3847bd353a1f59ad62845f5b01",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "5edfb5a4e09daefe5689d7bbd9bc84fdf950ba5b",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Inventory and gathering",
+          "text": "The creative catalogue fills its panel with more rows. Carried items use an icon grid, gathered items appear in a collection feed, and the carrying limit is shown as 1000 Capacity. Mixed recipes reserve exact materials before using general ingredients.",
+          "refs": [
+            {
+              "commit": "4bd6541a152dcd46572ad487edeb45a0f43664b6",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "ddc0042865f72086c06996be4878d806d102ad85",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "b261ea8641f7de7b95222c55bf722b986eed02e0",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "4f767d8fac0afb9335a1ce4e778e1506e5466d3a",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "2987e38fb50dac5e91e8945219ab5e33473007ce",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Map and terrain",
+          "text": "The player marker becomes an outlined chevron, the compact map scrolls smoothly, and a detail-boundary fix prevents sky flickering through ground.",
+          "refs": [
+            {
+              "commit": "c6ee809f4e4df6194a4c4eda2756d9eb888d1347",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "529debe5478c4a0fb64abb53d3392b5a1c04ea49",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "88bb9052ada3d5022c63d2581e268c2a26b2ccce",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Materials",
+          "text": "Marble, polished marble, marble bricks and carved marble join the block registry. Block names are simplified for players.",
+          "refs": [
+            {
+              "commit": "650bf2d53d7802ff1b9cc8059072b3d8fb8360fe",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "741d883bad3b97798a91db17b624563fd2d8ff7e",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Swimming animals",
+          "text": "Fish and whales share a continuous effort-driven stroke phase. Whales, orcas and sharks cruise through open water; fleeing fish and surfacing whales receive obstacle and motion fixes.",
+          "refs": [
+            {
+              "commit": "d0a4ad15526751b168aa86f8c82f91aa15c3c89b",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "1817ade619073de4e3d7417aa61482e5551771f9",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "609e33df33176e54b28ece56b007f7d90cb6b2e4",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Seasons and drinking",
+          "text": "Season choice no longer changes survival air temperature. A solid wall blocks drinking from water behind it.",
+          "refs": [
+            {
+              "commit": "150cd607b946c10120643b88f3fe451b4335933d",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "a5e3410be87b16f51f2a1014e260953044966239",
+              "date": "2026-10-12"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Hands and sound",
+          "text": "Free hands and held blocks gain plain hands and a punch swing. Mining blows make contact sounds; player damage, water entry and arrow impacts receive sound adjustments.",
+          "refs": [
+            {
+              "commit": "d1def9ef2e6a231ae4554d3eb390e356373f8058",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "e43e321773f2907e9f6082358cd0340b223378dd",
+              "date": "2026-10-12"
+            },
+            {
+              "commit": "3af3d3e585a89affbe11ccafe657a166a5bf98c9",
+              "date": "2026-10-12"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-11",
+      "source": "game",
+      "date": "2026-10-11",
+      "title": "Building colours and aiming feedback",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Materials",
+          "text": "Blush plaster, rose boards and fuchsia glazed tile join the base material registry.",
+          "refs": [
+            {
+              "commit": "552077c0b5b22437249d864465f7e4d0a7d5bb3a",
+              "date": "2026-10-11"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Camera and interface",
+          "text": "The window title becomes voxelgame. The target card moves to the right, with adjustable Speed FOV and Damage bob. The four-line crosshair follows actual dispersion and inverts the scene beneath it.",
+          "refs": [
+            {
+              "commit": "65aef0e19f5d71a9f915ae1c055739dfff20c275",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "6acf33861ff778321ac8ab10c534f804a23194c9",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "10d7ea4b5745dea5b1aad3d488a49ba6ce58afb7",
+              "date": "2026-10-11"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Wildlife",
+          "text": "Fox and maned wolf proportions are revised on a shared canid model; elephant lower legs join their upper legs at the knees.",
+          "refs": [
+            {
+              "commit": "f61273a67db575904dd2d99a4ad38a5569eac058",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "f17b7cf20d3c8af0b8f29ea7d4483a83fbbbc6e4",
+              "date": "2026-10-11"
+            },
+            {
+              "commit": "c2b37ef95c81103a5658428c00a41df2f866d9de",
+              "date": "2026-10-11"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Launcher",
+          "text": "Changes to embedded colour palettes now trigger a rebuild before launch.",
+          "refs": [
+            {
+              "commit": "b37b12db4d669b7dde9765062f0a11f0078a3838",
+              "date": "2026-10-11"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-10",
+      "source": "game",
+      "date": "2026-10-10",
+      "title": "Original material artwork",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Textures",
+          "text": "Thirty-two common textures are replaced with original artwork, with retained source and conversion provenance.",
+          "refs": [
+            {
+              "commit": "b0d5ac9e2d0019cf0c23b4ed9967b7706a2aead0",
+              "date": "2026-10-10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-08",
+      "source": "game",
+      "date": "2026-10-08",
+      "title": "Desktop installation",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Installation",
+          "text": "Guided source installers are added for Linux, macOS and Windows. This records the installer code landing, not validation of every platform.",
+          "refs": [
+            {
+              "commit": "42fd500cf689df168951e943285f133bb6ef3789",
+              "date": "2026-10-08"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-06",
+      "source": "game",
+      "date": "2026-10-06",
+      "title": "Safer rest points and interaction",
+      "entries": [
+        {
+          "kind": "Fixed",
+          "area": "Survival",
+          "text": "Respawning finds a nearby usable spot when a rest point is flooded or built over. Drinking measures reach to the nearest water, and settled dynamite falls again if its support disappears.",
+          "refs": [
+            {
+              "commit": "3829f805794a47e62ccb1cc51f7f29bf2fe1180f",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "2554fd0964603492fa9e74d81aed41bbd62903d8",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "78b45ed104822835c3beba12e0b4e40f1f7cf7bb",
+              "date": "2026-10-06"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Input and display",
+          "text": "Invalid look values no longer spoil the camera, window sizes respect the graphics adapter’s texture limit, and zero-time updates preserve ground support.",
+          "refs": [
+            {
+              "commit": "38fe584b0b12fe3da7cb6f262ffa9bc211f9dd7e",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "887a4c8124f91495510537372a6e54d0002457c0",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "0646c21b2605010d796fff35793acb5b960db89a",
+              "date": "2026-10-06"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Persistence and connections",
+          "text": "Player records and world-name reads are bounded. Server trust errors identify the saved pin associated with the connection.",
+          "refs": [
+            {
+              "commit": "7459f16f4578d2505cd018ba555b135b656681f2",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "1ddd9ed55a7bf2ab2240a98f520cb5e94f9d2930",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "fe41fc7828132a5d4f39dd0dd80a66a68df1b456",
+              "date": "2026-10-06"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Wildlife",
+          "text": "Snow leopard, seal and maned wolf models are revised. Fish use a shared articulated swimming rig.",
+          "refs": [
+            {
+              "commit": "274b5e9280fe741f523a13617d9672fb37803e34",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "eab6bcd1f26f1b32ca5be94d0fff52420ec2722f",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "15bbdf1889d8062a4b5cc1eb8a6ead93283aae10",
+              "date": "2026-10-06"
+            },
+            {
+              "commit": "a73a684715779c10edd6671fa668f81b6e4c11e6",
+              "date": "2026-10-06"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-05",
+      "source": "game",
+      "date": "2026-10-05",
+      "title": "Chat, connection recovery and animal revisions",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Players can type chat and read received messages above the hotbar. Map travel is judged by the server. Returning to a local world leaves the server, while opening menus keeps a connected game ticking.",
+          "refs": [
+            {
+              "commit": "0893de50941a6c5df0f6cef0aacb52d93af4b9d4",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "c8894494e596f0ccccc0a543e685e85eab5dfd61",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "845ca1f9822ebb603815e847dc88f513591abfad",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "4ba2b1d750fb64fc86db699f6d1bee3615c20c1f",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "5306b32ccf49d78e721e21d7830f1d4d9e1f35a3",
+              "date": "2026-10-05"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Connections",
+          "text": "Joining tries resolved addresses within a deadline and stops at a changed certificate. Trust follows the typed server name. Refused edits are restored, edit sending follows server allowances, and leaving preserves the player’s final edits.",
+          "refs": [
+            {
+              "commit": "df4af497cdf82bd12aa9ec06f937907d46d420cc",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "6681743bbaa254632cc92dfac3d4d5aeb2bb147f",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "5da745dae068b57ba66fb1d80e7d4d54f6f40496",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "ce2fe7e80cab5e048a59ceef2f76bdb93c9585db",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "629847370046aaa2230b49faacf45c83514b0ad4",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "e25c08db1df889038561f8be6b5fd1484e05748e",
+              "date": "2026-10-05"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "World and saving",
+          "text": "Flowing water stays inside save limits. Connected clients cannot write local world saves. Servers report a failed final save instead of exiting as though it succeeded.",
+          "refs": [
+            {
+              "commit": "717065696dd80a1cd5e3273c964024412ec73f90",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "ae1c729993197ce1cec1d9185957a7b58563aacb",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "d6f60d90c7b96fa93d719b0d527a16c152d53a28",
+              "date": "2026-10-05"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Animal models",
+          "text": "Revisions cover the horse, bison, shoebill, elephant, Tasmanian devil, frilled shark, hammerhead, bat, panther, tiger, hummingbird, sunbird and fly.",
+          "refs": [
+            {
+              "commit": "f3f2d8905e7da47d3b8b97ef283b5ed177c53fff",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "25d8d41226e7917f0aa342129a8f2e2a9042e555",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "1378e0c32d157b5d9051d94e092717bad70207c3",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "8b757f43af1816673a155c29fa7ed1ddbb2cc7e1",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "191c353f98fcbaa0e5be5e90c3e76cad40ba2ef5",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "5007953d33619a2c2e5907c8fac515241d59bd82",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "e55d04f2501e4c04f6d8093f050b85cf1642857f",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "1e75328d71eb8a6ff2016734a506987438ba1783",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "52f820ffe41b03fb94ab82495860fa2f1400f413",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "ae3a579c432a9f1588c539cace0c0c20f7ac8e58",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "a1ae13cf4e2a326217adf875ac8b4ebafc8e3dfd",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "8f273441b448d52893b81fc43584c5bafdf9f611",
+              "date": "2026-10-05"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Animal movement",
+          "text": "Planted feet stay still during stops and starts. Hoofed animals gain breathing and blinks; grounded walkers avoid tilting toward steps outside their bodies. Shared terrain checks reduce repeated work.",
+          "refs": [
+            {
+              "commit": "766fbe253b7dea41ed736679a782fee4343d3804",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "b7e0245600560cc3d6b7d917c5c4f3f3fa63e578",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "6dfda51de839c5c81b975f095e80faedd3ce5cf1",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "9f96d178239d0f54d73c3deee45e49b4b6919693",
+              "date": "2026-10-05"
+            },
+            {
+              "commit": "3fecf71557231fddbd1f8f3a80fd850005235e60",
+              "date": "2026-10-05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-04",
+      "source": "game",
+      "date": "2026-10-04",
+      "title": "World browsing and the first networked game",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Worlds and maps",
+          "text": "Saved worlds can be searched and require a held confirmation to delete. The map gains a destination marker and scale bar.",
+          "refs": [
+            {
+              "commit": "c2809a6bbd5031b0c916b49b3e2ff365cac95843",
+              "date": "2026-10-04"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "A dedicated server and game client exchange movement, chat infrastructure, block edits and environment state over an authenticated connection. Admission checks the terrain, build and tick rate; clients pin the server certificate.",
+          "refs": [
+            {
+              "commit": "7c23c060ca4ec7bd5021522928b49dd0eedf438e",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "d6043b71a5c836bfa74db0620ca5d81cd556926f",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "4c8170fc17cc5ab75899e56abbceafedf124bbb9",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "6dd7dbc97aa36225f977341b871436a8fbe3679f",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "10e3ae8dfc2b3e71a51ee4a3138e696f259821ef",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "74ce3dd616fd58981c188bb6dbbc01ca0828a62c",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "d9fa4ff8a673f48fd01a1aa2d914c36303994713",
+              "date": "2026-10-04"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Movement",
+          "text": "Local movement runs in fixed ticks with blended camera presentation. Network movement receives prediction and correction smoothing.",
+          "refs": [
+            {
+              "commit": "8753dada58fed1b7d87b1f6387214dd9a34c66bb",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "3ddfd0254e94ad7f73e7940907b534cb08e84fc8",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "62cfd16896e940ee407935d3743d9fdfcb6d8850",
+              "date": "2026-10-04"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving and servers",
+          "text": "Loading rejects duplicate edits and unsafe coordinates. Server edits are limited and validated; interrupt and termination signals save before stopping.",
+          "refs": [
+            {
+              "commit": "022f3570e56c1804c7f21a4d06f47b6b8d97a21c",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "d86b12d964c2eb1c6570ffe72e7354300dca671f",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "28ec1c7aeb757435e3f603e8374b31d6d8bdaef9",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "e88b36e85c43d37e28e476d1203b308a7cf7b0a9",
+              "date": "2026-10-04"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Streaming",
+          "text": "Terrain queued to a disconnected generation worker can recover. Distant terrain avoids allocation stalls, and flying players receive their own nearby chunks ahead of the ground band.",
+          "refs": [
+            {
+              "commit": "f3717fa331978542eea5817985a64f39e2ee035e",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "acfc8e704613d8848c0789a8403dc5a25a98684f",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "304fbdfc9d1be442201201ea4c495220147ca9a0",
+              "date": "2026-10-04"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Animal movement",
+          "text": "Fish gain a body wave; snakes slither along a path. Seals, octopuses, mudskippers, slugs, crabs and frogs receive distinct movement. Four-legged walkers and reptiles use rigid legs with planted feet.",
+          "refs": [
+            {
+              "commit": "b704a5d6a275a22df50e0871f2eaa16c074a566e",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "f1df05dee3a0e6a9b4995f532f37b7348efa0098",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "a3fecfbb60a59a06267b06f7390be67c22aec9f0",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "66d89d67b4352d002641233bac52c4b14c099000",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "07480a92f183d93e1ded4131ec533ec9d3751d87",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "f738c9d415db1b7ae00de836848221c32ee9fa47",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "90c615210beb4fe45f65e7dac45aa9c8c046c7c5",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "1688e8c0d621641a589f9b8f9cd09c7ac22332fb",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "01e121775bfe10e8c39db62b8f7c64705afafe47",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "0dccff4e8c5f15fed1f8aa01a7a0b8dea5a1a484",
+              "date": "2026-10-04"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Animal models",
+          "text": "Model and coat revisions cover the fox, hippo, bear, chicken, orca, buffalo, wolf, gorilla, potoo, lobster, lion, boar, butterfly, rabbit, crow and goose.",
+          "refs": [
+            {
+              "commit": "e143e3d61b1551d8e536a8857e73674f61b28ef8",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "a4343b9ee4bb19de86021214b06b054de19cab89",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "8901adea1791217e321d4b111461f7c8e081939f",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "9adc2c1859d958135d2ef7867eab08cbb733eb9c",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "6ac17002028e0bfa6e526d9cbc940d858a659f9c",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "06ddd11dbb0f3bfb0ceb4d8e339612b9e9ccf93b",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "eb6378242b0d9acc61b5aa264d6ac79fa4ad240e",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "c04bbae73856d50a00b7566b7d6cb48f4529dc8b",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "8d66544a1a54a3dbc928c442e764c157f0ce60cc",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "ed078bffe0830bccf7c771e6acc368c137271cbd",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "5e6dfb405972bd974511092ac2c1fb804b35b64f",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "60b895319b1848c50e6fbd76c4580e84a6ca9e56",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "9dcee7507961f3b406189efa5cad3774fd1b88bf",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "e57bfec6293d741d15e7d40087c1b7d516152496",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "7043085f4528287ec1f634c8daa86bdf9d92e951",
+              "date": "2026-10-04"
+            },
+            {
+              "commit": "cef2ad2f4a0fbb4a990679db6ac2c8f623f1ef88",
+              "date": "2026-10-04"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-10-01",
+      "source": "game",
+      "date": "2026-10-01",
+      "title": "Building workspaces and sailing",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Building and exploration",
+          "text": "Inventory, Craft, Build, Home and Journal workspaces organise tools and records. Creative brushes, home storage, saved palettes and expedition records join the sandbox.",
+          "refs": [
+            {
+              "commit": "b387a2eb3c30827d0feb53563d758008abf30682",
+              "date": "2026-10-01"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Sailing",
+          "text": "The craftable sailing dinghy has wind-driven movement, a walkable deck, moving sails and rudder, water-aware launching and saved boat state.",
+          "refs": [
+            {
+              "commit": "89eaf74d52435030e6e47f41d62674f4c087e718",
+              "date": "2026-10-01"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-09-30",
+      "source": "game",
+      "date": "2026-09-30",
+      "title": "Longer horizons and steadier streaming",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Rendering",
+          "text": "Terrain streaming reuses outgoing meshes and cancels obsolete work. Detail selection uses three-dimensional distance; fixes cover surface transitions, ice, cactus joins and excavated structures. Lag reports and runtime effort charts help diagnose slow frames.",
+          "refs": [
+            {
+              "commit": "70e15204b2505cc1adaaedda489d9bbb0d782d56",
+              "date": "2026-09-30"
+            }
+          ]
+        },
+        {
+          "kind": "Added",
+          "area": "Horizon",
+          "text": "A saved 512-chunk horizon option extends the distant view to roughly 8 km. Remote terrain keeps coverage while changing detail, and wildlife spawning waits for resident terrain to avoid generation spikes.",
+          "refs": [
+            {
+              "commit": "7f21be349d44ac080e496540427e03f28706c09d",
+              "date": "2026-09-30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-09-28",
+      "source": "game",
+      "date": "2026-09-28",
+      "title": "Study scenes, loading and wildlife",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Study Grove",
+          "text": "Study timers gain animated scenes, a real-terrain camera, weather, music and session cues.",
+          "refs": [
+            {
+              "commit": "ff38fb7dcf4dd98726af375cbb46cb18ea6cdf1b",
+              "date": "2026-09-28"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "World presentation",
+          "text": "Loading gains staged feedback and arriving chunks can fade in. Tree crowns, ice spires, leaf colours and cloud shadows are revised; streaming reuses cached surface bounds.",
+          "refs": [
+            {
+              "commit": "ff38fb7dcf4dd98726af375cbb46cb18ea6cdf1b",
+              "date": "2026-09-28"
+            },
+            {
+              "commit": "437cb55ffa23073f21567da93b9d2bafb56a2601",
+              "date": "2026-09-28"
+            },
+            {
+              "commit": "1a21c60f3894a52f7f2cdb3c77b3f27ab0241750",
+              "date": "2026-09-28"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Wildlife and terrain",
+          "text": "Animals receive terrain-aware support and rigid limbs on steps, with bounded obstacle jumps. Fixes also cover high-altitude clipping, horizon seams, structure lighting and edited water or ice surfaces.",
+          "refs": [
+            {
+              "commit": "56185e4fd9cfe059ea439bd79c9ed392ce21b50b",
+              "date": "2026-09-28"
+            },
+            {
+              "commit": "88cd0458a897687d256d9eb8933d5f3dc99f005a",
+              "date": "2026-09-28"
+            },
+            {
+              "commit": "1a21c60f3894a52f7f2cdb3c77b3f27ab0241750",
+              "date": "2026-09-28"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-09-26",
+      "source": "game",
+      "date": "2026-09-26",
+      "title": "Exploration and movement",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Exploration",
+          "text": "Biome and landmark finding, ecological ambience, swimming, crawling, third-person cameras and a character preview enter the recorded history.",
+          "refs": [
+            {
+              "commit": "bc28842b1a2ff126e8b672c0246fcb10b5556815",
+              "date": "2026-09-26"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Terrain",
+          "text": "Mountains, island relief, biome coverage, terrain transitions, lighting and water are revised. Existing saves retain their terrain generator version.",
+          "refs": [
+            {
+              "commit": "bc28842b1a2ff126e8b672c0246fcb10b5556815",
+              "date": "2026-09-26"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-09-24",
+      "source": "game",
+      "date": "2026-09-24",
+      "title": "Rendering and weather snapshot",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "World presentation",
+          "text": "A combined snapshot updates rendering, terrain detail transitions and weather. Its broad commit groups several changes; it is not a separately numbered release.",
+          "refs": [
+            {
+              "commit": "24fd4d1d6683abf0884903d63d9e4571055e7cd0",
+              "date": "2026-09-24"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-09-23",
+      "source": "game",
+      "date": "2026-09-23",
+      "title": "Clearer lighting",
+      "entries": [
+        {
+          "kind": "Fixed",
+          "area": "Rendering",
+          "text": "Sun glare, night visibility and noisy terrain textures are corrected in this source snapshot.",
+          "refs": [
+            {
+              "commit": "ebd4fea6c25ad5c82d38b729a44643a1074fee25",
+              "date": "2026-09-23"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-08-18",
+      "source": "game",
+      "date": "2026-08-18",
+      "title": "Material pieces, crafting and water",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Crafting",
+          "text": "Mining and placement count half-metre pieces: eight pieces fill a solid one-metre cell. Recipes expand into four sections, with charcoal, cooked meat, flasks, fired clay, glass, plaster and dressed stone. Tree drops and grouped ingredient spending are fixed in release builds.",
+          "refs": [
+            {
+              "commit": "34b5574b36acd461e850e1f114385602e2df809c",
+              "date": "2026-08-18"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Lighting",
+          "text": "Three stored lighting tiers replace the earlier on/off choice. Existing saved choices retain their meaning. Corner lighting, leaf transmission, cloud shadows, light shafts and underwater caustics are revised.",
+          "refs": [
+            {
+              "commit": "34b5574b36acd461e850e1f114385602e2df809c",
+              "date": "2026-08-18"
+            },
+            {
+              "commit": "f2d1a98c090c1b8f866140b8ada3b6ecb9ffb391",
+              "date": "2026-08-18"
+            }
+          ]
+        },
+        {
+          "kind": "Fixed",
+          "area": "Water",
+          "text": "Surf follows the shore, foam travels with waves, and neighbouring water faces share their displacement inputs to avoid cracks. The lighter rendering tier reduces the cost of traced shadows.",
+          "refs": [
+            {
+              "commit": "22c5dd798b1b0dc5587ea93621481772c6079ead",
+              "date": "2026-08-18"
+            },
+            {
+              "commit": "3e2cf803b0e39fbe1807bc7c39c4df6779954af6",
+              "date": "2026-08-18"
+            },
+            {
+              "commit": "8b3da153e53c066ddec7b08ca1ecb6857e37c61d",
+              "date": "2026-08-18"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-08-17",
+      "source": "game",
+      "date": "2026-08-17",
+      "title": "Distant views and varied trees",
+      "entries": [
+        {
+          "kind": "Fixed",
+          "area": "Rendering",
+          "text": "Camera-relative rendering addresses distant terrain distortion and moving sea surfaces far from the origin. Layered haze replaces an even fog blanket, and terrain generation moves onto workers.",
+          "refs": [
+            {
+              "commit": "9c35dc37dbca966837ae47e6efa224341db00932",
+              "date": "2026-08-17"
+            }
+          ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Nature",
+          "text": "Trees gain nine branching architectures across twenty families, with variation between individual trees.",
+          "refs": [
+            {
+              "commit": "9c35dc37dbca966837ae47e6efa224341db00932",
+              "date": "2026-08-17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "game-2026-08-16",
+      "source": "game",
+      "date": "2026-08-16",
+      "title": "The first source snapshot",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "World and survival",
+          "text": "The first recorded sandbox has procedural terrain, a distant terrain horizon, connected trees, gentle survival and an inventory limited by carrying capacity.",
+          "refs": [
+            {
+              "commit": "6c39b717820ae80f3fd369fdcc406f693bdc8652",
+              "date": "2026-08-16"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

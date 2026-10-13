@@ -5742,6 +5742,10 @@
  ],
  "method": [
   {
+   "title": "Dated change history",
+   "text": "The game and wiki changelogs separately review their available source histories through 13 October 2026 (game 5856103c; wiki 17fbfdb3). They group additions, changes and fixes and record save/network compatibility. This source-history review does not replace the older feature audit or the dates on individual guide and gallery receipts."
+  },
+  {
    "title": "Dated gallery images",
    "text": "Gallery images keep their original capture dates. Responsive biome, animal, island and guide previews come from the same recorded source images. Gallery views and screenshot links open the originals. A lighter preview does not represent a newer game capture."
   },

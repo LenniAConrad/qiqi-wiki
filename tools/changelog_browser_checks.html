@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<html lang="en"><meta charset="utf-8"><title>Changelog browser checks</title>
+<style>body{font:14px monospace}iframe{display:block;width:1440px;height:900px;border:0}pre{white-space:pre-wrap}</style>
+<h1>Changelog browser checks</h1><pre id="report">Running…</pre><iframe title="History under test"></iframe>
+<script>
+'use strict';
+const frame=document.querySelector('iframe'),report=document.querySelector('#report'),results=[];
+const delay=()=>new Promise(resolve=>setTimeout(resolve,80));
+function check(ok,message){results.push({passed:!!ok,message});if(!ok)throw Error(message);}
+function open(src){return new Promise((resolve,reject)=>{
+ const timer=setTimeout(()=>reject(Error('Load timed out: '+src)),30000);
+ frame.onload=()=>{clearTimeout(timer);resolve(frame.contentDocument);};frame.src=src;
+});}
+(async()=>{try{
+ for(const [page,count,first] of [['changelog.html',17,'game-2026-08-16'],['changelog-wiki.html',4,'wiki-2026-10-09']]){
+  const d=await open('../'+page);
+  check(d.querySelectorAll('.change-date').length===count,page+': complete dated groups');
+  check(!!d.getElementById(first),page+': earliest source history present');
+  check(d.querySelector('.change-switch [aria-current=page]').getAttribute('href')===page,page+': active history');
+  check(d.querySelector('.change-cutoff').textContent.includes('13 October 2026'),page+': explicit cutoff');
+  check(d.images.length===0,page+': no image payload');
+  check(![...d.scripts].some(s=>/data\//.test(s.getAttribute('src'))),page+': no runtime dataset');
+  const anchors=[...d.querySelectorAll('nav[aria-label="On this page"] a')];
+  check(anchors.length>=count,page+': date navigation');
+  check(anchors.every(a=>d.getElementById(a.hash.slice(1))),page+': every date anchor resolves');
+  const source=d.querySelector('.change-sources');source.querySelector('summary').click();
+  check(source.open&&source.querySelectorAll('li').length>0,page+': source disclosure opens');
+  source.querySelector('summary').click();check(!source.open,page+': source disclosure closes');
+  for(const width of [1440,820,390,320]){
+   frame.style.width=width+'px';await delay();
+   check(d.documentElement.scrollWidth<=width+1,page+': no overflow at '+width);
+  }
+  if(page==='changelog.html'){
+   const text=d.getElementById('compatibility').textContent;
+   check(text.includes('format 29')&&text.includes('protocol 16')&&text.includes('version 1'),'Separate current compatibility formats');
+   check(!d.querySelector('a[href^="https://github.com/LenniAConrad/qiqi/commit/"]'),'Unavailable game history has no dead public commit links');
+  }else check(!!d.querySelector('a[href^="https://github.com/LenniAConrad/qiqi-wiki/commit/"]'),'Public wiki source links present');
+ }
+ const d=await open('../index.html'),w=frame.contentWindow,input=d.querySelector('#wiki-search');
+ check(!!d.querySelector('.wiki-nav a[href="changelog.html"]')&&!!d.querySelector('.home-changelog a'),'Home and main navigation expose history');
+ input.value='changelog';input.dispatchEvent(new w.Event('input',{bubbles:true}));
+ check([...d.querySelectorAll('#search-results a')].some(a=>a.getAttribute('href')==='changelog.html'),'Search finds game history');
+ check([...d.querySelectorAll('#search-results a')].some(a=>a.getAttribute('href')==='changelog-wiki.html'),'Search finds wiki history');
+ input.value='milestones shared doors';input.dispatchEvent(new w.Event('input',{bubbles:true}));
+ check([...d.querySelectorAll('#search-results a')].some(a=>a.hash==='#game-2026-10-13'),'Search reaches dated changes');
+ window.__RESULT={passed:true,checks:results};
+}catch(error){window.__RESULT={passed:false,error:String(error),checks:results};}
+report.textContent=JSON.stringify(window.__RESULT,null,2);
+})();
+</script></html>

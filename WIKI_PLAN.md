@@ -186,3 +186,26 @@ Initial quality-92 guide previews could be heavier than their sources; inspected
 quality-86 versions resolved that, and a regression rejects larger derivatives.
 Fresh game captures, habitat scenes, the changelog and its loading measurements,
 CI maintenance and the final handoff remain separate overhaul work.
+
+## Game and wiki history — 13 October 2026
+
+The main navigation and home link two dated changelogs. The game chronology
+reviews the available 704-commit interval from `6c39b717` (16 August) through
+`5856103c` (13 October); wiki history reviews 93 commits from `ae659a32`
+(9 October) through `17fbfdb3` (13 October). Eighty-two curated change groups
+cover the recorded period, with source identifiers, additions/changes/fixes
+and separate compatibility notes. This is a source review, not a new play test.
+
+Compatibility distinguishes world-save format 29, network protocol 16 and
+blueprint format 1. Earlier save and network changes keep their own dates;
+legacy elevated workshops remain separate from new flat workshops. Neither
+checkout has tags. The public game release endpoint returned 404; wiki releases
+were empty. Entries therefore use commit dates without invented release names.
+Coarse early snapshots, omitted internal/optional content and the cutoff are
+explicit. The older feature and gallery receipts are unchanged.
+
+`data/changelog.json`, `tools/build_changelog.py` and
+`tools/validate_changelog.py` supply deterministic HTML and checked provenance.
+README describes incremental maintenance. The pages work without JavaScript or
+images; source disclosures, date links and switching use native HTML. Browser,
+payload and actual Pages receipts are required before closing this slice.
