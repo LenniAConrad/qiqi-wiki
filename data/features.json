@@ -1155,7 +1155,8 @@
     "crates/voxelgame-core/src/game/consumables.rs:144-152 — a solid block between the player and the water stops the T drink",
     "crates/voxelgame-core/src/game/consumables.rs:148-172 — fills every empty flask that fits",
     "crates/voxelgame-core/src/game.rs:1121-1123 — T handled in survival",
-    "crates/voxelgame-core/src/game/tests.rs:4235 — flask filling tests"
+    "crates/voxelgame-core/src/game/tests.rs:4235 — flask filling tests",
+    "crates/voxelgame-core/src/game/consumables.rs — the line to the water walks every voxel it enters, so a block touching the line only at a corner or edge blocks the drink (da52f269)"
    ],
    "notes": "More flasks: 'Blow glass flasks' (8 Glass + 1 Charcoal -> 2 Empty flasks). Each filled flask takes 0.75 capacity vs 0.30 empty, so filling needs pack room.",
    "guide": {
@@ -2752,7 +2753,8 @@
     "crates/voxelgame-core/src/game/ranged_input.rs:8-107 — wind-up; survival spends one stick; 'Too hasty — wind up before releasing'; 'Dynamite away — take cover!'",
     "crates/voxelgame-core/src/projectile.rs:1029-1036 — settles just short of whatever surface it hits",
     "crates/voxelgame-core/src/projectile.rs:893-902 — falls again if its support is removed",
-    "crates/voxelgame-core/src/projectile.rs:983-990 — falls again if its support is removed"
+    "crates/voxelgame-core/src/projectile.rs:983-990 — falls again if its support is removed",
+    "crates/voxelgame-core/src/game/ranged_input.rs — a stick that cannot fly is not spent and says so (da52f269)"
    ],
    "notes": "Creative throws are unlimited; survival spends one stick per throw. You cannot place blocks while dynamite is in hand. Refused on multiplayer servers. Opening a menu cancels a wind-up.",
    "guide": {
@@ -3835,7 +3837,8 @@
    "evidence": [
     "crates/voxelgame-core/src/game/ranged_input.rs:131-192 — draw, release, ammo use, messages",
     "crates/voxelgame-core/src/projectile.rs:117-158 — arrow removed on impact; hits nearest animal or character",
-    "crates/voxelgame-render/src/reticle_ui.rs:547-575 — draw bar and DRAW % label just below the crosshair"
+    "crates/voxelgame-render/src/reticle_ui.rs:547-575 — draw bar and DRAW % label just below the crosshair",
+    "crates/voxelgame-core/src/game/ranged_input.rs — an arrow that cannot fly is not spent and says so (da52f269)"
    ],
    "backlog": [
     "VOX-OWNER-AIM-HUD-OCCLUSION",
@@ -3876,7 +3879,8 @@
    "evidence": [
     "crates/voxelgame-core/src/game/ranged_input.rs:194-236 — firing, ammo use, messages",
     "crates/voxelgame-core/src/game.rs:1011-1019 — sight raising only when not reloading",
-    "crates/voxelgame-core/src/game.rs:1115-1120 — in survival R eats food (on foot)"
+    "crates/voxelgame-core/src/game.rs:1115-1120 — in survival R eats food (on foot)",
+    "crates/voxelgame-core/src/game/ranged_input.rs — a round that cannot fly is not spent and the rifle is not reloading (da52f269)"
    ],
    "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of glow crystal (one block = 8 pieces). Rounds hurt animals and vehicles.",
    "guide": {
@@ -3903,7 +3907,8 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/game/ranged_input.rs:8-112 — wind-up, release, ammo use",
-    "crates/voxelgame-core/src/projectile.rs:1003-1016 — rocks hit animals or stop on blocks"
+    "crates/voxelgame-core/src/projectile.rs:1003-1016 — rocks hit animals or stop on blocks",
+    "crates/voxelgame-core/src/game/ranged_input.rs — a throw that cannot fly (no valid aim) is not spent and says so (da52f269)"
    ],
    "notes": "Rocks hurt animals only, not characters or vehicles.",
    "guide": {

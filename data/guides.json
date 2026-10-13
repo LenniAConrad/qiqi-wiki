@@ -668,7 +668,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "T only reaches water that you can see from your chest. A solid block between you and the water stops the drink; remove the block or step to the open side."
+       "text": "T only reaches water that you can see from your chest. A solid block between you and the water stops the drink, and so does a block that the line only clips at a corner or edge. Remove the block or step to the open side."
       }
      ]
     },
@@ -1740,7 +1740,7 @@
       },
       {
        "t": "p",
-       "text": "Harder throws fly farther and hit harder. Each throw uses one rock in survival. Rocks hurt animals only, not you or vehicles. {{throwing-rocks}}"
+       "text": "Harder throws fly farther and hit harder. Each throw uses one rock in survival. A throw that cannot fly, such as one with no valid aim, keeps the rock. Rocks hurt animals only, not you or vehicles. {{throwing-rocks}}"
       },
       {
        "t": "recipes",
@@ -1778,7 +1778,7 @@
       },
       {
        "t": "p",
-       "text": "Longer draws fly faster and hit harder. In survival each shot uses one arrow, and arrows are not recovered. Arrows stop on grass, flowers and other small plants. An arrow that lands in grass or leaves makes a soft rustle. Other impacts make a thunk that fades out by about 48 m. Creative arrows are unlimited. {{alder-bow}}"
+       "text": "Longer draws fly faster and hit harder. In survival each shot uses one arrow, and arrows are not recovered. A shot that cannot fly, such as one with no valid aim, keeps the arrow. Arrows stop on grass, flowers and other small plants. An arrow that lands in grass or leaves makes a soft rustle. Other impacts make a thunk that fades out by about 48 m. Creative arrows are unlimited. {{alder-bow}}"
       },
       {
        "t": "recipes",
@@ -1822,7 +1822,7 @@
       },
       {
        "t": "p",
-       "text": "The rifle reloads itself about one second after every shot. Survival uses one rifle round per shot; creative is unlimited. Rounds hurt animals and vehicles. {{alder-rifle}}"
+       "text": "The rifle reloads itself about one second after every shot. Survival uses one rifle round per shot; creative is unlimited. A shot that cannot fly keeps its round. Rounds hurt animals and vehicles. {{alder-rifle}}"
       },
       {
        "t": "recipes",
@@ -3450,7 +3450,7 @@
         "The stick sticks to the first surface it hits, including walls and ceilings.",
         "You cannot place blocks while you hold dynamite.",
         "Opening a menu cancels a wind-up.",
-        "Creative throws are unlimited. Survival uses one stick per throw.",
+        "Creative throws are unlimited. Survival uses one stick per throw. A throw that cannot fly keeps the stick.",
         "Dynamite does not work on multiplayer servers."
        ]
       },
