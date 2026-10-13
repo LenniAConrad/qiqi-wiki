@@ -561,6 +561,7 @@
    "updated": "2026-10-11",
    "state": "complete",
    "covers": [
+    "survival-milestones",
     "game-modes",
     "new-world-start",
     "survival-meters",
@@ -791,18 +792,54 @@
      ]
     },
     {
+     "id": "milestones",
+     "title": "Survival milestones",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The game marks 15 first-time steps of a survival life. Each one counts once per world, only in survival mode, and the reached set is saved with the world. A milestone shows in the status line as 'Milestone: <name> (<reached>/15)'. Open the inventory with [[E]] and the **Milestones** tab to see all 15 and what reaches each one. Reached ones are marked with +; the rest show with -."
+      },
+      {
+       "t": "keys",
+       "rows": [
+       ["Timber", "Fell a tree by hand. Only a log counts, so cutting leaves or a stump does not."],
+       ["Boards", "Split logs into boards, for example with a Split boards recipe."],
+       ["First tool", "Craft any tool, such as a Stone hatchet."],
+       ["Front door", "Hang a door."],
+       ["Put away", "Store something in a chest."],
+       ["Home", "Make a home at a storage crate (Establish home)."],
+       ["Rested", "Rest at your home."],
+       ["Charcoal", "Burn boards into charcoal."],
+       ["Glass", "Fire sand into glass."],
+       ["Window", "Place a glass block."],
+       ["Hot meal", "Cook a meal."],
+       ["Landmark", "Reach an expedition landmark on foot."],
+       ["Supplies", "Collect a landmark's supplies."],
+       ["Boatwright", "Build a sailing boat."],
+       ["Set sail", "Launch a boat onto water."]
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Creative mode reaches no milestones. The Milestones tab is read-only and cannot be used to claim one."
+      }
+     ]
+    },
+    {
      "id": "planned",
      "title": "Not in the game yet",
      "blocks": [
       {
        "t": "note",
        "kind": "planned",
-       "text": "Planting and growing food, a placeable furnace with smelting and metal tools, visible items on the ground, a larger pack and achievements are planned but absent from this version. They are tracked in the {{planned-planting-food-plants|feature ledger}} and will get their own guide only after they ship."
+       "text": "Planting and growing food, a placeable furnace with smelting and metal tools, visible items on the ground, a larger pack and a progression beyond the milestones are planned but absent from this version. They are tracked in the {{planned-planting-food-plants|feature ledger}} and will get their own guide only after they ship."
       }
      ]
     }
    ],
    "owns": [
+    "survival-milestones",
     "survival-meters",
     "drinking-flasks",
     "eating",

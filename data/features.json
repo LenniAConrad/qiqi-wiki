@@ -1315,20 +1315,51 @@
    }
   },
   {
+   "id": "survival-milestones",
+   "area": "survival",
+   "name": "Survival milestones",
+   "status": "available",
+   "modes": [
+    "survival"
+   ],
+   "summary": "Fifteen one-time survival milestones: fell a tree, split boards, craft a tool, hang a door, store in a chest, make a home, rest at home, burn charcoal, fire glass, set a window, cook a meal, reach a landmark, claim its supplies, build a boat and set sail. Each is reached once per world, only in survival; the reached set is saved with the world. The status line shows 'Milestone: <name> (<n>/15)' and the inventory's Milestones tab lists all 15 with what reaches each.",
+   "evidence": [
+    "crates/voxelgame-core/src/milestone.rs:11-111 — the 15 milestones, their order, bits, titles and hints",
+    "crates/voxelgame-core/src/milestone.rs:71-110 — short titles and the hint text the Milestones tab shows",
+    "crates/voxelgame-core/src/game/milestones.rs:17-35 — reach_milestone: survival only, once, status line prefix",
+    "crates/voxelgame-core/src/game/milestones.rs:37-54 — crafting reaches boards, tool, charcoal, glass, cooked meat and boat",
+    "crates/voxelgame-core/src/game.rs:2604 — FellTree only when the felled block is a log",
+    "crates/voxelgame-core/src/game.rs:2111 — SetWindow on placing glass",
+    "crates/voxelgame-core/src/game/doors.rs:112 — HangDoor on hanging a door",
+    "crates/voxelgame-core/src/game/home.rs:199 — MakeHome on establishing a home",
+    "crates/voxelgame-core/src/game/home.rs:222 — RestAtHome on resting",
+    "crates/voxelgame-core/src/game/chests.rs:228 — StoreInChest",
+    "crates/voxelgame-core/src/game/exploration.rs:172 — FindLandmark",
+    "crates/voxelgame-core/src/game/exploration.rs:214 — ClaimFind",
+    "crates/voxelgame-core/src/game/sailing.rs:109 — SetSail",
+    "crates/voxelgame-core/src/save.rs:46 — save format 29 stores the reached set",
+    "crates/voxelgame-render/src/inventory_ui.rs:747-790 — Milestones tab: n of 15 reached, + reached and - still ahead"
+   ],
+   "guide": {
+    "state": "complete",
+    "page": "guide-first-survival-day.html",
+    "label": "Your first survival day"
+   }
+  },
+  {
    "id": "planned-achievements-progression",
    "area": "survival",
-   "name": "Achievements and survival progression goals",
+   "name": "Reviewed survival progression beyond milestones",
    "status": "planned",
    "modes": [
     "survival"
    ],
-   "summary": "Achievements/milestones and a reviewed survival progression are planned; the only progress tracking today is the Journal's three landmark discoveries and their one-time finds.",
+   "summary": "A reviewed survival progression is planned beyond the 15 one-time milestones, which are in the game now (see Survival milestones). The only other progress tracking today is the Journal's three landmark discoveries and their one-time finds.",
    "evidence": [
     "search: grep -ri 'achievement' crates/ src/ — no hits",
     "crates/voxelgame-core/src/game/exploration.rs:17-24 — discovery and claimed-find flags only"
    ],
    "backlog": [
-    "VOX-PLAY-011",
     "VOX-OWNER-SURVIVAL-PLAYTHROUGH",
     "VOX-OWNER-PROGRESSION-CONVENIENCE-BALANCE"
    ]
@@ -1361,7 +1392,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Press E (on foot) to open the inventory; it has Pack, Craft, Home and Journal tabs in survival, plus a Build tab in creative. Tab and Shift+Tab switch tabs.",
+   "summary": "Press E (on foot) to open the inventory; it has Pack, Craft, Home, Journal and Milestones tabs in survival, plus a Build tab in creative. Tab and Shift+Tab switch tabs.",
    "controls": [
     [
      "E",
@@ -1373,14 +1404,15 @@
     ],
     [
      "Click a tab button",
-     "Switch to Pack, Craft, Build (creative), Home or Journal (inventory open)"
+     "Switch to Pack, Craft, Build (creative), Home, Journal or Milestones (inventory open)"
     ]
    ],
    "evidence": [
     "crates/voxelgame-core/src/game.rs:968-981 — E toggles the inventory (blocked in vehicles and while typing)",
     "crates/voxelgame-core/src/game/inventory_input.rs:36-53 — Tab/Shift+Tab cycle the available views",
     "crates/voxelgame-core/src/game/inventory_input.rs:10-13 — survival falls back from Build to Pack",
-    "crates/voxelgame-render/src/inventory_ui.rs:28-56 — header shows VOXELGAME, pack mass, and tab buttons"
+    "crates/voxelgame-render/src/inventory_ui.rs:28-56 — header shows VOXELGAME, pack mass, and tab buttons",
+    "crates/voxelgame-core/src/ui.rs:88-112 — Milestones added to the available tab lists"
    ],
    "notes": "The header always shows 'Capacity: <carried> / <capacity>'. Journal is covered by the world/maps audit.",
    "guide": {
@@ -4801,7 +4833,7 @@
    "backlog": [
     "VOX-OWNER-UPDATE-INSTALLER"
    ],
-   "notes": "Missing today: update-existing detection, version/origin checks, a check that the game is closed, rollback and clean-up of old versions (delete them yourself after checking the new one). Going back to an older build is not supported and may fail to open worlds saved by the newer one (current save format 28, save.rs:45). A source checkout launched with./run.sh rebuilds itself when its sources change (run.sh:76-107).",
+   "notes": "Missing today: update-existing detection, version/origin checks, a check that the game is closed, rollback and clean-up of old versions (delete them yourself after checking the new one). Going back to an older build is not supported and may fail to open worlds saved by the newer one (current save format 29, save.rs:46). A source checkout launched with./run.sh rebuilds itself when its sources change (run.sh:76-107).",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
