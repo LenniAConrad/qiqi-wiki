@@ -7,6 +7,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import re
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +19,13 @@ def main():
     data = json.loads((ROOT / 'data/animals.json').read_text())
     assert date.fromisoformat(data['date']).isoformat() == data['date']
     assert {'crates/voxelgame-render/src/atlas.rs', 'crates/voxelgame-render/src/shader.wgsl'} <= set(data['provenance']['sourceHashes']), 'Animal provenance must include texture and flat-palette sources'
+    if capture := data['provenance'].get('capture'):
+        assert all(re.fullmatch('[0-9a-f]{40}', capture[key]) for key in ('gameCommit', 'gameTree'))
+        assert all(re.fullmatch('[0-9a-f]{64}', capture[key]) for key in
+                   ('sourceManifestSha256', 'renderReceiptSha256', 'exporterSha256', 'captureDriverSha256'))
+        assert capture['resolution'] == [512, 512] and capture['blenderVersion']
+        assert capture['engine'] in ('BLENDER_EEVEE_NEXT', 'BLENDER_EEVEE')
+        assert capture['renderSettings']['background'] is True
     encoded = (ROOT / 'data/animals.js').read_text().split('window.ANIMAL_ATLAS = ', 1)[1].rstrip().removesuffix(';')
     assert json.loads(encoded) == data
     assert hashlib.sha256((ROOT / 'tools/render_animals.py').read_bytes()).hexdigest() == data['provenance']['renderScriptSha256']

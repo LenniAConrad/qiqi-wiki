@@ -348,3 +348,26 @@ unchanged by this measurement work. Fresh current-build media and its derivative
 review remain part of the open overhaul. Regeneration and measurement commands
 are in README; raw requests, image selections, setup costs and runner hashes
 remain in the retained measurement receipts.
+
+## Reproducible media inputs — 13 October 2026
+
+`tools/freeze_media_source.py` exports a complete committed tree into new private
+scratch, including binary assets and the lockfile. It records every file hash,
+the commit, tree and archive, rejects incomplete exports, and never writes into
+the game checkout. Six regressions check preservation of working changes,
+binary/lockfile inclusion, changed inputs, path boundaries and render receipts.
+
+`tools/render_animal_capture.py` wraps the existing portrait renderer with actual
+Blender settings and input/output hashes. The animal builder can verify that
+receipt against the full snapshot before assigning its commit to new images.
+README records the separate freeze, export, headless render and publication steps.
+Full source, raw renders and native logs stay outside the published wiki.
+
+The isolated `9e946731` export built successfully and produced all 94 species.
+Blender 4.5.3 LTS starts headlessly. A Swan smoke run wrote four 512-pixel views
+and its actual 16-sample Eevee settings; its outer timeout was 124 during shutdown,
+so that failure is retained rather than reported as a clean process exit.
+The previous 93-species gallery and derivatives are privately archived at their
+exact wiki commit, `6aca599`. This prerequisite does not update the public gallery
+or its coverage: fresh portraits, habitat scenes and displayed-size review remain
+part of QW-ASTRA-MEDIA until their own verification and delivery.

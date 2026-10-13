@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import re
 from PIL import Image
+from freeze_media_source import verify_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 GROUPS = {
@@ -37,6 +38,34 @@ def sha(path):
 def animal_category(species):
     """Return the field-guide grouping for a built-in species."""
     return next((group for group, members in GROUPS.items() if species in members.split()), 'Mammals')
+
+
+def capture_receipts(game, meshes, renders, manifest_path, render_receipt_path):
+    """Bind fresh portraits to the full frozen inputs and the actual rendering run."""
+    snapshot = verify_snapshot(game, manifest_path)
+    receipt = json.loads(render_receipt_path.read_text())
+    if (receipt['sourceCommit'] != snapshot['commit']
+            or receipt['sourceManifestSha256'] != sha(manifest_path)
+            or receipt['wikiRenderScriptSha256'] != sha(ROOT / 'tools/render_animals.py')
+            or receipt['gameRenderScriptSha256'] != sha(game / 'tools/render_creature_gallery.py')):
+        raise ValueError('Render receipt does not match the frozen source and render scripts')
+    for directory, key in ((meshes, 'meshHashes'), (renders, 'renderHashes')):
+        for name, expected in receipt[key].items():
+            path = directory / name
+            if (Path(name).is_absolute() or '..' in Path(name).parts
+                    or not path.resolve().is_relative_to(directory.resolve())
+                    or not path.is_file() or sha(path) != expected):
+                raise ValueError('Changed or missing render input/output: ' + name)
+    material_files = {str(p.relative_to(meshes)) for p in meshes.rglob('*')
+                      if p.is_file() and p.suffix != '.obj'}
+    if not material_files <= receipt['meshHashes'].keys():
+        raise ValueError('Render receipt is missing material inputs')
+    capture = {key: receipt[key] for key in ('blenderVersion', 'engine', 'resolution',
+                                            'renderSettings', 'exporterSha256', 'captureDriverSha256')}
+    capture.update({'gameCommit': snapshot['commit'], 'gameTree': snapshot['tree'],
+                    'sourceManifestSha256': sha(manifest_path),
+                    'renderReceiptSha256': sha(render_receipt_path)})
+    return capture, receipt
 
 
 def source_habitats(source, catalog, biome_names):
@@ -84,7 +113,14 @@ def main():
     parser.add_argument('--meshes', type=Path, default=ROOT / '.cache/animal-refresh/meshes')
     parser.add_argument('--renders', type=Path, default=ROOT / '.cache/animal-refresh/renders')
     parser.add_argument('--date', type=date.fromisoformat, default=date.today(), help='Snapshot date (YYYY-MM-DD; defaults to today)')
+    parser.add_argument('--source-manifest', type=Path, help='Complete frozen media source manifest')
+    parser.add_argument('--render-receipt', type=Path, help='Matching hashes and environment of the actual render run')
     args = parser.parse_args()
+    if bool(args.source_manifest) != bool(args.render_receipt):
+        parser.error('--source-manifest and --render-receipt must be supplied together')
+    capture, receipt = (capture_receipts(args.game, args.meshes, args.renders,
+                                        args.source_manifest, args.render_receipt)
+                        if args.source_manifest else (None, None))
     source_path = args.game / 'crates/voxelgame-core/src/entities/mod.rs'
     source = source_path.read_text()
     enum = source.split('pub enum Species {', 1)[1].split('\n}', 1)[0]
@@ -113,6 +149,10 @@ def main():
             filename = f'{slug}--{pose}--{angle}'
             png = args.renders / (filename + '.png')
             webp = output / (filename + '.webp')
+            if receipt and (receipt['renderHashes'].get(png.name) != sha(png)
+                            or receipt['meshHashes'].get(f'{slug}--{pose}.obj')
+                            != sha(args.meshes / f'{slug}--{pose}.obj')):
+                raise ValueError('Portrait missing from the verified render run: ' + filename)
             with Image.open(png) as image:
                 assert image.size == (512, 512), png
                 image.save(webp, 'WEBP', quality=92, method=6)
@@ -135,6 +175,9 @@ def main():
                            'renderScriptSha256': sha(ROOT / 'tools/render_animals.py'),
                            'materialsSha256': {str(p.relative_to(args.meshes)): sha(p) for p in sorted(args.meshes.rglob('*')) if p.is_file() and p.suffix != '.obj'},
                            'method': 'Production creature geometry and texture exports, rendered in Blender with neutral lighting scaled to each model’s bounds. Four static poses/views, individually framed; images do not share a scale. Habitat lists are ambient spawn candidates, subject to terrain, water and population checks.'}}
+    if capture:
+        data['provenance']['sourceRepository'] = 'https://github.com/LenniAConrad/qiqi'
+        data['provenance']['capture'] = capture
     content = json.dumps(data, indent=2, ensure_ascii=False)
     (ROOT / 'data/animals.json').write_text(content + '\n')
     (ROOT / 'data/animals.js').write_text('// SPDX-License-Identifier: GPL-3.0-only\nwindow.ANIMAL_ATLAS = ' + content + ';\n')

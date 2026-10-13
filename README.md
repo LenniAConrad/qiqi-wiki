@@ -83,13 +83,43 @@ and are not interactive animations in this field guide.
 `images/animals/` contains the WebP portraits. To regenerate:
 
 ```sh
-# From the sibling Voxelgame checkout:
-cargo run -p voxelgame-render --features creature-gallery --example export_creature_gallery -- ../qiqi-dev/.cache/animal-refresh/meshes
-# From qiqi-dev (Blender 4+ and Pillow required):
-blender --background --python-exit-code 1 --python tools/render_animals.py -- --output .cache/photo-refresh/animal-renders
-python3 tools/build_animals.py --renders .cache/photo-refresh/animal-renders --date 2026-09-28
-python3 tools/validate_animals.py --game ../Voxelgame
+# Choose an exact game commit and a NEW private HDD scratch directory.
+# Run from this wiki; the original game and wiki checkouts are never capture outputs.
+CAPTURE=/media/lennart/HDD-Storage-1/wiki-capture-YYYYMMDD
+python3 tools/freeze_media_source.py /path/to/Voxelgame COMMIT "$CAPTURE"
+mkdir -p "$CAPTURE/tmp"
+env CARGO_TARGET_DIR="$CAPTURE/target" TMPDIR="$CAPTURE/tmp" CARGO_BUILD_JOBS=2 \
+  timeout 2400 nice -n 10 cargo run --offline --locked \
+  --manifest-path "$CAPTURE/source/Cargo.toml" -p voxelgame-render \
+  --features creature-gallery --example export_creature_gallery -- "$CAPTURE/meshes"
+# Smoke-test one species first by adding --species swan and using a separate output.
+# Run full batches through the shared GPU lock on the fleet host.
+env -u DISPLAY -u WAYLAND_DISPLAY PYTHONDONTWRITEBYTECODE=1 TMPDIR="$CAPTURE/tmp" \
+  timeout 1700 nice -n 10 blender --background --factory-startup --threads 2 \
+  --python-exit-code 1 --python tools/render_animal_capture.py -- \
+  --game "$CAPTURE/source" --input "$CAPTURE/meshes" --output "$CAPTURE/renders" \
+  --source-manifest "$CAPTURE/source-manifest.json" \
+  --exporter "$CAPTURE/target/debug/examples/export_creature_gallery"
+# Inspect all views and preserve the previous gallery privately before replacing it.
+python3 tools/build_animals.py --game "$CAPTURE/source" --meshes "$CAPTURE/meshes" \
+  --renders "$CAPTURE/renders" --source-manifest "$CAPTURE/source-manifest.json" \
+  --render-receipt "$CAPTURE/renders/render-receipt.json" --date YYYY-MM-DD
+python3 tools/validate_animals.py --game "$CAPTURE/source"
 ```
+
+The full media exporter includes committed binary assets and `Cargo.lock`, which
+the smaller documentation snapshot exporter omits. It refuses an existing output
+directory or a destination inside the game checkout. A recursive manifest records
+every input, the commit, tree and archive hash. The capture wrapper verifies those
+inputs, uses the unchanged portrait renderer, and records actual Blender settings,
+exporter/script hashes, mesh/material hashes and every output hash. Until all
+portraits finish, only `capture-start.json` exists; it is not a completed render receipt.
+Keep the process exit status and log alongside the receipt, including any failure
+during application shutdown after images have been written.
+The builder verifies both receipts before publishing a new dated catalog. Keep
+full source archives, binaries, PNGs and receipts in private scratch, outside Pages.
+Rebuild gallery previews, Mobs and wiki search after a successful refresh, then
+perform the displayed-size, browser and normal deployment checks below.
 
 The data builder derives the species count from the game catalog and checks every
 entry and all biome rules; a source layout change requires updating its parser. Its category assignments are field
