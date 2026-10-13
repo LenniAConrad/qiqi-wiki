@@ -40,6 +40,31 @@ def animal_category(species):
     return next((group for group, members in GROUPS.items() if species in members.split()), 'Mammals')
 
 
+def animal_source_hashes(game):
+    """Record the current recursive model/material layout, before replacing any images."""
+    paths = {'crates/voxelgame-render/src/creature_visual_qa.rs',
+             'crates/voxelgame-render/examples/export_creature_gallery.rs',
+             'crates/voxelgame-render/src/atlas.rs', 'crates/voxelgame-render/src/shader.wgsl',
+             'tools/render_creature_gallery.py'}
+    for directory in ('crates/voxelgame-core/src/entities', 'crates/voxelgame-render/src/atlas'):
+        paths.update(str(path.relative_to(game)) for path in (game / directory).rglob('*.rs'))
+    paths.update(('crates/voxelgame-core/src/entities/mod.rs',
+                  'crates/voxelgame-core/src/entities/models.rs'))
+    return {name: sha(game / name) for name in sorted(paths)}
+
+
+def browser_catalog(data):
+    """Keep display data offline; full source/image receipts remain in the linked JSON."""
+    result = {key: data[key] for key in ('date', 'catalogCount', 'biomes')}
+    hashes = {'imageSha256', 'renderSha256', 'meshSha256'}
+    result['animals'] = [
+        {**animal, 'views': [{key: value for key, value in view.items() if key not in hashes}
+                            for view in animal['views']]}
+        for animal in data['animals']
+    ]
+    return result
+
+
 def capture_receipts(game, meshes, renders, manifest_path, render_receipt_path):
     """Bind fresh portraits to the full frozen inputs and the actual rendering run."""
     snapshot = verify_snapshot(game, manifest_path)
@@ -121,6 +146,7 @@ def main():
     capture, receipt = (capture_receipts(args.game, args.meshes, args.renders,
                                         args.source_manifest, args.render_receipt)
                         if args.source_manifest else (None, None))
+    source_hashes = animal_source_hashes(args.game)
     source_path = args.game / 'crates/voxelgame-core/src/entities/mod.rs'
     source = source_path.read_text()
     enum = source.split('pub enum Species {', 1)[1].split('\n}', 1)[0]
@@ -164,14 +190,8 @@ def main():
         rows.append({'id': species, 'slug': slug, 'name': display_name, 'category': category,
                      'description': DESCRIPTIONS.get(species, descriptions[species]),
                      'habitats': sorted(habitats[species], key=biome_names.get), 'sizeMetres': size, 'views': views})
-    paths = ['crates/voxelgame-core/src/entities/mod.rs', 'crates/voxelgame-core/src/entities/models.rs',
-             'crates/voxelgame-core/src/entities/models/bird_models.rs',
-             'crates/voxelgame-core/src/entities/visual_qa.rs', 'crates/voxelgame-render/src/creature_visual_qa.rs',
-             'crates/voxelgame-render/examples/export_creature_gallery.rs',
-             'crates/voxelgame-render/src/atlas.rs', 'crates/voxelgame-render/src/shader.wgsl',
-             'tools/render_creature_gallery.py']
     data = {'date': args.date.isoformat(), 'catalogCount': len(catalog), 'animals': sorted(rows, key=lambda a: a['name']), 'biomes': biome_names,
-            'provenance': {'sourceRepository': '../Voxelgame', 'sourceHashes': {p: sha(args.game / p) for p in paths},
+            'provenance': {'sourceRepository': '../Voxelgame', 'sourceHashes': source_hashes,
                            'renderScriptSha256': sha(ROOT / 'tools/render_animals.py'),
                            'materialsSha256': {str(p.relative_to(args.meshes)): sha(p) for p in sorted(args.meshes.rglob('*')) if p.is_file() and p.suffix != '.obj'},
                            'method': 'Production creature geometry and texture exports, rendered in Blender with neutral lighting scaled to each model’s bounds. Four static poses/views, individually framed; images do not share a scale. Habitat lists are ambient spawn candidates, subject to terrain, water and population checks.'}}
@@ -180,7 +200,8 @@ def main():
         data['provenance']['capture'] = capture
     content = json.dumps(data, indent=2, ensure_ascii=False)
     (ROOT / 'data/animals.json').write_text(content + '\n')
-    (ROOT / 'data/animals.js').write_text('// SPDX-License-Identifier: GPL-3.0-only\nwindow.ANIMAL_ATLAS = ' + content + ';\n')
+    browser_content = json.dumps(browser_catalog(data), indent=2, ensure_ascii=False)
+    (ROOT / 'data/animals.js').write_text('// SPDX-License-Identifier: GPL-3.0-only\nwindow.ANIMAL_ATLAS = ' + browser_content + ';\n')
     print(f'Built {len(rows)} animals, {sum(len(a["views"]) for a in rows)} images, {len(assigned)} biome rules.')
 
 if __name__ == '__main__':

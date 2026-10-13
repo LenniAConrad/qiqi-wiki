@@ -2173,36 +2173,36 @@
     },
     {
       "source": "images/animals/alligator-snapping-turtle--idle--three-quarter.webp",
-      "sourceSha256": "02e6b34089704bcb622f457b20ae13f2ee41c8325019362543b469c5e1c7b82d",
+      "sourceSha256": "d9ea6939737f715a2c0b7eb8ae366947690851efbf1dcce17c18d7e77d98abaf",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/alligator-snapping-turtle--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 762,
-          "sha256": "197cf428dfb079c9b8cac6fed681a574789149c8e0531572c76a9ee0aa62d045"
+          "bytes": 784,
+          "sha256": "4f5a3282fb47c46dcf918bc51f697c423724aa061b8ca789f0619fd897a3203b"
         },
         {
           "path": "images/thumbnails/animals/alligator-snapping-turtle--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1858,
-          "sha256": "5b306fc1435ef973697a1f30142d14418d5ecce857c57d9a808452ea57b54431"
+          "bytes": 1874,
+          "sha256": "e72d19d7148e3a07da3dfb4f5e3c96cb56a69eaa930075ba55e07b80b4d2dd18"
         },
         {
           "path": "images/thumbnails/animals/alligator-snapping-turtle--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2674,
-          "sha256": "123916b47293d371b3226e902fcbe2f357f34b0d1e376444dd29c08c160015e4"
+          "bytes": 2820,
+          "sha256": "5586d4784682b307e05163312acbb7f6b3a79a6e9c758732b4c9753d57123daa"
         },
         {
           "path": "images/thumbnails/animals/alligator-snapping-turtle--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5180,
-          "sha256": "4c642bb96bab7cc2412e0647ac59ebef5ac8f49a33d72ca55e10e4c0c2284180"
+          "bytes": 5458,
+          "sha256": "1b90911f0ccc8cf409bf98eb66eeb060da482551ddfdbd5761c52f1bed424c3e"
         }
       ],
       "sourceWidth": 512,
@@ -2210,36 +2210,36 @@
     },
     {
       "source": "images/animals/anaconda--idle--three-quarter.webp",
-      "sourceSha256": "8a4e19104af968f7542274ba64a93ea722d55af820dcc62daf8d337b9df0be70",
+      "sourceSha256": "d1c76e17b90bb3757bc3f44f3855ccf92b3643fe5867847836dee2431f2232f2",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/anaconda--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 536,
-          "sha256": "a2b367324c8d9603a4a4c695f46d9e0db4c268eb547b1a0ff27fd2c4169b3818"
+          "bytes": 478,
+          "sha256": "1a86be29c49d69371d52864628ad9d5f16fcd6997796255a09b5f900818446f1"
         },
         {
           "path": "images/thumbnails/animals/anaconda--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1284,
-          "sha256": "7bae4cd8e354c98bd06031a611aeea0f2968b231bdb22ad81277e161c010b2d5"
+          "bytes": 1236,
+          "sha256": "4997aef8cc20b8b56b7c82bdc46c3211ae157b226fe2014460852eb7a768b603"
         },
         {
           "path": "images/thumbnails/animals/anaconda--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1786,
-          "sha256": "6421d800d1829de76f0847515057c907c02173a91fe69c412b09c684f7f413bd"
+          "bytes": 1728,
+          "sha256": "86665c46cba7512e50c16defb4944710c0f87692b1167d72bb068e5f79a306d6"
         },
         {
           "path": "images/thumbnails/animals/anaconda--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3428,
-          "sha256": "42a7b42e1965a72247a8cdce810d59e754b0a7696acf248ad728cf16a1b18002"
+          "bytes": 3330,
+          "sha256": "8df6fee32f62f47aa21ad451e629703182aa12109f5c3290f1245da2c5517ec8"
         }
       ],
       "sourceWidth": 512,
@@ -2247,36 +2247,36 @@
     },
     {
       "source": "images/animals/anteater--idle--three-quarter.webp",
-      "sourceSha256": "303e96fd0e13b93dc899ee621bcee0fe4172c10fe7e759219316eb61c3ba64f5",
+      "sourceSha256": "b9109f91f4caf6ada694103da3798eee432fc26db0f0834e75bad797a9428eb7",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/anteater--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 686,
-          "sha256": "715b8aa7d1d1f9bff5fe397eb8a43c78c10c0eac3915a8dab70fd9c18336ed5d"
+          "bytes": 612,
+          "sha256": "38f058482948f9aa8b05aabdcdaad0eaaccf249bafe7bea82ca9945b4d3e1666"
         },
         {
           "path": "images/thumbnails/animals/anteater--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1518,
-          "sha256": "3f97c931c90c5c9981eba578ba0c2a248f371a6e66e38b50005b6a6962de3791"
+          "bytes": 1440,
+          "sha256": "577b51183407a8486ca9bbe02e0ec7b73a997dff8be3cc3f158d67c4c02e8e79"
         },
         {
           "path": "images/thumbnails/animals/anteater--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2222,
-          "sha256": "75c97669f412e5c4766e2e1bf66e02acee3f83a5d514f0c161a047451ba8ad3f"
+          "bytes": 2018,
+          "sha256": "9365591b932ee7f5bee6c2f6bf58897194af475b6c6bc44bcf6e3f63e7e9330e"
         },
         {
           "path": "images/thumbnails/animals/anteater--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3850,
-          "sha256": "5d25d144dfc98e04d7cbf058dcea3543adb63cb244bba16b9fbdb0ea90291c2f"
+          "bytes": 3596,
+          "sha256": "1e5038e4fb638ed3c4bd398f87d4cdd45e65416a3dbab2b7ae0947cab30f250e"
         }
       ],
       "sourceWidth": 512,
@@ -2284,36 +2284,36 @@
     },
     {
       "source": "images/animals/bald-eagle--idle--three-quarter.webp",
-      "sourceSha256": "b56dfe201f6b7fa9bb1c3e14e701f87b105cc361a699e1874f211523252a2a07",
+      "sourceSha256": "ec6c48447b46b1d0a72d2f32218eb72ee3ef984b618492a812f5f83a64c1c62a",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/bald-eagle--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 848,
-          "sha256": "f05180906360770694ba29a949aa1a98679c815d71cc04a546a23cb0e9d89cad"
+          "bytes": 856,
+          "sha256": "806311af499633591973fd6c37742fde04236c4ddcc14315d1640990ae2ccc4c"
         },
         {
           "path": "images/thumbnails/animals/bald-eagle--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1824,
-          "sha256": "55327b7d8373d45548e3a874a0eadf0c747f1b5a3b0f2567d499902d4b438c95"
+          "bytes": 2000,
+          "sha256": "3f233c99468e04415819dc7affafe7c7c8a5c4085fa4837d2d0627a10ad869b1"
         },
         {
           "path": "images/thumbnails/animals/bald-eagle--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2586,
-          "sha256": "d9a275b8f5891c4c66c2bebd1c639ed1a1d541f7a659e2d252676a9c5a698577"
+          "bytes": 2812,
+          "sha256": "c97465c0f316ec4ad758340eab978e5a8ab43eec717e72da72fefc5294ca1c52"
         },
         {
           "path": "images/thumbnails/animals/bald-eagle--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4746,
-          "sha256": "e189fe73ae371172496403137c211cdc63851f30a8f25147fbb54420fcc52841"
+          "bytes": 5154,
+          "sha256": "0c71d707e7ad13ca57656279c7b27976d0258f5c9d4d63969535a2c6855b88f8"
         }
       ],
       "sourceWidth": 512,
@@ -2321,36 +2321,36 @@
     },
     {
       "source": "images/animals/banana-slug--idle--three-quarter.webp",
-      "sourceSha256": "546a2c379c48578012a1bf754899341bae64911cdd1a6658c4655a51f76efd67",
+      "sourceSha256": "fc11fb7ae0235323897b317dbec1e9d29b2b0e413ff630159b7660e9dc85be69",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/banana-slug--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 902,
-          "sha256": "189f3279b83d0eb82bea35b5152422e1a138b15850e959cade1cc6863007c7f9"
+          "bytes": 776,
+          "sha256": "f729c96db91213b31dabd46d4bf0889fa6471e989f0ce756f0344a649ea6f726"
         },
         {
           "path": "images/thumbnails/animals/banana-slug--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2184,
-          "sha256": "9088ca65e2b4b0e583206bff70b247d42731307f9af7b471724eadcf0b6b90dc"
+          "bytes": 1846,
+          "sha256": "b5018e77828d7a79ebc5500260cb7a9955093e743ab40419d368aedb39b41943"
         },
         {
           "path": "images/thumbnails/animals/banana-slug--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3188,
-          "sha256": "fcdb1c87e2e59b03781342c44b2067cd61178d175e4a2aaceb1efbb65ab18f8c"
+          "bytes": 2652,
+          "sha256": "292458d57a4a0b800f5eb35d22e5e72a962b7a0aa08d578b9e5b505e10f3bd8e"
         },
         {
           "path": "images/thumbnails/animals/banana-slug--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5662,
-          "sha256": "dc88510e540ab89dca9789b3abd428aaf9f7d96c0bd0131456444c088243465d"
+          "bytes": 4922,
+          "sha256": "c6819f02c88be71c62b2710d74ce31d851027d49395950a03e0b39ceea356f9d"
         }
       ],
       "sourceWidth": 512,
@@ -2358,36 +2358,36 @@
     },
     {
       "source": "images/animals/bat--idle--three-quarter.webp",
-      "sourceSha256": "b0473e0cf189f4c1b4fa1d8d5098f537fc60475bea493b6a55074d95cb0898c2",
+      "sourceSha256": "064465f4478ffa223e9a8a7211be6bd1b744dc55afad37f7cbea84cd1bd06b58",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/bat--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 580,
-          "sha256": "21d6272c18b367f9ea04815ea1c080144968700e24f92d7723d1411b90811bad"
+          "bytes": 748,
+          "sha256": "f0996f31f52d7a67d3b9e98bbfa4ef1f557b0b89321c331a5df1449e39e4f3bb"
         },
         {
           "path": "images/thumbnails/animals/bat--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1206,
-          "sha256": "f362de66915f2e487159545e1822cdf5be065019245390c6b7e2e7f9a5e03860"
+          "bytes": 1626,
+          "sha256": "945ed2c17c3b83d4f1474a6b09f1b41bfb5f0d18c4a9304fdd16fdfb5e0f337d"
         },
         {
           "path": "images/thumbnails/animals/bat--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1740,
-          "sha256": "b1ed9a8dc8390d8c25fac68ce32f2c431a0e5c78bb05cd213b5582283bd602b3"
+          "bytes": 2288,
+          "sha256": "d8ba28a831a63ddbb91f23ad06667f80a7b0bfc649954008689bbc8f4904477d"
         },
         {
           "path": "images/thumbnails/animals/bat--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3160,
-          "sha256": "e00e9b5af81f4879ede5708e20b18fd58de1ee88862c5f09d8f5216c0960a7cb"
+          "bytes": 4276,
+          "sha256": "37922ee058e935d0d90f5038f1def64af33eeb6efc221a02d421c1962ab86f3f"
         }
       ],
       "sourceWidth": 512,
@@ -2395,36 +2395,36 @@
     },
     {
       "source": "images/animals/bear--idle--three-quarter.webp",
-      "sourceSha256": "effdbf669f62a66c9eadfbe71dee0a221f8dea7cbcfc4079d5e0478688b44e95",
+      "sourceSha256": "67340a83114cf1edbd26baddac5a0be074e0809715953270bd0648e798b2bbe7",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/bear--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 876,
-          "sha256": "b2b167f713962c8ce66c458956ce6e1b54e68e616fe98723e7af0a5d8b95116b"
+          "bytes": 838,
+          "sha256": "e5f8142374326eeecb8c460db2c6e24fef116161588807e5098f58ce29cfa29e"
         },
         {
           "path": "images/thumbnails/animals/bear--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1810,
-          "sha256": "1463fe812da753bf4d12242cdcedde871a63757d5b43ca0374ca23195c21fd09"
+          "bytes": 1832,
+          "sha256": "59e639ec3351847bbe41e4eb246baabd4888e7efd78a82f7045be558da6f2600"
         },
         {
           "path": "images/thumbnails/animals/bear--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2498,
-          "sha256": "4f5c2ba8ae2fdaec1850515d5169037b76e2e7d4b7e08c11afa3714ce85f03aa"
+          "bytes": 2442,
+          "sha256": "3c8d3a3cda7caed9416639fab6d1ef531d33b1b7bdf3388c8744331b2c72f441"
         },
         {
           "path": "images/thumbnails/animals/bear--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4528,
-          "sha256": "38ed4facecf8c4ab2e0dfbdbfb25d749ffc439d4f5d36cc50b7819a39f7653cc"
+          "bytes": 4334,
+          "sha256": "a9455aa4b1b9ecee36a94b1b2597ded7101cd84ca70e7b410ad209302f0926d2"
         }
       ],
       "sourceWidth": 512,
@@ -2432,36 +2432,36 @@
     },
     {
       "source": "images/animals/beaver--idle--three-quarter.webp",
-      "sourceSha256": "38eb95c4f980dd8391082afc3d5c49bb361a37fd4326897d2bba3fb9a42b6ade",
+      "sourceSha256": "425d80701b3d4209723c44bdf751c213a7a0eda3eb9bb858f8c8993bdef61075",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/beaver--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 726,
-          "sha256": "3c20bde06a1813dccf122b75e753d30233e6c5c64cb52c17dc806a68370e3124"
+          "bytes": 776,
+          "sha256": "2a60000ef0325efda1d4798d2a2990426756e87faa5ea64b405b2354dd2bb24a"
         },
         {
           "path": "images/thumbnails/animals/beaver--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1646,
-          "sha256": "79607dd03ba0847adf07ce4d23eb073195788a078e177f5269d4e664109d7816"
+          "bytes": 1844,
+          "sha256": "4b3f1edf0bf86d8b41468b849bfa4278b5bc6bcf166c9d1536687f947d15a420"
         },
         {
           "path": "images/thumbnails/animals/beaver--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2302,
-          "sha256": "4f85babe64056923e281f6fe70fc9de23c29205dfac4e2f9d7c3b8eebfa7027f"
+          "bytes": 2598,
+          "sha256": "f0ab6c5a02e198a6acd932422328801cada5029b66b25e2289207f3722c7fac6"
         },
         {
           "path": "images/thumbnails/animals/beaver--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4158,
-          "sha256": "8a11fb3d6a0f102a7e9201547bd71a457c29e9086bec1699e05c6e1278f198f8"
+          "bytes": 4632,
+          "sha256": "32cf7f999d5fef3de234e28ae1ba8d008beb5180a67c358bfbf50cca384b658e"
         }
       ],
       "sourceWidth": 512,
@@ -2469,36 +2469,36 @@
     },
     {
       "source": "images/animals/bison--idle--three-quarter.webp",
-      "sourceSha256": "d63ae179285b3d20f38aa1cbb8ea24c5603fab53273a19ab7a68f4c16ca9af61",
+      "sourceSha256": "bfdd3ee7cc1f7b6ded9f491b5401150b8c1630cfc4c3824b6e222cabf26edc5a",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/bison--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 858,
-          "sha256": "a05d5607559b0d00d9f3fd698bc0a0e6a63983f5f4d84ed7e73252f52c8595d4"
+          "bytes": 900,
+          "sha256": "a4a58580917537878e157fe17daf5f3a92411fc1ce0d16876935eafa4d2e6213"
         },
         {
           "path": "images/thumbnails/animals/bison--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1850,
-          "sha256": "f911dc7193e4cd0c44a7b3a17f1ce7174ce4365aee360bed2e5c811857d3e327"
+          "bytes": 1846,
+          "sha256": "138aa8df3662526725218753328d455af840e50edcdf1eaa8076daa2793a3ae9"
         },
         {
           "path": "images/thumbnails/animals/bison--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2694,
-          "sha256": "334ee400e38ee7dba8b2903f8bff35b06ae9ff4821b649ad39fadb46ef5681e9"
+          "bytes": 2520,
+          "sha256": "429008691c1b6b519f9f56623f48acafebfff3bbc10557cc8daf401feb0958ea"
         },
         {
           "path": "images/thumbnails/animals/bison--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4792,
-          "sha256": "0ffd4855a161702d80eda235fd2138629f764e8416dddae5b5cc71674f463da1"
+          "bytes": 4554,
+          "sha256": "d85affe7fe5f92fd66de1d7e9d952f5578a111998567b3fabe2f0bd306070579"
         }
       ],
       "sourceWidth": 512,
@@ -2506,36 +2506,36 @@
     },
     {
       "source": "images/animals/blobfish--idle--three-quarter.webp",
-      "sourceSha256": "8574aa71668ad18165fca748e1d76258b8e55fb3aa47ac8f033d16abed086b4b",
+      "sourceSha256": "e18fede5d406e4c9e1f1e6e0a69fd30781780e8b0f31da8b9a8c9d619032a72b",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/blobfish--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 682,
-          "sha256": "2343737dcf02ae6e02fec93485baf8f90e4d1af81dbee11f01d913ea80fdef28"
+          "bytes": 640,
+          "sha256": "13efbf28493a33f24378d9d131b68d1fce04273faa76dbd8cac22b99d066d10d"
         },
         {
           "path": "images/thumbnails/animals/blobfish--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1332,
-          "sha256": "2e98fc70c9f9a997226af8239ba02036c4bdbfcf6d2e94208750c40631e5df2f"
+          "bytes": 1360,
+          "sha256": "4dc75bde5e240aa0c7ffab300bbdec28b63a1b54bc779d6159f4f99361541b26"
         },
         {
           "path": "images/thumbnails/animals/blobfish--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1872,
-          "sha256": "abde48aacf20795581d7cc8cbf72982c0a27e788dcfbacdf265d55618eb13b13"
+          "bytes": 1982,
+          "sha256": "cab4cfbdc12ba7fbcc1956bb6d1205a49424094db687684577bfe1a4d7160d7d"
         },
         {
           "path": "images/thumbnails/animals/blobfish--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3520,
-          "sha256": "84e9bacf262746073c9d7cf544b995e32648cdd436837fa30bd5dcce183c2a4c"
+          "bytes": 3600,
+          "sha256": "a68c1eae1a4468f08771f5aa7151179bba3d193a512355ce0ef468f32a545580"
         }
       ],
       "sourceWidth": 512,
@@ -2543,36 +2543,36 @@
     },
     {
       "source": "images/animals/blue-jay--idle--three-quarter.webp",
-      "sourceSha256": "d1ce40d0dbf46eec2e272cc18785a72f1ed896941268bd029f50c684bf9575b8",
+      "sourceSha256": "57921741f54fee2206a1f74a196d1769ab593f971f9402674ba6dfd45e4a04ba",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/blue-jay--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 728,
-          "sha256": "904775c39bc0f20c7a2e3de98e652da0c13b055dbca3f7e1f369cef5e73c6ad4"
+          "bytes": 816,
+          "sha256": "b82723146c1b492e1b6d138622a14efc00a2e7480dacb107d6e882b4d19e3bb0"
         },
         {
           "path": "images/thumbnails/animals/blue-jay--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1710,
-          "sha256": "1e12a31f887896c0c30330287a4f3531205cbefa5a9c7ce813daa61d6c4b3e17"
+          "bytes": 2106,
+          "sha256": "3e56c68c7afc323464f5fbc5041b3bac8667525336d67fc0522c1f075e2a4e84"
         },
         {
           "path": "images/thumbnails/animals/blue-jay--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2548,
-          "sha256": "840711cd6de8015c3ed9b2b281b6e02c8e06384badba4524be994de335c6e335"
+          "bytes": 3126,
+          "sha256": "f0dca4da54617d7b3d3d0245a8f985706bb457c020a1c299b89f21861a5bd283"
         },
         {
           "path": "images/thumbnails/animals/blue-jay--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4718,
-          "sha256": "33583ef5033efa77a3b1c8ac6b78fc404478b36340c647d50faf16034477b76a"
+          "bytes": 6078,
+          "sha256": "2271c5ee86c0eb87d6dc0eed60d546fce4e8faf917c3a5166071737355028dac"
         }
       ],
       "sourceWidth": 512,
@@ -2580,36 +2580,36 @@
     },
     {
       "source": "images/animals/boar--idle--three-quarter.webp",
-      "sourceSha256": "75272dfd8ec3598b84981c7b1fcb0aeb206645794b610e8087d1be52735275ef",
+      "sourceSha256": "a9532c68b7918a39558fe852712273661fa3b65f545f0532f92548bb8c56dc7c",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/boar--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 890,
-          "sha256": "ccf3ec98343b7d4f178dd806cfe9779d73ddc44c617a6e072ddb142ddfa0fcda"
+          "bytes": 758,
+          "sha256": "9cf13e83f829194da538f8fab4cc50c6fff04bbbfc3e79d46cbd2e4bd41d4ba8"
         },
         {
           "path": "images/thumbnails/animals/boar--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1890,
-          "sha256": "6927fa66aec64d2cfab927640680973215b90e3f8f3e3a28cb6e4ce31a17388a"
+          "bytes": 1576,
+          "sha256": "11b3c8e77cee5ddd66b40a2d82e51db3dbead5269c9cad7d0c445634a322e643"
         },
         {
           "path": "images/thumbnails/animals/boar--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2588,
-          "sha256": "2063ce5d0cf83b218c80c9e42020c225b7c3a91c2cde0152bbc60846746ee207"
+          "bytes": 2198,
+          "sha256": "b641904d675df9f1ce45eb15c1f6ea497a0d03b698bcea0e8efe5d0154961ecb"
         },
         {
           "path": "images/thumbnails/animals/boar--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4834,
-          "sha256": "b09b5675bf47f3374390277e99f64b9fcabd8c31629520067c1355a6af357439"
+          "bytes": 4160,
+          "sha256": "f50b66f5411a5023043ab58003619a0550cbcdbca657744d1477529ecd4d19e1"
         }
       ],
       "sourceWidth": 512,
@@ -2617,36 +2617,36 @@
     },
     {
       "source": "images/animals/buffalo--idle--three-quarter.webp",
-      "sourceSha256": "40d5be48e30252c891a4a4889a6117aa8204aeb73155caa384635a1cb7c08573",
+      "sourceSha256": "6facc82b27b643904b26cbcff98de8078c56fe7d28e297e27f65370655986e18",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/buffalo--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 784,
-          "sha256": "6c438c44297b76100f7da765b0b69773c2a12d34f392b209c5a9965f83d0a19b"
+          "bytes": 732,
+          "sha256": "39b3c3e34c9b284c8187021bc07ca627ae3639e028548cbe8da6510a71b51355"
         },
         {
           "path": "images/thumbnails/animals/buffalo--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1734,
-          "sha256": "d61d9e48a4da353ad7b77b209b36bf9fa1141ecb46d295ac05b77fa612ce49fd"
+          "bytes": 1582,
+          "sha256": "518481bc887cfb471511592a364698f2ebd8970d5446c53bffe0f90a05eb3921"
         },
         {
           "path": "images/thumbnails/animals/buffalo--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2446,
-          "sha256": "fee1654e2bb67ce16d57e3f63ad21261134d560e849562a67a7c0ed88d06ea21"
+          "bytes": 2270,
+          "sha256": "78a0f8d631c873327a36a9d365edb08135b58427b998c29ca6e5790f301faf63"
         },
         {
           "path": "images/thumbnails/animals/buffalo--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4506,
-          "sha256": "e1b7a649ffa1de6a290731f7a542f7dcdce6d66ed17239608a941fda68bb4bc7"
+          "bytes": 4052,
+          "sha256": "9e1ed1e1478d8e2d3fea83818a4831f1937d6cdcc30204a316826b6ea3a1e07f"
         }
       ],
       "sourceWidth": 512,
@@ -2654,36 +2654,36 @@
     },
     {
       "source": "images/animals/butterfly--idle--three-quarter.webp",
-      "sourceSha256": "523b449f3c95292de137833a59db07bdeae2f84100aa45a8829269280dfcbf17",
+      "sourceSha256": "eb87d85491767c9db700bc8e675ba79805b2f26e8a7f3ace9f1f6d4594879b79",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/butterfly--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 800,
-          "sha256": "f6c2890c770b910ab7e6bd51082b7ecef5f8d22ec8233d208a2df8b29da65900"
+          "bytes": 808,
+          "sha256": "cc5de90ccef74100ba795169a915d4e5257fe203c06802676f9fb2bfdbe89cc6"
         },
         {
           "path": "images/thumbnails/animals/butterfly--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1894,
-          "sha256": "786de1dab69d0b4d7d0249059ab53926a3ab715e9173ce00d76e494dd2f50bc9"
+          "bytes": 1796,
+          "sha256": "fe677688ef8bc1cbf128a5262af069d19337c8ce8df21ded7b3055add8f2a511"
         },
         {
           "path": "images/thumbnails/animals/butterfly--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2808,
-          "sha256": "674e05896edf4b9aeca785f76aabf84d63e922cff75956e0a65124949df3e451"
+          "bytes": 2548,
+          "sha256": "3c6a99955fc068b9ad6a8ae83a375311ca491e0f3e4635c675ec094759c7605f"
         },
         {
           "path": "images/thumbnails/animals/butterfly--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5194,
-          "sha256": "813ff1d3119cd2904a035d3ca70ed82ad7167dd28d920f35172659ba303117f1"
+          "bytes": 4598,
+          "sha256": "4bdc80bc3d89523c3df3cbd690f5a9967e12824932f672f27e58c38ca974287c"
         }
       ],
       "sourceWidth": 512,
@@ -2691,36 +2691,36 @@
     },
     {
       "source": "images/animals/caiman--idle--three-quarter.webp",
-      "sourceSha256": "eeec7ebd517246404c5e10e610180460d9ab330e92f96d94c533e1590e7a6604",
+      "sourceSha256": "c8b3ec63cce2365fee0f0f01da4339e486719592c57ae89a4531fabeb5115829",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/caiman--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 644,
-          "sha256": "2b9cf23771f3498d782d772af7dabb05bea8f6235b626cd02669cce616b9cc00"
+          "bytes": 670,
+          "sha256": "6195c9e891d7d3a9951abb1406fd02c0cedc38b0e02eacdee85c6387bcb8ec1f"
         },
         {
           "path": "images/thumbnails/animals/caiman--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1560,
-          "sha256": "f44dbba8263e547a5758eefa445abec1598f8f755ab5ead19ad872fba7da1122"
+          "bytes": 1684,
+          "sha256": "c1767bd31a3412833c6c9d50852326bd7e8ae8f902f33bf7bce592a12c7c5fe4"
         },
         {
           "path": "images/thumbnails/animals/caiman--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2224,
-          "sha256": "2ef2831719857bcaf04bd6c99e04effc0158d2ac85a83f479aca705b5e9c2066"
+          "bytes": 2560,
+          "sha256": "6c696d8befc719b5765f5532f6c2465731e7591bc6b79b440ed5445c98e88884"
         },
         {
           "path": "images/thumbnails/animals/caiman--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4158,
-          "sha256": "1abf381787437784ba99b7a2dce3eb3124ed3483dd983a05887029f219e5c6df"
+          "bytes": 4804,
+          "sha256": "cabb0f73e7ffae2bbbda10002bf38b1a45f42afc355f7db569936540ce560bf1"
         }
       ],
       "sourceWidth": 512,
@@ -2728,36 +2728,36 @@
     },
     {
       "source": "images/animals/capuchin-monkey--idle--three-quarter.webp",
-      "sourceSha256": "fe8f1b7424fc0ed179361bcc6d125062d617d7023cbd019731915e4ff9712b85",
+      "sourceSha256": "37cda8c2be977b2dbf1faa570b3de94a63cd6f5f190a0fd64ec6b69737cc0743",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/capuchin-monkey--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 906,
-          "sha256": "a4c2dd056e32222167b5aff05dfb95828088fb304d7028e92d0283fd79b500b9"
+          "bytes": 944,
+          "sha256": "af1c829cca55b9fcb51089aa99bc6b4576cccc6c6ce2d211aa2493989d2ab2d2"
         },
         {
           "path": "images/thumbnails/animals/capuchin-monkey--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1898,
-          "sha256": "0a47ea543e4a42fb0758e3df597d8c909751b1de33fb81d4a320f4016efd64c8"
+          "bytes": 1996,
+          "sha256": "2f241cbf0b9c5fc2d667452d092be67f33c0cbca32e59232d06e4fb094249bea"
         },
         {
           "path": "images/thumbnails/animals/capuchin-monkey--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2722,
-          "sha256": "c6d6d24c6ed5a2caeb7cf40720b0bd865303008146e42862db3b23167cbf3811"
+          "bytes": 2812,
+          "sha256": "75868c8790e46b6374631374da195e1d060a422206294853666fda4590b91475"
         },
         {
           "path": "images/thumbnails/animals/capuchin-monkey--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4938,
-          "sha256": "51ec28bc94cb15200e4df2b7c49b71b7fc0b14957069acb0d729aa8dc66e3856"
+          "bytes": 4986,
+          "sha256": "fa8a5df428a031827db412db1db9c44a50695f44583e6bc913c69f8700ebe97e"
         }
       ],
       "sourceWidth": 512,
@@ -2765,36 +2765,36 @@
     },
     {
       "source": "images/animals/carp--idle--three-quarter.webp",
-      "sourceSha256": "d202eaa7ca5aed5a3070767f1903e58014aea3e7b88beedb1d3c2d3054642aea",
+      "sourceSha256": "824c210a972403eeec7cb0bc3282cc4ccbb3186a403076421dd4fb804c20300c",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/carp--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 752,
-          "sha256": "561cae6eecf1172b810988adc0c8d9942ec83743ff8d7926142c185e92257059"
+          "bytes": 762,
+          "sha256": "4b2c7e766f8cf09be50418d2e759f1b09c3dd886992cadc48a0a9ad1926c34a5"
         },
         {
           "path": "images/thumbnails/animals/carp--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1654,
-          "sha256": "c954abf8f1e176ce0454afcd9b24544f4f653908d1b9c70e0a4ca252a15f133a"
+          "bytes": 1744,
+          "sha256": "004baf379be27562fcbf1f655fa462c62eefdee5a4eaafc114c69b37e75f9df1"
         },
         {
           "path": "images/thumbnails/animals/carp--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2364,
-          "sha256": "c51ba415b6de6fcf5c0c162cb96a268cabf70613aba834205354f40ff4dbb698"
+          "bytes": 2464,
+          "sha256": "97cabce5eb9261803ce32b901ba9142de04a81981cb16845311c4bc4464db2fe"
         },
         {
           "path": "images/thumbnails/animals/carp--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4072,
-          "sha256": "0bb98969cbe44888e62d1c1dc5f670b3ba043dbcb51e236e4c1d2ea0ad4c07bc"
+          "bytes": 4428,
+          "sha256": "a03f5606f4247fa779ce4ae8f3b1c8fdad2713a72271fdffc764adbb98afdba0"
         }
       ],
       "sourceWidth": 512,
@@ -2802,36 +2802,36 @@
     },
     {
       "source": "images/animals/catfish--idle--three-quarter.webp",
-      "sourceSha256": "ac04b1edb30ec4d857bda49e5ec7a9547a7046f7fcc0596b68e8ca8d60d980e3",
+      "sourceSha256": "bc2908140d070b8ad7b4acab170b6d45bdc805de819ed3cdff1873932ffd9519",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/catfish--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 516,
-          "sha256": "58827eb13eaefab4c0c44d35b9f8e733faf9fbd65a9ba9749e1d19eca5b36967"
+          "bytes": 486,
+          "sha256": "fcd4aba67ce28f83e28cf0aacf8f91d00d51abe988bd03d5ce23b2ea2b39f88e"
         },
         {
           "path": "images/thumbnails/animals/catfish--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1116,
-          "sha256": "ffd2cd175a1745ace38644c14320ba2ab3598ea649f7ce10d25fa55b07784f14"
+          "bytes": 1152,
+          "sha256": "3f64966c60003fe9bbe885aa04b12fbd383b130322a389979c64ed34a1a77cf6"
         },
         {
           "path": "images/thumbnails/animals/catfish--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1586,
-          "sha256": "8aa24ad399f6a932a0ab0c0de4eca23b52159c0964c1c7de16d9ae1f2b1e98b3"
+          "bytes": 1616,
+          "sha256": "786bf8c6a87ec582743fc33e4ab99676b4a0aee4425fb0f300941f93ad2fed18"
         },
         {
           "path": "images/thumbnails/animals/catfish--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 2906,
-          "sha256": "5679b8916a0d6d80d08fe79b23d391b76cf12eef327422d949e187fc9d462a2f"
+          "bytes": 3056,
+          "sha256": "75c1557e0e2b2da433a78ea86d5dcb223c337f4f0edb9efdf741c952b5847039"
         }
       ],
       "sourceWidth": 512,
@@ -2839,36 +2839,36 @@
     },
     {
       "source": "images/animals/cave-centipede--idle--three-quarter.webp",
-      "sourceSha256": "8d36eee8cf17eb26d4640faf90a4fd6836c6b0f9458c7343d0b801bbc8922fd9",
+      "sourceSha256": "59d96eb57a6c9e346cf1cd4fc5c7af342a5573f1923bd9b78e0c8599020620f2",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/cave-centipede--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 736,
-          "sha256": "b300150ff85464118f7afe24e45513d529eb744c7712fe371d3c49c3dc917860"
+          "bytes": 766,
+          "sha256": "4b291e8c4d0f78ba59a3ed7352291534c4cee248ba29412d1731962cd0102a37"
         },
         {
           "path": "images/thumbnails/animals/cave-centipede--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1882,
-          "sha256": "8fd314d517a11f1bb67a96d1cd46281224df2e944327fbbba3e4cf4e83eab385"
+          "bytes": 1868,
+          "sha256": "f42ae5aa2d9b1fe4d1010d26420d29b93c40fd5a3451d32da970e513b31e13ff"
         },
         {
           "path": "images/thumbnails/animals/cave-centipede--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2678,
-          "sha256": "a96f6dbbbee6635075bc8d883fcc73fabc62b529356da0cb580789c22ce574e2"
+          "bytes": 2832,
+          "sha256": "942d39e819530ca57a0c387493bf1eff9b8848851d0ce1455e139883c07ef51f"
         },
         {
           "path": "images/thumbnails/animals/cave-centipede--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5008,
-          "sha256": "5798a07ad4d53f6a4371b4157f01ee1758d17640176097e45fcdf4fa839c428d"
+          "bytes": 5336,
+          "sha256": "94b5792c459fa025e6d79bde3e8ed0ef35c64cd9fb855985ca6b91479dc1376a"
         }
       ],
       "sourceWidth": 512,
@@ -2876,36 +2876,36 @@
     },
     {
       "source": "images/animals/chicken--idle--three-quarter.webp",
-      "sourceSha256": "a49ef2bbced92645363a77ec2b2ee9100997cc419b93f98fc7c7f246d1237956",
+      "sourceSha256": "f3ad930b73fd5874a3b0d6213f1460fd28ddb3fe287b9c37b0703c4efcb3572f",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/chicken--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 700,
-          "sha256": "08f4b6fee356bd56f3187f197b60da6450d3da933d7f9a17d83d2f1d25c7fa51"
+          "bytes": 688,
+          "sha256": "46b7a50d0e9085f911525d5d88394b517373bd062656393bb4990970d8e61c9a"
         },
         {
           "path": "images/thumbnails/animals/chicken--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1502,
-          "sha256": "1ad19ec51b144d1305edced1b1f63182352902b092ba0a5a05a74c2c41259bb6"
+          "bytes": 1464,
+          "sha256": "ae31e28f9681bca78b4c5057a98cf3b09f60fa6954dc6b6151c54bb01d6c36c0"
         },
         {
           "path": "images/thumbnails/animals/chicken--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2168,
-          "sha256": "f5d33acaac8965583c7e40371c25c43f77c81608196041a591f3acd81e59b792"
+          "bytes": 1976,
+          "sha256": "c220a1978639ad74af76b226d83d2d768dd860309f83f40179c583be0c1f03ae"
         },
         {
           "path": "images/thumbnails/animals/chicken--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3836,
-          "sha256": "c896f40d0348c7bfae7ebb3bae420eb31dfd3335980e80b15488476134d367dc"
+          "bytes": 3590,
+          "sha256": "391ffcb4b2ab548075fdb8f5ba74fbfb3af20b81fe7be6d37a66d461f429b68b"
         }
       ],
       "sourceWidth": 512,
@@ -2913,36 +2913,36 @@
     },
     {
       "source": "images/animals/cockroach--idle--three-quarter.webp",
-      "sourceSha256": "dc44afeeea7bd84dd47c8940cea7a761c34994e8007f05d5121bc026afd37d88",
+      "sourceSha256": "6e323104543fba0cbd079d29dbbd795991e5a036d2472bbc1e87aa108f68fdd7",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/cockroach--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 692,
-          "sha256": "6a0ca0fab95f250a3d23f8f9a2db8f8be21d4fc3f3e99dc8b132843cd6fc710c"
+          "bytes": 740,
+          "sha256": "0dcb25b4f7e8448fb3b1b408382c61ebba75ef6d2751def0b0b5df3b0312e59d"
         },
         {
           "path": "images/thumbnails/animals/cockroach--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1628,
-          "sha256": "9d150f5f6f98c0837e94e6cc87107090b68b5f2e3b2b91c994cba29f30654515"
+          "bytes": 1716,
+          "sha256": "f786df2a26a8176173835111ef9ec1bf22b4c4a171f5f68ee1fc40b34852df3d"
         },
         {
           "path": "images/thumbnails/animals/cockroach--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2368,
-          "sha256": "550935010ca6e2507fa11eda68cd3b276c39ac7cfc1c1996eb9262a8902a1663"
+          "bytes": 2530,
+          "sha256": "e64135993709524396610cb2ef42087d6e721bf36cd98aba46ebf9d00aa38b11"
         },
         {
           "path": "images/thumbnails/animals/cockroach--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4542,
-          "sha256": "03167e2f7a6d2bc61cb2f3406efad1b894953d6364dd2116518a55aa9e057402"
+          "bytes": 4780,
+          "sha256": "00953eb48e638f44a55ef51d12c0f02f154c321c2a3883d8454f0fc25d9ef528"
         }
       ],
       "sourceWidth": 512,
@@ -2950,36 +2950,36 @@
     },
     {
       "source": "images/animals/comb-jelly--idle--three-quarter.webp",
-      "sourceSha256": "baf562091493c9b153ef68a6a5e0ba84e15f374da002fe51fbb290fb28b7ea67",
+      "sourceSha256": "5694eb24e5355e7193f4f5ca5a6f9c873b7a77eea18a0d4300919f3ca8f7f3a0",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/comb-jelly--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 778,
-          "sha256": "4e7da08e0365713e4ab62f51bce5e648b5af2f87cd3eee39f61d294425ba1a9e"
+          "bytes": 746,
+          "sha256": "d689e8f2c5098087c3cbc1039f5280487f42e6cafbe45db183aa9e39214703be"
         },
         {
           "path": "images/thumbnails/animals/comb-jelly--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1716,
-          "sha256": "fc99f2eca00eeb3388a7f3343b3d1a14f65f9e020bbb8aee3cdb031d904de639"
+          "bytes": 1638,
+          "sha256": "7e3c64321d8756b467217f75feb4f51594d903e317fbdfad0fd0a479eca79f53"
         },
         {
           "path": "images/thumbnails/animals/comb-jelly--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2478,
-          "sha256": "255f428f50332620fa746c991d8e11abb21a984124aca84cfc0ec73435920b21"
+          "bytes": 2360,
+          "sha256": "9803025c7fe8daadcae420f8ab60a231fd4303bcff1b6a3bbb624f892e8d63ca"
         },
         {
           "path": "images/thumbnails/animals/comb-jelly--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4660,
-          "sha256": "8be02f12fe6ec46848ff27dc1811f7358f390ae6f16d8037c4eed3dea4c950a5"
+          "bytes": 4576,
+          "sha256": "ddec5b86c0661debaf68a18bc49a9fafbb227e4c5105860b69e712a54b8df236"
         }
       ],
       "sourceWidth": 512,
@@ -2987,36 +2987,36 @@
     },
     {
       "source": "images/animals/cow--idle--three-quarter.webp",
-      "sourceSha256": "81507203455fcb554528b3d963948a746a3566a2f651ddc1e527b551423d01e6",
+      "sourceSha256": "9077419c714064cd199426bdb4af8d35577f4d5c7c8a96629fdd44e574967f2b",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/cow--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 1092,
-          "sha256": "f70fd7bca99c49ce0c96d6855aa2222eb482d087432d4e520a2b296208dd5bfd"
+          "bytes": 1076,
+          "sha256": "e91dace98d3209b36ae98011db00ab8c06bbd74547a35cc3297239c3832e0d5e"
         },
         {
           "path": "images/thumbnails/animals/cow--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2462,
-          "sha256": "cda23c1310d126726fb34b0220ea8dce4874186166b1cab7284ad125f30ad9bc"
+          "bytes": 2292,
+          "sha256": "3671787fee5836ca6d2d0c2d954e0fa6bcae3f6065d908248d44b79c40e80b4e"
         },
         {
           "path": "images/thumbnails/animals/cow--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3336,
-          "sha256": "9ffd93156ad1e06df6aae45f7d9e21070b233e10550af092fa8a157df46104af"
+          "bytes": 3224,
+          "sha256": "2403f16b853f60c3725659a803184675f602cb0f4819c30c67e9b3b1ddb94b68"
         },
         {
           "path": "images/thumbnails/animals/cow--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 6108,
-          "sha256": "8b269209c1b9bf665d14acf6b3a1481bf5f24365f44470acb294524bb6e879db"
+          "bytes": 5640,
+          "sha256": "d3bae7cc17d9a6ec1c7e7479c6977137771bd091094c163b5381b8df570ea727"
         }
       ],
       "sourceWidth": 512,
@@ -3024,36 +3024,36 @@
     },
     {
       "source": "images/animals/crab--idle--three-quarter.webp",
-      "sourceSha256": "f6e678253868f56e996314c004d9ede32af2da142858630e6cf6a031a73e70c5",
+      "sourceSha256": "fbc8947bc40af185615a8cbcd8126b1630cddec92985ad15c7ed8f52d9c405e3",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/crab--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 782,
-          "sha256": "d8a3e263be95a220e1b1ce316af39538c712f53c8de36fd4713c4f0010c5d60a"
+          "bytes": 934,
+          "sha256": "92e8808c45dd45cddbb59b9a198dfc1068dfb4efc306cab56e06981b505a6212"
         },
         {
           "path": "images/thumbnails/animals/crab--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1870,
-          "sha256": "b47529ba7ba662d4c01d48cc8b5ae93a1fcd5a753f47d2a36d074a711aa68751"
+          "bytes": 2200,
+          "sha256": "1290a4f4468f30b8580aaab09da3562285639e7b4ef9ca1d2dbec0b9348d762c"
         },
         {
           "path": "images/thumbnails/animals/crab--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2686,
-          "sha256": "0ba962b0fea0e633683d00726ce27dbb150f0b962ccfb75217dec4ac52bfebfa"
+          "bytes": 3286,
+          "sha256": "30476ae799f8feaba546a61a23ebe81a40c23ff042016ac50e71178e7062b2eb"
         },
         {
           "path": "images/thumbnails/animals/crab--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5048,
-          "sha256": "1864785602f62ec13e5bd9708fc21220c318f27ae7c8d4a52786c32fbaaa3534"
+          "bytes": 6284,
+          "sha256": "cbdcdc23af0250b6227f7b950c9b6471e3c00a464792513fa617babbdba414e1"
         }
       ],
       "sourceWidth": 512,
@@ -3061,36 +3061,36 @@
     },
     {
       "source": "images/animals/crocodile--idle--three-quarter.webp",
-      "sourceSha256": "d2a911609876d316a3e99e316eb9a16798f404bc552e61f567783e96c00ffedc",
+      "sourceSha256": "5d5d02bdd3c92b2ec0d541ffd9739874c2bc6e3fc4a3255c9efec31feed9f865",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/crocodile--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 644,
-          "sha256": "4c95f98e18cdbc4f1ef9dfeb921f0ed11e416c9bee63548a95d21df093fa6428"
+          "bytes": 630,
+          "sha256": "6a45391b94ec8acb40b3b111f3360a5c449f34849557bf19023b2daf291bfd31"
         },
         {
           "path": "images/thumbnails/animals/crocodile--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1588,
-          "sha256": "5f073f74cdc7be687df303c3a1806eb2822ccbe59acde3b8c5054293de5699f1"
+          "bytes": 1644,
+          "sha256": "d23e90592a76b4b543b03473e0427fd5b3cebcc453f49ae245f722151ad5d1ef"
         },
         {
           "path": "images/thumbnails/animals/crocodile--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2292,
-          "sha256": "640da8c2c2fa26606c41efda7e20afc3e0a28a0c8de555600e7f4934e17f36b2"
+          "bytes": 2420,
+          "sha256": "1984ca4f1e023787e76ab2ce62f5efc8fd39afd01dea068e8a066f1e259f8fda"
         },
         {
           "path": "images/thumbnails/animals/crocodile--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4292,
-          "sha256": "49e1d678afa272b2092dd46fbe04745587eed3decc5eefc18361ca5bc1b62e15"
+          "bytes": 4836,
+          "sha256": "5db3bf4823ce00af98469d82fc1a2009af2ed862780828201402f3d0aba19ee6"
         }
       ],
       "sourceWidth": 512,
@@ -3098,36 +3098,36 @@
     },
     {
       "source": "images/animals/crow--idle--three-quarter.webp",
-      "sourceSha256": "f270290e319ea47331ad6f539e3bbdfea387991adbd2d295febd598d64b20b96",
+      "sourceSha256": "b86e8d3d9028b739a58e34f6b35c2a5a0076e2f13bb0e11e474cfb566f4de8b6",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/crow--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 620,
-          "sha256": "3fd8f6823788a33a8524a0a69acaebc5a8bf89f69afa5bd5dfb8a52f60f848c3"
+          "bytes": 564,
+          "sha256": "3f0c5af6c70755216fd78e6412fcbf435d2adcbe0419b58709dd76fc0c364e8b"
         },
         {
           "path": "images/thumbnails/animals/crow--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1410,
-          "sha256": "da04db869535dd784563c328e62f1c8756cc2358dfccf2dc1fb9fe9d66de19e9"
+          "bytes": 1184,
+          "sha256": "b9ae8bdbaf89d24d2c8a54f9f722e47f99119a1afd3bced6169c5f318d04e159"
         },
         {
           "path": "images/thumbnails/animals/crow--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1888,
-          "sha256": "362a31ca4ee1db9292224f00036edc691c2a08bb6404f4187478b296ff129bee"
+          "bytes": 1690,
+          "sha256": "827b0cda35d3222b4206b8a98f5776001e7a4556f1fca7057a8d104b286dcc58"
         },
         {
           "path": "images/thumbnails/animals/crow--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3508,
-          "sha256": "12be8c8ee26a95221553ba799987720f8ff7d52f7ba50f4e16015a5fadcde90a"
+          "bytes": 2930,
+          "sha256": "08dcaf2f91502cb0bba12d95db2b5e67076dda7f1cdf9bf4aed25d7b6e0b31ae"
         }
       ],
       "sourceWidth": 512,
@@ -3135,36 +3135,36 @@
     },
     {
       "source": "images/animals/deer--idle--three-quarter.webp",
-      "sourceSha256": "2281c66ea7088f909b935665f2d7914403e4e9685c25fd7e0262c0abe11c9ff3",
+      "sourceSha256": "340870f3322eddd8cbd6051fd138b23838a1b8528d3039c6b32a8d8ee6eaaed8",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/deer--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 700,
-          "sha256": "f8b933d97465a1b208a3058f920a9270777e0fd26522664cbeee427e6797fda1"
+          "bytes": 814,
+          "sha256": "ea0b40e16f64cfbd3b8b648795fba0a134f6151544b3d58ed85df870ba97b4fb"
         },
         {
           "path": "images/thumbnails/animals/deer--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1592,
-          "sha256": "1337a8ab09fcb6c6d2f18bac448de3c4adef046b32e1e0703e51a259905db5fc"
+          "bytes": 1810,
+          "sha256": "adaea3f4ff57362ebb53c9751c319ba39c8f67f2276b86d2b1d6c6bfb597ce34"
         },
         {
           "path": "images/thumbnails/animals/deer--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2230,
-          "sha256": "1effedec6d7597ec83f68b44d0ec488f4ddc5abefab44a723757cee8b278adbb"
+          "bytes": 2528,
+          "sha256": "fbecb8c06d4a7765d4b845f75d1cef3a97d74f9420207187e52da13383d8c273"
         },
         {
           "path": "images/thumbnails/animals/deer--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4112,
-          "sha256": "0f0385e8c4cd8cc226e04d537b8a03f5f925f906552cca40deeeeabf2d49405c"
+          "bytes": 4830,
+          "sha256": "277902544d2f364e5010287e3ead3e0a6bede46d50e10944a62376fcb7904824"
         }
       ],
       "sourceWidth": 512,
@@ -3172,36 +3172,36 @@
     },
     {
       "source": "images/animals/devils-hole-pupfish--idle--three-quarter.webp",
-      "sourceSha256": "d516c09b4d9e81b55c4f4a93db18c9e939e52d4f50e3c3751c003c088ee151e6",
+      "sourceSha256": "8c77052c0147626fb4655408747fa1a3de825a47bf1b2f3070ad36fc90d4d092",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/devils-hole-pupfish--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 766,
-          "sha256": "a8e1915aeadb070230b2e4d58090d471fa405b331235b102d9cacf3f7a319b85"
+          "bytes": 734,
+          "sha256": "1e3be0b86343786ac6b71a42425bd14a347c2c7cfed59aef1968d8499b09b70a"
         },
         {
           "path": "images/thumbnails/animals/devils-hole-pupfish--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1612,
-          "sha256": "b91695076438d861420db55b8599b358dd0a8ca7349111c995abf80cf2e750ea"
+          "bytes": 1692,
+          "sha256": "f73ff0288285679fcddb1d0d65ad0f1a65d256973a0a04326ef8e8cb4b5a1809"
         },
         {
           "path": "images/thumbnails/animals/devils-hole-pupfish--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2146,
-          "sha256": "243542f5fa99eae9073355c35a5db271f03a01dc81a2efdb5431751f3af709a6"
+          "bytes": 2390,
+          "sha256": "0c45df719de0d0f3a55f84cc4505cabf9a64e8e617dd1220c21f65708457569e"
         },
         {
           "path": "images/thumbnails/animals/devils-hole-pupfish--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3842,
-          "sha256": "e5c60982d16e7cd0e058299d6784299c2ad94fe231bf77d44d5cfaca99d7d8eb"
+          "bytes": 4452,
+          "sha256": "a5590897e6fa6c437234f48e03549304156c3e73798007a35aa4bfefb0dd8570"
         }
       ],
       "sourceWidth": 512,
@@ -3209,36 +3209,36 @@
     },
     {
       "source": "images/animals/duck--idle--three-quarter.webp",
-      "sourceSha256": "7d91de9ad223a6076b2df4494c94dc891c4e8327b74a29918348b7a19dc69813",
+      "sourceSha256": "26145186112fca2e1fee4e8725af65143caaf7664db46350e1a21dda617dfd62",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/duck--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 842,
-          "sha256": "33e58a5e979a225b9e708ba2e2598ed12a5c91328b08acfcf9b659c9d93907ba"
+          "bytes": 862,
+          "sha256": "99b59b1a16b1239566c5e15ecb1fcbafeb1fd721fd8ac8ae80e1262eb803b7cd"
         },
         {
           "path": "images/thumbnails/animals/duck--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2034,
-          "sha256": "76df8899869931325fa332c2cc445e77d3a6d4b8fc34ca844ed58765af4142a4"
+          "bytes": 2138,
+          "sha256": "fda2f6ad01d5c20ff810f3345d86341a3c0dfbc61ed4921233a9c214d04db19f"
         },
         {
           "path": "images/thumbnails/animals/duck--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2934,
-          "sha256": "be8221ad19c238833865161043092ac2dec2cfd7818436c18ee8da6d76eaf19c"
+          "bytes": 3046,
+          "sha256": "f3e60211e86431cc71d7dde22abbaed3369816c1c281fc9855c278a6a1eb4584"
         },
         {
           "path": "images/thumbnails/animals/duck--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5462,
-          "sha256": "6512d0ebc9481772c443686aba5c7660afcbf8e5a2397e2d329bc06879f7038c"
+          "bytes": 5848,
+          "sha256": "00d6ee35896d723497bc4dd4574be2f53e8f9e72a1f00f407fbd07f4859ab16c"
         }
       ],
       "sourceWidth": 512,
@@ -3246,36 +3246,36 @@
     },
     {
       "source": "images/animals/elephant--idle--three-quarter.webp",
-      "sourceSha256": "6053616e30f50b736036d08f08b80cbf6d44675083c6665ebb0a5d1b02a84076",
+      "sourceSha256": "55623ce007e3ec61972035557c2d78c4849dc97e9f97657fb5998783cecd08c0",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/elephant--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 712,
-          "sha256": "1cd7bd622c44729c8d3df55139da9a4218b500dd530bed26e2cc56d5ababd588"
+          "bytes": 706,
+          "sha256": "2b12bdc4ddd74f6e0eff64e0e6cb92af37f0204b6278796791a45de484512b7a"
         },
         {
           "path": "images/thumbnails/animals/elephant--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1556,
-          "sha256": "f9ba69b461029afba60bbd57ccf8ab4347baf8568e002a66fb3a76987462e671"
+          "bytes": 1644,
+          "sha256": "1d59e5c29f49137b27216c90f5456c77342e4f984a133419c3e8c923b1a2c7ca"
         },
         {
           "path": "images/thumbnails/animals/elephant--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2242,
-          "sha256": "0af8a51c63cb781b332fad7c1af8fea76bc123fec95d5476b9b9c94ceccec439"
+          "bytes": 2190,
+          "sha256": "582c2ed97423e02a7df2f5f282aa9d2151edf3cef5d002d590edbe22a2c941eb"
         },
         {
           "path": "images/thumbnails/animals/elephant--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4358,
-          "sha256": "466601db8b1a5f29640a2af39ff6b8175dcae9a3064c84ab5eedbc84671d29a4"
+          "bytes": 4104,
+          "sha256": "cbe9d1c6f012bf325d8e227e1c0f4aee4299539796d81fd8c920db492381097e"
         }
       ],
       "sourceWidth": 512,
@@ -3283,36 +3283,36 @@
     },
     {
       "source": "images/animals/emu--idle--three-quarter.webp",
-      "sourceSha256": "6290ccc5226442de5372ed78dbcd0d65a9b64703d80959a3b91d25eb33ffa190",
+      "sourceSha256": "a11efb124a199795c39ff6c608b8dd003154de985612d2394feba4b018b9b13c",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/emu--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 624,
-          "sha256": "827d4b2cc1544f510bedf56998e11b443975511338224b07e40e2ee1ac93a38f"
+          "bytes": 742,
+          "sha256": "7032e7f72fece8f3fd87882905ccf22fbc738711b9eb2482fc96e763419f0138"
         },
         {
           "path": "images/thumbnails/animals/emu--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1402,
-          "sha256": "3b37c0c7129ed314480e7b787272a1469bd85aa96c59792a4fb506ddc00e502e"
+          "bytes": 1634,
+          "sha256": "c6806622bcefaa540972f47340a950e610d7624139fe294a866a30e42845b104"
         },
         {
           "path": "images/thumbnails/animals/emu--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1990,
-          "sha256": "0d898201c67c4237bd25500b3be1a9578985cf93cd614c5bf2ac16435eb28081"
+          "bytes": 2340,
+          "sha256": "e24289124281dca2decee69157cf25ad4e943dec3427343e3afb0c4601da2772"
         },
         {
           "path": "images/thumbnails/animals/emu--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3598,
-          "sha256": "22d79f102f125e087b83956bbc50d9ca070df9c30225ef92b127e4c30c2e6a2d"
+          "bytes": 4078,
+          "sha256": "d2ae1ca3dd1a74cb9fe7d52384c555d820d641b73985b92203139b5efb15058d"
         }
       ],
       "sourceWidth": 512,
@@ -3320,36 +3320,36 @@
     },
     {
       "source": "images/animals/fly--idle--three-quarter.webp",
-      "sourceSha256": "7e50b5c0a3d43136f31d149fc9d9dd7927689ff8b446d4354f64e3c4e36f487c",
+      "sourceSha256": "2d3214b3b9b39d419d88afe27359f37eb4998bbb1cef2ea8ccb6a55549fbfe80",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/fly--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 684,
-          "sha256": "e363e44fe4d98fa2d0b11b76988c423ccaa02acb85f7a212bee33dfdba609790"
+          "bytes": 624,
+          "sha256": "21cf4b949bc6905412f378b9cda89719d322bf6e7ef2f357ba9e0c7e84451043"
         },
         {
           "path": "images/thumbnails/animals/fly--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1484,
-          "sha256": "445c93cc4bebd6fd4823f781d4b9d3a68e75dbdc61541245ad2111a0875bfe3d"
+          "bytes": 1284,
+          "sha256": "a03ebd01723939c65e70b7df84bc602bc5c127c70b814eeeda8454a57152cd1b"
         },
         {
           "path": "images/thumbnails/animals/fly--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2068,
-          "sha256": "69fee8cb16ba2cebc70a7141f9b6ea20dcdff434393b17fb014298927f1c140f"
+          "bytes": 1768,
+          "sha256": "dedf1d7816a8eb6b7b24a04ea505e2e67d394759f9fab2cd6010cab41f6c2495"
         },
         {
           "path": "images/thumbnails/animals/fly--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3978,
-          "sha256": "033c4ec800e830dd4de5f60a541a04d5350de4e033ae5f2623066c7e1ac234db"
+          "bytes": 3190,
+          "sha256": "846798781f3bcbacf9e85caa24403856295cb44837040cfcb9fe60e46753f54f"
         }
       ],
       "sourceWidth": 512,
@@ -3357,36 +3357,36 @@
     },
     {
       "source": "images/animals/flying-fish--idle--three-quarter.webp",
-      "sourceSha256": "68713c1a95fad3cae6e524c60dbd1365fa9bf7a5ab47df1cba467cc4835f81cd",
+      "sourceSha256": "1c4c9956fe61156465d0c2d45fe689197bbb7d75f68c1578795dfd942683daaa",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/flying-fish--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 570,
-          "sha256": "da6041205554887b224a2f7489415657a451ec3d12fba1583f676b551775f0a6"
+          "bytes": 574,
+          "sha256": "9cb42f0ccdb2624275bc4b93db9fe34b6c15c387e4628ba76af956cccc922a23"
         },
         {
           "path": "images/thumbnails/animals/flying-fish--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1278,
-          "sha256": "b323be299f205b0e7089c2048a4a3fd44070ddf87e550c6b47692e7a8513b9ef"
+          "bytes": 1276,
+          "sha256": "7921d8ada77f0c650cfbac6a68a4605fc42ccf673bbd324732483a36f0852932"
         },
         {
           "path": "images/thumbnails/animals/flying-fish--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1820,
-          "sha256": "2f087e621fc7b5e4a49e2f13f056d2353fc3e8ced8d9a0c7c0061c411284a1df"
+          "bytes": 1860,
+          "sha256": "c3d4f5d23a1ef1d538e92301d4dc4ecf53f68d69b1ee2244fe2d2b08ab3394f7"
         },
         {
           "path": "images/thumbnails/animals/flying-fish--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3520,
-          "sha256": "7f688bb42123eb2dcac3b59d6cb930a368dec8ad5eff612a1276ab14380f7c12"
+          "bytes": 3564,
+          "sha256": "131aa99c0377fe0e83d79ee9f4f104ac4f2e32bf5d1e0c973775924d4ca3761d"
         }
       ],
       "sourceWidth": 512,
@@ -3394,36 +3394,36 @@
     },
     {
       "source": "images/animals/fox--idle--three-quarter.webp",
-      "sourceSha256": "93ab1db98b918ad90446d514beea56b6a484c3405c1bf65abd8f50d46907f23e",
+      "sourceSha256": "7a51f9dfea82067c26e78dc0f92ebe2404c0c9fb65bb413deb64d4dac6ac3a76",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/fox--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 938,
-          "sha256": "d4146cc497b2343e5872c0889c2e721bea3ccce5cfc712c0a8691c6c713a6b57"
+          "bytes": 866,
+          "sha256": "b430aa9eb76ee0c9f07c066c014795cde836a12ffbd8b69853226ef49e262f18"
         },
         {
           "path": "images/thumbnails/animals/fox--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2044,
-          "sha256": "3ff5f774375c1b7d9a04b775c9ebbfd5ec137462fe5e5bc17208271795b8ea34"
+          "bytes": 1816,
+          "sha256": "3187f4dcef63e1a35ff568045ba24be596e4afc90228faf7a0000916648ef914"
         },
         {
           "path": "images/thumbnails/animals/fox--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2992,
-          "sha256": "e47d6e527bbaeb00735351686dc5e5af7cff50dcc9b41bead26e31aa92dc0b08"
+          "bytes": 2502,
+          "sha256": "6603e990620e2bd36ce4e50c1ca230ab9ef06f82b0d918ec63c032d88e2759cd"
         },
         {
           "path": "images/thumbnails/animals/fox--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5280,
-          "sha256": "59bf6b7d8344a05fb6fcb221d1784b1ea5b59d456e87d6ab5e1a5a2da7d0cc64"
+          "bytes": 4394,
+          "sha256": "86ed125065ce09f37c6d721cc0f2252dd5c4254a2a9cbd24c8d07f7d3db6aa39"
         }
       ],
       "sourceWidth": 512,
@@ -3431,36 +3431,36 @@
     },
     {
       "source": "images/animals/frilled-shark--idle--three-quarter.webp",
-      "sourceSha256": "f3f758a042497a06171f1155496ee8bd14a8ec8430273d41bf7e1ff895571491",
+      "sourceSha256": "67be1436473d7d1f89fcf0c3593ba966babeedbab2477d4a069839cb603b0a19",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/frilled-shark--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 478,
-          "sha256": "e43b978b94c0680f769f779e1b737feefced8287f17ce4ad4cad45170e075a50"
+          "bytes": 604,
+          "sha256": "45fab413adddebdec19dd4ce90f4093e217b5f776948e050a8f0e8e4212928d5"
         },
         {
           "path": "images/thumbnails/animals/frilled-shark--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1080,
-          "sha256": "49003ba42cbf0949e15bce0123f15b4ec327fdcd67eb4aca8f9c3b0898c2a770"
+          "bytes": 1258,
+          "sha256": "18a517d0a705241c28952336f495b723915768eda0f75fea1181fad69e2672d9"
         },
         {
           "path": "images/thumbnails/animals/frilled-shark--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1536,
-          "sha256": "045d3e55729e1d3e910b9835448b69849528643685961c4abd15947767c7e95f"
+          "bytes": 1782,
+          "sha256": "b4ac5af2c1b239a5ca82e036b997a9532a79db7e6e739a86944fbead1d2d5067"
         },
         {
           "path": "images/thumbnails/animals/frilled-shark--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 2700,
-          "sha256": "ccd03f434ccc4cb7fd8810e5bb96aa2414d2b7cf522ca6f4270b29bc748ecaaa"
+          "bytes": 3160,
+          "sha256": "3de0c6497a32b821f8bd236ff21d4af3ac91605be483c74409aa8f488e570497"
         }
       ],
       "sourceWidth": 512,
@@ -3468,36 +3468,36 @@
     },
     {
       "source": "images/animals/frog--idle--three-quarter.webp",
-      "sourceSha256": "62d46068acd591271126c1f2239747c583b8e3d0d859fdaaa64cb68bff731d1c",
+      "sourceSha256": "f107ed03b12bf05dac6f7040d6f0c604b5822dba5c692cab073cb2034bf21bf7",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/frog--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 876,
-          "sha256": "7721d0f1f48fb7610dccd9f0bebfc089d5408a30ff4e035b99dc6183e8118062"
+          "bytes": 782,
+          "sha256": "dc6471e0518b1b05a04434fe2367137bad6d855c98d3e3b78bd15124e65efbdc"
         },
         {
           "path": "images/thumbnails/animals/frog--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1888,
-          "sha256": "d7018685169450aa56a879d21039239240a2d5eb66a47e00ede5e1e37d22e445"
+          "bytes": 1672,
+          "sha256": "0ebe162d9a8b46381422942bc32281e5aa4b8ee00fad7d7d484a598f13dc07f0"
         },
         {
           "path": "images/thumbnails/animals/frog--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2608,
-          "sha256": "14bbc642371d5c4243cb6ac95c601e73338cee58020a369f8f598e7c912f1fbd"
+          "bytes": 2366,
+          "sha256": "016e88df8a6eb08713410b6564c11a92c9b1a27610a8533051c20c2ad6ff6b57"
         },
         {
           "path": "images/thumbnails/animals/frog--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4988,
-          "sha256": "6899ce8a61716cec7ab39eb08b57954f3a16b10b813d66fb7a693ca3f92bc5c7"
+          "bytes": 4370,
+          "sha256": "281d7be32098bc9f4b9c24266415fd9aa7132aedf5f39800401ea3256d471371"
         }
       ],
       "sourceWidth": 512,
@@ -3505,36 +3505,36 @@
     },
     {
       "source": "images/animals/gazelle--idle--three-quarter.webp",
-      "sourceSha256": "7a1e0b8a118fc0951e3f278d48d2dc1ffcc25b6d183105c118d26f9f0c68a812",
+      "sourceSha256": "a27b5c51899bf42eec0d1cfa1577cc61dafd14b575c91f4fa825eae345957cff",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/gazelle--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 792,
-          "sha256": "482869f2d33c2574f790f396908392225b77524f71600015588a75972244cb50"
+          "bytes": 842,
+          "sha256": "94f4da531dfbed5ddb3ac34ef9825b1c566c9178f5ea0a63b3198ce07332d6b5"
         },
         {
           "path": "images/thumbnails/animals/gazelle--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1742,
-          "sha256": "937bb0b41df1a5d3fb7b004f610130d8c77fc99082f32f3fd6ae5d0aa38cd254"
+          "bytes": 1814,
+          "sha256": "959735deb60d2ccb19f22a12d142bd0f0311a5155668233bcfea154859f88b86"
         },
         {
           "path": "images/thumbnails/animals/gazelle--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2508,
-          "sha256": "537f515861b3b82ef5d30112b6e1c1cd78e3e11e08311409d2c840c18cf14328"
+          "bytes": 2542,
+          "sha256": "fdf38502ff3ab33155d19f85a6e4347feb1a8e80f27a05252a2a4ec35d8a28ba"
         },
         {
           "path": "images/thumbnails/animals/gazelle--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4396,
-          "sha256": "10ef32f53df4e48ba54333e02b80f0f0bfc2cc24bc7dd2a38c5f6f226b9493ed"
+          "bytes": 4540,
+          "sha256": "b933ddd43c9e7562a50b3241ce3db4b3008bef273269fa62b70673ba2a7d74d8"
         }
       ],
       "sourceWidth": 512,
@@ -3542,36 +3542,36 @@
     },
     {
       "source": "images/animals/gelada-monkey--idle--three-quarter.webp",
-      "sourceSha256": "f46c922778fb2b5084be5f8f8bd2a326726a965860cbdb895228b934fa52c0c3",
+      "sourceSha256": "a7319fd7fb6c22db0cd86cc1acfa433f7eef04e51452f7c1dc237da8b69e0eb2",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/gelada-monkey--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 804,
-          "sha256": "4fea07e1113ed0209dd3041ea69f33395b33bdec8495c781f75659827ae743de"
+          "bytes": 812,
+          "sha256": "342c8505f5c8c22e91503557c05e225191f6f1effe8ed8ba9cecce0a27a90f16"
         },
         {
           "path": "images/thumbnails/animals/gelada-monkey--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1744,
-          "sha256": "a34ce0a3f2f7236b237e4e75272a65c3328921b8a67e36720a2768fce4689814"
+          "bytes": 1746,
+          "sha256": "8db00eda7edd1f02aeb181f2ae38965d9603234be7c64beb2c900d1087ad3662"
         },
         {
           "path": "images/thumbnails/animals/gelada-monkey--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2344,
-          "sha256": "3cd6fc2ad4a3434911a3720399cb39b2ebfec38b61338462dcf716167fef4f68"
+          "bytes": 2360,
+          "sha256": "577eeb6592cf4810d8190808896dda3c50b0bca20ba648a7c858e3fad4185acd"
         },
         {
           "path": "images/thumbnails/animals/gelada-monkey--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4318,
-          "sha256": "2154967e124368a3657ac27c3c9d9c3cdeb924992ee056210b731c951a79875e"
+          "bytes": 4250,
+          "sha256": "431857d6ea86200ff300593e2f3b21cddfe348f0a9f1e07a8199a2f17281f3ed"
         }
       ],
       "sourceWidth": 512,
@@ -3579,36 +3579,36 @@
     },
     {
       "source": "images/animals/giant-squid--idle--three-quarter.webp",
-      "sourceSha256": "0107f6fdd41451d4d7ecf735e992339fc27faf9234a48e2f9d3ccad6517f61ad",
+      "sourceSha256": "002f6a6742a3e3c997836f08f6e728ed113ff539bd77aa5a42394dfc08af493f",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/giant-squid--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 854,
-          "sha256": "87ad0120333214728579c3d7d5631a2a5a718fdee5c7a38dbc3a37e8059ee52a"
+          "bytes": 866,
+          "sha256": "3fc432cf65caf1352213792f4386cdb91a7ae396fc61fa2745941d72bc0e18da"
         },
         {
           "path": "images/thumbnails/animals/giant-squid--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2068,
-          "sha256": "b5175be679973d7708618fa065541d8bd45da0ed5746611e98c71a689404f583"
+          "bytes": 2148,
+          "sha256": "5a1502704504707d6126c329cba328a6e6cdf29419494cd3b1f527cf7e842665"
         },
         {
           "path": "images/thumbnails/animals/giant-squid--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3060,
-          "sha256": "a8f009e3b3525050969ec52d1aa66394d1e3936c5d9d52b022fd20f9c32d5c41"
+          "bytes": 3174,
+          "sha256": "d33c91d95f41297d024ed4d56f0881502a56aa6b5918161d72d04502078037c0"
         },
         {
           "path": "images/thumbnails/animals/giant-squid--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5648,
-          "sha256": "2f9e4240d00e82bf973c286712ebed2bbdb4b64b17a96db8f854568125b8880a"
+          "bytes": 6186,
+          "sha256": "95258538d8bbbf3dfe1410abb12cce2fe22652386d5ee31d21e1a923ad3f3a90"
         }
       ],
       "sourceWidth": 512,
@@ -3616,36 +3616,36 @@
     },
     {
       "source": "images/animals/giraffe--idle--three-quarter.webp",
-      "sourceSha256": "06100cbfc1ec5629c76afea04f7369e550ad64912831b737ddb3bf1b24c18ecd",
+      "sourceSha256": "b46c4dd87ff93f823f8e2c08408c73c1f477abdf8a4b441b652233aa2b85d850",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/giraffe--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 856,
-          "sha256": "a705ce02cc73152997db284ee2b9153087350c5903d86b548862355f8c9338ed"
+          "bytes": 830,
+          "sha256": "fcbe186c6bf5225f00e985fe9b2aadaf28a8e5acfc87aef169da7cc5cf265192"
         },
         {
           "path": "images/thumbnails/animals/giraffe--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2090,
-          "sha256": "c97d4d478ae271f90ba14df1ad4340a539fab58613831973d68e2e054f84e666"
+          "bytes": 2020,
+          "sha256": "a35fca4034a796ed02767cc25d3392fd28e2dc65e5d1e7b9c54a7ee77c556088"
         },
         {
           "path": "images/thumbnails/animals/giraffe--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3086,
-          "sha256": "1e5734fee719765e1f64050e75a9fb9f96c618ffff36e6f137c2c05377923942"
+          "bytes": 2990,
+          "sha256": "29f857e9c4d3b288ae0b06a4f87aef1e0f434d2b21436b02e53ff00402c11716"
         },
         {
           "path": "images/thumbnails/animals/giraffe--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5928,
-          "sha256": "417cc6fd1590fbb9acc980596195323a9571864a145e14a54e39eab14253942b"
+          "bytes": 5520,
+          "sha256": "0336b0c005f2d6ea6a659a29a38439097859c09f16d59540cb26dbb2051a311f"
         }
       ],
       "sourceWidth": 512,
@@ -3653,36 +3653,36 @@
     },
     {
       "source": "images/animals/goat--idle--three-quarter.webp",
-      "sourceSha256": "a0d1b63e18df0e3cab60ff0af9557926938b473ddf5e26a30cd86d4c64f15f55",
+      "sourceSha256": "a5600c32bc16d36cdb825a54a83a06f14b186dbed78e16ac9d3f93e0a7514c10",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/goat--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 700,
-          "sha256": "01a1f37fd88d828ea0e307bd4b105b17f7c9946c31151fbc2898eb4d28ac4dcc"
+          "bytes": 758,
+          "sha256": "5a7dc977f60cc8f204dc1df562061d20db5c4ed9674dbd378a8dd14fc20bbab5"
         },
         {
           "path": "images/thumbnails/animals/goat--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1442,
-          "sha256": "70110e1a78fc62b633d062950e03429ff6609bef89e2d0e221801025c6b2b1b1"
+          "bytes": 1634,
+          "sha256": "fed7442e07d80c9f85cff09668345a4f7d53291ef07cde7797714955bbec15fe"
         },
         {
           "path": "images/thumbnails/animals/goat--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1994,
-          "sha256": "e55972e41b72088e788b19f88a59dfeeb2641c67ffd6e1d0f6db902aa5c69b91"
+          "bytes": 2196,
+          "sha256": "7128786f70823ca9f0a0c7a746933dc4ba35c8ed4d98171a484fa7a1122d1f67"
         },
         {
           "path": "images/thumbnails/animals/goat--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3684,
-          "sha256": "50e0209da828161008b5538a813df2b088cf843f5764d1654c2c7c340a840425"
+          "bytes": 4024,
+          "sha256": "b9b79b1d0c4784a5b72064e3ee18c793b3d95c9cd25aa13210e1ded748d05891"
         }
       ],
       "sourceWidth": 512,
@@ -3690,36 +3690,36 @@
     },
     {
       "source": "images/animals/goose--idle--three-quarter.webp",
-      "sourceSha256": "662138502caa0d92959514c4d7193a2f65310c57110aae4854cd1e29b63aaa0c",
+      "sourceSha256": "9cdcdcb2e5d772c29f8bb0ae5a64062267908a81ec2295a2d0d0a3c072099312",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/goose--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 640,
-          "sha256": "8127ddf189b87fa76125870843eb7c5394e5691d05f55fa04366757414fa695e"
+          "bytes": 704,
+          "sha256": "34fff2b55e6a924be13171110d80f2cfe0e69c267d350c41e8bebacfad8875e5"
         },
         {
           "path": "images/thumbnails/animals/goose--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1406,
-          "sha256": "278c5472064beb08d81b8c13a6c2b407363a9ee04fb3cdaf9468e289bde21240"
+          "bytes": 1464,
+          "sha256": "f6ca2477d10ef4a4c16d9d914529cc0404d355caf819737d3fda1a9030a86951"
         },
         {
           "path": "images/thumbnails/animals/goose--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1912,
-          "sha256": "5092a700770b8ff353761ba5935dbc7e45bc75b2251671bbff5900d65d29061d"
+          "bytes": 2006,
+          "sha256": "90c1819d82f093dd71a4d439c39f35336f6e7851c85a6f2d6e136e912228a229"
         },
         {
           "path": "images/thumbnails/animals/goose--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3576,
-          "sha256": "0a851b51d2736bd390316a806a98952e431162fbb75190fd4ec0ae7b2ae968c0"
+          "bytes": 3738,
+          "sha256": "133c32b473b45645b359a0241090c93f84d6aeffc96f80f92c46b6647b07f282"
         }
       ],
       "sourceWidth": 512,
@@ -3727,36 +3727,36 @@
     },
     {
       "source": "images/animals/gorilla--idle--three-quarter.webp",
-      "sourceSha256": "f2bea26aec9559aeedf3ffb850292e4a28495035c9d6337ee227781702b4439e",
+      "sourceSha256": "45c5a06886e12d3dffc06fac28ea70d3826946bfba81daa24acc1c95a161db9e",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/gorilla--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 728,
-          "sha256": "55aae19047987501534a03bf75cb5665984e987f32fc2870d0afacda4ba1da6b"
+          "bytes": 780,
+          "sha256": "fb14d30d84a46fa306c4cab993d0fd2eb93e509f048562b1f1b276503dd05ca6"
         },
         {
           "path": "images/thumbnails/animals/gorilla--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1500,
-          "sha256": "83d3235381b7c5051954702d9989503751f75280e9c2ad4b43588d14b28f1d4c"
+          "bytes": 1686,
+          "sha256": "864b170b6ead71fe9929982920368719d73adf73c902517dcf800c2cc0ec33d4"
         },
         {
           "path": "images/thumbnails/animals/gorilla--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2136,
-          "sha256": "d28d809923859a52150f5b446b544b9dd0c632cb7b944e9f695b8cbd58f2c2e5"
+          "bytes": 2308,
+          "sha256": "989b205dcc25b9505cac17252781ab30b3de4477eeb34b918cd41ce013c446f1"
         },
         {
           "path": "images/thumbnails/animals/gorilla--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3914,
-          "sha256": "a4ce4dda9830910a31f9c8fb687273e3d0a9b3897c8b1dd7322bac5c0955cc0b"
+          "bytes": 4362,
+          "sha256": "2b2876997b32cf6f7f91ec56ceac881b671a1de9c7b02dadc41e86148dbcca61"
         }
       ],
       "sourceWidth": 512,
@@ -3764,36 +3764,36 @@
     },
     {
       "source": "images/animals/gull--idle--three-quarter.webp",
-      "sourceSha256": "ce15603d36a01205f75ae27a5bb6fe5b35f0c744e03300a908264c0fb19639a4",
+      "sourceSha256": "ae80e1e4cf8fe1f3e1bad8a832f6401188f76c0c1f259b7b4f344c4bf4beb89b",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/gull--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 706,
-          "sha256": "b6b3dbaf05b900ca7fa09b56e7709cb6404de1608936a46410ccfb136f5dd371"
+          "bytes": 736,
+          "sha256": "18349ae943f18b9d294af646945f7d27b3a5dbb599d88bc389c3efcef6e25732"
         },
         {
           "path": "images/thumbnails/animals/gull--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1520,
-          "sha256": "902db97a699078c9e6c4b4151b5f24f0c1fdd03c0b81f6027907fbf79d836955"
+          "bytes": 1640,
+          "sha256": "faab621ebb470eae245adaf665fcd965c7052e112b7c60a685ca3ca480616762"
         },
         {
           "path": "images/thumbnails/animals/gull--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2150,
-          "sha256": "797de5bb963e1f91760c031c604c94c5bd0be68caa102759d07858656ec6ffdb"
+          "bytes": 2220,
+          "sha256": "3dbbd3fd0bbc61171726605742ca0e6ac4b1050fbca54f587340ca530272e6f0"
         },
         {
           "path": "images/thumbnails/animals/gull--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3904,
-          "sha256": "5c4437489734b56605e44b9bd9db202944d9ccee9ba0f65b397e17ff8fc2f9b3"
+          "bytes": 4094,
+          "sha256": "7096aa0595d371ed44f058ae451f2e135c281a4f9beef0a1c45c4d3624dfc2ae"
         }
       ],
       "sourceWidth": 512,
@@ -3801,36 +3801,36 @@
     },
     {
       "source": "images/animals/hammerhead-shark--idle--three-quarter.webp",
-      "sourceSha256": "72f85af8f87e61e09eb1b470d2d3a7b8ec9f29c30ac8a8ed13c03908da5ad405",
+      "sourceSha256": "c98a173bbe3461eb260a2db26a8fa81998c15b1e6457c444a00f1aa219c315dd",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/hammerhead-shark--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 556,
-          "sha256": "93a45c326b3ea43c22d4cbcff932ddd60650816863acaa99a6bfc32127350346"
+          "bytes": 630,
+          "sha256": "00d2330dcac83f9121731ac4f409147ff97152054aa2a0679b7dccf5ab0f4cba"
         },
         {
           "path": "images/thumbnails/animals/hammerhead-shark--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1260,
-          "sha256": "f6528152aab32ae5624e1188a569f4425ba6a3cd66bf1c622d7b491c74ed0b39"
+          "bytes": 1338,
+          "sha256": "33cc17122248ac1bd89ae2eaafb05502923c3cb9b1944fde3c43a7bcff1c820d"
         },
         {
           "path": "images/thumbnails/animals/hammerhead-shark--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1738,
-          "sha256": "0f9ea1bc3f111129878493ab2c188b45bd268f840ee97cd5647e89041322ef46"
+          "bytes": 1852,
+          "sha256": "acbc7ffff33375b52687f7815c0feb7973532f69a61af8858891eb4b8fed606a"
         },
         {
           "path": "images/thumbnails/animals/hammerhead-shark--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3314,
-          "sha256": "07030028d3b4a849e250bb48b4c05b158a0f03b5b47c47a7f5caec12580de55f"
+          "bytes": 3344,
+          "sha256": "c2e9c785ad5c498617eb123992d38ede0231dd80e538ed4529c7c53f2d13eb5e"
         }
       ],
       "sourceWidth": 512,
@@ -3838,36 +3838,36 @@
     },
     {
       "source": "images/animals/hippo--idle--three-quarter.webp",
-      "sourceSha256": "070152702236f2e7dcd86d95c5465daee2801766f704f3c42c37b2c961dc0345",
+      "sourceSha256": "17fdd2c75ed07656881899ebcbef429663e9bbe88be28de8fb17608abd8657b0",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/hippo--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 736,
-          "sha256": "c1bfe8705629f84172ce005328be6d68463de9a524c93e514cfdb1516619dae8"
+          "bytes": 690,
+          "sha256": "8eeecf2e7c167bf514a02ae699bc191877ad3fe0fb22badb1fc4202ae57b9e4b"
         },
         {
           "path": "images/thumbnails/animals/hippo--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1690,
-          "sha256": "06bc8f7173e6456a57ebac3fcd97b0e1b2ed5c9ae8b6e1ca05154aa86bbbf0c0"
+          "bytes": 1514,
+          "sha256": "ac13b071b89e12002ed63dc5e11c9244d9c2d786382a02b4b56d8e549c97bd9e"
         },
         {
           "path": "images/thumbnails/animals/hippo--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2362,
-          "sha256": "1302a9dba256b1270d00ea43e0d754aa5fb69d74e62fba4907c865edc0ca31c8"
+          "bytes": 2202,
+          "sha256": "e4e4ce03cb5cbade7828ed298de838cc0c4b7fef077fd6de8193231869a7b04f"
         },
         {
           "path": "images/thumbnails/animals/hippo--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4510,
-          "sha256": "3636b3b88386e55a26ad099291535726ccc3d438c7e034386b3351641ed5f394"
+          "bytes": 3974,
+          "sha256": "2424940d65a7ad8b4e944b87fbb68863f85091e186adaa675ab89681e53e5794"
         }
       ],
       "sourceWidth": 512,
@@ -3875,36 +3875,36 @@
     },
     {
       "source": "images/animals/hummingbird--idle--three-quarter.webp",
-      "sourceSha256": "270c61d80bceadf7c46b9ce6d6c4e62176ad20e5a67743026d5f2cedd88cd3df",
+      "sourceSha256": "4b6a57efd5935a2f08435780b3b134c387e07cd4a7965175aadf948e23de6a38",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/hummingbird--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 542,
-          "sha256": "cb014e599a1f3f584baa82f4fc431873a26aa30268e629b4834229c5646313d1"
+          "bytes": 774,
+          "sha256": "9ff281f54e7d5a72433ceb0151d84b526a4a53a916e3dc1f68b7d90d3c83a37b"
         },
         {
           "path": "images/thumbnails/animals/hummingbird--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1150,
-          "sha256": "d4a6d1d62b25105f8895feaa25049166e515c1ece42c50b3c36d9d15d41f26ba"
+          "bytes": 1558,
+          "sha256": "732b0013fa737902be7acee7ba98b936b1d0919de2eb3984a8cc62b1dda11509"
         },
         {
           "path": "images/thumbnails/animals/hummingbird--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1636,
-          "sha256": "a7c1e0fece591e6b8a53b5b0223145c5f90b9740e299f15c441a014d1d5505db"
+          "bytes": 2136,
+          "sha256": "3371aa6da591820de9c5c15f358f1a4fd474658c6a2d1b8f427ae06e72488682"
         },
         {
           "path": "images/thumbnails/animals/hummingbird--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 2984,
-          "sha256": "9eb43dd373c8a72e189f1e3fb2d674439f9f121678c64269cccbcaed2a4236f5"
+          "bytes": 3806,
+          "sha256": "a8e45f4408370aa06da1ff6ec463534e2977ad7bccfc896f9b40ee8332c83793"
         }
       ],
       "sourceWidth": 512,
@@ -3912,36 +3912,36 @@
     },
     {
       "source": "images/animals/jerboa--idle--three-quarter.webp",
-      "sourceSha256": "08910cad1180f6fa35c6850d0e887535ef3352aa2cfdecaf06a38466ebd9260d",
+      "sourceSha256": "ad5a557180dade6031e8dba370de443923164b040ba2c0b701703ee81da8a763",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/jerboa--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 666,
-          "sha256": "cb11f1274334105997fefd93be63c3c5f62cf523f904db67afc4b4f4c3490d1d"
+          "bytes": 728,
+          "sha256": "aa3ebd471c26c987d8fd0b9696111dd7cb7cade29d8c86149e67ad1653355366"
         },
         {
           "path": "images/thumbnails/animals/jerboa--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1386,
-          "sha256": "0285959b53664a34d35e1687afab474a5d777950b773e77be7a567bd4236c66f"
+          "bytes": 1692,
+          "sha256": "558b3ec58d4684e9cd366201d636706a4905cbe4b81f560e344770b022ad5101"
         },
         {
           "path": "images/thumbnails/animals/jerboa--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1996,
-          "sha256": "e47469b98e4b5a66feed00e9c59987bb73921291f66963ca532ebd8bd8337436"
+          "bytes": 2392,
+          "sha256": "a95beb93be44ad91cb6c6bbbb4af0145ce019a627b933968a443651f866ff496"
         },
         {
           "path": "images/thumbnails/animals/jerboa--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3594,
-          "sha256": "5106fcc6a3ad4a57a3f0d49a066e7d9ebda54f94491c75b953a42818e6f369a7"
+          "bytes": 4292,
+          "sha256": "b8c036845db4a89aa99832e041bdb42901f3e4682bcbef7aadca3cf6894636fb"
         }
       ],
       "sourceWidth": 512,
@@ -3949,36 +3949,36 @@
     },
     {
       "source": "images/animals/kangaroo--idle--three-quarter.webp",
-      "sourceSha256": "abe72f0801566546045ee86cf4ab9a96d36f1a7aea097db14bd0914dc55b6d4d",
+      "sourceSha256": "49fedb8fefd3fe9180471feddf899525b1b30672e2db61c1ce05b60ec39ccff1",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/kangaroo--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 698,
-          "sha256": "ff5c805391c7e01e8e2ce68a38dbedec2c23ed145041964ca27ca01b265cca09"
+          "bytes": 782,
+          "sha256": "9c5060834e472384d3250ad26533cc841e3d71b8757e557d10fac2612d692659"
         },
         {
           "path": "images/thumbnails/animals/kangaroo--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1546,
-          "sha256": "1aa6ec7f8568bbe967abe6043b2550af1a7cd88e028a170f70ce01c112c1acfd"
+          "bytes": 1738,
+          "sha256": "86b0382cbf7324d673518b6682b2d9410f37ca30f2fd1a6ad73a992557c3f5d6"
         },
         {
           "path": "images/thumbnails/animals/kangaroo--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2138,
-          "sha256": "66bebf4f3281a89d91a684b1209e23df2208b773ba5f04232e9968ab06d59021"
+          "bytes": 2468,
+          "sha256": "f95b2f351bdccf071e3a3a8d0acbe6f99c18d9fb07bdc3309141dd5f8d67fb49"
         },
         {
           "path": "images/thumbnails/animals/kangaroo--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3938,
-          "sha256": "9365a972626bd09faaa5261f1c2992111b23beb09a3e1f1db5c3bae857fb04df"
+          "bytes": 4426,
+          "sha256": "b5e73cff653139b69724c66a78bcef933f442af5b6ead430ba1b0aeb45cbad4b"
         }
       ],
       "sourceWidth": 512,
@@ -3986,7 +3986,7 @@
     },
     {
       "source": "images/animals/komodo-dragon--idle--three-quarter.webp",
-      "sourceSha256": "12e035d470e5969c0fe3e241b7af9c18c21ba7383bb3aca72b0cb812feeba0f2",
+      "sourceSha256": "3f8cc09ac848c07066faefa6577d6b34815a89b35bfa078e3091026d00d2f8a7",
       "kind": "animals",
       "variants": [
         {
@@ -3994,28 +3994,28 @@
           "width": 72,
           "height": 72,
           "bytes": 682,
-          "sha256": "50f0b66f81ce0deeb712297a36aa552fffa7301b9f21bc25c0810a8411b713a9"
+          "sha256": "62a99c692dc951b1786765096b0316d0b67f88755017fec47cc664df21918cb6"
         },
         {
           "path": "images/thumbnails/animals/komodo-dragon--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1640,
-          "sha256": "5e07012c5cadfa96ff7d1cae06c8eaa4eb2b6090df2fff92e88e7c4707d7ce3b"
+          "bytes": 1586,
+          "sha256": "d041c83a5534fd38a337d2cb66e69427e50d3374a97427d3e3c3b7d976fb8d1c"
         },
         {
           "path": "images/thumbnails/animals/komodo-dragon--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2354,
-          "sha256": "c2ecb6f7cd51065d38e5f2cfdbd1dbe0aecd935a310eec6cb95bbe7714bbfbfa"
+          "bytes": 2374,
+          "sha256": "ae9a4a3f9a3a1b67cff54c33e0fc6f2ed4e02228267a599c110fcdee4bc7eb74"
         },
         {
           "path": "images/thumbnails/animals/komodo-dragon--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4468,
-          "sha256": "54d56da4574fb951ef3126ee91ba5c3f417d2a57d3c4e78443576a0b2c0eac84"
+          "bytes": 4378,
+          "sha256": "f68cbdccf252611f7dede22e6aa25f7ff50813f9e6eda7b2eb24ac14af34b4b0"
         }
       ],
       "sourceWidth": 512,
@@ -4023,36 +4023,36 @@
     },
     {
       "source": "images/animals/leafcutter-ant--idle--three-quarter.webp",
-      "sourceSha256": "58a9db32bad40df0fee2008b91f412f1fb8c6c9bcb74728818aab94b4f83ebe9",
+      "sourceSha256": "51e6c8a17513cd6bd8eeb1def56477345818af4e9e40086ca1df2920b57c2dfd",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/leafcutter-ant--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 822,
-          "sha256": "da5ae16201929e56a81bf22905b6f4ac07b57d0728b1d2ebc24f0282031d7dcb"
+          "bytes": 770,
+          "sha256": "f0aee88a4a91bf936863825d7a0ecfaefc365e345c061d9607be9e5f012b697a"
         },
         {
           "path": "images/thumbnails/animals/leafcutter-ant--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1842,
-          "sha256": "1368d523e91c9789b99aab846f08a97dbc4912bc4d3c5bf8529fcd40618cd4c3"
+          "bytes": 1832,
+          "sha256": "7a95e5dd9fc9e59014bb12757f6d47cb3254538df2b4e5e78a99f259c5b59563"
         },
         {
           "path": "images/thumbnails/animals/leafcutter-ant--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2608,
-          "sha256": "b02a8eaccd26653ff63fbc1646ac60baac60ff3c30b511551831c1fc8c5b276d"
+          "bytes": 2634,
+          "sha256": "23e98fb69684b104ba74d2810f8ff76dab5062fecd726b19ab82db1fb22aa2c3"
         },
         {
           "path": "images/thumbnails/animals/leafcutter-ant--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4924,
-          "sha256": "41c30ad28eedab5dd9a7e9303b6f933245f3bdf4c4687fc8028191ff362a72ce"
+          "bytes": 5030,
+          "sha256": "63eca029f447ccbac9a531c20e5b1485cac19304bf448668b802186715a6e039"
         }
       ],
       "sourceWidth": 512,
@@ -4060,36 +4060,36 @@
     },
     {
       "source": "images/animals/lion--idle--three-quarter.webp",
-      "sourceSha256": "d28f2a4b5abfb662bf198c911ea0f3f8e2633b03a07705a7fa037f87fc0f6ad1",
+      "sourceSha256": "db5a705b4d896ae01f8d837d66db10849e7801d10ba719d022250a1a38650ae2",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/lion--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 900,
-          "sha256": "27a7fd4e9555c5a17940a96db97253e362543ed2abce4bad6bef109c1077006e"
+          "bytes": 918,
+          "sha256": "a583e4f32aabfd761170fd4bc5fd94b79fb006dd581fe10750cac44f3faea2d3"
         },
         {
           "path": "images/thumbnails/animals/lion--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1966,
-          "sha256": "33103137ba9e695f108be915104ecff4f206d152e5490901976efae33d8cafce"
+          "bytes": 2062,
+          "sha256": "ef346d3108422608157e0a09074bcc668804368b23b77d5aa76c14e69cea5c93"
         },
         {
           "path": "images/thumbnails/animals/lion--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2872,
-          "sha256": "578efffce16aaed34f0411d089e07fd23010f9220e50d1aa655e78ed7484a615"
+          "bytes": 2848,
+          "sha256": "df3ec514cefcfd71d199ade3c852489546b136ac66752b9faef71770959c705c"
         },
         {
           "path": "images/thumbnails/animals/lion--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5084,
-          "sha256": "a839b1783b9b17f63b703143f198fe744c14bf69041ff95d08c9b92d18a0b5c1"
+          "bytes": 4984,
+          "sha256": "433392e8dd207f020cffb4f02a4fb5a4db3960cf460f801e05c18aa23a53637a"
         }
       ],
       "sourceWidth": 512,
@@ -4097,36 +4097,36 @@
     },
     {
       "source": "images/animals/lobster--idle--three-quarter.webp",
-      "sourceSha256": "5dad5689a8e71009d2eaadbf18a008c3a9fc491f28c71763d7810f6d4cccce3a",
+      "sourceSha256": "e86b4ebb9275299c95033fb8f4fa4415b10ac79c92833e032524f3153b95738e",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/lobster--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 568,
-          "sha256": "2b5651ed0e47a98c5d428314da5eaab5730d7a79fc4a94e35c800551958349bb"
+          "bytes": 824,
+          "sha256": "4a73fb69dcc057712006913c5cf8912a25f8fd01a333da82670d598fcfc51ce8"
         },
         {
           "path": "images/thumbnails/animals/lobster--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1296,
-          "sha256": "b84c55bc51bfd6a39efceb5b21dd69a1832126ed52061a04bf2f130e9a6cf17f"
+          "bytes": 1980,
+          "sha256": "401cdfe2ee67cb97e77e2827a9d6d89331601214c3b350b25e7b3b8401572baf"
         },
         {
           "path": "images/thumbnails/animals/lobster--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1840,
-          "sha256": "a4df26e08fbc51872a234b033d7f0b83790a38197c51f0ecddb2c3f6a6ca13cb"
+          "bytes": 2796,
+          "sha256": "f643c1fc345ec2dd47fa65a5d6967d823a70e22b98ac0c5767f1aa1b9eedc212"
         },
         {
           "path": "images/thumbnails/animals/lobster--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3592,
-          "sha256": "6511a37f5bae4598ad792d9fcc96349431612ec9c9ebb289c5b8c4a3c93c29fc"
+          "bytes": 5164,
+          "sha256": "a73dfa8653e8bd81b479ca808e7b47bb3dfedc1102b4052ffb7523fcf88def8c"
         }
       ],
       "sourceWidth": 512,
@@ -4134,36 +4134,36 @@
     },
     {
       "source": "images/animals/maned-wolf--idle--three-quarter.webp",
-      "sourceSha256": "944dc208774e73ba3cd158806782b666c610d99617fa18897892e123132658ea",
+      "sourceSha256": "d20e72f04dff9962448a6a680c7ffb29423e1e6b28cf1608b8d8d246a91a582a",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/maned-wolf--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 848,
-          "sha256": "5e3c8427972750846bdd58692a9bf0140f0db0e64b7a2e1d0d359f79e92a9279"
+          "bytes": 916,
+          "sha256": "8e30d5a6d1ad35f5a7b5976f98eebee686ff051f99e4d4aa05ae7a3e4c7efaae"
         },
         {
           "path": "images/thumbnails/animals/maned-wolf--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1804,
-          "sha256": "9e1d58d15e46ed35fe86f82e78d743a5281461741f6fd436f1dfd564243feb1c"
+          "bytes": 2040,
+          "sha256": "e5964bd15b1c21597820d2ce0c38dd99fee923a6e3905bf872aad0f8a7d874c5"
         },
         {
           "path": "images/thumbnails/animals/maned-wolf--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2584,
-          "sha256": "214830cd8e2878a8ab59baf348bc1f2fba4fac79013ce6945acecd4347ed7601"
+          "bytes": 2788,
+          "sha256": "e9ac23403aa7c48c4b7d71070f8d6c4ee2f33f842f733e3785de9b41ca3f22fd"
         },
         {
           "path": "images/thumbnails/animals/maned-wolf--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4308,
-          "sha256": "1459cf04c0aafe0e2324fe4493fbcd8a4d8ee2a7bdc13e52c406f42249afc2d4"
+          "bytes": 4916,
+          "sha256": "582b564156d6f2f0812f70ac752a0e3df5cce46e037714591de4cf394082b9d5"
         }
       ],
       "sourceWidth": 512,
@@ -4171,36 +4171,36 @@
     },
     {
       "source": "images/animals/mantis-shrimp--idle--three-quarter.webp",
-      "sourceSha256": "b4df7601f843fe4d18ba7eaecdfafece3da44ec7be96a807ad8cb4505c53afa3",
+      "sourceSha256": "e61e5910e84656205259dc96cb153c56e3bd3fd04a97a1357fc796b2302dcc5d",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/mantis-shrimp--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 768,
-          "sha256": "86b9d7ad5ee9406b4f6cf19ad44bc0245e287fe572a3cb8c6b74f526a4f0f6f4"
+          "bytes": 782,
+          "sha256": "4cadc1647d8513faccdc790aa073db302268d9efada69c4ac56e7dded4d281bc"
         },
         {
           "path": "images/thumbnails/animals/mantis-shrimp--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1926,
-          "sha256": "94e8a9f1fef249865a323e62801e06231091b10c44a435975ef7c38e572654ff"
+          "bytes": 1960,
+          "sha256": "fe4d05acc36d3e414bc99bf631e9c71123c3d53b499c11978dc201d66dda277a"
         },
         {
           "path": "images/thumbnails/animals/mantis-shrimp--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2866,
-          "sha256": "4154598a05c4f501c6c02297ce4b3cd4505ac8c6227ab59ab577702b990fba5c"
+          "bytes": 2848,
+          "sha256": "c22bc3733c7424bd4779e444c45f542114b8573d35c7ad828a1dad408d8236c5"
         },
         {
           "path": "images/thumbnails/animals/mantis-shrimp--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5404,
-          "sha256": "3bbe1885688cd92a7b4d0efbb918aacffd6c33d55d69de12f103228b2b92ea72"
+          "bytes": 5514,
+          "sha256": "299fd5da3e37a263e2917eee639993ad1aee30b53d58096a1a216d33629592a1"
         }
       ],
       "sourceWidth": 512,
@@ -4208,36 +4208,36 @@
     },
     {
       "source": "images/animals/mimic-octopus--idle--three-quarter.webp",
-      "sourceSha256": "230c4d7ca519e4c191c1904c104793f4bec83ed9fc50084de00109f0d05a0083",
+      "sourceSha256": "d9ed2a5ef634301eae0d3f679c5c547b1cfc6fd18f1b29374be7c97c263eb5b8",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/mimic-octopus--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 702,
-          "sha256": "d7c9f61cb094fa7ee6199722506ac9c93076f53e47276d835114d3720b6ff393"
+          "bytes": 642,
+          "sha256": "6482caf5bd272bd3131b466fdc30ef0f69721eeee6201ba232295f6f9a002ffd"
         },
         {
           "path": "images/thumbnails/animals/mimic-octopus--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1746,
-          "sha256": "ac39ccdc1737063ba79fdf6e7a5ce8ab0deaea9e54b832bf5e10f97ad8c8dcc2"
+          "bytes": 1648,
+          "sha256": "3717cfe198b674acf7f52e40377821003bc901957b3b80ba29492b423c4784db"
         },
         {
           "path": "images/thumbnails/animals/mimic-octopus--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2640,
-          "sha256": "df66eae14a326f8faaea4b5f7fe19810897c5931edc94cc2eaa08f5e0781fa95"
+          "bytes": 2518,
+          "sha256": "dd125b8de4502aae67c50b0dcf646794a8febcb3456f7eb5b3f8170d29aa7a85"
         },
         {
           "path": "images/thumbnails/animals/mimic-octopus--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5236,
-          "sha256": "b51faf804e546b8f2a35fa4ddd62adb46cac77deb80c33591ee0117483b4d1a5"
+          "bytes": 5218,
+          "sha256": "050d7b949a74a274326e9f7f6bd18fa84ed84568aff3841ac06213f2a58fc888"
         }
       ],
       "sourceWidth": 512,
@@ -4245,36 +4245,36 @@
     },
     {
       "source": "images/animals/moose--idle--three-quarter.webp",
-      "sourceSha256": "969e6f27859d096f6038f2fdfc6f6a1f460d68235d2cc84f7a1a2edeb8154824",
+      "sourceSha256": "074cfd9662a200581cee0ff10c3ac4ea85aa62f468893e0ddd819d87305719b6",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/moose--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 758,
-          "sha256": "b91ff34782d2ab5b015236e5ecd81a08c10d174888440b721bd119e2f3aeef9e"
+          "bytes": 780,
+          "sha256": "99cd47ced1f46c49eb307984ac13143604446523b82d7cf52e78744fe19ab42d"
         },
         {
           "path": "images/thumbnails/animals/moose--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1700,
-          "sha256": "9a634740912e86bf93d3f97985995fa49bf5a456bba98179b1d4961a9f16d64a"
+          "bytes": 1706,
+          "sha256": "75ef670947b003a34f32f2bff0b5fd05b2dfb8df92a4dd4ebf550f92bc8f508f"
         },
         {
           "path": "images/thumbnails/animals/moose--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2376,
-          "sha256": "29a5c74b0df1983595d0e2e44de06993483d5d30943dae3370c1e0c804858512"
+          "bytes": 2502,
+          "sha256": "a2ac4d22167fde3606746797650422e80bffae0b149c9b6889b2ab3572cb103c"
         },
         {
           "path": "images/thumbnails/animals/moose--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4214,
-          "sha256": "aa7e49ddacec9e71010aac485ea0def27c9d55c93581caf5499c314c2048e8ad"
+          "bytes": 4368,
+          "sha256": "2df3d64d99b3ec2587e54775738dc86e4f7255814357dcb60a63e6a63466c3f3"
         }
       ],
       "sourceWidth": 512,
@@ -4282,36 +4282,36 @@
     },
     {
       "source": "images/animals/mudskipper--idle--three-quarter.webp",
-      "sourceSha256": "62da54a47ad85352b9fe37060de78dd04d8b4a526b7d9b497d06976ee536d607",
+      "sourceSha256": "68a2c34d813c2842e20771ad8faa1cf54475130fc05b1c44dc5962c7ebc100aa",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/mudskipper--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 860,
-          "sha256": "515e0fa7ae089f8ba812d45fd80fa9481af209837122212f757fc3794870ed53"
+          "bytes": 664,
+          "sha256": "f7c04435c1c2ebb6db56e38a5a331232d90c970f9146484c945b33e5af5bfdd1"
         },
         {
           "path": "images/thumbnails/animals/mudskipper--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1894,
-          "sha256": "5383ea807e04924875db2ade19629bdd7f84114ad685a97cc9c82cfe17d83197"
+          "bytes": 1544,
+          "sha256": "27cb9adbcf66e7ad48f4a959b4a349cb9fdbb1bae8ed71dd3a47a55c228bcb74"
         },
         {
           "path": "images/thumbnails/animals/mudskipper--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2628,
-          "sha256": "09c600bbcd70123c179f57d5b875c81c9e6fe647c032eb5cc5e2250e243073a5"
+          "bytes": 2188,
+          "sha256": "f03c7eee58b4f2230ce4fcd8f2df5e7b1a5ccc0a4947f537274018cf558cb6b8"
         },
         {
           "path": "images/thumbnails/animals/mudskipper--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4748,
-          "sha256": "eeb7deba72b9426695e9a805235604b9910d36d8adf0712dda674149b6f41581"
+          "bytes": 3992,
+          "sha256": "ab8f35751ab743340535748fe9f3d5793e572920ed47e836fe41dc3c68c59c39"
         }
       ],
       "sourceWidth": 512,
@@ -4319,36 +4319,36 @@
     },
     {
       "source": "images/animals/orca--idle--three-quarter.webp",
-      "sourceSha256": "e2932fed4fb6b8c530a5c0d230440b947fb2b5d160d0119c124797755904349a",
+      "sourceSha256": "86ab1b6a1e90bf13c082656866689b9905d1260c5768a44b5fd70d853cb0152d",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/orca--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 636,
-          "sha256": "58d85e3b66685cf325a19eb2e979746f2de52f0af6bc350712a14c4ce806e469"
+          "bytes": 686,
+          "sha256": "46c3af99b43491ae7d109270c74ebbce3edb107e507a6108f1675f497891080a"
         },
         {
           "path": "images/thumbnails/animals/orca--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1396,
-          "sha256": "7bcd2e4ab9c472f049af606a7ef4937ed37c7384034815cd6d5dec10222e5010"
+          "bytes": 1548,
+          "sha256": "a314bea02becd735495fddc10c5978b4680a47c100ddca440c1a6d33048aebc7"
         },
         {
           "path": "images/thumbnails/animals/orca--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1944,
-          "sha256": "96d5338b44ecd6716d23ef0ef57e18e3c94bf45862535afa08392ac8fdda1d5e"
+          "bytes": 2244,
+          "sha256": "2f0191feb349a9acc16b97a4cba9ae09ac0c8f2d60a9c07747acd5ff64b4072f"
         },
         {
           "path": "images/thumbnails/animals/orca--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3614,
-          "sha256": "fdfc00b6d770901e189c30a3cac8598f772cc9bd09dfaf3e550ecafbe4093611"
+          "bytes": 4026,
+          "sha256": "a7907dd2143113a11e773432e5b31e817fd8a5c97f6001e9468ec63959a9a0b3"
         }
       ],
       "sourceWidth": 512,
@@ -4356,36 +4356,36 @@
     },
     {
       "source": "images/animals/ostrich--idle--three-quarter.webp",
-      "sourceSha256": "45390e16d7a150b20dc7d1586326f5f52f6b5549eb5cad824ba5e9beaae978a7",
+      "sourceSha256": "8db6c3c85af1d969a55cf4ff771b9206c66eeea36404b357edae7a9e7a375286",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/ostrich--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 626,
-          "sha256": "c05ffe83a0e8c3a90626bf821d5c3e1f5fdddcdce1566b326a18db5087bebb01"
+          "bytes": 678,
+          "sha256": "5dcca7cc8027492a9bd7028f9e47a7cbf6b417cded25ff8a34df3e99a5170951"
         },
         {
           "path": "images/thumbnails/animals/ostrich--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1384,
-          "sha256": "7f156983d16ff229e9b506a22780574a2a8fb535e69e0e5ecf4069a7ce9b6751"
+          "bytes": 1472,
+          "sha256": "30b2f9755803c6bf71fcdcc92ce4a374b741e1072f36c2ef01f72bce8bf0e482"
         },
         {
           "path": "images/thumbnails/animals/ostrich--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1934,
-          "sha256": "3d5b4ee214e4984485b4b4b790b0e7f3dcee11474536f1daab32b4fe16285541"
+          "bytes": 2048,
+          "sha256": "2fbed2e1b2d4b3b5b9e36dc3db984343f72f59c7bbdde3f7389b4b6c581bac9e"
         },
         {
           "path": "images/thumbnails/animals/ostrich--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3566,
-          "sha256": "fd33ffa75a4da2df17507515f7dd75d7909f0726ac16fc0f44c29e31c3401ee5"
+          "bytes": 3700,
+          "sha256": "e9bb88c28bc008eed7b6dcad012479afd788e986fc90992d2d0ee17b9ad70d6e"
         }
       ],
       "sourceWidth": 512,
@@ -4393,36 +4393,36 @@
     },
     {
       "source": "images/animals/panther--idle--three-quarter.webp",
-      "sourceSha256": "148abda57ee73e0d6bf17f5f8567eedafdcbbb091942979892493764b876edac",
+      "sourceSha256": "123ee91575627a85039fa7185535fe1563cb47ecfb6fb6c627eb853abc952054",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/panther--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 680,
-          "sha256": "73ba2e48c3bfd8af60bd472cd03f411eeb5a91dc63be74fbcc396e8c3ae7eaa3"
+          "bytes": 632,
+          "sha256": "9f7d3fa1c10d4c9e7a9c9edb812c1d321a2fd32a5fe9e85c1d0fd9ca34e442d1"
         },
         {
           "path": "images/thumbnails/animals/panther--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1490,
-          "sha256": "20e28b922f1228fb8f7f22d2cd6fcbe4c16d4f212dc4ce65282a9c36e37f3894"
+          "bytes": 1306,
+          "sha256": "b5a071a6b4acc7b6a3be8062a96bb6b0e1c4e6ee9365462d4add2f855daa14ca"
         },
         {
           "path": "images/thumbnails/animals/panther--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2040,
-          "sha256": "33208d27a4ed6ab6e32872e4160f6b4913a472739aded15d0c49f2e467392224"
+          "bytes": 1738,
+          "sha256": "098de5410031a9801672b25181e32356da3f32b22589d5d16277775f2dd5fcce"
         },
         {
           "path": "images/thumbnails/animals/panther--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3794,
-          "sha256": "4ddd80eebbaced0fd80ea3c33584e8c3934ee4fcc4a6506ca149fb94850eeda8"
+          "bytes": 3284,
+          "sha256": "13035f919aa7d952bf7a85603aa8771363697b3f0be69ae970d57d46ef9ee8ff"
         }
       ],
       "sourceWidth": 512,
@@ -4430,36 +4430,36 @@
     },
     {
       "source": "images/animals/peafowl--idle--three-quarter.webp",
-      "sourceSha256": "092c2ebe3e7924c322e42d678ecfdb2e68aca123c8704b87b9dbc03e1f861286",
+      "sourceSha256": "12344d77940b8baac851045daaba036e8c7b54b716fe3608279f7fb5609be5a0",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/peafowl--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 978,
-          "sha256": "acae2e21b39f808f655e9b105d2aacc434b897d45ad58255b6f6c13a79e03125"
+          "bytes": 974,
+          "sha256": "ab43fd43cb749cb7836e6742eb28a456135085d182502a4bc0ae6fafd424adee"
         },
         {
           "path": "images/thumbnails/animals/peafowl--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2364,
-          "sha256": "98385d506614524bf1aaa2f8869320fbf28d4ef5c32bd8091ec9941fbfd154fe"
+          "bytes": 2366,
+          "sha256": "ec121aa9d997a239fb9ed4abb1b1aae11f18c4fd4f420811d1ea81d648f2a0a3"
         },
         {
           "path": "images/thumbnails/animals/peafowl--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3428,
-          "sha256": "c24bd60c5320d179dd65295eed427b1d81e398848102226273f08019920d4ce5"
+          "bytes": 3422,
+          "sha256": "2e2fdf4d51645b070b9c2c97d50b13ac283c9b0bfe8c8864e093d8f4338f303a"
         },
         {
           "path": "images/thumbnails/animals/peafowl--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 6460,
-          "sha256": "a8bdd5642fd03509d6495c29462e712deb5cba33f17a6e67dc02a08448f6382b"
+          "bytes": 6408,
+          "sha256": "15d2c4bbc12ab7072153af5fc9b9b16b246e9469b55e82d9af0245787ccc943e"
         }
       ],
       "sourceWidth": 512,
@@ -4467,36 +4467,36 @@
     },
     {
       "source": "images/animals/penguin--idle--three-quarter.webp",
-      "sourceSha256": "4a848b9f48c22fe54966523f62a13adae8ab7f46f219693f7a2f6850adad5aef",
+      "sourceSha256": "7045263d8004c84d6fd3c296087861257e869053e1513a27499d92d830155b04",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/penguin--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 740,
-          "sha256": "9c4eb08e144c00c5c545f40c9b32875bf42cdf9029d90c9f35425c3ce5217835"
+          "bytes": 768,
+          "sha256": "8d8e109acb61730a606dc12001c577ca81f51d3cead259df3680491ee07a1337"
         },
         {
           "path": "images/thumbnails/animals/penguin--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1510,
-          "sha256": "9642659756479da046579f534184ed80ff6eebdec14c9ff0d51e5a5bafb412d2"
+          "bytes": 1562,
+          "sha256": "488c9e6576fd138eda7ea844a08ba9c241418e4a81070a9dc75b6ea6d8a6893e"
         },
         {
           "path": "images/thumbnails/animals/penguin--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2088,
-          "sha256": "5a3172b869c8b237f83fddd663163efa4bde16c3b4e44433b5525e30ad387b12"
+          "bytes": 2194,
+          "sha256": "0b72f16b51d2ca8f9dbfe6ff3f0c916861287ac26587085a45f1780ad15af3c6"
         },
         {
           "path": "images/thumbnails/animals/penguin--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3776,
-          "sha256": "78704cd7928a1e9ea6a561b66f6231885a1588b304e0be22617b97616a2912ab"
+          "bytes": 3846,
+          "sha256": "eaa35c2d0aac2769fb5879d702cac472d649809d6e0e193a943e3a28d079c1be"
         }
       ],
       "sourceWidth": 512,
@@ -4504,36 +4504,36 @@
     },
     {
       "source": "images/animals/pig--idle--three-quarter.webp",
-      "sourceSha256": "015fb47882ea7392b639a0b4fb1eba9b375ee2756d557f9072797b7eeb13ca0f",
+      "sourceSha256": "c04f4fc125439a1790654d07f931dd2e8d70995e63296447985cf212d575bbbf",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/pig--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 880,
-          "sha256": "016a4e8b2f0cd2af849c0b2b1e2bd43ff0a68cf332af3c56ce2a464921b3d17d"
+          "bytes": 826,
+          "sha256": "e9a1369fd0863a895d36bbe76fcf88a5e14adc2827f18ab31597100241c6b331"
         },
         {
           "path": "images/thumbnails/animals/pig--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1862,
-          "sha256": "ebd6bbe46e8fea2a8719a7fa04508d7e71c8f235f83c4e6317e371d6e200ea53"
+          "bytes": 1804,
+          "sha256": "64bae0ca86220a559b7ba7dde7d6821b517e032391d3b76c90aac3a87a7243ae"
         },
         {
           "path": "images/thumbnails/animals/pig--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2568,
-          "sha256": "1b20bf7956aa908e212c61d72f8dac923f7961764ea2b9fc3c3ece880f207a0b"
+          "bytes": 2400,
+          "sha256": "c5783e2cec48120a49714fc29fd063683b4890210e1a4c2c592bd4bd871fe11c"
         },
         {
           "path": "images/thumbnails/animals/pig--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4854,
-          "sha256": "3920b7e046756ec2020779c1788fbcd929ae1cbf4efef3cb4106678dd8bfcb42"
+          "bytes": 4452,
+          "sha256": "b795f68c66d54fb9b854cceb8c628bdef326549859851c9b56868635a5cc4e88"
         }
       ],
       "sourceWidth": 512,
@@ -4541,36 +4541,36 @@
     },
     {
       "source": "images/animals/platypus--idle--three-quarter.webp",
-      "sourceSha256": "613497a079a7917b94fcec0da21343acf73a1ea5ef7b814f3eeddfbadc9953ab",
+      "sourceSha256": "e6656125f7c8539c905ed1a5bb4342e9a270467ed7e771ecdbfe4ee0abc0cf80",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/platypus--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 662,
-          "sha256": "caebb9e0bb1a56ea74276fa7b9dfb4c7d50ac5b6bf6d1e81d5d7980e6a936a3a"
+          "bytes": 640,
+          "sha256": "cfa22b410ee8abe51dabbac11ef95949fb4ede49dcc39b19d54d089cb6a4aaff"
         },
         {
           "path": "images/thumbnails/animals/platypus--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1508,
-          "sha256": "2d288cc3b2b7598b113a12370cf5fed423a31fbb2ddfe89f3c91efcab4f88507"
+          "bytes": 1396,
+          "sha256": "86f756f9e9ca2a43f85d9be00a488c1dbacfed94cab9bf18248260d9913fb4fe"
         },
         {
           "path": "images/thumbnails/animals/platypus--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2198,
-          "sha256": "d6fc800b593f5e1b1ddb31f093d21bfb8dc0b945b2a2ebc9bbd6644d568caeac"
+          "bytes": 2008,
+          "sha256": "bcdd441c5e67e211eda6b3489a6f1a85426af513a61721238aafff47b4a022ad"
         },
         {
           "path": "images/thumbnails/animals/platypus--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4198,
-          "sha256": "8199701e6be665a6f16d3c814373484b7bdab96f3c157a9f354e357ecd9b52f2"
+          "bytes": 3630,
+          "sha256": "9b995bd9888477156d3e78d434dde3c6f362dc36469385e90eeb91cb48d24021"
         }
       ],
       "sourceWidth": 512,
@@ -4578,36 +4578,36 @@
     },
     {
       "source": "images/animals/potoo--idle--three-quarter.webp",
-      "sourceSha256": "d6efa28994083587dc74ac2afb929def3210fe29f7d0d4d6238f85c466d5dcd1",
+      "sourceSha256": "767de6377ecc99c3f55ebe1685c2a7d73cef3d744de7463ba0efe855b681fb7d",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/potoo--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 690,
-          "sha256": "3cb40c45307f9645daf1d1f915c64866a055ec296e39d79b80f55bae25205a2e"
+          "bytes": 744,
+          "sha256": "f05780cbf5c424bfd2be88a39f46803787e58a4afa63554e2adfe595423e6817"
         },
         {
           "path": "images/thumbnails/animals/potoo--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1434,
-          "sha256": "1668af5d842d67ba51ed9e7f9be16e7498a9f45b358f24efb663486cd9c2cc8f"
+          "bytes": 1502,
+          "sha256": "1e957bbf8879f099bdeca501b59ca838e2d9826221092ef45d4281e3c8e68a5b"
         },
         {
           "path": "images/thumbnails/animals/potoo--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1978,
-          "sha256": "e383f66960b279eaee8414cacca91a965cc9440d55ecc4db47cb2ac15da98f0d"
+          "bytes": 2074,
+          "sha256": "01bcd6e476a1547074f75e3f35badf963a1ddfafeb8a8d65cc29dd3f9ec4d67b"
         },
         {
           "path": "images/thumbnails/animals/potoo--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3674,
-          "sha256": "afd881b292de08e3e9e1026808c1e0646b74de8ed47bfc2c3a00ce2da7da2a13"
+          "bytes": 3658,
+          "sha256": "d2982a6bba51ac99529fdd41816873add1998bea46851923932b8ff70787686b"
         }
       ],
       "sourceWidth": 512,
@@ -4615,36 +4615,36 @@
     },
     {
       "source": "images/animals/rabbit--idle--three-quarter.webp",
-      "sourceSha256": "c2fcf5cefa521e9224d4ca07553d7efde4c19505f63b0ab414cafbd12cdaa6e6",
+      "sourceSha256": "3806d48e3d63a8db40c060a155f03bb0fa775d0ce544ab3c7d0d043d4fce447d",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/rabbit--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 802,
-          "sha256": "7b3542b625fe66c46f6d5dcad9d5d4556e05a6ce4d67fdd3205bc4381b32821a"
+          "bytes": 860,
+          "sha256": "9c1fd807ab9484a8853409ef42889cfc9241b372f17c2e368f5c04bc76b8bfe7"
         },
         {
           "path": "images/thumbnails/animals/rabbit--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1718,
-          "sha256": "402274e6446dfb4898f08407de478071e0d06a3b6b20c8dc02ec6cdd83e620b9"
+          "bytes": 1882,
+          "sha256": "1474b1288f62c7976e20a39fd1dfe2efcae837a02a4564c9a9f64a0c08d83492"
         },
         {
           "path": "images/thumbnails/animals/rabbit--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2336,
-          "sha256": "28fd1cabbf013baa807ee7f70a6fd012ade7f917ab2824edca9db4555dccef8d"
+          "bytes": 2576,
+          "sha256": "b8befb93c7b284c7d0fee5cbd8e3f54cdbcebe3c8106e57da2329059a15817d4"
         },
         {
           "path": "images/thumbnails/animals/rabbit--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4374,
-          "sha256": "2f42d80310f076da22d70e09055323ee743985fd85b8327bf888ae450994511a"
+          "bytes": 4450,
+          "sha256": "4cc1ccd9d464c449b68ec0a0eb5e43cc76e5ec55e5d72b130d7551cd97a16f0f"
         }
       ],
       "sourceWidth": 512,
@@ -4652,36 +4652,36 @@
     },
     {
       "source": "images/animals/raccoon--idle--three-quarter.webp",
-      "sourceSha256": "794e5e38868508e8f321117c4deed47c232a6d68536bcc55693059ea745c7b89",
+      "sourceSha256": "1e6d85e6a963e706932b54ad0ed06ce0202f2a896ba4cf5de6f5ea976e9a0ad2",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/raccoon--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 788,
-          "sha256": "5887699c2a8f6849def2c66aea9f978e0fa980797cc021f4d6171edbab999b6a"
+          "bytes": 818,
+          "sha256": "eba8577612d81e03c886898c95a77ce3ec816b306d1d25f311b307e0514a6c80"
         },
         {
           "path": "images/thumbnails/animals/raccoon--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1822,
-          "sha256": "1fc6eb1e927c6aa892cf8cbca0d542a280a50be3c9b41c2ed165e908e3fd85c7"
+          "bytes": 1834,
+          "sha256": "401a855ff3a465851d6c32d633603ca4360e0dd7ad1b7a35355dc29521f5b8f6"
         },
         {
           "path": "images/thumbnails/animals/raccoon--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2588,
-          "sha256": "e751178a3d34b0a6745b81e16e91354eafc1f6f64c8634f5e4217dc7bb44e347"
+          "bytes": 2638,
+          "sha256": "3da0c5cf29e9f33aa3f3ce7b5c7e5345db1eee89b7f207519df6fb77b1cd747a"
         },
         {
           "path": "images/thumbnails/animals/raccoon--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4822,
-          "sha256": "6a2033980e1c885900cf3e6f5f681ee7e433d30c7bae205ceb9311e4ed9fa5c8"
+          "bytes": 4750,
+          "sha256": "6eca4928b749803a6974d45ef6569612f3e7d3112eca419294b303c2242efd4a"
         }
       ],
       "sourceWidth": 512,
@@ -4689,36 +4689,36 @@
     },
     {
       "source": "images/animals/rattlesnake--idle--three-quarter.webp",
-      "sourceSha256": "78f889948a19022d75acf95c270a900d6746d3a32e4c190323c7ad82456d06b2",
+      "sourceSha256": "23781df7e478b3966656d3e40ab45a561cdb8c29e94f5260c244f5e4dea34cb4",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/rattlesnake--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 628,
-          "sha256": "0e7dc17c027310a62bb867011908776dbdc94a7478ccd62a026e379fb396a953"
+          "bytes": 576,
+          "sha256": "389be1928c0bc93ab241439047e1fcf7a422e3d28510f3ae03422aac3f133d8a"
         },
         {
           "path": "images/thumbnails/animals/rattlesnake--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1416,
-          "sha256": "314615f947b7bd06674fa7cc4fec4310b2bd2c8c1f963b9a0c1799a6bd7e1197"
+          "bytes": 1348,
+          "sha256": "68317a6c0c07a60bd4c1690a169c351b2342b75bcaeee53316a90cdfb7e7b780"
         },
         {
           "path": "images/thumbnails/animals/rattlesnake--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2086,
-          "sha256": "1a9a3ff8a29c08435a62d7336388322ebe8cf38e55bf735220b04558736e0110"
+          "bytes": 2010,
+          "sha256": "32980b33e4fab89048862005beaf7aa4f209f3b092d0aa694a4607e44883112e"
         },
         {
           "path": "images/thumbnails/animals/rattlesnake--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3742,
-          "sha256": "8914e55954bcead6cfa8015f3893ee5480dad4274396df93663563abd2506d87"
+          "bytes": 3760,
+          "sha256": "6d5e63d8dc0280cc52e1fce3117038468870873967e3f0674a8e8543f9c9dd31"
         }
       ],
       "sourceWidth": 512,
@@ -4726,36 +4726,36 @@
     },
     {
       "source": "images/animals/rhinoceros--idle--three-quarter.webp",
-      "sourceSha256": "8fef68045ce5faef9a972ac3fa30ab99ecccea2d966e668be6b9aa188049fb96",
+      "sourceSha256": "a6228ea44a311f5ef80e29589d0f3dedfcb32ab281bed66b03183b72d9568614",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/rhinoceros--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 722,
-          "sha256": "078e3f3a4d89319a7354993f0ecc0ecacb2cef7123b3b15251abd39e0336eed1"
+          "bytes": 866,
+          "sha256": "cbe25ff0b93c23a1f4b4c36874520880558efbda4c794b2c052d3817e87254e6"
         },
         {
           "path": "images/thumbnails/animals/rhinoceros--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1532,
-          "sha256": "32e60c60af2494e4f2ce6b9df7f5c02680f9ffea8ceeeab29c7d99d0b3aa409a"
+          "bytes": 1850,
+          "sha256": "6f2bbadc7fba6e64613258f1ae35056dd02a10406c27c3524139c894f1970282"
         },
         {
           "path": "images/thumbnails/animals/rhinoceros--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2164,
-          "sha256": "6e8214002f60fda7b798d5c9684bfaf487cd5d4975441ad1b0c359bb022693f8"
+          "bytes": 2578,
+          "sha256": "b2a96a6cd3f4ed56df356fe50c05099162a727337522bf69334cf2d244b81622"
         },
         {
           "path": "images/thumbnails/animals/rhinoceros--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4064,
-          "sha256": "791851c999d226728484f1ad43359f7f26d31e7876d0a764743406b64055b7ad"
+          "bytes": 4664,
+          "sha256": "45dfc300031d39fc46a8ee13785458aed4b2a6578de0a91419ab2d8873632680"
         }
       ],
       "sourceWidth": 512,
@@ -4763,36 +4763,36 @@
     },
     {
       "source": "images/animals/river-otter--idle--three-quarter.webp",
-      "sourceSha256": "5cd742b30ed37f926e1462a55b8999d7abfb9c4d3751c459c0bcfd79fdf953e4",
+      "sourceSha256": "56710ddf2f17ea89359fd6d65a229e677abba209a8953790c1f0b67f3c5ce634",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/river-otter--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 690,
-          "sha256": "45588531d6ad1367eb8e7bba04b2cc73c22b8d41ee9b94c5dada97374759c14b"
+          "bytes": 672,
+          "sha256": "fd2fa3216bfa496c8a1b2b00f73a6d82305086751ef2ad8dae3a10c1fa170fe3"
         },
         {
           "path": "images/thumbnails/animals/river-otter--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1496,
-          "sha256": "cc04c45290a9f35bc88c1326ef618fcbf11f886c81b5e9a7a8c484bb3b346341"
+          "bytes": 1428,
+          "sha256": "5b704c54f02cef990d0de747e7774728fd4830ac9884853720624ee840893560"
         },
         {
           "path": "images/thumbnails/animals/river-otter--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2148,
-          "sha256": "a82dcc95da8541d00d0ba8da8f839bd56e2836696e71299e8eaa8011fa9b9c25"
+          "bytes": 2060,
+          "sha256": "afef478d1665ba2a007fc9545dc0ffe497de0746f568e28fda9fc30c56ceae5e"
         },
         {
           "path": "images/thumbnails/animals/river-otter--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3842,
-          "sha256": "aa24a261a9ae4241c578169347bd77e2b6415858a1fe5eb7f9f508548162dfc0"
+          "bytes": 3732,
+          "sha256": "7a4cdcb2cd51a29ce4e0725850d559e1fa98e3620660ecc63659f8a523c78b5e"
         }
       ],
       "sourceWidth": 512,
@@ -4800,36 +4800,36 @@
     },
     {
       "source": "images/animals/roadrunner--idle--three-quarter.webp",
-      "sourceSha256": "e51732d5fe33ec5d95e188657457be3e65be8aa3d654c15a64d5eb71fd3b04b9",
+      "sourceSha256": "2d935bd2731f0b83681b100e227af2624736c6787600d200500e1968aaf1a963",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/roadrunner--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 666,
-          "sha256": "efff7305453f0f2ee431acf68924a1eccad0bdeb5de6b617e22878b8ea31674d"
+          "bytes": 730,
+          "sha256": "65dfe91687d099a4fd849c8d16ad8792dac4d6d9791507c2921a3c6fb903025a"
         },
         {
           "path": "images/thumbnails/animals/roadrunner--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1458,
-          "sha256": "ee119b65b8e620a240f3df60b894a63b9a76d8a2c2ca5f3e9d4e439f3b99f79e"
+          "bytes": 1810,
+          "sha256": "9c568743c8aba97deb63cf86c83475164223de90725a330289aa1b8f1d4f68df"
         },
         {
           "path": "images/thumbnails/animals/roadrunner--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2042,
-          "sha256": "11c58edaac160f8721e66e2f88ee3ef2441d2351f1d232aa850400c90ece9684"
+          "bytes": 2636,
+          "sha256": "0ecab3234a103741c7274f91d7aa75379094f59f60d2f8645afca480c0907530"
         },
         {
           "path": "images/thumbnails/animals/roadrunner--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3644,
-          "sha256": "5fe994f0c2047d12a531bc88f427046ca2fb9faf715cb798f8cb26fdf8883bcc"
+          "bytes": 4994,
+          "sha256": "11dc149b427dc9d826f51f2bb2568f641afe3ad126ebc92588bc935e37d241a9"
         }
       ],
       "sourceWidth": 512,
@@ -4837,36 +4837,36 @@
     },
     {
       "source": "images/animals/salmon--idle--three-quarter.webp",
-      "sourceSha256": "ec4f2c213229bd5638305f0c9178d283741bc718d9102681e2728e30f41b9084",
+      "sourceSha256": "8efb3325f136d27b38c2f40398fba24b00af3cd331d3daa2ff7f26f6f582e266",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/salmon--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 780,
-          "sha256": "25598b3d0bba030cb3677826f5c386e53734489704b03eef119856594489cf09"
+          "bytes": 528,
+          "sha256": "8f9590f0cdac251a8907606d422c87a0af6b6ccd247d92b87bc63802b01ab152"
         },
         {
           "path": "images/thumbnails/animals/salmon--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1662,
-          "sha256": "81d81e9e529e75f84666542fb0fdb72f90f1372227144b413978a3d37cd9d4d3"
+          "bytes": 1262,
+          "sha256": "275c0da800e5dae9eb451f4f6887b59369dd544a38d6cfb658d6d6b674a163f4"
         },
         {
           "path": "images/thumbnails/animals/salmon--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2280,
-          "sha256": "a79b5b2a40f9889fbd39736682831c0c3559b70ff31d2e888a232aaeb37a66e6"
+          "bytes": 1854,
+          "sha256": "7f5717c118bc592b4c35c25632b37e989f859ea0981d576ef5d9bd86aadc9fc1"
         },
         {
           "path": "images/thumbnails/animals/salmon--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4094,
-          "sha256": "48c493dd91aabd493f7ef94fc5525cc31254583fcc9559504d339feccc1659a4"
+          "bytes": 3344,
+          "sha256": "c3351c863c78604dc019673bc37dd4d272a35fdcd7c3836d292b8585f532849f"
         }
       ],
       "sourceWidth": 512,
@@ -4874,36 +4874,36 @@
     },
     {
       "source": "images/animals/seal--idle--three-quarter.webp",
-      "sourceSha256": "1559a2a345805d6b047b20535276c1b25911cae81637a1ce13df7a95d3a7573c",
+      "sourceSha256": "c147073eb8c1f78af4b134813d9f40312b1e6c934f7ad8aa68c846ce099be4c0",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/seal--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 610,
-          "sha256": "5a1d07301076a2c6d2359c97bc39f70374c7ce27889f5f68b0894dd12c7b6da1"
+          "bytes": 544,
+          "sha256": "c1aa16603a6a74ee054d5e07e4fe92ad9845bffa99f971ab1f5fbc024eca84de"
         },
         {
           "path": "images/thumbnails/animals/seal--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1460,
-          "sha256": "83094a79c8553c7ae80bc53a71f9d4fb565c72525b83969cb083755852ad02cf"
+          "bytes": 1180,
+          "sha256": "9e96f71e3defaf626f0fcd26993eda9ff9515253a5d0b6dfa7c5b66260a54ad7"
         },
         {
           "path": "images/thumbnails/animals/seal--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2084,
-          "sha256": "e4aa47f1663a2145f7de9994ee8ec683187ea6e72bf2b028aeceed3fb1fb1a53"
+          "bytes": 1650,
+          "sha256": "b817930ece6c29ca63625c6eb7855d180f48d72770a8544bd49e1ba2c7077a09"
         },
         {
           "path": "images/thumbnails/animals/seal--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3994,
-          "sha256": "74e96c4bd92b22e3e8d07c0776595b4044cb604ac9922165a26f25906f734c39"
+          "bytes": 2938,
+          "sha256": "ed12d75ffc31615f70d90e02b216fa699a5e3b36deb1e0d2e1f9a0694e43df7a"
         }
       ],
       "sourceWidth": 512,
@@ -4911,36 +4911,36 @@
     },
     {
       "source": "images/animals/sheep--idle--three-quarter.webp",
-      "sourceSha256": "33d9d95c45e2e896e77e86990c69d52d0f3eb61895da39b16e1f6d256e936840",
+      "sourceSha256": "add64f83a6456f2d6aca236b8fc546867b1c8e1a82ccbcb8f30ac56155670354",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/sheep--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 744,
-          "sha256": "937d50c58b1b708ba11dbf4d97038ae4000ade8ae0db42c944931d8fb9312924"
+          "bytes": 726,
+          "sha256": "f50c439c3cfc7e2a8483f2fb56d7501faa5d99a87a28e111100c8a8eebf42338"
         },
         {
           "path": "images/thumbnails/animals/sheep--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1580,
-          "sha256": "995d45344a7c36674b6c13244417a1ee81f6cf7d9f6f5531a9b5f38016e8adcd"
+          "bytes": 1560,
+          "sha256": "8a56095c42ae4045f475b085dd6452582bca954876c6fe835496271581c4782d"
         },
         {
           "path": "images/thumbnails/animals/sheep--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2176,
-          "sha256": "0da5a3e401de0c4adb854b23742ab807c2fcf64710c84b1adcb73539b7c41af6"
+          "bytes": 2182,
+          "sha256": "3d579230b50f1855fcf8f99ee88f0056a88b79e48069fc5d4c338329034de8fb"
         },
         {
           "path": "images/thumbnails/animals/sheep--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4232,
-          "sha256": "a61346199e9cbd174217b9105f0aa17063805c24b487a940c4e77be8e08eb56e"
+          "bytes": 4202,
+          "sha256": "c6a4b8434659584b60b9df41ec978e5ec02b83fecf2c9dd860e139392cd7427b"
         }
       ],
       "sourceWidth": 512,
@@ -4948,36 +4948,36 @@
     },
     {
       "source": "images/animals/shoebill--idle--three-quarter.webp",
-      "sourceSha256": "bf6f5af7dc0c012b8c6e89eebf3720978cba5147c84f413593ed6d320d3f7f04",
+      "sourceSha256": "49ea246771a776c684cc0df60f2f0d6351ddf698e2c2331b813108e3e50e073a",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/shoebill--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 580,
-          "sha256": "bce0ec272b4ed7dc8e1ed53cb132f2126a4073322f10703342ac832b99522b3e"
+          "bytes": 596,
+          "sha256": "ef8d0a510a02456d7860478adeb1e4052a87a6d030e1407f7966cd9e3f00c8e8"
         },
         {
           "path": "images/thumbnails/animals/shoebill--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1244,
-          "sha256": "b51563ad7d0fe9d00aa521b88d3dd4130f8fc3839a439ea144335d447f61b1ca"
+          "bytes": 1226,
+          "sha256": "f4c1c7d5a8cfc8de3c09ba3ae562e4ac535c234aede6970f953c4472102a4e2b"
         },
         {
           "path": "images/thumbnails/animals/shoebill--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1784,
-          "sha256": "09496048c588c92f5fb861d337afeac2cb3bbb038ee83f689d0fecbe5631b88f"
+          "bytes": 1698,
+          "sha256": "53f0f02dff1a3a389e62572fa917a2a3f29c8ffffd35223f6cdff518056f77bc"
         },
         {
           "path": "images/thumbnails/animals/shoebill--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3278,
-          "sha256": "a5528eb33aa114f56c4eacfed86fe9f54a14b07ccb5984019eebae11331759b8"
+          "bytes": 2966,
+          "sha256": "7d8e2cc9e4b3fa2d369230b1fedc6edea0a4c1c44aa110b5096e59516b90a2a5"
         }
       ],
       "sourceWidth": 512,
@@ -4985,36 +4985,36 @@
     },
     {
       "source": "images/animals/skunk--idle--three-quarter.webp",
-      "sourceSha256": "67f4a4f6a554fab2bd2d82598f9c0d72f93dfad7ef27d22b8dca144d8d13b494",
+      "sourceSha256": "6e6707bd74b55e32e4e50cf136a4a3533351e518db97de765dc9cf3ab4f2bee6",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/skunk--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 904,
-          "sha256": "b8cbd97c677561e00c7d6544966a51434534a540c6bff9cfaabd8d16b08162e4"
+          "bytes": 856,
+          "sha256": "532b1cb90fd04a2963be8e13bcd0bf1cc44c6d5d0f715d560e3aa69db44bd2e0"
         },
         {
           "path": "images/thumbnails/animals/skunk--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2258,
-          "sha256": "98f9eb26b0fa4c8fa35a2ed862bc81693364b4bd44a9f893e817c068f176f171"
+          "bytes": 2064,
+          "sha256": "afa75bd0193c83eee575dc4396294c3d748741111a166e9c059c44829b9f1606"
         },
         {
           "path": "images/thumbnails/animals/skunk--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3280,
-          "sha256": "3291c078f9eb7df901ead9b6eac0e40697ef2d0feda660841fdea75d0f41bbbb"
+          "bytes": 2926,
+          "sha256": "94a452925b10bcbabd77e5e132061e4e77dc0254b1b1696d4461fb4fd20241e7"
         },
         {
           "path": "images/thumbnails/animals/skunk--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 6200,
-          "sha256": "ced78c9c3239c24c5717bf32dc5d5455d79647fe684920c2d26eb98fe86720da"
+          "bytes": 5118,
+          "sha256": "e5e8e1a3af5db603973b5166f8229abd6f7825d6f43dc3433dab7d950cff9da6"
         }
       ],
       "sourceWidth": 512,
@@ -5022,36 +5022,36 @@
     },
     {
       "source": "images/animals/snow-leopard--idle--three-quarter.webp",
-      "sourceSha256": "b40e387dfea29bdc007bee485c2fe832b7d659fe0ac78d9a0277b71775b44b36",
+      "sourceSha256": "95803079f9b85bf66e2614ff393830ad2b245d72e4d5a9cf7b89d160ae88d922",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/snow-leopard--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 770,
-          "sha256": "9eb057d6c1ef5e0eeec86e1309e04c995e0041fa944570ab656a099dc1786f2d"
+          "bytes": 812,
+          "sha256": "7e3c45cf13efaada4b6f9bd1cadc7e1fea6ef1840ea7f15a6e2b64cf563d8d67"
         },
         {
           "path": "images/thumbnails/animals/snow-leopard--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1754,
-          "sha256": "a529a457f21b383a2a242d7038e98ead80464fccee79df6e5d1747fa0edeeaed"
+          "bytes": 1818,
+          "sha256": "06646a3f5b57203dabc9acc1794015176f4dd9b44047d9b883296a8affa69c4c"
         },
         {
           "path": "images/thumbnails/animals/snow-leopard--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2532,
-          "sha256": "0eeb17a438b92db39661c5f55b955bf2a35a2941817a7a022dd73295ba131a83"
+          "bytes": 2414,
+          "sha256": "25795901952d26a0db5365a9d6487bb8f1b32ae9179b182663e46066a8df0434"
         },
         {
           "path": "images/thumbnails/animals/snow-leopard--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4680,
-          "sha256": "4b640871765bf69553526177e5d096ed1bd6861080bf1642e27871356b4cfc08"
+          "bytes": 4412,
+          "sha256": "78ea57c65a2e0381c2bdc2e6bb7da47a2a7848da22419c191bba06351974781a"
         }
       ],
       "sourceWidth": 512,
@@ -5059,36 +5059,36 @@
     },
     {
       "source": "images/animals/sugar-glider--idle--three-quarter.webp",
-      "sourceSha256": "6697341bd8188ddd3eb9fa413dfba0c5e8e38267b3dcc6e980065f9a1644698d",
+      "sourceSha256": "b5546252ae0f0dd5364a86818e7ffae94b29e8d957ca1b1406087329fc3ab66d",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/sugar-glider--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 502,
-          "sha256": "86b1e88fb139f78eb7af43a88eefd84fbf9c4f0a8ca85d26b562a2a4e6573c61"
+          "bytes": 492,
+          "sha256": "c5b32adbf8707a3255adef9cd8e10b2c135ebe1474a3ba52fde461fb2ff1053b"
         },
         {
           "path": "images/thumbnails/animals/sugar-glider--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1146,
-          "sha256": "7c45f184f95a3c56de83d2f714426bf6beec3a8c944a86b712405ca53f5caa9b"
+          "bytes": 1174,
+          "sha256": "19fd624c30670f2185869cb4761d08ed0e821ffabf756d46b15dbe92de7161d7"
         },
         {
           "path": "images/thumbnails/animals/sugar-glider--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1672,
-          "sha256": "166d445bc1fdd80dd8515db0ef44669029a97b1dcb0e34b7e666a887fc459196"
+          "bytes": 1714,
+          "sha256": "78e288e73e347e45b156cb6c241fefa53ca452650a9a146b109dc16f5bf90b4d"
         },
         {
           "path": "images/thumbnails/animals/sugar-glider--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3104,
-          "sha256": "6f315235d6268154abdaeb4e3752d51ccb7e36e8fc7efcaa9057d31ecf14c5ef"
+          "bytes": 3212,
+          "sha256": "b8a26b55e341efe40c9b3b1e98299110232b79296743f4fc4d668d4e86afdea3"
         }
       ],
       "sourceWidth": 512,
@@ -5096,36 +5096,73 @@
     },
     {
       "source": "images/animals/sunbird--idle--three-quarter.webp",
-      "sourceSha256": "161585922a286724c4a3b84cbb42ecfe1eabe4c14c28e61a8091fa372c65c25c",
+      "sourceSha256": "2d709e925d2e7a67ed419b43a53f904b72159cd72a9411df18758207cc3bf23a",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/sunbird--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 608,
-          "sha256": "c6c86f66ca221036d64b0aac611c8bb281d166e4de690583f711b45611fad791"
+          "bytes": 790,
+          "sha256": "f4467d33efc85e144dbf6efb86e69ac67d844b5130dad1f48a168cdf2e02badb"
         },
         {
           "path": "images/thumbnails/animals/sunbird--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1246,
-          "sha256": "714a9e47adfa797ae9bdff5337b7cd2c72922fa1ce01bb28aaad377e6090e393"
+          "bytes": 1608,
+          "sha256": "45c4aab884563534df29210a01657102a6839edd4fc0049c149ce6544b875e68"
         },
         {
           "path": "images/thumbnails/animals/sunbird--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1770,
-          "sha256": "b6499ad24922e9aa4192e28bce78c20cd5524ade3947f503df232d5a389141e1"
+          "bytes": 2282,
+          "sha256": "f2ba8afb24529ce472e467cd1c94696aa2853486c80e680d46e5adac0edbcda9"
         },
         {
           "path": "images/thumbnails/animals/sunbird--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3250,
-          "sha256": "c80a428fa0213cf2e17137ff3673912461ad1f5b427cff49fc0a393dc654a557"
+          "bytes": 3910,
+          "sha256": "48c0f00681349e08dad274b311dd1f2d687d23327e65eee3fe44d9a05330164e"
+        }
+      ],
+      "sourceWidth": 512,
+      "sourceHeight": 512
+    },
+    {
+      "source": "images/animals/swan--idle--three-quarter.webp",
+      "sourceSha256": "6de526ed15cc2119f10cac3cc1a5cd653e8f4e1d9adf3593b650d839f3fbb5ec",
+      "kind": "animals",
+      "variants": [
+        {
+          "path": "images/thumbnails/animals/swan--idle--three-quarter--72.webp",
+          "width": 72,
+          "height": 72,
+          "bytes": 612,
+          "sha256": "5a31af53fbca5048ea16f560db0c3381303d5b2b7ba449000c666942ce1ecb0f"
+        },
+        {
+          "path": "images/thumbnails/animals/swan--idle--three-quarter--144.webp",
+          "width": 144,
+          "height": 144,
+          "bytes": 1356,
+          "sha256": "1b8fdbfe0c61b340851e4a027ed5e04b12fe4a5039dabe3f2149388049af5cbe"
+        },
+        {
+          "path": "images/thumbnails/animals/swan--idle--three-quarter--192.webp",
+          "width": 192,
+          "height": 192,
+          "bytes": 1942,
+          "sha256": "27b2c48d3402fcb3133c6316c2258cf88be0925605ade98348a2c7682abc2b7b"
+        },
+        {
+          "path": "images/thumbnails/animals/swan--idle--three-quarter--320.webp",
+          "width": 320,
+          "height": 320,
+          "bytes": 3528,
+          "sha256": "db30759417aeb2a603dc619f18738185c2046743e315872d7b3547ab063b3029"
         }
       ],
       "sourceWidth": 512,
@@ -5133,36 +5170,36 @@
     },
     {
       "source": "images/animals/tarantula-hawk--idle--three-quarter.webp",
-      "sourceSha256": "96eef9c196804949814b9ffae7be9fcaab155a7667a183ce925f168c7f8d7130",
+      "sourceSha256": "91221a8518f47ef6c4c119b61dc33c0a123fa97a3b0a382051e8681e28138308",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/tarantula-hawk--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 788,
-          "sha256": "9347977cc83d0f5837e6b4b2b27010c0166b6c6d3a2b5a43aecfc385ae6551be"
+          "bytes": 776,
+          "sha256": "0257c1b67af5388c223edabb98a45de9807c9bfdcc3d73b6abeec541d1c35b6b"
         },
         {
           "path": "images/thumbnails/animals/tarantula-hawk--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1924,
-          "sha256": "a5d257e22e504505efc00be7af479a0ae1c2ca5617b663a26435a2679ebdc53a"
+          "bytes": 1964,
+          "sha256": "0e458991e67d22b88bb39fae3aca4ed1c586a73677bdcea261e193987b4e9660"
         },
         {
           "path": "images/thumbnails/animals/tarantula-hawk--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2762,
-          "sha256": "b9b8c59b5b615f2641d5499fd55fe130b070b3a3d90e8df44eff938d67b8ec45"
+          "bytes": 2858,
+          "sha256": "e1be867e997ef3a943c9d51ee425eccbdfd2a1cebec2f8b61ec0abeb32aeab34"
         },
         {
           "path": "images/thumbnails/animals/tarantula-hawk--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 5296,
-          "sha256": "0e9df3f44c7bb5e18f315ea6a85668af845d22ef5e50b90cd59228637fa91b43"
+          "bytes": 5438,
+          "sha256": "0bfba4ef44507963d3333ebe816c8a15b21a5d148a332726ea4fd22d9bd201d2"
         }
       ],
       "sourceWidth": 512,
@@ -5170,36 +5207,36 @@
     },
     {
       "source": "images/animals/tasmanian-devil--idle--three-quarter.webp",
-      "sourceSha256": "e9a656bc361972f462a0dd514e5875044f4230ee3886a867fca00fe21305725a",
+      "sourceSha256": "23247bc0d898c66c79f7894bd3c5e19669c7d81fd26bfaead2a50a03390b3dae",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/tasmanian-devil--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 712,
-          "sha256": "987f42033e05ce48d9e399a46664034731614e6a3db316563f660e656acd1a85"
+          "bytes": 788,
+          "sha256": "42f47eb9a2701554968436b6e6389f3586393bdedea9e19abe48878050c553c6"
         },
         {
           "path": "images/thumbnails/animals/tasmanian-devil--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1560,
-          "sha256": "19bb486919ccec3b29c2b0d1ca7a4f10d7f947d3e23adccc50a7c850a5a70571"
+          "bytes": 1576,
+          "sha256": "570a20871012a467fd32890c0d2c47106d00d7db6aa7d6587735b7abae54232f"
         },
         {
           "path": "images/thumbnails/animals/tasmanian-devil--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2174,
-          "sha256": "a0ec81a06e3d7e3b4553dda56161c4bdd9f7e2e59223f784f3b9aa63f8992353"
+          "bytes": 2198,
+          "sha256": "f1a9dc4bcd154f01d49fdcc354fc00711daaada4bf7fc4374cab8b1b57f8ac06"
         },
         {
           "path": "images/thumbnails/animals/tasmanian-devil--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4030,
-          "sha256": "08e47bed3cfbc4dfa3b5277b616723d806a2636434d611596b2621790a68a352"
+          "bytes": 3912,
+          "sha256": "1705e695d52257458675c3054128e5b2c5d4cdce65dbfea841d7974bd4b5fd25"
         }
       ],
       "sourceWidth": 512,
@@ -5207,36 +5244,36 @@
     },
     {
       "source": "images/animals/terrapin--idle--three-quarter.webp",
-      "sourceSha256": "2b347308ea339933cf31a8534ca00ecc7b9e54eb3e25d4e5812c6e0d7bf2696d",
+      "sourceSha256": "941a69257f5c5df212bda8f9ca9dcb66c280b82fae97ebef0844d8dd4afea12f",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/terrapin--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 818,
-          "sha256": "e3253222657e3efa058d0961cda1a7271909a83326f6dc20f1cdf13d4b12e6b8"
+          "bytes": 902,
+          "sha256": "2dadb4b59a111e37b51245dfe0e52518d86a0d798a2618385f8110ad0b52a4c8"
         },
         {
           "path": "images/thumbnails/animals/terrapin--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1870,
-          "sha256": "944ff13c6349321ab9cbd83cc53790872d36f26f599f926896d741801bddda96"
+          "bytes": 2156,
+          "sha256": "ed89aa1ff23234254c3b562169fef8bc0e63cade09b53b7d4c2ac03fef96eeac"
         },
         {
           "path": "images/thumbnails/animals/terrapin--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2610,
-          "sha256": "62ccc10a54adfeeb066742a0d77186b43cc1967a9a35603f23e0bb957f76aa22"
+          "bytes": 3048,
+          "sha256": "5d322862a8eb46cb5186262962e912c0908817b87622602618dcd54171b75ffd"
         },
         {
           "path": "images/thumbnails/animals/terrapin--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4884,
-          "sha256": "b5e6ebd71c0192f901aa6f03770264d4cf0b9bf35c389701f88091aa88ce95bc"
+          "bytes": 5570,
+          "sha256": "37b6adf91a0eb4f14df2e2f66d81d118bf6007bc39c807c1a3b70a66739797ae"
         }
       ],
       "sourceWidth": 512,
@@ -5244,36 +5281,36 @@
     },
     {
       "source": "images/animals/tiger--idle--three-quarter.webp",
-      "sourceSha256": "408afdcc3e8fadb8e893559e5f66667b40f88fb671e6a078eb08ffcc3b254111",
+      "sourceSha256": "336af1913d19ba7e8ec055562381b0bf8400015bf509f5c29ec4933ac75ca425",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/tiger--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 1208,
-          "sha256": "ecdc58535c91c1eacab81a35574c69eeaf87e0549dc51112fd411687e5f71889"
+          "bytes": 978,
+          "sha256": "ffcde4c0d0cea0bd236193c282c720de9786086c87514f58fdc61aec4a9945c9"
         },
         {
           "path": "images/thumbnails/animals/tiger--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2974,
-          "sha256": "1b4a776c2a5903d033a2b04ca32e6957d1c09f67578cef32aadfc4a85472768b"
+          "bytes": 2352,
+          "sha256": "4a3bd91395fa064a4f4edf9cafdddeae487f4fb4094c56b26289f5438fee96bf"
         },
         {
           "path": "images/thumbnails/animals/tiger--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 4330,
-          "sha256": "ad802cfbc3acb61c92217caa43502c54eca38d4602a4c145da4da4b7eabdc923"
+          "bytes": 3274,
+          "sha256": "29ae65e23fd0630009221836e364136983dd97780d1cb85375c73aba533bd2c7"
         },
         {
           "path": "images/thumbnails/animals/tiger--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 7910,
-          "sha256": "0e8847194ffa9f194be7f6cd8fd8501246d143d5461c314ecd53059026723293"
+          "bytes": 5906,
+          "sha256": "a500c387be82412f1448bb3d9bb488edf6ee84667254d5082621ee30782398cd"
         }
       ],
       "sourceWidth": 512,
@@ -5281,36 +5318,36 @@
     },
     {
       "source": "images/animals/toucan--idle--three-quarter.webp",
-      "sourceSha256": "592bab9307e34c3c714443334c92faa664f70c621241cfc528161259ee20b501",
+      "sourceSha256": "63f2db69468b3ea8ddf0f60fceeedd7cddaafe70d3eac6615bde35b3fb14042a",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/toucan--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 772,
-          "sha256": "aa630bada44a5ee41dfe39417aae8356ee25339065d24d9f30bd4445fb869649"
+          "bytes": 784,
+          "sha256": "daad91521ea53b3e03c62dab1b8e1e11f8c95655d443c5158c3ab5347acd4c9a"
         },
         {
           "path": "images/thumbnails/animals/toucan--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1834,
-          "sha256": "0469b0ca1b768eb5f4e50277ae2b74e91afbf6f2ee1b0401e4e9908aa4960612"
+          "bytes": 1762,
+          "sha256": "ad82e9483a17dad352e0b717e6479184e2d10ee5acc9873f5b6f74e5c68e85b4"
         },
         {
           "path": "images/thumbnails/animals/toucan--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2486,
-          "sha256": "9184b258f0596abce114552f6af4d8eba397465dd5692afdcea28b601284a798"
+          "bytes": 2478,
+          "sha256": "c8caccf88ddf08c02a577a0d34b8433b8d710780c86e2dc099adc5a3650e8ee8"
         },
         {
           "path": "images/thumbnails/animals/toucan--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4608,
-          "sha256": "15ca15d32252695b87e3b8008e3c234a020028d64f41d2aef3c2792cd9bd3510"
+          "bytes": 4416,
+          "sha256": "39f7be1956ebaf28b55425c95132942f621554fbba0eb543c2c6351f0a56ca4c"
         }
       ],
       "sourceWidth": 512,
@@ -5318,36 +5355,36 @@
     },
     {
       "source": "images/animals/triops--idle--three-quarter.webp",
-      "sourceSha256": "73ad4c1c2aee60c9e8e926f554818de4188ea1b21aeac445e233892f43af358d",
+      "sourceSha256": "994ba0b6362d0b20cf0dd4587b57d9b8b66b83c10349f91933bf9ee62ca2d455",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/triops--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 630,
-          "sha256": "1e24d42fafe55eeb870054c9c0eaa96f770f8b3df57647a447b13e10628124a8"
+          "bytes": 724,
+          "sha256": "d03c615f0d1170c846ff45b96b462dfbadccf77a825c97d15d58de1988952cfe"
         },
         {
           "path": "images/thumbnails/animals/triops--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1404,
-          "sha256": "a5951bf16373bb3cbb2f3932375829382308f6a8fb25b359126b823463f1a53d"
+          "bytes": 1762,
+          "sha256": "95de4032ca26b5bc8c899390162c9aaa5b1c5cb1a51047f6b2cb7c12c75296e8"
         },
         {
           "path": "images/thumbnails/animals/triops--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2176,
-          "sha256": "6ed5e435b14460af517bf7d93f40df95402dfa70f0bc7344f8232aba6c5f2a11"
+          "bytes": 2566,
+          "sha256": "afbdd52b7d2ba43fa969e76b1b1c49f5c7ef8d2ffe6ba90dde4c690f6785c277"
         },
         {
           "path": "images/thumbnails/animals/triops--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4000,
-          "sha256": "3dee16d4abd8be2263902d15a2903cbe4124a955eb8ac6ab12cd7014c94c995d"
+          "bytes": 4726,
+          "sha256": "8415f0dba916422a8b9b2b97ae6d4cdfd4e63fc71f291e5b220251f726ad77fe"
         }
       ],
       "sourceWidth": 512,
@@ -5355,36 +5392,36 @@
     },
     {
       "source": "images/animals/trout--idle--three-quarter.webp",
-      "sourceSha256": "72879b958da784a068e30e973d157df3269f2bc660ae377aac5b24ccc0a3a046",
+      "sourceSha256": "deaf55a0523af5037b98bb328fdb00ebd0af3c206957e365fbdfc41b2a13c021",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/trout--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 678,
-          "sha256": "0e58158b2c9b1dc89291be0f93056a9e82789809fae1cd5f612a57c41edb9e8d"
+          "bytes": 668,
+          "sha256": "94e48941345e82a3d6d10c77ad9b09aab4c73ece46a0f685c9e777a925ec8c10"
         },
         {
           "path": "images/thumbnails/animals/trout--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1412,
-          "sha256": "bce1b6bb5227c6e3b4a89e7ce43f0395ffda47ce241f76030abe36383e535eee"
+          "bytes": 1390,
+          "sha256": "2da25c295ecf33085d64ccc5f3adf5b1adeda7cfc9955475ecc7ab5609bc8008"
         },
         {
           "path": "images/thumbnails/animals/trout--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1980,
-          "sha256": "ab7f74846291621c3ffd04baf28f01471149817a2adc935695b617a605f604ca"
+          "bytes": 2058,
+          "sha256": "a5cddf16709b04377f3c8abaecb4a8e6eb9b867dd0205a5e9c771aa45bba397a"
         },
         {
           "path": "images/thumbnails/animals/trout--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3700,
-          "sha256": "30e0e3ab9bdc3f8b0e24d3e05f06c78c094c26ce7235d808c90b7cd67a189ce5"
+          "bytes": 3706,
+          "sha256": "e87c56f639ba75a22beb652fce8680f6fe5917d052874fd29d18effdd1b050b3"
         }
       ],
       "sourceWidth": 512,
@@ -5392,36 +5429,36 @@
     },
     {
       "source": "images/animals/turkey--idle--three-quarter.webp",
-      "sourceSha256": "1f9163e393762fa9961e5e74b5d1608a8d68c2446daa047610b1f1fad9aeb711",
+      "sourceSha256": "cbcd1b408c1f65e8eec2cb2e1316acfd28d456d607624c1ac444fd69e0f62d21",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/turkey--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 1016,
-          "sha256": "426a6cd8d9537771fd18e825195034791b8a19cb33aa43eb4d27c7395e134040"
+          "bytes": 1056,
+          "sha256": "40887a28a9c685c24a5fec606b577a12cf495a6edcacb77ddf677bc47535f84a"
         },
         {
           "path": "images/thumbnails/animals/turkey--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2492,
-          "sha256": "b36d639cafd7388f969516c4a523c42045ab07c0a42b9cdb43c3ae151f239ece"
+          "bytes": 2580,
+          "sha256": "ec10ae98ae20bfe5ab843c5064f60c2d2a1be4f7ae3f0141876d3a9b4478c735"
         },
         {
           "path": "images/thumbnails/animals/turkey--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3484,
-          "sha256": "22fb0c00e6f27a584d9e63ab577e28d3caa187ecc9e6cecf4f192fecf800babb"
+          "bytes": 3626,
+          "sha256": "d1076024c698b598497b2f59e302749fdc75988b4884943f0e0612c260109b94"
         },
         {
           "path": "images/thumbnails/animals/turkey--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 6642,
-          "sha256": "fda7e2d449c0afdc575f31e041d9ab7f4cf6585f1f1bf8975cffa4c584694f5b"
+          "bytes": 6610,
+          "sha256": "b3c755ecadfef3fc3f58a69d0bbc7ce7ced255c6968d869621a3de81594974d1"
         }
       ],
       "sourceWidth": 512,
@@ -5429,36 +5466,36 @@
     },
     {
       "source": "images/animals/turtle--idle--three-quarter.webp",
-      "sourceSha256": "d7a9ee1a9cc86b120def0f45702d72f33820b80ed488f92ec4adeab780b8431e",
+      "sourceSha256": "2dafd3178f86cf4d4f603dbc6927c2c3a6bffec9d2cfe0ec338322ba5332006e",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/turtle--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 642,
-          "sha256": "ccab68f2d0685631b50f96e7d3bca909e68380e7fee5ab447c4c37cebbc953a7"
+          "bytes": 644,
+          "sha256": "b507c1620a8311c524332e268098f8f527f79ad7618cace0929db3f6664818d1"
         },
         {
           "path": "images/thumbnails/animals/turtle--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1436,
-          "sha256": "10628bd17a6b3ef5324196106244a5d66182748065c56cffbef50e94a921b135"
+          "bytes": 1566,
+          "sha256": "557a2e0201a5d4ad4d854cdf7d956ca352c67d3d612c36590f55de2cbc19e99b"
         },
         {
           "path": "images/thumbnails/animals/turtle--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2070,
-          "sha256": "e79be87564567ca8ebc5b26cf33bf97824ce1b8e0a0cb7c721f3f681553d5d2c"
+          "bytes": 2208,
+          "sha256": "7c0c0d503bf38a44527ffd9fa9c304903f6f2bbe4d6861a038087b8b5bd58d97"
         },
         {
           "path": "images/thumbnails/animals/turtle--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3844,
-          "sha256": "77730a909ce47c27481a4a569c94af631557c8dceaae325170485736c5bd331e"
+          "bytes": 4250,
+          "sha256": "bc3894aa0e7e24f9d3896d506416684e4b203caa3743732a8dc161612bdadc6a"
         }
       ],
       "sourceWidth": 512,
@@ -5466,36 +5503,36 @@
     },
     {
       "source": "images/animals/whale--idle--three-quarter.webp",
-      "sourceSha256": "02d57613df0e454b463a445a8b6744d83e972df1b6724bf18bde1e3b1e961a5d",
+      "sourceSha256": "678091a46647413429d05f55ce92f4d3c7c9e486078a4988cde989a9bca74a8d",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/whale--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 584,
-          "sha256": "4e9f22a7fb31618264446eec923e61be69f04e1b00250b353dc862689e7faff7"
+          "bytes": 582,
+          "sha256": "0a17084f8563e335695a76642758f3c4b996f76e1bbe94436bd06a87b593553d"
         },
         {
           "path": "images/thumbnails/animals/whale--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1276,
-          "sha256": "f4770a0c2a2aee2becc0e8fb3d3513463f575ec62f15b5f60ff3482a271abb70"
+          "bytes": 1304,
+          "sha256": "6051b685d1b3f094920bcb01515b850808ab867784a239a4cdaad1e16119b8b8"
         },
         {
           "path": "images/thumbnails/animals/whale--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 1840,
-          "sha256": "9161d5466bf91c9d01b1e5e5055bb88662a709be4ac19f88784a1b7d294e4bf0"
+          "bytes": 1876,
+          "sha256": "4c5866c08ace539ffa81f56d719ef2ed3b952f48a396e4f15eb32a17a863012e"
         },
         {
           "path": "images/thumbnails/animals/whale--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3442,
-          "sha256": "429cf25a59e43efdb47fac00bc8376107fc7b99de4a1c3fd80a1bb2ccc53cc1b"
+          "bytes": 3426,
+          "sha256": "da70a32e995b989c15e7ec4f1a4b30f9ab52011674610154582392fed74a048d"
         }
       ],
       "sourceWidth": 512,
@@ -5503,36 +5540,36 @@
     },
     {
       "source": "images/animals/wild-horse--idle--three-quarter.webp",
-      "sourceSha256": "7ce5d38e354d582a788da79e914820b0363276ba0c1510bf7f394f42ac670971",
+      "sourceSha256": "f6d4c049634f5fe06ca3601fddb5355eaca3b4c3a23f1188b899a67a6b00376a",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/wild-horse--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 810,
-          "sha256": "1d32fdb0903dbd0d745636348b839de2e037b9d1c465c27ca075317bfe1d66a9"
+          "bytes": 768,
+          "sha256": "e3f0bf262c276c48b42c9d397d041fb33b1155ba1436074aae03c00533218d55"
         },
         {
           "path": "images/thumbnails/animals/wild-horse--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1718,
-          "sha256": "3190981b410630119dfa844e519a047a36770b2a499e3d68ca73e99fb91a0887"
+          "bytes": 1742,
+          "sha256": "8f94c9d5967d98c6e70e77ca0e0b4377d90c2dcaea8185c1162bd3781a5dc67e"
         },
         {
           "path": "images/thumbnails/animals/wild-horse--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2458,
-          "sha256": "c50f6725876e2feda0000cd02b2ee0c6fe55cce8da901bb31acf8ce85d8006e0"
+          "bytes": 2372,
+          "sha256": "761ba4baa4c78c4c3efe0ee8eaefd1aa6ea56d16a7f9166c103e278d6394d80b"
         },
         {
           "path": "images/thumbnails/animals/wild-horse--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 4308,
-          "sha256": "caa330946b47df87101a705155c9f306769be9e46ffeea6db40d42e21416539d"
+          "bytes": 4218,
+          "sha256": "7581dfdedbc44da72e192d107bad2cdb0156161c52497847e1418b90dc2b9f2f"
         }
       ],
       "sourceWidth": 512,
@@ -5540,36 +5577,36 @@
     },
     {
       "source": "images/animals/wolf--idle--three-quarter.webp",
-      "sourceSha256": "7df7bbae32058c515b8f55c16d1a92a3f86e36689c3a348da61923d9da683e3d",
+      "sourceSha256": "f02b7b72b3205e65ba8003f0c52c1b513f4d8ce319bfd22b6da9d9cdbcffce04",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/wolf--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 660,
-          "sha256": "2569ab3f997e6fdba60ddfc07d8099fd27d19b40d6e46bd0e4bed689d4299c27"
+          "bytes": 522,
+          "sha256": "bc14f2557be47afd0eb4ac84b7b5e0f055d9a5e137c43a0506f375eda546ba28"
         },
         {
           "path": "images/thumbnails/animals/wolf--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 1490,
-          "sha256": "8c1715c0a63a38c8f89dcebd5f6a6754508490d8fa33f078d9b858d2723408ce"
+          "bytes": 1228,
+          "sha256": "e09d9ebb0c6a4a48bbac3fc9cfbd3c444af9f6df76546719b74d94072181e05c"
         },
         {
           "path": "images/thumbnails/animals/wolf--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 2108,
-          "sha256": "964a7d63e4f278e39f5bdcb5811f9ccb7903206ded444d693c67d042a76960db"
+          "bytes": 1654,
+          "sha256": "77da970195c4dc8a2e5b956a4cc7e4aa275813762e1d3ca77d30921f05d4b676"
         },
         {
           "path": "images/thumbnails/animals/wolf--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 3968,
-          "sha256": "fc2d221b4171b63801665aba631ea90971f3e4853ecc728b8eb63a4dd2a9ba6d"
+          "bytes": 3040,
+          "sha256": "048083cc5f448258705f511497ef454bfd7593feb658def62786a64e09d3b042"
         }
       ],
       "sourceWidth": 512,
@@ -5577,36 +5614,36 @@
     },
     {
       "source": "images/animals/zebra--idle--three-quarter.webp",
-      "sourceSha256": "c6e4d1d9cf10ba097380589a80e71ba6b19f6d540ae6cddacdaf5a1708a001b3",
+      "sourceSha256": "27e20a00e6ec52c9aba05d39f2ca4a77447919c611ecdb64bc9e92fc5be82944",
       "kind": "animals",
       "variants": [
         {
           "path": "images/thumbnails/animals/zebra--idle--three-quarter--72.webp",
           "width": 72,
           "height": 72,
-          "bytes": 938,
-          "sha256": "ce385452c96bae45c22adf04c8cffeadae189abbc44654a1cda208f60b26d8e1"
+          "bytes": 968,
+          "sha256": "6ba31ceb6555fbb42f1bedab1c8a6fd2bb038297e8763c90d40a224f848c5e95"
         },
         {
           "path": "images/thumbnails/animals/zebra--idle--three-quarter--144.webp",
           "width": 144,
           "height": 144,
-          "bytes": 2280,
-          "sha256": "09d38ff8f6dc2b121c008c0ce30a0cdfa7b9a42d8269f53cacd4ce62a60be173"
+          "bytes": 2146,
+          "sha256": "9a17dd4ee31efc311e8f4574838c64dfa551ebc0d59509bc18f84af5f9138d06"
         },
         {
           "path": "images/thumbnails/animals/zebra--idle--three-quarter--192.webp",
           "width": 192,
           "height": 192,
-          "bytes": 3364,
-          "sha256": "cb566361c41ffe73abdea2756894e47adc41361f165f19399f4a9590a981ae6a"
+          "bytes": 2952,
+          "sha256": "c3493e11b5ac31116850880328434c4d57f4094253131a88287e18ddd8a0cfcd"
         },
         {
           "path": "images/thumbnails/animals/zebra--idle--three-quarter--320.webp",
           "width": 320,
           "height": 320,
-          "bytes": 6120,
-          "sha256": "fab328be0177c6801bc95af096909a92ae9ca7c17bedb792b933b1fa5adcc8ab"
+          "bytes": 5126,
+          "sha256": "67c8b6da2094f2f2f877bde7fd6f5a33b8b351d9759b4d53e6f1529f74e51c7d"
         }
       ],
       "sourceWidth": 512,

@@ -371,3 +371,77 @@ The previous 93-species gallery and derivatives are privately archived at their
 exact wiki commit, `6aca599`. This prerequisite does not update the public gallery
 or its coverage: fresh portraits, habitat scenes and displayed-size review remain
 part of QW-ASTRA-MEDIA until their own verification and delivery.
+
+## Current animal portraits — 13 October 2026
+
+The gallery and Mobs reference now cover all 94 species at game commit
+`9e946731`, including Swan and its four source-backed freshwater habitat
+candidates. All 376 portraits were rendered again from the production pose
+meshes and exported materials. The unmodified game source, recursive file hashes,
+exporter, actual Blender settings and every mesh/material/output hash are retained.
+The complete headless run exited successfully. The older September collection
+was privately archived before replacement; animal artwork and geometry were not edited.
+
+The final images are 512 pixels square, WebP quality 92. All four views per
+species were inspected in contact sheets, with native-size Swan, ant and whale
+checks. New 72/144/192/320-pixel previews use Lanczos at quality 90 after comparing
+nearest, BOX and Lanczos on thin legs, markings, feather steps and dark silhouettes
+at displayed sizes. This decision applies to this collection. These remain studio
+poses; actual habitat scenes and the other media refresh work are still open.
+
+The builder now finds model and atlas source modules recursively. The old
+hard-coded `bird_models.rs` path no longer exists in this game snapshot; its
+failed first catalog build is retained, and a regression covers split modules.
+Source hashes are checked before image replacement. The full receipt catalog
+remains downloadable. The browser script contains all display fields and omits
+the receipt hashes it never reads; the validator compares it to the full catalog's
+exact display projection. The script shrinks from 243,472 to 123,990 uncompressed
+bytes compared with the previous published gallery.
+
+The original portrait collection changes from 3,358,360 bytes for 93 species to
+3,356,804 bytes for 94. Animal previews change from 850,584 to 868,106 bytes. Full
+portraits remain available on demand; raw PNGs and game source stay private.
+The biome photographs, survey frequencies and island galleries keep their older
+generation-9 receipts. Fresh animal portraits do not relabel that evidence.
+
+Matched local browser checkpoints compare the previous published gallery at
+`f469610` with this collection. Each page uses a fresh Firefox profile with HTTP
+cache disabled, first at its top and then at the first media row. All visible
+images were complete and all recorded response body sizes were available. These
+figures include HTML and the requests completed at that checkpoint; Firefox's
+lazy loading changes the request set. They are not a whole-page download or a
+load-time claim. Text is uncompressed on this local server.
+
+| Page | Viewport | Before bodies | Current bodies | Before/current requests |
+| --- | --- | ---: | ---: | ---: |
+| Animal gallery | desktop, 1440 × 814 | 344,617 B | 240,652 B | 21 / 24 |
+| Animal gallery | mobile, 390 × 844 | 305,624 B | 191,697 B | 15 / 17 |
+| Mobs reference | desktop, 1440 × 814 | 184,481 B | 188,634 B | 16 / 20 |
+| Mobs reference | mobile, 390 × 844 | 181,418 B | 182,373 B | 12 / 12 |
+
+The gallery checkpoint improves by 30.2% on desktop and 37.3% on mobile; the
+reference increases by 2.3% and 0.5%. The main reduction is the smaller display
+script. Mobile uses a same-origin CSS wrapper, whose setup request is separate
+from the page totals and warms the connection. DPR is 1; these are browser
+viewports, not physical-phone measurements. Raw requests and captures stay in
+the worker's retained `media-refresh/browser-before` and `browser-after` receipts.
+
+Desktop/mobile visual review, real keyboard search/view/navigation controls,
+local-file gallery behavior and the 94-row reference without JavaScript pass.
+The static gate passes 78 tests, 44 pages and 4,004 local references, including
+the staged base-game-only check. Source-backed animal and Mobs validators also
+pass against the frozen capture tree. Two private browser-harness errors were
+retained and corrected before the remaining checks passed; they required no
+website change. Final live delivery is recorded in the worker's Pages receipt.
+
+## Revised public scope — 13 October 2026
+
+The owner's later concise-catalog direction takes priority at the next safe
+unit after the current portrait delivery. Public pages should introduce the
+survival game briefly and show its biomes, animals and items with clear names,
+short natural descriptions and useful imagery. The landing page and navigation
+need to emphasize those routes. The public changelog should group actual shipped
+player-visible changes by calendar day, with brief “Fixed” or “Changed” entries.
+Commit hashes, development narratives and gate/performance receipts belong in
+the retained internal evidence. This editorial/design update is pending; the
+portrait refresh does not claim to complete it. The same finite worker owns it.

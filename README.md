@@ -46,7 +46,7 @@ evidence as a newer commit.
 
 # qiqi-dev · Worldgen Atlas
 
-A standalone HTML/CSS/JavaScript field guide to **all 92 Voxelgame biomes, 93 animals and six island shape families**. The **Animals** navigation link opens `animals.html`, with search, animal-group and biome filters, four model views per animal, dimensions and linked habitats. Each biome entry has a real in-game photograph, field notes describing its implemented terrain and vegetation, and its measured percentage of sampled world surface. Default order is most common first.
+A standalone HTML/CSS/JavaScript field guide to **all 92 Voxelgame biomes, 94 animals and six island shape families**. The **Animals** navigation link opens `animals.html`, with search, animal-group and biome filters, four model views per animal, dimensions and linked habitats. Each biome entry has a real in-game photograph, field notes describing its implemented terrain and vegetation, and its measured percentage of sampled world surface. Default order is most common first.
 
 ## Open it
 
@@ -68,16 +68,19 @@ animal to switch between resting/moving poses and three-quarter/side views.
 Arrow keys navigate animals, `/` focuses search and Escape closes the dialog.
 Habitat links open the matching biome, whose details link back to its animals.
 
-The 372 square 512-pixel portraits are studio renders of the game's exact
-production geometry and textures, using the existing Blender gallery pipeline.
+The 376 square 512-pixel portraits use the game’s production pose meshes and
+exported materials at commit `9e946731`, captured on 13 October 2026 with Blender
+4.5.3 LTS. The existing gallery pipeline supplies neutral studio lighting.
 They are static model previews. Each animal is framed independently, including
 tiny insects; portrait size does not represent relative scale. Dimensions are
 measured from the resting model. Habitat lists come from the ambient spawn
 rules and remain subject to water, terrain and population checks.
 
-`data/animals.json` and its offline script mirror contain all 93 species,
-source/mesh/image hashes, dimensions, habitat links and view metadata. Woodland
-bats, river otters and penguins join the catalog without changing earlier IDs.
+`data/animals.json` contains all 94 species, source/mesh/image hashes, dimensions,
+habitat links and view metadata. Its offline display script, `data/animals.js`,
+keeps every displayed field while leaving receipt hashes in the linked JSON.
+The gate checks the script against this exact projection of the full catalog. Swan
+joins the refreshed catalog without changing earlier IDs.
 Portraits show fixed poses; swimming and walking cycles are verified in the game
 and are not interactive animations in this field guide.
 `images/animals/` contains the WebP portraits. To regenerate:
@@ -126,8 +129,8 @@ entry and all biome rules; a source layout change requires updating its parser. 
 guide groupings. The animal browser checks are in `tools/animal_browser_checks.html`.
 The parser includes the reviewed conditional Swan branch as well as the static
 biome guilds. These are habitat candidates, not spawn probabilities. Unrecognized
-logic before the guild match stops the builder for source review. This tooling
-support does not add Swan to the dated gallery without actual replacement renders.
+logic before the guild match stops the builder for source review. The 13 October refresh includes four actual Swan renders. Linked biome photographs
+retain their older generation-9 snapshot.
 
 ## Performance notes
 

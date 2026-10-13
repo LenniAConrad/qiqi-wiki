@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 from freeze_media_source import freeze, git, verify_snapshot
-from build_animals import ROOT, capture_receipts, sha
+from build_animals import ROOT, animal_source_hashes, capture_receipts, sha
 
 
 class MediaSnapshot(unittest.TestCase):
@@ -111,6 +111,27 @@ class MediaSnapshot(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'missing material'):
             capture_receipts(output / 'source', meshes, renders,
                              output / 'source-manifest.json', path)
+
+    def test_source_receipt_follows_split_model_and_material_modules(self):
+        names = ['crates/voxelgame-core/src/entities/mod.rs',
+                 'crates/voxelgame-core/src/entities/models.rs',
+                 'crates/voxelgame-core/src/entities/models/birds/swan.rs',
+                 'crates/voxelgame-core/src/entities/coat_uv.rs',
+                 'crates/voxelgame-render/src/creature_visual_qa.rs',
+                 'crates/voxelgame-render/examples/export_creature_gallery.rs',
+                 'crates/voxelgame-render/src/atlas.rs',
+                 'crates/voxelgame-render/src/atlas/creatures/tiles.rs',
+                 'crates/voxelgame-render/src/shader.wgsl',
+                 'tools/render_creature_gallery.py']
+        for name in names:
+            path = self.game / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(name)
+        hashes = animal_source_hashes(self.game)
+        self.assertEqual(set(hashes), set(names))
+        name = 'crates/voxelgame-core/src/entities/models/birds/swan.rs'
+        (self.game / name).write_text('changed Swan')
+        self.assertNotEqual(hashes[name], animal_source_hashes(self.game)[name])
 
 
 if __name__ == '__main__':

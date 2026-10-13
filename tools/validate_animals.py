@@ -9,6 +9,7 @@ import math
 from pathlib import Path
 import re
 from PIL import Image
+from build_animals import browser_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,7 +28,7 @@ def main():
         assert capture['engine'] in ('BLENDER_EEVEE_NEXT', 'BLENDER_EEVEE')
         assert capture['renderSettings']['background'] is True
     encoded = (ROOT / 'data/animals.js').read_text().split('window.ANIMAL_ATLAS = ', 1)[1].rstrip().removesuffix(';')
-    assert json.loads(encoded) == data
+    assert json.loads(encoded) == browser_catalog(data), 'Offline display data differs from the full catalog'
     assert hashlib.sha256((ROOT / 'tools/render_animals.py').read_bytes()).hexdigest() == data['provenance']['renderScriptSha256']
     rows = data['animals']
     assert isinstance(data['catalogCount'], int) and data['catalogCount'] > 0

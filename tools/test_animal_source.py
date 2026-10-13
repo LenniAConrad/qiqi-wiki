@@ -2,7 +2,7 @@
 """Keep conditional ambient species from disappearing during gallery refreshes."""
 import unittest
 
-from build_animals import animal_category, source_habitats
+from build_animals import animal_category, browser_catalog, source_habitats
 
 
 BIOMES = {'WetlandFen', 'FloodedGrassland', 'InlandDelta', 'RiverDelta'}
@@ -29,6 +29,26 @@ def source(prelude=''):
 
 
 class AnimalSource(unittest.TestCase):
+    def test_browser_data_retains_every_display_field_and_leaves_receipts_intact(self):
+        view = {'label': 'Resting', 'pose': 'idle', 'angle': 'side', 'image': 'swan.webp',
+                'imageSha256': 'a' * 64, 'renderSha256': 'b' * 64, 'meshSha256': 'c' * 64}
+        animal = {'id': 'Swan', 'name': 'Swan', 'slug': 'swan', 'category': 'Birds',
+                  'description': 'White bird', 'habitats': ['WetlandFen'],
+                  'sizeMetres': [1, 2, 3], 'views': [view]}
+        data = {'date': '2026-10-13', 'catalogCount': 1, 'biomes': {'WetlandFen': 'Wetland Fen'},
+                'animals': [animal], 'provenance': {'sourceHashes': {'source.rs': 'd' * 64}}}
+        browser = browser_catalog(data)
+        self.assertEqual(browser['biomes'], data['biomes'])
+        self.assertEqual(browser['date'], data['date'])
+        self.assertEqual(browser['catalogCount'], 1)
+        self.assertEqual({k: v for k, v in browser['animals'][0].items() if k != 'views'},
+                         {k: v for k, v in animal.items() if k != 'views'})
+        self.assertEqual(browser['animals'][0]['views'],
+                         [{'label': 'Resting', 'pose': 'idle', 'angle': 'side', 'image': 'swan.webp'}])
+        self.assertNotIn('provenance', browser)
+        self.assertEqual(data['animals'][0]['views'][0]['meshSha256'], 'c' * 64)
+        self.assertEqual(data['provenance']['sourceHashes']['source.rs'], 'd' * 64)
+
     def test_legacy_static_guilds_keep_their_candidates(self):
         habitats, covered = source_habitats(source(), ['Duck', 'Goose'], BIOMES)
         self.assertEqual(covered, BIOMES)

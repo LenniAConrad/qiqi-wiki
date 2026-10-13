@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """Check the dated animal reference and optional core-species membership."""
 import argparse
+import hashlib
 from pathlib import Path
 import re
 from urllib.parse import urlsplit
@@ -46,10 +47,13 @@ def validate(animals, habitats, biomes, game=None):
         body = (game / SPECIES_SOURCE).read_text().split('pub enum Species {', 1)[1].split('\n}', 1)[0]
         species = set(re.findall(r'^    ([A-Za-z0-9]+),$', body, re.M))
         assert species and {a['id'] for a in rows} <= species, 'Reference includes a non-core creature'
-        # The note in mobs.html states this count; fail when the game adds or removes species.
-        count = int(re.search(r'pub const ALL: \[Self; (\d+)\]', (game / SPECIES_SOURCE).read_text()).group(1))
-        assert count == build_mobs.GAME_SPECIES_COUNT == len(species), f'Species::ALL is {count}, note says {build_mobs.GAME_SPECIES_COUNT}'
-        assert f'lists {count} species' in value, 'mobs.html species note is stale'
+        if animals['provenance'].get('capture'):
+            # A freshly captured complete gallery must match its pinned source exactly.
+            count = int(re.search(r'pub const ALL: \[Self; (\d+)\]', (game / SPECIES_SOURCE).read_text()).group(1))
+            assert count == animals['catalogCount'] == len(species)
+            assert species == {a['id'] for a in rows}, 'Fresh gallery must cover every core species'
+            assert hashlib.sha256((game / SPECIES_SOURCE).read_bytes()).hexdigest() == animals['provenance']['sourceHashes'][SPECIES_SOURCE]
+            assert f'covers all {count} species' in value, 'mobs.html species note is stale'
 
 
 def main():

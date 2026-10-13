@@ -3989,7 +3989,7 @@
     "VOX-OWNER-CAMELS",
     "VOX-OWNER-ANIMAL-VARIETY-PLAN"
    ],
-   "notes": "The full list lives in crates/voxelgame-core/src/entities/mod.rs (Species::ALL and name()); the egg table, with display labels, is crates/voxelgame-core/src/inventory/spawn_eggs.rs. This wiki’s animal atlas is a 28 September snapshot with 93 species; the Swan was added to the game afterwards.",
+   "notes": "The full list lives in crates/voxelgame-core/src/entities/mod.rs (Species::ALL and name()); the egg table, with display labels, is crates/voxelgame-core/src/inventory/spawn_eggs.rs. The animal atlas covers all 94 species, including Swan, with four studio views each from game source 9e946731 on 13 October 2026. Habitat lists are source candidates, subject to the game’s terrain, water and population checks.",
    "guide": {
     "state": "complete",
     "page": "guide-creatures.html",
@@ -5747,7 +5747,7 @@
   },
   {
    "title": "Dated gallery images",
-   "text": "Gallery images keep their original capture dates. Responsive biome, animal, island and guide previews come from the same recorded source images. Gallery views and screenshot links open the originals. A lighter preview does not represent a newer game capture."
+   "text": "Animal portraits were refreshed from game source 9e946731 on 13 October 2026, including Swan. Biome, island and guide images retain their separate capture dates. Responsive previews come from those recorded images, and gallery views open the originals. Studio poses do not demonstrate live animal behavior."
   },
   {
    "title": "Finding a guide",
