@@ -265,7 +265,7 @@ overhead. Desktop and mobile pass at the measured viewport sizes. The earlier
 direct-navigation candidate was rejected because it measured a 590-pixel top-level
 page. The static gate also rejects missing or duplicate document timing entries;
 unknown response sizes still make totals null. Old raw readings are preserved.
-Fresh matched baseline/current/live readings remain necessary for a new byte table.
+Completed matched measurements and their accepted/excluded checkpoints are recorded below.
 
 Pages validation and deployment pin Ubuntu 24.04 and exact upstream releases of
 checkout 7.0.1, setup-python 7.0.0, setup-node 7.1.0, upload-pages-artifact 5.0.0
@@ -288,3 +288,63 @@ The public gallery remains the preserved 93-species snapshot. Current portraits
 and habitat scenes still require a full isolated game export, a renderer, actual
 captures, source/asset receipts and visual review. The documentation snapshot
 exporter omits binary assets and Cargo.lock and is insufficient for that build.
+
+## Completed loading samples — 13 October 2026
+
+Matched Firefox readings compare the preserved `185455d` site with the current
+public files (unchanged since `bd2616b`). All reported samples include the HTML
+body and have no unmeasured response bodies. Matched pairs use identical recorded
+runner hashes, browser, viewport and DPR 1. Old incomplete readings remain preserved.
+
+Mobile uses a 390 × 844 iframe; desktop content is 1440 × 814. Each page starts
+in a fresh profile with HTTP caches disabled. The same-origin mobile setup fetch
+is recorded separately and warms the origin connection; settled time includes
+it. Body sums cover the completed document/resource entries at the checkpoint,
+not the entire gallery archive or a packet capture. The home checkpoint is its
+initial view; other image pages include the first media row after scrolling.
+
+| Mobile page / checkpoint | Before → after encoded bodies | Reduction | Requests | Settled seconds |
+| --- | ---: | ---: | ---: | ---: |
+| Home | 301,211 → 228,916 B | 24.0% | 7 → 7 | 25.608 → 51.594 |
+| Animal gallery | 381,051 → 310,816 B | 18.4% | 16 → 17 | 17.620 → 41.448 |
+| Getting started | 106,739 → 84,180 B | 21.1% | 7 → 7 | 31.799 → 22.554 |
+| Islands | 2,321,386 → 198,126 B | 91.5% | 17 → 18 | 62.093 → 20.822 |
+
+The constrained local profile shares 200,000 B/s and adds 150 ms response
+latency. These are individual observations on a busy shared host. Several
+timings get worse despite fewer bytes; these data support response-body savings,
+not a universal loading-time improvement, LCP result or real-phone benchmark.
+
+| Constrained mobile / same checkpoint | Before → after encoded bodies | Requests | Settled seconds |
+| --- | ---: | ---: | ---: |
+| Home | 301,211 → 228,916 B | 7 → 7 | 28.276 → 12.676 |
+| Animal gallery | 381,051 → 310,816 B | 16 → 17 | 16.576 → 21.559 |
+| Getting started | 106,739 → 84,180 B | 7 → 7 | 89.485 → 5.593 |
+
+The matched desktop home records 301,492 → 239,011 encoded body bytes
+(8 → 8 requests); settled time is 42.363 → 28.979 s.
+
+Live Pages readings below include the same page checkpoints and actual response
+compression. Do not compare their compressed text sizes directly with the
+identity-encoded local server. The two histories had no published counterpart
+in the baseline; their rows are new-page costs, not before/after savings.
+
+| Live page | Viewport | Encoded bodies | Requests | Settled seconds |
+| --- | --- | ---: | ---: | ---: |
+| Home | mobile | 75,453 B | 7 | 19.902 |
+| Animal gallery | mobile | 98,795 B | 17 | 51.532 |
+| Getting started | mobile | 35,526 B | 7 | 43.573 |
+| Islands | mobile | 124,121 B | 18 | 79.896 |
+| Game history | mobile | 23,224 B | 6 | 88.413 |
+| Wiki history | mobile | 17,468 B | 6 | 72.648 |
+| Home | desktop | 85,500 B | 8 | 73.155 |
+
+The private receipts contain 38 raw checkpoint records, of which 36 are accepted complete rows: 12 before, 14 current, 10 live.
+The initial constrained getting-started checkpoint in each local run still had
+a selected lazy image pending. Those two raw records are retained and excluded
+from accepted results; the completed first-media checkpoints are used above.
+The generator, source images, capture dates and public image collection are
+unchanged by this measurement work. Fresh current-build media and its derivative
+review remain part of the open overhaul. Regeneration and measurement commands
+are in README; raw requests, image selections, setup costs and runner hashes
+remain in the retained measurement receipts.
