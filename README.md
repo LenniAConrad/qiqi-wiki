@@ -378,6 +378,10 @@ that disagree with the server's response log. This browser
 check is separate from the static gate. Both measurement commands accept
 `--startup-timeout 240` for slow shared disks; set `TMPDIR` to owned scratch.
 `measure_loading.py --mode mobile` restricts a repeat to one profile.
+The same timeout bounds mobile document readiness. A still-loading or initial
+blank document fails the run instead of becoming a zero-resource sample.
+Use `--require-complete` for comparison runs: an unavailable body size is recorded
+as unknown and then stops the run, before spending time on further profiles.
 
 Totals describe the document and resource entries at the recorded checkpoint,
 not the cost of scrolling through every image. `encodedBytes` counts response

@@ -11,6 +11,7 @@ parser.add_argument('--out',type=Path,required=True)
 parser.add_argument('--page',action='append')
 parser.add_argument('--mode',action='append',choices=['desktop','mobile','mobile-constrained'],help='Only these profiles; default: all applicable profiles')
 parser.add_argument('--startup-timeout',type=float,default=60,help='Firefox connection/command timeout in seconds; allow more on busy disks')
+parser.add_argument('--require-complete',action='store_true',help='Save the sample and fail immediately if any response body size is unavailable')
 parser.add_argument('--base',help='Use a deployed origin instead of a local server; no synthetic throttling')
 args=parser.parse_args()
 args.root=args.root.resolve()
@@ -60,7 +61,7 @@ for mode,width,height,bps,latency in [('desktop',1440,900,0,0),('mobile',390,844
             with b.firefox(startup_timeout=args.startup_timeout) as c:
                 start=time.monotonic()
                 harness={}
-                if width<500:b.framed(c,base+'/'+page,width,height,parent_url=base+'/wiki.css',setup_receipt=harness)
+                if width<500:b.framed(c,base+'/'+page,width,height,parent_url=base+'/wiki.css',setup_receipt=harness,load_timeout=args.startup_timeout)
                 else:c.size(width,height);c.navigate(base+'/'+page)
                 media_selector = c.script("return document.querySelector('#grid') ? '#grid' : document.querySelector('.mob-model') ? '.mob-model' : document.querySelector('.guide-figure') ? '.guide-figure' : null;")
                 for phase in (['initial', 'first-media-row'] if media_selector else ['initial']):
@@ -81,3 +82,5 @@ for mode,width,height,bps,latency in [('desktop',1440,900,0,0),('mobile',390,844
                     row={'page':page,'mode':mode,'phase':phase,'requestedViewport':[width,height],'harness':harness.copy(),'network':{'bytesPerSecond':bps,'addedResponseLatencyMs':latency,'cache':'fresh profile per page, disabled HTTP cache','origin':base},**body_totals(data['navigation'],data['resources']),'settledSeconds':round(time.monotonic()-start,3),**data}
                     rows.append(row);print(page,mode,phase,row['requests'],row['encodedBytes'],row['settledSeconds'],flush=True)
                     args.out.write_text(json.dumps({'schemaVersion':2,'runnerHashes':runner_hashes,'method':'Firefox headless; fresh profile PER PAGE, cache disabled. Initial viewport, then first gallery/reference/guide image. Mobile replaces a same-origin wiki.css text document with a sized iframe; its setup/navigation and other parent requests are recorded separately in harness. This warms the origin connection even with disabled HTTP cache. settledSeconds includes this setup; iframe fully inside the parent viewport; visible images intersect both viewport axes. Wait for visible images and three stable 250ms request-count samples. Constrained local profile shares 200000 bytes/s across responses and adds150 ms response latency. Null encodedBytes/transferBytes means at least one response size is unavailable; reportedEncodedBytes/reportedTransferBytes are only the exposed sums. unmeasuredBodies lists any missing URLs. Totals include only document/resource timing entries at the checkpoint; transferBytes is a browser estimate including headers, not a packet capture. Not a real phone or LCP benchmark.','measuredAt':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'root':str(args.root),'rows':rows},indent=2)+'\n')
+                    if args.require_complete and row['unmeasuredBodies']:
+                        raise RuntimeError('Incomplete response sizes saved to '+str(args.out)+': '+', '.join(row['unmeasuredBodies']))

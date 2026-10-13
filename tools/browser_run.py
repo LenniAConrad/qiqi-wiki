@@ -178,7 +178,19 @@ MIN_WINDOW_WIDTH = 500  # headless Firefox clamps narrower windows
 MAX_CAPTURE_HEIGHT = 32000
 
 
-def framed(client, url, width, height, *, parent_url=None, setup_receipt=None):
+def wait_document(client, url, timeout=30):
+    """Wait for the requested document; never accept an empty or loading frame."""
+    deadline = time.monotonic() + timeout
+    while True:
+        state = client.script("return {url: document.URL, readyState: document.readyState};")
+        if state == {'url': url, 'readyState': 'complete'}:
+            return
+        if time.monotonic() >= deadline:
+            raise TimeoutError(f'{url} did not finish loading within {timeout}s: {state}')
+        time.sleep(.1)
+
+
+def framed(client, url, width, height, *, parent_url=None, setup_receipt=None, load_timeout=30):
     """Load url in a same-size iframe, for viewports narrower than a window."""
     client.size(width + 200, height)
     wrapper = ("<!doctype html><body style='margin:0'><iframe id='frame' src='" + escape(url, quote=True) + "'"
@@ -217,9 +229,7 @@ def framed(client, url, width, height, *, parent_url=None, setup_receipt=None):
         client.size(width + 200, height + missing_height)
     frame = client.command("WebDriver:FindElement", {"using": "css selector", "value": "#frame"})[ELEMENT]
     client.command("WebDriver:SwitchToFrame", {"element": frame})
-    deadline = time.monotonic() + 30
-    while client.script("return document.readyState;") != "complete" and time.monotonic() < deadline:
-        time.sleep(0.1)
+    wait_document(client, url, timeout=load_timeout)
     return frame
 
 
