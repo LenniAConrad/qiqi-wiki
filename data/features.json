@@ -2061,9 +2061,11 @@
     "crates/voxelgame-core/src/world/door.rs:53 — SWING_WAIT_SECONDS = 1.0; World::door_leaves_drawn holds a swing until every chunk of its door draws the leaves, then all leaves start together (Voxelgame 4e4d908f, source-checked, not play-tested)",
     "crates/voxelgame-core/src/game.rs:1533 — Game::update advances the door swings each frame",
     "crates/voxelgame-core/src/game/doors.rs:44-49 — hanging is refused while a player or animal stands in the leaves' space (1c6dc40a)",
-    "crates/voxelgame-core/src/game/building.rs:155 — edit_refusal also refuses undo and redo that would fill the space an open leaf stands in (1c6dc40a)"
+    "crates/voxelgame-core/src/game/building.rs:155 — edit_refusal also refuses undo and redo that would fill the space an open leaf stands in (1c6dc40a)",
+    "crates/voxelgame-core/src/session/doors.rs:73 — request_door judges a door action whole for a connected player (5f1052e6)",
+    "crates/voxelgame-server/src/host/raise.rs:59-66 — door allowance: 8 at once, then one per 6 ticks; 32 queued doors at most (5f1052e6)"
    ],
-   "notes": "Doors cannot be hung or opened on a server yet (doors.rs:66, 111). Blueprints skip door leaves, so doors are not copied.",
+   "notes": "On a server a connected player hangs, opens and takes down doors as they do alone. The host judges each door and refuses it with \"Door refused: ...\" (Voxelgame 5f1052e6: session/doors.rs:73, session/place.rs:78, voxelgame-server/src/host/raise.rs:175; server tests tests/doors.rs:91, 162). Source and automated server tests only; not yet played on a live server. Blueprints skip door leaves, so doors are not copied.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
