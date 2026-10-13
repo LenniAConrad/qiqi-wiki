@@ -4660,6 +4660,10 @@
       },
       {
        "t": "p",
+       "text": "On a server you see other players' arm swings. A player who punches, mines or places a block shows the swing on their character. The swing is only a picture: it does not change their reach or what they can build or break."
+      },
+      {
+       "t": "p",
        "text": "Worlds hosted on your network appear above your remembered servers while the Multiplayer page is open. The list shows up to 8 worlds, each with its name and address, and updates by itself. Only worlds on the same local network appear. Select a row and press Enter, or click it, to join. Your own hosted world is not listed. A world from another game version is shown as a world for another game version. If the selected world stops hosting, the selection moves to Join server."
       },
       {

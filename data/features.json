@@ -5269,7 +5269,9 @@
     "src/launch.rs:164-166 — --connect/--name options; needs a window",
     "src/app.rs:365-374 — joining replaces loading the local world",
     "src/app.rs:710-723 — Esc on the loading screen stops a join (\"Stopped joining\"); a join welcomed before Esc leaves the server again",
-    "src/net_client.rs:49 — JOIN_TIMEOUT is 15 s for the whole join, name lookup included"
+    "src/net_client.rs:49 — JOIN_TIMEOUT is 15 s for the whole join, name lookup included",
+    "crates/voxelgame-core/src/game/net_client.rs:350 — remote players take each snapshot's swing count (Voxelgame 46ef04ba)",
+    "crates/voxelgame-core/src/game.rs:2438 — start_swing starts the arm swing for punches, mining and placing (Voxelgame 46ef04ba)"
    ],
    "backlog": [
     "VOX-NET-M2-EDITS",
