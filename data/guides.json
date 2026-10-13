@@ -2409,7 +2409,7 @@
         "**Wide wooden door:** two blocks of boards.",
         "Hold the door and right click solid ground to hang it. The spot needs free space and solid ground under it. A player or animal standing where the leaves would swing also stops the hang.",
         "Right click a hung door to open it, and right click again to close it. A door swings away from the player who opens it, from either side. It has its own opening and closing sound.",
-        "The leaves turn on their hinges over 0.35 seconds, easing in and settling gently. Using a door again while it is moving turns it back from where it stands.",
+        "The leaves turn on their hinges over 0.35 seconds, easing in and settling gently. If the leaves are not drawn on screen yet, for example while the chunk is still being rebuilt, the swing waits up to one second; a wide door across a chunk edge then turns both halves together. Using a door again while it is moving turns it back from where it stands.",
         "A door will not open if anything other than air, water or plants is in its swing path. It also will not open while you or an animal stands where the leaves sweep. Clear the space and try again.",
         "An open leaf stands a metre out of the doorway. You and walking animals cannot walk through it, and you cannot place a block into the space it stands in. Undo and redo refuse a change to that space too.",
         "You cannot close a door while you stand in its opening. Step out first. A door will not shut while an animal stands in its opening.",

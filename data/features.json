@@ -2026,6 +2026,7 @@
     "crates/voxelgame-core/src/world/door.rs:771 — World::open_leaf_in: an open leaf blocks the player and walking animals (player.rs:981, entities/mod.rs:4082) (550a0189)",
     "crates/voxelgame-core/src/world/door.rs:762 — room_for_block refuses hand placement into a voxel an open leaf stands in (550a0189)",
     "crates/voxelgame-core/src/world/door.rs:41 — SWING_SECONDS = 0.35 for the leaf turn (Voxelgame ca443762)",
+    "crates/voxelgame-core/src/world/door.rs:53 — SWING_WAIT_SECONDS = 1.0; World::door_leaves_drawn holds a swing until every chunk of its door draws the leaves, then all leaves start together (Voxelgame 4e4d908f, source-checked, not play-tested)",
     "crates/voxelgame-core/src/game.rs:1533 — Game::update advances the door swings each frame",
     "crates/voxelgame-core/src/game/doors.rs:45-49 — hanging is refused while a player or animal stands in the leaves' space (1c6dc40a)",
     "crates/voxelgame-core/src/game/building.rs:155 — edit_refusal also refuses undo and redo that would fill the space an open leaf stands in (1c6dc40a)"
