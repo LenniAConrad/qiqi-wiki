@@ -1714,11 +1714,11 @@
    "summary": "Some ingredients accept a group of materials you can mix: boards of any species, any of 26 natural stones, any hardwood log or deadwood, and plant fiber or wool. Every other ingredient must be that exact material.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:477-510 — group lookup and labels ('boards of any species', 'natural stone (mix types)', 'hardwood or deadwood', 'fiber…",
-    "crates/voxelgame-core/src/inventory.rs:770-790 — group members are spent in list order within one atomic craft",
+    "crates/voxelgame-core/src/inventory.rs:792-805 — exact materials are claimed before group members (2987e38f), so an overlapping recipe crafts in any listed order",
     "crates/voxelgame-core/src/inventory.rs:1374-1402 — test: refined materials (glass, glow crystal, bricks, polished granite, dirt, magma stone) do not count as…",
     "crates/voxelgame-render/src/inventory_ui.rs:167-176 — carried count sums the whole group"
    ],
-   "notes": "Exact-only ingredients include Sand (not other sands), Clay (not ochre/umber/sienna/cracked/banded clay), Reeds (not Tall reeds), Limestone (plaster), Granite (polish), Cobblestone and Moss (mossy cobble), Chalk, Basalt, Red rock, Glass, Feather, Raw meat, Venison, Glow crystal. Not usable as natural stone: Magma stone, Iron ore, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyser stone and all crafted masonry. Mixed species keep their own identity in the pack until spent.",
+   "notes": "An exact species fills first: Birch plus any board needs one Birch and one other board. Exact-only ingredients include Sand (not other sands), Clay (not ochre/umber/sienna/cracked/banded clay), Reeds (not Tall reeds), Limestone (plaster), Granite (polish), Cobblestone and Moss (mossy cobble), Chalk, Basalt, Red rock, Glass, Feather, Raw meat, Venison, Glow crystal. Not usable as natural stone: Magma stone, Iron ore, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyser stone and all crafted masonry. Mixed species keep their own identity in the pack until spent.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",

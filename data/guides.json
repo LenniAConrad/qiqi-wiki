@@ -922,6 +922,10 @@
       },
       {
        "t": "p",
+       "text": "If a recipe asks for one exact species and also for any board, the exact species is filled first. The recipe then needs a second board of another species, so carry one Birch board and one Pine board to craft it. One Birch board alone is not enough."
+      },
+      {
+       "t": "p",
        "text": "Every other ingredient must be that exact material: Sand (not other sands), Clay (not ochre, umber, sienna, cracked or banded clay), Reeds (not Tall reeds), Limestone, Granite, Cobblestone, Moss, Chalk, Basalt, Red rock, Glass, Feather, Raw meat, Venison and Glow crystal."
       },
       {
