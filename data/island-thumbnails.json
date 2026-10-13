@@ -1,0 +1,298 @@
+{
+  "schema": 1,
+  "catalog": "data/islands.json",
+  "policy": {
+    "map": {
+      "resample": "LANCZOS",
+      "quality": 88
+    },
+    "panorama": {
+      "resample": "LANCZOS",
+      "quality": 88
+    }
+  },
+  "encoder": {
+    "format": "WebP",
+    "method": 6,
+    "pillow": "10.2.0",
+    "libwebp": "1.3.2"
+  },
+  "images": [
+    {
+      "source": "images/islands/rounded--map.webp",
+      "sourceSha256": "cfec310b6eb2af249e2c4513c99df0f276044bd08a40616d5bd897d33a55c283",
+      "kind": "map",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/rounded--map--480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 20214,
+          "sha256": "8a9f0d731cc09e3a38c146487c9af0d9c1fb74afc2017f54bf0836a8789ca9ff"
+        },
+        {
+          "path": "images/thumbnails/islands/rounded--map--960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 66584,
+          "sha256": "c655774d9a63aac2761f5fb99c64d4efa0b21f9bcfacbb952cfb81f8b42f4059"
+        }
+      ],
+      "sourceWidth": 2048,
+      "sourceHeight": 2048
+    },
+    {
+      "source": "images/islands/rounded--panorama.webp",
+      "sourceSha256": "369c1766a5f1ef246f5fec271200b5c15ab7e849993ee3ede22815f10b685ac7",
+      "kind": "panorama",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/rounded--panorama--480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 7916,
+          "sha256": "f36876728b4846f633f07261235374932ff457ab78f053dacc2edba43c85c790"
+        },
+        {
+          "path": "images/thumbnails/islands/rounded--panorama--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 24114,
+          "sha256": "88e366acdbde822353adda76096d6c0d3237200ffa1191bc89a93e9098cde054"
+        }
+      ],
+      "sourceWidth": 3840,
+      "sourceHeight": 2160
+    },
+    {
+      "source": "images/islands/long--map.webp",
+      "sourceSha256": "c22eacc4ddaba84e0f8864bf444dbfd68a14c2e681d9ca0861237e9cfef5861f",
+      "kind": "map",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/long--map--480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 13248,
+          "sha256": "cd8a1a3f264572d8d2295bf52ef8d8818f7fe3b15087d45cc25e304bc324f9dc"
+        },
+        {
+          "path": "images/thumbnails/islands/long--map--960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 44096,
+          "sha256": "e84c6f3657c8c858d8383dd31665200ef2b313bfd14b62bf13761bec80655c08"
+        }
+      ],
+      "sourceWidth": 2048,
+      "sourceHeight": 2048
+    },
+    {
+      "source": "images/islands/long--panorama.webp",
+      "sourceSha256": "d20357dae23a56673019de0a640f91f4d759104139b4b186b1b5ce3e276a66d9",
+      "kind": "panorama",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/long--panorama--480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 5310,
+          "sha256": "9b3bb32ef0f12443107136b6cb2bc3ada8b99c8b1da0f527c9b3007f07286213"
+        },
+        {
+          "path": "images/thumbnails/islands/long--panorama--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 16638,
+          "sha256": "8110165b2f5034acbe7a9d9b2846173cbbe2d69d51aa8529375ea19cd3e46379"
+        }
+      ],
+      "sourceWidth": 3840,
+      "sourceHeight": 2160
+    },
+    {
+      "source": "images/islands/crescent--map.webp",
+      "sourceSha256": "be34c302fde4f1c5ee7f8647f2c40d58fda2ee3ad4d631a84d2082ee4d488fee",
+      "kind": "map",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/crescent--map--480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 13704,
+          "sha256": "d229f45df538bd17ad29298baa9804e0744590d3e9321b87a5b1bb33a1bcc681"
+        },
+        {
+          "path": "images/thumbnails/islands/crescent--map--960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 40432,
+          "sha256": "b96e2211d878c7a976a6909bcce535cd1d0bc2a51b362754e3ad71e1e043085e"
+        }
+      ],
+      "sourceWidth": 2048,
+      "sourceHeight": 2048
+    },
+    {
+      "source": "images/islands/crescent--panorama.webp",
+      "sourceSha256": "078707b4767237091fdd9e10c7bfef87d9370863e34e24275f515e7f42205185",
+      "kind": "panorama",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/crescent--panorama--480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 5482,
+          "sha256": "94bdd69ce9431a4eb5f63bbb8ea2c2022951d4df2e60b27b47de58a77ba9f4fd"
+        },
+        {
+          "path": "images/thumbnails/islands/crescent--panorama--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 16054,
+          "sha256": "6757c79cce5279bbcdb2a30cc214ff40fdf89735505e296343cc38fc414faa40"
+        }
+      ],
+      "sourceWidth": 3840,
+      "sourceHeight": 2160
+    },
+    {
+      "source": "images/islands/twin-lobed--map.webp",
+      "sourceSha256": "d26e04dacdf8778021b51b9be5ee48c5bd6090fb2e47bf3894b229e72c097743",
+      "kind": "map",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/twin-lobed--map--480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 16028,
+          "sha256": "9e0ba1ef7c1d2bc53516a6c9834c3d708244ab7d0a952c5b53561358da2ed3e7"
+        },
+        {
+          "path": "images/thumbnails/islands/twin-lobed--map--960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 51132,
+          "sha256": "eedb158121053f8f01b0abb453a5ec896ec12ba7991850ab357901e66e155507"
+        }
+      ],
+      "sourceWidth": 2048,
+      "sourceHeight": 2048
+    },
+    {
+      "source": "images/islands/twin-lobed--panorama.webp",
+      "sourceSha256": "6bb7564482b93a27e4a363aac20ff8d1d2c901e7ce56834d2b96fa74df76ba29",
+      "kind": "panorama",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/twin-lobed--panorama--480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 5292,
+          "sha256": "dcfa8ef608af2a04284ee2b75b0f8283a2b5d997e66eb12be6beb6a4f257c43b"
+        },
+        {
+          "path": "images/thumbnails/islands/twin-lobed--panorama--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 16756,
+          "sha256": "09dd3c927f24a831bd3e7978aebbc5e5e16599eee715c9a1e399ba7e239e446b"
+        }
+      ],
+      "sourceWidth": 3840,
+      "sourceHeight": 2160
+    },
+    {
+      "source": "images/islands/rugged--map.webp",
+      "sourceSha256": "888c2164238ff08ccc3189964e248cae69d8c7f3add3db4a60a96e56e2141f05",
+      "kind": "map",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/rugged--map--480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 14844,
+          "sha256": "3ef37f82905e658f72a1880424c484959e56f7e879127bcdb5edf6676e36ce0e"
+        },
+        {
+          "path": "images/thumbnails/islands/rugged--map--960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 47980,
+          "sha256": "9777ef6985b5096e3ff281d4604f4c4e406795277cb987fa522ca5b48e939820"
+        }
+      ],
+      "sourceWidth": 2048,
+      "sourceHeight": 2048
+    },
+    {
+      "source": "images/islands/rugged--panorama.webp",
+      "sourceSha256": "133a4126947fafe04c9ee8d4f8360b67997448170c7e949ad36c9e649dba4755",
+      "kind": "panorama",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/rugged--panorama--480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 5684,
+          "sha256": "4a810aa6344f4ac327b033d7de668c638d4090198e37656a3ce8e96179eaf6ac"
+        },
+        {
+          "path": "images/thumbnails/islands/rugged--panorama--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 16700,
+          "sha256": "fc63892d7572025ea132b572be3d1598179ca941c458e09cfe68a4707e0204ec"
+        }
+      ],
+      "sourceWidth": 3840,
+      "sourceHeight": 2160
+    },
+    {
+      "source": "images/islands/atoll--map.webp",
+      "sourceSha256": "5306bb66905dacae4df91709646e8555082187f4c2697234e8ed79aa1b13a4af",
+      "kind": "map",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/atoll--map--480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 7512,
+          "sha256": "ab5d90028467cdd40656bd2dadd498f6609b1fc36030a44bfbb5382f260009ab"
+        },
+        {
+          "path": "images/thumbnails/islands/atoll--map--960.webp",
+          "width": 960,
+          "height": 960,
+          "bytes": 18956,
+          "sha256": "2ff943cf4b4af7492016533f2b891b7110112d048591817f226e538a4d58b258"
+        }
+      ],
+      "sourceWidth": 2048,
+      "sourceHeight": 2048
+    },
+    {
+      "source": "images/islands/atoll--panorama.webp",
+      "sourceSha256": "c6b92315c53fab873d291fb0983ba6f1d4de902b9cab9dc9eb1149a6e43f17cd",
+      "kind": "panorama",
+      "variants": [
+        {
+          "path": "images/thumbnails/islands/atoll--panorama--480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 3210,
+          "sha256": "bb644de03429cae9374d60c83abcaecf1c3ed3de2eceda15e38888fe995e07a1"
+        },
+        {
+          "path": "images/thumbnails/islands/atoll--panorama--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 8944,
+          "sha256": "08fd6e8d0a58ca4c4897b93cff2ff5443f942a910c17ba6e57fcbadf42447f55"
+        }
+      ],
+      "sourceWidth": 3840,
+      "sourceHeight": 2160
+    }
+  ]
+}

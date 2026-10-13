@@ -5742,6 +5742,10 @@
  ],
  "method": [
   {
+   "title": "Dated gallery images",
+   "text": "Gallery images keep their original capture dates. Smaller island previews come from the same recorded source images; opening a view loads the full-size original. A lighter preview does not represent a newer game capture."
+  },
+  {
    "title": "Finding a guide",
    "text": "The wiki topic indexes group the written base-game guides by task, with article contents, related reading and an offline search. Navigation was reorganized on 13 October 2026; the game audit and each article's evidence keep their own dates. Topic coverage does not imply that a planned game feature is available."
   },

@@ -140,6 +140,9 @@ def apply_chrome(value, page):
         value = value.replace('</head>', '<link rel="stylesheet" href="wiki.css">\n</head>')
     if 'src="wiki-ui.js"' not in value:
         value = value.replace('</head>', '<script defer src="wiki-ui.js"></script>\n</head>')
+    if page == 'islands.html' and 'src="data/island-thumbnails.js"' not in value:
+        value = value.replace('<script defer src="islands.js">',
+                              '<script defer src="data/island-thumbnails.js"></script><script defer src="islands.js">')
     return value.replace('index.html#catalog', 'atlas.html#catalog').replace('· qiqi-dev', '· Qiqi wiki')
 
 

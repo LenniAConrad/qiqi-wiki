@@ -14,6 +14,16 @@ This local atlas was created on 25 September 2026 from the sibling **Voxelgame**
 
 The fixed-seed measurements describe this snapshot. They are not guaranteed frequencies for all seeds or future game versions.
 
+## Responsive island previews — 13 October 2026
+
+The island gallery uses 480- and 960-pixel WebP derivatives of its existing
+maps and panoramas. Full-size images and their original provenance are unchanged
+and load when a view is opened. `data/island-thumbnails.json` records each source
+hash, derivative hash, dimensions, filter and encoder settings. BOX and Lanczos
+were compared at 480 pixels; Lanczos was selected for the small terrain boundaries
+in this collection, with WebP quality 88. This is not a resampling rule for other
+images. The original GPL-3.0-only terms apply; no new artwork was introduced.
+
 ## Performance analysis
 
 `performance.html`, `PERFORMANCE_ANALYSIS.md`, `data/performance/` and

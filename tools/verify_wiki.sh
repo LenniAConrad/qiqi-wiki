@@ -5,6 +5,7 @@ cd "$(dirname "$0")/.."
 python3 tools/validate.py
 python3 tools/validate_animals.py
 python3 tools/validate_islands.py
+python3 tools/build_island_thumbnails.py --check
 python3 -m unittest discover -s tools -p 'test_*.py'
 python3 tools/validate_features.py
 python3 tools/validate_guides.py

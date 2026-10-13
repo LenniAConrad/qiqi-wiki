@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-only
+"""Measure initial static-page requests with a fresh Firefox profile and disabled HTTP cache."""
+import argparse, contextlib, functools, http.server, json, sys, threading, time
+from pathlib import Path
+
+parser=argparse.ArgumentParser()
+parser.add_argument('--root',type=Path,required=True)
+parser.add_argument('--tools',type=Path,default=Path(__file__).resolve().parent,help='Directory containing browser_run.py')
+parser.add_argument('--out',type=Path,required=True)
+parser.add_argument('--page',action='append')
+parser.add_argument('--base',help='Use a deployed origin instead of a local server; no synthetic throttling')
+args=parser.parse_args()
+args.root=args.root.resolve()
+args.tools=args.tools.resolve()
+args.out.parent.mkdir(parents=True,exist_ok=True)
+sys.path.insert(0,str(args.tools))
+import browser_run as b
+b.ROOT=args.root
+b.PREFS.update({'browser.cache.disk.enable':False,'browser.cache.memory.enable':False,'network.http.use-cache':False})
+
+class Bandwidth:
+    def __init__(self,bps=0):
+        self.bps=bps;self.next=0;self.lock=threading.Lock()
+    def wait(self,count):
+        if not self.bps:return
+        with self.lock:
+            self.next=max(self.next,time.monotonic())+count/self.bps;end=self.next
+        time.sleep(max(0,end-time.monotonic()))
+
+@contextlib.contextmanager
+def server(bps,latency):
+    throttle=Bandwidth(bps)
+    class Handler(b.QuietHandler):
+        def do_GET(self):
+            if latency:time.sleep(latency/1000)
+            try:super().do_GET()
+            except (BrokenPipeError,ConnectionResetError):pass
+        def copyfile(self,source,target):
+            while data:=source.read(8192):
+                throttle.wait(len(data));target.write(data)
+    s=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(Handler,directory=str(args.root)))
+    thread=threading.Thread(target=s.serve_forever,daemon=True);thread.start()
+    try:yield f'http://127.0.0.1:{s.server_address[1]}'
+    finally:s.shutdown();s.server_close()
+
+rows=[]
+for mode,width,height,bps,latency in [('desktop',1440,900,0,0),('mobile',390,844,0,0),('mobile-constrained',390,844,200_000,150)]:
+    if args.base and bps:continue
+    source=contextlib.nullcontext(args.base.rstrip('/')) if args.base else server(bps,latency)
+    with source as base:
+        for page in (args.page or ['index.html','animals.html','guide-crafting.html','islands.html']):
+            # Fresh profile PER PAGE: Firefox also has a stylesheet cache that
+            # can survive navigation when the ordinary HTTP cache is disabled.
+            with b.firefox() as c:
+                start=time.monotonic()
+                if width<500:b.framed(c,base+'/'+page,width,height)
+                else:c.size(width,height);c.navigate(base+'/'+page)
+                for phase in (['initial','first-gallery-row'] if page in ['animals.html','islands.html','atlas.html'] else ['initial']):
+                    if phase=='first-gallery-row':c.script("document.querySelector('#grid').scrollIntoView({behavior:'instant'});")
+                    previous=None;stable=0
+                    for _ in range(160):
+                        counts=c.script("return [performance.getEntriesByType('resource').length,[...document.images].filter(i=>i.getClientRects().length&&i.getBoundingClientRect().top<innerHeight&&i.getBoundingClientRect().bottom>0&&!i.complete).length];")
+                        stable=stable+1 if counts==previous and counts[1]==0 else 0;previous=counts
+                        if stable>=3:break
+                        time.sleep(.25)
+                    if stable<3:raise RuntimeError('Visible images did not settle: '+page+' '+phase)
+                    data=c.script("""return {url:document.URL,navigation:performance.getEntriesByType('navigation').map(e=>({url:e.name,encoded:e.encodedBodySize,transfer:e.transferSize,loadMs:e.loadEventEnd,domMs:e.domContentLoadedEventEnd})),resources:performance.getEntriesByType('resource').map(e=>({url:e.name,kind:e.initiatorType,encoded:e.encodedBodySize,transfer:e.transferSize,durationMs:e.duration})),images:[...document.images].map(i=>({src:i.currentSrc,width:i.clientWidth,height:i.clientHeight,naturalWidth:i.naturalWidth,complete:i.complete,loading:i.loading})),viewport:[innerWidth,innerHeight]};""")
+                    assert data['url']==base+'/'+page,data['url']
+                    entries=data['navigation']+data['resources']
+                    row={'page':page,'mode':mode,'phase':phase,'viewport':[width,height],'network':{'bytesPerSecond':bps,'addedResponseLatencyMs':latency,'cache':'fresh profile per page, disabled HTTP cache','origin':base},'requests':len(entries),'encodedBytes':sum(e['encoded'] for e in entries),'transferBytes':sum(e['transfer'] for e in entries),'settledSeconds':round(time.monotonic()-start,3),**data}
+                    rows.append(row);print(page,mode,phase,row['requests'],row['encodedBytes'],row['settledSeconds'],flush=True)
+                    args.out.write_text(json.dumps({'method':'Firefox headless; fresh profile PER PAGE, cache disabled. Initial viewport, then first gallery row. Wait for visible images and three stable 250ms request-count samples. Constrained local profile shares 200000 bytes/s across responses and adds150 ms response latency. Not a real phone or LCP benchmark.','measuredAt':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'root':str(args.root),'rows':rows},indent=2)+'\n')

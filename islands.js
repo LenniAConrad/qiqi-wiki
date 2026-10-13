@@ -25,12 +25,20 @@ const viewName = view => view.tabLabel || ({map:'Map', panorama:'Panorama', temp
 const coordinates = values => values.map(number.format).join(' / ');
 function imageFor(island, view, eager) {
   const image = el('img');
-  image.src = view.image;
+  const variants = window.ISLAND_THUMBNAILS?.[view.image];
+  if (variants) {
+    // Set selection hints before src so a full-size request is never started.
+    image.sizes = view.type === 'map'
+      ? '(max-width: 650px) 32vw, (max-width: 1440px) 16vw, 226px'
+      : '(max-width: 650px) 57vw, (max-width: 1440px) 28vw, 402px';
+    image.srcset = variants.map(([width, path]) => `${path} ${width}w`).join(', ');
+  }
+  image.src = variants?.[0]?.[1] || view.image;
   image.alt = view.alt || `${island.name} island — ${view.label}`;
   if (view.width) image.width = view.width;
   if (view.height) image.height = view.height;
   image.loading = eager ? 'eager' : 'lazy';
-  image.decoding = eager ? 'auto' : 'async';
+  image.decoding = 'async';
   return image;
 }
 function render() {

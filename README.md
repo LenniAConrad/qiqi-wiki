@@ -186,6 +186,14 @@ Coordinates identify each island's centre, which may lie in water. Planned
 axes are not measured coastline diameters. Sampled dry area includes all dry
 terrain within the displayed bounds, weighted at grid endpoints.
 
+Gallery cards load responsive 480/960-pixel previews; opening a view requests
+its existing full-size image. Regenerate after refreshing island sources with
+`python3 tools/build_island_thumbnails.py`, then `python3 tools/build_wiki.py`.
+`python3 tools/build_island_thumbnails.py --check` verifies source and derivative
+hashes, dimensions and the browser lookup. The gate and publication allowlist
+include the derivatives. Filter/encoder choices are recorded in
+`data/island-thumbnails.json`; originals keep their existing capture receipts.
+
 To export and rebuild island views (NumPy, Pillow and Blender required):
 
 ```sh
@@ -294,3 +302,13 @@ navigation are in `tools/wiki_browser_checks.html`; the browser runner supports
 `wiki-ui.js` enhances the native mobile menu; the full menu remains usable
 without JavaScript. The home search link also works from a local file URL.
 The home meadow photo retains its 28 September 2026 generation-9 receipt.
+
+For image-loading measurements, use `python3 tools/measure_loading.py --root .
+--page islands.html --out .cache/island-loading.json` (on one command line).
+It starts a fresh Firefox profile for each page and viewport, records the
+initial page and first visible gallery row, then repeats mobile with a local
+200,000 B/s / 150 ms network model. Compare the same page in a preserved source
+tree with `--root /path/to/snapshot`. Add `--base https://lenniaconrad.github.io/qiqi-wiki`
+for live Pages measurements without synthetic throttling. Raw request records
+stay in the chosen private output file; timing observations include a settling
+interval and are not LCP or real-phone measurements.

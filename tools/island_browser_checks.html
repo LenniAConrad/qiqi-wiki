@@ -20,6 +20,11 @@ try {
  const names=cards().map(card=>card.querySelector('h3').textContent);
  check(names.join() === [...names].sort((a,b)=>a.localeCompare(b,'en')).join(),'Island names default to alphabetical order');
  check(d.querySelectorAll('.island-preview').length===12,'Every card offers both a map and a panorama');
+ const previews=[...d.querySelectorAll('.island-preview img')];
+ check(previews.every(image=>image.getAttribute('src').startsWith('images/thumbnails/islands/')&&image.srcset.includes('480w')&&image.srcset.includes('960w')&&image.sizes),'Previews use responsive thumbnails rather than full source images');
+ check(previews.every(image=>image.width>0&&image.height>0&&image.decoding==='async'),'Preview dimensions reserve their aspect ratio and decode asynchronously');
+ check(![...d.images].some(image=>image.getAttribute('src')?.startsWith('images/islands/')),'Full island images are not requested before a view is opened');
+ check(!w.performance.getEntriesByType('resource').some(entry=>entry.name.includes('/images/islands/')),'Preview loading has not downloaded an original in the background');
  check(data.islands.every(island=>['temperature','moisture','elevation'].every(type=>island.views.some(view=>view.type===type&&view.legend))),'Every island offers temperature, moisture and elevation diagnostics with legends');
  const rounded=data.islands.find(island=>island.shape==='Rounded');
  query('rounded');check(cards().length===1&&cards()[0].dataset.island===rounded.id,'Shape search finds its island');

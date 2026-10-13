@@ -33,6 +33,7 @@ PUBLIC_FILES = (
     'STREAMING_IMPROVEMENTS.md',
     'data/animals.js', 'data/animals.json', 'data/biomes.js', 'data/biomes.json',
     'data/captures.json', 'data/descriptions.json', 'data/features.json',
+    'data/island-thumbnails.json', 'data/island-thumbnails.js',
     'data/guides.json', 'data/habitats.json', 'data/islands.js', 'data/islands.json',
     'data/provenance.json', 'data/recipes.json', 'data/blocks.json', 'data/scale.js',
     'data/survey.json', 'data/viewpoints.json',
@@ -46,7 +47,7 @@ PUBLIC_FILES = (
 IMAGE_SUFFIXES = {'.webp', '.png', '.jpg', '.jpeg', '.svg'}
 IMAGE_CATALOGS = (
     'data/biomes.json', 'data/animals.json', 'data/islands.json',
-    'data/guides.json',
+    'data/guides.json', 'data/island-thumbnails.json',
 )
 
 

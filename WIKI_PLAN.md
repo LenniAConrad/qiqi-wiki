@@ -89,3 +89,34 @@ navigation remains open and every topic and article can still be read.
 The finite overhaul's fresh captures, full game/wiki changelog and measured
 image-loading work are separate remaining slices. Do not label the full
 overhaul complete based on this navigation delivery.
+
+## Image loading, island preview slice — 13 October 2026
+
+The island gallery now selects 480/960-pixel previews instead of downloading
+2048-pixel maps and 3840-pixel panoramas for its cards. Opening a view still
+loads the recorded original. Twenty-four derivatives add 486,830 image bytes
+to the deployable collection; they do not replace source images or receipts.
+
+Matched cold-profile Firefox measurements against `185455d`, at 1440 × 900
+and 390 × 844, recorded the following local encoded response bodies. The
+extra request is the small thumbnail lookup script.
+
+| Initial page | Before | After | Requests before → after |
+| --- | ---: | ---: | ---: |
+| Desktop | 1,846,187 B | 176,504 B | 16 → 17 |
+| Mobile | 715,620 B | 122,110 B | 11 → 12 |
+| First gallery row, desktop (cumulative) | 2,814,555 B | 218,352 B | 20 → 21 |
+| First gallery row, mobile (cumulative) | 1,179,530 B | 140,668 B | 13 → 14 |
+
+In the bounded local network model (200,000 bytes/s shared across responses,
+150 ms added response latency), the mobile initial view settled in 5.259 s
+before and 2.505 s after; the first gallery row settled in 13.230 s and 4.546 s
+cumulatively. Each value is one observation on the shared host, including the
+runner's settling interval. These are not real-phone or LCP measurements and
+are not a general speed guarantee. Live Pages checks remain part of landing.
+
+The gate checks source and derivative hashes, dimensions, aspect ratios and
+the browser lookup. Browser review compares actual desktop/mobile previews
+and verifies full-size images load only after opening a view. The home,
+animal/biome galleries, guide images and eventual changelog still need the
+rest of the full image-performance acceptance; QW-ASTRA-IMAGE-PERF stays open.
