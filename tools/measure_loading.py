@@ -16,6 +16,7 @@ args.tools=args.tools.resolve()
 args.out.parent.mkdir(parents=True,exist_ok=True)
 sys.path.insert(0,str(args.tools))
 import browser_run as b
+from loading_metrics import body_totals
 b.ROOT=args.root
 b.PREFS.update({'browser.cache.disk.enable':False,'browser.cache.memory.enable':False,'network.http.use-cache':False})
 
@@ -68,7 +69,6 @@ for mode,width,height,bps,latency in [('desktop',1440,900,0,0),('mobile',390,844
                     if stable<3:raise RuntimeError('Visible images did not settle: '+page+' '+phase)
                     data=c.script("""return {url:document.URL,navigation:performance.getEntriesByType('navigation').map(e=>({url:e.name,encoded:e.encodedBodySize,transfer:e.transferSize,loadMs:e.loadEventEnd,domMs:e.domContentLoadedEventEnd})),resources:performance.getEntriesByType('resource').map(e=>({url:e.name,kind:e.initiatorType,encoded:e.encodedBodySize,transfer:e.transferSize,durationMs:e.duration})),images:[...document.images].map(i=>({src:i.currentSrc,width:i.clientWidth,height:i.clientHeight,naturalWidth:i.naturalWidth,complete:i.complete,loading:i.loading})),viewport:[innerWidth,innerHeight]};""")
                     assert data['url']==base+'/'+page,data['url']
-                    entries=data['navigation']+data['resources']
-                    row={'page':page,'mode':mode,'phase':phase,'viewport':[width,height],'network':{'bytesPerSecond':bps,'addedResponseLatencyMs':latency,'cache':'fresh profile per page, disabled HTTP cache','origin':base},'requests':len(entries),'encodedBytes':sum(e['encoded'] for e in entries),'transferBytes':sum(e['transfer'] for e in entries),'settledSeconds':round(time.monotonic()-start,3),**data}
+                    row={'page':page,'mode':mode,'phase':phase,'viewport':[width,height],'network':{'bytesPerSecond':bps,'addedResponseLatencyMs':latency,'cache':'fresh profile per page, disabled HTTP cache','origin':base},**body_totals(data['navigation'],data['resources']),'settledSeconds':round(time.monotonic()-start,3),**data}
                     rows.append(row);print(page,mode,phase,row['requests'],row['encodedBytes'],row['settledSeconds'],flush=True)
-                    args.out.write_text(json.dumps({'method':'Firefox headless; fresh profile PER PAGE, cache disabled. Initial viewport, then first gallery/reference/guide image. Mobile iframe fully inside the parent viewport; visible images intersect both viewport axes. Wait for visible images and three stable 250ms request-count samples. Constrained local profile shares 200000 bytes/s across responses and adds150 ms response latency. Not a real phone or LCP benchmark.','measuredAt':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'root':str(args.root),'rows':rows},indent=2)+'\n')
+                    args.out.write_text(json.dumps({'method':'Firefox headless; fresh profile PER PAGE, cache disabled. Initial viewport, then first gallery/reference/guide image. Mobile iframe fully inside the parent viewport; visible images intersect both viewport axes. Wait for visible images and three stable 250ms request-count samples. Constrained local profile shares 200000 bytes/s across responses and adds150 ms response latency. Null encodedBytes/transferBytes means at least one response size is unavailable; reportedEncodedBytes/reportedTransferBytes are only the exposed sums. unmeasuredBodies lists the missing URLs, including iframe document sizes Firefox may redact. Not a real phone or LCP benchmark.','measuredAt':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'root':str(args.root),'rows':rows},indent=2)+'\n')

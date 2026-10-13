@@ -189,6 +189,16 @@ CI maintenance and the final handoff remain separate overhaul work.
 
 ## Game and wiki history — 13 October 2026
 
+**Measurement correction:** the new changelog checks exposed zero-sized HTML
+navigation entries in Firefox's mobile iframe. This also affects the earlier
+gallery receipts: 9/18 live rows and 18/27 local rows in the last gallery run.
+The mobile byte sums above are browser-reported partial sums, excluding HTML;
+they are not complete page totals as the earlier wording suggested. Preserve
+the raw receipts and image-size reductions, but do not infer full page savings
+from these partial sums. The runner now marks incomplete totals as null, lists
+the unmeasured URLs and keeps exposed bytes in separate fields. Complete mobile
+transfer accounting remains part of the open image-performance acceptance.
+
 The main navigation and home link two dated changelogs. The game chronology
 reviews the available 704-commit interval from `6c39b717` (16 August) through
 `5856103c` (13 October); wiki history reviews 93 commits from `ae659a32`

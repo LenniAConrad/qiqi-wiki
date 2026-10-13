@@ -357,6 +357,13 @@ for live Pages measurements without synthetic throttling. Raw request records
 stay in the chosen private output file; timing observations include a settling
 interval and are not LCP or real-phone measurements.
 
+Check `unmeasuredBodies` before using a byte total. Firefox can report zero for
+the document transfer in the mobile iframe. The runner then writes null for
+`encodedBytes` and `transferBytes`; `reportedEncodedBytes` and
+`reportedTransferBytes` are only the sizes it exposed, not complete page costs.
+Older receipts predate this guard. Their mobile byte sums omit HTML where the
+navigation entry reports zero, so do not reuse them as complete transfer totals.
+
 
 ## Responsive gallery and guide images
 
