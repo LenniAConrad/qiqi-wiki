@@ -3857,6 +3857,30 @@
      ]
     },
     {
+     "id": "swimmers",
+     "title": "Swimming animals",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Fish, sharks, whales and orcas keep swimming while you watch. They do not stop dead in open water. Each one follows its own swimming style."
+      },
+      {
+       "t": "list",
+       "items": [
+        "Whales, orcas, hammerhead and frilled sharks, and flying fish keep travelling in open water. Between strokes they glide, slowing to about half speed.",
+        "Salmon, trout, carp, catfish, devil's hole pupfish and triops swim in short bouts and hold still between them.",
+        "Blobfish, comb jellies and giant squid mostly hover or drift slowly.",
+        "A swimmer turns away from shores, walls and the edge of loaded terrain before it reaches them. If it has no open route, it holds still."
+      ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "You cannot steer wild animals. Their swimming is set by the game and is source-checked, not play-tested in this guide."
+      }
+     ]
+    },
+    {
      "id": "calls",
      "title": "Animal calls",
      "blocks": [
