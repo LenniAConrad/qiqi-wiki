@@ -1258,12 +1258,13 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/game/home.rs:106-170 — establish and repair",
+    "crates/voxelgame-core/src/game/home.rs:124-146 — repair spot must be dry, solid below and clear of the player; refusal keeps boards and items",
     "crates/voxelgame-core/src/game/home.rs:194-221 — pack up needs empty storage and pack room; refunds 8 Alder boards",
     "crates/voxelgame-core/src/game/home.rs:223-257 — transfers",
     "crates/voxelgame-render/src/inventory_ui.rs:464-539 — Home tab layout ('Storage: needs 8 board pieces', 'Home: X / 400')"
    ],
    "backlog": [],
-   "notes": "One home at a time; to move it, empty storage and Pack up. If the crate is destroyed (e.g. by TNT) the stored items are kept and Establish home within 6 m of the old spot repairs it. Pack up refunds Alder boards even if you paid with other species. Your rest point stays after packing up.",
+   "notes": "One home at a time; to move it, empty storage and Pack up. If the crate is destroyed (e.g. by TNT) the stored items are kept and Establish home within 6 m of the old spot repairs it, if that spot is dry, has solid ground under it and is clear of you; otherwise the repair is refused and nothing is used up. Pack up refunds Alder boards even if you paid with other species. Your rest point stays after packing up.",
    "guide": {
     "state": "partial",
     "page": "guide-first-survival-day.html",

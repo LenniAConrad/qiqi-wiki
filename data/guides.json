@@ -762,6 +762,10 @@
       },
       {
        "t": "p",
+       "text": "If the crate is destroyed, stand within 6 m of its old spot and choose **Establish home** again to rebuild it for 8 board pieces. The old spot needs dry ground, solid ground under it and nobody standing in it. Otherwise the game refuses the repair and keeps your boards and stored items."
+      },
+      {
+       "t": "p",
        "text": "Resting sets your respawn point and refills stamina; it does not heal or feed you. Leaves and tree trunks count as cover, plants and water do not. {{home-crate}} {{rest-respawn-point}}"
       }
      ]
