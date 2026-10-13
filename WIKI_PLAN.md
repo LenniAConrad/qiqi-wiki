@@ -515,3 +515,30 @@ Generated game-history HTML falls from 53,577 to 12,861 bytes; wiki history from
 timing measurements. No images or runtime dataset requests were added. Raw
 before/after captures, file hashes, source archive and review receipts are in
 `daily-changelog/` scratch and `renders/qiqi-wiki/astra-daily-changelog/`.
+
+
+## Private biome survey preparation — 13 October 2026
+
+The old survey runner stopped with `KeyError: sourceFilesSha256` on the complete
+media-source manifest. It now verifies that manifest format as well as the
+archived format, and stages the survey, reviewed camera candidates and their
+completion receipt in a new private directory. Public atlas data is never a
+survey output. Failed commands or changed inputs leave private evidence without
+a completed survey receipt. Source/module, sample-contract, site and camera
+checks remain required; the fixed reference sampling design is unchanged.
+
+Coverage ledger: the 94-species animal portraits retain their delivered receipt;
+biome photographs and sample frequencies remain the September generation-9
+snapshot. No game feature, guide, image date or public coverage status is advanced
+by this tooling prerequisite. Current-generation sampling, native capture-tool
+integration, fresh biome/habitat photographs and visual review remain open.
+Fixture regressions exercise orchestration only. NN/Janus retain compute priority;
+no native survey, game build or new photograph is claimed for this unit.
+
+Fourteen orchestration regressions pass; the complete static gate passes 96
+tests, 44 pages, 3,731 relative references and the 1,210-file staged publication
+boundary. All published files are unchanged. Read-only preflight of the retained
+animal source verified its 1,836 recorded inputs, then rejected one unrecorded
+Python import cache. That cache and the source were preserved. The next survey
+must use a clean current-source export; this is not a failed gameplay survey
+or a reason to relabel the old images.

@@ -263,29 +263,63 @@ physical fields without adding a runtime API. Metadata and image hashes are in
 - `tools/`: reproducible survey, screenshot, data-building, and verification scripts; `tools/stage_site.py` selects the published file set.
 - `.cache/` (ignored): raw PNGs, game replay evidence, binaries, and browser QA output.
 
-## Refresh from the sibling game checkout
+## Stage a fresh biome survey
 
-The survey wrapper copies its Rust source into an evidence Cargo project and points its core dependency at the frozen `--game` checkout. It uses Rust 1.75 or newer and has no dependencies beyond the game core. The capture tools use Python 3.9+, Pillow, and the sibling game's existing debug adapter.
+The survey runner accepts the complete committed snapshots from
+`tools/freeze_media_source.py` and the archived generation-9 manifest format.
+It checks the frozen source before and after each native command, copies the
+survey tools into a separate Cargo project, and uses that source as its core
+dependency. Build outputs, temporary files, logs and all survey results stay
+in private scratch. Use an available compute slot before running it.
 
 ```sh
-# Build an isolated source snapshot: cargo build --release --features devtools
-# Freeze its executable and matching recursive source hashes in source-manifest.json.
-python3 tools/refresh_survey.py --game .cache/generation9-refresh/source --source-manifest .cache/generation9-refresh/source-manifest.json
-python3 tools/capture_biomes.py --game .cache/generation9-refresh/source --binary .cache/generation9-refresh/voxelgame --source-manifest .cache/generation9-refresh/source-manifest.json --overwrite
-python3 tools/update_provenance.py --source-manifest .cache/generation9-refresh/source-manifest.json
-python3 tools/build_data.py
-python3 tools/validate.py --game .cache/generation9-refresh/source
+# Choose an exact game commit and NEW private HDD directories.
+CAPTURE=/media/lennart/HDD-Storage-1/wiki-biomes-YYYYMMDD
+python3 tools/freeze_media_source.py /path/to/Voxelgame COMMIT "$CAPTURE"
+python3 tools/refresh_survey.py --game "$CAPTURE/source" \
+  --source-manifest "$CAPTURE/source-manifest.json" \
+  --output-dir "$CAPTURE/survey-run" --jobs 2 --seconds 3600
 ```
 
-Refresh the source/binary hashes in `data/provenance.json` when changing the game snapshot. Captures record individual binary and generator hashes; list the capture binaries in provenance when a refresh spans compatible builds. If a source-only optimization preserves terrain rules, retain its exact original generator/module hashes in `capture_generator_snapshots` and document the compatibility evidence; never relabel an old photograph with a newer source hash. The validator rejects captures from a different generator or obsolete survey locations, cameras and look angles. If its biome catalog changes, also refresh descriptions and category membership. Saved viewpoint overrides are specific to this snapshot; review or remove them before regenerating a different world generator. A viewpoint may set `warmupFrames` in multiples of 120; snowy peaks, the tepui, caldera and granite domes use 1,440 frames so their terrain finishes streaming. `--batches` explicitly overrides this for a capture run. Screenshot capture is resumable: without `--overwrite`, entries are skipped only when their image, source snapshot, viewpoint and warm-up still match. Normal game saves are never loaded or written. Raw captures and a replay per biome are kept under `.cache/captures/`.
+Cargo runs offline with at most four build jobs. A shared time budget and GNU
+`timeout` bound the survey and site-check process groups; `nice` lowers their
+priority. Existing output directories and destinations inside the game or wiki
+source are rejected. On failure, keep the private log and partial output for
+diagnosis, then use a new output directory. No public data is replaced.
+Use an untouched source export: extra files, including Python import caches,
+are rejected. Set `PYTHONDONTWRITEBYTECODE=1` when using Python helpers against
+that source so they do not add caches to it.
 
-To recheck curated locations, `check_sites INPUT.csv OUTPUT.json` accepts rows of
-`id,seed,x,z,camera_x,camera_z` and checks biome identity plus terrain/water heights.
-After a generator update, adjust camera clearance and inspect the new photographs.
+Only a successful survey and camera check writes `survey-manifest.json` in the
+output directory. It binds `survey.json`, `viewpoints.json`, sampled site CSV,
+checked site results, both executables, copied Rust sources and the resolved
+Cargo lockfile to the input manifest. The 11 reference seeds, 144-metre stride,
+55,296-metre radius and 6,504,971 samples stay unchanged. The current generator
+number comes from the frozen source and must match the native survey result.
+Old camera locations are removed when their survey hash differs; timing
+preferences survive. `--viewpoints PATH` selects another previous preferences
+file. Every staged location is then checked for biome identity, height, water
+and camera clearance against the sampled game source.
 
-For photography scouting, `tools/survey/src/bin/photo_grid.rs` exports local height, water and biome maps without changing the frequency survey.
+This step prepares evidence; it does not refresh the photographs or prove their
+framing. The published generation-9 survey, frequencies, photographs and receipt
+hashes remain intact. The current `capture_biomes.py`, `update_provenance.py` and
+public atlas validator still implement the archived generation-9 publication
+workflow. Adapting them to consume staged current-generation evidence, capturing
+fresh images, reviewing native/displayed detail and replacing the catalog together
+remain the next media unit. Do not copy a new survey over the public atlas or
+relabel existing photographs to bypass that work.
 
-For browser checks, serve the folder and open `tools/browser_checks.html`. It checks search, synonyms, sorting, filters, dialog navigation, screenshot loading, and layout overflow at desktop/tablet/mobile widths. The data validator checks all 92 images and the count/percentage/provenance relationships.
+The archived tools and exact source/binary receipts remain available in Git
+history and retained private capture directories. Preserve old galleries before
+any replacement. `tools/survey/src/bin/photo_grid.rs` can export local height,
+water and biome maps for scouting without changing frequency measurements.
+`check_sites` accepts `id,seed,x,z,camera_x,camera_z` rows without a header.
+
+The orchestration regressions in `tools/test_refresh_survey.py` use explicit
+fixtures, with no Rust compilation or gameplay sampling. They check private
+staging, source changes, camera failures and incomplete-run receipts. A passing
+fixture test is not a native current-game survey or a visual review.
 
 ## License and provenance
 
