@@ -3606,7 +3606,7 @@
     "crates/voxelgame-core/src/game/crafting.rs:100-105 — crafting the boat selects it",
     "crates/voxelgame-core/src/vehicle/sailing.rs:52-86 — launch needs water under the whole hull and room for the mast"
    ],
-   "notes": "A failed launch says 'Boat needs clear water and room for its hull and mast (8 boats maximum)' and uses nothing. Wrecked boats (0 HP) cannot be boarded or packed and are cleared when you next launch (vehicle/sailing.rs:125-141). Boats are disabled on multiplayer servers ('Boats aren't available on servers yet', game/sailing.rs:49). The recipe belongs to the survival audit and is listed here only for reference.",
+   "notes": "A failed launch says 'Boat needs clear water and room for its hull and mast (8 boats maximum)' and uses nothing. Wrecked boats (0 HP) cannot be boarded or packed and are cleared when you next launch (crates/voxelgame-core/src/vehicle/sailing.rs:125-141). Boats are disabled on multiplayer servers ('Boats aren't available on servers yet', game/sailing.rs:49). The recipe belongs to the survival audit and is listed here only for reference.",
    "guide": {
     "state": "complete",
     "page": "guide-sailing.html",
@@ -3659,7 +3659,7 @@
     "crates/voxelgame-core/src/vehicle/occupied.rs:33-74 — leaving the helm stops the boat and puts you in the cockpit",
     "crates/voxelgame-core/src/vehicle/sailing.rs:12-19 — sails lower by themselves when nobody is at the helm"
    ],
-   "notes": "There is no reverse. The boat can turn while stopped. It stops dead if the hull would run aground or hit another boat, and it can only turn where the new heading still has water under the whole hull (vehicle/sailing.rs:159-205), so a grounded boat may need packing up and relaunching. Leaving the helm stops the boat immediately. Opening the pack (E) pauses the boat (game.rs:1149).",
+   "notes": "There is no reverse. The boat can turn while stopped. It stops dead if the hull would run aground or hit another boat, and it can only turn where the new heading still has water under the whole hull (crates/voxelgame-core/src/vehicle/sailing.rs:159-205), so a grounded boat may need packing up and relaunching. Leaving the helm stops the boat immediately. Opening the pack (E) pauses the boat (game.rs:1149).",
    "guide": {
     "state": "complete",
     "page": "guide-sailing.html",
