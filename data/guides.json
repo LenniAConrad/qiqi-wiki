@@ -2126,7 +2126,7 @@
       },
       {
        "t": "p",
-       "text": "There is no clear button. Pick another place to change the destination, or remove the selected place to clear it. With no destination, the maps show your home crate as a + instead. {{home-crate}}"
+       "text": "There is no clear button. Pick another place to change the destination, or remove the selected place to clear it, but only when that place is the destination. Removing another place keeps the destination. With no destination, the maps show your home crate as a + instead. {{home-crate}}"
       }
      ]
     },

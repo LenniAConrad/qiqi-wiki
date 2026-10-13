@@ -3432,7 +3432,7 @@
     ],
     [
      "Remove selected pin",
-     "Delete the selected place and clear the destination (Journal)"
+     "Delete the selected place. It clears the destination only when that place is the destination; another destination stays (Journal)"
     ],
     [
      "Prev / Next",
@@ -3468,7 +3468,7 @@
     "crates/voxelgame-render/src/reticle_ui.rs:47-125 — on-screen indicator",
     "crates/voxelgame-render/src/hud.rs:309-311 — indicator hidden while a panel is open"
    ],
-   "notes": "There is no separate 'clear destination' button. Picking another place changes it, and removing the selected place clears it (exploration.rs:381-393). The diamond is part of the HUD, so clean view (F1) hides it.",
+   "notes": "There is no separate 'clear destination' button. Picking another place changes it, and removing the selected place clears it only when that place is the destination; removing another place keeps it (exploration.rs:48-60 remove_map_pin, 288 Journal delete). The diamond is part of the HUD, so clean view (F1) hides it.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
