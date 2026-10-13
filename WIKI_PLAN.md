@@ -272,3 +272,19 @@ checkout 7.0.1, setup-python 7.0.0, setup-node 7.1.0, upload-pages-artifact 5.0.
 and deploy-pages 5.0.1. The JavaScript actions use Node 24; the validation tools
 remain Python 3.12, Node 22 and Pillow 10.2.0. The normal hosted Pages run is the
 delivery gate. These tooling changes do not refresh any game or media receipts.
+
+## Media source prerequisite — 13 October 2026
+
+The metadata builder now classifies Swan as a bird and reads its conditional
+ambient-habitat branch. At checked game source `9e946731`, that branch names
+Wetland Fen, Flooded Grassland, Inland Delta and River Delta. The older parser
+read only the static guilds and would have left Swan's habitat list empty.
+All 94 current species have candidate habitats across the same 92 biome IDs;
+these source candidates do not guarantee a spawn or imply a measured frequency.
+Five focused regressions cover the legacy guilds, conditional branch, category,
+unknown species/biomes and rejection of unreviewed conditions.
+
+The public gallery remains the preserved 93-species snapshot. Current portraits
+and habitat scenes still require a full isolated game export, a renderer, actual
+captures, source/asset receipts and visual review. The documentation snapshot
+exporter omits binary assets and Cargo.lock and is insufficient for that build.

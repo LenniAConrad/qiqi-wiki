@@ -94,6 +94,10 @@ python3 tools/validate_animals.py --game ../Voxelgame
 The data builder derives the species count from the game catalog and checks every
 entry and all biome rules; a source layout change requires updating its parser. Its category assignments are field
 guide groupings. The animal browser checks are in `tools/animal_browser_checks.html`.
+The parser includes the reviewed conditional Swan branch as well as the static
+biome guilds. These are habitat candidates, not spawn probabilities. Unrecognized
+logic before the guild match stops the builder for source review. This tooling
+support does not add Swan to the dated gallery without actual replacement renders.
 
 ## Performance notes
 

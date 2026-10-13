@@ -12,7 +12,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 GROUPS = {
-    'Birds': 'Chicken Gull Goose Duck Turkey Peafowl Ostrich Roadrunner Hummingbird Sunbird Shoebill Crow Emu BaldEagle Toucan Potoo BlueJay Penguin',
+    'Birds': 'Chicken Gull Goose Swan Duck Turkey Peafowl Ostrich Roadrunner Hummingbird Sunbird Shoebill Crow Emu BaldEagle Toucan Potoo BlueJay Penguin',
     'Reptiles & amphibians': 'Frog Turtle Crocodile Rattlesnake KomodoDragon AlligatorSnappingTurtle Anaconda Terrapin Caiman',
     'Fish': 'Salmon Trout Carp HammerheadShark Blobfish FrilledShark DevilsHolePupfish Catfish FlyingFish Mudskipper',
     'Invertebrates': 'Crab Butterfly Fly Lobster CaveCentipede Cockroach MantisShrimp LeafcutterAnt TarantulaHawk MimicOctopus CombJelly GiantSquid BananaSlug Triops',
@@ -33,6 +33,51 @@ DESCRIPTIONS = {
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+
+def animal_category(species):
+    """Return the field-guide grouping for a built-in species."""
+    return next((group for group, members in GROUPS.items() if species in members.split()), 'Mammals')
+
+
+def source_habitats(source, catalog, biome_names):
+    """Read ambient candidates, including the reviewed conditional Swan branch.
+
+    These are possible habitats, not guaranteed spawns or spawn probabilities.
+    Refuse unrecognized pre-guild logic instead of silently losing a species.
+    """
+    body = source.split('fn ambient_species_for_biome(', 1)[1].split('(!guild.is_empty())', 1)[0]
+    body = re.sub(r'//[^\n]*', '', body).split('{', 1)[1]
+    prelude, guilds = re.split(r'let\s+guild\s*:\s*&\[Species\]\s*=\s*match\s+biome', body, maxsplit=1)
+    habitats = {key: set() for key in catalog}
+    assigned = set()
+
+    def add(biome_text, members):
+        biomes = set(re.findall(r'Biome::(\w+)', biome_text))
+        if not biomes <= set(biome_names):
+            raise ValueError('Unknown biome in ambient source: ' + str(biomes - set(biome_names)))
+        for species in members:
+            if species not in habitats:
+                raise ValueError('Unknown species in ambient source: ' + species)
+            habitats[species].update(biomes)
+        return biomes
+
+    # This exact supported hash condition has attainable branches. More complex
+    # guards need a fresh source review before their habitats become wiki facts.
+    conditional = re.compile(
+        r'if\s+matches!\(\s*biome\s*,\s*((?:Biome::\w+\s*\|?\s*)+)\)\s*'
+        r'&&\s*\(\s*hash\s*>>\s*40\s*\)\s*%\s*8\s*==\s*0\s*'
+        r'\{\s*return\s+Some\(Species::(\w+)\);\s*\}', re.S)
+    for rule in conditional.finditer(prelude):
+        add(rule.group(1), [rule.group(2)])
+    if conditional.sub('', prelude).strip():
+        raise ValueError('Update habitat parser for changed pre-guild logic')
+    for biome_text, members in re.findall(r'((?:Biome::\w+\s*\|?\s*)+) =>\s*(?:\{\s*)?&\[(.*?)\]', guilds, re.S):
+        assigned.update(add(biome_text, re.findall(r'Species::(\w+)', members)))
+    if assigned != set(biome_names):
+        raise ValueError('Update habitat parser for changed biome guilds')
+    return habitats, assigned
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--game', type=Path, default=ROOT.parent / 'Voxelgame')
@@ -49,18 +94,9 @@ def main():
     catalog = re.findall(r'Self::(\w+)', catalog_match.group(2))
     assert len(catalog) == len(set(catalog)) == len(descriptions) == int(catalog_match.group(1))
     names = dict(re.findall(r'Self::(\w+) => "([^"]+)"', source.split('fn name(self)', 1)[1].split('\n    }', 1)[0]))
-    guilds = source.split('fn ambient_species_for_biome(', 1)[1].split('(!guild.is_empty())', 1)[0]
-    guilds = re.sub(r'//[^\n]*', '', guilds)
-    habitats = {key: set() for key in catalog}
-    assigned = set()
-    for biome_text, members in re.findall(r'((?:Biome::\w+\s*\|?\s*)+) =>\s*(?:\{\s*)?&\[(.*?)\]', guilds, re.S):
-        biomes = re.findall(r'Biome::(\w+)', biome_text)
-        assigned.update(biomes)
-        for species in re.findall(r'Species::(\w+)', members):
-            habitats[species].update(biomes)
     biome_data = json.loads((ROOT / 'data/biomes.json').read_text())['biomes']
     biome_names = {b['id']: b['name'] for b in biome_data}
-    assert assigned == set(biome_names), 'Update habitat parser for changed game source'
+    habitats, assigned = source_habitats(source, catalog, biome_names)
     manifest = list(csv.DictReader((args.meshes / 'manifest.tsv').open(), delimiter='\t'))
     slugs = {row['label']: row['species'] for row in manifest}
     rows = []
@@ -69,7 +105,7 @@ def main():
     for species in catalog:
         name = names[species]
         slug = slugs[name]
-        category = next((group for group, members in GROUPS.items() if species in members.split()), 'Mammals')
+        category = animal_category(species)
         points = [list(map(float, line.split()[1:4])) for line in (args.meshes / f'{slug}--idle.obj').read_text().splitlines() if line.startswith('v ')]
         size = [round(max(p[i] for p in points) - min(p[i] for p in points), 4) for i in range(3)]
         views = []
