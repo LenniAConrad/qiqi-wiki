@@ -3,6 +3,8 @@
 
 
 def body_totals(navigation, resources):
+    if len(navigation) != 1:
+        raise ValueError('Expected exactly one document navigation timing entry')
     entries = navigation + resources
     missing = [entry['url'] for entry in entries if not entry['encoded']]
     encoded = sum(entry['encoded'] for entry in entries)

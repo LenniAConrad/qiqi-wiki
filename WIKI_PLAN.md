@@ -249,3 +249,26 @@ The constrained profile shares 200,000 B/s with 150 ms response latency. Heavy
 shared-disk contention affected these single observations, including browser
 startup. These are not LCP, real-phone results or a speedup claim. Raw and
 corrected receipts are retained; live Pages verification follows the normal land.
+
+## Loading-accounting repair and CI — 13 October 2026
+
+The browser runner now measures mobile pages in a same-origin iframe at exactly
+390 × 844. Its existing-CSS setup request and any other parent requests have
+their own `harness` receipt. This exposes the HTML response size; the previous
+opaque parent hid it. HTTP caches remain disabled in a fresh profile, but the
+setup warms the origin connection and is included in settled time. This method
+must not be described as a fully cold connection or a real-phone benchmark.
+
+`tools/check_loading_browser.py` checks real gzip HTML/CSS and an image against
+the local server's response log, including repeated requests and separate wrapper
+overhead. Desktop and mobile pass at the measured viewport sizes. The earlier
+direct-navigation candidate was rejected because it measured a 590-pixel top-level
+page. The static gate also rejects missing or duplicate document timing entries;
+unknown response sizes still make totals null. Old raw readings are preserved.
+Fresh matched baseline/current/live readings remain necessary for a new byte table.
+
+Pages validation and deployment pin Ubuntu 24.04 and exact upstream releases of
+checkout 7.0.1, setup-python 7.0.0, setup-node 7.1.0, upload-pages-artifact 5.0.0
+and deploy-pages 5.0.1. The JavaScript actions use Node 24; the validation tools
+remain Python 3.12, Node 22 and Pillow 10.2.0. The normal hosted Pages run is the
+delivery gate. These tooling changes do not refresh any game or media receipts.

@@ -16,6 +16,7 @@ import argparse
 import base64
 import contextlib
 import functools
+from html import escape
 import http.server
 import json
 import os
@@ -26,7 +27,7 @@ import subprocess
 import tempfile
 import threading
 import time
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SIZES = {"desktop": (1440, 900), "tablet": (820, 1180), "mobile": (390, 844)}
@@ -133,9 +134,8 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
 
 
 @contextlib.contextmanager
-def firefox():
-    # A fresh profile on a busy spinning disk can delay Marionette for minutes,
-    # so the few-megabyte profile stays in the (fast) system temporary folder.
+def firefox(startup_timeout=60):
+    # tempfile respects TMPDIR; set it to owned scratch on constrained hosts.
     profile = Path(tempfile.mkdtemp(prefix="qiqi-wiki-firefox-"))
     port = free_port()
     prefs = dict(PREFS, **{"marionette.port": port})
@@ -144,7 +144,7 @@ def firefox():
     process = subprocess.Popen(["firefox", "--headless", "--marionette", "--no-remote", "--profile", str(profile),
                                 "about:blank"], env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
-        client = Marionette(port)
+        client = Marionette(port, timeout=startup_timeout)
         yield client
         with contextlib.suppress(Exception):
             client.command("Marionette:Quit")
@@ -178,12 +178,27 @@ MIN_WINDOW_WIDTH = 500  # headless Firefox clamps narrower windows
 MAX_CAPTURE_HEIGHT = 32000
 
 
-def framed(client, url, width, height):
+def framed(client, url, width, height, *, parent_url=None, setup_receipt=None):
     """Load url in a same-size iframe, for viewports narrower than a window."""
     client.size(width + 200, height)
-    wrapper = ("<!doctype html><body style='margin:0'><iframe id='frame' src='" + url +
-               f"' style='display:block;border:0;width:{width}px;height:{height}px'></iframe>")
-    if url.startswith('file:'):
+    wrapper = ("<!doctype html><body style='margin:0'><iframe id='frame' src='" + escape(url, quote=True) + "'"
+               f" style='display:block;border:0;width:{width}px;height:{height}px'></iframe>")
+    if parent_url:
+        # A same-origin parent exposes the child's HTML Resource Timing sizes.
+        # Use an existing inert text resource; measurements account for this
+        # harness fetch separately. WebDriver Navigate always targets the top
+        # document, even after SwitchToFrame, so it cannot navigate this child.
+        target, parent = urlsplit(url), urlsplit(parent_url)
+        if (target.scheme, target.netloc) != (parent.scheme, parent.netloc):
+            raise ValueError('The measurement parent must share the page origin')
+        client.navigate(parent_url)
+        if setup_receipt is not None:
+            setup_receipt.update(client.script("""return {
+                url: document.URL,
+                navigation: performance.getEntriesByType('navigation').map(e => ({url: e.name, encoded: e.encodedBodySize, transfer: e.transferSize}))
+            };"""))
+        client.script("document.open(); document.write(arguments[0]); document.close();", wrapper)
+    elif url.startswith('file:'):
         # A data: parent cannot embed local files in Firefox. Use a disposable
         # local wrapper for a genuine mobile file:// check instead.
         cache = ROOT / '.cache'
@@ -338,10 +353,11 @@ def main():
     parser.add_argument("--offline", action="append", default=[], help="page that must work over file://")
     parser.add_argument("--keyboard", action="append", default=[], help="ledger page for real key presses")
     parser.add_argument("--mobile-menu", action="append", default=[], help="page for mobile menu keyboard checks")
+    parser.add_argument("--startup-timeout", type=float, default=60, help="Firefox connection/command timeout in seconds")
     parser.add_argument("--out", type=Path, default=ROOT / ".cache" / "browser-qa")
     args = parser.parse_args()
     ok = True
-    with static_server() as base, firefox() as client:
+    with static_server() as base, firefox(startup_timeout=args.startup_timeout) as client:
         for harness in args.check:
             ok &= run_check(client, base, harness)
         for page in args.keyboard:

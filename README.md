@@ -357,12 +357,34 @@ for live Pages measurements without synthetic throttling. Raw request records
 stay in the chosen private output file; timing observations include a settling
 interval and are not LCP or real-phone measurements.
 
-Check `unmeasuredBodies` before using a byte total. Firefox can report zero for
-the document transfer in the mobile iframe. The runner then writes null for
+The mobile runner loads the site's existing `wiki.css` as a text document, then
+replaces that document with a same-origin 390 × 844 iframe. This exposes the
+child's HTML response size. The setup fetch and other parent requests are recorded
+separately in `harness`; they are not page resources. The origin connection is
+warm even though the profile is fresh and HTTP caching is disabled. Settled time
+includes this setup. The previous opaque `data:` parent caused Firefox to report
+zero for the HTML response. Check `unmeasuredBodies` before
+using a byte total; if any response size is unavailable, the runner writes null for
 `encodedBytes` and `transferBytes`; `reportedEncodedBytes` and
 `reportedTransferBytes` are only the sizes it exposed, not complete page costs.
 Older receipts predate this guard. Their mobile byte sums omit HTML where the
 navigation entry reports zero, so do not reuse them as complete transfer totals.
+
+Run `python3 tools/check_loading_browser.py --out /path/to/private/receipt.json`
+to check both viewport paths against known gzip HTML/CSS and an image. It compares
+the browser's measured sizes with the responses actually served, including the
+compressed document and any repeated requests. It rejects omissions or counts
+that disagree with the server's response log. This browser
+check is separate from the static gate. Both measurement commands accept
+`--startup-timeout 240` for slow shared disks; set `TMPDIR` to owned scratch.
+`measure_loading.py --mode mobile` restricts a repeat to one profile.
+
+Totals describe the document and resource entries at the recorded checkpoint,
+not the cost of scrolling through every image. `encodedBytes` counts response
+bodies after compression; `transferBytes` is the browser's header-inclusive
+estimate, not a packet capture. Browser-internal traffic is outside the page's
+Resource Timing timeline. Retain raw rows and compare matching runner versions,
+actual viewports, pixel ratios, checkpoints and network profiles.
 
 
 ## Responsive gallery and guide images

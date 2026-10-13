@@ -6,6 +6,15 @@ from loading_metrics import body_totals
 
 
 class TimingAccounting(unittest.TestCase):
+    def test_missing_document_entry_does_not_become_a_complete_total(self):
+        with self.assertRaisesRegex(ValueError, 'document navigation'):
+            body_totals([], [{'url': 'style.css', 'encoded': 1200, 'transfer': 1500}])
+
+    def test_two_documents_cannot_be_counted_as_one_page(self):
+        navigation = [{'url': 'page.html', 'encoded': 8000, 'transfer': 8300}]
+        with self.assertRaisesRegex(ValueError, 'document navigation'):
+            body_totals(navigation * 2, [])
+
     def test_redacted_mobile_document_does_not_become_a_zero_byte_page(self):
         result = body_totals([{'url': 'page.html', 'encoded': 0, 'transfer': 0}],
                              [{'url': 'style.css', 'encoded': 1200, 'transfer': 1500}])
