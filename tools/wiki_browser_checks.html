@@ -19,7 +19,11 @@ const open=src=>new Promise((resolve,reject)=>{
  check(d.querySelector('h1').textContent==='Voxelgame','Home names the game');
  check(d.querySelectorAll('.topic-directory > li').length===10,'Ten real player topics');
  check(d.querySelectorAll('.topic-directory h3 a').length===10,'Every topic opens its own index');
- check(!d.querySelector('#categories').textContent.includes('Not written yet'),'Written topics have no stale placeholders');
+ check(!d.querySelector('#categories').textContent.includes('Not written yet'),'Catalog has no placeholder content');
+ check(d.querySelectorAll('.catalog-columns > section').length===3,'Home gives biomes, mobs and items three clear routes');
+ check(!d.querySelector('main a[href="performance.html"], main a[href="features.html"]'),'Development reports do not dominate the home');
+ check(d.querySelector('.home-description').textContent.includes('survival')&&d.querySelector('.home-description').textContent.includes('creative'),'Home introduces both ways to play');
+ check(!w.QIQI_SEARCH.some(r=>r.href.startsWith('features.html')),'Catalog search omits developer-ledger results');
  check(!d.querySelector('#wiki-search-panel').hidden,'Offline search data loads');
  check(w.QIQI_SEARCH.every(r=>!/(optional-pack|:pack\b)/i.test(JSON.stringify(r))),'Search has base-game records');
  const input=d.querySelector('#wiki-search');
@@ -56,6 +60,9 @@ const open=src=>new Promise((resolve,reject)=>{
   check(p.querySelector('nav[aria-label=Main] a').getBoundingClientRect().height>=40,`${name} mobile navigation has usable touch targets`);
   await delay();check(p.documentElement.scrollWidth<=390+1,`${name} has no horizontal overflow at 390px`);
  }
+ const items=await open('../topic-items.html');
+ check(items.querySelectorAll('.item-catalog > div').length===6,'Items have brief descriptions and useful guide links');
+ check(items.querySelector('#catalog').textContent.includes('Arrows'),'Items catalog includes arrows');
  const building=await open('../topic-building.html');
  check(building.querySelector('#articles a').getAttribute('href')==='guide-building.html','Building index leads directly to its written guide');
  const article=await open('../guide-building.html');

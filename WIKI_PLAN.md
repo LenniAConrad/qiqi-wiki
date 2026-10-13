@@ -443,5 +443,41 @@ short natural descriptions and useful imagery. The landing page and navigation
 need to emphasize those routes. The public changelog should group actual shipped
 player-visible changes by calendar day, with brief “Fixed” or “Changed” entries.
 Commit hashes, development narratives and gate/performance receipts belong in
-the retained internal evidence. This editorial/design update is pending; the
-portrait refresh does not claim to complete it. The same finite worker owns it.
+the retained internal evidence. The landing/catalog revision is described below. The daily changelog and fresh
+biome captures remain separate open units in the same finite assignment.
+
+
+## Concise landing and catalog — 13 October 2026
+
+The home now briefly explains survival and creative play and presents biomes,
+animals and items before the longer guide directory. The Items index has six
+short descriptions backed by the existing guides and recipe data. The shared
+menu has eight destinations, with a single current-route marker on every page.
+All ten topic indexes and original public URLs remain available; the ledger
+and archived performance reports retain their evidence and direct links.
+
+Offline search focuses on catalog entries, recipes, guides and dated updates.
+The development ledger no longer fills the results. The home reuses the dated
+September meadow/pine captures and the reviewed October Fox/Swan portraits,
+with responsive image candidates and lazy loading below the main landscape.
+This is a presentation update, not a fresh biome capture or a new game audit.
+The owner-requested daily changelog and current biome/habitat captures remain
+open. Browser, loading and final deployment receipts are recorded separately.
+
+The gate passes 80 tests and 3,735 local references across 44 pages. Browser
+review covers desktop/tablet/mobile layouts, real keyboard search and menus,
+320/390-pixel scrolling, all shared navigation, local files and no-JavaScript
+reading. Scrolled mobile captures confirm the lazy catalog images load before
+inspection; full-page captures alone do not prove that.
+
+Matched local initial-view response bodies change from 239,216 to 188,192 bytes
+on desktop (8 to 11 requests) and 229,121 to 178,097 on mobile (7 to 10). Each
+profile is fresh with caches disabled; the mobile CSS wrapper warms the origin
+and its setup is counted separately. HTML bodies are included and all sizes
+are known. These are page checkpoints, not complete gallery downloads. Observed
+settling times rose from 55.629 to 73.899 seconds and 26.085 to 63.334 seconds
+respectively on the busy host. This supports smaller payloads, not a time gain.
+Source images are unchanged; the catalog search script is now 85,412 bytes.
+Raw measurements and final visual receipts are retained in the worker's
+`player-home/` scratch, with before/after/final images under
+`renders/qiqi-wiki/astra-player-home/`.

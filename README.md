@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: GPL-3.0-only -->
 # qiqi-wiki
 
-Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. Ten topic indexes connect the written player guides, blocks and animal references, and the preserved atlas. The source-audited **Features** ledger (`features.html`) records base-game features, status and guide coverage. Search uses a local script built from topics, guides, features, recipes, blocks, animals and biomes. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
+Standalone static player wiki for Voxelgame, bootstrapped on 2026-10-09 from the owner's local `qiqi-dev` working files. The original checkout remains untouched. The home introduces survival and creative play, with direct routes to the biome, animal, item and block catalogs. Ten topic indexes keep the written guides connected. The source-audited **Features** ledger (`features.html`) records base-game features, status and guide coverage. Search uses a local script built from topics, guides, recipes, blocks, animals, biomes and dated updates; developer-ledger entries stay out of catalog search. See [WIKI_PLAN.md](WIKI_PLAN.md) for the work queue.
 
 Run `bash tools/verify_wiki.sh` before committing. GitHub Pages deploys the static site through `.github/workflows/pages.yml`; `tools/stage_site.py` selects the published files for both CI and the local gate, which checks every link inside that staged copy. No game server or bundler is needed. Preserve the existing original screenshots, data and provenance while refreshing them against actual game builds.
 
@@ -17,7 +17,7 @@ in `tools/test_stage_site.py`.
 
 ## Features and guide coverage ledger
 
-Open **Features** in the navigation or `features.html`. Each player-facing
+Open **Coverage and sources** in the footer, or `features.html`. Each player-facing
 feature has one status for the audited game commit: Available,
 Limited, Developer tool, In development or Planned. Features also list their
 modes, verified controls, the source files and lines that support them, the
@@ -134,7 +134,7 @@ retain their older generation-9 snapshot.
 
 ## Performance notes
 
-Open **Performance** in the navigation or [performance.html](performance.html).
+The archived [performance report](performance.html) retains its original URL.
 The 27 September 2026 load analysis records CPU/GPU costs across five habitats,
 paired tree-geometry comparisons, and loading/flight traces. It includes the
 component chart, repeated streaming-plan finding, optimization priorities,
@@ -191,8 +191,8 @@ and links to the island maps, 4K panoramas and four terrain/climate layers.
 Older saved worlds retain their generation, so use a generation-9 world to
 visit this atlas's locations.
 
-The animal gallery records its independently verified 28 September 2026
-snapshot of the original cuboid models and pixel coats. Its 372 portraits use
+The animal gallery records its independently verified 13 October 2026
+snapshot of the original game models and materials. Its 376 portraits use
 production meshes and exported textures, with lighting proportional to model
 bounds. They are static model previews, individually framed rather than shown
 at a shared scale. Animal source provenance is separate from terrain photography.
@@ -370,7 +370,9 @@ verify the normal Pages run and live bytes/MIME before reporting delivery.
 
 `data/topics.json` assigns each written guide to exactly one topic, supplies
 quick section links and connects related topics. To add an article, register it
-there as well as in `data/guides.json`; the gate rejects orphaned or multiply
+there as well as in `data/guides.json`; the optional `catalog` list gives the Items
+index short name/description/link entries backed by existing guides and recipes.
+Keep these descriptions brief. The gate rejects orphaned or multiply
 assigned guides and broken anchors. Topic indexes use `topic-<id>.html`.
 
 After changing guide, recipe or ledger data, run `python3 tools/build_features.py`,

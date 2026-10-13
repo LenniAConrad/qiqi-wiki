@@ -55,7 +55,7 @@ class LedgerRules(unittest.TestCase):
         page = build_features.render_page(data)
         for feature in data["features"]:
             self.assertIn(f'id="f-{feature["id"]}"', page)
-        self.assertIn('<a href="features.html" aria-current="page">Features</a>', page)
+        self.assertIn('<a href="features.html">Coverage and sources</a>', page)
         self.assertEqual(page, build_features.render_page(copy.deepcopy(data)), "rendering is deterministic")
 
     def test_rendered_text_is_escaped(self):

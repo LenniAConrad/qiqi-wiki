@@ -82,7 +82,7 @@ class Rendering(unittest.TestCase):
         first = build_guides.render_all(guides(), ledger(), recipes())
         self.assertEqual(first, build_guides.render_all(guides(), ledger(), recipes()))
         self.assertEqual(set(first), {"guides.html", "guide-start.html"})
-        self.assertIn('<a href="guides.html" aria-current="true">All guides</a>', first["guide-start.html"])
+        self.assertIn('<a href="guides.html" aria-current="true">Guides</a>', first["guide-start.html"])
 
     def test_recipe_tables_filter_by_name_and_escape(self):
         ctx = build_guides.Context(guides(), ledger(), recipes())

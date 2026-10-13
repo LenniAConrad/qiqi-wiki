@@ -19,7 +19,7 @@
     results.replaceChildren();
     const query = normalize(input.value.trim()).split(/\s+/).filter(Boolean);
     if (!query.length) {
-      status.textContent = 'Search guides, features, recipes and the atlas.';
+      status.textContent = 'Search biomes, mobs, items, recipes and guides.';
       results.hidden = true;
       return;
     }

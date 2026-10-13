@@ -10,9 +10,12 @@ CATEGORIES = tuple((topic['id'], topic['title'], topic['page']) for topic in TOP
 ATLAS = (('atlas.html', 'Biomes'), ('animals.html', 'Animals'),
          ('islands.html', 'Islands'), ('scale.html', 'Scale'),
          ('performance.html', 'Performance'), ('features.html', 'Features'))
-NAV = (('index.html', 'Home'),) + tuple(
-    (page, label) for _, label, page in CATEGORIES
-) + (('guides.html', 'All guides'), ('atlas.html', 'Atlas'), ('changelog.html', 'Changelog'))
+# Keep the full topic directory on the home and guide pages, with a short
+# content-first menu shared by every old and new public URL.
+NAV = (('index.html', 'Home'), ('atlas.html', 'Biomes'), ('animals.html', 'Mobs'),
+       ('topic-items.html', 'Items'), ('blocks.html', 'Blocks'),
+       ('topic-getting-started.html', 'Getting started'), ('guides.html', 'Guides'),
+       ('changelog.html', 'Changelog'))
 GUIDE_SLUGS = {guide['page']: guide['id'] for guide in json.loads((DATA / 'guides.json').read_text())['guides']}
 
 
@@ -39,13 +42,17 @@ def links_html(links, current, related=None):
 
 def nav_html(current):
     topic = topic_for_page(current)
-    related = topic['page'] if topic else None
-    if current == 'changelog-wiki.html':
+    related = {
+        'getting-started': 'topic-getting-started.html', 'exploration': 'atlas.html',
+        'mobs': 'animals.html', 'items': 'topic-items.html', 'blocks': 'blocks.html',
+    }.get(topic['id'] if topic else None, 'guides.html')
+    if current.startswith('changelog'):
         related = 'changelog.html'
-    if current in {href for href, _ in ATLAS} and current != 'atlas.html':
+    elif current in ('islands.html', 'scale.html'):
         related = 'atlas.html'
-    elif current.startswith('guide-') and not topic:
-        related = 'guides.html'
+    # A directly selected page must not mark a second menu entry as current.
+    if current in {href for href, _ in NAV}:
+        related = None
     return '<nav class="wiki-nav" aria-label="Main">' + links_html(NAV, current, related) + '</nav>'
 
 
@@ -54,8 +61,8 @@ def header_html(current):
               '<a class="wordmark" href="index.html">Qiqi<span class="wordmark-light">Voxelgame wiki</span></a>'
               '<a class="header-search" href="index.html#search">Search the wiki <kbd>/</kbd></a></div>'
               '<details class="site-menu" open><summary>Browse the wiki</summary>' + nav_html(current))
-    if current in {href for href, _ in ATLAS}:
-        header += '<nav class="atlas-nav" aria-label="Atlas">' + links_html(ATLAS, current) + '</nav>'
+    if current in ('atlas.html', 'animals.html', 'islands.html'):
+        header += '<nav class="atlas-nav" aria-label="Galleries">' + links_html(ATLAS[:3], current) + '</nav>'
     return header + '</details></header>'
 
 

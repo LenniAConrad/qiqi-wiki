@@ -31,6 +31,23 @@ class Topics(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError, 'Invalid related topic'):
             validate_wiki.validate_topics(topics, build_wiki.read('guides')['guides'])
 
+    def test_short_menu_keeps_one_current_destination_for_every_page(self):
+        pages = {page for page, _ in wiki_layout.NAV + wiki_layout.ATLAS}
+        pages.update(topic['page'] for topic in wiki_layout.TOPICS)
+        pages.update(guide['page'] for guide in build_wiki.read('guides')['guides'])
+        pages.update(('changelog-wiki.html', 'mobs.html'))
+        for page in pages:
+            with self.subTest(page=page):
+                nav = wiki_layout.nav_html(page)
+                self.assertEqual(nav.count('aria-current='), 1)
+
+    def test_catalog_search_does_not_surface_the_development_ledger(self):
+        records = build_wiki.search_records()
+        self.assertFalse(any(r['href'].startswith('features.html') for r in records))
+        for title in ('Alder bow', 'Stone pickaxe', 'Swan', 'Flower meadow'):
+            with self.subTest(title=title):
+                self.assertTrue(any(r['title'] == title for r in records))
+
 
 if __name__ == '__main__':
     unittest.main()

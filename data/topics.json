@@ -52,7 +52,15 @@
     },
     {
       "id": "items", "title": "Items and equipment", "page": "topic-items.html",
-      "summary": "Tools, weapons, explosives, food and the items in your pack.",
+      "summary": "Tools for gathering, weapons for hunting and food for the journey.",
+      "catalog": [
+        {"name": "Stone tools", "description": "A pickaxe, hatchet, shovel and sword. Make them from stone and wood.", "href": "guide-first-survival-day.html#tools"},
+        {"name": "Bows", "description": "Hold to draw, then release to shoot. Make an Alder bow with plant fiber or wool, or use reeds.", "href": "guide-hunting.html#bow"},
+        {"name": "Arrows", "description": "Ammunition for bows. Each recipe makes four; survival shots use one arrow.", "href": "guide-crafting.html#recipe-four-arrows"},
+        {"name": "Throwing rocks", "description": "Equip a rock, hold right-click to wind up, then release to throw.", "href": "guide-hunting.html#rocks"},
+        {"name": "Cooked meat", "description": "Cook meat in the crafting panel and eat it to restore hunger.", "href": "guide-crafting.html#recipe-cook-raw-meat"},
+        {"name": "Building materials", "description": "Boards, bricks, glass and stone for walls, floors and roofs.", "href": "blocks.html"}
+      ],
       "guides": ["explosives"],
       "references": [["guide-getting-started.html#pack", "Inventory and the hotbar"], ["guide-first-survival-day.html#tools", "Making your first tools"], ["guide-hunting.html", "Bows, rifles and hunting"], ["guide-first-survival-day.html#eat-drink", "Food, thirst and drinking"], ["guide-crafting.html#lumen", "Lumen crystal equipment"]],
       "related": ["crafting", "mobs", "getting-started"]
@@ -68,7 +76,7 @@
       "id": "troubleshooting", "title": "Troubleshooting", "page": "topic-troubleshooting.html",
       "summary": "Installation, updates, saves, sound, display settings and common failures.",
       "guides": ["troubleshooting", "install-and-worlds", "settings-and-performance", "saves"],
-      "references": [["guide-troubleshooting.html#errors", "Startup errors"], ["guide-troubleshooting.html#saves", "Missing worlds"], ["guide-settings-performance.html#slow", "When the game is slow"], ["performance.html", "Dated performance measurements"]],
+      "references": [["guide-troubleshooting.html#errors", "Startup errors"], ["guide-troubleshooting.html#saves", "Missing worlds"], ["guide-settings-performance.html#slow", "When the game is slow"]],
       "related": ["getting-started", "controls", "building"]
     }
   ]
