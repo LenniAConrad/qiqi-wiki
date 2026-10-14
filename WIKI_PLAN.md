@@ -616,3 +616,24 @@ The failed workflow skipped deployment, and live homepage bytes still match
 the intended-head hosted checkpoint and actual live checks. All four retained
 claims stay open. Fresh biome/habitat photos, a sharper real hero and
 crafting/building imagery remain unfulfilled; gameplay evidence is unchanged.
+
+## Finite visual refinement — 14 October 2026
+
+The owner's final bounded pass gives the home and shared headings a stronger
+game identity: substantial sans-serif titles, compact monospace navigation,
+square framing and the existing meadow-turf accent. Six linked colour samples
+come directly from the audited block catalog. They are colour swatches, not
+rendered blocks. The approved original cube and cream reading surface remain.
+
+The home now shows the existing Meadow photograph with readable foreground
+trees and the existing Build-tab screenshot beside the first-day links. Their
+28 September and 11 October dates stay visible. No image bytes, capture dates,
+gameplay facts, search records or public catalog counts are refreshed. There
+is no new media-generation claim. Native current-game photographs remain open.
+
+Coverage ledger: this is one presentation slice of the retained BRAND/MEDIA
+claims. Focused navigation/publication checks and source-relative links pass;
+actual browser inspection and intended-head publication acceptance are required
+before calling this slice delivered. The four open media/performance claims
+remain for a named handoff when the finite allocation ends. Dark mode belongs
+to the returning wiki worker. The full overhaul remains FULL_VALIDATION_PENDING.
