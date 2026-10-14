@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "asset": "Approved Qiqi header cube",
+  "importedAt": "2026-10-14T14:04:07+02:00",
+  "source": {
+    "repository": "https://github.com/LenniAConrad/qiqi",
+    "commit": "a07f2748da593ca1207417a39ccd73a14f44d9eb",
+    "tree": "1543c6d67b7879ace4915ab0fd4ab954a3143daa",
+    "path": "assets/voxelgame.svg",
+    "blob": "9a76a7858460f890c8065cc7ec3405b01fd7137f",
+    "sha256": "e012501862a7d2fffd8cb28aaaa3faa9556775624f18dd9f918dbbab811c8131"
+  },
+  "output": {
+    "path": "images/brand/qiqi-cube.svg",
+    "bytes": 13890,
+    "sha256": "e012501862a7d2fffd8cb28aaaa3faa9556775624f18dd9f918dbbab811c8131",
+    "transform": "none; verbatim SVG copy"
+  },
+  "license": {
+    "spdx": "GPL-3.0-only",
+    "sourcePath": "LICENSE",
+    "sourceBlob": "53d1f3d01864c35841739c55aeba9700657627b7",
+    "sha256": "e57f1c320b8cf8798a7d2ff83a6f9e06a33a03585f6e065fea97f1d86db84052",
+    "wikiCopy": "LICENSE",
+    "noticePreserved": true
+  }
+}

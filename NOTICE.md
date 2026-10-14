@@ -14,6 +14,16 @@ This local atlas was created on 25 September 2026 from the sibling **Voxelgame**
 
 The fixed-seed measurements describe this snapshot. They are not guaranteed frequencies for all seeds or future game versions.
 
+## Header logo — 14 October 2026
+
+The rainbow cube in the header is an unchanged copy of the original game's
+[`assets/voxelgame.svg`](https://github.com/LenniAConrad/qiqi/blob/a07f2748da593ca1207417a39ccd73a14f44d9eb/assets/voxelgame.svg),
+from commit `a07f2748da593ca1207417a39ccd73a14f44d9eb`. Its GPL-3.0-only
+notice, transparent canvas and neutral outline are preserved. The SVG scales
+directly in the browser; no raster conversion or resampling was applied.
+The source and copied-file hashes are retained in the repository's internal
+`data/brand-source.json` receipt. The full licence is in [LICENSE](LICENSE).
+
 ## Responsive island previews — 13 October 2026
 
 The island gallery uses 480- and 960-pixel WebP derivatives of its existing

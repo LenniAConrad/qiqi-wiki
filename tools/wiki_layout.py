@@ -58,7 +58,9 @@ def nav_html(current):
 
 def header_html(current):
     header = ('<header class="site-header"><div class="site-brand">'
-              '<a class="wordmark" href="index.html">Qiqi<span class="wordmark-light">Voxelgame wiki</span></a>'
+              '<a class="wordmark" href="index.html">'
+              '<img class="brand-logo" src="images/brand/qiqi-cube.svg" width="48" height="48" alt="">'
+              '<span class="brand-copy"><span>Qiqi</span> <span class="wordmark-light">Player wiki</span></span></a>'
               '<a class="header-search" href="index.html#search">Search the wiki <kbd>/</kbd></a></div>'
               '<details class="site-menu" open><summary>Browse the wiki</summary>' + nav_html(current))
     if current in ('atlas.html', 'animals.html', 'islands.html'):

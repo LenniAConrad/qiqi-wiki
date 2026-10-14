@@ -568,3 +568,29 @@ Focused validation passes 35 tests across capture orchestration, survey staging
 and source snapshots, including the unchanged archived atlas. All 1,210 public
 paths are unchanged by this source checkpoint. The full static gate and normal
 land remain pending a capacity allocation; no deployment receipt is claimed.
+
+## Approved header branding, source checkpoint — 14 October 2026
+
+The shared header now includes the owner's approved rainbow cube beside Qiqi
+and the descriptor “Player wiki”. The canonical SVG is copied byte-for-byte
+from game commit `a07f2748da593ca1207417a39ccd73a14f44d9eb`, with its licence
+notice intact and commit/tree/blob/SHA-256 receipts in `data/brand-source.json`.
+It uses a relative local image path and explicit dimensions. The small-screen
+layout places the descriptor under the name and lets the header wrap; the
+existing cream, green and rust palette, navigation and search are retained.
+
+Coverage ledger: this is the source-only part of
+`QW-HOME-BRAND-REFINEMENT-20261014`, not a completed or published visual change.
+Actual before/after desktop/mobile, keyboard and offline browser review, the
+full wiki gate, remote-main delivery and live Pages checks remain pending the
+coordinator's verification allocation. The sharper real hero, building/crafting
+imagery and fresh biome photographs remain open under the same brand/media
+claims. Existing gameplay photos, counts and capture dates are unchanged.
+
+Source validation passes 13 existing navigation/publication tests, all 44 shared
+headers and 3,776 local references. A source comparison confirms that every
+page is unchanged outside its header, with identical navigation and search.
+The allowlist contains 1,211 files; the SVG is its only addition and the source
+receipt stays private. Static sRGB ratios against the cream background are
+11.009:1 for the name, 5.254:1 for the descriptor and 5.888:1 for the existing
+focus accent. These are nominal color checks, not rendered visual acceptance.

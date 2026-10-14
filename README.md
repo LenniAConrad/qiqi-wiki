@@ -482,6 +482,18 @@ that the internal history JSON is absent from the deployed site.
 
 ## Rebuild the wiki interface
 
+The shared header in `tools/wiki_layout.py` uses the original game's approved
+rainbow cube and the descriptor “Player wiki”. `images/brand/qiqi-cube.svg` is
+copied verbatim from the committed `assets/voxelgame.svg` recorded in
+`data/brand-source.json`, including its GPL-3.0-only notice. For an authorized
+refresh, read that object from a pinned private game export with
+`git show <commit>:assets/voxelgame.svg`; retain the exact commit/tree/blob and
+SHA-256 hashes, update the receipt and NOTICE, then rebuild all page generators
+below plus `python3 tools/build_changelog.py`. Do not edit the game's checkout.
+The logo is explicitly included in the Pages allowlist; its maintenance receipt
+stays private. Review the logo, text, search link and keyboard focus at desktop
+and 320/390-pixel widths, including local-file use, before publication.
+
 `data/topics.json` assigns each written guide to exactly one topic, supplies
 quick section links and connects related topics. To add an article, register it
 there as well as in `data/guides.json`; the optional `catalog` list gives the Items

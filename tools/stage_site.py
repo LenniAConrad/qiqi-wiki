@@ -29,7 +29,7 @@ PUBLIC_FILES = (
     'style.css', 'wiki.css', 'features.css', 'guides.css', 'islands.css',
     'performance.css', 'scale.css',
     'app.js', 'wiki-search.js', 'data/search.js', 'animals.js', 'features.js', 'guides.js', 'islands.js',
-    'scale.js', 'favicon.svg', 'LICENSE', 'NOTICE.md',
+    'scale.js', 'favicon.svg', 'images/brand/qiqi-cube.svg', 'LICENSE', 'NOTICE.md',
     'PERFORMANCE_ANALYSIS.md', 'PERFORMANCE_OPTIMIZATION.md',
     'STREAMING_IMPROVEMENTS.md',
     'data/animals.js', 'data/animals.json', 'data/biomes.js', 'data/biomes.json',
