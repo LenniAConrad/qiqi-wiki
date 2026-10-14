@@ -542,3 +542,29 @@ animal source verified its 1,836 recorded inputs, then rejected one unrecorded
 Python import cache. That cache and the source were preserved. The next survey
 must use a clean current-source export; this is not a failed gameplay survey
 or a reason to relabel the old images.
+
+## Private biome capture and publication preparation — 14 October 2026
+
+The current-generation survey now has a private capture/replacement path. A
+bounded offline devtools build records its exact inputs and executable. Pilot
+captures can resume into a full set; source, checked-site, replay, native-exit
+and image mismatches cannot produce a valid completion receipt. Publication
+preparation assembles and validates a private catalog. A separate replacement
+step archives every overwritten file before changing the own-worktree atlas.
+The public validator accepts the new evidence format without relabeling the
+existing generation-9 catalog. README records the commands and recovery path.
+
+Coverage ledger: this is a tooling prerequisite only. Existing 94-species
+portraits retain their delivered receipt, and biome photographs, sample counts,
+gameplay facts and public dates remain unchanged. Fresh native biome/habitat
+photographs, content/display review, derivative loading measurements, normal
+gate, publication and full overhaul handoff remain open. Fixture tests use
+synthetic private images and reused survey shapes; they are not game evidence.
+Equal NN/Voxelgame/Janus scheduling supersedes the older priority note above.
+The coordinator admitted low-I/O authoring only; no native build, survey, game
+capture, browser session or land was launched in this unit.
+
+Focused validation passes 35 tests across capture orchestration, survey staging
+and source snapshots, including the unchanged archived atlas. All 1,210 public
+paths are unchanged by this source checkpoint. The full static gate and normal
+land remain pending a capacity allocation; no deployment receipt is claimed.

@@ -303,12 +303,8 @@ and camera clearance against the sampled game source.
 
 This step prepares evidence; it does not refresh the photographs or prove their
 framing. The published generation-9 survey, frequencies, photographs and receipt
-hashes remain intact. The current `capture_biomes.py`, `update_provenance.py` and
-public atlas validator still implement the archived generation-9 publication
-workflow. Adapting them to consume staged current-generation evidence, capturing
-fresh images, reviewing native/displayed detail and replacing the catalog together
-remain the next media unit. Do not copy a new survey over the public atlas or
-relabel existing photographs to bypass that work.
+hashes remain intact until the separate capture/review/replacement steps below.
+Do not copy a new survey over the public atlas or relabel existing photographs.
 
 The archived tools and exact source/binary receipts remain available in Git
 history and retained private capture directories. Preserve old galleries before
@@ -320,6 +316,87 @@ The orchestration regressions in `tools/test_refresh_survey.py` use explicit
 fixtures, with no Rust compilation or gameplay sampling. They check private
 staging, source changes, camera failures and incomplete-run receipts. A passing
 fixture test is not a native current-game survey or a visual review.
+
+## Stage and publish fresh biome photographs
+
+These commands require an admitted native build/render slot. The tooling has
+fixture coverage; integration with a current native game build remains pending.
+Continue from the **same untouched complete source export and survey** above.
+Build a separate devtools executable with a receipt instead of attaching an
+arbitrary older binary to a newer source manifest:
+
+```sh
+python3 tools/build_biome_capture.py --game "$CAPTURE/source" \
+  --source-manifest "$CAPTURE/source-manifest.json" \
+  --output-dir "$CAPTURE/capture-build" --jobs 2 --seconds 3600
+python3 tools/capture_biomes.py --game "$CAPTURE/source" \
+  --source-manifest "$CAPTURE/source-manifest.json" \
+  --survey-dir "$CAPTURE/survey-run" \
+  --build-manifest "$CAPTURE/capture-build/build-manifest.json" \
+  --output-dir "$CAPTURE/capture-run" --ids Meadow --seconds 600
+```
+
+Inspect the pilot PNG and WebP at native size before running all biomes. Repeat
+the capture command with `--resume`, omit `--ids` and allow `--seconds 3600` for
+the batch. It skips verified completed photographs. A timeout leaves checkpoints
+and native evidence in private scratch; resume with identical inputs. Changed
+source, executable, survey, cameras or driver code requires a new run. An input
+change during capture creates `capture-invalid.json` and forbids resuming that
+run, even if the source is later restored. Preserve failed evidence for diagnosis.
+
+The build runs offline and locked with 1–4 jobs, lowered priority and a process
+group timeout. Capture uses only `--debug-stdio`, disables display variables,
+resets with `mods: []` and no save path, and closes its own process after every
+biome. Per-command and whole-batch time limits bound native work. No visible
+window or player save is used. A nonzero native shutdown, unedited-world/state
+mismatch, changed image or mismatched replay prevents a valid capture receipt.
+No Python import cache is written into the frozen game source.
+
+`capture-manifest.json` appears only after all 92 photographs and their evidence
+match. Pilot/partial `captures.json` files are not completion receipts. The
+original 960 × 540 frames use WebP quality 94 without resampling; choose and
+inspect any later derivative filters for the actual content.
+
+Prepare a private publication candidate only after the complete capture run:
+
+```sh
+python3 tools/update_provenance.py --game "$CAPTURE/source" \
+  --source-manifest "$CAPTURE/source-manifest.json" \
+  --survey-dir "$CAPTURE/survey-run" \
+  --build-manifest "$CAPTURE/capture-build/build-manifest.json" \
+  --capture-dir "$CAPTURE/capture-run" --output-dir "$CAPTURE/publication"
+python3 tools/validate.py --root "$CAPTURE/publication" --game "$CAPTURE/source"
+```
+
+The candidate binds its frequencies, checked cameras and all photographs to
+one source and build. Its provenance uses the actual generator and capture dates;
+it does not invent a list of game changes. Raw native paths/logs remain private.
+The public validator still accepts the unchanged archived generation-9 format,
+and requires the new receipt fields for a refreshed atlas.
+
+Review **every** native frame, displayed derivative and habitat description
+against the frozen source. Recheck changed cameras with the survey/site tooling;
+never hand-edit hashes to bypass a stale-site failure. After review, replace the
+own-worktree atlas with a verified bundle and a mandatory private archive:
+
+```sh
+python3 tools/update_provenance.py --publish "$CAPTURE/publication" \
+  --archive-dir "$CAPTURE/previous-gallery"
+python3 tools/build_gallery_previews.py
+python3 tools/build_mobs.py
+python3 tools/build_wiki.py
+bash tools/verify_wiki.sh
+```
+
+The replacement command archives and hashes every overwritten biome file first.
+It refuses changed bundles, changed description inputs and existing archives.
+If interrupted during replacement, preserve the archive and reapply the same
+reviewed bundle with a new archive directory; no git land occurs automatically.
+Before landing, update the atlas's generation/date instructions, README, NOTICE
+and coverage ledger to match the new evidence. The separate island collection
+keeps its own older receipt. Perform desktop/mobile, keyboard, offline and image
+loading review, then normal `bin/land`, remote-main and live Pages verification.
+Photograph completion alone does not meet the full wiki-media acceptance.
 
 ## License and provenance
 

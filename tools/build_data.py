@@ -14,13 +14,13 @@ GROUPS = {
  'Geological': 'Volcanic HotSprings KarstPinnacles TepuiPlateau MeteorField GeyserBasin LavaTubes GraniteDomes SlateQuarryHills AmethystGorge LimestonePavement VolcanicCaldera'
 }
 TAGS = {'Volcanic':'volcano lava magma', 'VolcanicCaldera':'volcano crater lava', 'RockyCliffs':'cliff island steep mountain', 'SeaStacks':'cliff island steep towers', 'LavaTubes':'volcano caves tunnels', 'AmethystGorge':'crystal crystals canyon amethyst metystone ametyst amethist', 'SnowyPeaks':'mountain mountains steep', 'RockyHighlands':'mountain mountains steep', 'AlpineMeadow':'mountain mountains', 'MontaneForest':'mountain mountains', 'CloudForest':'mountain mountains', 'MeteorField':'meteor impact crater', 'GeyserBasin':'steam vents geothermal', 'HotSprings':'steam vents geothermal'}
-def main():
- survey = json.loads((ROOT/'data/survey.json').read_text())
- habitats = json.loads((ROOT/'data/habitats.json').read_text())
- descriptions = json.loads((ROOT/'data/descriptions.json').read_text())
- capture_path = ROOT/'data/captures.json'
+def build(root=ROOT):
+ survey = json.loads((root/'data/survey.json').read_text())
+ habitats = json.loads((root/'data/habitats.json').read_text())
+ descriptions = json.loads((root/'data/descriptions.json').read_text())
+ capture_path = root/'data/captures.json'
  captures = json.loads(capture_path.read_text()) if capture_path.exists() else {}
- provenance=json.loads((ROOT/'data/provenance.json').read_text())
+ provenance=json.loads((root/'data/provenance.json').read_text())
  assert provenance['generator_version']==survey['generatorVersion'],'Survey and provenance generations differ'
  assert set(captures)=={b['id'] for b in survey['biomes']},'Every surveyed biome needs a genuine capture'
  rows = sorted(survey['biomes'],key=lambda b:(-b['count'],b['name']))
@@ -37,7 +37,7 @@ def main():
     if key in c:b[key]=c[key]
  data={**survey,'biomes':rows,'featuredId':'DenseForest','provenance':provenance}
  content=json.dumps(data,indent=2,ensure_ascii=False)
- (ROOT/'data/biomes.json').write_text(content+'\n')
- (ROOT/'data/biomes.js').write_text('// SPDX-License-Identifier: GPL-3.0-only\nwindow.BIOME_ATLAS = '+content+';\n')
+ (root/'data/biomes.json').write_text(content+'\n')
+ (root/'data/biomes.js').write_text('// SPDX-License-Identifier: GPL-3.0-only\nwindow.BIOME_ATLAS = '+content+';\n')
  print(f"Built {len(rows)} biomes; {survey['totalSamples']:,} samples; percentages sum to {sum(b['percent'] for b in rows):.12f}%")
-if __name__=='__main__':main()
+if __name__=='__main__':build()
