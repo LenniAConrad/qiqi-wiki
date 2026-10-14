@@ -594,3 +594,25 @@ The allowlist contains 1,211 files; the SVG is its only addition and the source
 receipt stays private. Static sRGB ratios against the cream background are
 11.009:1 for the name, 5.254:1 for the descriptor and 5.888:1 for the existing
 focus accent. These are nominal color checks, not rendered visual acceptance.
+
+## Header integration and focused checkpoint repair — 14 October 2026
+
+The retained header and biome-capture tooling landed at `238a26ba`; local and
+actual remote main match. Local before/after desktop, 320/390-pixel, keyboard,
+search, menu and offline review passed 111 assertions across 26 inspected
+captures. The publication check matched 1,211 staged files and 3,776 references.
+
+The intended-head Pages run `38583101769` ran the full static checkpoint and
+failed one of 110 tests. The changelog escaping test rejected every image tag,
+including the approved shared-header logo. It now compares parsed element
+structure before and after an injected summary and requires the complete
+escaped text. All seven focused changelog tests and generated-output checks
+pass; an in-memory renderer with escaping disabled fails the repaired test as
+expected. No published page, asset or renderer changes in this repair.
+
+Coverage ledger: header source is integrated; public delivery remains pending.
+The failed workflow skipped deployment, and live homepage bytes still match
+`df9ec7f`. `FULL_VALIDATION_PENDING` remains until the repaired source passes
+the intended-head hosted checkpoint and actual live checks. All four retained
+claims stay open. Fresh biome/habitat photos, a sharper real hero and
+crafting/building imagery remain unfulfilled; gameplay evidence is unchanged.

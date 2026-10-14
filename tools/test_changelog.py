@@ -1,10 +1,27 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """Reject misleading history receipts and unsafe rendered source text."""
 import copy
+from html.parser import HTMLParser
 import unittest
 
 from build_changelog import read, render
 from validate_changelog import validate
+
+
+class Markup(HTMLParser):
+    """Record element structure without treating escaped source text as markup."""
+
+    def __init__(self, page):
+        super().__init__()
+        self.tags = []
+        self.feed(page)
+        self.close()
+
+    def handle_starttag(self, tag, attrs):
+        self.tags.append(('start', tag, attrs))
+
+    def handle_endtag(self, tag):
+        self.tags.append(('end', tag))
 
 
 class History(unittest.TestCase):
@@ -35,11 +52,13 @@ class History(unittest.TestCase):
 
     def test_source_text_is_escaped_and_private_links_are_absent(self):
         data = copy.deepcopy(read())
+        trusted_markup = Markup(render(data, 'game')).tags
         row = next(p for p in data['periods'] if p['source'] == 'game')['entries'][0]
         row['publicSummary'] = 'Changed <img src="untrusted" onerror="alert(1)">'
         page = render(data, 'game')
-        self.assertNotIn('<img', page)
-        self.assertIn('&lt;img', page)
+        self.assertEqual(Markup(page).tags, trusted_markup)
+        self.assertIn(
+            'Changed &lt;img src=&quot;untrusted&quot; onerror=&quot;alert(1)&quot;&gt;', page)
         self.assertNotIn('github.com/LenniAConrad/qiqi/commit/', page)
         self.assertNotIn('github.com/LenniAConrad/qiqi-wiki/commit/', render(data, 'wiki'))
 
