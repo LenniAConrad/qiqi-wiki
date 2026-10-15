@@ -11,11 +11,11 @@
 .guide-steps li, .guide-list li { padding: 3px 0 3px 6px; }
 .guide-steps li::marker { font-family: var(--serif); font-size: 18px; }
 .guide-section a { text-underline-offset: 3px; }
-.guide-note { max-width: 760px; margin: 18px 0; padding: 12px 16px; border-left: 3px solid var(--line); background: #f1f2ea; font-size: 13px; line-height: 1.75; }
+.guide-note { max-width: 760px; margin: 18px 0; padding: 12px 16px; border-left: 3px solid var(--line); background: var(--theme-note); font-size: 13px; line-height: 1.75; }
 .guide-note strong { font-size: 10px; letter-spacing: .8px; text-transform: uppercase; }
-.guide-note-careful { border-left-color: #b4512d; background: #f6ece5; }
-.guide-note-tip { border-left-color: #4f7a58; }
-.guide-note-planned { border-left: 3px dashed #b4512d; background: transparent; }
+.guide-note-careful { border-left-color: var(--theme-warning); background: var(--theme-careful); }
+.guide-note-tip { border-left-color: var(--theme-tip); }
+.guide-note-planned { border-left: 3px dashed var(--theme-warning); background: transparent; }
 .guide-figure { margin: 22px 0 26px; max-width: 920px; }
 .guide-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 3px; background: #1c2a22; }
 .guide-figure figcaption { margin-top: 8px; font-size: 12px; line-height: 1.7; color: var(--muted); }

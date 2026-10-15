@@ -61,7 +61,10 @@ def header_html(current):
               '<a class="wordmark" href="index.html">'
               '<img class="brand-logo" src="images/brand/qiqi-cube.svg" width="48" height="48" alt="">'
               '<span class="brand-copy"><span>Qiqi</span> <span class="wordmark-light">Player wiki</span></span></a>'
-              '<a class="header-search" href="index.html#search">Search the wiki <kbd>/</kbd></a></div>'
+              '<div class="header-tools"><a class="header-search" href="index.html#search">Search the wiki <kbd>/</kbd></a>'
+              '<label class="theme-choice" hidden>Theme <select id="theme-choice">'
+              '<option value="system">System</option><option value="light">Light</option>'
+              '<option value="dark">Dark</option></select></label></div></div>'
               '<details class="site-menu" open><summary>Browse the wiki</summary>' + nav_html(current))
     if current in ('atlas.html', 'animals.html', 'islands.html'):
         header += '<nav class="atlas-nav" aria-label="Galleries">' + links_html(ATLAS[:3], current) + '</nav>'

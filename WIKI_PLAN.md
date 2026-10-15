@@ -637,3 +637,22 @@ actual browser inspection and intended-head publication acceptance are required
 before calling this slice delivered. The four open media/performance claims
 remain for a named handoff when the finite allocation ends. Dark mode belongs
 to the returning wiki worker. The full overhaul remains FULL_VALIDATION_PENDING.
+
+## Local dark theme — 15 October 2026
+
+The requested System/Light/Dark selector is implemented across all 44 pages,
+with remembered explicit choice and automatic system preference. Cream, forest
+green and rust remain the light palette; dark surfaces use deep forest green,
+cream text and a lighter rust accent. Original images, palette swatches and cube
+bytes remain unchanged. The site also follows system preference without
+JavaScript, and selection remains usable if local storage is refused.
+
+Local acceptance: `bash tools/verify_wiki.sh` passed (110 tests, 44 pages,
+3831 static references, 1212 staged files). Headless Firefox theme checks passed
+for home, controls, feature ledger and atlas at 1440/390 widths, keyboard theme
+selection/search/mobile navigation, cross-page persistence, system reset,
+no-JavaScript light/dark, storage refusal and static file URLs. Captures are
+private under `.cache/theme-review/`; see `tools/check_theme_browser.py`.
+Publication remains pending. This changes no game feature/source cutoffs or
+photograph dates. Current-generation biome/habitat/hero/build photos and the
+performance/memory work remain open; the delivered 376 portraits are preserved.

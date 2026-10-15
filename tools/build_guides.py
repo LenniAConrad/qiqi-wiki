@@ -93,7 +93,7 @@ def page_open(title, description, nav_current, body_class, skip_target, skip_lab
         '<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">'
         '<link rel="stylesheet" href="features.css"><link rel="stylesheet" href="guides.css">'
         '<link rel="stylesheet" href="wiki.css">\n'
-        '<script defer src="wiki-ui.js"></script>\n'
+        '<script src="theme.js"></script><script defer src="wiki-ui.js"></script>\n'
         + ('<script defer src="guides.js"></script>\n' if script else "") +
         f'</head>\n<body class="{body_class}">\n'
         f'<a class="skip" href="#{skip_target}">{text(skip_label)}</a>\n'

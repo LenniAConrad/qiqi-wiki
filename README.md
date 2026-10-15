@@ -590,3 +590,20 @@ The mobile iframe fits entirely inside the parent viewport so browser chrome
 cannot leave its bottom images invisible to native lazy loading.
 Compare identical runner versions and profiles. Time readings on a busy shared
 host need the same caution as the network model described above.
+
+## Light and dark themes
+
+The header's Theme selector offers System, Light and Dark. System follows the
+browser's colour preference; an explicit choice is remembered across pages in
+local storage. If storage is unavailable, selection still works on the current
+page. With JavaScript disabled, the site follows the system preference and hides
+the inactive selector. Original photographs, block swatches and the rainbow cube
+are never recoloured.
+
+`theme.js` reads the preference before body content is parsed. Theme colours live
+in `wiki.css`; shared surface tokens also cover guide notes, controls, tables and
+feature badges. All page generators include the script and shared header. Run
+`python3 tools/check_theme_browser.py` for headless Firefox system/light/dark,
+keyboard, navigation persistence, storage-denial, no-JavaScript and file-URL
+checks. Captures and the receipt stay under `.cache/theme-review/` and are not
+part of the public site.

@@ -5,7 +5,7 @@
 .scale-toolbar label, .scale-navigation label { display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--muted); }
 .scale-page select, .scale-page .scale-presets button, .scale-selection button, .scale-navigation button { background:transparent; color:var(--ink); border:1px solid var(--line); border-radius:4px; padding:10px 12px; font-size:12px; min-height:40px; }
 .scale-page select { max-width:100%; }
-.scale-presets button:hover, .scale-navigation button:hover { background:#e6eadf; }
+.scale-presets button:hover, .scale-navigation button:hover { background:var(--theme-control-hover); }
 .scale-selection { gap:7px; padding:0 0 18px; }
 .scale-selection button { border-radius:20px; padding:7px 13px; min-height:36px; }
 .scale-selection button[aria-pressed=true] { background:var(--ink); border-color:var(--ink); color:var(--paper); }
@@ -34,7 +34,7 @@
 .scale-table-wrap th:first-child { text-align:left; }
 .scale-table-wrap thead th { color:var(--muted); font-size:11px; font-weight:500; line-height:1.7; }
 .scale-table-wrap tbody th { font-weight:500; }
-.scale-table-wrap .reference-row { background:#e8ecdf; }
+.scale-table-wrap .reference-row { background:var(--theme-highlight); }
 .scale-table-wrap button { background:none; border:0; padding:6px 0; text-align:left; text-decoration:underline; text-underline-offset:4px; }
 .scale-table-wrap a { font-size:10px; margin-left:8px; color:var(--muted); }
 .scale-table-wrap .world-kind { display:block; font-size:10px; font-weight:400; color:var(--muted); margin-top:4px; }
