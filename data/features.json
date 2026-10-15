@@ -3088,17 +3088,20 @@
     "creative",
     "survival"
    ],
-   "summary": "Weather moves through a fixed 30-minute pattern: clear, cloudy, rain, cloudy, partly cloudy, foggy, cloudy, rainstorm, thunderstorm, cloudy, about 3 minutes each, blending smoothly. Each world starts at a different point in the pattern. Weather is the same everywhere in a world, so rain also falls over deserts and there is no snowfall. Rain stops at roofs, thunderstorms flash with lightning and delayed thunder, and lightning causes no damage or fires.",
+   "summary": "Weather moves through a fixed 30-minute pattern: clear, cloudy, rain, cloudy, partly cloudy, foggy, cloudy, rainstorm, thunderstorm, cloudy, about 3 minutes each, blending smoothly. Each world starts at a different point in the pattern. The world shares one weather pattern, so rain also falls over deserts and there is no snowfall. Local rain fades through the lowest cloud deck and stops above it. Rain stops at roofs, thunderstorms flash with lightning and delayed thunder, and lightning causes no damage or fires.",
    "evidence": [
     "crates/voxelgame-core/src/environment.rs:283-323 — automatic target plus smooth blending",
     "crates/voxelgame-core/src/environment.rs:424-434 — rain/cloud/fog/wind/storm values per weather",
     "crates/voxelgame-render/src/precipitation.rs:147-178 — rain stops at the first solid or liquid block, including roofs you build",
-    "crates/voxelgame-core/src/ambience.rs:170-190 — rain is heard as roof rain under cover"
+    "crates/voxelgame-core/src/ambience.rs:170-190 — rain is heard as roof rain under cover",
+    "crates/voxelgame-core/src/environment.rs:13-29 — cloud deck heights and local rain fade (Voxelgame 61a4257fe2364fa708805911b30e3dbdb30e17f6)",
+    "crates/voxelgame-render/src/precipitation.rs:46-61 — bounded rain field stops at the cloud ceiling (Voxelgame 61a4257fe2364fa708805911b30e3dbdb30e17f6)",
+    "crates/voxelgame-core/src/ambience.rs:38-42 — local rain sound follows altitude (Voxelgame 61a4257fe2364fa708805911b30e3dbdb30e17f6)"
    ],
    "backlog": [
     "VOX-OWNER-REGIONAL-WEATHER"
    ],
-   "notes": "Weather changes sailing wind strength. In survival, rain lowers the air temperature by up to 2 degrees.",
+   "notes": "Weather changes sailing wind strength. In survival, rain lowers the air temperature by up to 2 degrees. Height update checked at Voxelgame 61a4257fe2364fa708805911b30e3dbdb30e17f6: cloud deck bases are 1,200 / 1,800 / 2,500 metres above world zero; rain and rain sound fade through the lowest deck and stop by 1,600 metres. Flying above clouds does not change the weather below. Verified with disposable native captures and altitude/audio/cache regression tests on 15 October 2026. This row-specific update does not advance the ledger-wide source audit.",
    "guide": {
     "state": "complete",
     "page": "guide-weather-day-night.html",

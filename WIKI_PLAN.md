@@ -656,3 +656,16 @@ private under `.cache/theme-review/`; see `tools/check_theme_browser.py`.
 Publication remains pending. This changes no game feature/source cutoffs or
 photograph dates. Current-generation biome/habitat/hero/build photos and the
 performance/memory work remain open; the delivered 376 portraits are preserved.
+
+## Local weather-height synchronization — 15 October 2026
+
+The weather guide and automatic-weather ledger row now describe cloud bases
+at 1,200 / 1,800 / 2,500 metres, rain and rain sound fading through the lowest
+deck and stopping by 1,600 metres, and unchanged weather below a flying player.
+Only this change is pinned to game 61a4257; the earlier source audit and all
+photograph dates remain. No public images or performance figures were added.
+Private native before/after captures and geometry/audio/cache/GPU tests support
+the new description. Full wiki verification and desktop/mobile light/dark,
+keyboard/mobile-navigation and file-URL browser review pass locally; evidence
+is in `.cache/local-weather-20261015/`. Publication remains pending. Wider media,
+performance, furniture/building/settings and source-receipt audits remain open.
