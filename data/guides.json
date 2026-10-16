@@ -3546,7 +3546,7 @@
    "lead": "A full day and night lasts 20 real minutes. Weather in a world follows the same 30-minute pattern, so you can plan around rain and storms. Nothing skips the night: the sun keeps moving, and you cannot sleep through it.",
    "readTime": "3 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-10-15",
    "state": "complete",
    "covers": [
     "day-night-cycle",
@@ -3558,8 +3558,8 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Day length, the weather pattern and its blending, weather effects, rain and roof rules, lightning behaviour and the creative Time and Weather rows come from the game source at Voxelgame ee6fa20 (environment.rs, settings.rs, music_settings.rs, ambience.rs, game.rs). Day and weather rows in the feature ledger cite the same code. Targeted game.rs/survival.rs correction at 35cfc2f8: day, night and rain cause no ambient-temperature survival penalties. Existing cycle and weather evidence retains its original audit; no fresh native play-test receipt is claimed.",
-    "limits": "Source-checked, not play-tested in this guide. No weather or night screenshots exist yet, so the sky and lighting are described in words."
+    "method": "Day length, the weather pattern and its blending, weather effects, rain and roof rules, lightning behaviour and the creative Time and Weather rows come from the game source at Voxelgame ee6fa20 (environment.rs, settings.rs, music_settings.rs, ambience.rs, game.rs). Day and weather rows in the feature ledger cite the same code. Cloud heights and the altitude limit for rain and rain sound were checked separately at Voxelgame 61a4257fe2364fa708805911b30e3dbdb30e17f6 on 15 October 2026, with fresh disposable native before/after captures and automated geometry, audio, cache and GPU cloud tests. Targeted game.rs/survival.rs correction at 35cfc2f8: day, night and rain cause no ambient-temperature survival penalties. Existing cycle and weather evidence retains its original audit.",
+    "limits": "The earlier day-length, weather-pattern and creative-control guidance remains source-checked at ee6fa20. The altitude change has native visual and automated regression evidence; it is not a full play-through of all weather controls. No public weather or night photographs have been added."
    },
    "owns": [
     "day-night-cycle",
@@ -3603,7 +3603,7 @@
       },
       {
        "t": "p",
-       "text": "Each world starts at a different point in the cycle. The weather is the same across the whole world, so rain falls over deserts too. There is no snowfall. {{automatic-weather}}"
+       "text": "Each world starts at a different point in the cycle. The world shares one weather pattern, so rain falls over deserts too. Local rain depends on altitude and shelter. There is no snowfall. {{automatic-weather}}"
       },
       {
        "t": "list",
@@ -3619,6 +3619,8 @@
        "t": "list",
        "items": [
         "Rain stops at the first solid or liquid block. A roof you build keeps the rain off you.",
+        "Cloud banks begin at 1,200, 1,800 and 2,500 metres above world zero.",
+        "Rain and its sound fade through the lowest cloud deck and stop by 1,600 metres. Flying above the clouds does not stop rain in the world below.",
         "Under cover, rain is heard as a softer roof sound.",
         "Lightning only flashes the sky and plays thunder. It does not damage you or set anything on fire.",
         "Rain has no ambient-temperature survival penalty."
@@ -3912,7 +3914,7 @@
         "Salmon, trout, carp, catfish, devil's hole pupfish and triops swim in short bouts and hold still between them.",
         "Blobfish, comb jellies and giant squid mostly hover or drift slowly.",
         "A swimmer turns away from shores, walls and the edge of loaded terrain before it reaches them. If it has no open route, it holds still."
-      ]
+       ]
       },
       {
        "t": "note",

@@ -79,7 +79,7 @@ def render_home():
             '<meta name="theme-color" content="#253c30"><title>Qiqi · Voxelgame player wiki</title>'
             '<link rel="icon" href="favicon.svg" type="image/svg+xml">'
             '<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="wiki.css">'
-            '<script defer src="wiki-ui.js"></script>'
+            '<script src="theme.js"></script><script defer src="wiki-ui.js"></script>'
             '<script defer src="data/search.js"></script><script defer src="wiki-search.js"></script>'
             '</head><body class="wiki-home"><a class="skip" href="#categories">Skip to the catalog</a>'
             + header_html('index.html') + '<main>\n<div class="home-opening"><div class="home-introduction">'
@@ -187,7 +187,9 @@ def apply_chrome(value, page):
     if 'href="wiki.css"' not in value:
         value = value.replace('</head>', '<link rel="stylesheet" href="wiki.css">\n</head>')
     if 'src="wiki-ui.js"' not in value:
-        value = value.replace('</head>', '<script defer src="wiki-ui.js"></script>\n</head>')
+        value = value.replace('</head>', '<script src="theme.js"></script><script defer src="wiki-ui.js"></script>\n</head>')
+    if 'src="theme.js"' not in value:
+        value = value.replace('<head>', '<head><script src="theme.js"></script>', 1)
     if page == 'islands.html' and 'src="data/island-thumbnails.js"' not in value:
         value = value.replace('<script defer src="islands.js">',
                               '<script defer src="data/island-thumbnails.js"></script><script defer src="islands.js">')

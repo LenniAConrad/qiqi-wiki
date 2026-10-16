@@ -638,6 +638,38 @@ before calling this slice delivered. The four open media/performance claims
 remain for a named handoff when the finite allocation ends. Dark mode belongs
 to the returning wiki worker. The full overhaul remains FULL_VALIDATION_PENDING.
 
+## Local dark theme — 15 October 2026
+
+The requested System/Light/Dark selector is implemented across all 44 pages,
+with remembered explicit choice and automatic system preference. Cream, forest
+green and rust remain the light palette; dark surfaces use deep forest green,
+cream text and a lighter rust accent. Original images, palette swatches and cube
+bytes remain unchanged. The site also follows system preference without
+JavaScript, and selection remains usable if local storage is refused.
+
+Local acceptance: `bash tools/verify_wiki.sh` passed (110 tests, 44 pages,
+3831 static references, 1212 staged files). Headless Firefox theme checks passed
+for home, controls, feature ledger and atlas at 1440/390 widths, keyboard theme
+selection/search/mobile navigation, cross-page persistence, system reset,
+no-JavaScript light/dark, storage refusal and static file URLs. Captures are
+private under `.cache/theme-review/`; see `tools/check_theme_browser.py`.
+Publication remains pending. This changes no game feature/source cutoffs or
+photograph dates. Current-generation biome/habitat/hero/build photos and the
+performance/memory work remain open; the delivered 376 portraits are preserved.
+
+## Local weather-height synchronization — 15 October 2026
+
+The weather guide and automatic-weather ledger row now describe cloud bases
+at 1,200 / 1,800 / 2,500 metres, rain and rain sound fading through the lowest
+deck and stopping by 1,600 metres, and unchanged weather below a flying player.
+Only this change is pinned to game 61a4257; the earlier source audit and all
+photograph dates remain. No public images or performance figures were added.
+Private native before/after captures and geometry/audio/cache/GPU tests support
+the new description. Full wiki verification and desktop/mobile light/dark,
+keyboard/mobile-navigation and file-URL browser review pass locally; evidence
+is in `.cache/local-weather-20261015/`. Publication remains pending. Wider media,
+performance, furniture/building/settings and source-receipt audits remain open.
+
 ## Targeted survival-policy correction — 16 October 2026
 
 Game `35cfc2f8` removes ambient/body-temperature survival damage and drift and
@@ -646,3 +678,7 @@ related survival, seasons, weather and save guidance with targeted revision
 notes; unrelated historical source audits and galleries retain their provenance.
 Seasonal thinning/snow and direct fire/flowing-lava hazards remain planned.
 This text correction does not claim new wiki imagery or full visual acceptance.
+
+This delivery also includes the existing local-main theme and cloud-height
+updates. Their earlier browser/source evidence remains attributed to those
+commits; the combined generated pages and static site are verified again.

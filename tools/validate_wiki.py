@@ -49,6 +49,7 @@ def validate():
         assert wiki_layout.header_html(path.name) in value, f'{path.name}: shared header differs'
         assert 'href="wiki.css"' in value, f'{path.name}: shared styles missing'
         assert 'src="wiki-ui.js"' in value, f'{path.name}: mobile navigation script missing'
+        assert value.count('src="theme.js"') == 1, f'{path.name}: early theme script missing or duplicated'
         page = Page(value)
         pages[path.name] = page
         if path.name.startswith(('guide-', 'topic-', 'changelog')) or path.name in {'blocks.html', 'mobs.html'}:
