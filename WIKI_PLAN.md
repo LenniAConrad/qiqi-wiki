@@ -637,3 +637,12 @@ actual browser inspection and intended-head publication acceptance are required
 before calling this slice delivered. The four open media/performance claims
 remain for a named handoff when the finite allocation ends. Dark mode belongs
 to the returning wiki worker. The full overhaul remains FULL_VALIDATION_PENDING.
+
+## Targeted survival-policy correction — 16 October 2026
+
+Game `35cfc2f8` removes ambient/body-temperature survival damage and drift and
+the Home temperature line while retaining inert saved fields. Corrected the
+related survival, seasons, weather and save guidance with targeted revision
+notes; unrelated historical source audits and galleries retain their provenance.
+Seasonal thinning/snow and direct fire/flowing-lava hazards remain planned.
+This text correction does not claim new wiki imagery or full visual acceptance.

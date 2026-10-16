@@ -587,7 +587,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Meter timings, damage values, recipe counts and key behaviours come from the game source at the audited commit and its own unit tests, each traced to a ledger entry. The X shortcut was separately checked at Voxelgame 5856103c (change a6d56495): it repeats the selected Craft-tab recipe.",
+    "method": "Meter timings, damage values, recipe counts and key behaviours come from the game source at the audited commit and its own unit tests, each traced to a ledger entry. The X shortcut was separately checked at Voxelgame 5856103c (change a6d56495): it repeats the selected Craft-tab recipe. Targeted temperature-policy correction at 35cfc2f8: no ambient-temperature damage or shelter warmth; no fresh native play-test receipt is claimed.",
     "limits": "Source-checked, not play-tested. The numbers describe this version: planned food plants, furnaces and ground items would change this guide."
    },
    "sections": [
@@ -780,14 +780,14 @@
        "items": [
         "**Falls:** up to 3 m is free, each extra metre costs 5 HP, so about 23 m is fatal from full health. Only landing on solid ground counts. {{fall-damage-hazards}}",
         "**Starvation and thirst** when the bars run empty.",
-        "**Extreme cold** only at very high altitude, and **explosions**. No drowning, lava, fire or hostile animals exist in this version.",
+        "**Explosions.** No drowning, lava, fire or hostile animals exist in this version. Direct fire/lava contact hazards remain planned.",
         "**Death** respawns you at once at your rest point (the world's start until you rest at home) and you lose nothing. {{death-respawn}}"
        ]
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Body temperature is never shown and, with this version's numbers, heat damage cannot happen. {{temperature-shelter}}"
+       "text": "Base-game survival has no body-temperature meter or ambient-temperature damage. Rain, cold nights and altitude have no temperature penalty. Shelter still matters for resting. {{temperature-shelter}}"
       }
      ]
     },
@@ -1903,7 +1903,7 @@
    "title": "Seasons and the look of the world",
    "headline": "Seasons change<br><em>how the world looks.</em>",
    "summary": "A year lasts 80 minutes. Each season changes colours and light. Blocks, building and tools stay the same. Snow and thinner leaves are planned, not in the game yet.",
-   "lead": "The season changes how the world looks. It does not change the air temperature in survival. Nothing you build, mine or walk on changes with it.",
+   "lead": "The season changes how the world looks, with no survival penalties. Nothing you build, mine or walk on changes with it.",
    "readTime": "3 min read",
    "audience": "Everyone",
    "updated": "2026-10-12",
@@ -1917,7 +1917,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Season length, the colours each season changes, the temperature values and the Settings > World rows come from the game source at the audited commit. The air temperature rules were read from the code at commit 150cd60 (rain only, no season term), not measured in play.",
+    "method": "Season length, colours and the Settings > World rows retain their original source audit. The targeted temperature-policy correction is recorded at 35cfc2f8: ambient temperature and shelter warmth no longer affect survival, and the Home temperature line is removed. The earlier 150cd60 correction removed the seasonal temperature offset. Neither correction is a new season screenshot or native play-test receipt.",
     "limits": "Source-checked, not play-tested in this guide. Season colours are described in words because no season screenshots exist yet."
    },
    "owns": [
@@ -1961,20 +1961,20 @@
     },
     {
      "id": "survival-temperature",
-     "title": "Air temperature in survival",
+     "title": "Temperature-free survival",
      "blocks": [
       {
        "t": "p",
-       "text": "In survival the air temperature does not depend on the season. Time of day adds up to 9 C at midday and takes up to 4.5 C off at night. Rain lowers it by up to 2 C. Altitude also lowers it, by about 1 C for every 40 blocks above sea level. {{day-night-cycle}} {{automatic-weather}}"
+       "text": "Base-game survival has no body-temperature meter or ambient-temperature damage. Seasons, time of day, rain and altitude do not cause cold or heat penalties. {{temperature-shelter}}"
       },
       {
        "t": "p",
-       "text": "Your body temperature follows the air. It costs health only while it is outside -12 to 48 C. At sea level the air stays between about 9.5 and 25 C, so heat does not hurt you there. Higher ground is colder. A roof and walls pull your temperature toward 20 C. {{temperature-shelter}}"
+       "text": "A roof and walls are still needed when you rest at home to set your respawn point. Shelter has no warmth effect."
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "The Home tab shows the current air temperature on its Temperature line, so you can check it before a long trip."
+       "text": "The Home tab has no temperature line. Use its food, water, pack-space and shelter readouts to prepare for a trip."
       }
      ]
     },
@@ -3558,7 +3558,7 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Day length, the weather pattern and its blending, weather effects, rain and roof rules, lightning behaviour and the creative Time and Weather rows come from the game source at Voxelgame ee6fa20 (environment.rs, settings.rs, music_settings.rs, ambience.rs, game.rs). Day and weather rows in the feature ledger cite the same code.",
+    "method": "Day length, the weather pattern and its blending, weather effects, rain and roof rules, lightning behaviour and the creative Time and Weather rows come from the game source at Voxelgame ee6fa20 (environment.rs, settings.rs, music_settings.rs, ambience.rs, game.rs). Day and weather rows in the feature ledger cite the same code. Targeted game.rs/survival.rs correction at 35cfc2f8: day, night and rain cause no ambient-temperature survival penalties. Existing cycle and weather evidence retains its original audit; no fresh native play-test receipt is claimed.",
     "limits": "Source-checked, not play-tested in this guide. No weather or night screenshots exist yet, so the sky and lighting are described in words."
    },
    "owns": [
@@ -3585,7 +3585,7 @@
       },
       {
        "t": "p",
-       "text": "In survival, time of day also changes the air temperature. It is up to 9 C warmer at midday and up to 4.5 C cooler at night. {{temperature-shelter}}"
+       "text": "Day and night do not cause ambient-temperature survival penalties. {{temperature-shelter}}"
       }
      ]
     },
@@ -3621,7 +3621,7 @@
         "Rain stops at the first solid or liquid block. A roof you build keeps the rain off you.",
         "Under cover, rain is heard as a softer roof sound.",
         "Lightning only flashes the sky and plays thunder. It does not damage you or set anything on fire.",
-        "In survival, rain lowers the air temperature by up to 2 C."
+        "Rain has no ambient-temperature survival penalty."
        ]
       },
       {
@@ -3713,7 +3713,7 @@
     "settings-and-performance"
    ],
    "verification": {
-    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs.",
+    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit.",
     "limits": "Source-checked, not play-tested in this guide. No save-file or loading-screen captures exist yet, so the loading screen is described in words."
    },
    "owns": [
@@ -3737,7 +3737,7 @@
        "t": "list",
        "items": [
         "Your position, view direction and game mode (creative or survival).",
-        "In survival: health, hunger, thirst, stamina and temperature.",
+        "In survival: health, hunger, thirst and stamina. A legacy temperature value is retained for save compatibility and has no gameplay effect.",
         "Your inventory, hotbar bindings and selected slot, and the tool you hold.",
         "Every block you changed, with its water state.",
         "Time of day, weather and season controls.",
@@ -4183,7 +4183,7 @@
        "items": [
         "Speed FOV eases over about 0.3 s, so a sprint-jump does not pump the view.",
         "Vehicles have their own speed effect, which the SPEED FOV row also turns off.",
-        "Only real health loss causes the dip. Hunger, cold, respawn and loading do not.",
+        "Only real health loss causes the dip. Hunger, respawn and loading do not.",
         "The dip does not move what you aim at. Aiming and interaction still use your eye position."
        ]
       }

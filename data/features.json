@@ -79,7 +79,7 @@
   {
    "key": "survival",
    "label": "Survival: needs, health & home",
-   "description": "Hunger, thirst, stamina and temperature, dangers, death and respawn, and the home crate."
+   "description": "Health, hunger, thirst and stamina, dangers, death and respawn, and the home crate."
   },
   {
    "key": "crafting",
@@ -150,7 +150,7 @@
     "crates/voxelgame-core/src/game.rs:592 — new sessions start in creative",
     "src/app.rs:540-558 — Create world copies settings and packs but has no mode choice"
    ],
-   "notes": "Creative: instant breaking and free placing, free crafting, any tool and unlimited ammunition, the Build tab and catalog, building brushes and undo, middle-click block picking, flight, map travel and teleport, editable time/weather/season, one-hit animal removal without drops. Survival: timed mining with tool advice, carry capacity, health/hunger/thirst/stamina/temperature with HUD bars, fall damage, R eat / T drink / X quick craft, World tab read-only, respawn at your rest point. No hardcore, peaceful or difficulty settings exist (grep found none).",
+   "notes": "Creative: instant mining, free placing/crafting, any tool, unlimited ammo, Build catalog/brushes/undo, block picking, flight, map travel, world controls and one-hit animal removal without drops. Survival: timed mining/tool advice, carry capacity, health/food/water/stamina bars, falls, R eat, T drink, X craft, read-only World tab and rest-point respawn. No difficulty presets. Targeted 35cfc2f8 update: ambient temperature has no survival effect; other mode evidence retains its original audit.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -873,7 +873,7 @@
     "crates/voxelgame-core/src/player.rs:780-790 — bob strength follows walking speed",
     "crates/voxelgame-core/src/player.rs:349 — camera position applies bob only when enabled"
    ],
-   "notes": "Speed FOV reads horizontal speed only and eases over about 0.3 s, so a sprint-jump no longer pumps the view. Vehicles use their own speed boost, which the Speed FOV row also turns off. Aiming, interaction rays and projectiles stay on the player's eye, so the damage dip does not move what you hit. Hunger, cold, respawn and loading never trigger the damage dip. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
+   "notes": "Speed FOV reads horizontal speed only and eases over about 0.3 s, so a sprint-jump no longer pumps the view. Vehicles use their own speed boost, which the Speed FOV row also turns off. Aiming, interaction rays and projectiles stay on the player's eye, so the damage dip does not move what you hit. Hunger, respawn and loading never trigger the damage dip. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -1168,18 +1168,18 @@
   {
    "id": "temperature-shelter",
    "area": "survival",
-   "name": "Body temperature and shelter",
+   "name": "Temperature-free survival and shelter",
    "status": "available",
    "modes": [
     "survival"
    ],
-   "summary": "Your body temperature drifts toward the air temperature and costs health only outside -12 to 48 C. Air temperature depends on time of day, rain and altitude (not season or biome); a roof and walls pull it toward 20 C.",
+   "summary": "Base-game survival has no body-temperature meter, ambient-temperature damage or shelter warmth. Cold nights, rain and altitude do not reduce health through temperature. Shelter still matters when resting to set your respawn point.",
    "evidence": [
-    "crates/voxelgame-core/src/game/home.rs:77-96 — roof and wall probes",
-    "crates/voxelgame-core/src/game/home.rs:293 — Home tab shows 'Temperature: X C ambient'",
-    "search: grep 'survival.temperature' crates/voxelgame-render — body temperature is not drawn on the HUD"
+    "crates/voxelgame-core/src/survival.rs — 35cfc2f8: survival tick leaves the compatibility temperature field inert and applies no temperature health damage",
+    "crates/voxelgame-core/src/game.rs — 35cfc2f8: survival update has no ambient drift or shelter warmth",
+    "crates/voxelgame-core/src/game/home.rs — 35cfc2f8: shelter remains a rest requirement; Home no longer shows ambient temperature"
    ],
-   "notes": "With these numbers heat damage cannot happen (air peaks around 25 C at sea level) and cold damage needs very high altitude (roughly 860 blocks above sea level on a rainy night, about 940 on a dry night). Body temperature itself is never displayed. Hot blocks such as Magma stone or Boiling water do not hurt.",
+   "notes": "Targeted policy correction at 35cfc2f8, superseding the dd29d91 temperature/shelter rules and ambient Home readout. The saved temperature field remains only for compatibility. Direct fire/lava contact hazards remain requested work; this correction does not implement or verify them. Magma stone and Boiling water remain decorative with respect to contact damage.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1194,12 +1194,12 @@
    "modes": [
     "survival"
    ],
-   "summary": "Falls of up to 3 m are free; each extra metre costs 5 HP, so about 23 m is fatal from full health. Animals never attack; besides falls, only starvation, thirst, extreme cold and explosions hurt you.",
+   "summary": "Falls of up to 3 m are free; each extra metre costs 5 HP, so about 23 m is fatal from full health. Animals never attack; besides falls, starvation, thirst and explosions hurt you. Ambient cold and heat do not cause damage.",
    "evidence": [
     "crates/voxelgame-core/src/player.rs:725-731 — 'three-block safe fall'",
     "crates/voxelgame-core/src/entities/mod.rs:1869-1872 — animals keep a non-hostile distance"
    ],
-   "notes": "No drowning, lava, fire, cactus or hostile-mob damage exists in this snapshot. Fall damage only applies when landing on solid ground.",
+   "notes": "No drowning, lava, fire, cactus or hostile-mob damage exists in this snapshot. Fall damage only applies when landing on solid ground. Targeted policy update at 35cfc2f8: survival.rs tick no longer applies temperature damage; existing fall/animal evidence retains its original audit. Direct fire/lava contact damage remains requested and unverified.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1286,7 +1286,7 @@
     "crates/voxelgame-core/src/game/home.rs:172-192 — rest conditions and effects ('Rest needs dry ground, a roof and cover on two sides')",
     "crates/voxelgame-core/src/game/home.rs:444-472 — test: rest restores stamina only"
    ],
-   "notes": "Leaves and tree trunks count as solid cover; plants and water do not. The shelter check runs when you press Rest; its temperature effect is re-checked every 0.5 s.",
+   "notes": "Leaves and tree trunks count as solid cover; plants and water do not. The shelter check runs when you press Rest. Targeted source update at 35cfc2f8: game.rs no longer applies shelter warmth; home.rs keeps the shelter requirement for Rest. The rest-condition evidence retains its original audit.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1302,12 +1302,12 @@
     "creative",
     "survival"
    ],
-   "summary": "The bottom of the Home tab estimates how many minutes of food and water you carry, counts empty flasks, shows free pack space, whether your spot is sheltered, and the air temperature.",
+   "summary": "The bottom of the Home tab estimates how many minutes of food and water you carry, counts empty flasks, shows free pack space and whether your spot is sheltered. It has no temperature line.",
    "evidence": [
     "crates/voxelgame-core/src/game/home.rs:259-295 — preparation lines",
     "crates/voxelgame-render/src/inventory_ui.rs:526-531 — drawn in two columns"
    ],
-   "notes": "Shelter readout: 'sheltered', 'roofed, exposed sides' or 'exposed; build a roof'. The starter pack reads about 24 min of food and 21 min of water.",
+   "notes": "Shelter readout: 'sheltered', 'roofed, exposed sides' or 'exposed; build a roof'. The starter pack reads about 24 min of food and 21 min of water. Targeted home.rs source update at 35cfc2f8 removes the ambient-temperature line; remaining readout evidence retains its original audit.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1704,8 +1704,8 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1502-1506 \u2014 X repeats the selected recipe when the inventory is closed and the player is not in a vehicle",
-    "crates/voxelgame-core/src/game/crafting.rs:130-147 \u2014 selected recipe, missing-material message and creative refusal"
+    "crates/voxelgame-core/src/game.rs:1502-1506 — X repeats the selected recipe when the inventory is closed and the player is not in a vehicle",
+    "crates/voxelgame-core/src/game/crafting.rs:130-147 — selected recipe, missing-material message and creative refusal"
    ],
    "notes": "This row was source-checked at Voxelgame 5856103c on 13 October 2026; the change landed in a6d56495. Select a recipe on the Craft tab before using X. The shortcut no longer falls back to the first affordable recipe or spends the starter boards on an unrelated recipe. This is a source check, not a new gameplay test.",
    "guide": {
@@ -3072,7 +3072,7 @@
    "backlog": [
     "VOX-OWNER-DARKER-NIGHTS"
    ],
-   "notes": "In survival, time of day also changes the air temperature by up to 9 degrees (see seasons). The world clock stops while the fullscreen map or Settings is open.",
+   "notes": "The world clock stops while the fullscreen map or Settings is open. Targeted game.rs/survival.rs source update at 35cfc2f8: day and night cause no ambient-temperature survival effects; other cycle evidence retains its original audit.",
    "guide": {
     "state": "complete",
     "page": "guide-weather-day-night.html",
@@ -3098,7 +3098,7 @@
    "backlog": [
     "VOX-OWNER-REGIONAL-WEATHER"
    ],
-   "notes": "Weather changes sailing wind strength. In survival, rain lowers the air temperature by up to 2 degrees.",
+   "notes": "Weather changes sailing wind strength. Targeted game.rs/survival.rs source update at 35cfc2f8: rain causes no ambient-temperature survival effects; other weather evidence retains its original audit.",
    "guide": {
     "state": "complete",
     "page": "guide-weather-day-night.html",
@@ -3146,18 +3146,18 @@
     "creative",
     "survival"
    ],
-   "summary": "A year is 80 real minutes, about 20 minutes per season, and new worlds start in summer. Seasons tint grass, deciduous leaves, needles, blossoms, water, sky and sunlight, for example russet autumn foliage and a cooler winter light. Leaves never thin out and nothing turns snowy. Seasons do not change survival air temperature (commit 150cd60), so they only change how the world looks.",
+   "summary": "A year is 80 real minutes, about 20 minutes per season, and new worlds start in summer. Seasons tint grass, deciduous leaves, needles, blossoms, water, sky and sunlight, for example russet autumn foliage and a cooler winter light. Seasonal leaf thinning and snow appearance remain planned. Seasons change appearance without survival penalties or world-content changes.",
    "evidence": [
     "crates/voxelgame-render/src/shader.wgsl:987-1103 — seasonal colour palettes (grass, foliage, evergreen, blossom, autumn leaves, water)",
     "crates/voxelgame-render/src/sky_light.rs:12-38 — seasonal sky and sun tint and strength",
-    "crates/voxelgame-core/src/environment.rs:408-411 — temperature_offset is rain only (150cd60)",
-    "crates/voxelgame-core/src/game.rs:1099-1108 — survival temperature uses ambient_temperature, with shelter pulling it toward 20 degrees",
-    "crates/voxelgame-core/src/game/home.rs:293 — Home tab shows 'Temperature: N C ambient'"
+    "crates/voxelgame-core/src/environment.rs:408-411 — historical 150cd60 evidence: seasonal temperature offset was removed",
+    "crates/voxelgame-core/src/game.rs — 35cfc2f8: ambient temperature and shelter warmth no longer drive survival",
+    "crates/voxelgame-core/src/survival.rs — 35cfc2f8: no body-temperature drift or temperature damage"
    ],
    "backlog": [
     "VOX-OWNER-VISUAL-ONLY-SEASONS"
    ],
-   "notes": "Seasons are visual only: environment.rs temperature_offset is rain only since 150cd60, with regression tests. The wiki must not claim that leaves thin or grass turns snowy until those ship.",
+   "notes": "Targeted temperature-policy update at 35cfc2f8; seasonal palettes retain their original source audit. The earlier 150cd60 correction removed the seasonal temperature offset. The wiki must not claim that leaves thin or grass turns snowy until those ship. No fresh native or season-image evidence is claimed.",
    "guide": {
     "state": "partial",
     "page": "guide-seasons.html",
@@ -5014,13 +5014,13 @@
     "creative",
     "survival"
    ],
-   "summary": "A save keeps your position and view, game mode, health, hunger, thirst, stamina and temperature, inventory, quick-slot bindings and selection, equipped tool, every block you changed (with water state), time/weather/season controls, home crate and rest point, one saved build palette, journal places and expedition finds, the map destination, sailing boats and your settings. Animals, projectiles, primed TNT and Study Grove timers are not saved.",
+   "summary": "A save keeps your position and view, game mode, health, hunger, thirst and stamina, inventory, quick-slot bindings and selection, equipped tool, every block you changed (with water state), time/weather/season controls, home crate and rest point, one saved build palette, journal places and expedition finds, the map destination, sailing boats and your settings. A legacy temperature value remains for compatibility and has no gameplay effect. Animals, projectiles, primed TNT and Study Grove timers are not saved.",
    "evidence": [
     "crates/voxelgame-core/src/save/write.rs:112-137 — complete list of saved sections",
     "crates/voxelgame-core/src/save/write.rs:150-170 — position, mode, day clock and survival meters",
     "crates/voxelgame-core/src/pomodoro.rs:3 — study timer is session-only"
    ],
-   "notes": "Session-only (reset on load): Performance (F3), Chunk borders (F7), LOD view (F8), the FPS and coordinates readout (on by default) and Study Grove settings/counts. Creative and survival worlds use the same format; the mode is stored.",
+   "notes": "Session-only (reset on load): Performance (F3), Chunk borders (F7), LOD view (F8), the FPS and coordinates readout (on by default) and Study Grove settings/counts. Creative and survival worlds use the same format; the mode is stored. Targeted survival.rs/save source correction at 35cfc2f8: serialized temperature is retained inert; no save format change or fresh save-fault test is claimed here.",
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
@@ -5688,12 +5688,12 @@
  ],
  "docNotes": [
   {
-   "topic": "Seasons are not yet visual-only",
-   "detail": "Commit 150cd60 removed the seasonal survival air-temperature swing, so seasons are visual only for temperature. Leaves that thin and snowy grass remain planned.",
+   "topic": "Seasonal appearance remains incomplete",
+   "detail": "Seasons change palettes without survival penalties or world-content changes. Commit 150cd60 removed the seasonal temperature offset; 35cfc2f8 removes ambient-temperature survival altogether. Seasonal leaf thinning and snowy grass remain planned, without a fresh native visual acceptance claim.",
    "evidence": [
     "docs/PHILOSOPHY.md:27",
     "crates/voxelgame-core/src/environment.rs:408-411",
-    "crates/voxelgame-core/src/game.rs:2674-2679"
+    "crates/voxelgame-core/src/game.rs — 35cfc2f8: ambient-temperature survival removed"
    ]
   },
   {
