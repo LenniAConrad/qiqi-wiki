@@ -607,3 +607,9 @@ feature badges. All page generators include the script and shared header. Run
 keyboard, navigation persistence, storage-denial, no-JavaScript and file-URL
 checks. Captures and the receipt stay under `.cache/theme-review/` and are not
 part of the public site.
+
+17 October 2026 update/world-profile follow-up: the install guide and its coverage
+entries track game 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux managed update/rollback
+commands, native headless smoke limits, preserved player data and per-world versus
+global preferences are documented. Windows/macOS managed parity and Mint delivery
+remain pending. The other feature-ledger entries retain their dated audit baseline.

@@ -4828,17 +4828,16 @@
    "area": "platform",
    "name": "Updating an installed game",
    "status": "partial",
-   "summary": "There is no separate updater: close the game, extract the newer source folder and run its installer again. Worlds and settings stay in the data folder, a failed build leaves the old version working, and the launcher switches to the new version only after it is completely copied.",
+   "summary": "Linux managed installs report installed identity, stage an isolated official-source build and atomically switch the launcher after verification. Earlier releases and player data are kept; verified rollback selects the previous application payload. Windows/macOS retain source reinstall.",
    "evidence": [
-    "install.sh:133-148 — every install copies into a new versions/<timestamp> folder",
-    "install.sh:149-174 — launcher replaced only after the new payload is complete",
-    "install-windows.ps1:115-135 — same versioned payload and launcher swap on Windows",
-    "tools/test_installers.py:92 — tests: failed rebuild keeps launcher and worlds; upgrade keeps worlds"
+    "tools/update_install.py:1-18 — Linux managed-update scope and official source",
+    "docs/UPDATING.md:1-15 — version/update/rollback commands and limitations",
+    "tools/test_update_install.py:1-20 — isolated orchestration regressions"
    ],
    "backlog": [
     "VOX-OWNER-UPDATE-INSTALLER"
    ],
-   "notes": "Missing today: update-existing detection, version/origin checks, a check that the game is closed, rollback and clean-up of old versions (delete them yourself after checking the new one). Going back to an older build is not supported and may fail to open worlds saved by the newer one (current save format 29, save.rs:46). A source checkout launched with./run.sh rebuilds itself when its sources change (run.sh:76-107).",
+   "notes": "17 October follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b: Linux orchestration has isolated failure/preservation tests. Native running-session and both-host acceptance remain pending; Windows/macOS managed updates are unfinished. Rollback does not undo newer save formats. See the updated installation guide; other ledger entries retain their stated audit baseline.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
@@ -4943,7 +4942,7 @@
     "src/worlds.rs:203-232 — named folder or numbered world-NNNN folder",
     "src/worlds.rs:263-272 — named folder or numbered world-NNNN folder"
    ],
-   "notes": "There is no seed field when creating a world. Only your changes are stored; untouched terrain is regenerated from the seed.",
+   "notes": "17 October follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b: Create world supports name, seed, mode and generator. World mode/environment/progression remain local; device, display, audio and control preferences are global. Format 31 adds atomic gameplay-compatibility identities; failed startup keeps the saved configuration. Untouched terrain is regenerated.",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -5690,6 +5689,15 @@
   }
  ],
  "docNotes": [
+  {
+   "topic": "17 October update and world-profile follow-up",
+   "detail": "The installation guide and its update/world-file entries were refreshed against 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. The remaining feature ledger retains its independently recorded audit baseline. Linux managed-update orchestration is tested; cross-platform parity and both-computer delivery are pending.",
+   "evidence": [
+    "docs/UPDATING.md:1-15",
+    "crates/voxelgame-core/src/save.rs:23-31",
+    "src/local_startup.rs:55-75"
+   ]
+  },
   {
    "topic": "Seasonal appearance remains incomplete",
    "detail": "Seasons change palettes without survival penalties or world-content changes. Commit 150cd60 removed the seasonal temperature offset; 35cfc2f8 removes ambient-temperature survival altogether. Seasonal leaf thinning and snowy grass remain planned, without a fresh native visual acceptance claim.",

@@ -802,21 +802,66 @@
       {
        "t": "keys",
        "rows": [
-       ["Timber", "Fell a tree by hand. Only a log counts, so cutting leaves or a stump does not."],
-       ["Boards", "Split logs into boards, for example with a Split boards recipe."],
-       ["First tool", "Craft any tool, such as a Stone hatchet."],
-       ["Front door", "Hang a door."],
-       ["Put away", "Store something in a chest."],
-       ["Home", "Make a home at a storage crate (Establish home)."],
-       ["Rested", "Rest at your home."],
-       ["Charcoal", "Burn boards into charcoal."],
-       ["Glass", "Fire sand into glass."],
-       ["Window", "Place a glass block."],
-       ["Hot meal", "Cook a meal."],
-       ["Landmark", "Reach an expedition landmark on foot."],
-       ["Supplies", "Collect a landmark's supplies."],
-       ["Boatwright", "Build a sailing boat."],
-       ["Set sail", "Launch a boat onto water."]
+        [
+         "Timber",
+         "Fell a tree by hand. Only a log counts, so cutting leaves or a stump does not."
+        ],
+        [
+         "Boards",
+         "Split logs into boards, for example with a Split boards recipe."
+        ],
+        [
+         "First tool",
+         "Craft any tool, such as a Stone hatchet."
+        ],
+        [
+         "Front door",
+         "Hang a door."
+        ],
+        [
+         "Put away",
+         "Store something in a chest."
+        ],
+        [
+         "Home",
+         "Make a home at a storage crate (Establish home)."
+        ],
+        [
+         "Rested",
+         "Rest at your home."
+        ],
+        [
+         "Charcoal",
+         "Burn boards into charcoal."
+        ],
+        [
+         "Glass",
+         "Fire sand into glass."
+        ],
+        [
+         "Window",
+         "Place a glass block."
+        ],
+        [
+         "Hot meal",
+         "Cook a meal."
+        ],
+        [
+         "Landmark",
+         "Reach an expedition landmark on foot."
+        ],
+        [
+         "Supplies",
+         "Collect a landmark's supplies."
+        ],
+        [
+         "Boatwright",
+         "Build a sailing boat."
+        ],
+        [
+         "Set sail",
+         "Launch a boat onto water."
+        ]
        ]
       },
       {
@@ -1138,11 +1183,11 @@
    "kicker": "Setup",
    "title": "Install, update and find your worlds",
    "headline": "Install the game,<br><em>keep your worlds.</em>",
-   "summary": "Install Voxelgame on Linux, Windows or macOS, update it by running the installer again, and find the folders that hold your worlds.",
-   "lead": "Each installer builds the game from the source folder and adds a launcher. Worlds and settings live in a separate data folder, so an update leaves them alone.",
+   "summary": "Install Voxelgame, use Linux managed update and rollback, and preserve your worlds and preferences.",
+   "lead": "Each installer builds the game from source and adds a launcher. Player worlds, editable data and shared preferences live outside the versioned application payloads; updates preserve them.",
    "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-10-17",
    "state": "complete",
    "covers": [
     "install-linux",
@@ -1163,8 +1208,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Installer steps, folder names and world file rules come from the installer scripts and the save code at the audited commit, each traced to a ledger entry. Each ledger entry lists its source lines.",
-    "limits": "Source-checked, not play-tested. Linux is the platform the installer is tested on. Windows and macOS are marked Limited because no real machine has validated them yet."
+    "method": "Update/world-configuration follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux orchestration passed 30 isolated tests; a compiled native binary passed first-install/reinstall, live headless-session preservation, version reporting and rollback. Save/startup regressions and inspected headless captures cover compatibility and switching; other guide details retain the earlier audit.",
+    "limits": "Not fully play-tested. Official-source fetch/build is covered by isolated Git/fake-compiler tests, not a second native rebuild. Windows/macOS managed parity and native validation are pending. Mint delivery was blocked by SSH authentication. Rollback cannot undo newer save formats."
    },
    "owns": [
     "install-linux",
@@ -1213,7 +1258,7 @@
        "items": [
         "Open a terminal in the extracted source folder.",
         "Run **bash install.sh** as your normal user. Do not use sudo; setup only uses it for system packages.",
-        "Read the plan and confirm it. Setup installs compiler and audio tools with apt-get, dnf or pacman, installs Rust, builds the game and adds Voxelgame to your application menu.",
+        "Read the plan and confirm it. First setup installs compiler/audio tools and Rust, builds the game and adds a launcher. Existing Linux installations reuse their tools without administrator prompts; repair missing prerequisites separately.",
         "Start Voxelgame from the application menu."
        ]
       },
@@ -1302,29 +1347,34 @@
      "blocks": [
       {
        "t": "p",
-       "text": "There is no separate updater. Install a newer version the same way you installed the first one."
+       "text": "Linux managed installs can report their version, update from official source and select the previous verified installation. Windows/macOS still use source reinstall; managed update and rollback on those platforms remain unfinished."
       },
       {
        "t": "steps",
        "items": [
-        "Close the game. [[Ctrl+Q]] saves and quits.",
-        "Extract the newer source folder.",
-        "Run its installer again: **bash install.sh**, **Install-macOS.command** or **install-windows.cmd**."
+        "Save your world and close the game when convenient. Updating does not restart a running session; reopen afterwards to use the new release.",
+        "From a clean official Git checkout, run **bash install.sh --version**, then **bash install.sh --update**. After archive setup, use **~/.local/share/voxelgame/app/launch.sh --version** and **--update** instead. For a custom installation, use its launch.sh or the source script with **--prefix PATH**.",
+        "Read the installed and available commit, build progress and final result. Linux needs Python 3.9+, Git, a prepared Rust/compiler toolchain and at least 5 GiB free. The update command does not install prerequisites or ask for administrator access."
        ]
       },
       {
        "t": "list",
        "items": [
-        "Your worlds and settings stay in the data folder.",
-        "If the build fails, the old version keeps working.",
-        "The launcher switches to the new version only after the new copy is complete.",
-        "Setup does not delete old versions. Delete the older folders in the app's versions folder yourself, after you have checked the new version."
+        "Worlds, settings, screenshots and editable projects remain in their separate data folders.",
+        "Updates build official source in isolation and verify the completed files before switching the launcher. Dirty source checkouts cause a refusal; nothing is stashed or reset.",
+        "If fetching, building or verification fails, keep using the old launcher. Fix the reported network, disk-space or permission problem and retry.",
+        "Run **bash install.sh --rollback** to verify and select the previous release. Old releases are retained; updates do not delete them automatically.",
+        "Logs are under ~/.local/state/voxelgame/update-*.log unless the log folder was overridden."
        ]
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "Going back to an older build is not supported. It may fail to open worlds saved by a newer build."
+       "text": "Keep backups. Rollback switches application files only. An older executable may refuse worlds saved in a newer format; rollback does not undo changes to worlds or settings. Linux headless session preservation was checked; Windows/macOS parity and both-computer delivery remain pending."
+      },
+      {
+       "t": "p",
+       "text": "On Windows/macOS, close the game, extract the newer source and rerun the installer. Their existing separate data folders are preserved; verified managed rollback is Linux only."
       }
      ]
     },
@@ -1337,17 +1387,21 @@
        "rows": [
         [
          "Linux",
-         "Worlds and settings: ~/.local/share/voxelgame/data. Installer logs: ~/.local/state/voxelgame"
+         "Worlds and editable data: ~/.local/share/voxelgame/data. Installer logs: ~/.local/state/voxelgame"
         ],
         [
          "macOS",
-         "Worlds and settings: ~/Library/Application Support/Voxelgame. Installer logs: ~/Library/Logs/Voxelgame"
+         "Worlds and editable data: ~/Library/Application Support/Voxelgame. Installer logs: ~/Library/Logs/Voxelgame"
         ],
         [
          "Windows",
-         "Worlds and settings: %LOCALAPPDATA%\\Voxelgame\\data. Installer logs: %LOCALAPPDATA%\\Voxelgame\\logs"
+         "Worlds and editable data: %LOCALAPPDATA%\\Voxelgame\\data. Installer logs: %LOCALAPPDATA%\\Voxelgame\\logs"
         ]
        ]
+      },
+      {
+       "t": "p",
+       "text": "On Linux, shared display, audio, controls and accessibility preferences are in $XDG_CONFIG_HOME/voxelgame/settings, defaulting to ~/.config/voxelgame/settings. Mode, environment controls, progression and accepted gameplay configuration remain in the world file. Other platforms have not received native profile-location acceptance."
       },
       {
        "t": "p",
@@ -1390,6 +1444,10 @@
        "t": "note",
        "kind": "careful",
        "text": "The installer does not move worlds from a source checkout started with ./run.sh. Copying that worlds folder into the data folder with the game closed should work, but this is inferred from the save paths and has not been tested."
+      },
+      {
+       "t": "p",
+       "text": "World mode, generator, time/weather/season controls and progression belong to that world. Display, audio, controls and accessibility preferences are shared across worlds. New saves retain gameplay-compatibility identities; a changed required configuration blocks startup and keeps the save. Use Back, restore the matching configuration, or choose a separate world. Legacy saves acquire these identities after a successful start and save."
       }
      ]
     },
