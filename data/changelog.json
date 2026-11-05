@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "reviewed": "2026-10-13",
+  "reviewed": "2026-11-05",
   "sources": [
     {
       "id": "game",
@@ -31,17 +31,17 @@
         "date": "2026-10-09"
       },
       "last": {
-        "commit": "fbd5f199376c0f6aebaad1a7b512b1f553293c6f",
-        "date": "2026-10-13"
+        "commit": "9017e34a98f7274cf5ffcba2146aa9a58091b34b",
+        "date": "2026-11-05"
       },
-      "commitCount": 107,
+      "commitCount": 119,
       "tags": [],
       "publicCommitLinks": true,
       "releases": "none",
-      "checked": "2026-10-13"
+      "checked": "2026-11-05"
     }
   ],
-  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test.",
+  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test. The 5 November continuation reviews only the 12 later wiki changes through 9017e34 and selected relevant patches; the game-history cutoff and its compatibility entries remain 13 October until separately reviewed.",
   "gaps": [
     "The game history starts with a large snapshot on 16 August 2026. Earlier development and changes between recorded snapshots cannot be dated more precisely.",
     "There are no tags in either inspected checkout. The public game release endpoint returned 404 during review, so game releases could not be verified. The wiki release endpoint returned an empty list. No release numbers are inferred from package metadata.",
@@ -140,6 +140,160 @@
     }
   ],
   "periods": [
+    {
+      "id": "wiki-2026-11-05",
+      "source": "wiki",
+      "date": "2026-11-05",
+      "title": "Current player guides",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Player guides",
+          "text": "A targeted source-backed refresh updates nine guides and 56 feature rows at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: current inventory, death/respawn, saved-world selection and backups, stopped-host recovery, furniture and settings/controls. Existing galleries retain their dates. No new native gameplay run is claimed.",
+          "refs": [
+            {
+              "commit": "9017e34a98f7274cf5ffcba2146aa9a58091b34b",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Updated inventory, backups, LAN hosting, furniture and controls guides."
+        },
+        {
+          "kind": "Changed",
+          "area": "Finding answers",
+          "text": "Furniture is linked through Building and search; current multiplayer instructions lead their preserved old URL and are linked from Getting started. The retired non-base timer URL becomes a short availability notice.",
+          "refs": [
+            {
+              "commit": "9017e34a98f7274cf5ffcba2146aa9a58091b34b",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Made furniture and multiplayer instructions easier to find."
+        }
+      ],
+      "publicTitle": "Inventory, backups, LAN hosting, furniture and controls"
+    },
+    {
+      "id": "wiki-2026-10-17",
+      "source": "wiki",
+      "date": "2026-10-17",
+      "title": "Updating and protecting worlds",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Installation and worlds",
+          "text": "The Linux update guide records managed update/rollback, version checks, preserved data and world-specific versus shared preferences, with its actual source/native limits. Windows/macOS parity is not claimed.",
+          "refs": [
+            {
+              "commit": "fee01d3fad576bfb6b1fa6dccf16dec7f3b7d43f",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added Linux update and rollback help, with clearer world and settings guidance."
+        }
+      ],
+      "publicTitle": "Updating and protecting worlds"
+    },
+    {
+      "id": "wiki-2026-10-16",
+      "source": "wiki",
+      "date": "2026-10-16",
+      "title": "Survival guidance",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Survival",
+          "text": "Temperature-free survival guidance is integrated with existing themes and the separate weather update. The serialized legacy temperature value is explicitly inert.",
+          "refs": [
+            {
+              "commit": "c043bd15c169cbdd54c0bb6def686d7926ccd6fb",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "dc4501f1f6a593f749c947c9dd0f4885760b17c2",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Updated survival guidance to explain that temperature no longer affects the player."
+        }
+      ],
+      "publicTitle": "Survival guidance"
+    },
+    {
+      "id": "wiki-2026-10-15",
+      "source": "wiki",
+      "date": "2026-10-15",
+      "title": "Themes and weather guidance",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Themes",
+          "text": "Remembered System, Light and Dark theme choices are added across the existing wiki, preserving original photographs and branding. This records the completed earlier work; it does not repeat that implementation.",
+          "refs": [
+            {
+              "commit": "54e7ec603998338b6190c238e278eee53401d18a",
+              "date": "2026-10-15"
+            }
+          ],
+          "publicSummary": "Added light, dark and system themes, with a remembered choice."
+        },
+        {
+          "kind": "Changed",
+          "area": "Weather",
+          "text": "Cloud-height and altitude-limited rain guidance receives its separate source/native receipt, while older weather-cycle evidence retains its original date. No new public sky photograph is claimed.",
+          "refs": [
+            {
+              "commit": "b62ab3b68d77b1be414c6283422882198cae6784",
+              "date": "2026-10-15"
+            }
+          ],
+          "publicSummary": "Updated cloud-height and high-altitude rain guidance."
+        }
+      ],
+      "publicTitle": "Light and dark themes; cloud and rain guidance"
+    },
+    {
+      "id": "wiki-2026-10-14",
+      "source": "wiki",
+      "date": "2026-10-14",
+      "title": "Field-guide layout and branding",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Layout",
+          "text": "The original rainbow-cube mark and Player wiki descriptor join the header, followed by the reviewed cream/forest/rust field-guide refinements and responsive layout. Existing captures retain their source dates.",
+          "refs": [
+            {
+              "commit": "238a26ba697f944e7e279a386712f427f8f6d6d0",
+              "date": "2026-10-14"
+            },
+            {
+              "commit": "478a96d53eb2b577cba79deb56a9f9128471d980",
+              "date": "2026-10-14"
+            }
+          ],
+          "publicSummary": "Updated the field-guide layout and added the rainbow-cube header."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Internal preparation",
+          "text": "Capture/publication receipts are staged privately and trusted logo markup is distinguished from injected changelog source text in validation. These do not constitute fresh photographs.",
+          "refs": [
+            {
+              "commit": "aa1c349795e105e29d560919bae507f63ea78a7f",
+              "date": "2026-10-14"
+            },
+            {
+              "commit": "b41b6f04345531e1c5fe5b0b8c408d969dbdc980",
+              "date": "2026-10-14"
+            }
+          ],
+          "publicSummary": null,
+          "privateReason": "Private capture preparation and validation maintenance; no separate player catalog change."
+        }
+      ],
+      "publicTitle": "Field-guide layout and branding"
+    },
     {
       "id": "wiki-2026-10-13",
       "source": "wiki",
@@ -285,6 +439,31 @@
               "date": "2026-10-13"
             }
           ]
+        },
+        {
+          "kind": "Changed",
+          "area": "Daily updates",
+          "text": "The public game and wiki histories become concise daily summaries while complete original narratives and evidence remain in private maintenance data.",
+          "refs": [
+            {
+              "commit": "622bfe3abe7436f128500e2a39dbd786792f812e",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Simplified the changelog into short daily updates."
+        },
+        {
+          "kind": "Changed",
+          "area": "Private survey preparation",
+          "text": "Immutable-source biome survey staging and failure receipts are prepared without relabelling public photographs.",
+          "refs": [
+            {
+              "commit": "df9ec7f3de5ec4d3681ece706972851b0b9be358",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": null,
+          "privateReason": "Internal media preparation; no fresh public photograph."
         }
       ],
       "publicTitle": "Catalog navigation, animal portraits and guides"

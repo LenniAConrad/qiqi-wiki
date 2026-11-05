@@ -734,3 +734,21 @@ coordinator review of `tools/test_changelog.py:49`, whose fixed 14 October
 “outside review” date becomes valid inside a newer reviewed range. No protected
 check was weakened or bypassed. Fresh biome/habitat/hero photographs remain a
 separate open unit.
+
+
+## Wiki daily updates follow-up — 5 November 2026
+
+The wiki history now includes the 12 later changes through `9017e34`, covering
+public layout/branding, completed themes, weather/survival/update guidance and
+the new practical guide refresh. Brief entries use each change's recorded day;
+internal media preparation keeps its evidence without a public announcement.
+The wiki's 119-change history and 83 date/source references are verified. This
+follow-up does not change the game history's 13 October cutoff or its compatibility
+receipts. No older image, native measurement or gameplay test is relabelled.
+
+The full static gate passes 110 tests, and source-driven browser acceptance
+passes 40 checks at desktop/mobile sizes, including real date/history keyboard
+navigation, search, file URLs and no-JavaScript reading. Six captures were made
+and three inspected directly. The original fixed-date browser fixture is not
+used as current-history acceptance and remains unchanged. The retained runtime
+receipt records the corrected private review focus and earlier failed attempt.
