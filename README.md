@@ -40,7 +40,13 @@ rules, guide links, navigation and that `features.html` matches a fresh render.
 With it, every cited `path:line` must exist in the exported commit. Planned
 features must name the request that tracks them and cannot claim a guide.
 Update `audited`, `game.commit` and the evidence together; never relabel old
-evidence as a newer commit.
+evidence as a newer commit. Targeted follow-ups keep this baseline and record
+the full checked source revision in each changed row's notes instead. Guide
+verification identifies the scope and any older evidence it retains.
+
+A former guide that leaves the base game can keep its bookmark through
+`retiredGuides` in `data/guides.json`. The generator renders its short notice
+without adding it to the active guide index, topics or search.
 
 ## Preserved atlas documentation
 

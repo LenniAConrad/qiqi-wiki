@@ -231,8 +231,8 @@ def verification_html(ctx, guide):
         '<section id="verification" class="guide-section guide-verification" aria-labelledby="verification-t">'
         '<h2 id="verification-t">How this guide was checked</h2>'
         f'<p>{ctx.inline(verification["method"])}</p>'
-        f'<p class="measurement-note">Voxelgame main <code>{text(game["commit"][:7])}</code>, committed '
-        f'{text(long_date(game["commitDate"]))}; guide written {text(long_date(guide["updated"]))}. '
+        f'<p class="measurement-note">Initial ledger audit: Voxelgame main <code>{text(game["commit"][:7])}</code>, committed '
+        f'{text(long_date(game["commitDate"]))}; article updated {text(long_date(guide["updated"]))}. '
         f'{ctx.inline(verification["limits"])} Features covered, with their source evidence: {covered}.</p>'
         "</section>\n")
 
@@ -251,7 +251,7 @@ def render_guide(ctx, guide):
     add('<section class="intro" aria-labelledby="title"><div class="intro-row">'
         f'<h1 id="title">{text(guide["title"])}</h1><p>{ctx.inline(guide["lead"])}</p></div></section>\n')
     game = ctx.ledger["game"]
-    add(f'<div class="study-meta">Voxelgame main <code>{text(game["commit"][:7])}</code> · {text(guide["readTime"])}'
+    add(f'<div class="study-meta">Updated {text(long_date(guide["updated"]))} · {text(guide["readTime"])}'
         f' · {text(guide["audience"])} · <a href="features.html">feature ledger</a> · '
         f'<a href="{INDEX_PAGE}">all guides</a></div>\n')
     add('<article class="wiki-article" aria-labelledby="title"><details class="wiki-contents" open>'
@@ -290,9 +290,8 @@ def render_index(ctx):
         f'PLAYER GUIDES / UPDATED {text(long_date(guides["updated"]).upper())}</div><div class="intro-row">'
         f'<h1 id="title">Player guides</h1><p>{text(guides["lead"])}</p></div></section>\n')
     game = ledger["game"]
-    add(f'<div class="study-meta">Written against Voxelgame main <code>{text(game["commit"][:7])}</code> · committed '
-        f'{text(long_date(game["commitDate"]))} · every claim is traced to the source in the '
-        '<a href="features.html">feature ledger</a></div>\n')
+    add('<div class="study-meta">Source dates and later checks are recorded with each article and in the '
+        '<a href="features.html">feature ledger</a>.</div>\n')
     add('<nav class="guide-topic-links" aria-label="Browse by topic">' + ''.join(
         f'<a href="{topic["page"]}">{text(topic["title"])}</a>' for topic in TOPICS) + '</nav>')
     add(f'<section id="guide-list" class="report-section" aria-labelledby="list-t"><div class="section-heading">'
@@ -315,12 +314,38 @@ def render_index(ctx):
     return "".join(out)
 
 
+def render_retired_notice(ctx, notice):
+    """Keep an old bookmark readable without listing it as a current guide."""
+    page = notice["page"]
+    if not re.fullmatch(r"guide-[a-z0-9-]+\.html", page):
+        raise ValueError(f"Invalid retired guide page: {page}")
+    title = text(notice["title"])
+    out = [page_open(notice["title"], notice["lead"], page, "guide-page",
+                     "guide-body", "Skip to the notice", "PLAYER GUIDE")]
+    out.append('<nav class="wiki-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a>'
+               '<span aria-hidden="true">/</span><a href="guides.html">Guides</a>'
+               f'<span aria-hidden="true">/</span><span aria-current="page">{title}</span></nav>')
+    out.append(f'<section class="intro" aria-labelledby="title"><h1 id="title">{title}</h1>'
+               f'<p>{text(notice["lead"])}</p></section>')
+    out.append('<article class="wiki-article"><nav class="wiki-contents" aria-label="On this page">'
+               '<a href="#guide-body">Current guides</a></nav><section class="guide-section" id="guide-body">'
+               f'<h2>Looking for a current guide?</h2><p>{ctx.inline(notice["text"])}</p>'
+               f'<p class="measurement-note">Base-game availability checked {text(long_date(notice["updated"]))}. '
+               'The earlier instructions remain in the wiki history.</p></section></article>')
+    out.append(page_close())
+    return "".join(out)
+
+
 def render_all(guides, ledger, recipes):
     """Return {file name: html} for every generated page."""
     ctx = Context(guides, ledger, recipes)
     pages = {INDEX_PAGE: render_index(ctx)}
     for guide in guides["guides"]:
         pages[guide["page"]] = render_guide(ctx, guide)
+    for notice in guides.get("retiredGuides", []):
+        if notice["page"] in pages:
+            raise ValueError(f'Duplicate guide page: {notice["page"]}')
+        pages[notice["page"]] = render_retired_notice(ctx, notice)
     return pages
 
 

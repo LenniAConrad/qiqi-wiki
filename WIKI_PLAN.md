@@ -682,3 +682,55 @@ This text correction does not claim new wiki imagery or full visual acceptance.
 This delivery also includes the existing local-main theme and cloud-height
 updates. Their earlier browser/source evidence remains attributed to those
 commits; the combined generated pages and static site are verified again.
+
+
+## Current practical guides — 5 November 2026
+
+A targeted source review at `aa136e0103ce5599c6d8a9f70c669dbc758b7357` refreshes
+56 feature rows and nine practical guides. Each changed row names that exact
+revision in its notes. The old global audit and untouched receipts retain their
+dates; a targeted correction does not relabel the entire ledger as current.
+
+- Worlds now documents name/seed/mode/generation selection, generation 12 for
+  new worlds, remembered local worlds, rename, duplicate and separate backups.
+- Saves and LAN hosting explain refused saves, Main menu continuing to host,
+  F6 recovery retry and the explicit Shift+F6 choice for a stopped host.
+- Pack guidance covers the landed icon grid, search, sorting and recoverable
+  dropped items. Manual stack splitting and arbitrary cell rearrangement remain
+  absent. Death has an explicit Respawn screen and preserves inventory.
+- Building covers reusable furniture plans, Survival carpentry, remaining
+  bed/closet/extendable-table gaps and current server door/chest limits. N adds a
+  Creative detail-size toggle; the Survival Shift modifier is preserved.
+- Controls and Settings follow rebindable gameplay actions, six settings groups
+  and current display/audio options. The settings-only music claims now reflect
+  the landed Now Playing card and dedicated Credits music.
+
+Furniture is linked directly from the Building topic and search. Multiplayer
+comes first in **Multiplayer and feature limits**, with a Getting started link;
+the existing `guide-not-in-game.html` URL and section anchors stay valid. The
+retired study-timer URL is generated from `retiredGuides` data as a short
+availability notice, outside current guide navigation and search.
+
+The 21 active guides and preserved URLs regenerate from data. No image was
+replaced or relabelled: menu examples explicitly retain their 11 October date,
+biome photographs retain generation 9, and the accepted 94-species portraits are
+unchanged. No new native game, multiplayer, backup or fault-injection test was
+run. Source tests were read where cited; this is a source-backed documentation
+refresh, not a new gameplay acceptance result.
+
+Focused schemas, ownership and 298 refreshed-row source locations pass. Actual
+headless Firefox acceptance passes 188 checks with 36 desktop/mobile captures,
+keyboard, file-URL and no-JavaScript review. Ten captures were inspected directly.
+The existing full static gate passes 110 tests; browser/publication evidence
+is retained privately under `scratch/owner-burst-20261105/wiki`. The original
+guide browser harness assumes every image is an article figure and rejects the
+unchanged decorative logo. Its failure is retained; a private acceptance copy
+checks article photographs and decorative branding separately, with no test or
+publisher edits in the repository.
+
+Game-history extension remains open. Its retained history/patch evidence does
+not change the public 13 October cutoff. Updating the cutoff requires separate
+coordinator review of `tools/test_changelog.py:49`, whose fixed 14 October
+“outside review” date becomes valid inside a newer reviewed range. No protected
+check was weakened or bypassed. Fresh biome/habitat/hero photographs remain a
+separate open unit.

@@ -4,8 +4,8 @@
     {
       "id": "getting-started", "title": "Getting started", "page": "topic-getting-started.html",
       "summary": "Your first world, creative and survival play, and saving your progress.",
-      "guides": ["getting-started", "first-survival-day", "study-grove", "not-in-the-game-yet"],
-      "references": [["guide-install-and-worlds.html", "Install or update the game"], ["guide-controls.html#essentials", "Essential controls"]],
+      "guides": ["getting-started", "first-survival-day", "not-in-the-game-yet"],
+      "references": [["guide-install-and-worlds.html", "Install or update the game"], ["guide-controls.html#essentials", "Essential controls"], ["guide-not-in-game.html#multiplayer", "Host or join a world"]],
       "related": ["controls", "crafting", "troubleshooting"]
     },
     {
@@ -31,9 +31,9 @@
     },
     {
       "id": "building", "title": "Building", "page": "topic-building.html",
-      "summary": "Place blocks, use doors and chests, and save structures for later.",
+      "summary": "Place blocks, make furniture, use doors and chests, and save structures for later.",
       "guides": ["building-basics"],
-      "references": [["guide-building.html#doors", "Placing and opening doors"], ["guide-building.html#chests", "Chests and storage"], ["guide-building.html#blueprints", "Blueprint placement"], ["guide-building.html#structure-library", "The structure library"], ["guide-building.html#undo", "Undo and redo"]],
+      "references": [["guide-building.html#furniture", "Furniture and carpentry"], ["guide-building.html#doors", "Placing and opening doors"], ["guide-building.html#chests", "Chests and storage"], ["guide-building.html#blueprints", "Blueprint placement"], ["guide-building.html#structure-library", "The structure library"], ["guide-building.html#undo", "Undo and redo"]],
       "related": ["blocks", "crafting", "exploration"]
     },
     {

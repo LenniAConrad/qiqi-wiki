@@ -5,7 +5,17 @@
  "headline": "Learn the game,<br><em>one task at a time.</em>",
  "lead": "Short, task-based guides for what you can do in the game today. Every key, number and recipe is traced to the game's source code, and planned features stay marked as planned.",
  "comingLead": "These guides are next, in the order players need them. Each waits on a source check and, where noted, on screenshots from a disposable headless session.",
- "updated": "2026-10-12",
+ "updated": "2026-11-05",
+ "retiredGuides": [
+  {
+   "page": "guide-study-grove.html",
+   "title": "Study timer availability",
+   "lead": "The study timer is outside the current base game.",
+   "text": "This older address is kept for existing bookmarks. Continue with {{guide:getting-started|Getting started}} or {{guide:settings-and-performance|Settings}}.",
+   "updated": "2026-11-05",
+   "sourceCommit": "aa136e0103ce5599c6d8a9f70c669dbc758b7357"
+  }
+ ],
  "guides": [
   {
    "id": "getting-started",
@@ -19,7 +29,7 @@
    "lead": "Everything you need for the first twenty minutes: starting a world, moving around, finding your pack and leaving without losing anything.",
    "readTime": "7 min read",
    "audience": "New players",
-   "updated": "2026-10-11",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "start-menu",
@@ -44,8 +54,8 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit.",
-    "limits": "This is a source-checked guide, not a recorded play session: nobody drove the game by keyboard for this page. Interface wording and layout can change in later game versions."
+    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit. Targeted menu, pause, rebinding, screenshot and settings changes were checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Other gameplay paragraphs retain earlier receipts. Targeted Pack, drop and death-screen guidance was checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: crates/voxelgame-core/src/inventory.rs:882-893; game/inventory_input.rs:55-67; game/item_drops.rs:53-137; game/death.rs:80-123,234-263; crates/voxelgame-render/src/inventory_ui.rs:425-535. Inventory remains under active development.",
+    "limits": "Source-checked, not play-tested. The four preserved screenshots are 11 October 2026 captures of the older audited build; they do not show the current menu or inventory layout. No new game capture or native run was made. Inventory and death source tests were read, not run in this wiki update."
    },
    "sections": [
     {
@@ -54,7 +64,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Voxelgame is played with a keyboard and mouse only. There is no gamepad support, and keys cannot be rebound. Keys are read by position, so on an AZERTY or other layout use the keys that sit where [[W]] [[A]] [[S]] [[D]] sit on a QWERTY keyboard. {{input-devices-and-layout}}"
+       "text": "Play with keyboard and mouse. Keys here are defaults; change gameplay assignments in Settings > Controls > Key bindings. Keys follow physical positions, so on another keyboard layout use the QWERTY positions or assign keys that suit you. {{input-devices-and-layout}}"
       },
       {
        "t": "p",
@@ -62,8 +72,8 @@
       },
       {
        "t": "note",
-       "kind": "limit",
-       "text": "Installing and updating the game is not covered by this guide yet; it is on the list of guides still to write. On Linux, an active Pinyin input method under X11 can swallow movement keys; that problem is unresolved in the game."
+       "kind": "tip",
+       "text": "For installation, updating and finding worlds, see {{guide:install-and-worlds|Install, update and find your worlds}}. This page starts at the game’s menu."
       }
      ]
     },
@@ -75,17 +85,17 @@
        "t": "figure",
        "src": "images/guides/start-menu.webp",
        "alt": "The Voxelgame start menu showing world, settings and study controls, with a wireframe cube on the left.",
-       "caption": "The start menu. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world). The panel is drawn translucent over the scene."
+       "caption": "The start menu in the preserved 11 October 2026 headless capture (1280 × 720, disposable world). Current menu entries and layout have changed."
       },
       {
        "t": "p",
-       "text": "Use Continue to enter the current world or Worlds to choose another. Settings, Credits, Study timer and Quit are also on the start menu. The current world name appears above the buttons. {{start-menu}}"
+       "text": "Choose **Continue** to resume the loaded world or **Worlds** to choose or create one. Continue is unavailable when no usable world is loaded. **Settings**, **Credits** and **Quit** are also on the menu. {{start-menu}}"
       },
       {
        "t": "keys",
        "rows": [
         [
-         "Up / Down arrows",
+         "Arrow keys",
          "Move the selection."
         ],
         [
@@ -94,27 +104,23 @@
         ],
         [
          "Esc",
-         "Go back from any sub-page to the first page."
-        ],
-        [
-         "P",
-         "Open the Study Grove focus timer (not while typing on the Worlds page)."
+         "Return from a sub-page."
         ]
        ]
       },
       {
        "t": "list",
        "items": [
-        "[[Continue]] enters the current world.",
-        "[[Worlds]] lists your saved worlds and creates new ones (next section).",
-        "[[Settings]] opens the same settings panel you get in a world by pressing [[Esc]].",
-        "[[Credits]] shows seven title cards on a black stage: the maker, thanks and a dedication. Each card stays for 12 seconds and the set loops. Press [[Esc]], [[Enter]] or [[Space]], or choose **Skip credits**, to go back. There are no Previous or Next buttons yet. The normal music playlist keeps playing."
+        "**Continue** resumes the loaded world.",
+        "**Worlds** lists saves and opens the creation dialog.",
+        "**Settings** opens graphics, audio, control and interface preferences.",
+        "**Credits** has seven cards. Use Left/Right or Previous/Next to browse; Tab selects a footer button, and Enter or Space activates it. Esc or Skip credits returns to the menu. {{credits}}"
        ]
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "The first launch shows a tumbling wireframe cube while the world loads. Later loads show only a stage text and an activity bar."
+       "text": "Extra menu entries can appear with additional enabled content. These steps cover the base game."
       }
      ]
     },
@@ -125,30 +131,30 @@
       {
        "t": "steps",
        "items": [
-        "Choose **Worlds** on the start menu.",
-        "Type a name. Typing both filters the list of saved worlds and names the world you are about to create.",
-        "Choose **Create world**, or press [[Enter]] while that row is selected.",
-        "Wait for the world to load; you arrive standing on the starting island."
+        "Choose **Worlds**, then **Create world**.",
+        "Enter a name. Leave Seed blank for a fresh seed or enter unsigned decimal digits to reuse a seed.",
+        "Choose **Creative** or **Survival**. Leave terrain generation at the current default unless you need an older one.",
+        "Choose **Create** or press Enter. Esc or Cancel returns without creating a world."
        ]
       },
       {
        "t": "p",
-       "text": "New worlds always open in **creative** mode: there is no seed, mode or difficulty picker. Every new world's pack already holds 12 Berries, 2 Water flasks, 1 Empty flask and 4 Alder board pieces. {{new-world-start}}"
-      },
-      {
-       "t": "note",
-       "kind": "limit",
-       "text": "The Worlds page shows only four rows at a time and the mouse wheel does not scroll it. Use the Up and Down arrows or type to filter. Each row shows the picture of that world's last visit. Rename and backups are not in the game yet. {{worlds-page}}"
+       "text": "A new world's pack contains 12 Berries, 2 Water flasks, 1 Empty flask and 4 Alder board pieces. Switching modes and respawning do not grant another starter pack. {{new-world-start}}"
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "To keep a world near the top, click the star at the left of its row, or press [[Tab]] with the row selected. Starred worlds are listed right after the current world. Choose **Starred** (or press [[Shift]]+[[Tab]]) to show only starred worlds. Stars are saved in the worlds folder, not in the world."
+       "text": "Select an existing world to load it. For rename, backup and recovery steps, see {{guide:install-and-worlds|Install, update and find your worlds}}. {{worlds-page}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Star worlds you want to find quickly, then use the Starred filter. {{worlds-page}}"
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "To delete a world, hold its DELETE badge, or hold the [[Delete]] key with the row selected, for 3 seconds. The world you are currently in cannot be deleted."
+       "text": "Check the selected world carefully before deleting it. The {{guide:install-and-worlds|Worlds guide}} explains the confirmation and recovery options."
       }
      ]
     },
@@ -200,7 +206,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "[[Print Screen]] releases the mouse so that you can use a system screenshot tool. The game itself has no screenshot key."
+       "text": "The default **F10** key saves a game screenshot and reports the saved path. **Print Screen** releases the pointer for your system screenshot tool. {{clean-view}}"
       }
      ]
     },
@@ -212,14 +218,14 @@
        "t": "figure",
        "src": "images/guides/world-hud.webp",
        "alt": "First-person view over a flowering meadow with a few trees. A status message is at the top left, a square compass map at the top right with a small readout of frames per second and coordinates beneath it, a crosshair in the centre and a row of ten empty hotbar slots at the bottom.",
-       "caption": "The in-game screen on a new creative world. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world)."
+       "caption": "The screen in the preserved 11 October 2026 headless capture (1280 × 720, disposable creative world). Current interface details may differ."
       },
       {
        "t": "list",
        "items": [
         "**Top left:** the status line. Actions report here, for example 'Collected … ×3' or 'Capacity full; block left behind'.",
-        "**Top right, left of the map:** the looking-at card, shown when you aim at a block within 6 m. [[F2]] hides or shows it, the same as Settings > General > Target info.",
-        "**Top right:** the compact map, with the FPS and coordinates box beneath it. The box is on by default; turn it off in Settings > Debug.",
+        "**Top right, left of the map:** the looking-at card, shown when you aim at a block within 6 m. [[F2]] hides or shows it, the same as Settings > Interface > Layout > Target info.",
+        "**Top right:** the compact map, with the FPS and coordinates box beneath it. The box is on by default; turn it off in Settings > Advanced > Diagnostics.",
         "**Lower right:** the collection feed. It shows what you gained, for example '+3 Oak wood', for a few seconds. Crafting, creative mining and home storage do not show there.",
         "**Middle:** the crosshair, and a small action hint under it.",
         "**Lower left (survival only):** the four bars for health, hunger, thirst and stamina.",
@@ -228,7 +234,7 @@
       },
       {
        "t": "p",
-       "text": "Press [[F1]] to hide the whole HUD, the crosshair and your hands, for example before a screenshot; press it again to bring everything back. {{hud-layout}} {{clean-view}}"
+       "text": "Press the default [[F1]] key to hide the HUD, crosshair and hands, then [[F10]] to save a screenshot. Press F1 again to restore the view. The pause menu also has **Screenshot**. {{clean-view}}"
       }
      ]
     },
@@ -240,11 +246,15 @@
        "t": "figure",
        "src": "images/guides/inventory-build.webp",
        "alt": "The inventory screen in creative mode. Tabs along the top read Pack, Craft, Build, Home and Journal. The Build tab is open and shows a paged grid of block icons with a search field and category buttons, and the hotbar of ten empty slots below.",
-       "caption": "The inventory in creative mode with the Build tab open. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world). This capture predates the capacity change: the header now reads 'Capacity: X / 1000'."
+       "caption": "The older creative Build tab in the preserved 11 October 2026 headless capture (1280 × 720, disposable world). The current inventory layout and tabs differ; this image is a dated example."
       },
       {
        "t": "p",
-       "text": "Press [[E]] to open the inventory and press it again to close it. The tabs are Pack, Craft, Home and Journal in survival, plus Build in creative; switch with the mouse, [[Tab]] or [[Shift]] + [[Tab]]. The header always shows how much you carry out of 1000 capacity. The Pack tab lists carried items as icons with quantity numbers; hover an icon to see its name. {{inventory-workspaces}}"
+       "text": "Press [[E]] to open or close the inventory. Switch tabs with the mouse, [[Tab]] or [[Shift]]+[[Tab]]. Creative has the free Build catalog; Survival carpentry adds Build when you carry a Furniture hammer. The pack holds up to 1000 capacity. {{inventory-workspaces}} {{carry-capacity}}"
+      },
+      {
+       "t": "p",
+       "text": "Pack shows carried items as a paged icon grid. Hover for the name, quantity and help; click to use or equip an item. [[Ctrl]]+[[F]] searches by name, and the sort button switches between grouped and alphabetical order. Dragging inside Pack does not rearrange or split your stock. {{pack-items-list}} {{planned-inventory-overhaul}}"
       },
       {
        "t": "h",
@@ -278,6 +288,11 @@
       {
        "t": "p",
        "text": "With the inventory closed, [[Tab]] cycles through the tools and weapons you carry and back to empty hands. Bindings are saved with the world. {{hotbar-quick-slots}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "In survival, [[J]] drops one selected carried item; [[Ctrl]]+[[J]] drops everything of that kind. With Pack open, hover its icon first. Approach a dropped stack after a short delay to collect what fits. {{planned-ground-drops}}"
       }
      ]
     },
@@ -287,7 +302,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "There are exactly two modes. Press [[F4]] to switch, except on the start menu, in Study Grove or while connected to a server; your pack, hotbar and position stay as they are, and each world remembers the mode you left it in. {{game-modes}}"
+       "text": "There are exactly two modes. Press [[F4]] to switch, except on the start menu or while connected to a server; your pack, hotbar and position stay as they are, and each world remembers the mode you left it in. {{game-modes}}"
       },
       {
        "t": "h",
@@ -312,7 +327,7 @@
         "Blocks take time to mine and your pack is limited to 1000 capacity.",
         "Four bars for health, hunger, thirst and stamina, shown lower left.",
         "Falls hurt, and you eat with [[R]], drink with [[T]] and quick-craft with [[X]].",
-        "Dying returns you to your rest point and loses nothing."
+        "Dying opens a screen showing the cause and respawn location. Press [[Enter]] or click **Respawn** when ready; you keep your inventory. {{death-respawn}}"
        ]
       },
       {
@@ -329,26 +344,26 @@
        "t": "figure",
        "src": "images/guides/settings-paused.webp",
        "alt": "The Paused settings panel with tabs General, Audio, World and Debug. Rows for field of view, horizon distance, mouse sensitivity, atmospheric fog, camera bob, frame limit, shader, GUI size and chunk fade-in are shown, with Resume, Main menu and Save and quit buttons at the bottom.",
-       "caption": "The Paused panel opened with Esc. Headless capture of the game at the audited commit (1280 × 720, fresh disposable world)."
+       "caption": "The older Paused settings panel in the preserved 11 October 2026 headless capture (1280 × 720, disposable world). Today Esc opens a separate pause menu and Settings has grouped subpages."
       },
       {
        "t": "p",
-       "text": "Press [[Esc]] in the world to open Settings. The game pauses and the panel is titled 'Paused'. Esc first closes anything that is open (the pack, the large map, Study Grove), and only opens Settings when nothing is. The General tab also has Speed FOV (widens the view at high speed), Damage bob (Off, Reduced or Full camera dip when hurt) and Target info. {{settings-menu}} {{escape-and-pause}}"
+       "text": "Press [[Esc]] for the pause menu, then choose **Settings**. Esc first closes an active panel or dialog. From in-game Settings, **Back** or Esc returns to the pause menu; **Resume** returns to play. Local play pauses; a connected server continues. {{settings-menu}} {{escape-and-pause}}"
       },
       {
        "t": "keys",
        "rows": [
         [
          "Esc",
-         "Open Settings and release the mouse; press it again to close."
+         "Close the active panel or open the pause menu."
         ],
         [
          "F6",
          "Save the world right now ('World saved safely')."
         ],
         [
-         "Settings > Main menu",
-         "Save and return to the start menu."
+         "Save & main menu",
+         "Save and return to the start menu (pause menu)."
         ],
         [
          "Ctrl + Q, Save & quit or the window's close button",
@@ -358,7 +373,7 @@
       },
       {
        "t": "p",
-       "text": "The world also autosaves about every 30 seconds whenever it has unsaved changes. Settings are stored inside each world's save, so loading another world brings back that world's settings. {{saving-and-quitting}}"
+       "text": "For autosaves, backups and recovery, see {{guide:saves|Saves and world files}}. Graphics, sound, interface settings and key bindings follow you between worlds; world time, weather and season remain local. {{saving-and-quitting}}"
       }
      ]
     }
@@ -393,11 +408,11 @@
    "kicker": "Controls reference",
    "title": "Controls reference",
    "headline": "Every key,<br><em>and when it works.</em>",
-   "summary": "The essential keys, the keys that change meaning with context, and a searchable list of every control in the audited game.",
-   "lead": "A short list of the keys you will use all the time, then every control the audit found, grouped by what you are doing and filterable by key or action.",
+   "summary": "Default gameplay keys, how to change them, and controls that keep their menu meaning.",
+   "lead": "These tables show default keys. For reassigned actions, use the key shown in Settings > Controls > Key bindings. Menu navigation and native window shortcuts keep their physical keys.",
    "readTime": "3 min, then look things up",
    "audience": "Everyone",
-   "updated": "2026-10-11",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "walk-and-look",
@@ -421,8 +436,8 @@
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "The full list below is generated from the feature ledger, so each row is the key and condition recorded in that ledger entry's source audit. The essentials table was checked against the same entries.",
-    "limits": "Source-checked, not play-tested. Keys cannot be rebound in this version of the game, so this list applies to everyone."
+    "method": "Targeted key-binding, pause and screenshot guidance was source-checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05, in bindings.rs, game/controls.rs, game/settings_search.rs and native input. The full table is generated from feature entries with their individual dated sources.",
+    "limits": "Source-checked, not play-tested. No native session or fresh screenshot was made. Reassigned gameplay actions differ from the printed defaults; menu navigation stays physical."
    },
    "sections": [
     {
@@ -446,7 +461,7 @@
         ],
         [
          "Shift",
-         "Sneak (ledge guard); also half-metre pieces, diving, descending and steadying a ranged weapon."
+         "Sneak (ledge guard), dive, descend in flight or steady a ranged weapon."
         ],
         [
          "Ctrl + W",
@@ -482,18 +497,39 @@
         ],
         [
          "Esc",
-         "Close what is open, or open Settings."
+         "Close the active layer or open the pause menu."
         ],
         [
          "F6",
          "Save now."
+        ],
+        [
+         "F10",
+         "Save a screenshot."
         ]
        ]
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "Hold Shift while mining or placing to work on a single half-metre piece instead of a whole block. Logs and cactus are always felled as a whole tree or stem."
+       "text": "Sprint and sneak use held keys by default; crawl is a toggle. Change Hold/Toggle in Settings > Gameplay > Movement. {{input-devices-and-layout}}"
+      },
+      {
+       "t": "h",
+       "text": "Change a gameplay key"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Open Settings > Controls > Key bindings.",
+        "Select an action with Up/Down and press Enter, or click its row to start capture. Previous/Next or Page Up/Page Down changes action page.",
+        "Press a physical key. Esc cancels capture; Delete leaves the action unbound.",
+        "If a conflict appears, choose another key or change the other action: shared assignments can trigger both. Reset keys or Backspace outside capture restores every default binding."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Esc, F6, F11 and Print Screen are reserved. Native shortcuts such as Alt+Enter and Ctrl+Q, menu navigation and text entry keep their physical keys. {{input-devices-and-layout}}"
       }
      ]
     },
@@ -504,7 +540,7 @@
       {
        "t": "list",
        "items": [
-        "**Shift** is shared: sneak on the ground, half-metre mining and placing, dive in water, descend while flying, and steadier aim with a bow or rifle. {{sneak-ledge-guard}}",
+        "**Shift** is shared by default: sneak on the ground, dive in water, descend while flying, and steady a bow or rifle. Building detail has its own action. {{sneak-ledge-guard}}",
         "**Tab** equips tools when the inventory is closed and switches tabs when it is open. {{equip-tools-tab}}",
         "**Z** zooms, but **Ctrl + Z** is undo in creative, so Z does not zoom while Ctrl is held. {{hold-to-zoom}}",
         "**C** crawls on foot. In a boat, it cycles camera stations. {{crawl}}",
@@ -515,7 +551,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "On a non-QWERTY keyboard every key above is read by position. Use the key where it sits on a QWERTY board. {{input-devices-and-layout}}"
+       "text": "Key names describe physical positions. On a non-QWERTY board, use those positions or reassign gameplay actions. {{input-devices-and-layout}}"
       }
      ]
     },
@@ -554,11 +590,11 @@
    "kicker": "Survival",
    "title": "Your first survival day",
    "headline": "Your first survival day,<br><em>from berries to a home.</em>",
-   "summary": "Switch to survival, read the four bars, drink, eat, mine, make stone tools, cook, build a home and avoid the real dangers.",
+   "summary": "Read the four bars, drink, eat, mine, make stone tools, cook, build a home and recover after death.",
    "lead": "What the four bars mean, what to do in the first minutes, which crafting chain gets you tools and a roof, and what can actually hurt you.",
    "readTime": "8 min read",
    "audience": "New players",
-   "updated": "2026-10-11",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "survival-milestones",
@@ -580,24 +616,27 @@
     "trip-preparation-readout",
     "fall-damage-hazards",
     "death-respawn",
-    "temperature-shelter"
+    "temperature-shelter",
+    "pack-items-list",
+    "planned-inventory-overhaul",
+    "planned-ground-drops"
    ],
    "next": [
     "crafting-and-recipes",
     "controls-reference"
    ],
    "verification": {
-    "method": "Meter timings, damage values, recipe counts and key behaviours come from the game source at the audited commit and its own unit tests, each traced to a ledger entry. The X shortcut was separately checked at Voxelgame 5856103c (change a6d56495): it repeats the selected Craft-tab recipe. Targeted temperature-policy correction at 35cfc2f8: no ambient-temperature damage or shelter warmth; no fresh native play-test receipt is claimed.",
-    "limits": "Source-checked, not play-tested. The numbers describe this version: planned food plants, furnaces and ground items would change this guide."
+    "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction.",
+    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe receipts."
    },
    "sections": [
     {
      "id": "start",
-     "title": "Switch to survival",
+     "title": "Start in survival",
      "blocks": [
       {
        "t": "p",
-       "text": "New worlds begin in creative. Press [[F4]] to switch; you keep your pack, hotbar and position, and the four bars appear lower left. Every new world's pack holds 12 Berries, 2 Water flasks, 1 Empty flask and 4 Alder board pieces, and switching modes or respawning never grants more. {{new-world-start}}"
+       "text": "Choose **Survival** when creating a world, or press [[F4]] in a local creative world to switch. You keep your pack, hotbar and position, and the four bars appear lower left. Every new world's pack holds 12 Berries, 2 Water flasks, 1 Empty flask and 4 Alder board pieces. Switching modes or respawning never grants more. {{new-world-start}}"
       },
       {
        "t": "note",
@@ -679,11 +718,20 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Hold left click on a block within 6 m. A progress bar fills and the whole one-metre block, up to eight pieces, goes straight into your pack. Each swing that lands while you mine gives a soft tap of the block's sound. Letting go or breaking the block makes no tap. Hold [[Shift]] to take a single half-metre piece of any block except a log or cactus. Logs and cactus fell the whole connected tree or stem instead, and Shift does not change that. Nothing drops on the ground: if the pieces do not fit, the block stays where it is and the status line says 'Capacity full; block left behind'. {{mining-harvesting}}"
+       "text": "Hold left click on a block within 6 m. A progress bar fills before the block breaks; a full one-metre block yields up to eight pieces. Each swing that lands while you mine gives a soft tap of the block's sound. Letting go or breaking the block makes no tap. Hold [[Shift]] to take a single half-metre piece of any block except a log or cactus. Logs and cactus fell the whole connected tree or stem instead, and Shift does not change that. Keep space in your pack and read the status line if gathering is refused. {{mining-harvesting}}"
       },
       {
        "t": "p",
        "text": "Your pack is limited by capacity, 1000, not by slots. {{carry-capacity}} Any block can be mined by hand; a tool only speeds up its own material: the pickaxe about 4× on rock, glass and masonry, the hatchet about 3.6× on logs, boards and leaves, the shovel about 3.4× on loose ground. {{mining-speed-tools}}"
+      },
+      {
+       "t": "p",
+       "text": "Press [[E]] and choose **Pack** to browse the icon grid. Hover an icon for its name, amount and help; click to use or equip it. [[Ctrl]]+[[F]] searches by item name, and the sort button switches between groups and alphabetical order. Hover an item and press [[1]]–[[9]] or [[0]], or drag it onto a hotbar slot, to bind that item kind. This makes a shortcut; it does not move or split the carried quantity. {{pack-items-list}} {{planned-inventory-overhaul}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "In survival, [[J]] drops one of the selected carried item; [[Ctrl]]+[[J]] drops everything of that kind. With Pack open, hover its icon first. After a short delay, approach the dropped stack to collect what fits; anything that does not fit stays on the ground. Dragging an item off the pack does not drop it, and dragging a hotbar slot off the bar only clears that shortcut. {{planned-ground-drops}}"
       },
       {
        "t": "note",
@@ -696,6 +744,11 @@
      "id": "tools",
      "title": "Make your first tools",
      "blocks": [
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Your four starter board pieces can make a first Stone hatchet once you have four natural-stone pieces, such as Gravel. You can make that hatchet before felling a tree by hand; then gather logs and split more boards for your other tools."
+      },
       {
        "t": "steps",
        "items": [
@@ -731,7 +784,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Animals never attack you. Left click one to hit it: a bare hand or ordinary tool deals 12 damage and the Stone sword deals 28. In survival what it drops goes straight into your pack; drops that do not fit are lost. {{melee-attacks}} {{animal-drops}}"
+       "text": "Animals never attack you. Left click one to hit it: a bare hand or ordinary tool deals 12 damage and the Stone sword deals 28. In survival, collect its dropped items by approaching them. If your pack is full, free some capacity and return for the remaining items. {{melee-attacks}} {{animal-drops}}"
       },
       {
        "t": "recipes",
@@ -781,7 +834,7 @@
         "**Falls:** up to 3 m is free, each extra metre costs 5 HP, so about 23 m is fatal from full health. Only landing on solid ground counts. {{fall-damage-hazards}}",
         "**Starvation and thirst** when the bars run empty.",
         "**Explosions.** No drowning, lava, fire or hostile animals exist in this version. Direct fire/lava contact hazards remain planned.",
-        "**Death** respawns you at once at your rest point (the world's start until you rest at home) and you lose nothing. {{death-respawn}}"
+        "**Death** opens a 'You died' screen showing the cause and respawn location. Click **Respawn** or press [[Enter]] when ready. You keep your inventory and return to your rest point, or a nearby safe spot if it is blocked or flooded. Until you rest at home, the rest point is the world's start. {{death-respawn}}"
        ]
       },
       {
@@ -878,7 +931,7 @@
       {
        "t": "note",
        "kind": "planned",
-       "text": "Planting and growing food, a placeable furnace with smelting and metal tools, visible items on the ground, a larger pack and a progression beyond the milestones are planned but absent from this version. They are tracked in the {{planned-planting-food-plants|feature ledger}} and will get their own guide only after they ship."
+       "text": "Planting and growing food, a placeable furnace with smelting and metal tools, and progression beyond the milestones remain planned. Follow their status in the {{planned-planting-food-plants|feature ledger}}."
       }
      ]
     }
@@ -897,7 +950,8 @@
     "trip-preparation-readout",
     "fall-damage-hazards",
     "death-respawn",
-    "temperature-shelter"
+    "temperature-shelter",
+    "planned-ground-drops"
    ],
    "partial": [
     "home-crate"
@@ -1187,7 +1241,7 @@
    "lead": "Each installer builds the game from source and adds a launcher. Player worlds, editable data and shared preferences live outside the versioned application payloads; updates preserve them.",
    "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-17",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "install-linux",
@@ -1208,8 +1262,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Update/world-configuration follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux orchestration passed 30 isolated tests; a compiled native binary passed first-install/reinstall, live headless-session preservation, version reporting and rollback. Save/startup regressions and inspected headless captures cover compatibility and switching; other guide details retain the earlier audit.",
-    "limits": "Not fully play-tested. Official-source fetch/build is covered by isolated Git/fake-compiler tests, not a second native rebuild. Windows/macOS managed parity and native validation are pending. Mint delivery was blocked by SSH authentication. Rollback cannot undo newer save formats."
+    "method": "Update/world-configuration follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux orchestration passed 30 isolated tests; a compiled native binary passed first-install/reinstall, live headless-session preservation, version reporting and rollback. Save/startup regressions and inspected headless captures cover compatibility and switching; other guide details retain the earlier audit. Targeted world-library follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked Create options, selected-world actions, remembered local world and backup paths. Installation/update acceptance above retains its earlier receipt.",
+    "limits": "Not fully play-tested. Official-source fetch/build is covered by isolated Git/fake-compiler tests, not a second native rebuild. Windows/macOS managed parity and native validation are pending. Mint delivery was blocked by SSH authentication. Rollback cannot undo newer save formats. No new native install, world-switch, backup or LAN test was run for the 5 November follow-up."
    },
    "owns": [
     "install-linux",
@@ -1414,40 +1468,53 @@
      "title": "How worlds are stored",
      "blocks": [
       {
-       "t": "list",
+       "t": "steps",
        "items": [
-        "Each world is one .vxw file in the worlds folder inside the data folder.",
-        "Stars from the Worlds page are kept in worlds/favourites.txt, one save path per line, not inside the world file.",
-        "The starting world is worlds/debug/debug.vxw. The menu lists it as DEBUG.",
-        "A world with a name is saved in a folder named from the name in lowercase letters, numbers and hyphens, for example worlds/my-island/world.vxw. If that folder already exists, a number is added (my-island-2). A name with no usable letters or numbers gets a numbered folder.",
-        "A world with an empty name is saved as worlds/world-0001/world.vxw, then world-0002, and so on."
+        "Open **Worlds** and choose **Create world**. Enter a name, or leave it blank for a default name.",
+        "Leave **Seed** blank for a fresh world, or enter a non-negative whole number. Choose Creative or Survival and a terrain generation; the default is generation 12.",
+        "Use [[Tab]] to move between fields and the arrow keys to change mode or generation. Choose **Create world** to confirm, or **Cancel** / [[Esc]] to return without creating it."
        ]
       },
       {
        "t": "p",
-       "text": "The game stores only your changes. Untouched terrain is generated again from the world's seed. New worlds have no seed field."
-      },
-      {
-       "t": "h",
-       "text": "Continue opens the starting world"
+       "text": "To reopen a world, select its row and choose **Play world**, press [[Enter]], or double-click the row. Typing filters names; the mouse wheel, arrows and Page Up / Page Down browse the list. Worlds shows the selected save’s seed, mode and generation when those details can be read. {{worlds-page}} {{world-seed-selection}}"
       },
       {
        "t": "p",
-       "text": "The starting world is always worlds/debug/debug.vxw, so Continue opens DEBUG after every restart. To keep playing another world, open Worlds and load it. Settings are saved per world. The settings you see right after launch belong to DEBUG."
+       "text": "Use **Rename** ([[Ctrl]]+[[R]]) to change its display name, or **Duplicate** ([[Ctrl]]+[[D]]) to make a separately named playable copy. Rename keeps the save’s path. Duplicate saves the active local world first; stop hosting before duplicating it."
       },
       {
-       "t": "note",
-       "kind": "tip",
-       "text": "Close the game before you copy a world file, so the copy holds the latest save. Autosave runs about every 30 seconds after world changes such as building, mining, storage, journal edits or boats."
+       "t": "list",
+       "items": [
+        "Each world has a .vxw save in the worlds folder inside the data folder, plus separate name, preview and session-history files when present.",
+        "A named new world uses a lowercase folder such as worlds/my-island/world.vxw. If that folder exists, a number is added. An empty name or a name with no usable letters or numbers gets world-0001, world-0002 and so on.",
+        "Stars live separately in worlds/favourites.txt. The last selected local world is recorded in worlds/last-world.txt."
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Continue resumes your last local world"
+      },
+      {
+       "t": "p",
+       "text": "After a restart, Continue resumes the last successfully selected local save. If that record is missing or its file is gone, the fallback path is worlds/debug/debug.vxw. On a fresh installation with no saved world, Continue is disabled: choose Worlds to create one. An unreadable save opens a recovery dialog and is kept intact. {{startup-active-world}}"
+      },
+      {
+       "t": "p",
+       "text": "World mode, generator, time/weather/season controls and progression belong to that world. Display, audio, controls and accessibility preferences are shared across worlds. Untouched terrain is regenerated from the saved seed and generation."
+      },
+      {
+       "t": "p",
+       "text": "Choose **Create backup** ([[Ctrl]]+[[B]]) for the selected world. The active local world is saved first; stop hosting before backing it up. The result names a completed snapshot under the data folder’s backups folder. Read {{world-backups}} for copying a snapshot back into Worlds."
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "The installer does not move worlds from a source checkout started with ./run.sh. Copying that worlds folder into the data folder with the game closed should work, but this is inferred from the save paths and has not been tested."
+       "text": "The installer does not move worlds from a source checkout started with ./run.sh. Copying that worlds folder into the data folder with the game closed is inferred from the save paths and has not been tested in this wiki."
       },
       {
        "t": "p",
-       "text": "World mode, generator, time/weather/season controls and progression belong to that world. Display, audio, controls and accessibility preferences are shared across worlds. New saves retain gameplay-compatibility identities; a changed required configuration blocks startup and keeps the save. Use Back, restore the matching configuration, or choose a separate world. Legacy saves acquire these identities after a successful start and save."
+       "text": "New saves retain gameplay-compatibility identities; a changed required configuration blocks startup and keeps the save. Use Back, restore the matching configuration, or choose a separate world. Legacy saves acquire these identities after a successful start and save."
       }
      ]
     },
@@ -1525,7 +1592,7 @@
    "lead": "Most startup failures print their reason to a terminal. Start the game from a terminal first, then use the matching section below.",
    "readTime": "5 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "startup-error-reporting",
@@ -1540,8 +1607,8 @@
     "getting-started"
    ],
    "verification": {
-    "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines.",
-    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet."
+    "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines. The save and saving sections were narrowed against Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: src/worlds/resume.rs:12-40; src/app.rs:1043-1055,1553-1568,1641-1650,1904-1905; src/app/owner_recovery.rs:32-45. They link to the refreshed save/world guides instead of repeating older default-world or crafting-autosave assumptions.",
+    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet. These targeted save corrections are source checks only; no new play test was run. Other troubleshooting sections retain their earlier source receipts."
    },
    "owns": [
     "startup-error-reporting",
@@ -1602,36 +1669,15 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The game never overwrites a world file it cannot read. The file stays as it is, so you can move it or try again later."
-      },
-      {
-       "t": "h",
-       "text": "A world from the Worlds list fails"
+       "text": "If a world cannot be read, keep its `.vxw` file. Copy it somewhere safe before trying repairs or a different game version."
       },
       {
        "t": "p",
-       "text": "The main menu shows **world could not be loaded: ...** and you stay where you were. Pick another world or fix the file, then try again."
-      },
-      {
-       "t": "h",
-       "text": "The starting world fails"
+       "text": "Continue normally resumes the last selected local world. If that world will not open, use the error message to identify the affected file rather than assuming it is the default world."
       },
       {
        "t": "p",
-       "text": "The game opens the starting world, `worlds/debug/debug.vxw`, or the file named by `VOXELGAME_SAVE_PATH` when you start it. If that file cannot be read, the game closes before the main menu and prints the reason to the terminal."
-      },
-      {
-       "t": "steps",
-       "items": [
-        "Close the game.",
-        "Move the damaged `.vxw` file to a backup folder. Do not delete it.",
-        "Start the game again. A new starting world is created when the file is missing."
-       ]
-      },
-      {
-       "t": "note",
-       "kind": "careful",
-       "text": "Moving the file aside means the game starts with a new starting world. Keep the old file if you may want its contents back. Find the data folder with {{guide:install-and-worlds|Install, update and find your worlds}}."
+       "text": "See {{guide:saves|Saves and world files}} for loading limits and backups, and {{guide:install-and-worlds|Install, update and find your worlds}} for the data folder."
       }
      ]
     },
@@ -1641,21 +1687,16 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Press **F6** in a world to save now. The game also saves when you choose **Main menu** or **Save & quit** in the Esc menu, press **Ctrl+Q**, close the window, or load or create another world. Autosave runs every 30 seconds when the world has changed."
-      },
-      {
-       "t": "note",
-       "kind": "tip",
-       "text": "Autosave runs after changes such as building, mining, home storage, journal edits or boats. Walking around and most crafting wait for the next F6 or quit, so press F6 after a long crafting session."
+       "text": "Press **F6** to save a local world. If a save or stopped-host recovery fails, keep the game open and read the reported error before retrying or leaving."
       },
       {
        "t": "p",
-       "text": "If saving fails while you quit, the game stays open. Fix the cause, such as a full disk, and save again."
+       "text": "For autosave, backups and the stopped-host recovery choices, follow {{guide:saves|Saves and world files}}. Opening Main menu while hosting does not stop the host."
       },
       {
        "t": "note",
-       "kind": "limit",
-       "text": "There is no crash recovery. A crash loses changes made since the last save. The previous save file is kept intact."
+       "kind": "careful",
+       "text": "A crash can lose unsaved progress. Keep a separate backup of a world you want to protect."
       }
      ]
     },
@@ -2319,11 +2360,11 @@
    "kicker": "Building",
    "title": "Building basics and creative tools",
    "headline": "Place it, shape it,<br><em>undo the mistakes.</em>",
-   "summary": "Place whole blocks and half-metre pieces, use the creative brushes, copy and paste, and undo your work.",
+   "summary": "Place whole blocks and half-metre pieces, build furniture, use creative brushes and blueprints, and undo your work.",
    "lead": "A whole block is a 1 m cube. Hold Shift to work with half-metre pieces. In creative mode, the brushes build lines, walls, floors and copies in one action, and Ctrl+Z undoes your last building action.",
-   "readTime": "6 min read",
+   "readTime": "7 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "block-targeting-feedback",
@@ -2345,15 +2386,16 @@
     "placement-restrictions",
     "doors",
     "wooden-chests",
-    "flowing-water"
+    "flowing-water",
+    "planned-doors-chests-furniture"
    ],
    "next": [
     "maps-and-finding-your-way",
     "controls-reference"
    ],
    "verification": {
-    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS).",
-    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only. The structure library (naming, O, pictures) was checked at 9f915bcb, not play-tested."
+    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS). Targeted furniture, Build-tab access, chest and server-door corrections were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191; game/chests.rs:60-85,121-125,179-229; game/doors.rs:51-56,117-162,189-226. Paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. Existing unrelated sections keep their earlier receipts. The additional Creative N detail toggle was checked at the same 5 November pin in crates/voxelgame-core/src/game/building.rs:23-35 and game.rs:1352-1353,2438-2447. Survival still uses held Shift.",
+    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only. The structure library (naming, O, pictures) was checked at 9f915bcb, not play-tested. The 5 November furniture and storage corrections are source checks only, with no new play test or game capture. The newer pin applies to those targeted corrections, not to a fresh audit of this entire guide."
    },
    "owns": [
     "block-targeting-feedback",
@@ -2375,11 +2417,13 @@
     "placement-restrictions",
     "doors",
     "wooden-chests",
-    "flowing-water"
+    "flowing-water",
+    "planned-doors-chests-furniture"
    ],
    "partial": [
     "flowing-water",
-    "structure-library"
+    "structure-library",
+    "planned-doors-chests-furniture"
    ],
    "sections": [
     {
@@ -2424,7 +2468,7 @@
       {
        "t": "list",
        "items": [
-        "Only blocks can be placed. Tools, food and other items cannot.",
+        "For ordinary block placement, select a block. Furniture, doors and chests have their own placement steps below.",
         "Your hands are empty, or a tool, bow, rifle or throwing rock is in hand.",
         "A solid block is in the target cell.",
         "In survival, your pack does not have 8 pieces of the material for a whole block.",
@@ -2463,7 +2507,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Hold Shift to work on one half-metre piece instead of a whole cube. Use it for half steps, thin walls, trim and carving. There are no slabs, stairs or sloped blocks; you build those shapes from pieces. {{half-metre-detail-building}} {{block-targeting-feedback}}"
+       "text": "Hold [[Shift]] to place or mine one half-metre piece instead of a whole cube. In creative, press [[N]] to toggle detail size without holding Shift; press N again for whole blocks. This lets you keep flying level while building small details. {{half-metre-detail-building}}"
       },
       {
        "t": "keys",
@@ -2514,7 +2558,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Doors cannot be hung or opened on a server yet. Blueprints skip door leaves, so a door is not copied."
+       "text": "Doors can be hung, opened and taken down on a server, subject to the server accepting the action. Wood-specific doors cannot be taken down in Survival on a server. Blueprints skip door leaves, so a door is not copied."
       }
      ]
     },
@@ -2540,7 +2584,62 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Chests cannot be set down, opened or taken up on a server yet. Blasts, tracks, brushes, copy and blueprints leave chest cells alone."
+       "text": "On a server, wait for pack confirmation before placing a chest or moving items. Some Creative server sessions refuse chest placement. Taking a chest up on a server is still unavailable. Blasts, tracks, brushes, copy and blueprints leave chest cells alone."
+      }
+     ]
+    },
+    {
+     "id": "furniture",
+     "title": "Furniture and carpentry",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Chairs, tables, stools, benches, armchairs and sofas are available, including modular sofa pieces. The plans also include kitchen counters and cupboards, sinks, a washbasin, a toilet and a bathtub. {{planned-doors-chests-furniture}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "In Survival, open E > Craft > Tools and make a **Furniture hammer** from two board pieces and one natural stone piece. Keep it in your pack to unlock carpentry.",
+        "Open E > Build and click a furniture plan. In creative, you can choose a plan from the catalog too. A plan is reusable; it is not a carried chair or table.",
+        "Choose the materials for the frame, top, upholstery or fronts, as offered by that plan. Read the **Need / have** counts. Survival spends these selected ingredients only when you place the furniture; creative placement is free.",
+        "Choose **Place**, aim at the top of solid ground and check the ghost. Press R to turn it 90 degrees, then right-click to place it. Wall cupboards need solid backing instead: aim at a wall side and use R to turn the back toward it.",
+        "Press B to put the furniture tool away. Select an ordinary block or empty hands before using a seat, kitchen storage or basin."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "E, with the furniture tool active",
+         "Customize the selected or aimed furniture."
+        ],
+        [
+         "Shift + Left click, with the furniture tool active",
+         "Start moving the aimed furniture. Right-click places it at the ghost; Left click cancels and keeps the original."
+        ],
+        [
+         "Left click, with the furniture tool active",
+         "Take up the aimed furniture. Empty its storage first."
+        ],
+        [
+         "Space or Right click, while seated",
+         "Stand up when there is a clear, supported exit."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "To sit, put the construction tool away, stand on dry supported ground within 2 m of a seat and right-click it. To use kitchen storage, right-click the counter or cupboard; click an item to move one, or Shift-click to move all of that item. Aim away from a sink bowl when you want its cabinet storage."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Furniture sizes are fixed. A sink, washbasin or bathtub does not create or store water: in Survival its basin can only use fresh water already within reach. Blueprints refuse a capture that touches placed furniture; they cannot copy furniture or its contents."
+      },
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Beds, closets and extendable tables are still missing. The available seats and cupboards do not add sleeping or plumbing."
       }
      ]
     },
@@ -2684,7 +2783,7 @@
       {
        "t": "note",
        "kind": "planned",
-       "text": "Sharing or importing blueprints and a survival materials list are not in this version. Saving a blueprint in survival is not checked in play yet. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
+       "text": "Sharing or importing blueprints is not in this version. Saving a blueprint in survival is not checked in play yet. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
       }
      ]
     },
@@ -2756,7 +2855,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "Undo is refused with \"Undo blocked\" if the cells changed since, if it would put a block inside you, or if it would pass the save's edit limit. Survival actions and explosions are not recorded. History is cleared when you leave the world."
+       "text": "Undo is refused with \"Undo blocked\" if the cells changed since, if it would put a block inside you, or if it would pass the save's edit limit. Survival block edits and explosions are not recorded. Local furniture actions have their own undo steps in both modes. History is cleared when you leave the world."
       }
      ]
     },
@@ -2766,12 +2865,12 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The E > Build tab holds a searchable catalog of every item, the brush button, Undo and Redo, four preset palettes and a Save palette button. The Build tab is only offered in creative. {{creative-catalog}} {{build-workspace-palettes}}"
+       "text": "In creative, E > Build has the searchable catalog. Choose **+ Tools** to open the brush controls, Undo and Redo, four preset palettes and Save palette. Survival gains a restricted carpentry Build tab while a Furniture hammer is in your pack. {{creative-catalog}} {{build-workspace-palettes}}"
       },
       {
        "t": "list",
        "items": [
-        "Click an item to take one. Shift-click to take as many as fit in your pack.",
+        "Click an ordinary catalog item to take one. Shift-click to take as many as fit in your pack. Furniture plans select a reusable construction choice instead of adding a carried item.",
         "Right-click an item to remove one you carry. Shift-right-click removes all of them.",
         "Middle-click an item to star it.",
         "Hover an item and press 1 to 0, or drag it onto a slot, to bind it to the hotbar."
@@ -2780,7 +2879,7 @@
       {
        "t": "steps",
        "items": [
-        "Click Timber, Masonry, Coastal or Garden to fill the ten quick slots with that set. Slot 1 is selected.",
+        "In creative, open **+ Tools**, then click Timber, Masonry, Coastal or Garden to fill the ten quick slots with that set. Slot 1 is selected.",
         "Click Save palette to store your current ten slots.",
         "Shift-click Save palette to load them back."
        ]
@@ -2994,11 +3093,11 @@
    "kicker": "Settings",
    "title": "Settings and performance",
    "headline": "Settings,<br><em>and how to make the game run smoothly.</em>",
-   "summary": "Where the settings are, what each General, Audio and Debug row does, and which ones to lower on a slower computer.",
-   "lead": "Open Settings with Esc in a world, or from the start menu. Settings are saved inside each world, so a new world copies the settings you have now.",
-   "readTime": "4 min read",
+   "summary": "Find graphics, audio, controls and interface preferences, change keys and reduce rendering work.",
+   "lead": "In a world, press Esc and choose Settings; on the start menu, choose Settings directly. Most preferences follow you between worlds.",
+   "readTime": "5 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "settings-menu",
@@ -3017,15 +3116,18 @@
     "master-volume",
     "music-player",
     "nature-ambience",
-    "per-world-settings"
+    "per-world-settings",
+    "horizon-1024",
+    "display-awake",
+    "input-devices-and-layout"
    ],
    "next": [
     "controls-reference",
     "troubleshooting"
    ],
    "verification": {
-    "method": "Each row, its default and its range come from the game source at the audited commit, b261ea8. The performance advice follows the notes on each row, including one offscreen GPU test on an Intel Iris Xe.",
-    "limits": "Source-checked, not play-tested, and no screenshots exist yet. The GPU numbers are from one test machine and will differ on yours."
+    "method": "Current groups, values, search/reset behavior, key capture and native preference sharing were source-checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Normal-window GPU timing remains separate from offscreen developer profiling.",
+    "limits": "Source-checked, not play-tested. No current FPS or GPU-memory benchmark, desktop idle test or new screenshot was made. Old hardware figures are not presented as current results."
    },
    "owns": [
     "shader-tiers",
@@ -3056,82 +3158,100 @@
       {
        "t": "steps",
        "items": [
-        "In a world, press [[Esc]] to pause. Click **Settings**.",
-        "On the start menu, click **Settings**. Click **Back** to return.",
-        "Move between the **General**, **Audio**, **World** and **Debug** tabs with the mouse or [[Tab]] and [[Shift]] + [[Tab]]."
+        "In a world, press Esc and choose Settings. On the start menu, choose Settings directly.",
+        "Choose Graphics, Audio, Controls, Gameplay, Interface or Advanced, then a subpage.",
+        "Use Find settings or Ctrl+F to search. Enter or Tab leaves the search field; Ctrl+Backspace clears it."
        ]
       },
       {
        "t": "keys",
        "rows": [
         [
+         "Tab / Shift+Tab",
+         "Next / previous group."
+        ],
+        [
+         "Page Up / Page Down",
+         "Previous / next subpage; within Key bindings, change action page."
+        ],
+        [
          "Up / Down arrows",
-         "Select a row."
+         "Select a row or search result."
         ],
         [
          "Left / Right arrows, or Enter",
          "Change the selected value."
         ],
         [
-         "Click a chip or drag a slider",
+         "Click a chip / drag a slider",
          "Set a value directly."
         ],
         [
          "Right-click a row",
-         "Step that value back. This is not shown in the game."
+         "Step its value backward."
+        ],
+        [
+         "Backspace / Reset page",
+         "Restore this page’s defaults, outside text entry. Key bindings resets all keys."
         ]
        ]
       },
       {
        "t": "p",
-       "text": "Hover a row label for a short description. The world stops advancing while Settings is open. {{settings-menu}}"
+       "text": "Changes apply immediately. Hover a label for help. Back or Esc returns to the pause menu or start menu; Resume returns to play. Local play pauses; connected servers continue. {{settings-menu}}"
       }
      ]
     },
     {
      "id": "general",
-     "title": "General tab",
+     "title": "Graphics, controls and interface",
      "blocks": [
       {
        "t": "list",
        "items": [
-        "**Shader**: None, Fast (default) or Cinematic. None is plain lighting for weak graphics cards. Fast adds sun shadows, sun rays and haze. Cinematic refines the shadows and rays and adds reflective water, at a higher frame-time cost. {{shader-tiers}}",
-        "**Horizon distance**: 8, 16, 32, 48, 64 (default), 96, 128, 192, 256 or 512 chunks. A chunk is 16 m, so 64 chunks reach about 1 km and 512 chunks reach about 8 km. Blocks close to you stay at full detail either way. {{horizon-distance}}",
-        "**Frame limit**: 60 (default), 120, 240 or Unlimited. The game does not use vsync, so this limit sets the pace. Study Grove always runs at about 30 FPS. {{frame-limit}}",
-        "**Atmospheric fog**: Light, Balanced (default) or Dense. Dense hides far terrain. The haze gets stronger with a longer horizon. Weather fog is separate. {{atmospheric-fog}}",
-        "**Field of view**: 60 to 96 degrees, in steps of 2 (default 72). A wider view shows more without changing how fast you move. {{field-of-view}}",
-        "**GUI size**: Auto (default), Small, Normal or Large. Auto uses 1.25x up to 1280x720 and 1.5x from 1920x1080 up. Small is 1.0x, Normal 1.25x and Large 1.75x. A small window caps the size so the UI still fits at least 800x450. {{gui-size}}",
-        "**Chunk fade-in**: on by default. New terrain fades in over 0.6 seconds. Turn it off to make terrain appear at once. Terrain prepared on the loading screen is always fully visible. {{chunk-fade-in}}"
+        "**Graphics > Display > Graphics preset** coordinates Shader, Horizon distance, Atmospheric fog, Chunk fade-in and Frame limit. Try Balanced, or Low on a slower computer. Editing a member shows Custom.",
+        "**Shader** offers None, Fast (default) or Cinematic. None uses plain lighting; Cinematic adds refined shadows and reflective water at higher GPU cost. {{shader-tiers}}",
+        "**Horizon distance** offers 8, 16, 32, 48, 64 (default), 96, 128, 192, 256, 512 and 1024 chunks. One chunk is 16 m; the largest radius is about 16 km. Nearby detail is separate. {{horizon-distance}}",
+        "**Frame limit** is 60 (default), 120, 240 or Unlimited. A cap is not a guaranteed frame rate. {{frame-limit}}",
+        "**Atmospheric fog** is Light, Balanced or Dense. **Field of view** is 60–96° in 2° steps (default 72°). **Chunk fade-in** makes newly loaded terrain appear gradually. {{atmospheric-fog}} {{field-of-view}} {{chunk-fade-in}}"
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Controls > Mouse** has separate horizontal/vertical sensitivity (50–200%) and Invert mouse Y. Use **Controls > Key bindings** to change gameplay keys; see {{guide:controls-reference|Controls reference}}.",
+        "**Gameplay > Movement** has Camera bob, Speed FOV, Damage bob and Hold/Toggle choices. Sprint/Sneak default to Hold; Crawl defaults to Toggle.",
+        "**Interface > Layout** has GUI presets, custom scale (75–200%), HUD text only, Target info, HUD compass and compact-map heading. Scale is capped so the menu fits. {{gui-size}}",
+        "**Interface > Crosshair** changes shape (Cross, Dot or Brackets), size, colour and opacity while retaining accuracy feedback.",
+        "**Interface > Accessibility** offers high contrast, reduced motion, information-overlay colour palettes and low-survival warnings. Reduce motion suppresses optional bob, FOV kick, shake, fades and pulses."
        ]
       }
      ]
     },
     {
      "id": "audio",
-     "title": "Audio tab",
+     "title": "Sound and music",
      "blocks": [
       {
        "t": "list",
        "items": [
-        "**Master volume**: 0% (mute) to 100% (default). It sets music, sound effects and nature sounds together, and applies at once. There is no separate volume for effects or ambience. {{master-volume}}",
-        "**Music**: turn the music on or off. Sound effects keep playing either way.",
-        "**Music speed**: 0.5x to 2.0x in steps of 0.1x. Tempo and pitch change together.",
-        "**Previous** and **Next** choose a song. The playlist then moves on by itself and loops. If no songs are found, the tab says so. {{music-player}}"
+        "**Audio > Volume** has separate Master, Music, Effects, Ambience and UI sliders, each 0–100%. Master affects all categories; zero on one category mutes that category alone. {{master-volume}}",
+        "**Audio > Music** switches music on/off, sets speed from 0.5× to 2.0× in 0.1× steps and offers Previous/Next song. The current title or an audio-unavailable notice appears below. {{music-player}}"
        ]
       },
       {
        "t": "p",
-       "text": "Wind, rain, storms, forest, caves, birds, night wildlife, ponds and streams fade in and out around you without a setting. The ambience goes quiet in menus and underwater. {{nature-ambience}}"
+       "text": "Set Ambience to zero to silence nature sounds while keeping effects and music. {{nature-ambience}}"
       }
      ]
     },
     {
      "id": "debug",
-     "title": "Debug tab and overlays",
+     "title": "Diagnostics",
      "blocks": [
       {
        "t": "p",
-       "text": "Most of the Debug tab is for checking the game, but two rows are useful for play. The **FPS and coordinates** box shows your frame rate with its limit, your X, Y and Z in metres and your biome. It is on by default, and it is back on after every load. {{fps-coordinates-readout}}"
+       "text": "**Advanced > Diagnostics** has FPS and coordinates, Performance, Chunk borders, LOD view, Voxel view and Distant terrain. The FPS box shows measured frame rate and cap, position in metres and biome. {{fps-coordinates-readout}}"
       },
       {
        "t": "keys",
@@ -3157,7 +3277,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "F7, F8 and F9 are reset to off when a world loads. F3 resets too. The Debug tab has the same switches. {{diagnostic-overlays}} {{performance-overlay}}"
+       "text": "The keys above are defaults and can be reassigned. The same controls are on Advanced > Diagnostics. Mesh view is labelled unavailable. {{diagnostic-overlays}} {{performance-overlay}}"
       },
       {
        "t": "list",
@@ -3175,222 +3295,45 @@
       {
        "t": "steps",
        "items": [
-        "Set **Shader** to None.",
-        "Lower **Horizon distance** to 32 or 16 chunks.",
-        "Turn **Distant terrain** off on the Debug tab. The view then ends at the loaded terrain.",
-        "Press [[F3]] to see whether the frame time is above your frame budget. Red marks work that uses more than one CPU core or over half the frame budget."
+        "Try Graphics > Display > Graphics preset > Low: plain shading, 32-chunk horizon, dense fog, no terrain fade and a 60 FPS limit.",
+        "If needed, lower Horizon distance further or turn Advanced > Diagnostics > Distant terrain off. The distant view becomes shorter.",
+        "Use the default F3 key to compare frame time with the frame budget. Compare the same place/settings before drawing conclusions."
        ]
       },
       {
        "t": "p",
-       "text": "Large horizons cost the most. One offscreen test on an Intel Iris Xe measured about 1.8 to 1.9 GiB of distant-terrain vertex buffers and about 37 to 39 ms of world GPU work at 256 to 512 chunks. Your numbers will differ. The overlay does not show GPU timing in normal play."
+       "text": "The normal window does not provide live GPU pass timings. This guide has no current hardware benchmark or promised frame-rate gain. {{performance-overlay}}"
       }
      ]
     },
     {
      "id": "worlds",
-     "title": "Settings and your worlds",
+     "title": "Which settings follow you",
      "blocks": [
       {
        "t": "p",
-       "text": "Graphics, audio and GUI settings are saved inside each world file. Create world copies the settings you have now. Loading another world switches to that world's own settings. {{per-world-settings}}"
+       "text": "Graphics, audio, interface preferences and key bindings follow the player between worlds. Time, weather and season belong to each world, under Gameplay > World; they are read-only in survival. For profile locations and recovery, see {{guide:install-and-worlds|Install, update and find your worlds}}. {{per-world-settings}}"
       }
      ]
     },
     {
      "id": "planned",
-     "title": "Not in the game yet",
+     "title": "Current limits",
      "blocks": [
       {
        "t": "note",
-       "kind": "planned",
-       "text": "Planned: a 1024-chunk horizon. The largest option today is 512 chunks."
-      },
-      {
-       "t": "note",
-       "kind": "planned",
-       "text": "Planned: live GPU timings in the F3 overlay. Today the GPU box says it is unavailable in normal play."
+       "kind": "limit",
+       "text": "The 1024-chunk horizon is available as an optional distant view. No current hardware performance result is supplied here. {{horizon-1024}}"
       },
       {
        "t": "note",
        "kind": "planned",
-       "text": "Not in the game: the game does not keep the screen awake. Your system's power settings apply, including during long Study Grove sessions."
+       "text": "Live GPU pass timings in ordinary play remain planned. The normal window’s GPU box reports unavailable. {{gpu-timing-live}}"
       },
       {
        "t": "note",
-       "kind": "planned",
-       "text": "Planned: album art beside the song title, and a credits-only piece of music."
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "study-grove",
-   "page": "guide-study-grove.html",
-   "number": 13,
-   "gap": 14,
-   "kicker": "Focus",
-   "title": "Study Grove focus timer",
-   "headline": "Study Grove,<br><em>a focus timer inside the game.</em>",
-   "summary": "How to open Study Grove, run focus and break phases, change the lengths and choose a backdrop.",
-   "lead": "Study Grove is a countdown timer over a voxel landscape. It starts with 25 minutes of focus and 5 minutes of break, and it pauses the game while it is open.",
-   "readTime": "3 min read",
-   "audience": "Everyone",
-   "updated": "2026-10-12",
-   "state": "complete",
-   "covers": [
-    "study-grove",
-    "study-grove-real-terrain"
-   ],
-   "next": [
-    "settings-and-performance",
-    "not-in-the-game-yet"
-   ],
-   "verification": {
-    "method": "Each button label, default, range and key comes from the game source at the audited commit, e19e688: the timer logic in pomodoro.rs, the key handling in game.rs and the button labels in the render code. The start-menu entry and the P key are checked in the same commit.",
-    "limits": "Source-checked, not play-tested, and no screenshots exist yet. Chime and music timing depend on your audio setup."
-   },
-   "owns": [
-    "study-grove",
-    "study-grove-real-terrain"
-   ],
-   "partial": [],
-   "sections": [
-    {
-     "id": "open",
-     "title": "Open Study Grove",
-     "blocks": [
-      {
-       "t": "steps",
-       "items": [
-        "In a world, press [[P]].",
-        "On the start menu, click **Study timer**.",
-        "Press [[P]] while you type in a search or name box and nothing opens. On the Worlds page, [[P]] also does nothing, so you can type a world name."
-       ]
-      },
-      {
-       "t": "p",
-       "text": "The world stops while Study Grove is open. In survival your needs and the world clock are paused too. Close it with [[Esc]] or **Back**. {{study-grove}}"
-      }
-     ]
-    },
-    {
-     "id": "timer",
-     "title": "Start and pause the timer",
-     "blocks": [
-      {
-       "t": "p",
-       "text": "The timer starts paused. Press [[Space]] or click **Start / resume** to run it, and **Pause** to stop it."
-      },
-      {
-       "t": "keys",
-       "rows": [
-        [
-         "Space",
-         "Start or pause the timer."
-        ],
-        [
-         "Tab or Arrow keys",
-         "Move to the next or previous button."
-        ],
-        [
-         "Enter",
-         "Press the selected button."
-        ],
-        [
-         "Esc or Back",
-         "Leave Study Grove. The timer pauses."
-        ]
-       ]
-      },
-      {
-       "t": "list",
-       "items": [
-        "**Reset phase** starts the current phase again from the beginning.",
-        "**To break** and **To study** switch phase at once. A switch does not count as a finished focus session.",
-        "The count of finished focus sessions is shown while Study Grove is open. It only goes up when a focus phase runs to the end.",
-        "A chime plays when a phase changes. Near the end of a break you hear a reminder 30 seconds before it ends. {{study-grove}}"
-       ]
-      }
-     ]
-    },
-    {
-     "id": "lengths",
-     "title": "Change the lengths",
-     "blocks": [
-      {
-       "t": "list",
-       "items": [
-        "**Focus** has - and + buttons. It goes from 5 to 90 minutes in steps of 5. The default is 25.",
-        "**Break** has - and + buttons. It goes from 1 to 30 minutes in steps of 1. The default is 5."
-       ]
-      },
-      {
-       "t": "p",
-       "text": "While the timer is paused, a change to a length applies at once. While it runs, the new length applies when the next phase starts."
-      }
-     ]
-    },
-    {
-     "id": "options",
-     "title": "Chimes, music, auto-next and animation",
-     "blocks": [
-      {
-       "t": "list",
-       "items": [
-        "**Chimes** turns the phase chimes and the break reminder on or off. On by default.",
-        "**Music** plays the music playlist while Study Grove is open, even when Music is off in Settings. Your Settings choice comes back when you leave. On by default.",
-        "**Auto-next** starts the next phase by itself when one ends. Turn it off to stop at the end of each phase. On by default.",
-        "**Animation** moves the scenery. Turn it off to hold the scene still. On by default.",
-        "**Weather** changes the look of the landscape: Clear, Rain, Snow or Sunset. It does not change your world's weather."
-       ]
-      },
-      {
-       "t": "note",
-       "kind": "planned",
-       "text": "Planned: a small album-art picture beside the song title. Today the song title shows in Study Grove only as text. {{now-playing-album-art}}"
-      }
-     ]
-    },
-    {
-     "id": "real-terrain",
-     "title": "Study over your own world",
-     "blocks": [
-      {
-       "t": "p",
-       "text": "Click **Backdrop** to switch from the landscape to **Backdrop: Real terrain**. The timer then sits over your actual world, so you can study with your builds in view. {{study-grove-real-terrain}}"
-      },
-      {
-       "t": "list",
-       "items": [
-        "**Camera: Your view** keeps the viewpoint you had.",
-        "**Camera: Slow orbit** turns slowly about 12 m around that point, above the treetops. Turn Animation off to hold it still.",
-        "**Weather** cycles through World, Clear, Rain, Mist and Sunset. The world's saved weather does not change.",
-        "**Options** shows every timer control over the compact timer. In the compact view, the other controls stay hidden until you click Options."
-       ]
-      },
-      {
-       "t": "p",
-       "text": "Your player, needs and clock stay paused. Leaving Study Grove puts your normal view back. Switching the backdrop resets the weather choice and closes Options."
-      }
-     ]
-    },
-    {
-     "id": "limits",
-     "title": "What to know",
-     "blocks": [
-      {
-       "t": "list",
-       "items": [
-        "Study Grove always runs at about 30 frames per second, whatever the frame limit is set to. {{frame-limit}}",
-        "The settings and the finished-session count reset when you restart the game or change world."
-       ]
-      },
-      {
-       "t": "note",
-       "kind": "planned",
-       "text": "Planned: keeping the screen awake during long sessions. Today your system's power settings decide when the screen dims. {{display-awake}}"
+       "kind": "limit",
+       "text": "The native app requests that the desktop stay awake while its window is focused and visible, including menus. Desktop support varies; it releases the request on focus loss or hiding. {{display-awake}}"
       }
      ]
     }
@@ -3399,7 +3342,7 @@
   {
    "id": "explosives",
    "page": "guide-explosives.html",
-   "number": 14,
+   "number": 13,
    "gap": null,
    "kicker": "Building",
    "title": "Explosives: TNT and dynamite",
@@ -3595,7 +3538,7 @@
   {
    "id": "weather-and-day-night",
    "page": "guide-weather-day-night.html",
-   "number": 15,
+   "number": 14,
    "gap": null,
    "kicker": "World",
    "title": "Day, night and weather",
@@ -3749,23 +3692,24 @@
   {
    "id": "saves",
    "page": "guide-saves.html",
-   "number": 16,
+   "number": 15,
    "gap": null,
    "kicker": "World",
    "title": "Saves and world files",
    "headline": "Saves and world files<br><em>what is kept, and the limits.</em>",
-   "summary": "A world save keeps your character, inventory, settings and every block you changed. Each world is capped at 200,000 changed blocks and 8 MiB.",
-   "lead": "A world file keeps what you change: your character, your inventory, your settings and the blocks you edit. Terrain you never touch is not stored; the game rebuilds it from the world's seed. This page shows what a save keeps, when it saves, and where the limits are.",
-   "readTime": "3 min read",
+   "summary": "Save, back up and recover a world. Find what persists and how the 200,000-block and 8 MiB limits apply.",
+   "lead": "Your world file keeps your character, carried items and changes to the world. Untouched terrain is rebuilt from the saved seed and generation. Display, audio and input preferences are shared across worlds.",
+   "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "save-contents",
     "save-limits",
     "save-compatibility",
     "single-instance",
-    "loading-screen"
+    "loading-screen",
+    "world-backups"
    ],
    "next": [
     "install-and-worlds",
@@ -3773,15 +3717,16 @@
     "settings-and-performance"
    ],
    "verification": {
-    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit.",
-    "limits": "Source-checked, not play-tested in this guide. No save-file or loading-screen captures exist yet, so the loading screen is described in words."
+    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit. Targeted 5 November source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: current save sections, shared preferences, generation 12, Worlds backup/recovery and stopped-host retry/choice paths. Existing unrelated opening-screen evidence keeps its earlier receipt. The game’s dated WORLD_BACKUP_20261016 verification records offscreen backup recovery; this wiki pass did not rerun it.",
+    "limits": "Source-checked in this follow-up; no new game process, native save/fault injection, LAN play or screenshot capture. Existing loading-screen prose retains its earlier audit. Backup and stopped-host instructions need integration browser review; an uncheckpointed session is not guaranteed to survive a restart."
    },
    "owns": [
     "save-contents",
     "save-limits",
     "save-compatibility",
     "single-instance",
-    "loading-screen"
+    "loading-screen",
+    "world-backups"
    ],
    "partial": [],
    "sections": [
@@ -3797,19 +3742,19 @@
        "t": "list",
        "items": [
         "Your position, view direction and game mode (creative or survival).",
-        "In survival: health, hunger, thirst and stamina. A legacy temperature value is retained for save compatibility and has no gameplay effect.",
+        "In survival: health, hunger, thirst and stamina. A legacy temperature value is retained for compatibility and has no gameplay effect.",
         "Your inventory, hotbar bindings and selected slot, and the tool you hold.",
-        "Every block you changed, with its water state.",
+        "Every block you changed, including water and door state.",
         "Time of day, weather and season controls.",
-        "Your home crate and rest point, and one saved build palette.",
-        "Journal places, expedition finds and the map destination.",
-        "Up to 8 sailing boats, with their position, heading and health.",
-        "The settings for that world. {{save-contents}}"
+        "Your home crate and rest point, chest contents, placed furniture and one saved build palette.",
+        "Journal places, expedition finds, milestones and the map destination.",
+        "Up to 8 sailing boats.",
+        "Player-hatched animals and dropped item stacks. {{save-contents}}"
        ]
       },
       {
        "t": "p",
-       "text": "Not saved: animals, projectiles, primed TNT and Study Grove timers. These reset when you load the world. The Performance overlay (F3), Chunk borders (F7), LOD view (F8) and the FPS and coordinates readout are also session-only, so they reset on load."
+       "text": "Procedural wildlife, flying projectiles and primed TNT are not saved. Temporary diagnostic overlays also reset. Display, audio and input preferences are shared separately; a world file still contains older settings fields for compatibility."
       }
      ]
     },
@@ -3820,15 +3765,33 @@
       {
        "t": "list",
        "items": [
-        "[[F6]] saves now and shows 'World saved safely'.",
-        "Autosave runs about every 30 seconds, but only when the world has changed.",
-        "Building, mining, home storage, journal edits and boats count as changes. Walking around and most crafting do not, so they wait for the next save.",
-        "Choosing Main menu, Save & quit or Quit, pressing [[Ctrl]]+[[Q]], closing the window, or loading or creating another world all save first."
+        "[[F6]] saves now and shows “World saved safely” after success.",
+        "Autosave checks about every 30 seconds and saves when world state has changed.",
+        "Choosing Main menu, Save & quit or Quit, pressing [[Ctrl]]+[[Q]], closing the window, or loading or creating another world saves first.",
+        "Main menu keeps a hosted world running. Use **Stop hosting** on the Multiplayer page to end hosting."
        ]
       },
       {
        "t": "p",
-       "text": "If a save fails while you are quitting, the game stays open, so the changes are not lost. {{saving}}"
+       "text": "A failed save keeps a visible warning. If saving fails while you are quitting, the game stays open so you can fix the problem and retry. {{saving}}"
+      },
+      {
+       "t": "h",
+       "text": "If a stopped host cannot recover your pack"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Keep the session open. If the save before stopping failed, the world is still hosted; fix the reported problem and try **Stop hosting** again.",
+        "If hosting has stopped and pack recovery is blocked, press [[F6]] to retry. **Continue** returns to the repair session so you can adjust conflicting Creative catalogue choices.",
+        "Press [[Shift]]+[[F6]] to inspect the recovery choice. You can keep current choices, or hold the offered recovery action for 3 seconds. **Use final pack** selects the host’s final pack and mode, setting aside conflicting catalogue changes. If the final world or pack is unavailable, **Use last saved world** restores the saved world and its matching pack together.",
+        "The explicit choice first preserves an independent recovery copy. If writing that copy or a checkpoint fails, keep the session open and follow the reported error before retrying."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "An unresolved pack blocks ordinary saving, world replacement and quitting. Recovery files protect a successfully recorded checkpoint; do not remove them to bypass the choice. The dialog explains which later state will be set aside. {{mp-menu-lan-hosting}}"
       }
      ]
     },
@@ -3846,8 +3809,21 @@
        ]
       },
       {
+       "t": "h",
+       "text": "Make and reopen a backup"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Open **Worlds**, select a saved world and choose **Create backup** or press [[Ctrl]]+[[B]]. Stop hosting first if this is the hosted world.",
+        "Wait for **Backup ready** and keep the location shown. A completed backup ends in backups/backup-<time>-<process>-<sequence>/snapshot/. The active local world is saved before copying.",
+        "To reopen a backup, close the game and copy the whole completed **snapshot** folder into a new folder such as worlds/recovered-house/. Keep the original world and the backup.",
+        "Start the game and open the new copy from **Worlds**. A .pending folder is an unfinished attempt, not a completed backup."
+       ]
+      },
+      {
        "t": "p",
-       "text": "There is no backup button. To keep a copy, close the game and copy the world's folder. {{save-limits}}"
+       "text": "Backups contain the save and its available name, preview and session-history files. They are stored beside worlds, so deleting the source world does not delete the backup. Finish any outstanding save recovery before making an ordinary backup or duplicate. {{world-backups}} {{save-limits}}"
       }
      ]
     },
@@ -3858,7 +3834,7 @@
       {
        "t": "list",
        "items": [
-        "A world keeps the terrain generator it was created with, so land you have not changed stays the same. New worlds use generation 10. {{world-generation-version}}",
+        "A world keeps the terrain generation it was created with. Create world defaults to generation 12 and also offers older generations; loading or updating a world preserves its saved choice. {{world-generation-version}}",
         "A world saved before the half-metre block grid is refused with 'world predates the half-metre voxel grid; a new world is required'. Create a new world instead.",
         "A world saved by a newer version of the game is refused by an older one with 'world was saved by a newer version of voxelgame'. Update the game to open it.",
         "A file that is not a Voxelgame save is refused with 'not a voxelgame save'."
@@ -3888,7 +3864,7 @@
   {
    "id": "creatures",
    "page": "guide-creatures.html",
-   "number": 17,
+   "number": 16,
    "gap": null,
    "kicker": "Creatures",
    "title": "Animal spawning, calls and spawn eggs",
@@ -4054,7 +4030,7 @@
   {
    "id": "moving-and-aiming",
    "page": "guide-moving-and-aiming.html",
-   "number": 18,
+   "number": 17,
    "gap": null,
    "kicker": "Moving and aiming",
    "title": "Aiming, camera and on-screen feedback",
@@ -4307,7 +4283,7 @@
   {
    "id": "caves-and-landmarks",
    "page": "guide-caves-and-landmarks.html",
-   "number": 19,
+   "number": 18,
    "gap": null,
    "kicker": "World",
    "title": "Caves and geological landmarks",
@@ -4416,7 +4392,7 @@
   {
    "id": "volcanoes-water-and-expeditions",
    "page": "guide-volcanoes-water-and-expeditions.html",
-   "number": 20,
+   "number": 19,
    "gap": null,
    "kicker": "World",
    "title": "Volcanoes, water and expedition sites",
@@ -4559,7 +4535,7 @@
   {
    "id": "islands-and-biomes",
    "page": "guide-islands-and-biomes.html",
-   "number": 21,
+   "number": 20,
    "gap": null,
    "kicker": "World",
    "title": "Islands, biomes and world generations",
@@ -4655,16 +4631,16 @@
   {
    "id": "not-in-the-game-yet",
    "page": "guide-not-in-game.html",
-   "number": 22,
+   "number": 21,
    "gap": 15,
    "kicker": "Reference",
-   "title": "Not in the game yet",
-   "headline": "Not in the game yet,<br><em>and what to do instead.</em>",
-   "summary": "Fire, lava, waterfalls and dripstone, furniture, player skins and multiplayer are not finished in this version. Here is what is missing and what you can do today.",
-   "lead": "This page answers the common “is this in the game?” questions. Each item is checked against the game source for the audited version. Planned features are marked as planned, and no guide describes how they work until they ship.",
+   "title": "Multiplayer and feature limits",
+   "headline": "Multiplayer and feature limits",
+   "summary": "LAN hosting, joining a world and recovering a stopped host, with a short list of features still missing.",
+   "lead": "Play together on your local network, then check the limits that still apply.",
    "readTime": "3 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-05",
    "state": "complete",
    "covers": [
     "fire",
@@ -4683,12 +4659,69 @@
     "maps-and-finding-your-way"
    ],
    "verification": {
-    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042.",
-    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships."
+    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042. Furniture availability and remaining bed/closet/extendable-table gaps were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (crates/voxelgame-core/src/furniture/definition.rs:18-97; game/furniture/catalog.rs:43-76; game/furniture/workbench.rs:97-116). This is a targeted correction, not a new check of the other missing-feature sections. Multiplayer follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked hosted save/refusal, F6 retry, Shift+F6 recovery choice, server-owned stock/crafting and Survival recovery. Preserve the separate furniture helper’s verification additions.",
+    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships. No new native host/join, two-computer LAN, fault-injection or gameplay capture in this multiplayer follow-up."
    },
    "owns": [],
    "partial": [],
    "sections": [
+    {
+     "id": "multiplayer",
+     "title": "Multiplayer",
+     "blocks": [
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Use the same game build on both computers and a trusted local network. Multiplayer still has limits; it is not complete parity with solo play. {{mp-join-server}} {{mp-menu-lan-hosting}}"
+      },
+      {
+       "t": "h",
+       "text": "Host your world"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Open **Multiplayer** on the main menu and choose **Host this world**.",
+        "Read the join address shown. Other players can choose your world from their LAN list, or type that complete address and port into **SERVER**. {{mp-lan-world-list}}",
+        "Keep the host computer on and connected. Opening **Main menu** keeps hosting.",
+        "Choose **Stop hosting** to disconnect other players and return to solo play with the recovered world and pack. If the initial save fails, hosting continues; fix the reported problem and try again."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "If hosting has stopped but pack recovery fails, keep the game open. **Continue** returns to the repair session, [[F6]] retries, and [[Shift]]+[[F6]] opens a recovery choice. Follow {{guide:saves|Saves and world files}} before discarding any state."
+      },
+      {
+       "t": "h",
+       "text": "Join a world"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Open **Multiplayer**. Choose a LAN world or one of your last eight servers, or type HOST or HOST:PORT in **SERVER**. The default port is 27015.",
+        "Enter your display name in **NAME**; leave it empty to use your login name. [[Tab]] switches fields.",
+        "Choose **Join server** or press [[Enter]]. [[Esc]] cancels while joining. Your local world is saved before joining; the server world is kept by its host."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Each player has a separate inventory. Supported crafting, chest transfers, Survival needs and recovery wait for the server. Boats and some other actions remain limited. A refusal message explains when an action is unavailable."
+      },
+      {
+       "t": "p",
+       "text": "Press [[Enter]] to type a chat message, Enter again to send it, or [[Esc]] to cancel. {{mp-chat}}"
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "The first server certificate is remembered. If it changes, joining is refused; check the server identity before changing saved trust."
+      },
+      {
+       "t": "p",
+       "text": "For the separate server program and console commands, see {{mp-dedicated-server}}."
+      }
+     ]
+    },
     {
      "id": "fire",
      "title": "Fire",
@@ -4738,12 +4771,20 @@
     },
     {
      "id": "storage",
-     "title": "Chests and furniture",
+     "title": "Furniture that is still missing",
      "blocks": [
       {
        "t": "note",
        "kind": "planned",
-       "text": "Closets, chairs, beds, sofas, stools and extendable tables are requested but not in this version. Wooden chests and wooden doors are in the game now: see {{wooden-chests}} and {{doors}} in Building. {{planned-doors-chests-furniture}}"
+       "text": "Beds, closets and extendable tables are not in this version. Tables currently have a fixed size."
+      },
+      {
+       "t": "p",
+       "text": "Chairs, stools, benches, armchairs, sofas, kitchen units and bathroom fixtures are available. Use the furniture plans in the {{guide:building-basics|Building guide}}. Survival carpentry needs a carried Furniture hammer. {{planned-doors-chests-furniture}}"
+      },
+      {
+       "t": "p",
+       "text": "Wooden chests and doors are also available; see {{wooden-chests}} and {{doors}}. Basins and bathtubs do not create or store water, and plumbing is still absent."
       }
      ]
     },
@@ -4755,90 +4796,6 @@
        "t": "note",
        "kind": "planned",
        "text": "Your explorer wears one built-in outfit with fixed colours. There is no skin editor, and no skin import or export. {{player-skins}}"
-      }
-     ]
-    },
-    {
-     "id": "multiplayer",
-     "title": "Multiplayer",
-     "blocks": [
-      {
-       "t": "note",
-       "kind": "limit",
-       "text": "Multiplayer is in development. The start menu has a Multiplayer page for joining a server, for joining worlds hosted on your network and for hosting your world. Hosting and the network list are described from source and not play-tested yet. Server admin tools are not done. {{mp-join-server}} {{mp-lan-world-list}} {{mp-menu-lan-hosting}}"
-      },
-      {
-       "t": "steps",
-       "items": [
-        "Choose **Multiplayer** on the start menu.",
-        "Type the server address in **SERVER**, as HOST or HOST:PORT. The port is 27015 unless you give one. Leave out spaces: the page refuses an address with a space inside it.",
-        "Type the name others see in **NAME**, up to 32 bytes. Leave it empty to use your login name. [[Tab]] switches between the two fields.",
-        "Press [[Enter]], or choose **Join server**. To reuse one of the last 8 servers, click its row."
-       ]
-      },
-      {
-       "t": "p",
-       "text": "Joining saves your local world first. If you are already on a server, the game waits for your last block edits to reach it before leaving. The server's world is never saved to your computer. A failed join stays on the page with the reason. A server is added to the list only after it welcomes you and its world matches."
-      },
-      {
-       "t": "p",
-       "text": "A join gives up after 15 seconds in all. The time includes looking up the server name. To stop a join while it is loading, press [[Esc]] on the loading screen. The page then says **Stopped joining**. If the server had already welcomed you, you leave it again."
-      },
-      {
-       "t": "p",
-       "text": "On a server you see other players' arm swings. A player who punches, mines or places a block shows the swing on their character. The swing is only a picture: it does not change their reach or what they can build or break."
-      },
-      {
-       "t": "p",
-       "text": "Worlds hosted on your network appear above your remembered servers while the Multiplayer page is open. The list shows up to 8 worlds, each with its name and address, and updates by itself. Only worlds on the same local network appear. Select a row and press Enter, or click it, to join. Your own hosted world is not listed. A world from another game version is shown as a world for another game version. If the selected world stops hosting, the selection moves to Join server."
-      },
-      {
-       "t": "p",
-       "text": "To host your world for players on your network, use Host this world on the same page:"
-      },
-      {
-       "t": "steps",
-       "items": [
-        "Choose **Host this world** between Join and Back. The button reads **Stop hosting** while the world is hosted.",
-        "Read the address on the page. Other players type it in **SERVER**. The port is 27015 when it is free; otherwise the page shows another port, so type the port too.",
-        "Other players type their name in **NAME** and choose **Join server**.",
-        "Choose **Stop hosting** when you are done. The world is saved, everyone is disconnected and your save loads for single play. Blocks you placed just before you stop are saved too."
-       ]
-      },
-      {
-       "t": "p",
-       "text": "If the save fails, for example because the disk is full, the status line says why. The world stays hosted and in play, so make room and try again. F6 and the 30-second autosave also report a failed save. If the save fails while you stop hosting, the world still stops and reopens from the copy on disk. The status line reads \"Hosting stopped, but its last save failed\"."
-      },
-      {
-       "t": "list",
-       "items": [
-        "Your computer must stay on and on the same network as the players.",
-        "To join a server, choose Stop hosting first.",
-        "Loading or creating another world, opening the Structure Workshop or quitting stops hosting first. The world is saved before it stops.",
-        "Hosting starts with your saved position, inventory, hotbar, tool, home, rest point and journal. Items you collect or use while hosting are saved with the world, and single play resumes from there. Resting while hosting moves your rest point, and it stays there after you stop hosting."
-       ]
-      },
-      {
-       "t": "p",
-       "text": "You can also start the game with --connect=HOST[:PORT] and --name=NAME, for example voxelgame --connect=HOST --name=NAME. You see other players, can build together and chat."
-      },
-      {
-       "t": "list",
-       "items": [
-        "Use it on a LAN or the same computer only.",
-        "In survival, damage and death do not apply while you are connected.",
-        "Animals, inventories and crafting are not shared.",
-        "Water flow comes from the server.",
-        "The first server you join is trusted. If its certificate later changes, the game refuses to connect."
-       ]
-      },
-      {
-       "t": "p",
-       "text": "Build a server from source with the separate voxelgame-server program. The installers do not build it. voxelgame-server --world DIR hosts a world on 127.0.0.1:27015, and the server console accepts /list, /say, /save, /stop and /help. {{mp-dedicated-server}}"
-      },
-      {
-       "t": "p",
-       "text": "While connected, press Enter to open the chat line and Enter again to send it. Press Esc to cancel. Messages stay on screen for 10 seconds, and your keys do not move the player while you type. {{mp-chat}}"
       }
      ]
     },

@@ -131,18 +131,18 @@ def render_page(ledger):
         '<a class="skip" href="#ledger">Skip to the feature ledger</a>\n'
         + header_html('features.html') + '\n<main>\n')
     add('<section class="intro" aria-labelledby="title"><div class="eyebrow"><span class="status-dot"></span> '
-        f'FEATURE LEDGER / AUDITED {text(audited.upper())}</div><div class="intro-row">'
+        f'FEATURE LEDGER / BASE AUDIT {text(audited.upper())}</div><div class="intro-row">'
         f'<h1 id="title">{ledger["headline"]}</h1><p>{text(ledger["lead"])}</p></div></section>\n')
-    add(f'<div class="study-meta">Voxelgame main <code>{text(commit_short)}</code> · committed '
-        f'{text(long_date(game["commitDate"]))} · package {text(game["packageVersion"])} · new worlds use '
-        f'generation {text(game["newWorldGeneration"])} · source audit, not a play test</div>\n')
+    add(f'<div class="study-meta">Initial audit: Voxelgame main <code>{text(commit_short)}</code> · committed '
+        f'{text(long_date(game["commitDate"]))} · package {text(game["packageVersion"])} · generation '
+        f'{text(game["newWorldGeneration"])} at that revision · later checks appear in entry notes</div>\n')
     add('<section class="stats ledger-stats" aria-label="Ledger summary">'
         f'<div><strong>{len(features)}</strong><span>base-game features listed</span></div>'
         f'<div><strong>{playable}</strong><span>playable in the base game</span></div>'
         f'<div><strong>{counts.get("planned", 0)}</strong><span>requested and still planned</span></div>'
         "</section>\n")
     add('<section class="report-section legend-section" aria-labelledby="legend-title"><div class="section-heading">'
-        '<div class="eyebrow">HOW TO READ THIS PAGE</div><h2 id="legend-title">Status means what you can do today.</h2></div>'
+        '<div class="eyebrow">HOW TO READ THIS PAGE</div><h2 id="legend-title">Status follows the recorded source.</h2></div>'
         f'<p class="report-lead">{text(ledger["legendLead"])}</p><dl class="status-legend">')
     for status in ledger["statuses"]:
         add(f'<div><dt><span class="status status-{attr(status["key"])}">{text(status["label"])}</span>'
@@ -214,9 +214,9 @@ def render_page(ledger):
     for block in ledger["method"]:
         add(f'<article><h3>{text(block["title"])}</h3><p>{text(block["text"])}</p></article>')
     add("</div>")
-    add(f'<p class="measurement-note">Audited commit <code>{text(game["commit"])}</code> on branch '
-        f'{text(game["branch"])}, committed {text(game["commitDate"])}. Evidence paths and line numbers refer to that '
-        f"commit in the {REPOSITORY_NOTE}; later game changes can move them.</p>")
+    add(f'<p class="measurement-note">Initial audit <code>{text(game["commit"])}</code> on branch '
+        f'{text(game["branch"])}, committed {text(game["commitDate"])}. Refreshed entries name their own source '
+        f"revision in the notes; other evidence retains its earlier revision in the {REPOSITORY_NOTE}.</p>")
     add('<div class="evidence-links"><a href="data/features.json" download>Complete ledger · JSON ↓</a>'
         '<a href="guides.html#coming">Guides still to come ↗</a></div></section>\n')
     add('</main>\n' + footer_html() + '\n</body></html>\n')
