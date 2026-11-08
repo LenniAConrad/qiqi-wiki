@@ -1149,18 +1149,45 @@
    "id": "move-through-leaves",
    "area": "moving",
    "name": "Moving and climbing through leaves",
-   "status": "planned",
-   "summary": "Tree leaves are solid: you bump into foliage and cannot walk or climb through it. Passing and scaffold-style climbing through leaves is requested but not implemented.",
+   "status": "available",
+   "modes": [
+    "any"
+   ],
+   "summary": "Tree leaves, needles and fronds do not block you. Walk into a tree crown and you slow to half speed. Inside the leaves, hold Space to climb up and Shift to climb down; with neither held you stay where you are instead of falling. You can stand on top of a crown, and holding Shift as you land lets you sink into it. Flying and swimming work as usual. Arrows and other shots still stop on leaves.",
+   "controls": [
+    [
+     "W / A / S / D into leaves",
+     "Walk through a tree crown at half speed"
+    ],
+    [
+     "Space (inside leaves)",
+     "Climb up"
+    ],
+    [
+     "Shift (inside leaves)",
+     "Climb down; held while landing on a crown, sink into it"
+    ]
+   ],
    "evidence": [
-    "crates/voxelgame-core/src/world/block.rs:84-101 — leaves, needles and fronds are foliage",
-    "crates/voxelgame-core/src/world/block.rs:409-412 — only air, liquids and small plants are non-solid",
-    "crates/voxelgame-core/src/player.rs:979-982 — player collision tests solid blocks",
-    "crates/voxelgame-core/src/world/mod.rs:1225-1227 — player collision tests solid blocks"
+    "crates/voxelgame-core/src/player/foliage.rs:7-8 — climb speed 2.5 m/s and half walking speed inside foliage",
+    "crates/voxelgame-core/src/player/foliage.rs:10-28 — touching leaves means the body overlaps a foliage voxel",
+    "crates/voxelgame-core/src/player/foliage.rs:30-42 — Shift climbs down, Space climbs up, otherwise you hold still",
+    "crates/voxelgame-core/src/player/foliage.rs:44-80 — the top of a crown supports you",
+    "crates/voxelgame-core/src/player.rs:522-532 — half speed and the climb replace walking and falling inside foliage",
+    "crates/voxelgame-core/src/player.rs:838-846 — landing on a crown unless Shift is held",
+    "crates/voxelgame-core/src/world/mod.rs:1520 — player collision skips foliage",
+    "crates/voxelgame-core/src/world/block.rs:543-547 — foliage stays solid for shots and animals",
+    "crates/voxelgame-core/src/player/foliage.rs:113-140 — test: every leaf type allows passage and climbing"
    ],
    "backlog": [
     "VOX-OWNER-MOVE-THROUGH-LEAVES"
    ],
-   "notes": "Fallen leaves on the ground is a plant and can be walked through."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Fallen leaves on the ground are a plant and were always walkable. Not checked on a multiplayer server.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-getting-started.html",
+    "label": "Getting started: your first session"
+   }
   },
   {
    "id": "survival-meters",
@@ -3938,14 +3965,16 @@
     "crates/voxelgame-core/src/world/generator/caves.rs:55-105 — the three layouts (fork and chamber, loop, pillared hall)",
     "crates/voxelgame-core/src/world/generator/caves.rs:154-161 — entrances need a hillside: the site must be 32 m above sea level and the entrance 10 m",
     "crates/voxelgame-core/src/world/generator/caves.rs:184-194 — the floor grade is a gentle slope",
-    "crates/voxelgame-core/src/ambience.rs:54-59 — a cave ambience sound plays underground beneath a roof"
+    "crates/voxelgame-core/src/ambience.rs:54-59 — a cave ambience sound plays underground beneath a roof",
+    "crates/voxelgame-core/src/world/generator/dripstone.rs:9-105 — limestone formations in covered chambers, kept clear of the walking routes",
+    "crates/voxelgame-core/src/world/generator/voxel.rs:319 — formations are applied to every generated column"
    ],
    "backlog": [
     "VOX-OWNER-CAVE-SYSTEMS",
     "VOX-OWNER-CAVE-MAPS",
     "VOX-OWNER-DRIPSTONE-CAVES"
    ],
-   "notes": "Caves do not appear on the map. There are no stalactites, dripstone, ores or lights inside caves.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Caves do not appear on the map and have no lights of their own. In worlds made with the current generator, caves cut through limestone have stalagmites, stalactites and joined columns in their covered chambers, clear of the walking routes.",
    "guide": {
     "state": "complete",
     "page": "guide-caves-and-landmarks.html",
@@ -4041,20 +4070,23 @@
    "id": "waterfalls-dripstone",
    "area": "world",
    "name": "Natural waterfalls and dripstone caves",
-   "status": "planned",
+   "status": "partial",
    "modes": [
     "any"
    ],
-   "summary": "There are no natural waterfalls, stalactites, stalagmites or dripstone. Water you place in creative can pour over an edge, but there are no cascade visuals or spray, and the waterfall sound loop is unused.",
+   "summary": "In worlds made with the current generator, limestone caves have stalagmites, stalactites and joined columns in their covered chambers; see Hillside caves. There are still no natural waterfalls. Water you place in creative can pour over an edge, but there are no cascade visuals or spray, and the waterfall sound loop is unused.",
    "evidence": [
-    "src/audio/nature.rs:233 — 'Waterfall reserved until a real falling-water source can be identified'",
-    "crates/voxelgame-core/src/world/mod.rs:2010 — only 'accidental debug waterfalls' from placed water are mentioned",
-    "search: grep -i 'dripstone|stalactite|stalagmite' over crates/ and src/ — no matches"
+    "crates/voxelgame-core/src/world/generator/dripstone.rs:9-105 — limestone formations rising from the floor or hanging from the roof of covered chambers, some joined into columns",
+    "crates/voxelgame-core/src/world/generator/voxel.rs:319 — formations are applied to every generated column",
+    "crates/voxelgame-core/src/world/generator.rs:627-629 — the current generator version (12) is the one that adds them",
+    "src/audio/nature.rs:225 — 'Waterfall reserved until a real falling-water source can be identified'",
+    "search: grep -i 'waterfall|cascade' over crates/ and src/ — no natural waterfall or cascade code"
    ],
    "backlog": [
     "VOX-OWNER-WATERFALLS",
     "VOX-OWNER-DRIPSTONE-CAVES"
    ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Worlds made with an older generator have no formations.",
    "guide": {
     "state": "none",
     "next": "Not in the game yet"
@@ -6650,14 +6682,23 @@
    "id": "native-error-window",
    "area": "platform",
    "name": "Native error window",
-   "status": "planned",
-   "summary": "Planned: a window showing the exact fatal error with details you can copy. Not in this version; errors only go to the terminal.",
+   "status": "partial",
+   "summary": "On Linux, if the game starts with no options (for example from the application menu) and stops on a fatal error, a window titled 'qiqi could not continue' shows the error and its technical details, with Copy details and Close buttons. It needs Python 3, GTK 3 and a desktop display. Windows and macOS show no window yet: the report goes to the terminal and a details.txt file only.",
    "evidence": [
-    "search: grep MessageBox|rfd::|MessageDialog|zenity|kdialog|osascript in src and crates: none; src/main.rs:63,68 print to stderr only"
+    "src/main.rs:37 — the window is allowed only when the game was started with no options",
+    "src/fatal_error.rs:106-140 — a report is printed, saved and then shown in the window",
+    "src/fatal_error.rs:330-370 — the window needs a desktop display and Linux, Python 3 and GTK 3",
+    "src/fatal_dialog.py:68-106 — title, explanation, technical details, Copy details and Close"
    ],
    "backlog": [
     "VOX-OWNER-NATIVE-ERROR-WINDOW"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Windows and macOS print to the terminal only.",
+   "guide": {
+    "state": "partial",
+    "page": "guide-troubleshooting.html",
+    "label": "Fixing startup, sound and save problems"
+   }
   },
   {
    "id": "lag-spike-log",
@@ -6777,11 +6818,11 @@
    "area": "platform",
    "name": "Run a dedicated server (voxelgame-server)",
    "status": "in-development",
-   "summary": "The dedicated server is a separate program that the installers do not build. Built from source, `voxelgame-server --world DIR` hosts a world on 127.0.0.1:27015 by default; for LAN play bind your LAN address, for example --bind 192.168.1.20:27015. Its console accepts /list, /say, /save, /stop and /help. It confirms most player actions only after saving the change.",
+   "summary": "The dedicated server is a separate program that the installers do not build. Built from source, `voxelgame-server --world DIR` hosts a world on 127.0.0.1:27015 by default; for LAN play bind your LAN address, for example --bind 192.168.1.20:27015. Its console accepts /list, /kick #ID [reason] (the ID is shown by /list), /say, /save, /stop and /help. On an interactive terminal it opens a full-screen console instead; --no-tui keeps the plain one. It confirms most player actions only after saving the change.",
    "controls": [
     [
-     "/list, /say <text>, /save, /stop, /help",
-     "List players, broadcast, save now, save and stop, show commands (server console)"
+     "/list, /kick #ID [reason], /say <text>, /save, /stop, /help",
+     "List players, disconnect one player, broadcast, save now, save and stop, show commands (server console)"
     ]
    ],
    "evidence": [
@@ -6791,12 +6832,14 @@
     "search: scripts/desktop/install.sh:164-165 and install-windows.ps1:117 build only --bin voxelgame (game repository at dfeb362d; scripts/ is not in the exported snapshot)",
     "crates/voxelgame-server/src/config.rs:3-10 — loopback default; public or all-interface addresses refused without --allow-public",
     "crates/voxelgame-server/src/config.rs:30-34 — command-line options",
+    "crates/voxelgame-server/src/console.rs:31 — console command list",
+    "crates/voxelgame-server/src/terminal.rs:312-370 — players, log and chat, and command panes; Tab switches panes, F1 shows help and Ctrl+C saves and stops at lines 166-172",
     "crates/voxelgame-server/src/host.rs:138-141 — a server with a world folder, not a game you host, waits for its own saves",
     "crates/voxelgame-server/src/host/furniture/durability/stock.rs:84-113 — successful replies wait for the world save, plus the player record for rest, meals, water and respawn",
     "crates/voxelgame-server/src/host/furniture/durability/stock.rs:198-239 — replies are released only once saved; failed writes keep them waiting",
     "crates/voxelgame-server/src/host/furniture/durability/stock.rs:30-32 — at most eight unsaved or queued actions of one kind per connection"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Other options: --seed, --name, --motd, --mode, --max-players, --autosave-minutes, --no-tui. Refusals arrive at once; a successful craft, meal, drop, placement, storage move, Home action, animal hit, paid shot or respawn waits for the save. A failed write keeps it waiting without repeating it. Developers can test with the scripted bot: cargo run --release -p voxelgame-server --example bot -- HOST:PORT."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. The console was re-checked here; the rest keeps its dfeb362d check. Other options: --seed, --name, --motd, --mode, --max-players, --autosave-minutes, --no-tui. Refusals arrive at once; a successful craft, meal, drop, placement, storage move, Home action, animal hit, paid shot or respawn waits for the save. A failed write keeps it waiting without repeating it. Developers can test with the scripted bot: cargo run --release -p voxelgame-server --example bot -- HOST:PORT."
   },
   {
    "id": "mp-chat",
@@ -6885,18 +6928,22 @@
   {
    "id": "mp-server-admin",
    "area": "platform",
-   "name": "Server administration (server.toml, kick/ban/whitelist, password, TUI console)",
-   "status": "planned",
-   "summary": "Planned for a later milestone: a server.toml file, /kick /ban /op /whitelist /time /weather /tp, passwords and a full-screen server console. The current server only has command-line options and five console commands.",
+   "name": "Server administration (server.toml, ban/whitelist, passwords, more commands)",
+   "status": "partial",
+   "summary": "The dedicated server has command-line options only, with no server.toml. Its console has /list, /kick #ID [reason], /say, /save, /stop and /help, and on an interactive terminal it shows a full-screen view of players, log and chat. Planned for a later milestone: a server.toml file, /ban, /op, /whitelist, /time, /weather and /tp, and passwords.",
    "evidence": [
-    "crates/voxelgame-server/src/console.rs:8-24 — only stop/save/say/list/help",
-    "crates/voxelgame-server/src/config.rs:20-23 — command-line options only"
+    "crates/voxelgame-server/src/console.rs:8-31 — six commands: stop, save, say, kick, list, help",
+    "crates/voxelgame-server/src/console.rs:47-64 — /kick #ID [reason] disconnects one listed player",
+    "crates/voxelgame-server/src/terminal.rs:465-471 — the full-screen console starts only on an interactive terminal",
+    "crates/voxelgame-server/src/config.rs:30-34 — command-line options only",
+    "search: grep -iE 'whitelist|server.toml|password|ban|/tp' over crates/voxelgame-server/src — no command or file for them"
    ],
    "backlog": [
     "VOX-NET-M3-TUI",
     "VOX-NET-M3-ADMIN",
     "VOX-NET-M3-DEPLOY"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test."
   },
   {
    "id": "headless-screenshots-bench",

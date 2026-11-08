@@ -37,6 +37,7 @@
     "game-modes",
     "new-world-start",
     "walk-and-look",
+    "move-through-leaves",
     "mouse-capture",
     "inventory-workspaces",
     "hotbar-quick-slots",
@@ -54,8 +55,8 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit. Targeted menu, pause, rebinding, screenshot and settings changes were checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Other gameplay paragraphs keep their earlier checks. Targeted Pack, drop and death-screen guidance was checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: crates/voxelgame-core/src/inventory.rs:882-893; game/inventory_input.rs:55-67; game/item_drops.rs:53-137; game/death.rs:80-123,234-263; crates/voxelgame-render/src/inventory_ui.rs:425-535. Inventory remains under active development. The Pack load header was checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026: crates/voxelgame-render/src/inventory_ui.rs:17-26,87-94. On 8 November 2026 the start menu, Create world, world selection and deletion, hotbar saving, F4 and F6 text was re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/startup.rs:78-93,322-343; game/startup/main.rs:17-25; game/startup/worlds.rs:340-500; game/startup_create.rs:64-196; game/net_client.rs:592-654; save/write.rs:456-465 (all beneath crates/voxelgame-core/src/); voxelgame-render startup_ui.rs:200-270 and startup_ui/worlds.rs:366-436; src/worlds.rs:575-623; src/app.rs:2002-2025.",
-    "limits": "Source-checked, not play-tested. The four preserved screenshots are 11 October 2026 captures of the older audited build; they do not show the current menu or inventory layout. No new game capture or native run was made. Inventory and death source tests were read, not run in this wiki update. The 8 November start-menu, world, mode and save-key corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit. Targeted menu, pause, rebinding, screenshot and settings changes were checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Other gameplay paragraphs keep their earlier checks. Targeted Pack, drop and death-screen guidance was checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: crates/voxelgame-core/src/inventory.rs:882-893; game/inventory_input.rs:55-67; game/item_drops.rs:53-137; game/death.rs:80-123,234-263; crates/voxelgame-render/src/inventory_ui.rs:425-535. Inventory remains under active development. The Pack load header was checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026: crates/voxelgame-render/src/inventory_ui.rs:17-26,87-94. On 8 November 2026 the start menu, Create world, world selection and deletion, hotbar saving, F4 and F6 text was re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/startup.rs:78-93,322-343; game/startup/main.rs:17-25; game/startup/worlds.rs:340-500; game/startup_create.rs:64-196; game/net_client.rs:592-654; save/write.rs:456-465 (all beneath crates/voxelgame-core/src/); voxelgame-render startup_ui.rs:200-270 and startup_ui/worlds.rs:366-436; src/worlds.rs:575-623; src/app.rs:2002-2025. Walking and climbing through leaves was re-checked on 8 November 2026 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657: crates/voxelgame-core/src/player/foliage.rs:7-80; player.rs:522-532,838-845.",
+    "limits": "Source-checked, not play-tested. The four preserved screenshots are 11 October 2026 captures of the older audited build; they do not show the current menu or inventory layout. No new game capture or native run was made. Inventory and death source tests were read, not run in this wiki update. The 8 November start-menu, world, mode and save-key corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. The leaf-climbing paragraph was source-checked at Voxelgame 21d656c2 on 8 November 2026; not play-tested."
    },
    "sections": [
     {
@@ -198,6 +199,10 @@
          "Start or stop flying (creative only). Space rises, Shift descends, Ctrl boosts."
         ]
        ]
+      },
+      {
+       "t": "p",
+       "text": "Leaves and needles do not block you. Walk into a tree crown at half speed, hold [[Space]] to climb up and [[Shift]] to climb down, or let go to stay where you are. You can stand on top of a crown; hold [[Shift]] as you land to sink into it. {{move-through-leaves}}"
       },
       {
        "t": "p",
@@ -384,6 +389,7 @@
     "game-modes",
     "new-world-start",
     "walk-and-look",
+    "move-through-leaves",
     "mouse-capture",
     "inventory-workspaces",
     "hotbar-quick-slots",
@@ -1915,6 +1921,7 @@
    "state": "complete",
    "covers": [
     "startup-error-reporting",
+    "native-error-window",
     "unreadable-save",
     "troubleshoot-graphics",
     "audio-requirements",
@@ -1927,10 +1934,11 @@
    ],
    "verification": {
     "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines. The save and saving sections were narrowed against Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: src/worlds/resume.rs:12-40; src/app.rs:1043-1055,1553-1568,1641-1650,1904-1905; src/app/owner_recovery.rs:32-45. They link to the refreshed save/world guides instead of repeating older default-world or crafting-autosave assumptions. On 8 November 2026 the startup report, error window, unreadable-world dialog and Settings paths were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: src/main.rs:33-50,93-109; src/fatal_error.rs:174-201,244-278,330-370; src/fatal_dialog.py:67-106; src/local_startup.rs:11-23; voxelgame-render startup_ui.rs:705-771; voxelgame-core settings.rs:25-89,653,933-989.",
-    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet. These targeted save corrections are source checks only; no new play test was run. Other troubleshooting sections keep their earlier source checks. The 8 November corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested, and the Linux error window was not opened."
+    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet. These targeted save corrections are source checks only; no new play test was run. Other troubleshooting sections keep their earlier source checks. The 8 November corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested, and the Linux error window was not opened. The error window was re-checked in the source at Voxelgame 21d656c2 on 8 November 2026 (src/main.rs:37; src/fatal_error.rs:106-140,330-370; src/fatal_dialog.py:68-106); not play-tested."
    },
    "owns": [
     "startup-error-reporting",
+    "native-error-window",
     "unreadable-save",
     "troubleshoot-graphics",
     "audio-requirements",
@@ -1939,6 +1947,7 @@
    ],
    "partial": [
     "startup-error-reporting",
+    "native-error-window",
     "unreadable-save",
     "troubleshoot-graphics"
    ],
@@ -1949,7 +1958,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "When the game cannot start, or stops on a fatal error, it closes and prints a report that begins **qiqi could not continue**; its **Error:** (or **Panic:**) line gives the reason. The report is also saved as a details.txt file, and its last line, **Diagnostic file:**, says where. On Linux, a launch without options, such as from the application menu, also opens a **qiqi could not continue** window with **Copy details** and **Close**; it needs Python 3 and GTK 3. Windows and macOS show no window yet, so start the game from a terminal there to read the report."
+       "text": "When the game cannot start, or stops on a fatal error, it closes and prints a report that begins **qiqi could not continue**; its **Error:** (or **Panic:**) line gives the reason. The report is also saved as a details.txt file, and its last line, **Diagnostic file:**, says where. On Linux, a launch without options, such as from the application menu, also opens a **qiqi could not continue** window with **Copy details** and **Close**; it needs Python 3 and GTK 3. {{native-error-window}} Windows and macOS show no window yet, so start the game from a terminal there to read the report."
       },
       {
        "t": "list",
@@ -5210,8 +5219,8 @@
     "maps-and-finding-your-way"
    ],
    "verification": {
-    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042. Furniture availability and remaining bed/closet/extendable-table gaps were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (crates/voxelgame-core/src/furniture/definition.rs:18-97; game/furniture/catalog.rs:43-76; game/furniture/workbench.rs:97-116). This is a targeted correction, not a new check of the other missing-feature sections. Multiplayer follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked hosted save/refusal, F6 retry, Shift+F6 recovery choice, server-owned stock/crafting and Survival recovery. Multiplayer and furniture follow-up on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 in joined and hosted worlds (src/app.rs), dedicated-server save waits (voxelgame-server host.rs, host/raise.rs, host/furniture/durability/stock.rs), server size refusals (session/*.rs), the owner's seat and bed exit before stopping (session/hosting.rs), Creative Home and storage supplies (game/net_client/home.rs, furniture_storage.rs, session/home/*.rs), Creative moves of paid furniture (game/net_client/furniture/commands.rs) and the furniture list and limits (furniture/definition.rs, modular_table.rs, placement.rs, inventory.rs). The Stop hosting save failure and the default player name were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: src/app.rs:1009-1034 and src/net_client.rs:1084-1099.",
-    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships. No new native host/join, two-computer LAN, fault-injection or gameplay capture in this multiplayer follow-up. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no host, join or dedicated-server session. Those two corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042. Furniture availability and remaining bed/closet/extendable-table gaps were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (crates/voxelgame-core/src/furniture/definition.rs:18-97; game/furniture/catalog.rs:43-76; game/furniture/workbench.rs:97-116). This is a targeted correction, not a new check of the other missing-feature sections. Multiplayer follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked hosted save/refusal, F6 retry, Shift+F6 recovery choice, server-owned stock/crafting and Survival recovery. Multiplayer and furniture follow-up on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 in joined and hosted worlds (src/app.rs), dedicated-server save waits (voxelgame-server host.rs, host/raise.rs, host/furniture/durability/stock.rs), server size refusals (session/*.rs), the owner's seat and bed exit before stopping (session/hosting.rs), Creative Home and storage supplies (game/net_client/home.rs, furniture_storage.rs, session/home/*.rs), Creative moves of paid furniture (game/net_client/furniture/commands.rs) and the furniture list and limits (furniture/definition.rs, modular_table.rs, placement.rs, inventory.rs). The Stop hosting save failure and the default player name were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: src/app.rs:1009-1034 and src/net_client.rs:1084-1099. Dripstone and the console commands of the separate server program were re-checked on 8 November 2026 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657 (crates/voxelgame-core/src/world/generator/dripstone.rs:9-105; crates/voxelgame-server/src/console.rs:8-31).",
+    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships. No new native host/join, two-computer LAN, fault-injection or gameplay capture in this multiplayer follow-up. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no host, join or dedicated-server session. Those two corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. That dripstone correction was source-checked at Voxelgame 21d656c2 on 8 November 2026; not play-tested."
    },
    "owns": [],
    "partial": [],
@@ -5337,12 +5346,16 @@
     },
     {
      "id": "waterfalls",
-     "title": "Waterfalls and dripstone",
+     "title": "Waterfalls",
      "blocks": [
       {
        "t": "note",
        "kind": "planned",
-       "text": "There are no natural waterfalls, stalactites, stalagmites or dripstone caves. Water you place in creative mode can pour over an edge, but no cascade is drawn and the waterfall sound is not used. {{waterfalls-dripstone}}"
+       "text": "There are no natural waterfalls. Water you place in creative mode can pour over an edge, but no cascade is drawn and the waterfall sound is not used. {{waterfalls-dripstone}}"
+      },
+      {
+       "t": "p",
+       "text": "Caves cut through limestone do have stalagmites, stalactites and joined columns in worlds made with the current generator. See {{guide:caves-and-landmarks|Caves and geological landmarks}}."
       }
      ]
     },
