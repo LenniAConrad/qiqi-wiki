@@ -133,8 +133,8 @@ def render_home():
             + preview_attributes('images/guides/inventory-build.webp', 'guides',
                 '(max-width: 760px) 89vw, 480px') +
             ' width="1280" height="720" loading="lazy" decoding="async" '
-            'alt="The game’s Build tab, showing its block palette and building tools."></a>'
-            '<figcaption>The Build tab · Game capture, 11 October 2026</figcaption></figure>'
+            'alt="The game’s creative Catalogue tab, showing carried items beside its paged block palette."></a>'
+            '<figcaption>The Catalogue tab · Game capture, 8 November 2026</figcaption></figure>'
             '<div><h2 id="play-title">Your first day</h2>'
             '<p>In survival, keep an eye on hunger and thirst while gathering supplies. Start with stone tools, '
             'then build somewhere to call home.</p><ul class="quick-links">'

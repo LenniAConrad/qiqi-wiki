@@ -85,8 +85,8 @@
       {
        "t": "figure",
        "src": "images/guides/start-menu.webp",
-       "alt": "An older capture of the Voxelgame start menu, showing world and settings controls and one entry that is no longer on the base menu, with a wireframe cube on the left.",
-       "caption": "The start menu in the preserved 11 October 2026 headless capture (1280 × 720, disposable world). Current menu entries and layout have changed."
+       "alt": "The Voxelgame start menu: a stone panel with brass corners over a view of forest and meadow, headed by the qiqi cube logo. Buttons read Continue, Worlds, Multiplayer, Structure workshop, Mods, Settings, Credits and Quit, with a keyboard hint line at the bottom.",
+       "caption": "The start menu. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world)."
       },
       {
        "t": "p",
@@ -222,8 +222,8 @@
       {
        "t": "figure",
        "src": "images/guides/world-hud.webp",
-       "alt": "First-person view over a flowering meadow with a few trees. A status message is at the top left, a square compass map at the top right with a small readout of frames per second and coordinates beneath it, a crosshair in the centre and a row of ten empty hotbar slots at the bottom.",
-       "caption": "The screen in the preserved 11 October 2026 headless capture (1280 × 720, disposable creative world). Current interface details may differ."
+       "alt": "First-person view over a hazy flowering meadow with a large tree. A status message is at the top left above a First steps goals card, a square compass map at the top right with a frames-per-second, coordinates and biome readout beneath it, a crosshair in the centre, the hand at the lower right and a row of ten empty hotbar slots at the bottom.",
+       "caption": "The screen in a new creative world, with the optional First steps goals card open. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world)."
       },
       {
        "t": "list",
@@ -250,8 +250,8 @@
       {
        "t": "figure",
        "src": "images/guides/inventory-build.webp",
-       "alt": "The inventory screen in creative mode. Tabs along the top read Pack, Craft, Build, Home and Journal. The Build tab is open and shows a paged grid of block icons with a search field and category buttons, and the hotbar of ten empty slots below.",
-       "caption": "The older creative Build tab in the preserved 11 October 2026 headless capture (1280 × 720, disposable world). The current inventory layout and tabs differ; this image is a dated example."
+       "alt": "The creative inventory with the Catalogue tab open. Tab icons run along the top; Your pack lists a few carried items on the left with the selected Meadow turf below, and the right side shows a search field, category icons and a paged grid of block icons. The ten-slot hotbar sits below the panel.",
+       "caption": "The creative Catalogue tab. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world). This build titles the load readout Capacity; the current game reads Load."
       },
       {
        "t": "p",
@@ -348,8 +348,8 @@
       {
        "t": "figure",
        "src": "images/guides/settings-paused.webp",
-       "alt": "The Paused settings panel with tabs General, Audio, World and Debug. Rows for field of view, horizon distance, mouse sensitivity, atmospheric fog, camera bob, frame limit, shader, GUI size and chunk fade-in are shown, with Resume, Main menu and Save and quit buttons at the bottom.",
-       "caption": "The older Paused settings panel in the preserved 11 October 2026 headless capture (1280 × 720, disposable world). Today Esc opens a separate pause menu and Settings has grouped subpages."
+       "alt": "The in-game Settings panel. Categories Graphics, Audio, Controls, Gameplay, Interface and Advanced are on the left; Graphics is open on its Display subpage, with rows for Graphics preset, Field of view, Horizon distance, Atmospheric fog, Frame limit, Shader and Chunk fade-in, and Reset page, Back and Resume buttons along the bottom.",
+       "caption": "Settings opened from a world, Graphics > Display. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world). The debug capture uses its own view distance, so the preset reads Custom."
       },
       {
        "t": "p",

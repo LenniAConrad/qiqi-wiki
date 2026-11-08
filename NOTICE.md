@@ -72,9 +72,11 @@ texture maps or proprietary Minecraft artwork are included.
 from reading the Voxelgame source at the commit shown on each guide; the 37
 recipes are extracted from the game's recipe registry and rechecked by
 `tools/validate_guides.py --game`. The four screenshots are headless captures
-(1280 × 720, lossy WebP quality 80) of the original game's release build running
-against a disposable world with no packs enabled, and contain no third-party
-assets. Project GPL-3.0-only terms apply.
+(1280 × 720) of the original game running against a disposable world with no
+packs enabled, and contain no third-party assets. Project GPL-3.0-only terms apply.
+On 8 November 2026 they were recaptured (lossy WebP quality 88) from a devtools
+build of that day, replaying `tools/captures/guide_screens.json` with the game's
+`tools/game_debug.py replay` (seed 42, offscreen, no normal saves or window).
 
 
 ## Responsive gallery and guide previews — 13 October 2026

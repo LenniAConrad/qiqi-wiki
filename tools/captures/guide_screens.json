@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "SPDX-License-Identifier: GPL-3.0-only",
+  "description": "Wiki guide screenshots: start menu, world HUD, inventory Build tab and Settings in a disposable seed-42 world at 1280x720. No normal saves, no visible window.",
+  "commands": [
+    {"command": "reset", "seed": "42", "mods": [], "viewport": [1280, 720]},
+    {"command": "configure", "screen": "menu", "view_distance": 12, "shader": "fast", "weather": "clear", "time": 0.32},
+    {"command": "render", "frames": 60, "prepare_entry": true},
+    {"command": "render", "frames": 30},
+    {"command": "capture_frame", "name": "start-menu.png"},
+    {"command": "reset", "seed": "42", "mods": [], "viewport": [1280, 720]},
+    {"command": "configure", "screen": "world", "mode": "creative", "view_distance": 12, "shader": "fast", "weather": "clear", "time": 0.32},
+    {"command": "step", "frames": 120, "render": true},
+    {"command": "render", "frames": 60},
+    {"command": "capture_frame", "name": "world-hud.png"},
+    {"command": "configure", "screen": "inventory", "inventory_view": "build"},
+    {"command": "render", "frames": 20},
+    {"command": "capture_frame", "name": "inventory-build.png"},
+    {"command": "configure", "screen": "settings"},
+    {"command": "render", "frames": 20},
+    {"command": "capture_frame", "name": "settings.png"},
+    {"command": "configure", "screen": "inventory", "inventory_view": "craft", "mode": "survival"},
+    {"command": "render", "frames": 20},
+    {"command": "capture_frame", "name": "inventory-craft.png"}
+  ]
+}
