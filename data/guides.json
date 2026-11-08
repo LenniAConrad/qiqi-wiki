@@ -3777,7 +3777,7 @@
        "rows": [
         [
          "F3",
-         "Show or hide the performance overlay: CPU work over the last half second, frame time against the frame budget, the worst recent frame and a spike count. The budget follows Frame limit (Unlimited uses 60 FPS); a spike is a frame over twice the budget and at least 25 ms."
+         "Show or hide the performance overlay: CPU work over the last half second, frame time against the frame budget, the worst recent frame and a spike count. The budget follows Frame limit (Unlimited uses 60 FPS); a spike is a frame longer than both 25 ms and twice the budget."
         ],
         [
          "F7",

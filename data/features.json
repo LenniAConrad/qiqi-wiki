@@ -1086,7 +1086,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Press F1 to hide the HUD, crosshair, prompts, compact map, block highlight and first-person hands and tools, for example for screenshots. Menus still appear when opened, and the screenshot-saved message still shows. Press F1 again to bring everything back.",
+   "summary": "Press F1 to hide the HUD, crosshair, prompts, compact map, placement ghost, block outlines and first-person hands and tools, for example for screenshots. Menus still appear when opened, and the screenshot-saved message still shows. Press F1 again to bring everything back.",
    "controls": [
     [
      "F1",
@@ -6070,7 +6070,7 @@
    "backlog": [
     "VOX-OWNER-GPU-TIMING-BOX"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A spike is a frame longer than twice the budget and at least 25 ms. While the overlay is open on Linux, spikes are written to lag-spikes.jsonl in $XDG_STATE_HOME/voxelgame or ~/.local/state/voxelgame (src/profiling.rs:49-55). No benchmark was made.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A spike is a frame longer than both twice the budget and 25 ms. While the overlay is open on Linux, spikes are written to lag-spikes.jsonl in $XDG_STATE_HOME/voxelgame or ~/.local/state/voxelgame (src/profiling.rs:49-55). No benchmark was made.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -6338,7 +6338,7 @@
    "area": "platform",
    "name": "Install on Linux (install.sh)",
    "status": "available",
-   "summary": "From the extracted source folder run `bash install.sh` as your normal user. It installs compiler and audio tools (apt-get, dnf or pacman, using sudo only for system packages), Rust stable, builds the game and adds Voxelgame to your application menu. Setup never starts the game or touches existing worlds.",
+   "summary": "From the extracted source folder run `bash install.sh` as your normal user. It installs compiler and audio tools (apt-get, dnf or pacman, using sudo only for system packages), Rust stable, builds the game and adds qiqi to your application menu. Setup never starts the game or touches existing worlds.",
    "controls": [
     [
      "bash install.sh [--yes] [--prefix PATH]…",
