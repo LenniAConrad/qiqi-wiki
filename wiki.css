@@ -25,7 +25,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .wiki-home main, .guide-page main, .guides-index main { max-width: 1280px; }
 .wiki-home main { padding-block: 32px 36px; }
 .wiki-home h1, .guide-page h1, .guides-index h1 { font-family: var(--display); font-size: clamp(32px, 3.5vw, 47px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.13; margin: 0 0 16px; }
-.wiki-home h1 { font-size: var(--px5); line-height: 1.1; }
+.wiki-home h1 { font-size: var(--px5); line-height: 61px; }
 .wiki-home h2 { font-family: var(--pixel); font-size: var(--px3); font-weight: 400; margin: 0; letter-spacing: 0; }
 .wiki-home p { font-size: 15px; line-height: 1.65; max-width: 75ch; }
 .wiki-home a, .wiki-article a { text-underline-offset: 3px; }
@@ -38,7 +38,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .home-landscape figcaption { font-size: 11px; color: var(--muted); line-height: 1.6; padding: 11px 2px 0; }
 .wiki-home .home-landscape > a { display: block; padding: 10px; }
 .home-palette { display: grid; grid-template-columns: 250px minmax(0, 1fr); align-items: center; gap: 24px; padding: 22px 28px; }
-.wiki-home .home-palette h2 { font-size: var(--px2); line-height: 1.3; }
+.wiki-home .home-palette h2 { font-size: var(--px2); line-height: 30px; }
 .wiki-home .home-palette p { font-size: 11px; color: var(--muted); margin: 6px 0 0; }
 .home-palette ul { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); list-style: none; gap: 12px; margin: 0; padding: 0; }
 .home-palette a { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; line-height: 1.35; text-align: center; text-decoration: none; }
@@ -46,7 +46,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 /* Each colour sits in a recessed wood slot, like a block in the inventory; the colour itself is drawn untouched. */
 .material-color { display: block; flex: none; width: 56px; height: 56px; border-radius: 2px; background: linear-gradient(var(--material), var(--material)) center / 40px 40px no-repeat, linear-gradient(var(--edge), var(--edge)) center / 42px 42px no-repeat, var(--slot); box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); }
 .home-palette a:hover .material-color, .home-palette a:focus-visible .material-color { box-shadow: inset 0 0 0 1px var(--brass-light), 0 0 0 2px #cea65566; }
-.wiki-search label { display: block; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 1.2; color: var(--title); font-synthesis: none; margin-bottom: 8px; }
+.wiki-search label { display: block; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 26px; color: var(--title); font-synthesis: none; margin-bottom: 8px; }
 .wiki-search input { width: 100%; min-height: 46px; padding: 11px 14px; }
 .wiki-search .search-help { font-size: 11px; line-height: 1.5; color: var(--muted); margin: 7px 0 0; }
 /* Results open as a game tooltip: opaque, square, with a light grey edge. */
@@ -59,7 +59,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .search-kind { color: var(--accent); font: 700 10px var(--mono); letter-spacing: .8px; text-transform: uppercase; margin-left: 8px; }
 /* Start buttons: the first is the primary brass button, the second a raised stone one. */
 .wiki-home .start-here { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; }
-.wiki-home .start-here a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; flex: 1 1 auto; min-height: 44px; max-width: 100%; padding: 6px 16px; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 1.1; text-align: center; color: var(--ink); text-decoration: none; background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); font-synthesis: none; }
+.wiki-home .start-here a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; flex: 1 1 auto; min-height: 44px; max-width: 100%; padding: 6px 16px; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 24px; text-align: center; color: var(--ink); text-decoration: none; background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); font-synthesis: none; }
 .wiki-home .start-here a:hover { color: var(--ink); background: var(--hover); border-color: var(--brass); }
 .wiki-home .start-here a:active { background: var(--press); box-shadow: none; transform: translateY(1px); }
 .wiki-home .start-here a:first-child { color: #151412; background: var(--brass); border-color: var(--brass); box-shadow: inset 0 1px var(--brass-light), inset 0 -1px #0000003d; }
@@ -69,15 +69,15 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 /* Section headings sit on the brass rule with its diamond, as a heading sits over controls in game. */
 .section-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; padding-bottom: 14px; background: var(--diamond) center bottom / 9px 8px no-repeat, var(--rule) left bottom 3px / calc(50% - 7px) 2px no-repeat, var(--rule) right bottom 3px / calc(50% - 7px) 2px no-repeat; }
 .section-label > span { font-size: 12px; color: var(--muted); }
-.wiki-home .section-label > a { display: inline-flex; align-items: center; min-height: 40px; padding: 4px 14px; font-family: var(--pixel); font-size: var(--px2); line-height: 1.1; color: var(--ink); text-decoration: none; background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); font-synthesis: none; }
+.wiki-home .section-label > a { display: inline-flex; align-items: center; min-height: 40px; padding: 4px 14px; font-family: var(--pixel); font-size: var(--px2); line-height: 24px; color: var(--ink); text-decoration: none; background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); font-synthesis: none; }
 .wiki-home .section-label > a:hover { color: var(--ink); background: var(--hover); border-color: var(--brass); }
 .catalog-columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .catalog-columns > section { min-width: 0; padding: 20px 22px 22px; }
-.catalog-columns h3 { margin: 0; font-family: var(--pixel); font-size: var(--px3); font-weight: 400; line-height: 1.2; color: var(--title); font-synthesis: none; }
+.catalog-columns h3 { margin: 0; font-family: var(--pixel); font-size: var(--px3); font-weight: 400; line-height: 41px; color: var(--title); font-synthesis: none; }
 .catalog-columns h3 a { text-decoration: none; display: flex; align-items: center; gap: 12px; min-height: 44px; }
 .catalog-columns h3 span { font-family: var(--sans); font-size: 20px; color: var(--accent); }
 /* Catalog numbers sit in small wood slots with light pixel figures, like an inventory count. */
-.catalog-columns h3 .catalog-number { display: inline-grid; place-items: center; flex: none; min-width: 38px; height: 38px; padding: 0 6px; font-family: var(--pixel); font-size: var(--px2); line-height: 1; color: var(--title); background: var(--slot); border-radius: 2px; box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); }
+.catalog-columns h3 .catalog-number { display: inline-grid; place-items: center; flex: none; min-width: 38px; height: 38px; padding: 0 6px; font-family: var(--pixel); font-size: var(--px2); line-height: 22px; color: var(--title); background: var(--slot); border-radius: 2px; box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); }
 .catalog-columns h3 span:last-child { margin-left: auto; }
 .wiki-home .catalog-columns p { font-size: 13px; margin: 12px 0 16px; line-height: 1.7; }
 .catalog-landscape { display: block; text-decoration: none; }
@@ -104,7 +104,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 /* On the home page the quick links are game list rows. */
 .wiki-home .quick-links { display: grid; gap: 8px; }
 .wiki-home .quick-links li { padding: 0; border: 0; }
-.wiki-home .quick-links a { display: flex; align-items: center; min-height: 44px; padding: 8px 14px; font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; color: var(--ink); text-decoration: none; background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); font-synthesis: none; }
+.wiki-home .quick-links a { display: flex; align-items: center; min-height: 44px; padding: 8px 14px; font-family: var(--pixel); font-size: var(--px2); line-height: 26px; color: var(--ink); text-decoration: none; background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); font-synthesis: none; }
 .wiki-home .quick-links a:hover { color: var(--title); background: var(--hover); border-color: var(--brass); }
 .home-directory { padding: 30px 0 36px; }
 .topic-directory { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); list-style: none; gap: 10px; padding: 0; margin: 0; }
@@ -112,7 +112,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .wiki-home .topic-directory > li { display: flex; padding: 0; scroll-margin-top: 20px; background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); }
 .wiki-home .topic-directory > li:hover { background: var(--hover); border-color: var(--brass); }
 .wiki-home .topic-directory > li:target { border-color: var(--brass-light); box-shadow: 0 0 0 2px #cea65566; }
-.topic-directory h3 { flex: 1; min-width: 0; margin: 0; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 1.2; font-synthesis: none; overflow-wrap: anywhere; }
+.topic-directory h3 { flex: 1; min-width: 0; margin: 0; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 26px; font-synthesis: none; overflow-wrap: anywhere; }
 .topic-directory h3 a { display: flex; align-items: center; height: 100%; min-height: 48px; padding: 8px 14px; color: var(--ink); text-decoration: none; }
 .wiki-home .topic-directory h3 a:hover { color: var(--title); }
 .home-updates { display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; padding-top: 30px; background: var(--diamond) center top / 9px 8px no-repeat, var(--rule) left top 3px / calc(50% - 7px) 2px no-repeat, var(--rule) right top 3px / calc(50% - 7px) 2px no-repeat; }
@@ -150,13 +150,13 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .guide-page .guide-section .recipe-inputs li { font-size: 13px; }
 /* Topic links are game tabs; article lists are game list rows whose whole row opens the article. */
 .guide-topic-links, .related-topics { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 18px 0; padding: 0; font-size: 13px; }
-.guide-topic-links a, .related-topics a { display: inline-flex; align-items: center; min-height: 40px; padding: 7px 14px 8px; font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; color: var(--ink); background: var(--surface); border-radius: 4px; box-shadow: var(--raised); text-decoration: none; }
+.guide-topic-links a, .related-topics a { display: inline-flex; align-items: center; min-height: 40px; padding: 7px 14px 8px; font-family: var(--pixel); font-size: var(--px2); line-height: 26px; color: var(--ink); background: var(--surface); border-radius: 4px; box-shadow: var(--raised); text-decoration: none; }
 .guide-topic-links a:hover, .wiki-article .related-topics a:hover { background: var(--hover); color: var(--ink); text-decoration: none; }
 .topic-articles { list-style: none; padding: 0; margin: 0; border: 1px solid var(--edge); border-radius: 3px; background: var(--surface); overflow: hidden; }
 .topic-articles li { position: relative; padding: 14px 16px 12px; border-top: 1px solid var(--line); }
 .topic-articles li:first-child { border-top: 0; }
 .topic-articles li:hover { background: var(--hover); }
-.guide-page .topic-articles h3 { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; letter-spacing: 0; line-height: 1.3; color: var(--title); font-synthesis: none; margin: 0 0 8px; }
+.guide-page .topic-articles h3 { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; letter-spacing: 0; line-height: 30px; color: var(--title); font-synthesis: none; margin: 0 0 8px; }
 .guide-page .topic-articles h3 a { text-decoration: none; }
 .guide-page .topic-articles li:hover h3 a, .guide-page .topic-articles h3 a:focus-visible { color: var(--accent); }
 .guide-page .topic-articles h3 a::after { content: ""; position: absolute; inset: 0; }
@@ -185,7 +185,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .mob-table a:hover > .mob-model { border-color: var(--brass); }
 /* The changelog switch is a pair of game tabs; the current one carries the inset brass underline. */
 .change-switch { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
-.change-switch a { display: inline-flex; align-items: center; padding: 8px 16px 9px; min-height: 44px; font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; color: var(--ink); background: var(--surface); border-radius: 4px; box-shadow: var(--raised); text-decoration: none; }
+.change-switch a { display: inline-flex; align-items: center; padding: 8px 16px 9px; min-height: 44px; font-family: var(--pixel); font-size: var(--px2); line-height: 26px; color: var(--ink); background: var(--surface); border-radius: 4px; box-shadow: var(--raised); text-decoration: none; }
 .wiki-article .change-switch a:hover { background: var(--hover); color: var(--ink); text-decoration: none; }
 .wiki-article .change-switch [aria-current] { font-weight: 400; color: var(--title); background: linear-gradient(var(--brass), var(--brass)) center bottom 1px / calc(100% - 8px) 2px no-repeat, var(--hover); text-decoration: none; }
 .change-cutoff { color: var(--muted); font-size: 13px; }
@@ -194,12 +194,12 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .changelog-page .change-list > li::marker { color: var(--brass); }
 .change-updating { border: 1px solid var(--edge); border-radius: 3px; background: var(--stone-face); box-shadow: var(--panel-shadow); padding: 4px 16px; margin: 20px 0 4px; }
 .change-updating[open] { background: var(--brackets), var(--stone-face); padding-block: 4px 12px; }
-.change-updating summary { padding-block: 8px; cursor: pointer; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 1.3; color: var(--title); font-synthesis: none; }
+.change-updating summary { padding-block: 8px; cursor: pointer; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 30px; color: var(--title); font-synthesis: none; }
 .change-updating summary::marker { color: var(--brass); }
 .change-updating .change-list { margin-top: 8px; }
 .change-updating p { font-size: 13px; }
 .changelog-page .change-date { scroll-margin-top: 20px; }
-.changelog-page .guide-section.change-date h2 { font-size: var(--px2); line-height: 1.3; color: var(--accent); }
+.changelog-page .guide-section.change-date h2 { font-size: var(--px2); line-height: 30px; color: var(--accent); }
 @media (max-width: 1050px) {
   .site-header .wiki-nav { gap: 0 16px; }
   .home-opening { gap: 30px; }
@@ -306,10 +306,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 /* Display type: the pixel face never takes negative tracking or faux bold. */
 h1, h2, .wiki-home h1, .wiki-home h2, .guide-page h1, .guides-index h1, .guide-section h2, .section-heading h2, .method h2, .hero h2, .card h3, .empty h3, .detail-title-row h2, .stats strong, .key-table caption, .recipe-table caption, .site-brand .wordmark, footer .wordmark { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; color: var(--title); font-synthesis: none; -webkit-font-smoothing: none; }
 h1 em, h2 em { font-style: normal; color: var(--brass); }
-h1, .wiki-home h1, .guide-page h1, .guides-index h1 { font-size: var(--px4); line-height: 1.25; }
-.wiki-home h1 { font-size: var(--px5); }
-h2, .wiki-home h2, .guide-section h2, .guide-page .guide-section h2, .section-heading h2, .method h2, .detail-title-row h2, .hero h2 { font-size: var(--px3); line-height: 1.3; }
-.card h3, .empty h3, .stats strong, .key-table caption, .recipe-table caption { font-size: var(--px2); line-height: 1.4; }
+/* Line heights keep the half-leading a whole pixel (Trailhead's em is 11 design pixels), so glyphs stay on the pixel grid. */
+h1, .wiki-home h1, .guide-page h1, .guides-index h1 { font-size: var(--px4); line-height: 56px; }
+.wiki-home h1 { font-size: var(--px5); line-height: 67px; }
+h2, .wiki-home h2, .guide-section h2, .guide-page .guide-section h2, .section-heading h2, .method h2, .detail-title-row h2, .hero h2 { font-size: var(--px3); line-height: 43px; }
+.card h3, .empty h3, .stats strong, .key-table caption, .recipe-table caption { font-size: var(--px2); line-height: 30px; }
 .hero h2 { color: #f3efe2; }
 .eyebrow, .edition, .wiki-home .wiki-kicker { color: var(--brass); }
 .wiki-home a, .wiki-article a, .guide-section a { text-decoration-color: color-mix(in srgb, var(--brass) 70%, transparent); }
@@ -323,7 +324,7 @@ footer { border-image: linear-gradient(var(--edge) 1px, var(--stone) 0) fill 0 /
 .site-brand .wordmark { font-size: var(--px3); gap: 14px; }
 .site-brand .wordmark-light { font-family: var(--sans); color: var(--muted); }
 footer .wordmark { font-size: var(--px2); text-decoration: none; }
-.header-search, .theme-choice select, .site-menu > summary { font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); }
+.header-search, .theme-choice select, .site-menu > summary { font-family: var(--pixel); font-size: var(--px2); line-height: 26px; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); }
 .header-search { padding: 7px 12px; }
 .site-menu > summary { font-weight: 400; padding: 8px 12px; margin-bottom: 8px; }
 .wiki-contents summary { font-weight: 400; }
@@ -332,7 +333,7 @@ footer .wordmark { font-size: var(--px2); text-decoration: none; }
 .theme-choice { font-family: var(--pixel); font-size: var(--px2); }
 .theme-choice select { padding: 5px 8px; min-height: 36px; }
 .site-header .wiki-nav, .site-header .atlas-nav { gap: 6px; font-family: var(--pixel); font-size: var(--px2); }
-.site-header nav a { padding: 7px 14px 8px; border-radius: 4px; background: var(--surface); box-shadow: var(--raised); text-decoration: none; line-height: 1.2; }
+.site-header nav a { padding: 7px 14px 8px; border-radius: 4px; background: var(--surface); box-shadow: var(--raised); text-decoration: none; line-height: 26px; }
 .site-header nav a:hover { background: var(--hover); color: var(--ink); text-decoration: none; }
 .site-header nav [aria-current], .site-header .atlas-nav [aria-current] { font-weight: 400; color: var(--title); background: linear-gradient(var(--brass), var(--brass)) center bottom 1px / calc(100% - 8px) 2px no-repeat, var(--hover); box-shadow: var(--raised); }
 .site-header .atlas-nav { border-top: 0; margin-top: 8px; }
@@ -362,7 +363,7 @@ dialog::backdrop { background: #151412e0; backdrop-filter: blur(4px); }
 
 /* Buttons and inputs: raised stone controls; pressed toggles read as the selected tab. */
 .filters button, .view-controls button, .empty button, .detail-actions button, .habitat-links a, .round-button, .close {
-  font-family: var(--pixel); font-size: var(--px2); line-height: 1; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); text-decoration: none;
+  font-family: var(--pixel); font-size: var(--px2); line-height: 22px; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); text-decoration: none;
 }
 .filters button:hover, .view-controls button:hover, .empty button:hover, .detail-actions button:hover, .habitat-links a:hover, .round-button:hover, .close:hover { background: var(--hover); border-color: var(--brass); }
 .filters button:active, .view-controls button:active, .empty button:active, .detail-actions button:active { background: var(--press); box-shadow: none; transform: translateY(1px); }
@@ -382,11 +383,11 @@ kbd, .search-label kbd { font-family: var(--mono); font-size: .86em; color: var(
 .key-table thead th, .recipe-table thead th { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; color: var(--brass); border-top: 0; border-bottom: 1px solid var(--edge); }
 .recipe-inputs { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; list-style: none; }
 .guide-page .guide-section .recipe-inputs li, .recipe-inputs li { padding: 3px 9px 3px 4px; background: var(--slot); border-radius: 2px; box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); line-height: 1.5; }
-.recipe-count { font-family: var(--pixel); font-size: var(--px2); line-height: 1; color: var(--title); margin-right: 3px; }
+.recipe-count { font-family: var(--pixel); font-size: var(--px2); line-height: 22px; color: var(--title); margin-right: 3px; }
 .recipe-table tbody tr:target, .feature:target { box-shadow: 0 0 0 2px #cea65529, inset 0 0 0 1px var(--brass-light); }
 .status { border-radius: 4px; box-shadow: var(--raised); }
 @media (max-width: 760px) {
-  h1, .wiki-home h1, .guide-page h1, .guides-index h1 { font-size: var(--px3); }
+  h1, .wiki-home h1, .guide-page h1, .guides-index h1 { font-size: var(--px3); line-height: 43px; }
   .site-brand .wordmark { font-size: var(--px3); }
   .site-header .wiki-nav { gap: 6px; }
 }

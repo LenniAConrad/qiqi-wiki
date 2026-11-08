@@ -9,7 +9,7 @@
 /* Summary counts: three stone panels; the number is a pixel-face figure. */
 .features-page .ledger-stats { border: 0; gap: 16px; padding: 4px 0 20px; }
 .features-page .ledger-stats > div, .features-page .ledger-stats > div:first-child, .features-page .ledger-stats > div:last-child { border: 1px solid var(--edge); padding: 18px 24px 20px; }
-.features-page .ledger-stats strong { display: block; font-family: var(--pixel); font-size: var(--px3); font-weight: 400; letter-spacing: 0; line-height: 1.15; color: var(--accent); font-synthesis: none; }
+.features-page .ledger-stats strong { display: block; font-family: var(--pixel); font-size: var(--px3); font-weight: 400; letter-spacing: 0; line-height: 39px; color: var(--accent); font-synthesis: none; }
 .features-page .ledger-stats span { display: block; margin-top: 8px; font-size: 12px; line-height: 1.5; color: var(--muted); }
 
 /* Sections end in the game's brass rule with a diamond, as the guide sections do. */
@@ -33,7 +33,7 @@ main > .report-section:last-child { background: none; }
 /* Findings and notes. */
 .finding-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; margin-top: 32px; }
 .finding-pair > * { padding: 20px 24px 22px; }
-.finding-pair h3, .priority-list h3, .doc-notes h3 { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; letter-spacing: 0; line-height: 1.3; color: var(--title); margin: 0 0 8px; font-synthesis: none; }
+.finding-pair h3, .priority-list h3, .doc-notes h3 { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; letter-spacing: 0; line-height: 30px; color: var(--title); margin: 0 0 8px; font-synthesis: none; }
 .finding-pair p, .priority-list p { color: var(--muted); font-size: 13px; line-height: 1.85; margin: 0 0 8px; }
 .finding-pair p:last-child { margin-bottom: 0; }
 .priority-list { padding-left: 42px; max-width: 900px; }
@@ -59,21 +59,21 @@ body .status-planned { background: var(--theme-careful); color: var(--theme-plan
 .status-legend > div { border: 0; padding: 0; }
 .status-legend dt { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 12px; letter-spacing: 0; text-transform: none; color: var(--ink); }
 .status-legend dd { margin: 0; font-family: var(--sans); font-size: 12px; line-height: 1.75; color: var(--muted); overflow-wrap: normal; }
-.legend-count { margin-left: 0; font-family: var(--pixel); font-size: var(--px2); line-height: 1; color: var(--title); }
+.legend-count { margin-left: 0; font-family: var(--pixel); font-size: var(--px2); line-height: 22px; color: var(--title); }
 
 /* The ledger: areas of stone entry panels. */
 .ledger { padding: 60px 0 40px; }
 .ledger-area { padding: 38px 0 26px; scroll-margin-top: 12px; }
 .ledger-area + .ledger-area { background: var(--diamond) center top / 9px 8px no-repeat, var(--rule) left top 3px / calc(50% - 7px) 2px no-repeat, var(--rule) right top 3px / calc(50% - 7px) 2px no-repeat; padding-top: 52px; }
 .area-heading { max-width: 820px; }
-.area-heading h3 { font-family: var(--pixel); font-size: var(--px3); font-weight: 400; letter-spacing: 0; line-height: 1.25; color: var(--title); margin: 10px 0 8px; font-synthesis: none; }
+.area-heading h3 { font-family: var(--pixel); font-size: var(--px3); font-weight: 400; letter-spacing: 0; line-height: 41px; color: var(--title); margin: 10px 0 8px; font-synthesis: none; }
 .area-heading p { color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0 0 22px; }
 .feature-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; }
 /* Padding clears the 19px brass corner brackets on every side. */
 .feature { min-width: 0; padding: 22px 24px 24px; scroll-margin-top: 12px; }
 .features-page .feature:target { background: var(--brackets), var(--stone-face); box-shadow: inset 0 0 0 1px var(--brass-light), 0 0 0 2px color-mix(in srgb, var(--brass) 45%, transparent), 0 3px 0 var(--drop); }
 .feature-head { display: flex; flex-wrap: nowrap; justify-content: space-between; align-items: flex-start; gap: 10px 14px; }
-.feature h4 { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; letter-spacing: 0; line-height: 1.3; color: var(--title); margin: 0; font-synthesis: none; }
+.feature h4 { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; letter-spacing: 0; line-height: 30px; color: var(--title); margin: 0; font-synthesis: none; }
 .feature-head .status { flex: none; margin-top: 3px; }
 .feature-meta { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin: 9px 0 0; }
 .feature-summary { font-size: 13px; line-height: 1.8; color: var(--ink); margin: 10px 0 0; }
