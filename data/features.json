@@ -2151,7 +2151,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Two craftable wooden doors: a one-metre single leaf and a two-metre wide door with two leaves. Right click hangs one on solid ground, right click opens and closes it, and hitting the door takes the whole door down.",
+   "summary": "Craftable doors in Plain, Panelled and Windowed styles, in fifteen exact woods or any boards, and two sizes: 1 x 2 m with one leaf or 2 x 3 m with two. Right click hangs one on solid ground and opens or closes it; mining a leaf takes the whole door down. In Creative, Shift + left click moves a complete closed door as one undoable step.",
    "controls": [
     [
      "Right click with a door held",
@@ -2160,20 +2160,79 @@
     [
      "Right click a hung door",
      "Open or close it"
+    ],
+    [
+     "Left click a door leaf (hold in Survival)",
+     "Take the whole door down"
+    ],
+    [
+     "Shift + Left click a closed door (Creative)",
+     "Lock it to move: R turns, right click places, left click or B cancels"
+    ],
+    [
+     "Ctrl+Z / Ctrl+Shift+Z after a door move",
+     "Undo or redo the move (Creative, also on a server)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:1812-1824 — Timber recipes: one block of boards for a Wooden door, two for a Wide wooden door",
-    "crates/voxelgame-core/src/world/door.rs:138-175 — Small is 1 m wide and 2 m tall; Wide is 2 m wide and 3 m tall",
-    "crates/voxelgame-core/src/world/door.rs:50-57 — swing duration 0.35 seconds; draw wait up to 1 second",
-    "crates/voxelgame-core/src/game/doors.rs:32-56 — preview needs free supported space; connected placement has a server request path",
-    "crates/voxelgame-core/src/game/doors.rs:117-162 — opening and closing check the swing space and bodies, then use the predicted server-aware action",
-    "crates/voxelgame-core/src/game/doors.rs:189-226 — whole-door take-down, pack space check and wood-specific Survival server refusal",
-    "crates/voxelgame-core/src/session/doors.rs:84-102 — authoritative server door action handling",
-    "crates/voxelgame-core/src/world/door.rs:1075-1157 — free swing space, support, open-leaf placement and collision checks",
+    "crates/voxelgame-core/src/inventory.rs:1922-1935 — original Wooden door and Wide wooden door: one and two blocks of any boards in Timber",
+    "crates/voxelgame-core/src/world/door.rs:138-164 — Small is 1 m wide and 2 m tall; Wide is 2 m wide and 3 m tall; Plain, Panelled and Windowed styles",
+    "crates/voxelgame-core/src/world/door.rs:50-59 — swing duration 0.35 seconds; draw wait up to 1 second",
+    "crates/voxelgame-core/src/world/door.rs:1128-1156 — hanging needs room for a block in every voxel and a solid sill that is not a door",
+    "crates/voxelgame-core/src/game/doors.rs:54-118 — hang preview, refusals and server request path",
+    "crates/voxelgame-core/src/game/doors.rs:120-167 — opening and closing check the swing space and bodies",
+    "crates/voxelgame-core/src/game/doors.rs:193-231 — local whole-door take-down and full-pack refusal",
+    "crates/voxelgame-core/src/game/net_client/block_harvest.rs:163-176 — on a server, Survival left click is handled by server mining",
+    "crates/voxelgame-core/src/session/block_harvest/door.rs:98-117 — server Survival take-down returns one door of the same wood, style and size",
+    "crates/voxelgame-core/src/session/doors.rs:87-102 — server door actions refuse players who cannot act",
+    "crates/voxelgame-core/src/game/doors/relocation.rs:102-165 — Shift + left click locks a closed door; R turns, right click moves, left click or B cancels",
+    "crates/voxelgame-core/src/game/net_client/door_moves/input.rs:80-107 — Creative door Undo and Redo on a server",
     "crates/voxelgame-core/src/game/blueprint.rs:174-178 — blueprint capture excludes door leaves"
    ],
-   "notes": "Source-checked on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; no new play test or live server session. Connected placement, opening and take-down have server paths, replacing the guide's old blanket refusal. Wood-specific doors cannot be taken down in Survival on servers. Blueprints skip door leaves.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Adds three styles, fifteen exact woods and Creative door moves (see door-styles-and-moves). Corrects the 5 November note: on a server, Survival take-down goes through server mining, which returns the exact door of any wood, so the client's \"Wood-specific doors can only be taken down in Creative on servers\" message is not reached in normal play. Blueprints skip door leaves.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
+  },
+  {
+   "id": "door-styles-and-moves",
+   "area": "building",
+   "name": "Door styles, woods and moves",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "E > Craft shows Style, Wood and Size buttons on any door recipe. Plain and Panelled cost one block of the chosen boards (two for wide); Windowed costs 6 board and 2 glass pieces (12 and 4 for wide). Named woods need those exact boards; Any boards is the original Wooden door. In Creative, a complete closed door can be moved and turned onto clear, supported ground, with Undo and Redo, offline or on a server.",
+   "controls": [
+    [
+     "E > Craft > a door recipe > Style / Wood / Size",
+     "Step to the next style, wood or size; the other choices stay"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/inventory/door_recipes.rs:8-64 — Plain and Panelled doors in fifteen woods: one block of exact boards small, two wide",
+    "crates/voxelgame-core/src/inventory/door_recipes.rs:66-104 — Windowed doors: 6 board and 2 glass pieces small, 12 and 4 wide",
+    "crates/voxelgame-core/src/inventory.rs:1386-1419 — species doors need their exact boards; the original doors accept mixed boards",
+    "crates/voxelgame-core/src/furniture.rs:116-193 — the fifteen woods in order",
+    "crates/voxelgame-core/src/game/crafting/doors.rs:51-122 — Style, Wood and Size step independently; Any boards only in Plain; hiding filters switch off",
+    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:8-16 — Style stays disabled until a wood is chosen",
+    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:78-91 — click or Enter steps each choice",
+    "crates/voxelgame-render/src/inventory_ui/door_recipes.rs:9-47 — Style, Wood and Size labels; Plain, Panelled, Windowed, Any boards, 1 x 2 m and 2 x 3 m",
+    "crates/voxelgame-core/src/game/doors/relocation.rs:18-61 — door move hints; moves need Creative",
+    "crates/voxelgame-core/src/game/doors/relocation.rs:102-186 — locked move input, cancel, turn, place and Undo/Redo",
+    "crates/voxelgame-core/src/world/door/relocation.rs:116-235 — only a complete, closed, settled door; the new spot must be empty air",
+    "crates/voxelgame-core/src/world/door/relocation.rs:293-330 — solid ground under every leaf; furniture or open leaves block the move",
+    "crates/voxelgame-render/src/highlight.rs:99-113 — outline around the locked original door",
+    "crates/voxelgame-render/src/shader.wgsl:6420-6424 — that outline is drawn blue",
+    "crates/voxelgame-core/src/game/net_client/door_moves/input.rs:60-211 — on a server, moves wait for the server; history from before a respawn is refused",
+    "crates/voxelgame-core/src/game/net_client/door_moves.rs:294-339 — server moves, Undo and Redo finish only after the server confirms",
+    "crates/voxelgame-core/src/session/doors/relocation.rs:296-310 — the server also requires Creative",
+    "crates/voxelgame-core/src/game/building.rs:283-343 — Ctrl+Z routes door moves to local or server history"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. The game's docs/PLAYER_GUIDE.md still says door movement is unavailable while connected; the code sends Creative door moves, Undo and Redo to the server and waits for its confirmation. Moving needs empty air (no water or plants), unlike hanging. Survival cannot move doors.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -2249,7 +2308,7 @@
     "creative",
     "survival"
    ],
-   "summary": "A one-metre board chest from one block of boards. Set it down with a right click, open its Chest tab within 6 m with a right click, move items with clicks, and take it up by breaking it, which returns its contents to the pack when there is room.",
+   "summary": "A one-metre board chest from one block of any boards. Set it down with a right click, open its Chest tab within 6 m with a right click, move items with clicks, and take it up by mining it, which returns its contents to the pack when there is room. Holds 250 kg and 64 kinds of item; 512 chests per world. Works on servers in Survival and Creative.",
    "controls": [
     [
      "Right click with a chest held",
@@ -2265,20 +2324,78 @@
     ],
     [
      "Shift + click an item",
-     "Move all of that item"
+     "Move as much of that item as fits"
+    ],
+    [
+     "Left click a chest (hold in Survival)",
+     "Take it up; Survival takes its contents too, Creative needs it empty"
+    ],
+    [
+     "E or right click with the Furniture hammer at a placed chest",
+     "Open Refinish chest"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:1826-1831 — Wooden chest: one block of boards in Timber",
+    "crates/voxelgame-core/src/inventory.rs:1936-1942 — Wooden chest: one block of boards in Timber; keeps 250 kg",
     "crates/voxelgame-core/src/game/chests.rs:16-23 — 64 kinds, 250 capacity, 512 chests, 6 m reach",
-    "crates/voxelgame-core/src/game/chests.rs:57-117 — set down in the preview metre cell; connected placement requests the server",
-    "crates/voxelgame-core/src/game/chests.rs:121-142 — local Chest tab or connected private view request",
-    "crates/voxelgame-core/src/game/chests.rs:179-229 — local take-up returns chest and contents together; take-up refused on servers; connected transfer requests",
-    "crates/voxelgame-core/src/game/net_client/chests.rs:158-162 — Survival storage or Creative storage with supported carried stock",
-    "crates/voxelgame-core/src/game/net_client/chests.rs:238-283 — chest requests wait for server world and pack confirmation and other pending actions",
-    "crates/voxelgame-core/src/game/chests.rs:8-11 — blasts, creative edits, brushes and blueprints cannot remove chest contents"
+    "crates/voxelgame-core/src/game/chests.rs:60-140 — set down in the preview metre cell; server placement request",
+    "crates/voxelgame-core/src/game/chests.rs:143-181 — local Chest tab or server view request",
+    "crates/voxelgame-core/src/game/chests.rs:213-264 — local take-up returns the chest and contents together; Creative must empty it first",
+    "crates/voxelgame-core/src/game/chests.rs:338-367 — click moves one, Shift+click moves as much as fits",
+    "crates/voxelgame-core/src/game/net_client/chests.rs:176-185 — chest storage and placement on servers in Creative or Survival",
+    "crates/voxelgame-core/src/game/net_client/chests.rs:260-314 — chest requests wait for the server world, pack confirmation and other pending actions",
+    "crates/voxelgame-core/src/game/net_client/block_harvest/creative.rs:8-50 — on a server, Creative left click takes up an empty chest",
+    "crates/voxelgame-core/src/session/block_harvest/creative.rs:11-24 — the server refuses a filled chest in Creative",
+    "crates/voxelgame-core/src/session/block_harvest/chest.rs:46-80 — server Survival take-up adds the chest and its contents to the pack",
+    "crates/voxelgame-core/src/game/chests.rs:8-11 — blasts, creative edits, brushes and blueprints cannot remove chest contents",
+    "crates/voxelgame-core/src/game.rs:1566-1573 — E opens the carpentry workbench with the Furniture hammer equipped",
+    "crates/voxelgame-core/src/game/furniture/workbench.rs:204-230 — opening it at a placed chest starts Refinish chest"
    ],
-   "notes": "Source-checked on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; no new play test or live server session. Server placement, views and transfers are implemented, subject to confirmed carried stock; some Creative sessions refuse them. Taking a chest up is still refused while connected. Local creative players must empty it first. Blasts, track crushing, creative edits, brushes, copy and blueprints leave chest cells alone.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. No live server session. Corrects the 5 November note: Creative chest placement now works on servers, and chests can be taken up on servers (Survival with contents, Creative only when empty). Local Creative players must empty a chest first. Blasts, track crushing, creative edits, brushes, copy and blueprints leave chest cells alone.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-building.html",
+    "label": "Building basics and creative tools"
+   }
+  },
+  {
+   "id": "chest-refinishing",
+   "area": "building",
+   "name": "Chest refinishing",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "With the Furniture hammer, press E or right click at a placed wooden chest to open Refinish chest. Choose Body, Lid and Fittings woods, then Apply changes; contents stay. Survival pays 4 body, 3 lid and 1 fittings board; Creative is free. Ctrl+Z restores the original chest and Ctrl+Shift+Z reapplies. The Chest plan makes the same chest from a carried one. Works offline and on servers.",
+   "controls": [
+    [
+     "Body / Lid / Fittings, then Apply changes",
+     "Choose the woods and refinish; Cancel keeps the original"
+    ],
+    [
+     "Ctrl+Z / Ctrl+Shift+Z after refinishing",
+     "Restore the original chest / apply the finish again"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/definition.rs:435-445 — the refinished chest design needs one existing Wooden chest",
+    "crates/voxelgame-core/src/furniture/storage_chest_parts/tests.rs:23-57 — 4 body, 3 lid and 1 fittings boards of any wood, plus a chest; stone, marble and iron refused",
+    "crates/voxelgame-core/src/furniture/storage.rs:15-18 — storage furniture holds 250 capacity and 64 kinds",
+    "crates/voxelgame-core/src/game/furniture/chest_refinishing.rs:41-47 — refinishing a placed chest charges only the boards",
+    "crates/voxelgame-core/src/game/furniture/chest_refinishing.rs:75-136 — aimed chest within 6 m; starts with oak; on servers the contents are read first",
+    "crates/voxelgame-core/src/game/furniture/chest_refinishing.rs:138-181 — Survival pays the boards; contents kept; Ctrl+Z restores",
+    "crates/voxelgame-core/src/game/furniture/chest_refinishing.rs:265-372 — refusals: hammer, mode change, plants or furniture on top, missing boards",
+    "crates/voxelgame-core/src/game/furniture/chest_refinishing/history.rs:8-81 — local Undo and Redo, board refund, unchanged contents required",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:378-393 — Ctrl+Z reaches refinishing history in both modes",
+    "crates/voxelgame-core/src/game/net_client/furniture/history/chest_refinishing.rs:48-115 — server refinishing waits for confirmation",
+    "crates/voxelgame-core/src/game/net_client/furniture/history/chest_refinishing/replay.rs:8-51 — server Undo and Redo; earlier connection or life refused",
+    "crates/voxelgame-core/src/inventory.rs:807 — Wooden chest plan refinishes a carried chest; empty before taking up",
+    "crates/voxelgame-render/src/furniture_catalog_text.rs:492-553 — Chest plan, Refinish chest panel text; Creative spends no boards",
+    "crates/voxelgame-render/src/furniture_catalog_text.rs:579-600 — Body, Lid and Fittings labels",
+    "crates/voxelgame-render/src/furniture_catalog_text.rs:857-859 — Apply changes"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. The game's docs/PLAYER_GUIDE.md still says connected worlds cannot refinish chests; the code sends refinishing, Undo and Redo to the server. A refinished chest is storage furniture and must be emptied before taking up.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -2397,18 +2514,23 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, middle click picks the block you aim at: if it is already in a quick slot that slot is selected, otherwise it is held without changing your slots.",
+   "summary": "In creative, middle click picks the block you aim at: if it is already in a quick slot that slot is selected, otherwise it is held without changing your slots. Aiming at a door picks a closed door of the same style, wood and size.",
    "controls": [
     [
      "Middle click",
      "Pick the targeted block (creative)"
+    ],
+    [
+     "Middle click a door",
+     "Hold a door of the same style, wood and size (creative)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1817-1822 — creative-only pick, message 'Selected <block> | RMB place'",
-    "crates/voxelgame-core/src/game/hotbar.rs:367-381 — selects an existing slot or holds the block; puts tools away"
+    "crates/voxelgame-core/src/game.rs:2848-2860 — creative-only pick; a door leaf picks its closed door; message 'Selected <block> | RMB place'",
+    "crates/voxelgame-core/src/world/door.rs:219-226 — the picked door keeps the source's wood and style",
+    "crates/voxelgame-core/src/game/hotbar.rs:366-391 — selects an existing slot or holds the block; puts tools away"
    ],
-   "notes": "Picks the exact material (for example Meadow turf, not the Dirt it drops). Does nothing in survival.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Picks the exact material (for example Meadow turf, not the Dirt it drops). A door is picked whole and closed, never as one loose or open leaf. Does nothing in survival.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",

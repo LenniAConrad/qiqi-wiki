@@ -2502,7 +2502,7 @@
    "lead": "A whole block is a 1 m cube. Hold Shift to work with half-metre pieces. In creative mode, the brushes build lines, walls, floors and copies in one action, and Ctrl+Z undoes your last building action.",
    "readTime": "7 min read",
    "audience": "Everyone",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "block-targeting-feedback",
@@ -2523,7 +2523,9 @@
     "building-in-water",
     "placement-restrictions",
     "doors",
+    "door-styles-and-moves",
     "wooden-chests",
+    "chest-refinishing",
     "flowing-water",
     "planned-doors-chests-furniture"
    ],
@@ -2532,8 +2534,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS). Targeted furniture, Build-tab access, chest and server-door corrections were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191; game/chests.rs:60-85,121-125,179-229; game/doors.rs:51-56,117-162,189-226. Paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. Existing unrelated sections keep their earlier receipts. The additional Creative N detail toggle was checked at the same 5 November pin in crates/voxelgame-core/src/game/building.rs:23-35 and game.rs:1352-1353,2438-2447. Survival still uses held Shift.",
-    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only. The structure library (naming, O, pictures) was checked at 9f915bcb, not play-tested. The 5 November furniture and storage corrections are source checks only, with no new play test or game capture. The newer pin applies to those targeted corrections, not to a fresh audit of this entire guide."
+    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS). Targeted furniture, Build-tab access, chest and server-door corrections were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191; game/chests.rs:60-85,121-125,179-229; game/doors.rs:51-56,117-162,189-226. Paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. Existing unrelated sections keep their earlier receipts. The additional Creative N detail toggle was checked at the same 5 November pin in crates/voxelgame-core/src/game/building.rs:23-35 and game.rs:1352-1353,2438-2447. Survival still uses held Shift. The doors and chests sections were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: inventory/door_recipes.rs:8-104; inventory.rs:1386-1419,1922-1942; game/crafting/doors.rs:51-122; game/inventory_qol/presentation.rs:8-16,78-91; game/doors.rs:54-231; game/doors/relocation.rs:18-186; world/door/relocation.rs:116-330; game/net_client/door_moves.rs:294-339; game/net_client/door_moves/input.rs:60-211; session/block_harvest/door.rs:98-117; game.rs:1566-1573,2848-2860; game/chests.rs:16-264; game/net_client/chests.rs:176-314; game/net_client/block_harvest/creative.rs:8-50; session/block_harvest/chest.rs:46-80; furniture/definition.rs:435-445; furniture/storage_chest_parts/tests.rs:23-57; game/furniture/chest_refinishing.rs:41-372; game/furniture/chest_refinishing/history.rs:8-81; game/net_client/furniture/history/chest_refinishing.rs:48-115.",
+    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only. The structure library (naming, O, pictures) was checked at 9f915bcb, not play-tested. The 5 November furniture and storage corrections are source checks only, with no new play test or game capture. The newer pin applies to those targeted corrections, not to a fresh audit of this entire guide. The 8 November doors and chests refresh (door styles, woods, sizes and costs, Creative door moves, chest refinishing and server chest take-up) was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested."
    },
    "owns": [
     "block-targeting-feedback",
@@ -2554,7 +2556,9 @@
     "building-in-water",
     "placement-restrictions",
     "doors",
+    "door-styles-and-moves",
     "wooden-chests",
+    "chest-refinishing",
     "flowing-water",
     "planned-doors-chests-furniture"
    ],
@@ -2677,26 +2681,87 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Doors are built from boards. A small door is one metre wide and two metres tall, with one leaf. A wide door is two metres wide and three metres tall, with two one-metre leaves. {{doors}}"
+       "text": "Doors are built from boards. They come in three styles and two sizes. A small door is one metre wide and two metres tall, with one leaf. A wide door is two metres wide and three metres tall, with two one-metre leaves. {{doors}}"
+      },
+      {
+       "t": "h",
+       "text": "Choose a door to craft"
+      },
+      {
+       "t": "p",
+       "text": "Open [[E]] > Craft and select any door recipe in the Timber section. Three buttons appear above the preview: **Style**, **Wood** and **Size**. Click one, or move keyboard focus to it and press [[Enter]], to step to its next choice. The other two choices stay as they are. {{door-styles-and-moves}}"
       },
       {
        "t": "list",
        "items": [
-        "**Wooden door:** one block of boards. Craft it in the Timber section.",
-        "**Wide wooden door:** two blocks of boards.",
-        "Hold the door and right click solid ground to hang it. The spot needs free space and solid ground under it. A player or animal standing where the leaves would swing also stops the hang.",
+        "**Style:** Plain, Panelled or Windowed. Panelled doors have framed, recessed panels. Windowed doors have glass panes in the upper part.",
+        "**Wood:** Alder, Birch, Pine, Oak, Fruitwood, Acacia, Willow, Mangrove, Jungle, Cherry, Giant, Palm, Mesquite, Fig or Cypress. A door of a named wood needs boards of exactly that wood.",
+        "**Any boards** is the original Wooden door. It takes boards of any wood, mixed if you like, and comes in Plain only. The Style button is greyed out until you choose a wood.",
+        "**Size:** 1 x 2 m for one leaf, or 2 x 3 m for two leaves.",
+        "Changing a choice only selects a different recipe. Doors you carry or have hung, and crafts already queued, stay as they are. If a recipe filter would hide your choice, the filter turns off and the status line says \"Showing all recipes\"."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Costs are the same for every wood:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Plain or Panelled, 1 x 2 m:** one block of boards (8 half-metre pieces).",
+        "**Plain or Panelled, 2 x 3 m:** two blocks of boards (16 pieces).",
+        "**Windowed, 1 x 2 m:** 6 board pieces and 2 glass pieces.",
+        "**Windowed, 2 x 3 m:** 12 board pieces and 4 glass pieces."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Recipe names follow your choices, for example Oak door, Wide panelled oak door or Windowed birch door. The original two are Wooden door and Wide wooden door."
+      },
+      {
+       "t": "h",
+       "text": "Hang, open and take down"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Hold the door and right click solid ground to hang it. The spot needs free space and solid ground under it. A player or animal standing where the leaves would go also stops the hang.",
         "Right click a hung door to open it, and right click again to close it. A door swings away from the player who opens it, from either side. It has its own opening and closing sound.",
         "The leaves turn on their hinges over 0.35 seconds, easing in and settling gently. If the leaves are not drawn on screen yet, for example while the chunk is still being rebuilt, the swing waits up to one second; a wide door across a chunk edge then turns both halves together. Using a door again while it is moving turns it back from where it stands.",
         "A door will not open if anything other than air, water or plants is in its swing path. It also will not open while you or an animal stands where the leaves sweep. Clear the space and try again.",
         "An open leaf stands a metre out of the doorway. You and walking animals cannot walk through it, and you cannot place a block into the space it stands in. Undo and redo refuse a change to that space too.",
         "You cannot close a door while you stand in its opening. Step out first. A door will not shut while an animal stands in its opening.",
-        "Hitting the door itself takes the whole door down. In survival it goes back into your pack if there is room; if the pack is full, it is left hanging. Mining a block next to an open leaf leaves the door standing."
+        "Mine any leaf to take the whole door down; in Survival, hold left click until it comes down. In Survival the door goes back into your pack if there is room; if the pack is full, it is left hanging. Mining a block next to an open leaf leaves the door standing.",
+        "In Creative, middle click a door to hold one of the same style, wood and size. This works on either leaf, and on an open door."
        ]
+      },
+      {
+       "t": "h",
+       "text": "Move a door (Creative)"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Close the door and wait for it to stop swinging. Put tools away and use ordinary block building, not a brush.",
+        "Aim at the door and press [[Shift]] + left click. A blue outline marks the original door, which stays where it is for now.",
+        "Aim at clear, solid ground. The ghost shows where the door will stand. Press [[R]] to give it a quarter turn.",
+        "Right click to move the door. The status line says \"Moved door | Ctrl+Z undoes\".",
+        "To cancel, left click or press [[B]]. The original door is left as it was."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "[[Ctrl+Z]] puts a moved door back and [[Ctrl+Shift+Z]] moves it again. Finish or cancel a move before you undo."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "The new spot must be empty air, with no water or plants, and every leaf needs solid ground under it. You must move or turn the door, and nobody may stand where it will go. If the status line says \"Move only a complete closed door after it stops swinging\", close the door, wait and try again. Undo and Redo are refused if the door or its space has changed since."
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Doors can be hung, opened and taken down on a server, subject to the server accepting the action. Wood-specific doors cannot be taken down in Survival on a server. Blueprints skip door leaves, so a door is not copied."
+       "text": "On a server, doors can be hung, opened and taken down once the server accepts the action. In Survival, hanging spends one matching door after the server confirms, and taking one down returns the matching door. In Creative on a server, door moves, Undo and Redo work too: each step waits for the server to confirm, and a move waits while another server action is unfinished. A door move from before you respawned cannot be undone. Blueprints skip door leaves, so a door is not copied."
       }
      ]
     },
@@ -2711,18 +2776,46 @@
       {
        "t": "list",
        "items": [
-        "**Wooden chest:** one block of boards. Craft it in the Timber section.",
+        "**Wooden chest:** one block of boards of any wood. Craft it in the Timber section.",
         "Hold the chest and right click to set it down. It fills the metre cell under the ghost, with the latch toward you.",
         "Right click a chest within 6 m to open its Chest tab. Your pack and the chest sit side by side. The lid makes an opening sound, and a closing sound when the Chest tab shuts or you walk out of reach.",
-        "Click an item to move one across. Shift+click moves all of that item.",
-        "A chest holds up to 250 capacity and up to 64 kinds of item.",
-        "To take a chest up, break it. In survival it goes back into your pack with everything inside, but only if the pack has room for all of it. In creative, empty it first."
+        "Click an item to move one across. Shift+click moves as much of that item as fits.",
+        "A chest holds up to 250 kg and up to 64 kinds of item. A world holds at most 512 chests.",
+        "To take a chest up, mine it. In Survival it goes back into your pack with everything inside, but only if the pack has room for all of it. In Creative, empty it first; you get no chest item back."
        ]
+      },
+      {
+       "t": "h",
+       "text": "Refinish a chest"
+      },
+      {
+       "t": "p",
+       "text": "You can give a placed chest new woods for its body, lid and fittings. Its contents stay inside. {{chest-refinishing}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Equip the Furniture hammer, aim at a placed chest within 6 m, and press [[E]] or right click.",
+        "The Refinish chest panel opens in the Build tab, starting with oak. Use the **Body**, **Lid** and **Fittings** buttons to choose each wood. Any of the fifteen woods works.",
+        "Press **Apply changes**. **Cancel**, or closing the panel, keeps the original chest as it was."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "In Survival, refinishing costs 4 boards of the body wood, 3 of the lid wood and 1 of the fittings wood: one block of boards when all three match. The old chest supplies the box. Creative is free."
+      },
+      {
+       "t": "p",
+       "text": "[[Ctrl+Z]] turns it back into the original chest with the same contents and, in Survival, returns the boards. [[Ctrl+Shift+Z]] applies the finish again. Both need the same game mode, with the contents and woods as they were right after the change."
+      },
+      {
+       "t": "p",
+       "text": "A refinished chest is storage furniture. Right click opens it, and it holds up to 250 kg and 64 kinds of item. Empty it before taking it up. Taking up one refinished in Survival returns the chest and its boards. The **Chest** plan in the carpentry workbench (the Wooden chest plan) makes the same kind of chest from one you carry: in Survival it costs one Wooden chest plus the same boards, and Creative is free."
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "On a server, wait for pack confirmation before placing a chest or moving items. Some Creative server sessions refuse chest placement. Taking a chest up on a server is still unavailable. Blasts, tracks, brushes, copy and blueprints leave chest cells alone."
+       "text": "On a server, wait for the server to confirm each chest action. You can set chests down, open them, move items and refinish them in Survival or Creative. In Survival, hold left click to take a chest up with its contents, if your pack has room. In Creative, empty it first; taking it up gives no chest item. On a server, a refinish from before you respawned or reconnected cannot be undone. Blasts, tracks, brushes, copy and blueprints leave chest cells alone."
       }
      ]
     },
