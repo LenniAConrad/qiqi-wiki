@@ -6191,12 +6191,12 @@
    "status": "partial",
    "summary": "Linux with a Vulkan-capable integrated or discrete GPU and an X11 or XWayland session is the main, tested platform. Installers for Windows 10/11 (64-bit Intel/AMD) and macOS (Apple Silicon or Intel with a Metal GPU) are included but have not yet been checked with real graphics and sound on those systems.",
    "evidence": [
-    "Cargo.toml:50 — winit built with only the x11 feature",
-    "install.sh:33-38 — Linux and macOS supported by install.sh; other systems told to use install-windows.cmd",
-    "install-windows.ps1:18-20 — Windows installer refuses non-Windows and non-AMD64 systems",
-    "crates/voxelgame-render/src/loading.rs:53-68 — prefers a high-performance GPU, falls back to a software adapter"
+    "Cargo.toml:58 — winit built with only the x11 feature",
+    "scripts/desktop/install.sh:43-48 — Linux and macOS supported by install.sh; other systems told to use install-windows.cmd",
+    "scripts/desktop/install-windows.ps1:21-23 — Windows installer refuses non-Windows and non-AMD64 systems",
+    "crates/voxelgame-render/src/loading.rs:53-73 — prefers a high-performance GPU, falls back to a software adapter, else 'no Vulkan-compatible graphics adapter found'"
    ],
-   "notes": "The first build needs internet and several GB of free disk space. README says the 60 FPS target assumes at least an integrated GPU; software Vulkan (llvmpipe) is for diagnostics only (README.md:155-156).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. The first build needs internet and several GB of free disk space. The current README no longer states a frame-rate target. A software Vulkan renderer (llvmpipe) is only the fallback adapter, for diagnosis.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
@@ -6216,12 +6216,13 @@
     ]
    ],
    "evidence": [
-    "install.sh:10-22 — options and help text, 'Setup never starts the game or modifies existing worlds'",
-    "install.sh:41-43 — refuses an incomplete source folder (needs Cargo.lock and assets/audio)",
-    "install.sh:76-87 — Linux prerequisite packages; Arch users must add their GPU's Vulkan driver",
-    "install.sh:113-118 — installs rustup/Rust stable when missing without editing shell startup files"
+    "install.sh:1-6 — the root script only forwards to scripts/desktop/install.sh",
+    "scripts/desktop/install.sh:11-28 — options and help text, 'Setup never starts the game or modifies existing worlds'",
+    "scripts/desktop/install.sh:60-62 — refuses an incomplete source folder (needs Cargo.lock and assets/audio)",
+    "scripts/desktop/install.sh:106-117 — Linux prerequisite packages; Arch users must add their GPU's Vulkan driver",
+    "scripts/desktop/install.sh:148-155 — installs rustup/Rust stable when missing without editing shell startup files"
    ],
-   "notes": "Needs internet, several GB free, a working Vulkan driver and X11/XWayland. Other distributions: install the prerequisites listed in docs/INSTALLING.md:69-72 yourself, then use --skip-prerequisites. Fedora gets ffmpeg-free. INSTALLING.md says not to run setup with sudo; the script does not enforce this.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Needs internet, several GB free, a working Vulkan driver and X11/XWayland. Other distributions: install the prerequisites listed in docs/INSTALLING.md:75-78 yourself, then use --skip-prerequisites. Fedora gets ffmpeg-free. INSTALLING.md says not to run setup with sudo; the script does not enforce this. The application-menu entry is named qiqi (scripts/desktop/install.sh:251).",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6236,14 +6237,14 @@
    "summary": "Double-click Install-macOS.command, press Return to accept the plan, finish Apple's Command Line Tools installer if offered, and enter your Mac password if Homebrew asks. Setup installs Homebrew and FFmpeg when needed plus Rust, builds the game for your Mac, and creates Voxelgame.app in your home folder's Applications folder.",
    "evidence": [
     "Install-macOS.command:1-8 — runs install.sh and waits for Return before closing",
-    "install.sh:89-106 — Command Line Tools prompt; Homebrew bootstrap and 'brew install ffmpeg' when ffmpeg/ffplay are missing",
-    "install.sh:134-137 — app bundle payload under Contents/Resources/versions; data in ~/Library/Application Support/Voxelgame",
-    "install.sh:155-159 — app bundle payload under Contents/Resources/versions; data in ~/Library/Application Support/Voxelgame"
+    "scripts/desktop/install.sh:119-136 — Command Line Tools prompt; Homebrew bootstrap and 'brew install ffmpeg' when ffmpeg/ffplay are missing",
+    "scripts/desktop/install.sh:170-173 — app bundle payload under Contents/Resources/versions",
+    "scripts/desktop/install.sh:191-203 — launcher changes into ~/Library/Application Support/Voxelgame"
    ],
    "backlog": [
     "VOX-OWNER-MACOS-STARTUP-SURFACE"
    ],
-   "notes": "Unsigned source installer, not a notarized app: if macOS blocks it use System Settings > Privacy & Security > Open Anyway, or run `bash install.sh` in Terminal; do not disable Gatekeeper. Native macOS graphics and audio are untested, and an owner-supplied Metal startup fix is not yet integrated, so the game may fail to start. On some Macs F4 needs Fn+F4. The extracted folder can be deleted after a successful install.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Unsigned source installer, not a notarized app: if macOS blocks it use System Settings > Privacy & Security > Open Anyway, or run `bash install.sh` in Terminal; do not disable Gatekeeper. Native macOS graphics and audio are untested, and an owner-supplied Metal startup fix is not yet integrated, so the game may fail to start. On some Macs F4 needs Fn+F4. The extracted folder can be deleted after a successful install.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
@@ -6256,7 +6257,7 @@
    "area": "platform",
    "name": "Install on Windows 10/11 (install-windows.cmd)",
    "status": "partial",
-   "summary": "Double-click install-windows.cmd, confirm the plan and approve the Microsoft compiler installer if Windows asks. Setup downloads Microsoft C++ Build Tools, Rust and FFmpeg when missing, builds the game and adds Voxelgame to the Start menu. If the compiler setup asks for a restart, restart Windows and run the installer again.",
+   "summary": "Double-click install-windows.cmd, confirm the plan and approve the Microsoft compiler installer if Windows asks. Setup downloads Microsoft C++ Build Tools, Rust and FFmpeg when missing, builds the game and adds a qiqi shortcut to the Start menu. If the compiler setup asks for a restart, restart Windows and run the installer again.",
    "controls": [
     [
      "install-windows.ps1 -Yes / -Prefix PATH /…",
@@ -6265,11 +6266,12 @@
    ],
    "evidence": [
     "install-windows.cmd:1-7 — runs the PowerShell script with a process-only execution policy and pauses at the end",
-    "install-windows.ps1:54-70 — checks the Microsoft Build Tools signature; exit code 3010 means restart and rerun",
-    "install-windows.ps1:86-105 — FFmpeg archive checked against its published SHA-256, licence kept",
-    "install-windows.ps1:124-143 — Launch.ps1 plus a Start menu shortcut that runs PowerShell hidden"
+    "install-windows.ps1:1-14 — the root script only forwards to scripts/desktop/install-windows.ps1",
+    "scripts/desktop/install-windows.ps1:59-76 — checks the Microsoft Build Tools signature; exit code 3010 means restart and rerun",
+    "scripts/desktop/install-windows.ps1:91-111 — FFmpeg archive checked against its published SHA-256, licence kept",
+    "scripts/desktop/install-windows.ps1:133-151 — Launch.ps1 plus a Start menu shortcut named qiqi that runs PowerShell hidden"
    ],
-   "notes": "Not validated on a real Windows machine yet. Python, Git and winget are not needed. The Start menu shortcut sets no Voxelgame icon (install-windows.ps1:138-143). Managed PCs may need an administrator to allow scripts.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Not validated on a real Windows machine yet. Python, Git and winget are not needed. The Start menu shortcut sets no Voxelgame icon (scripts/desktop/install-windows.ps1:147-151). Managed PCs may need an administrator to allow scripts.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
@@ -6282,14 +6284,16 @@
    "area": "platform",
    "name": "Where the game, worlds and logs are stored",
    "status": "available",
-   "summary": "Installed games keep worlds and settings in a per-user data folder that survives upgrades: Linux ~/.local/share/voxelgame/data, macOS ~/Library/Application Support/Voxelgame, Windows %LOCALAPPDATA%\\Voxelgame\\data. Worlds are in the worlds folder inside it. A source checkout started with./run.sh keeps its worlds in the source folder.",
+   "summary": "Installed games keep worlds and settings in a per-user data folder that survives upgrades: Linux ~/.local/share/voxelgame/data (under $XDG_DATA_HOME when that is set), macOS ~/Library/Application Support/Voxelgame, Windows %LOCALAPPDATA%\\Voxelgame\\data. Worlds are in the worlds folder inside it. A source checkout started with./run.sh keeps its worlds in the source folder.",
    "evidence": [
-    "src/worlds.rs:12 — saves are found relative to the folder the game runs in; default worlds/debug/debug.vxw",
-    "src/worlds.rs:36-40 — saves are found relative to the folder the game runs in; default worlds/debug/debug.vxw",
-    "install.sh:166-167 — Linux/macOS launcher changes into the data folder first",
-    "install-windows.ps1:130 — Windows launcher sets its location to the data folder"
+    "src/worlds.rs:19 — worlds are found in a folder named worlds relative to the folder the game runs in",
+    "src/worlds.rs:96-102 — default worlds/debug/debug.vxw when no override or remembered world",
+    "scripts/desktop/update_install.py:246-249 — Linux launcher changes into ${XDG_DATA_HOME:-~/.local/share}/voxelgame/data first",
+    "scripts/desktop/install.sh:191-203 — macOS launcher changes into ~/Library/Application Support/Voxelgame",
+    "scripts/desktop/install-windows.ps1:128 — Windows launcher sets its location to the data folder",
+    "scripts/desktop/install-windows.ps1:136 — Windows launcher sets its location to the data folder"
    ],
-   "notes": "Worlds from a development checkout are not moved automatically; copying the worlds folder into the data folder while the game is closed is the implied manual route (inferred from relative save paths).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Worlds from a development checkout are not moved automatically; copying the worlds folder into the data folder while the game is closed is the implied manual route (inferred from relative save paths).",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6315,7 +6319,7 @@
    "backlog": [
     "VOX-OWNER-UPDATE-INSTALLER"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The update scripts (Update-macOS.command, update.sh, update-windows.cmd and scripts/desktop/update_github.py) were read at the same commit: they need Git, Python 3.9+, Cargo/Rust and at least 5 GiB free, refuse a missing, unknown or customised installation, and never install tools. No native Windows or macOS update run is confirmed. Rollback does not undo newer save formats. See the installation guide; other ledger entries retain their stated audit baseline.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. The update scripts (Update-macOS.command, update.sh, update-windows.cmd and scripts/desktop/update_github.py) were read at the same commit: they need Git, Python 3.9+, Cargo/Rust and at least 5 GiB free, refuse a missing, unknown or customised installation, and never install tools. No native Windows or macOS update run is confirmed. Rollback does not undo newer save formats. See the installation guide; other ledger entries retain their stated audit baseline.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
@@ -6328,14 +6332,14 @@
    "area": "platform",
    "name": "Uninstalling",
    "status": "partial",
-   "summary": "There is no uninstaller. Delete the app folder and its menu entry (Linux ~/.local/share/applications/voxelgame.desktop, Windows Start menu 'Voxelgame' shortcut). Your worlds stay in the data folder until you delete it yourself.",
+   "summary": "There is no uninstaller. Delete the app folder and its menu entry (Linux ~/.local/share/applications/voxelgame.desktop, Windows Start menu 'qiqi' shortcut). Your worlds stay in the data folder until you delete it yourself.",
    "evidence": [
-    "install.sh:201-224 — location of the Linux desktop entry",
-    "install-windows.ps1:137-143 — Start menu shortcut Voxelgame.lnk in the user's Programs folder",
-    "install-windows.ps1:76 — FFmpeg copy under %LOCALAPPDATA%\\Voxelgame\\tools",
-    "install-windows.ps1:101-104 — FFmpeg copy under %LOCALAPPDATA%\\Voxelgame\\tools"
+    "scripts/desktop/install.sh:233-257 — location of the Linux desktop entry",
+    "scripts/desktop/install-windows.ps1:143-151 — Start menu shortcut qiqi.lnk in the user's Programs folder (an earlier Voxelgame.lnk is left usable)",
+    "scripts/desktop/install-windows.ps1:82 — FFmpeg copy under %LOCALAPPDATA%\\Voxelgame\\tools",
+    "scripts/desktop/install-windows.ps1:107-110 — FFmpeg copy under %LOCALAPPDATA%\\Voxelgame\\tools"
    ],
-   "notes": "Rust, Homebrew, compilers and audio tools stay installed. On Windows the FFmpeg copy in %LOCALAPPDATA%\\Voxelgame\\tools also remains. Deleting the data folder removes all worlds permanently.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Rust, Homebrew, compilers and audio tools stay installed. On Windows the FFmpeg copy in %LOCALAPPDATA%\\Voxelgame\\tools also remains. Deleting the data folder removes all worlds permanently.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
@@ -6349,12 +6353,13 @@
    "status": "available",
    "summary": "On a prepared Linux machine with Rust 1.75 or newer, run `cargo run --release --locked --bin voxelgame`, or `./run.sh`, which rebuilds only when sources changed and shows a small 'Preparing the game' window while it builds. Started this way, worlds live in the source folder's worlds directory.",
    "evidence": [
-    "run.sh:76-91 — rebuild only when sources, assets or Cargo files are newer than the program",
-    "run.sh:47-74 — previous build draws its loading splash (voxelgame --splash), else Zenity, KDialog or a notification",
-    "run.sh:13-18 — a second click focuses the running game before any rebuild",
-    "run.sh:97-106 — failed build closes the splash and shows a KDialog error when available"
+    "run.sh:1-6 — the root script only forwards to scripts/desktop/run.sh",
+    "scripts/desktop/run.sh:101-121 — rebuild only when sources, assets or Cargo files are newer than the program",
+    "scripts/desktop/run.sh:71-99 — previous build draws its loading splash (voxelgame --splash), else Zenity, KDialog or a notification",
+    "scripts/desktop/run.sh:16-21 — a second click focuses the running game before any rebuild",
+    "scripts/desktop/run.sh:153-158 — failed build closes the splash and shows a KDialog error when available"
    ],
-   "notes": "Developer route. Optional aplay (alsa-utils) for sound and ffmpeg for music (README.md:153).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Developer route. Optional aplay (alsa-utils) for sound and ffmpeg for music (src/audio.rs:495-501; src/audio/music.rs:355-361).",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6369,14 +6374,15 @@
    "modes": [
     "any"
    ],
-   "summary": "When the game opens, a tumbling wireframe cube settles into the Voxelgame logo above the current loading stage and an activity bar; later world loads show just the stage and bar. The terrain right around you is prepared before play starts and distant terrain keeps streaming in afterwards.",
+   "summary": "When the game opens, a tumbling wireframe cube settles into the qiqi logo above the current loading stage and an activity bar; later world loads show just the stage and bar. The terrain right around you is prepared before play starts and distant terrain keeps streaming in afterwards.",
    "evidence": [
     "crates/voxelgame-render/src/loading.rs:1-4 — tumbling logo, wordmark, real stage text and indeterminate activity bar",
-    "crates/voxelgame-render/src/loading.rs:315-319 — tumbling logo, wordmark, real stage text and indeterminate activity bar",
-    "src/app/startup.rs:28-29 — logo only when opening the game; later loads show stage and bar",
-    "src/app/startup.rs:79-111 — logo only when opening the game; later loads show stage and bar"
+    "crates/voxelgame-render/src/loading.rs:456-471 — opening shows the cube and 'qiqi' wordmark; later loads only the stage and bar",
+    "src/app/startup.rs:65-66 — logo only when opening the game; later loads show stage and bar",
+    "src/app/startup.rs:126 — logo shown for the first load, off for later world loads",
+    "src/app/startup.rs:201 — logo shown for the first load, off for later world loads"
    ],
-   "notes": "No percentage is shown; the window stays responsive to resizing and closing.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. No percentage is shown; the window stays responsive to resizing and closing.",
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
@@ -6391,14 +6397,14 @@
    "modes": [
     "any"
    ],
-   "summary": "Only one copy runs per user. Launching Voxelgame again brings the open window to the front instead of starting a second copy that could also write saves; the game then says 'Voxelgame was already open; click the world to recapture the mouse'.",
+   "summary": "Only one copy runs per user. Launching the game again brings the open window to the front instead of starting a second copy that could also write saves; the game then says 'qiqi was already open; click the world to recapture the mouse'.",
    "evidence": [
-    "src/app.rs:44-49 — second launch focuses the existing window and exits",
-    "src/app.rs:790-798 — focus request message in the running game",
-    "src/single_instance.rs:26-35 — per-user socket in XDG_RUNTIME_DIR or the temp folder",
-    "src/single_instance.rs:105-119 — per-user socket in XDG_RUNTIME_DIR or the temp folder"
+    "src/app.rs:79-85 — second launch focuses the existing window and exits",
+    "src/app.rs:1838-1846 — focus request message in the running game",
+    "src/single_instance.rs:21-26 — whether this process is the first copy or asked the open one to focus",
+    "src/single_instance.rs:228-250 — per-user socket in XDG_RUNTIME_DIR or the temp folder"
    ],
-   "notes": "Headless screenshot/benchmark runs can run alongside the open game.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Headless screenshot/benchmark runs can run alongside the open game.",
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
@@ -6417,10 +6423,10 @@
    "evidence": [
     "src/worlds/allocation.rs:31-59 — unique named/numbered folder and world.vxw",
     "src/worlds/management.rs:33-42 — rename changes metadata, not save path",
-    "src/world_backup.rs:133-155 — save/name/preview/session files",
+    "src/world_backup.rs:145-170 — save/name/preview/session files",
     "src/worlds.rs:96-102 — override, remembered local world and DEBUG fallback"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. World mode, environment and progression remain local; display/audio/input preferences are shared. Pending recovery files are kept separately and must stay with their save until recovery completes. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. World mode, environment and progression remain local; display/audio/input preferences are shared. Pending recovery files are kept separately and must stay with their save until recovery completes. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6439,10 +6445,10 @@
    "evidence": [
     "src/worlds.rs:96-102 — override, remembered save and DEBUG fallback",
     "src/worlds/resume.rs:12-40 — worlds/last-world.txt stores an absolute path; missing file ignored",
-    "src/app.rs:1965-1975 — remember existing ordinary local worlds",
+    "src/app.rs:1958-1970 — remember existing ordinary local worlds",
     "crates/voxelgame-core/src/game/startup/main.rs:17-25 — absent/unreadable save disables Continue"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. An unreadable remembered world opens recovery and is kept; it is not silently replaced with a fresh world. Display/audio/input preferences remain shared. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. An unreadable remembered world opens recovery and is kept; it is not silently replaced with a fresh world. Display/audio/input preferences remain shared. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6477,15 +6483,15 @@
     ]
    ],
    "evidence": [
-    "src/app.rs:1553-1572 — recovery input before the ordinary F6 save",
-    "src/app.rs:2002-2025 — 'World saved safely' only after a local write; otherwise 'This session does not save the world locally'",
-    "src/app.rs:1597-1606 — main-menu save and return",
-    "src/app.rs:1644-1660 — 30-second dirty-state autosave",
-    "src/app.rs:1884-1922 — save before leaving, continued hosting on menu visits, protected close",
+    "src/app.rs:1543-1562 — recovery input before the ordinary F6 save",
+    "src/app.rs:1992-2027 — 'World saved safely' only after a local write; otherwise 'This session does not save the world locally'",
+    "src/app.rs:1587-1596 — main-menu save and return",
+    "src/app.rs:1634-1650 — 30-second dirty-state autosave",
+    "src/app.rs:1874-1912 — save before leaving, continued hosting on menu visits, protected close",
     "src/app/owner_recovery.rs:11-45 — F6 retry and Shift+F6 choice",
     "crates/voxelgame-core/src/game/save_status.rs:14-29 — 'Save refused: …' warning kept until a save succeeds"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. A reported failure does not mean the world was saved. Keep the session open, fix the reported error and retry. Walking alone does not make the sparse world dirty; explicit saves include character state. A dedicated server saves its own world and confirms most actions after saving them.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. A reported failure does not mean the world was saved. Keep the session open, fix the reported error and retry. Walking alone does not make the sparse world dirty; explicit saves include character state. A dedicated server saves its own world and confirms most actions after saving them.",
    "guide": {
     "state": "complete",
     "page": "guide-troubleshooting.html",
@@ -6512,7 +6518,7 @@
     "crates/voxelgame-core/src/furniture/cooking.rs:1-21 — stove contents and progress; no offline progress",
     "crates/voxelgame-core/src/save/write.rs:147-154 — a seated or lying player is saved standing at the furniture exit"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Save format 40 includes dropped items and carried-stock records; it did not change in this range. Serialized legacy temperature is inert. Old settings fields remain in .vxw for compatibility. Saving while seated or in a bed needs a clear exit, otherwise it is refused ('Bed exit blocked; cannot save an embedded player').",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Save format 40 includes dropped items and carried-stock records; it did not change in this range. Serialized legacy temperature is inert. Old settings fields remain in .vxw for compatibility. Saving while seated or in a bed needs a clear exit, otherwise it is refused ('Bed exit blocked; cannot save an embedded player').",
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
@@ -6580,7 +6586,7 @@
     "page": "guide-saves.html",
     "label": "Saves and world files"
    },
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Server refusals check the whole prospective save before anything changes: an exact fit is allowed and actions that shrink the save still work. A refused crafting order keeps its ingredients. A refused arrow, rock or egg impact still uses the shot or egg; a refused kill leaves the animal and its drops as they were."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Server refusals check the whole prospective save before anything changes: an exact fit is allowed and actions that shrink the save still work. A refused crafting order keeps its ingredients. A refused arrow, rock or egg impact still uses the shot or egg; a refused kill leaves the animal and its drops as they were."
   },
   {
    "id": "save-compatibility",
@@ -6592,12 +6598,12 @@
    ],
    "summary": "Worlds keep their saved terrain generation; new worlds default to generation 12. Current saves use format 40. Saves older than the half-metre grid (format 10) and saves from a newer format are refused. Application rollback does not downgrade a world save.",
    "evidence": [
-    "crates/voxelgame-core/src/save.rs:43-105 — format 40, minimum format 10 and limits",
-    "crates/voxelgame-core/src/save/load.rs:31-46 — magic and format refusals",
-    "crates/voxelgame-core/src/save/load.rs:191-196 — saved generation restored",
+    "crates/voxelgame-core/src/save.rs:107-115 — format 40 and minimum format 10",
+    "crates/voxelgame-core/src/save/load.rs:31-50 — magic and format refusals",
+    "crates/voxelgame-core/src/save/load.rs:193-199 — saved generation restored",
     "crates/voxelgame-core/src/world/generator.rs:601-629 — persistent rules and generation 12"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Keep a backup before trying an older executable. Error texts remain “not a voxelgame save”, “world predates the half-metre voxel grid; a new world is required” and “world was saved by a newer version of voxelgame”. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Keep a backup before trying an older executable. Error texts remain “not a voxelgame save”, “world predates the half-metre voxel grid; a new world is required” and “world was saved by a newer version of voxelgame”. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
@@ -6617,13 +6623,13 @@
     "src/local_startup.rs:9-22 — startup load failure opens recovery menu",
     "crates/voxelgame-core/src/game/startup_recovery.rs:20-51 — protected placeholder and diagnostic",
     "crates/voxelgame-core/src/game/startup_recovery.rs:87-123 — Back/Esc and Open Worlds folder",
-    "crates/voxelgame-render/src/startup_ui.rs:705-771 — 'World could not be loaded', 'Your save has been kept', 'Back to menu' and 'Open worlds folder'",
+    "crates/voxelgame-render/src/startup_ui.rs:700-768 — 'World could not be loaded', 'Your save has been kept', 'Back to menu' and 'Open worlds folder'",
     "src/net_client/ready_recovery.rs:389-409 — malformed recovery file kept under guard",
     "src/local_startup.rs:108-126 — Continue/selection failures preserve diagnostic",
     "src/net_client/pending_import.rs:31-51 — unknown import retains protected startup state"
    ],
    "backlog": [],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Only the dialog title and button labels were re-checked here; the rest keeps its 5 November check at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Do not delete a recovery or pending-save file next to the save to force loading. A Pending native import offers an explicit saved-world-and-matching-pack choice; unknown item quantities are not inferred. Folder-opening errors retain the original load diagnostic. No native game or two-computer play test was run.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Only the dialog title and button labels were re-checked here; the rest keeps its 5 November check at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Do not delete a recovery or pending-save file next to the save to force loading. A Pending native import offers an explicit saved-world-and-matching-pack choice; unknown item quantities are not inferred. Folder-opening errors retain the original load diagnostic. No native game or two-computer play test was run.",
    "guide": {
     "state": "partial",
     "page": "guide-troubleshooting.html",
@@ -6642,15 +6648,15 @@
    "summary": "Select a world in Worlds and choose Create backup or press Ctrl+B. The active local world saves first; stop hosting before backing it up. Backup ready names a completed snapshot under backups. Close the game, copy the whole snapshot into a new worlds folder and open that separate copy from Worlds.",
    "evidence": [
     "crates/voxelgame-core/src/game/startup/worlds.rs:282-288 — shortcut",
-    "src/app/backup.rs:13-41 — no-save/hosting refusals and result path",
-    "src/world_backup.rs:14-29 — active local save first",
-    "src/world_backup.rs:120-174 — unique snapshot, metadata and validation",
+    "src/app/backup.rs:13-47 — no-save/hosting refusals, checked save of the active world, result path",
+    "src/world_backup.rs:14-44 — active local save first",
+    "src/world_backup.rs:119-196 — unique snapshot, metadata and validation",
     "src/worlds/checkpoints.rs:8-23 — unfinished save recovery blocks ordinary copy",
     "docs/PLAYER_GUIDE.md:328-339 — documented separate-copy recovery",
     "docs/verification/WORLD_BACKUP_20261016.md:27-43 — earlier offscreen native backup/recovery results"
    ],
    "backlog": [],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Snapshots keep the save, label, optional preview and available session metadata. .pending is unfinished. Backups survive source deletion. No Restore button is documented; the procedure opens a separate copy. Cited 16 October native verification is earlier game evidence, not a new wiki test. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Snapshots keep the save, label, optional preview and available session metadata. .pending is unfinished. Backups survive source deletion. No Restore button is documented; the procedure opens a separate copy. Cited 16 October native verification is earlier game evidence, not a new wiki test. The active world is saved through the checked save first.",
    "controls": [
     [
      "Worlds > Create backup / Ctrl+B",
@@ -6681,14 +6687,15 @@
    "area": "platform",
    "name": "Installer logs",
    "status": "available",
-   "summary": "Every setup run keeps a transcript, including failures: Linux ~/.local/state/voxelgame/install-<date>-<id>.log, macOS ~/Library/Logs/Voxelgame, Windows %LOCALAPPDATA%\\Voxelgame\\logs. The log path is printed at the start and end of setup.",
+   "summary": "Every setup run keeps a transcript, including failures: Linux ~/.local/state/voxelgame/install-<date>-<id>.log, macOS ~/Library/Logs/Voxelgame, Windows %LOCALAPPDATA%\\Voxelgame\\logs. Linux and macOS print the log path at the start and after a successful setup; Windows prints it at the end, including after a failure.",
    "evidence": [
-    "install.sh:60-67 — transcript location and messages",
-    "install.sh:228 — transcript location and messages",
-    "install.sh:59 — 'Setup failed at line N. Fix the error above and run setup again.'",
-    "install-windows.ps1:46-49 — Windows transcript and failure message"
+    "scripts/desktop/install.sh:90-97 — transcript location and messages",
+    "scripts/desktop/install.sh:262 — transcript location and messages",
+    "scripts/desktop/install.sh:89 — 'Setup failed at line N. Fix the error above and run setup again.'",
+    "scripts/desktop/install-windows.ps1:51-55 — Windows transcript, log path at the end and after a failure",
+    "scripts/desktop/install-windows.ps1:158-161 — Windows transcript, log path at the end and after a failure"
    ],
-   "notes": "VOXELGAME_INSTALL_LOG_DIR changes the Linux/macOS log folder (install.sh:63).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. VOXELGAME_INSTALL_LOG_DIR changes the Linux/macOS log folder (scripts/desktop/install.sh:93).",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6713,12 +6720,12 @@
     "src/fatal_dialog.py:67-106 — window title, explanation, Copy details and Close",
     "crates/voxelgame-render/src/loading.rs:64-73 — 'no Vulkan-compatible graphics adapter found'",
     "src/local_startup.rs:11-23 — an unreadable starting world opens recovery instead of closing",
-    "crates/voxelgame-render/src/startup_ui.rs:705-771 — 'World could not be loaded', 'Back to menu' and 'Open worlds folder'"
+    "crates/voxelgame-render/src/startup_ui.rs:700-768 — 'World could not be loaded', 'Back to menu' and 'Open worlds folder'"
    ],
    "backlog": [
     "VOX-OWNER-NATIVE-ERROR-WINDOW"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Other messages: 'GPU ran out of memory during startup', 'Nearby terrain took too long to prepare; please try again' (shown on the menu) and 'audio disabled: playback command unavailable (aplay on Linux; ffplay on Windows/macOS)'. The report file goes under ~/.local/state/tisu/crash-reports (or $XDG_STATE_HOME/tisu/crash-reports), or the system temporary folder if that fails. Linux launcher path for terminal use: ~/.local/share/voxelgame/app/launch.sh.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Other messages: 'GPU ran out of memory during startup', 'Nearby terrain took too long to prepare; please try again' (shown on the menu) and 'audio disabled: playback command unavailable (aplay on Linux; ffplay on Windows/macOS)'. The report file goes under ~/.local/state/tisu/crash-reports (or $XDG_STATE_HOME/tisu/crash-reports), or the system temporary folder if that fails. Linux launcher path for terminal use: ~/.local/share/voxelgame/app/launch.sh.",
    "guide": {
     "state": "partial",
     "page": "guide-troubleshooting.html",
@@ -6756,13 +6763,16 @@
    "modes": [
     "any"
    ],
-   "summary": "While the Performance overlay (F3) is on, frames slower than twice your frame budget (at least 25 ms) are recorded with their slowest causes in lag-spikes.jsonl under ~/.local/state/voxelgame (or $XDG_STATE_HOME/voxelgame). Turn F3 off to stop recording.",
+   "summary": "While the Performance overlay (F3) is on, frames that take longer than both 25 ms and twice your frame budget are recorded with their slowest causes in lag-spikes.jsonl under ~/.local/state/voxelgame (or $XDG_STATE_HOME/voxelgame). Turn F3 off to stop recording.",
    "evidence": [
-    "src/profiling.rs:112-117 — log path",
-    "src/profiling.rs:149-197 — entries and the panel's log status ('armed', 'recording', 'dropped', 'unavailable')",
-    "src/app.rs:578-583 — measuring only while the overlay is on"
+    "src/profiling.rs:49-54 — log path",
+    "src/profiling.rs:250-270 — threshold (the larger of 25 ms and twice the budget) and up to eight slowest causes",
+    "src/profiling.rs:121 — panel status 'Spike log: armed', 'recording', dropped counts or 'Log error: …'",
+    "src/profiling/spike_log.rs:89-107 — panel status 'Spike log: armed', 'recording', dropped counts or 'Log error: …'",
+    "src/app.rs:1529-1536 — measuring only while the overlay is on",
+    "src/app.rs:1736-1745 — measuring only while the overlay is on"
    ],
-   "notes": "Entries include world seed, position, frame cost and up to eight contributors, which makes them useful for bug reports. See data-locations for the macOS/Windows path caveats.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Entries include world seed, position, frame cost and up to eight contributors, which makes them useful for bug reports. See data-locations for the macOS/Windows path caveats.",
    "guide": {
     "state": "complete",
     "page": "guide-troubleshooting.html",
@@ -6776,12 +6786,12 @@
    "status": "partial",
    "summary": "On Linux the game needs a working Vulkan driver and an X11 or XWayland session; it has no native Wayland window. It picks your high-performance GPU and falls back automatically to a software renderer such as llvmpipe, which is fine for diagnosis but too slow for normal play.",
    "evidence": [
-    "Cargo.toml:50 — X11-only window backend",
-    "crates/voxelgame-render/src/loading.rs:53-68 — high-performance adapter first, then fallback adapter, else an error",
-    "install.sh:79 — Debian/Fedora installs Mesa Vulkan drivers; Arch needs vulkan-intel, vulkan-radeon or the NVIDIA driver",
-    "install.sh:81 — Debian/Fedora installs Mesa Vulkan drivers; Arch needs vulkan-intel, vulkan-radeon or the NVIDIA driver"
+    "Cargo.toml:58 — X11-only window backend",
+    "crates/voxelgame-render/src/loading.rs:53-73 — high-performance adapter first, then fallback adapter, else an error",
+    "scripts/desktop/install.sh:109-113 — Debian/Fedora installs Mesa Vulkan drivers; Arch needs vulkan-intel, vulkan-radeon or the NVIDIA driver",
+    "scripts/desktop/install.sh:114 — Arch note to add the matching Vulkan driver"
    ],
-   "notes": "No in-game GPU diagnostics beyond the F3 overlay. macOS needs a Metal-capable GPU; Windows graphics are not yet validated. Lowering Horizon distance, turning Distant terrain off or choosing Shader None reduces GPU load.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. No in-game GPU diagnostics beyond the F3 overlay. macOS needs a Metal-capable GPU; Windows graphics are not yet validated. Lowering Horizon distance, turning Distant terrain off or choosing Shader None reduces GPU load.",
    "guide": {
     "state": "partial",
     "page": "guide-troubleshooting.html",
@@ -6799,12 +6809,15 @@
    ],
    "summary": "Sound effects play through aplay on Linux (alsa-utils) and ffplay on Windows and macOS; music also needs ffmpeg to decode the songs. The installers set these up. Without the player program the game runs silently; without ffmpeg, Music switches itself off and the status line shows 'Music unavailable:...'.",
    "evidence": [
-    "src/audio.rs:85-117 — checks for aplay or ffplay, otherwise audio is disabled",
-    "src/audio.rs:304-310 — checks for aplay or ffplay, otherwise audio is disabled",
-    "src/audio/music.rs:186-195 — ffmpeg decoding; failure turns music off with a message",
-    "src/audio/music.rs:285-296 — ffmpeg decoding; failure turns music off with a message"
+    "src/audio.rs:93-106 — checks for aplay or ffplay",
+    "src/audio.rs:146-149 — otherwise audio is disabled ('audio disabled: playback command unavailable')",
+    "src/audio.rs:495-501 — otherwise audio is disabled ('audio disabled: playback command unavailable')",
+    "src/audio/music.rs:299-306 — song files: mp3, ogg, wav or flac",
+    "src/audio/music.rs:355-361 — ffmpeg decoding; failure reports 'Music unavailable: …'",
+    "src/audio/music.rs:436-439 — ffmpeg decoding; failure reports 'Music unavailable: …'",
+    "src/audio.rs:292-300 — an undecodable song turns Music off until you switch it back on"
    ],
-   "notes": "After installing ffmpeg, switch Music back on in Settings > Audio. Song files may be mp3, ogg, wav or flac.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. After installing ffmpeg, switch Music back on in Settings > Audio. Song files may be mp3, ogg, wav or flac.",
    "guide": {
     "state": "complete",
     "page": "guide-troubleshooting.html",
@@ -7045,15 +7058,15 @@
    "status": "partial",
    "summary": "The Linux menu entry and the macOS app use the Voxelgame cube icon. The Windows Start menu shortcut sets no Voxelgame icon, and the game window itself sets no icon.",
    "evidence": [
-    "install.sh:192-197 — macOS .icns built from assets/icons/voxelgame_macos_*.png",
-    "install.sh:202-203 — Linux icon from assets/icons/voxelgame_256.png",
-    "install.sh:221 — Linux icon from assets/icons/voxelgame_256.png",
-    "install-windows.ps1:138-143 — shortcut without IconLocation"
+    "scripts/desktop/install.sh:225-230 — macOS .icns built from assets/icons/voxelgame_macos_*.png",
+    "scripts/desktop/install.sh:236 — Linux icon from assets/icons/voxelgame_256.png",
+    "scripts/desktop/install.sh:247-254 — Linux icon from assets/icons/voxelgame_256.png",
+    "scripts/desktop/install-windows.ps1:147-151 — shortcut without IconLocation"
    ],
    "backlog": [
     "VOX-OWNER-STANDALONE-BLOCK-ICON"
    ],
-   "notes": "Icon artwork is excluded from this snapshot, so its look is unverified. A redesigned standalone block icon is planned.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Icon artwork is excluded from this snapshot, so its look is unverified. A redesigned standalone block icon is planned.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",

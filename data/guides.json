@@ -1593,8 +1593,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Update/world-configuration follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux orchestration passed 30 isolated tests; a compiled native binary passed first-install/reinstall, live headless-session preservation, version reporting and rollback. Save/startup regressions and inspected headless captures cover compatibility and switching; other guide details retain the earlier audit. Targeted world-library follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked Create options, selected-world actions, remembered local world and backup paths. Installation/update acceptance above keeps its earlier check. On 8 November 2026 the macOS and Windows update scripts, Create world keys and world deletion were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: README.md:21-25; START-HERE-macOS.txt:6-9; docs/UPDATING.md:16-92; Update-macOS.command, update-windows.cmd and scripts/desktop/update_github.py:42-72; game/startup_create.rs:94-196 and game/startup/worlds.rs:420-495 (beneath crates/voxelgame-core/src/); voxelgame-render startup_ui.rs:200-270 and startup_ui/worlds.rs:366-436; src/worlds.rs:575-623.",
-    "limits": "Not fully play-tested. Official-source fetch/build is covered by isolated Git/fake-compiler tests, not a second native rebuild. Windows/macOS managed parity and native validation are pending. Rollback cannot undo newer save formats. No new native install, world-switch, backup or LAN test was run for the 5 November follow-up. The 8 November update-script, Create world and deletion text was source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "Update/world-configuration follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux orchestration passed 30 isolated tests; a compiled native binary passed first-install/reinstall, live headless-session preservation, version reporting and rollback. Save/startup regressions and inspected headless captures cover compatibility and switching; other guide details retain the earlier audit. Targeted world-library follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked Create options, selected-world actions, remembered local world and backup paths. Installation/update acceptance above keeps its earlier check. On 8 November 2026 the macOS and Windows update scripts, Create world keys and world deletion were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: README.md:21-25; START-HERE-macOS.txt:6-9; docs/UPDATING.md:16-92; Update-macOS.command, update-windows.cmd and scripts/desktop/update_github.py:42-72; game/startup_create.rs:94-196 and game/startup/worlds.rs:420-495 (beneath crates/voxelgame-core/src/); voxelgame-render startup_ui.rs:200-270 and startup_ui/worlds.rs:366-436; src/worlds.rs:575-623. On 8 November 2026 the installers, launcher, update and Windows shortcut text, log paths, Create world steps and app-menu names were re-checked at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc: scripts/desktop/install.sh, install-windows.ps1, run.sh and update_install.py (the root scripts only forward to them), docs/UPDATING.md and README.md.",
+    "limits": "Not fully play-tested. Official-source fetch/build is covered by isolated Git/fake-compiler tests, not a second native rebuild. Windows/macOS managed parity and native validation are pending. Rollback cannot undo newer save formats. No new native install, world-switch, backup or LAN test was run for the 5 November follow-up. The 8 November update-script, Create world and deletion text was source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. The 8 November installer and shortcut corrections were source-checked at Voxelgame c56a00c4; not play-tested."
    },
    "owns": [
     "install-linux",
@@ -1644,7 +1644,7 @@
         "Open a terminal in the extracted source folder.",
         "Run **bash install.sh** as your normal user. Do not use sudo; setup only uses it for system packages.",
         "Read the plan and confirm it. First setup installs compiler/audio tools and Rust, builds the game and adds a launcher. Existing Linux installations reuse their tools without administrator prompts; repair missing prerequisites separately.",
-        "Start Voxelgame from the application menu."
+        "Choose **qiqi** in the application menu."
        ]
       },
       {
@@ -1689,7 +1689,7 @@
         "Double-click **install-windows.cmd**.",
         "Confirm the plan. If Windows asks, approve the Microsoft C++ Build Tools installer.",
         "Wait while setup downloads any missing Build Tools, Rust and FFmpeg, then builds the game.",
-        "Start Voxelgame from the Start menu. The shortcut has no Voxelgame icon."
+        "Choose **qiqi** in the Start menu. The shortcut has no game icon."
        ]
       },
       {
@@ -1772,7 +1772,7 @@
        "rows": [
         [
          "Linux",
-         "Worlds and editable data: ~/.local/share/voxelgame/data. Installer logs: ~/.local/state/voxelgame"
+         "Worlds and editable data: ~/.local/share/voxelgame/data (under $XDG_DATA_HOME if that is set). Installer logs: ~/.local/state/voxelgame"
         ],
         [
          "macOS",
@@ -1790,7 +1790,7 @@
       },
       {
        "t": "p",
-       "text": "Setup writes a log once it starts, including runs that fail later. It prints the log path at the start, and a failed run does not repeat it. A stop before setup starts, such as a cancelled plan, leaves no log. Its file name is install-<date>-<id>.log. On Linux and macOS, set VOXELGAME_INSTALL_LOG_DIR to change the log folder."
+       "text": "Setup writes a log once it starts, including runs that fail later. On Linux and macOS it prints the log path at the start, and a failed run does not repeat it. Windows prints the path at the end, including after a failure. A stop before setup starts, such as a cancelled plan, leaves no log. Its file name is install-<date>-<id>.log. On Linux and macOS, set VOXELGAME_INSTALL_LOG_DIR to change the log folder."
       }
      ]
     },
@@ -1859,7 +1859,7 @@
       },
       {
        "t": "p",
-       "text": "The first build needs internet access and several GB of free disk space. The README's 60 FPS target assumes at least an integrated GPU. Software Vulkan (llvmpipe) is only for diagnostics."
+       "text": "The first build needs internet access and several GB of free disk space. Software Vulkan (llvmpipe) is only a fallback for diagnostics."
       }
      ]
     },
@@ -1876,7 +1876,7 @@
        "items": [
         "**Linux:** delete the app folder, `~/.local/share/voxelgame/app` by default, and `~/.local/share/applications/voxelgame.desktop`.",
         "**macOS:** delete `~/Applications/Voxelgame.app`.",
-        "**Windows:** delete the app folder and the Voxelgame shortcut in your Start menu Programs folder. The FFmpeg copy in `%LOCALAPPDATA%\\Voxelgame\\tools` stays unless you delete it too.",
+        "**Windows:** delete the app folder and the qiqi shortcut in your Start menu Programs folder. An earlier install may have left a Voxelgame shortcut too. The FFmpeg copy in `%LOCALAPPDATA%\\Voxelgame\\tools` stays unless you delete it too.",
         "Compilers, Rust, Homebrew and audio tools that setup installed stay on the PC."
        ]
       },
@@ -1939,8 +1939,8 @@
     "getting-started"
    ],
    "verification": {
-    "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines. The save and saving sections were narrowed against Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: src/worlds/resume.rs:12-40; src/app.rs:1043-1055,1553-1568,1641-1650,1904-1905; src/app/owner_recovery.rs:32-45. They link to the refreshed save/world guides instead of repeating older default-world or crafting-autosave assumptions. On 8 November 2026 the startup report, error window, unreadable-world dialog and Settings paths were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: src/main.rs:33-50,93-109; src/fatal_error.rs:174-201,244-278,330-370; src/fatal_dialog.py:67-106; src/local_startup.rs:11-23; voxelgame-render startup_ui.rs:705-771; voxelgame-core settings.rs:25-89,653,933-989.",
-    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet. These targeted save corrections are source checks only; no new play test was run. Other troubleshooting sections keep their earlier source checks. The 8 November corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested, and the Linux error window was not opened. The error window was re-checked in the source at Voxelgame 21d656c2 on 8 November 2026 (src/main.rs:37; src/fatal_error.rs:106-140,330-370; src/fatal_dialog.py:68-106); not play-tested."
+    "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines. The save and saving sections were narrowed against Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: src/worlds/resume.rs:12-40; src/app.rs:1043-1055,1553-1568,1641-1650,1904-1905; src/app/owner_recovery.rs:32-45. They link to the refreshed save/world guides instead of repeating older default-world or crafting-autosave assumptions. On 8 November 2026 the startup report, error window, unreadable-world dialog and Settings paths were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: src/main.rs:33-50,93-109; src/fatal_error.rs:174-201,244-278,330-370; src/fatal_dialog.py:67-106; src/local_startup.rs:11-23; voxelgame-render startup_ui.rs:705-771; voxelgame-core settings.rs:25-89,653,933-989. The lag-spike log, sound and graphics sections were re-checked on 8 November 2026 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc: src/profiling.rs:49-54,250-270; src/profiling/spike_log.rs:89-107; src/audio.rs:93-106,146-149,292-300; src/audio/music.rs:299-306,436-439; crates/voxelgame-render/src/loading.rs:53-73.",
+    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet. These targeted save corrections are source checks only; no new play test was run. Other troubleshooting sections keep their earlier source checks. The 8 November corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested, and the Linux error window was not opened. The error window was re-checked in the source at Voxelgame 21d656c2 on 8 November 2026 (src/main.rs:37; src/fatal_error.rs:106-140,330-370; src/fatal_dialog.py:68-106); not play-tested. The 8 November lag-spike and status corrections were source-checked at Voxelgame c56a00c4; not play-tested."
    },
    "owns": [
     "startup-error-reporting",
@@ -2092,7 +2092,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "With the Performance overlay (F3) on, a frame that takes at least 25 ms and more than twice your frame budget is written to a log. Turn F3 off to stop recording. {{lag-spike-log}}"
+       "text": "With the Performance overlay (F3) on, a frame that takes longer than both 25 ms and twice your frame budget is written to a log. Turn F3 off to stop recording. {{lag-spike-log}}"
       },
       {
        "t": "list",
@@ -2104,7 +2104,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "The F3 panel shows the log status: armed, recording, dropped or unavailable. Attach the file when you report a slow frame."
+       "text": "The F3 panel shows the log status: armed, recording, dropped entries, or a log error. Attach the file when you report a slow frame."
       }
      ]
     }
@@ -4262,8 +4262,8 @@
     "settings-and-performance"
    ],
    "verification": {
-    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit. Targeted 5 November source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: current save sections, shared preferences, generation 12, Worlds backup/recovery and stopped-host retry/choice paths. Existing unrelated opening-screen evidence keeps its earlier check. The game’s dated WORLD_BACKUP_20261016 verification records offscreen backup recovery; it was not rerun for this guide. Targeted 8 November 2026 source follow-up at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 confirms only after a local write (src/app.rs), the 8 MiB refusal in the save encoder and writer (save.rs), size refusals on servers (session/crafting.rs, creatures.rs, items.rs, water.rs and home/*.rs), dedicated-server save waits (voxelgame-server host/furniture/durability/stock.rs), the seat and bed exit check before saving (save/write.rs, game/furniture/resting.rs, seating.rs) and saved lamp and stove state (furniture/lamp_state.rs, furniture/cooking.rs). The stopped-host recovery steps were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: voxelgame-render startup_ui/stopped_owner_choice.rs:16-61; voxelgame-core game/stopped_owner_choice.rs:132-230; src/net_client/ready_recovery/canonical_choice.rs:50-164; src/app.rs:1097-1108.",
-    "limits": "Source-checked in this follow-up; no new game process, native save/fault injection, LAN play or screenshot capture. Existing loading-screen prose retains its earlier audit. No game run has checked these backup and stopped-host steps. A session that has not been saved is not guaranteed to survive a restart. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no game process, server or save-fault run. The stopped-host recovery steps were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit. Targeted 5 November source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: current save sections, shared preferences, generation 12, Worlds backup/recovery and stopped-host retry/choice paths. Existing unrelated opening-screen evidence keeps its earlier check. The game’s dated WORLD_BACKUP_20261016 verification records offscreen backup recovery; it was not rerun for this guide. Targeted 8 November 2026 source follow-up at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 confirms only after a local write (src/app.rs), the 8 MiB refusal in the save encoder and writer (save.rs), size refusals on servers (session/crafting.rs, creatures.rs, items.rs, water.rs and home/*.rs), dedicated-server save waits (voxelgame-server host/furniture/durability/stock.rs), the seat and bed exit check before saving (save/write.rs, game/furniture/resting.rs, seating.rs) and saved lamp and stove state (furniture/lamp_state.rs, furniture/cooking.rs). The stopped-host recovery steps were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: voxelgame-render startup_ui/stopped_owner_choice.rs:16-61; voxelgame-core game/stopped_owner_choice.rs:132-230; src/net_client/ready_recovery/canonical_choice.rs:50-164; src/app.rs:1097-1108. Opening-screen messages, limits, version refusals, autosave and the Create backup path were re-checked on 8 November 2026 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc: src/app.rs:79-85,1543-1562,1634-1650,1838-1846,1992-2027; crates/voxelgame-core/src/save.rs:107-120,318-326; save/load.rs:31-50; src/app/backup.rs:13-47; src/world_backup.rs:14-44.",
+    "limits": "Source-checked in this follow-up; no new game process, native save/fault injection, LAN play or screenshot capture. Existing loading-screen prose retains its earlier audit. No game run has checked these backup and stopped-host steps. A session that has not been saved is not guaranteed to survive a restart. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no game process, server or save-fault run. The stopped-host recovery steps were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. The 8 November single-instance wording was source-checked at Voxelgame c56a00c4; not play-tested."
    },
    "owns": [
     "save-contents",
@@ -4408,8 +4408,8 @@
       {
        "t": "list",
        "items": [
-        "Only one copy of the game runs per user. Opening it again brings the open window to the front and shows 'Voxelgame was already open; click the world to recapture the mouse'. {{single-instance}}",
-        "When the game first opens, a tumbling wireframe cube settles into the Voxelgame logo above the current loading stage and an activity bar. Later world loads show only the stage and the bar. There is no percentage. {{loading-screen}}"
+        "Only one copy of the game runs per user. Opening it again brings the open window to the front and shows 'qiqi was already open; click the world to recapture the mouse'. {{single-instance}}",
+        "When the game first opens, a tumbling wireframe cube settles into the qiqi logo above the current loading stage and an activity bar. Later world loads show only the stage and the bar. There is no percentage. {{loading-screen}}"
        ]
       }
      ]
