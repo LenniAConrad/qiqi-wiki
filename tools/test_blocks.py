@@ -56,6 +56,13 @@ class PublishedBlocks(unittest.TestCase):
             with self.subTest(field=field), self.assertRaises(AssertionError):
                 validate_blocks.validate(data, self.recipes)
 
+    def test_closed_species_doors_are_items_and_open_leaves_are_states(self):
+        symbols = {b['symbol'] for b in self.data['blocks']}
+        self.assertLessEqual(set(build_blocks.SPECIES_DOORS), symbols)
+        self.assertFalse(build_blocks.STATE_ONLY & symbols)
+        with self.assertRaises(ValueError):
+            build_blocks.species_door_description('OAK_DOOR', 'Birch door')
+
     def test_unknown_acquisition_has_no_visible_field(self):
         html = build_blocks.render(self.data)
         self.assertIn('<td data-label="How to get it"></td>', html)

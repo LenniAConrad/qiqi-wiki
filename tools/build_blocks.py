@@ -19,10 +19,30 @@ ROOT = Path(__file__).resolve().parents[1]
 TABLE = 'crates/voxelgame-core/src/world/block/table.rs'
 FAMILIES = (
     ('ground', 'Natural ground'), ('stone', 'Stone and minerals'),
-    ('wood', 'Wood and leaves'), ('building', 'Building materials'),
+    ('wood', 'Wood and leaves'), ('building', 'Building materials'), ('doors', 'Doors'),
     ('glass-light', 'Glass and light'), ('water-ice', 'Water and ice'),
     ('plants', 'Plants and shore life'), ('utility', 'Utility and empty space'),
 )
+# Species doors keep their wood and style in the block identity
+# (world/block/doors.rs); each closed door is a crafted item of its own.
+DOOR_WOODS = (('ALDER', 'alder'), ('BIRCH', 'birch'), ('PINE', 'pine'), ('OAK', 'oak'),
+              ('FRUIT', 'fruitwood'), ('ACACIA', 'acacia'), ('WILLOW', 'willow'),
+              ('MANGROVE', 'mangrove'), ('JUNGLE', 'jungle'), ('CHERRY', 'cherry'),
+              ('GIANT', 'giant'), ('PALM', 'palm'), ('MESQUITE', 'mesquite'), ('FIG', 'fig'),
+              ('CYPRESS', 'cypress'))
+DOOR_STYLES = ('', 'panelled', 'windowed')
+SPECIES_DOORS = {f'{key}_{style.upper() + "_" if style else ""}{size}': (wood, style, size == 'WIDE_DOOR')
+                 for style in DOOR_STYLES for key, wood in DOOR_WOODS for size in ('DOOR', 'WIDE_DOOR')}
+DOOR_SHAPES = {
+    ('', False): 'is a single-leaf door, one metre wide and two tall',
+    ('', True): 'has two leaves and is two metres wide and three tall',
+    ('panelled', False): 'is a single-leaf door with recessed panels, one metre wide and two tall',
+    ('panelled', True): 'has two leaves with recessed panels and is two metres wide and three tall',
+    ('windowed', False): ('is a single-leaf panelled door with glass in its upper panel, '
+                          'one metre wide and two tall'),
+    ('windowed', True): ('has two panelled leaves with glass in their upper panels '
+                         'and is two metres wide and three tall'),
+}
 # Editorial groupings, independent of the engine's collision/material flags.
 FAMILY_MEMBERS = {
     'ground': '''GRASS DIRT SAND GRAVEL CLAY PODZOL SNOW PACKED_SNOW FROZEN_TURF
@@ -40,11 +60,14 @@ FAMILY_MEMBERS = {
         BAMBOO CHERRY_WOOD CHERRY_BLOSSOM_LEAVES AMBER_LEAVES RUSSET_LEAVES GIANT_WOOD
         DEADWOOD CHARRED_WOOD PALM_WOOD PALM_FRONDS MESQUITE_WOOD FIG_WOOD BROAD_LEAVES
         CYPRESS_WOOD CYPRESS_KNEES DRIFTWOOD''',
-    'building': '''PLANKS BIRCH_PLANKS PINE_PLANKS GRAY_BRICK GLAZED_ROOF_TILE
+    'building': '''PLANKS BIRCH_PLANKS PINE_PLANKS OAK_PLANKS FRUIT_PLANKS ACACIA_PLANKS
+        WILLOW_PLANKS MANGROVE_PLANKS JUNGLE_PLANKS CHERRY_PLANKS GIANT_PLANKS PALM_PLANKS
+        MESQUITE_PLANKS FIG_PLANKS CYPRESS_PLANKS GRAY_BRICK GLAZED_ROOF_TILE
         IMPERIAL_ROOF_TILE LACQUERED_WOOD PAPER_PANEL WHITE_PLASTER CARVED_STONE
         CHALK_BRICKS RED_ROCK_BRICKS MOSSY_COBBLE BASALT_BRICKS POLISHED_GRANITE
-        REED_THATCH PINK_PLASTER ROSE_BOARDS FUCHSIA_TILE DOOR WIDE_DOOR CHEST
+        REED_THATCH PINK_PLASTER ROSE_BOARDS FUCHSIA_TILE CHEST
         MARBLE POLISHED_MARBLE MARBLE_BRICKS CARVED_MARBLE''',
+    'doors': 'DOOR WIDE_DOOR ' + ' '.join(SPECIES_DOORS),
     'glass-light': 'GLOWSTONE GLASS RED_LANTERN GLOW_LICHEN IMPACT_GLASS AMETHYST_CLUSTER',
     'water-ice': '''WATER WARM_WATER DARK_WATER FRESH_WATER BLACK_WATER BOILING_WATER
         ICE GLACIER_ICE BLACK_ICE ICE_SPIRE CREVASSE_ICE''',
@@ -57,8 +80,10 @@ FAMILY_MEMBERS = {
     'utility': 'AIR TNT CAMP_CRATE BEEHIVE',
 }
 FAMILY_BY_BLOCK = {name: family for family, names in FAMILY_MEMBERS.items() for name in names.split()}
-# The open leaf of a placed door is a state of DOOR, not an item a player holds.
-STATE_ONLY = {'DOOR_OPEN'}
+# The open leaf of a placed door is a state of its closed door, not an item a
+# player holds (Block::is_item excludes every open door).
+STATE_ONLY = {'DOOR_OPEN'} | {symbol.replace('WIDE_DOOR', 'DOOR_OPEN')
+                              for symbol in SPECIES_DOORS if symbol.endswith('WIDE_DOOR')}
 CREATIVE_ONLY = {'IMPERIAL_ROOF_TILE': 'Green roof tile (creative)',
                  'AMETHYST_CLUSTER': 'Amethyst cluster (creative only)'}
 ROW = re.compile(r'\s*([A-Z][A-Z_0-9]*)\s*=\s*(\d+),\s*("(?:[^"\\]|\\.)*"),\s*\[([^\]]+)\];')
@@ -84,6 +109,18 @@ BIRCH_PLANKS|Birch boards are pale crafted boards.
 PINE_WOOD|Pine logs are dark timber.
 PINE_NEEDLES|Pine needles form dense evergreen foliage.
 PINE_PLANKS|Pine boards are warm-coloured crafted boards.
+OAK_PLANKS|Oak boards are pale grey-brown boards split from oak logs.
+FRUIT_PLANKS|Fruitwood boards are pinkish boards split from fruit tree logs.
+ACACIA_PLANKS|Acacia boards are bright orange boards split from acacia logs.
+WILLOW_PLANKS|Willow boards are pale grey-pink boards split from willow logs.
+MANGROVE_PLANKS|Mangrove boards are deep red boards split from mangrove logs.
+JUNGLE_PLANKS|Jungle boards are olive-brown boards split from jungle logs.
+CHERRY_PLANKS|Cherry boards are red-brown boards split from cherry logs.
+GIANT_PLANKS|Giant boards are rust-red boards split from giant logs.
+PALM_PLANKS|Palm boards are streaked, straw-coloured boards split from palm logs.
+MESQUITE_PLANKS|Mesquite boards are dark chocolate-brown boards split from mesquite logs.
+FIG_PLANKS|Fig boards are pale cream boards split from fig logs.
+CYPRESS_PLANKS|Cypress boards are golden boards split from cypress logs.
 GRAY_BRICK|Gray brick is kiln-fired courtyard brick.
 GLAZED_ROOF_TILE|Gray roof tile has a dark blue-gray finish.
 IMPERIAL_ROOF_TILE|Green roof tile is a green ceremonial roof tile.
@@ -111,7 +148,7 @@ REED_THATCH|Reed thatch is woven reed and flax roofing for light coastal buildin
 FLAX|Wild flax grows in blue-flowered colonies in open temperate meadows.
 PINK_PLASTER|Pink plaster is lime plaster tinted light pink with flower petals.
 ROSE_BOARDS|Pink boards are timber boards painted medium rose pink.
-DOOR|A wooden door is a one-metre double door you hang on solid ground. Craft it from boards and right click to open or close it.
+DOOR|A wooden door is a one-metre single-leaf door you hang on solid ground. Craft it from boards of any wood and right click to open or close it.
 WIDE_DOOR|A wide wooden door is a two-metre folding double door for barns and halls.
 CHEST|A wooden chest is a lidded storage block. Right click to set it down and open it.
 FUCHSIA_TILE|Pink roof tile is fired clay roof tile with a deep pink glaze.
@@ -280,7 +317,20 @@ def parse_table(value):
     return rows
 
 
+def species_door_description(symbol, name):
+    """Describe a species door from its reviewed wood, style and size."""
+    wood, style, wide = SPECIES_DOORS[symbol]
+    expected = ' '.join(part for part in ('wide' if wide else '', style, wood, 'door') if part)
+    if name.lower() != expected:
+        raise ValueError(f'{symbol}: registry name {name!r} needs review')
+    article = 'An' if expected[0] in 'aeiou' else 'A'
+    glass = ' and glass' if style == 'windowed' else ''
+    return f'{article} {expected} {DOOR_SHAPES[style, wide]}. Craft it from {wood} boards{glass}.'
+
+
 def player_description(row):
+    if row['symbol'] in SPECIES_DOORS:
+        return species_door_description(row['symbol'], row['name'])
     return DESCRIPTIONS[row['symbol']]
 
 
@@ -289,7 +339,12 @@ def build_data(game, recipes, ledger):
     if not re.fullmatch(r'[0-9a-f]{40}', commit):
         raise ValueError('Snapshot must supply a full audited commit')
     source = (game / TABLE).read_bytes()
-    blocks = [b for b in parse_table(source.decode()) if b['symbol'] not in STATE_ONLY]
+    rows = parse_table(source.decode())
+    reviewed = FAMILY_BY_BLOCK.keys() | STATE_ONLY
+    unreviewed = [r['symbol'] for r in rows if r['symbol'] not in reviewed]
+    if unreviewed:
+        raise ValueError('Unreviewed registry rows: ' + ' '.join(unreviewed))
+    blocks = [b for b in rows if b['symbol'] not in STATE_ONLY]
     catalogue = next(f for f in ledger['features'] if f['id'] == 'block-materials-catalogue')
     for block in blocks:
         symbol = block['symbol']
