@@ -7,8 +7,8 @@ from pathlib import Path
 import browser_run as browser
 
 OUT = browser.ROOT / '.cache' / 'theme-review'
-DARK = 'rgb(24, 35, 29)'
-LIGHT = 'rgb(246, 243, 233)'
+DARK = 'rgb(21, 20, 18)'
+LIGHT = 'rgb(230, 224, 210)'
 
 
 def state(client):
