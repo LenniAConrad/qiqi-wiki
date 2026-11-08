@@ -32,7 +32,7 @@
     {
       "id": "building", "title": "Building", "page": "topic-building.html",
       "summary": "Place blocks, make furniture, use doors and chests, and save structures for later.",
-      "guides": ["building-basics"],
+      "guides": ["storage-beds-and-lamps", "building-basics"],
       "references": [["guide-building.html#furniture", "Furniture and carpentry"], ["guide-building.html#doors", "Placing and opening doors"], ["guide-building.html#chests", "Chests and storage"], ["guide-building.html#blueprints", "Blueprint placement"], ["guide-building.html#structure-library", "The structure library"], ["guide-building.html#undo", "Undo and redo"]],
       "related": ["blocks", "crafting", "exploration"]
     },

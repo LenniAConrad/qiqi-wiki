@@ -23,6 +23,7 @@ PUBLIC_FILES = (
     'guide-install-and-worlds.html',
     'guide-troubleshooting.html', 'guide-hunting.html', 'guide-seasons.html', 'guide-maps.html', 'guide-building.html',
     'guide-sailing.html', 'guide-explosives.html', 'guide-weather-day-night.html', 'guide-saves.html', 'guide-creatures.html',
+    'guide-storage-beds-lamps.html',
     'guide-not-in-game.html', 'guide-settings-performance.html', 'guide-study-grove.html',
     'guide-moving-and-aiming.html', 'guide-caves-and-landmarks.html', 'guide-volcanoes-water-and-expeditions.html', 'guide-islands-and-biomes.html',
     'performance.html', 'scale.html', 'ABOUT.md',

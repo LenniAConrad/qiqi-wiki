@@ -5117,6 +5117,266 @@
      ]
     }
    ]
+  },
+  {
+   "id": "storage-beds-and-lamps",
+   "page": "guide-storage-beds-lamps.html",
+   "number": 22,
+   "gap": null,
+   "kicker": "Home",
+   "title": "Storage, beds and lamps",
+   "headline": "Put things away,<br><em>rest and light the room.</em>",
+   "summary": "Wardrobes, drawers, kitchen cupboards, bookcases and shelves for storage, beds to lie down in, and floor and table lamps for light.",
+   "lead": "Storage furniture keeps your things where you live, beds give you somewhere to lie down, and lamps light a room without fuel. All of them are built from furniture plans.",
+   "readTime": "6 min read",
+   "audience": "Everyone",
+   "updated": "2026-11-08",
+   "state": "complete",
+   "covers": [
+    "furniture-wardrobes-and-drawers",
+    "furniture-kitchen-storage",
+    "furniture-bookcase-and-shelf",
+    "furniture-beds-and-rest",
+    "furniture-lamps",
+    "rest-respawn-point"
+   ],
+   "next": [
+    "building-basics",
+    "first-survival-day"
+   ],
+   "verification": {
+    "method": "Source-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026. Plan names, sizes and costs come from furniture/definition.rs (designs, storage, display, lamp and wall rules, and the volume-based costs), the part files and their tests (wardrobe_parts, drawers_parts, counter_parts, wall_cupboard_parts, cupboard_fittings_tests, bookcase_parts, wall_shelf_parts, bed_parts, lamp_parts) and the plan descriptions in inventory.rs:799-809. Storage limits and refusals: furniture/storage.rs:15-56 and game/furniture/storage.rs:46-299. Right-click handling: game.rs:2662-2710. Displays: game/furniture/display.rs:51-324 and furniture/display.rs:140-174. Beds: game/furniture/resting.rs:27-221, game/furniture/seating.rs:54-85,270-287 and session/furniture/resting.rs:40-207. Lamps: game/furniture/lamp.rs:10-77, furniture/lamp_state.rs:12-49 and the renderer's local_lights.rs:11-156. Door and drawer animation: the renderer's furniture_motion.rs:95-219. Servers: game/net_client/furniture_storage.rs:285-345 and game/net_client/furniture/history.rs:63-71. Paths beginning furniture/, game/, session/ or game.rs are beneath crates/voxelgame-core/src/; renderer files are beneath crates/voxelgame-render/src/.",
+    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. No new game capture, server or LAN session. The game's own player guide does not yet describe wardrobes, chests of drawers, bookcases or wall shelves, and the bed plan descriptions still say solo worlds only; this guide follows the code."
+   },
+   "owns": [
+    "furniture-wardrobes-and-drawers",
+    "furniture-kitchen-storage",
+    "furniture-bookcase-and-shelf",
+    "furniture-beds-and-rest",
+    "furniture-lamps"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "before-you-start",
+     "title": "Before you start",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Every piece here is built from a furniture plan. In Survival, carry a **Furniture hammer**, open [[E]] > Build, pick the plan and its woods and check the **Need / have** counts; the materials are spent only when the piece is placed, and Creative placement is free. Press [[R]] to turn the ghost and right click to place it. See Furniture and carpentry for placing, turning and moving furniture."
+      },
+      {
+       "t": "p",
+       "text": "Costs below are in carried pieces, the same counts that **Need / have** shows. Each part uses the wood you choose for it, and parts that share a wood add up. Floor pieces need a solid block under every foot, and wall pieces need solid wall behind them: leaves, plants, doors and chests do not count, and nothing here can stand on other furniture."
+      },
+      {
+       "t": "p",
+       "text": "To use a piece, put the plan and any tool away first ([[B]] puts the furniture tool away), stand within 6 m of the whole piece, aim at it and right click. The **Cooking stove** is a furniture plan too; cooking on it is covered in {{guide:crafting-and-recipes|Crafting and recipes}}."
+      }
+     ]
+    },
+    {
+     "id": "storage",
+     "title": "Using furniture storage",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Wardrobes, chests of drawers, the bookcase and the kitchen pieces with storage all work the same way. Each piece has its own storage, holding up to 250 capacity and 64 kinds of item whatever woods it is made from."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Put the plan and any tool away and aim at the piece. The hint reads, for example, **Wardrobe | RMB open wardrobe storage**.",
+        "Right click. The storage panel opens with your pack on the left (**Pack > click to store**) and the stored items on the right, with the capacity used, for example **Wardrobe: 12.0 / 250**.",
+        "Click an item to move one across. Shift + click moves as many as fit.",
+        "Close the inventory when you are done. Walking out of reach also closes the storage."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "A new kind of item is refused once 64 kinds are stored (**Furniture storage holds at most 64 kinds of items**), and a move is refused when the other side is full (**No transfer: destination is full or item is unavailable**). Moving a piece keeps everything inside it."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Empty a storage piece before you take it up. The game says, for example, **Empty the wardrobe before removing it** or **Empty the drawers before removing them**."
+      }
+     ]
+    },
+    {
+     "id": "wardrobes-and-drawers",
+     "title": "Wardrobes and chests of drawers",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Wardrobe** (Wardrobe plan): 1 m wide, 2 m tall and 0.5 m deep, with two doors. It costs 5 board pieces: 3 for the **Body**, 1 for the **Front** (both doors) and 1 for the **Fittings** (handles).",
+        "**Chest of drawers** (Chest of drawers plan, shown as **Drawers** on its tile): 1 m wide, 1 m tall and 0.5 m deep, with three drawers. It costs 4 board pieces: 2 Body, 1 Front (all three drawer fronts) and 1 Fittings.",
+        "Both stand on four feet. Right click either one to open its storage, as described above."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "While the storage is open, the wardrobe doors swing open and the top drawer slides out. This happens only on your screen and only when the space in front is clear: a block, a door, other furniture or you standing there keeps them shut. With **Reduce motion** on, they appear open straight away. The movement is only for show; the storage works either way. {{furniture-wardrobes-and-drawers}}"
+      }
+     ]
+    },
+    {
+     "id": "kitchen-storage",
+     "title": "Kitchen cupboards and counters",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Five kitchen plans have storage: the open **Kitchen counter**, the **Counter cabinet**, the **Sink cabinet**, the **Kitchen cupboard** and the **Wall cupboard**. They share the same storage panel, titled **Kitchen storage**. {{furniture-kitchen-storage}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Kitchen cupboard**: a floor cupboard 1 m square and 1 m high with two doors; its top lines up with counters and sinks. Choose **Body** (body and top), **Fronts** (the two doors) and **Fittings** (handles). It costs 5 board pieces: 4 Body and 1 Fronts.",
+        "**Wall cupboard** (Kitchen wall cupboard plan): 1 m wide, 0.75 m high and 0.5 m deep. It costs 3 board pieces: 2 Body and 1 Fronts. Aim at a wall side and press [[R]] until its back faces the wall. Four full solid wall pieces must cover its back; it needs no floor.",
+        "The handles use the Body wood until you choose a **Fittings** wood. Choosing one adds 1 board piece to either cupboard.",
+        "On a **Sink cabinet**, aim at the lower cabinet to open its storage. Aiming at the basin uses nearby fresh water instead.",
+        "Both cupboards' doors swing open on your screen while the storage is open, under the same rules as the wardrobe."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Empty a cupboard or counter before taking it up (**Empty the kitchen cupboard before removing it**, **Empty the kitchen counter before removing it**). You cannot remove a block that holds up furniture, including the wall behind a wall cupboard or shelf: **Take up the furniture before removing its support**."
+      }
+     ]
+    },
+    {
+     "id": "bookcase-and-shelf",
+     "title": "Bookcase and wall shelf",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Bookcase** (Bookcase plan): an open bookcase 1 m wide, 1.5 m tall and 0.5 m deep, with three shelves. It costs 3 board pieces: 2 **Frame** and 1 **Panel** (shelves and top). Right click its body to open **Bookcase storage**; stored items do not show on the shelves.",
+        "**Wall shelf** (Wall shelf plan): one shelf board on two brackets, 1 m wide, 0.5 m deep and 0.5 m high. It costs 2 board pieces: 1 Frame (brackets) and 1 Panel (shelf). Aim at a wall side and press [[R]] until its back faces the wall; two full solid wall pieces must be behind it. It has no storage."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Both can show one red lantern on top. {{furniture-bookcase-and-shelf}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Select a red lantern, aim at the top of the bookcase or at the shelf and right click. The hint reads **RMB place display**. In Survival this uses one carried lantern; in Creative it is free.",
+        "To take the lantern back, select an empty hotbar slot, aim at the lantern and right click (**RMB take display**). You get a lantern back only if one was paid for it.",
+        "Press [[Ctrl]] + [[Z]] to undo the last display change."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The space above the top must be clear (**Clear the space above the tabletop first**). With a lantern in place you can still open the bookcase storage by aiming at its body, and you can move either piece. Take the lantern off before changing the woods or taking the piece up: **Take the top display before restyling or taking up this bookcase**, or **Take the shelf display before restyling or taking up this shelf**."
+      }
+     ]
+    },
+    {
+     "id": "beds",
+     "title": "Beds and resting",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Single bed** (Single bed plan): 1 m wide, 2 m long and 0.875 m high, with one place to lie. It costs 3 board pieces of the **Frame** wood and 4 **Wool**.",
+        "**Double bed** (Double bed plan): 2 m wide and 2 m long, with two places side by side. It costs 6 board pieces and 7 Wool.",
+        "**Bedding** comes in Cream, Sage or Rust. Every colour uses ordinary Wool from sheep."
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Put the plan away. Stand on dry, solid ground beside the bed, within 2 m of the middle of a place to lie. In Creative, land first: you cannot rest while flying.",
+        "Aim at the bed (the hint reads, for example, **Single bed | RMB rest**) and right click. You lie down in the nearest free place.",
+        "Press [[Space]] or right click to get up. You stand at a clear, supported spot beside the bed."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Right click a bed",
+         "Lie down (plan put away, within 2 m)"
+        ],
+        [
+         "Space or Right click, while resting",
+         "Get up when the way out is clear"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The bed needs solid ground under all its legs, room for your whole body on top and a clear, supported way between you and the bed. Otherwise the game says why, for example **Move within 2 m of a resting position**, **The bed needs clear room for your whole body** or **The bed needs a clear, supported approach and exit**. While you rest you can look around; other actions wait until you stand up. {{furniture-beds-and-rest}}"
+      },
+      {
+       "t": "p",
+       "text": "If the way out is blocked when you try to get up, you stay lying down: **Bed exit blocked | Make room to stand safely**. You also get up on your own if the bed is moved, changed or loses its support, if something fills the space you lie in, or if something pushes you."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Resting in a bed is optional and is only a pose. It does not pass time or skip the night, it does not heal, feed or water you, and your Survival needs carry on as normal. It does not set your Home or respawn point: for that, use **Rest / set respawn** at your Home crate ({{rest-respawn-point}})."
+      },
+      {
+       "t": "p",
+       "text": "Nobody can move, take up or change a bed while someone lies in it (**Leave the bed before changing it**; on a server, **Bed occupied | Ask the resting player to leave first**). If you save while lying down, the save puts you upright beside the bed. If the way out is blocked, the save is refused (**Bed exit blocked; cannot save an embedded player**) until you clear it."
+      }
+     ]
+    },
+    {
+     "id": "lamps",
+     "title": "Lamps and light",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Floor lamp** (Floor lamp plan): 0.5 m square and 1.6875 m tall.",
+        "**Table lamp** (Table lamp plan): the same base and lantern on a short stem, 0.5 m square and 0.875 m tall.",
+        "Each costs one **Red lantern** plus 2 board pieces: 1 **Frame** (feet and stem) and 1 **Panel** (base and top). Red lanterns are crafted; see {{guide:crafting-and-recipes|Crafting and recipes}}.",
+        "Both stand on four feet, so each foot needs a solid block under it. The table lamp is meant for a counter or ledge built from blocks. It cannot stand on furniture, so not on a furniture table, desk or kitchen counter.",
+        "Taking up a lamp you paid for returns its lantern and boards, if your pack has room."
+       ]
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Put the plan and any tool away; an empty hand works.",
+        "Aim at the lamp. The hint shows its state, for example **Floor lamp | On | RMB switch off**.",
+        "Right click to switch it off or on."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "A new lamp starts switched on. The setting is saved with the world, and a lamp needs no fuel or power. Switching is not an undo step. {{furniture-lamps}}"
+      },
+      {
+       "t": "p",
+       "text": "A lamp that is on lights the walls, floor and ceiling around it with the same warm light as a placed red lantern; a switched-off lamp's lantern stops glowing. A red lantern on display on a table, desk, bookcase or wall shelf lights its surroundings in the same way. The game draws light from at most 16 nearby light sources at a time, so in a room full of lights some may add none."
+      }
+     ]
+    },
+    {
+     "id": "on-a-server",
+     "title": "On a server",
+     "blocks": [
+      {
+       "t": "list",
+       "items": [
+        "**Storage:** opening a piece asks the server for its contents (**Opening furniture storage | waiting for server**), and each move waits for the server too. You can only use storage where you are allowed to build, not on another player's plot. If the panel says **Furniture storage waits for pack confirmation**, open it again to refresh. In Creative, the left list shows your carried supplies.",
+        "**Displays:** putting a lantern on display or taking it back waits for the server to confirm your stock (**RMB place display | Server confirms stock**).",
+        "**Beds:** right click, then wait for the server to confirm (**Waiting for the server to confirm bed use**). Other players see you lying down, and two players can share a double bed. A place someone already uses is refused: **That resting position is occupied**.",
+        "**Lamps:** switching waits for the server. Switch a lamp on before taking it up: **Switch the lamp on before taking it up; history keeps its power**.",
+        "**Changing woods:** storage pieces and the wall shelf can change materials on a server; beds and lamps cannot (**This furniture does not support material changes on servers**).",
+        "Opening doors and drawers are drawn only on your own screen; other players see the piece closed."
+       ]
+      }
+     ]
+    }
+   ]
   }
  ]
 }

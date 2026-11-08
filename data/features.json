@@ -2267,6 +2267,225 @@
    }
   },
   {
+   "id": "furniture-wardrobes-and-drawers",
+   "area": "building",
+   "name": "Wardrobes and chests of drawers",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "A 2 m wardrobe and a 1 m chest of drawers, both 1 m wide and 0.5 m deep, with separate Body, Front and Fittings woods. Each holds up to 250 capacity and 64 kinds of item. Right click with tools and plans put away to open it; empty it before taking it up.",
+   "controls": [
+    [
+     "Right click a wardrobe or chest of drawers (no tool or plan in hand)",
+     "Open its storage within 6 m"
+    ],
+    [
+     "Click / Shift + click an item in the storage panel",
+     "Move one / move as many as fit"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/definition.rs:59-62 — Wardrobe and ChestOfDrawers designs with independent body, fronts and wooden fittings",
+    "crates/voxelgame-core/src/furniture/definition.rs:261-276 — both share the furniture storage capability",
+    "crates/voxelgame-core/src/furniture/wardrobe_parts/tests.rs:79 — wardrobe saved size 16 x 32 x 8 sixteenths (1 x 2 x 0.5 m)",
+    "crates/voxelgame-core/src/furniture/wardrobe_parts/tests.rs:130-149 — wardrobe costs 3 body boards plus one fittings and one front board",
+    "crates/voxelgame-core/src/furniture/drawers_parts/tests.rs:86 — chest of drawers saved size 16 x 16 x 8 sixteenths (1 x 1 x 0.5 m)",
+    "crates/voxelgame-core/src/furniture/drawers_parts/tests.rs:136-153 — chest of drawers costs 2 body boards plus one fittings and one front board",
+    "crates/voxelgame-core/src/furniture/storage.rs:15-18 — 250 capacity and 64 kinds per storage object",
+    "crates/voxelgame-core/src/furniture/storage.rs:30-56 — empty-before-removal refusals for wardrobes, drawers, bookcases and kitchen pieces",
+    "crates/voxelgame-core/src/game/furniture/storage.rs:46-104 — RMB storage hint only with tools and plans put away",
+    "crates/voxelgame-core/src/game/furniture/storage.rs:206-255 — click moves one, Shift moves all that fit; 64-kind and full refusals",
+    "crates/voxelgame-core/src/game/furniture.rs:261-275 — every furniture cell must be within 6 m of the eye",
+    "crates/voxelgame-render/src/furniture_catalog_ui.rs:80-91 — Body and Fittings labels for wardrobes and drawers",
+    "crates/voxelgame-render/src/furniture_catalog_text.rs:644-696 — Front is the three drawer fronts or the two wardrobe doors; Fittings are the handles",
+    "crates/voxelgame-render/src/furniture_motion.rs:95-160 — local opening pose while storage is open; Reduce motion opens it at once",
+    "crates/voxelgame-render/src/furniture_motion.rs:169-219 — doors and drawer move only when the space in front is clear of blocks, doors, furniture and the player",
+    "crates/voxelgame-render/src/inventory_ui.rs:902-960 — storage panel titles, pack list and used / total capacity"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Wardrobe: 3 Body + 1 Front + 1 Fittings board pieces; chest of drawers: 2 + 1 + 1. Both stand on four feet. The opening doors and the sliding top drawer are drawn only on the player's own screen and do not affect the storage.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-storage-beds-lamps.html",
+    "label": "Storage, beds and lamps"
+   }
+  },
+  {
+   "id": "furniture-kitchen-storage",
+   "area": "building",
+   "name": "Kitchen storage and cupboards",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Kitchen counters, counter cabinets, sink cabinets, kitchen cupboards and wall cupboards each hold up to 250 capacity and 64 kinds of item. Cupboards have separate Body, Fronts and Fittings woods, and their doors swing open on your screen while the storage is open.",
+   "controls": [
+    [
+     "Right click a kitchen counter, cabinet or cupboard (no tool or plan in hand)",
+     "Open its storage within 6 m"
+    ],
+    [
+     "Right click the basin of a sink cabinet",
+     "Use nearby fresh water instead of the storage"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/definition.rs:261-276 — counter, cupboard, wall cupboard, counter cabinet and sink cabinet have storage",
+    "crates/voxelgame-core/src/furniture/counter_parts.rs:12-75 — metre-square, metre-high kitchen footprint shared by the floor cupboard",
+    "crates/voxelgame-core/src/furniture/wall_cupboard_parts.rs:12-73 — wall cupboard 1 m wide, 0.75 m high and 0.5 m deep, with a backing volume",
+    "crates/voxelgame-core/src/furniture/cupboard_fittings_tests.rs:8-33 — 4 (floor) or 2 (wall) body boards plus one fronts board while fittings follow the body",
+    "crates/voxelgame-core/src/furniture/cupboard_fittings_tests.rs:61-84 — choosing a fittings wood adds one board",
+    "crates/voxelgame-render/src/furniture_catalog_text.rs:744-795 — Body, Fronts and Fittings labels; fittings use the body wood until chosen",
+    "crates/voxelgame-render/src/furniture_motion/cupboard.rs:7-22 — floor and wall cupboard fronts hinge open with their handles",
+    "crates/voxelgame-core/src/game.rs:2662-2710 — right click uses the sink basin or opens the cabinet storage",
+    "crates/voxelgame-core/src/furniture/storage.rs:37-53 — kitchen cupboard and counter empty-before-removal refusals",
+    "crates/voxelgame-core/src/world/placed_furniture.rs:428-440 — removing a block that supports furniture is refused",
+    "crates/voxelgame-core/src/furniture/placement.rs:470-474 — leaves, plants, doors and chests are not full support"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Kitchen cupboard: 4 Body + 1 Fronts board pieces; wall cupboard: 2 + 1. Choosing a separate Fittings wood adds one piece for the handles; older cupboards keep body-wood handles. The wall cupboard needs four full solid wall pieces behind it and no floor.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-storage-beds-lamps.html",
+    "label": "Storage, beds and lamps"
+   }
+  },
+  {
+   "id": "furniture-bookcase-and-shelf",
+   "area": "building",
+   "name": "Bookcase and wall shelf",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "A 1.5 m bookcase with storage and a red-lantern display on top, and a 1 m wall shelf that shows one red lantern. Hold a red lantern and right click the top to display it; right click the lantern with an empty hand to take it back.",
+   "controls": [
+    [
+     "Right click the bookcase body (no tool or plan in hand)",
+     "Open its storage within 6 m"
+    ],
+    [
+     "Right click the top of a bookcase or wall shelf with a red lantern selected",
+     "Put the lantern on display"
+    ],
+    [
+     "Right click a displayed lantern with an empty hotbar slot selected",
+     "Take it back"
+    ],
+    [
+     "Ctrl + Z after a display change",
+     "Undo it"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/definition.rs:65-68 — Bookcase and WallShelf designs",
+    "crates/voxelgame-core/src/furniture/definition.rs:283-295 — both carry the shared one-item display",
+    "crates/voxelgame-core/src/furniture/definition.rs:343-352 — the wall shelf needs wall backing instead of a floor",
+    "crates/voxelgame-core/src/furniture/bookcase_parts.rs:10-66 — open three-bay bookcase, 1.5 m tall",
+    "crates/voxelgame-core/src/furniture/bookcase_parts/tests.rs:68-85 — bookcase costs 2 frame boards and 1 shelf board",
+    "crates/voxelgame-core/src/furniture/bookcase_parts/tests.rs:204 — saved size 16 x 24 x 8 sixteenths (1 x 1.5 x 0.5 m)",
+    "crates/voxelgame-core/src/furniture/wall_shelf_parts.rs:10-33 — shelf board on two brackets; two full backing voxels",
+    "crates/voxelgame-core/src/furniture/wall_shelf_parts/tests.rs:57-75 — wall shelf costs 1 frame board and 1 shelf board",
+    "crates/voxelgame-core/src/furniture/wall_shelf_parts/tests.rs:125 — saved size 16 x 8 x 8 sixteenths (1 x 0.5 x 0.5 m)",
+    "crates/voxelgame-core/src/furniture/display.rs:140-154 — take the display before restyling or taking up a bookcase or shelf",
+    "crates/voxelgame-core/src/furniture/display/interaction.rs:110-125 — display space must be reachable, permitted and clear",
+    "crates/voxelgame-core/src/game/furniture/display.rs:51-63 — a selected red lantern places; an empty slot takes",
+    "crates/voxelgame-core/src/game/furniture/display.rs:132-169 — Survival spends one lantern; only a paid display returns one",
+    "crates/voxelgame-core/src/game/furniture/display.rs:270-324 — the bookcase body still opens storage; only the top owns the display click",
+    "crates/voxelgame-core/src/inventory.rs:802 — bookcase plan description: storage, click / Shift+click",
+    "crates/voxelgame-core/src/inventory.rs:806 — wall shelf plan description: wall side, rotate, one red lantern"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Bookcase: 2 Frame + 1 Panel board pieces; wall shelf: 1 + 1. The wall shelf has no storage. Bookcase contents do not appear on its shelves. A displayed lantern can be moved with its furniture and lights nearby surfaces.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-storage-beds-lamps.html",
+    "label": "Storage, beds and lamps"
+   }
+  },
+  {
+   "id": "furniture-beds-and-rest",
+   "area": "building",
+   "name": "Beds and resting",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Single (1 by 2 m) and double (2 by 2 m) beds with a wooden frame and wool bedding. Right click a bed to lie down; Space or right click gets up when the way out is clear. Resting is optional: it does not pass time, heal, feed or set your respawn point.",
+   "controls": [
+    [
+     "Right click a bed (plan put away)",
+     "Lie down at the nearest free place within 2 m"
+    ],
+    [
+     "Space or Right click while resting",
+     "Get up when the way out is clear"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/definition.rs:69-72 — SingleBed and DoubleBed designs",
+    "crates/voxelgame-core/src/furniture/bed_parts.rs:9-55 — 1 m and 2 m wide frames with wool bedding",
+    "crates/voxelgame-core/src/furniture/bed_parts/tests.rs:73-95 — single bed 3 boards and 4 wool; double bed 6 boards and 7 wool",
+    "crates/voxelgame-core/src/inventory.rs:803-804 — plan descriptions: 1 x 2 m and 2 x 2 m, 0.875 m high (text still says solo worlds)",
+    "crates/voxelgame-render/src/furniture_catalog_text.rs:132-160 — Bedding: Cream, Sage or Rust; independent frame and wool bedding",
+    "crates/voxelgame-core/src/game/furniture/resting.rs:27-72 — RMB rest hint; connected use waits for server confirmation",
+    "crates/voxelgame-core/src/game/furniture/resting.rs:74-150 — dry supported ground, 2 m, clear body room and a clear approach required",
+    "crates/voxelgame-core/src/game/furniture/resting.rs:152-210 — Jump or RMB leaves at a clear exit; automatic exit when the bed changes",
+    "crates/voxelgame-core/src/game/furniture/resting.rs:212-221 — saving places you upright beside the bed or refuses while the exit is blocked",
+    "crates/voxelgame-core/src/game/furniture/seating.rs:54-85 — occupied beds cannot be changed",
+    "crates/voxelgame-core/src/session/furniture/resting.rs:40-124 — server rest: one or two places, occupied-place refusal, no time, Home or survival change",
+    "crates/voxelgame-core/src/game.rs:1590-1606 — while resting only mouse look passes to the world"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Beds use ordinary Wool whatever the bedding colour. Joined players can rest too, although the plan descriptions still say solo worlds. On a server beds cannot change materials after placing.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-storage-beds-lamps.html",
+    "label": "Storage, beds and lamps"
+   }
+  },
+  {
+   "id": "furniture-lamps",
+   "area": "building",
+   "name": "Floor and table lamps",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Wooden floor and table lamps, each with a built-in red lantern. Right click with no tool or plan in hand to switch one on or off; the setting is saved. A lit lamp lights nearby surfaces and needs no fuel. The table lamp stands on solid blocks, not on furniture.",
+   "controls": [
+    [
+     "Right click a lamp (no tool or plan in hand)",
+     "Switch it on or off"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/definition.rs:75-78 — FloorLamp and TableLamp designs",
+    "crates/voxelgame-core/src/furniture/definition.rs:250-254 — both have an integrated lamp",
+    "crates/voxelgame-core/src/furniture/definition.rs:444-448 — each placement needs one red lantern",
+    "crates/voxelgame-core/src/furniture/lamp_parts.rs:10-31 — shared feet and lantern; short stem for the table lamp",
+    "crates/voxelgame-core/src/furniture/lamp_parts/tests.rs:95-115 — one board per wood role plus one lantern",
+    "crates/voxelgame-core/src/furniture/lamp_parts/table_tests.rs:14-43 — the table lamp costs the same as the floor lamp",
+    "crates/voxelgame-core/src/inventory.rs:799-800 — 0.5 x 0.5 m; 0.875 m and 1.6875 m high; empty hands and RMB switch",
+    "crates/voxelgame-core/src/furniture/lamp_state.rs:12-18 — lamps start on; off is saved",
+    "crates/voxelgame-core/src/game/furniture/lamp.rs:10-77 — On / Off hint and the switch, with reach and aim checks",
+    "crates/voxelgame-core/src/game.rs:2662-2710 — right click switches a lamp when no tool or plan is in hand",
+    "crates/voxelgame-core/src/furniture/placement.rs:311-319 — every foot needs full solid voxel support",
+    "crates/voxelgame-render/src/local_lights.rs:11-43 — lit lamps and displayed lanterns become local lights",
+    "crates/voxelgame-render/src/local_lights.rs:148-156 — the same red-lantern light profile",
+    "crates/voxelgame-render/src/lib.rs:342-346 — at most 16 local light slots",
+    "crates/voxelgame-core/src/game/net_client/furniture/history.rs:63-71 — on a server, switch a lamp on before taking it up"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Each lamp costs one red lantern, 1 Frame and 1 Panel board piece. The table lamp cannot stand on furniture because furniture is not a solid block. Switching is not an undo step and needs no fuel or power.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-storage-beds-lamps.html",
+    "label": "Storage, beds and lamps"
+   }
+  },
+  {
    "id": "planned-doors-chests-furniture",
    "area": "building",
    "name": "Furniture and carpentry",
