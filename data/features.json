@@ -971,14 +971,18 @@
     "creative",
     "survival"
    ],
-   "summary": "A small plus-shaped crosshair marks your aim. It inverts the colours beneath it so it stays readable over sky, grass or stone. With a bow, rifle or throwable, its four lines spread apart as your accuracy drops and close back into a plus as your aim steadies.",
+   "summary": "A small plus-shaped crosshair marks your aim. By default it inverts the colours beneath it so it stays readable over sky, grass or stone. With a bow, rifle or throwable, its four lines spread apart as your accuracy drops and close back into a plus as your aim steadies. Settings > Interface > Crosshair sets its style (Cross, Dot or Brackets), size (50-200%), colour (Adaptive, White, Lime or Cyan) and opacity (25-100%).",
    "evidence": [
-    "crates/voxelgame-render/src/reticle_ui.rs:200-237 — accuracy gap from spread plus sway; four inverted lines drawn around the aim point",
-    "crates/voxelgame-render/src/reticle_ui.rs:280-285 — ranged weapons and throwables use the spread gap; other items keep the closed plus",
-    "crates/voxelgame-core/src/game/readouts.rs:100-160 — ranged accuracy for bow, rifle, throwables; sneaking and aiming steady it",
-    "crates/voxelgame-render/src/reticle_ui.rs:305-325 — hidden in front third-person view"
+    "crates/voxelgame-render/src/reticle_ui.rs:188-198 — accuracy gap from spread plus sway",
+    "crates/voxelgame-render/src/reticle_ui.rs:206-332 — Cross, Dot and Brackets marks, size, Adaptive inversion or fixed colours with a dark outline, opacity",
+    "crates/voxelgame-render/src/reticle_ui.rs:516-596 — hidden in the front view and while a menu is open; follows the aim point in the rear view; AIM, SCOPE and ZOOM labels",
+    "crates/voxelgame-core/src/game/readouts.rs:98-160 — only a bow, rifle or throwable has a spread; other items keep the closed plus",
+    "crates/voxelgame-core/src/settings.rs:66 — Crosshair settings page",
+    "crates/voxelgame-core/src/settings.rs:82-89 — the Crosshair page sits under Interface",
+    "crates/voxelgame-core/src/settings.rs:590-593 — defaults: Cross, 100%, Adaptive, 100%",
+    "crates/voxelgame-core/src/settings.rs:968-971 — CROSSHAIR STYLE, SIZE, COLOUR and OPACITY rows"
    ],
-   "notes": "Changed after the audited commit dd29d91: game commit 10d7ea4 (on main) replaced the orange-to-green dotted ring and green target tint with the spreading inverted crosshair. Aircraft gun pipper rings are separate and not covered here.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Crosshair style, size, colour and opacity settings are new since the last audit. Aircraft gun pipper rings are separate and not covered here.",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -1094,15 +1098,19 @@
     "creative",
     "survival"
    ],
-   "summary": "Actions report in the top-left status line, for example 'Collected <block> x<pieces>', 'Capacity full; block left behind' or 'Inventory opened'. Mined blocks throw debris and play a break sound, and pieces go straight into your pack. Taking damage lowers the HP bar and dips the camera briefly (see Camera bob and speed field of view). A sudden loss of at least 1 HP plays a short hurt voice; there is no red flash.",
+   "summary": "Actions report in the top-left status line, for example 'Collected <block> x<pieces>', 'Carved <block>' for a Shift-mined half-metre piece, 'Capacity full; block left behind' or 'Inventory opened'. Mined blocks throw debris and play a break sound, and pieces go straight into your pack. Taking damage lowers the HP bar and dips the camera briefly (see Camera bob and speed field of view). A sudden loss of at least 1 HP plays a short hurt voice; there is no red flash. In Survival a small arrow by the crosshair points towards a blast or animal that just hurt you.",
    "evidence": [
-    "crates/voxelgame-render/src/hud.rs:256-260 — status line drawing",
-    "crates/voxelgame-core/src/game.rs:2408-2451 — capacity check, debris, 'Collected' / 'Carved' text and break sound",
-    "crates/voxelgame-core/src/game.rs:1911-1937 — animal drops go into the pack ('Collected from ...')",
-    "crates/voxelgame-core/src/game.rs:93-99 — damage dip on real health loss",
-    "crates/voxelgame-core/src/events.rs:11 — sound cue list has no player-hurt cue"
+    "crates/voxelgame-render/src/hud.rs:514-526 — status line drawn at the top left",
+    "crates/voxelgame-core/src/game.rs:3266-3385 — mining: capacity refusal, debris, 'Collected' / 'Carved' text and break sound",
+    "crates/voxelgame-core/src/game/plant_support.rs:11-49 — 'Capacity full; block left behind' leaves the block; pieces go into the pack",
+    "crates/voxelgame-core/src/game.rs:1548-1565 — 'Inventory opened' / 'Inventory closed'",
+    "crates/voxelgame-core/src/game/audio.rs:10-12 — hurt voices at least 0.5 s apart",
+    "crates/voxelgame-core/src/game/audio.rs:123-131 — hurt voice on a loss of at least 1 HP",
+    "crates/voxelgame-core/src/game/death.rs:39-53 — blast and animal hits record their direction for 1.2 s",
+    "crates/voxelgame-core/src/game/readouts.rs:224-243 — Survival-only damage direction",
+    "crates/voxelgame-render/src/hud/survival.rs:98-127 — the direction arrow beside the crosshair"
    ],
-   "notes": "There are no dropped item entities; a full pack leaves the block in place. With FPS and coordinates off, the latest status message is also shown in the window title. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Mining never drops items on the ground; a full pack leaves the block in place. The window title no longer shows status messages: it is always the game's name (src/app.rs:61).",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -1117,15 +1125,20 @@
    "modes": [
     "survival"
    ],
-   "summary": "A small feed in the lower-right corner shows what you gained from the world, for example '+3 Oak wood': mined blocks, felled trees, hunted animals, filled flasks, exploration finds and packed boats or homes. Gains of an item that is already listed add to its row. Up to five rows show, each for about four seconds, fading over its last 0.8 s. Creative mining, crafting, the creative catalog, home storage and loading a save show nothing.",
+   "summary": "A small feed in the lower-right corner shows what you gained, for example '+3 Oak wood': mined blocks, felled trees, hunted animals, fishing catches, items picked up from the ground, a chest you break, filled flasks, exploration finds and packed boats or homes. Gains of an item that is already listed add to its row. Up to five rows show, each for about four seconds, fading over its last 0.8 s. Warnings such as '! Inventory full' sit above them for about 6 s. Creative mining, crafting, the creative catalog, home storage and loading a save show nothing.",
    "evidence": [
-    "crates/voxelgame-core/src/game/pickup_feed.rs:1-30 — what counts as a gain, row limits, timing constants",
-    "crates/voxelgame-core/src/game/pickup_feed.rs:23-29 — PICKUP_FEED_ROWS, PICKUP_ROW_SECONDS, PICKUP_FADE_SECONDS, PICKUP_CUE_INTERVAL",
-    "crates/voxelgame-core/src/ui.rs:636-653 — feed column in the lower-right corner",
-    "crates/voxelgame-render/src/pickup_feed_ui.rs:11-40 — row drawing, '+N' count, newest row at the bottom",
-    "crates/voxelgame-core/src/game/pickup_feed.rs:293-300 — creative mining and a full pack show nothing (test)"
+    "crates/voxelgame-core/src/game/pickup_feed.rs:25-33 — PICKUP_FEED_ROWS, PICKUP_ROW_SECONDS, PICKUP_FADE_SECONDS, PICKUP_CUE_INTERVAL",
+    "crates/voxelgame-core/src/game/pickup_feed.rs:46-53 — important warnings last 6 s",
+    "crates/voxelgame-core/src/game/pickup_feed.rs:172-202 — a repeated item adds to its row; the stalest row gives way",
+    "crates/voxelgame-core/src/game/pickup_feed.rs:228-266 — 'Inventory full' warning; collected items reach the feed",
+    "crates/voxelgame-core/src/game/fishing.rs:57-64 — fishing catches reach the feed",
+    "crates/voxelgame-core/src/game/item_drops.rs:131-137 — items picked up from the ground reach the feed",
+    "crates/voxelgame-core/src/game/chests.rs:252-256 — a broken chest and its contents reach the feed in Survival",
+    "crates/voxelgame-core/src/ui.rs:807-821 — feed column in the lower-right corner",
+    "crates/voxelgame-render/src/pickup_feed_ui.rs:11-80 — warnings above the gains, '+N' rows; hidden while a menu is open",
+    "crates/voxelgame-core/src/game/pickup_feed.rs:520-535 — creative mining and a full pack show nothing (test)"
    ],
-   "notes": "Added from Voxelgame b261ea8 (after 4bd6541). The feed is a status-only display; dropped item entities are still planned (planned-ground-drops). A soft pickup sound plays at most every 0.2 s.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A soft pickup sound plays at most every 0.2 s.",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -3696,7 +3709,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Place TNT like any block; a whole block holds 8 charges and a Shift-placed half-metre piece holds 1. Aim at it and press G: it and every TNT piece touching it (even diagonally) light together on a 2.6-second fuse, pop loose, and can fall, roll or float before exploding.",
+   "summary": "Place TNT like any block; a whole block holds 8 charges and a Shift-placed half-metre piece holds 1. Aim at it and press G: it and every TNT piece touching it (even diagonally), up to 512 pieces, light together on a 2.6-second fuse, pop loose, and can fall, roll or float before exploding.",
    "controls": [
     [
      "G",
@@ -3713,16 +3726,18 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/game.rs:2808-2820 — G lights the aimed TNT, or sends a server request when connected; 'Aim at a TNT charge and press G to ignite'",
-    "crates/voxelgame-core/src/game.rs:1940-2001 — flood fill of face/edge/corner-touching TNT; charges removed from the world;",
-    "crates/voxelgame-core/src/explosives.rs:40-73 — lit charges are physical: they pop up, fall, bounce, slide and float",
-    "crates/voxelgame-core/src/explosives.rs:200-229 — lit charges are physical: they pop up, fall, bounce, slide and float",
+    "crates/voxelgame-core/src/game.rs:2003-2010 — the aimed block is found within 6 m",
+    "crates/voxelgame-core/src/game.rs:3038-3097 — flood fill of face/edge/corner-touching TNT up to the piece limit; lit pieces leave the world; 'TNT ignited: move away', 'Too many TNT charges are already primed'",
+    "crates/voxelgame-core/src/explosives.rs:14-18 — at most 512 lit pieces (64 whole blocks)",
+    "crates/voxelgame-core/src/explosives.rs:51-84 — lit charges are physical: gravity, buoyancy, bounce, friction and the ignition pop",
+    "crates/voxelgame-core/src/explosives.rs:653-710 — lit charges fall, bounce, slide and float in water",
     "crates/voxelgame-core/src/game/net_client/tnt.rs:41-114 — connected G waits for the server: 'Requesting TNT ignition | move away' and the wait messages",
     "crates/voxelgame-core/src/game/net_client/tnt.rs:126-155 — server reply: 'n-charge TNT cluster ignited by server | move away' or 'TNT ignition refused: <reason>'",
-    "crates/voxelgame-core/src/session/tnt.rs:40-137 — the server checks reach, furniture, plots, edit budget and charge capacity before lighting",
+    "crates/voxelgame-core/src/session/tnt.rs:40-142 — the server checks reach, furniture, plots and furniture support, edit budget and charge capacity before lighting",
     "docs/MULTIPLAYER.md:2500-2527 — shared TNT on servers; lit charges are lost across a server restart",
-    "search: crates/voxelgame-core/src/save/write.rs and save.rs write no TNT, charge or projectile state, so lit charges are not saved"
+    "search: crates/voxelgame-core/src/save.rs and save/*.rs write no explosives or thrown-projectile state, so lit charges are not saved"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. On multiplayer servers G asks the server to light the TNT; the old 'Explosives aren't available on servers yet' refusal no longer applies. The server reports the result, and lit TNT on a server is lost if the server restarts. In survival TNT is crafted and a whole block spends 8 pieces. Pressing G on one whole block reports an '8-charge TNT cluster' because each block counts as 8 half-metre charges. Lit charges are not saved: quitting while a fuse burns loses that TNT.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. On servers G asks the server to light the TNT; the old 'Explosives aren't available on servers yet' refusal no longer applies. The server refuses the whole group if any piece is on protected land or holds up furniture, and lit TNT is lost if the server restarts. One whole block counts as 8 half-metre charges, so G on it reports an '8-charge TNT cluster'. Lit charges are not saved: quitting while a fuse burns loses that TNT.",
    "guide": {
     "state": "complete",
     "page": "guide-explosives.html",
@@ -3738,14 +3753,21 @@
     "creative",
     "survival"
    ],
-   "summary": "One whole TNT block blasts about 4.25 m; touching groups explode as one bigger blast (up to 10.5 m), while a single half-metre charge or dynamite stick reaches only about 1.5 m. Survival players near a blast lose health and are knocked back (creative players are unharmed), creatures are hurt in both modes, and blasted blocks are destroyed, not collected.",
+   "summary": "One whole TNT block blasts about 4.25 m; touching groups explode as one bigger blast (up to 10.5 m), while a single half-metre charge or dynamite stick reaches only about 1.5 m. Damage and knockback reach about 1.55 times as far. Survival players near a blast lose health and are knocked back (Creative players are unharmed), creatures are hurt in both modes, other TNT in the blast is lit, and blasted blocks are destroyed, not collected. Chests and water survive every blast.",
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:2097-2221 — damage, survival-only knockback, shadowed crater carving, chain priming, blast impulse on burning charges",
-    "crates/voxelgame-core/src/world/block.rs:507-527 — material between charge and target absorbs the blast; water tamps hard",
-    "crates/voxelgame-core/src/explosives.rs:105-131 — yield normalised per whole block",
-    "crates/voxelgame-core/src/game/tests.rs:3788-3812 — a dense cluster reaches stone a single block cannot"
+    "crates/voxelgame-core/src/game.rs:3195-3251 — creature damage, Survival-only player damage and knockback within 1.55 times the blast radius, crater carving, chain lighting, blast impulse on burning charges",
+    "crates/voxelgame-core/src/game.rs:2354-2391 — status line: 'n-charge TNT cluster: r-block radius, n blocks cleared' and ' | collect the dropped items'",
+    "crates/voxelgame-core/src/explosion_terrain.rs:20-113 — shadowed crater sweep; TNT inside the blast is lit on a 0.35-0.8 s fuse",
+    "crates/voxelgame-core/src/world/block.rs:635-686 — blast resistance (chest and water never break, obsidian 5.0, rock 2.2) and absorption; water tamps hard",
+    "crates/voxelgame-core/src/explosives.rs:14-26 — 4.25 m base radius, 10.5 m cap and the 512-piece limit",
+    "crates/voxelgame-core/src/explosives.rs:128-159 — yield normalised per whole block; radius and block-change budget",
+    "crates/voxelgame-core/src/explosives.rs:728-760 — material between a charge and a target reduces the damage it takes",
+    "crates/voxelgame-core/src/game/explosion_loot.rs:9-67 — creatures are hurt in both modes; in Survival a killed animal drops ground loot",
+    "crates/voxelgame-core/src/game.rs:3009-3030 — in Creative a killed creature is removed without drops",
+    "crates/voxelgame-core/src/session/tnt.rs:268-382 — on servers a blast skips protected plots, doors, chests and furniture support, and spares players and animals on protected land",
+    "crates/voxelgame-core/src/game/tests.rs:4911-4936 — a dense cluster reaches stone a single block cannot"
    ],
-   "notes": "Derived from the formulas: one whole TNT block cannot break obsidian (strength at most 4.25 + 0.55 < 5.0), and solid rock gives way only close to the charge. Values marked 'about' are computed from code constants, not measured in play. The cleared count in the status line is in half-metre voxels. Explosions are not undoable.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Derived from the formulas: one whole TNT block cannot break obsidian (strength at most 4.25 + 0.55 < 5.0), and solid rock gives way only close to the charge. Damage reaches 1.55 times the blast radius: about 2.3 m, 6.6 m and 16 m. Values marked 'about' are computed from code constants, not measured in play. The cleared count in the status line is in half-metre voxels. Explosions are not undoable.",
    "guide": {
     "state": "partial",
     "page": "guide-explosives.html",
@@ -3761,7 +3783,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Select dynamite, hold right click to wind up and release to throw; a longer wind-up throws farther. The fuse starts on release and the stick goes off 2.3 s later where it stops, sticking to the first surface it hits (walls and ceilings included), as a small fixed blast of about 1.5 m.",
+   "summary": "Select dynamite, hold right click to wind up and release to throw; a longer wind-up throws farther (full power after 0.7 s). The fuse starts on release and the stick goes off 2.3 s later where it is, sticking to the first surface it hits (walls, ceilings and furniture included), as a small fixed blast of about 1.5 m.",
    "controls": [
     [
      "Right click (hold, then release)",
@@ -3769,18 +3791,20 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/ranged_input.rs:8-107 — wind-up; survival spends one stick; 'Too hasty — wind up before releasing'; 'Dynamite away — take cover!'",
-    "crates/voxelgame-core/src/projectile.rs:1029-1036 — settles just short of whatever surface it hits",
-    "crates/voxelgame-core/src/projectile.rs:893-902 — falls again if its support is removed",
-    "crates/voxelgame-core/src/projectile.rs:983-990 — falls again if its support is removed",
-    "crates/voxelgame-core/src/game/ranged_input.rs — a stick that cannot fly is not spent and says so (da52f269)",
-    "crates/voxelgame-core/src/game/ranged_input.rs:76-97 — connected eggs, rocks and dynamite go to the server before the old 'Explosives aren't available on servers yet' check",
+    "crates/voxelgame-core/src/game/ranged_input.rs:7-175 — 0.7 s wind-up with a 28% minimum ('Too hasty — wind up before releasing'); Survival spends one stick; 'Dynamite away — take cover!'; a stick that cannot fly is kept ('Dynamite not thrown | no valid aim'); a menu cancels the wind-up",
+    "crates/voxelgame-core/src/projectile.rs:1227-1228 — 2.3-second fuse",
+    "crates/voxelgame-core/src/projectile.rs:1422-1441 — a settled stick falls again if its support is dug or blown away",
+    "crates/voxelgame-core/src/projectile.rs:1501-1506 — the stick stops on furniture it hits",
+    "crates/voxelgame-core/src/projectile.rs:1527-1535 — settles just short of whatever surface it hits",
+    "crates/voxelgame-core/src/game.rs:2214-2218 — the stick detonates as one TNT charge",
+    "crates/voxelgame-core/src/game.rs:2933-2937 — no block placement while a throwable is held",
+    "crates/voxelgame-core/src/game/ranged_input.rs:86-97 — connected dynamite goes to the server before the old 'Explosives aren't available on servers yet' check",
     "crates/voxelgame-core/src/game/net_client/dynamite_throws.rs:61-161 — connected refusals end '| dynamite kept'; 'Requesting dynamite throw'",
-    "crates/voxelgame-core/src/game/net_client/dynamite_throws.rs:176-212 — 'Dynamite thrown by server' or 'Dynamite throw refused: <reason> | dynamite kept'",
-    "crates/voxelgame-core/src/session/tnt/dynamite.rs:17-110 — the server checks room, plots and capacity, then spends one Survival stick; Creative is free",
+    "crates/voxelgame-core/src/game/net_client/dynamite_throws.rs:176-213 — 'Dynamite thrown by server' or 'Dynamite throw refused: <reason> | dynamite kept'",
+    "crates/voxelgame-core/src/session/tnt/dynamite.rs:25-111 — the server checks room, plots and capacity, then spends one Survival stick; Creative is free",
     "docs/MULTIPLAYER.md:2528-2539 — shared dynamite on servers; burning sticks are lost across a server restart"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Works on multiplayer servers: releasing sends a request, the server throws the stick and, in Survival, spends one; a refused throw keeps the stick. The old 'Explosives aren't available on servers yet' refusal no longer applies to dynamite. Burning dynamite on a server is lost if the server restarts. Creative throws are unlimited; survival spends one stick per throw. You cannot place blocks while dynamite is in hand. Opening a menu cancels a wind-up.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Works on multiplayer servers: releasing sends a request, the server throws the stick and, in Survival, spends one; a refused throw keeps the stick. The old 'Explosives aren't available on servers yet' refusal no longer applies to dynamite. Burning dynamite on a server is lost if the server restarts. Creative throws are unlimited; Survival spends one stick per throw. You cannot place blocks while dynamite is in hand. Opening a menu cancels a wind-up.",
    "guide": {
     "state": "complete",
     "page": "guide-explosives.html",
@@ -4793,11 +4817,13 @@
     "creative",
     "survival"
    ],
-   "summary": "Wading into water plays a small splash, and a fall at hard-landing speed plays a big splash with more droplets; another splash needs about 2 m of dry ground first. Moving through water releases bubbles and a swim sound about every 1.4 m. Rain makes small ripple splashes on surfaces. Boats leave no bow spray or wake.",
+   "summary": "Wading into water plays a small splash with 14 droplets, and a fall at hard-landing speed plays a big splash with 24; another splash needs about 2 m of dry ground first. Moving through water releases bubbles and a swim sound about every 1.4 m. Rain makes small ripple splashes on surfaces. A sailing boat moving faster than about 1.2 m/s throws small spray from its bow; boats leave no wake.",
    "evidence": [
-    "crates/voxelgame-core/src/game/audio.rs:49-66 — splash cue and 14 droplets when your feet enter water",
-    "crates/voxelgame-core/src/game/audio.rs:88-96 — bubbles and swim sound every 1.4 m",
-    "crates/voxelgame-render/src/precipitation.rs:114-121 — rain impact splashes"
+    "crates/voxelgame-core/src/game/audio.rs:13-24 — 2 m re-arm distance and hard-entry speed",
+    "crates/voxelgame-core/src/game/audio.rs:206-229 — splash cue and 14 or 24 droplets when your feet enter water",
+    "crates/voxelgame-core/src/game/audio.rs:250-258 — bubbles and swim sound every 1.4 m",
+    "crates/voxelgame-core/src/game/audio.rs:54-103 — bow spray from real sailing faster than 1.2 m/s",
+    "crates/voxelgame-render/src/precipitation.rs:114-127 — rain impact splashes"
    ],
    "backlog": [
     "VOX-OWNER-WATER-SPLASHES"
@@ -4806,7 +4832,8 @@
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
     "label": "Aiming, camera and on-screen feedback"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. No wake trail was found in the game or renderer source."
   },
   {
    "id": "animal-drops",
@@ -5083,12 +5110,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/ranged_input.rs:194-236 — firing, ammo use, messages",
-    "crates/voxelgame-core/src/game.rs:1011-1019 — sight raising only when not reloading",
-    "crates/voxelgame-core/src/game.rs:1115-1120 — in survival R eats food (on foot)",
-    "crates/voxelgame-core/src/game/ranged_input.rs — a round that cannot fly is not spent and the rifle is not reloading (da52f269)"
+    "crates/voxelgame-core/src/game/ranged_input.rs:272-328 — firing, one round per Survival shot, 'No rifle rounds carried', 'Finish reloading before aiming'; a round that cannot fly is not spent and the rifle does not reload ('Rifle not fired | no valid aim')",
+    "crates/voxelgame-core/src/projectile/rifles.rs:10 — 0.95-second reload",
+    "crates/voxelgame-core/src/game.rs:1649-1656 — the sights rise only while right click is held and the rifle is not reloading",
+    "crates/voxelgame-core/src/game.rs:1775-1805 — in Survival R eats food on foot",
+    "crates/voxelgame-core/src/inventory.rs:1900-1913 — Alder rifle: 5 blocks of stone, 2 blocks of boards and 4 reeds; Four rifle rounds: a block of stone, a block of sand and 1 Charcoal"
    ],
-   "notes": "Recipe sizes: 5 blocks of stone, 2 blocks of boards and 1 block of glow crystal (one block = 8 pieces). Rounds hurt animals and vehicles.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Recipe sizes: 5 blocks of stone, 2 blocks of boards and 4 reeds (one block = 8 pieces); no Glow crystal is needed. Four rifle rounds take one block of stone, one block of sand and 1 Charcoal. Rounds hurt animals and vehicles.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5132,15 +5160,18 @@
     "creative",
     "survival"
    ],
-   "summary": "Ranged spread depends on how you stand: sneaking (Shift) tightens it, moving or being in the air widens it, a fuller bow draw or the rifle's raised sights steady it, and each shot briefly opens the reticle.",
+   "summary": "Ranged spread depends on how you stand: sneaking (Shift) tightens it, moving or being in the air widens it, a fuller bow draw, the rifle's raised sights or a longer rock wind-up steady it, and each shot briefly opens the reticle. Dynamite and eggs have a fixed spread. Zoom (Z) does not change accuracy.",
    "evidence": [
-    "crates/voxelgame-core/src/game/readouts.rs:100-212 — spread and sway rules for bow, rifle, throwables"
+    "crates/voxelgame-core/src/game/readouts.rs:98-160 — spread and sway rules for bow, rifle, rocks, dynamite and eggs",
+    "crates/voxelgame-core/src/game/readouts.rs:287-296 — zoom narrows the view and look speed but never changes accuracy",
+    "crates/voxelgame-core/src/game.rs:1621-1632 — hold Z on foot to zoom"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
     "label": "Aiming, camera and on-screen feedback"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test."
   },
   {
    "id": "animal-species-roster",
@@ -5316,21 +5347,21 @@
     "creative",
     "survival"
    ],
-   "summary": "A selected block is shown as a small textured cube gripped in your right hand; tools are held on the right and the bow left of centre with a separate string hand. With nothing in hand, or a block you no longer carry in survival, a bare right arm shows low on the right. Holding left click swings tools, bare hands and held blocks (not bows or rifles), and placing a block plays one swing. A held sailing boat shows no hand.",
+   "summary": "A selected block is shown as a full-size textured cube held out to the right (plants as an upright cut-out, doors as a small upright door); tools are held on the right and the full-size bow just right of centre with a separate string hand. With nothing in hand, or a block you no longer carry in survival, a bare right arm shows low on the right. Holding left click swings tools, bare hands and held blocks (not bows or rifles), and placing a block or throwing plays one swing. A held sailing boat shows no hand. Held items show only in first person.",
    "evidence": [
-    "crates/voxelgame-render/src/viewmodel.rs:387-404 — held block, else bare right arm; nothing for a held sailing boat",
-    "crates/voxelgame-render/src/viewmodel.rs:728 — build_empty_hand_viewmodel: bare arm sways with the walk and jabs toward the aim on the swing clock",
-    "crates/voxelgame-core/src/game.rs:2010-2015 — primary button held restarts the swing for tools, bare hands and blocks (not bow or rifle)",
-    "crates/voxelgame-core/src/game.rs:2127 — placing a block sets one swing",
-    "crates/voxelgame-core/src/game.rs:1060 — swing decays over 0.32 s; visual only, reach and mining unchanged",
-    "crates/voxelgame-render/src/viewmodel.rs:544 — build_tool_viewmodel: tools anchored right of centre",
-    "crates/voxelgame-render/src/viewmodel.rs:770 — build_bow_viewmodel: bow held left of the aim"
+    "crates/voxelgame-render/src/viewmodel.rs:419-482 — first person only; held block, else bare right arm; nothing for a held sailing boat",
+    "crates/voxelgame-render/src/viewmodel.rs:503-547 — full one-metre held cube, upright plant cut-outs, small upright doors",
+    "crates/voxelgame-render/src/viewmodel.rs:863-889 — bare right arm low on the right, jabbing on the swing clock",
+    "crates/voxelgame-render/src/viewmodel.rs:912-937 — full-size bow held just right of centre",
+    "crates/voxelgame-core/src/game.rs:2836-2844 — holding left click swings for tools, bare hands and blocks (not bow or rifle)",
+    "crates/voxelgame-core/src/game.rs:183 — swing lasts 0.32 s; visual only",
+    "crates/voxelgame-core/src/game/ranged_input.rs:145-147 — a throw plays the follow-through swing"
    ],
    "backlog": [
     "VOX-OWNER-HELD-BLOCK-APPEARANCE",
     "VOX-OWNER-HELD-BOW-TOOLS"
    ],
-   "notes": "Owner-requested changes (full-size held block, right-side bow) are planned and not in this snapshot. The visible bare hand, punch/mine/place swing and plain block fist landed in Voxelgame d1def9ef. F1 clean view hides held items.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The owner-requested full-size held block and right-side bow are now in the game. F1 clean view hides held items.",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -5346,11 +5377,11 @@
     "creative",
     "survival"
    ],
-   "summary": "Press E, stay on Pack and click the Character icon beside the Pack icon to see a 3D portrait of your explorer; move the pointer across it to turn the model. It shows Creative or your health and what you are holding; there are no appearance, outfit or skin options.",
+   "summary": "Press E, open Pack and click the figure button beside the pack button (hint 'Character') to see a 3D portrait of your explorer; move the pointer across it to turn the model. It shows Creative or your health and what you are holding; there are no appearance, outfit or skin options.",
    "controls": [
     [
-     "Pack / Character icons",
-     "Switch the Pack view between your item grid and the portrait (E > Pack)"
+     "Click the pack or figure button",
+     "Switch the Pack view between carried items and the portrait (E > Pack)"
     ],
     [
      "Move the pointer over the portrait",
@@ -5358,6 +5389,13 @@
     ]
    ],
    "evidence": [
+    "crates/voxelgame-render/src/inventory_ui.rs:461-479 — pack and figure icon buttons; the figure shows the portrait",
+    "crates/voxelgame-core/src/game/inventory_input.rs:394-401 — clicking the two buttons",
+    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:104-110 — hover hints 'Carried items' and 'Character'",
+    "crates/voxelgame-core/src/game/inventory_input.rs:13-18 — Pack replaces Build in Survival; Creative keeps Build as a view",
+    "crates/voxelgame-render/src/character_preview.rs:14-96 — 'Your character', 'Move pointer to turn', Creative or 'Health n / 100' and held item",
+    "crates/voxelgame-render/src/player_avatar.rs:11-15 — one fixed outfit palette",
+    "crates/voxelgame-render/src/player_avatar.rs:31-52 — remote players use the same explorer model",
     "crates/voxelgame-render/src/inventory_ui.rs:461-480 — Pack and Character icon buttons; the portrait replaces the grid",
     "crates/voxelgame-core/src/game/inventory_input.rs:395-401 — clicking an icon switches the view",
     "crates/voxelgame-render/src/character_preview.rs:14-95 — 'Your character', 'Move pointer to turn', mode/health line and held item",

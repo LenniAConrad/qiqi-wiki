@@ -3717,8 +3717,8 @@
    "kicker": "Building",
    "title": "Explosives: TNT and dynamite",
    "headline": "Blow up blocks<br><em>with TNT and dynamite.</em>",
-   "summary": "Place and light TNT with G, read the blast reach, throw dynamite, and see which explosives survival can craft.",
-   "lead": "TNT and dynamite break blocks in a wide circle. Blasted blocks are destroyed, not collected. Creative players can use them freely. In survival, both need Glow crystal, which the world does not generate naturally.",
+   "summary": "Place and light TNT with G, read the blast and damage reach, throw dynamite, and craft both in Survival.",
+   "lead": "TNT and dynamite break blocks in a wide circle. Blasted blocks are destroyed, not collected. Creative players can use them freely. In Survival you craft both from sand, Charcoal, boards and Paper screens.",
    "readTime": "4 min read",
    "audience": "Everyone",
    "updated": "2026-11-08",
@@ -3735,8 +3735,8 @@
     "not-in-the-game-yet"
    ],
    "verification": {
-    "method": "Controls, fuse times, blast reach, damage rules and dynamite throwing come from the game source at the ledger's audited commit dd29d91 (game.rs, explosives.rs, projectile.rs, ranged_input.rs, inventory.rs). Blast distances are calculated from code constants, not measured in play. On 8 November 2026 the place-and-light, dynamite and saves sections were re-checked for multiplayer servers at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: game.rs:2808-2820, game/net_client/tnt.rs:41-155, game/ranged_input.rs:76-97, game/net_client/dynamite_throws.rs:61-212, session/tnt.rs:40-137, session/tnt/dynamite.rs:17-110 and docs/MULTIPLAYER.md:2500-2539. The other sections keep the dd29d91 receipt.",
-    "limits": "Source-checked, not play-tested in this guide. The server behaviour was source-checked at Voxelgame dfeb362d on 8 November 2026; no server session was run. No explosion screenshots exist yet, so the blast sizes are not checked against a headless capture."
+    "method": "On 8 November 2026 every section was re-checked against the game source at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game.rs (G, group lighting, detonation, damage and knockback), explosives.rs (blast reach, the 512-piece limit, lit-charge movement, cover), explosion_terrain.rs (crater and chain lighting), world/block.rs (blast resistance), game/explosion_loot.rs (animals), game/ranged_input.rs and projectile.rs (dynamite), inventory.rs (recipes), session/tnt.rs, session/tnt/dynamite.rs, game/net_client/tnt.rs, game/net_client/dynamite_throws.rs and docs/MULTIPLAYER.md (servers). Blast and damage distances are calculated from code constants, not measured in play.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. No server session was run. No explosion screenshots exist yet, so the blast sizes are not checked against a headless capture."
    },
    "owns": [
     "tnt-place-and-ignite",
@@ -3783,12 +3783,12 @@
       },
       {
        "t": "p",
-       "text": "Lit TNT pops loose and can fall, roll or float before it blows. Touching pieces go off together as one blast. {{tnt-place-and-ignite}}"
+       "text": "Lit TNT pops loose and can fall, roll or float before it blows. Touching pieces go off together as one blast. One press lights at most 64 whole blocks (512 pieces). {{tnt-place-and-ignite}}"
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "On a multiplayer server, [[G]] asks the server to light the TNT. The status line says \"Requesting TNT ignition | move away\"; wait for the reply before you use another explosive. The server checks that you can reach the TNT and are allowed to build there. It then says, for example, \"8-charge TNT cluster ignited by server | move away\". A refusal starts with \"TNT ignition refused:\" and gives the reason. If the server restarts while a fuse burns, that TNT is lost."
+       "text": "On a multiplayer server, [[G]] asks the server to light the TNT. The status line says \"Requesting TNT ignition | move away\"; wait for the reply before your next action. The server checks that you can reach the TNT, and that no piece of the group is on land you may not build on or holds up furniture. It then says, for example, \"8-charge TNT cluster ignited by server | move away\". A refusal starts with \"TNT ignition refused:\" and gives the reason. If the server restarts while a fuse burns, that TNT is lost."
       }
      ]
     },
@@ -3806,7 +3806,12 @@
       },
       {
        "t": "p",
-       "text": "A whole TNT block cannot break obsidian. Solid stone only gives way close to the charge. Blocks between the charge and a target absorb part of the blast, and water absorbs a lot of it. {{explosion-effects}}"
+       "text": "A whole TNT block cannot break obsidian. Solid stone only gives way close to the charge. Blocks between the charge and a target absorb part of the blast, and water absorbs a lot of it. Water is never destroyed, and chests survive every blast. Other TNT inside the blast is lit on a short fuse of under a second and thrown outward. {{explosion-effects}}"
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "In a single-player world a blast breaks your own builds too. On a multiplayer server it leaves doors, chests and the blocks that hold up furniture alone, breaks nothing on land the person who lit it may not build on, and does not hurt players or animals standing there."
       },
       {
        "t": "note",
@@ -3821,12 +3826,16 @@
      "blocks": [
       {
        "t": "p",
-       "text": "In survival, players near a blast lose health and are knocked back. Creative players take no damage. Creatures are hurt in both modes."
+       "text": "In Survival, players near a blast lose health and are knocked back. Creative players take no damage and are not pushed. Creatures are hurt in both modes. In Survival, an animal killed by a blast drops its items on the ground; in Creative it is removed."
+      },
+      {
+       "t": "p",
+       "text": "Damage reaches about one and a half times as far as the blast breaks blocks: about 2.3 m for a half-metre charge or dynamite stick, about 6.6 m for one TNT block and about 16 m for the largest group. It is strongest close to the charge, and walls between you and the charge reduce it."
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "Stand well back before you light a group. The blast reaches about 10.5 m from the largest group."
+       "text": "Stand well back before you light a group. Damage reaches about 16 m from the largest group."
       }
      ]
     },
@@ -3838,9 +3847,9 @@
        "t": "steps",
        "items": [
         "Select Dynamite in your hotbar.",
-        "Hold right click to wind up. A longer wind-up throws farther.",
+        "Hold right click to wind up. A longer wind-up throws farther; full power takes 0.7 seconds.",
         "Release to throw. The fuse starts on release.",
-        "Take cover. The stick goes off 2.3 seconds after you throw it, where it is then. It sticks to the first surface it hits."
+        "Take cover. The stick goes off 2.3 seconds after you throw it, wherever it is then."
        ]
       },
       {
@@ -3855,7 +3864,8 @@
       {
        "t": "list",
        "items": [
-        "The stick sticks to the first surface it hits, including walls and ceilings.",
+        "The stick sticks to the first surface it hits, including walls, ceilings and furniture. If that surface is dug or blown away, the stick falls again.",
+        "A very short wind-up does not throw. The status line says \"Too hasty — wind up before releasing\".",
         "You cannot place blocks while you hold dynamite.",
         "Opening a menu cancels a wind-up.",
         "Creative throws are unlimited. Survival uses one stick per throw. A throw that cannot fly keeps the stick.",
@@ -3870,7 +3880,7 @@
     },
     {
      "id": "survival-craft",
-     "title": "Crafting TNT and dynamite in survival",
+     "title": "Crafting TNT and dynamite in Survival",
      "blocks": [
       {
        "t": "recipes",
@@ -3880,13 +3890,8 @@
        ]
       },
       {
-       "t": "note",
-       "kind": "limit",
-       "text": "Both recipes need Glow crystal. The world does not generate it naturally, and a survival world usually has one half-metre piece at the Stone overlook landmark. The game places that landmark only when it finds a dry flat spot near its fixed base. You cannot make TNT or dynamite from gathered materials alone. {{lumen-crystal-supply}}"
-      },
-      {
        "t": "p",
-       "text": "One TNT recipe makes 8 pieces, one whole block. Two dynamite sticks need 4 TNT and 2 Paper screens."
+       "text": "One TNT recipe makes 8 pieces, one whole block. Two dynamite sticks need 4 TNT pieces and 2 Paper screens. Neither recipe needs Glow crystal. {{lumen-crystal-supply}}"
       }
      ]
     },
@@ -4463,8 +4468,8 @@
     "building-basics"
    ],
    "verification": {
-    "method": "Crosshair spread, aim steadiness, the looking-at card, the status line, camera effects, the collection feed and water effects come from the feature ledger, which cites Voxelgame source lines. The numbers were rechecked at Voxelgame commit 0494a0ce: 6 m target reach, Speed FOV 5 degrees reaching full at 16 m/s with a 0.3 s ease, a 7 cm damage dip on hits of at least 1 HP, 5 feed rows shown for 4 s with a 0.8 s fade, and 14 splash droplets. On 8 November 2026 the looking-at section was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: voxelgame-render target_ui.rs:140-147 and 260-291, hud.rs:487-492, menus_ui.rs:181-195; voxelgame-core settings.rs:65, 82-89 and 598-616. On 8 November 2026 the status-line drop sentence, the camera settings route and the character portrait were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/item_drops.rs:102-137 and game/creature_melee.rs:71-81 (beneath crates/voxelgame-core/src/); voxelgame-core settings.rs:68-89; voxelgame-render inventory_ui.rs:461-480.",
-    "limits": "Source-checked, not play-tested, and without screenshots. Judge the bob and dip strength in play. Spread amounts are internal values, so the guide describes their direction rather than exact degrees. The looking-at section was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. Those three corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "Crosshair spread, aim steadiness, the looking-at card, the status line, camera effects, the collection feed and water effects come from the feature ledger, which cites Voxelgame source lines. The numbers were rechecked at Voxelgame commit 0494a0ce: 6 m target reach, Speed FOV 5 degrees reaching full at 16 m/s with a 0.3 s ease, a 7 cm damage dip on hits of at least 1 HP, 5 feed rows shown for 4 s with a 0.8 s fade, and 14 splash droplets. On 8 November 2026 the looking-at section was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: voxelgame-render target_ui.rs:140-147 and 260-291, hud.rs:487-492, menus_ui.rs:181-195; voxelgame-core settings.rs:65, 82-89 and 598-616. On 8 November 2026 the status-line drop sentence, the camera settings route and the character portrait were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/item_drops.rs:102-137 and game/creature_melee.rs:71-81 (beneath crates/voxelgame-core/src/); voxelgame-core settings.rs:68-89; voxelgame-render inventory_ui.rs:461-480. Also on 8 November 2026, the crosshair, steady-aim, status, collection, water, held-item and portrait sections and the camera numbers were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: voxelgame-render reticle_ui.rs, hud.rs, hud/survival.rs, pickup_feed_ui.rs, viewmodel.rs, character_preview.rs, player_avatar.rs and inventory_ui.rs; voxelgame-core game/readouts.rs, settings.rs, game.rs, game/audio.rs, game/pickup_feed.rs, game/plant_support.rs, game/inventory_input.rs and game/inventory_qol/presentation.rs.",
+    "limits": "Source-checked, not play-tested, and without screenshots. Judge the bob and dip strength in play. Spread amounts are internal values, so the guide describes their direction rather than exact degrees. The looking-at section was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. The other sections were source-checked at Voxelgame 251b9e46 on 8 November 2026; none of it was play-tested."
    },
    "owns": [
     "crosshair-and-reticle",
@@ -4485,13 +4490,15 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The plus-shaped crosshair marks where your aim lands. It inverts the colours under it, so it stays readable over sky, grass and stone. It is hidden in the front third-person view. {{crosshair-and-reticle}}"
+       "text": "The plus-shaped crosshair marks where your aim lands. By default it inverts the colours under it, so it stays readable over sky, grass and stone. In the rear third-person view it moves to the point you are aiming at. It is hidden in the front third-person view and while a menu is open. {{crosshair-and-reticle}}"
       },
       {
        "t": "list",
        "items": [
         "With a bow, rifle or throwable in hand, the four lines spread apart as your accuracy drops. They close back into a plus as your aim steadies.",
-        "Other items keep the closed plus."
+        "Other items keep the closed plus.",
+        "Raising the rifle's sights shows AIM above the crosshair. Holding [[Z]] to zoom shows ZOOM.",
+        "Settings > Interface > Crosshair sets CROSSHAIR STYLE (Cross, Dot or Brackets), CROSSHAIR SIZE (50 to 200 percent), CROSSHAIR COLOUR and CROSSHAIR OPACITY (25 to 100 percent). Adaptive colour inverts what is behind it; White, Lime and Cyan get a dark outline. Every style still opens with the spread."
        ]
       }
      ]
@@ -4528,8 +4535,16 @@
          "Raising the rifle's sights steadies the aim."
         ],
         [
+         "Rock wind-up",
+         "A longer wind-up steadies a thrown rock. Dynamite and eggs have a fixed spread."
+        ],
+        [
          "Each shot",
          "Briefly opens the reticle."
+        ],
+        [
+         "Hold Z (zoom)",
+         "Narrows the view and slows mouse look. It does not steady the aim."
         ]
        ]
       }
@@ -4583,16 +4598,16 @@
       {
        "t": "list",
        "items": [
-        "Mining reports \"Collected <block> x<pieces>\". Pieces go straight into your pack.",
-        "A full pack says \"Capacity full; block left behind\". The block stays in the world.",
+        "Mining a whole block reports \"Collected <block> x<pieces>\". Shift-mining one half-metre piece reports \"Carved <block>\". Pieces go straight into your pack.",
+        "A full pack says \"Capacity full; block left behind\". The block stays in the world, and \"! Inventory full\" shows in the lower right.",
         "Opening your pack says \"Inventory opened\".",
-        "Mined blocks throw debris and play a break sound. In survival, items you drop with [[J]] and animal drops lie on the ground until you pick them up."
+        "Mined blocks throw debris and play a break sound. Mining never leaves items on the ground; in survival, items you drop with [[J]] and animal drops lie there until you pick them up. {{planned-ground-drops}}"
        ]
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "A sudden loss of at least 1 HP, from a hit, a fall or a blast, plays a short hurt voice. Voices are at least half a second apart, and slow health drains stay silent. There is no red flash. The camera dip is also a cue. See the camera section below."
+       "text": "A sudden loss of at least 1 HP, from a hit, a fall or a blast, plays a short hurt voice. Voices are at least half a second apart, and slow health drains stay silent. There is no red flash. In Survival, when a blast or an animal hurts you, a small arrow beside the crosshair points towards it for about a second. The camera dip is also a cue. See the camera section below."
       }
      ]
     },
@@ -4629,6 +4644,11 @@
         "Only real health loss causes the dip. Hunger, respawn and loading do not.",
         "The dip does not move what you aim at. Aiming and interaction still use your eye position."
        ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "The REDUCE MOTION accessibility setting also turns off the camera bob, Speed FOV and the damage dip."
       }
      ]
     },
@@ -4643,10 +4663,12 @@
       {
        "t": "list",
        "items": [
-        "Gains come from mined blocks, felled trees, hunted animals, filled flasks, exploration finds and packed boats or homes.",
+        "Gains come from mined blocks, felled trees, hunted animals, fishing catches, items you pick up from the ground, a chest you break, filled flasks, exploration finds and packed boats or homes.",
         "A gain of an item that is already listed adds to its row.",
         "Up to five rows show. Each stays for about 4 seconds and fades over its last 0.8 s.",
-        "Creative mining, crafting, the creative catalog, home storage and loading a save show nothing."
+        "Warnings such as \"! Inventory full\" sit above the gains for about 6 seconds. A repeated warning shows a count, for example \"(x3)\".",
+        "Creative mining, crafting, the creative catalog, home storage and loading a save show nothing.",
+        "The feed is hidden while a menu is open."
        ]
       }
      ]
@@ -4666,7 +4688,7 @@
         "After you leave the water, walk about 2 m on dry ground before the next splash plays.",
         "Moving through water releases bubbles and a swim sound about every 1.4 m.",
         "Rain makes small ripple splashes on surfaces.",
-        "Boats leave no bow spray or wake."
+        "A sailing boat moving faster than about 1.2 m/s throws small spray from its bow. Boats leave no wake."
        ]
       }
      ]
@@ -4677,11 +4699,11 @@
      "blocks": [
       {
        "t": "p",
-       "text": "A block you select is shown as a small textured cube in your right hand. Tools are held on the right, and the bow sits left of centre with its own string hand. With nothing in hand, or with a block you no longer carry in survival, your bare right arm rests low on the right. Hold left click to swing a tool, bare hand or held block; bows and rifles do not swing. Placing a block plays one swing. The swing is visual only. A held sailing boat shows no hand. F1 hides held items in the clean view. {{held-items-first-person}}"
+       "text": "Held items show only in first person. A block you select is shown as a full-size textured cube held out to the right; plants show as an upright cut-out and doors as a small upright door. Tools are held on the right, and the full-size bow sits just right of centre with its own string hand. With nothing in hand, or with a block you no longer carry in Survival, your bare right arm rests low on the right. Hold left click to swing a tool, bare hand or held block; bows and rifles do not swing. Placing a block plays one swing, and so does a throw. The swing is visual only. A held sailing boat shows no hand. F1 hides held items in the clean view. {{held-items-first-person}}"
       },
       {
        "t": "p",
-       "text": "Press E, stay on Pack and click the Character icon beside the Pack icon to see a 3D portrait of your explorer. Move the pointer across it to turn the model. It shows Creative or your health, and what you are holding. There are no appearance, outfit or skin options. Remote players in multiplayer use the same fixed explorer model. {{character-tab-portrait}}"
+       "text": "Press E and open Pack; in Creative, E may open on Build first. Click the figure button beside the pack button; its hint says \"Character\". A 3D portrait of your explorer appears. Move the pointer across it to turn the model. It shows Creative or your health out of 100, and what you are holding. There are no appearance, outfit or skin options. Remote players in multiplayer use the same fixed explorer model. {{character-tab-portrait}}"
       }
      ]
     }
