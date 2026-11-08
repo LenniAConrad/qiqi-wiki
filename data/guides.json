@@ -54,8 +54,8 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit. Targeted menu, pause, rebinding, screenshot and settings changes were checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Other gameplay paragraphs retain earlier receipts. Targeted Pack, drop and death-screen guidance was checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: crates/voxelgame-core/src/inventory.rs:882-893; game/inventory_input.rs:55-67; game/item_drops.rs:53-137; game/death.rs:80-123,234-263; crates/voxelgame-render/src/inventory_ui.rs:425-535. Inventory remains under active development. The Pack load header was checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026: crates/voxelgame-render/src/inventory_ui.rs:17-26,87-94.",
-    "limits": "Source-checked, not play-tested. The four preserved screenshots are 11 October 2026 captures of the older audited build; they do not show the current menu or inventory layout. No new game capture or native run was made. Inventory and death source tests were read, not run in this wiki update."
+    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit. Targeted menu, pause, rebinding, screenshot and settings changes were checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Other gameplay paragraphs keep their earlier checks. Targeted Pack, drop and death-screen guidance was checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: crates/voxelgame-core/src/inventory.rs:882-893; game/inventory_input.rs:55-67; game/item_drops.rs:53-137; game/death.rs:80-123,234-263; crates/voxelgame-render/src/inventory_ui.rs:425-535. Inventory remains under active development. The Pack load header was checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026: crates/voxelgame-render/src/inventory_ui.rs:17-26,87-94. On 8 November 2026 the start menu, Create world, world selection and deletion, hotbar saving, F4 and F6 text was re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/startup.rs:78-93,322-343; game/startup/main.rs:17-25; game/startup/worlds.rs:340-500; game/startup_create.rs:64-196; game/net_client.rs:592-654; save/write.rs:456-465 (all beneath crates/voxelgame-core/src/); voxelgame-render startup_ui.rs:200-270 and startup_ui/worlds.rs:366-436; src/worlds.rs:575-623; src/app.rs:2002-2025.",
+    "limits": "Source-checked, not play-tested. The four preserved screenshots are 11 October 2026 captures of the older audited build; they do not show the current menu or inventory layout. No new game capture or native run was made. Inventory and death source tests were read, not run in this wiki update. The 8 November start-menu, world, mode and save-key corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "sections": [
     {
@@ -84,12 +84,12 @@
       {
        "t": "figure",
        "src": "images/guides/start-menu.webp",
-       "alt": "The Voxelgame start menu showing world, settings and study controls, with a wireframe cube on the left.",
+       "alt": "An older capture of the Voxelgame start menu, showing world and settings controls and one entry that is no longer on the base menu, with a wireframe cube on the left.",
        "caption": "The start menu in the preserved 11 October 2026 headless capture (1280 × 720, disposable world). Current menu entries and layout have changed."
       },
       {
        "t": "p",
-       "text": "Choose **Continue** to resume the loaded world or **Worlds** to choose or create one. Continue is unavailable when no usable world is loaded. **Settings**, **Credits** and **Quit** are also on the menu. {{start-menu}}"
+       "text": "Choose **Continue** to resume the loaded world or **Worlds** to choose or create one. Continue is unavailable when no usable world is loaded. **Multiplayer**, **Structure workshop**, **Settings**, **Credits** and **Quit** are also on the menu. {{start-menu}}"
       },
       {
        "t": "keys",
@@ -120,7 +120,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "Extra menu entries can appear with additional enabled content. These steps cover the base game."
+       "text": "These steps cover the base game."
       }
      ]
     },
@@ -134,7 +134,7 @@
         "Choose **Worlds**, then **Create world**.",
         "Enter a name. Leave Seed blank for a fresh seed or enter unsigned decimal digits to reuse a seed.",
         "Choose **Creative** or **Survival**. Leave terrain generation at the current default unless you need an older one.",
-        "Choose **Create** or press Enter. Esc or Cancel returns without creating a world."
+        "Choose **Create world** or press [[Enter]]. [[Esc]] or **Cancel** returns without creating a world."
        ]
       },
       {
@@ -144,7 +144,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "Select an existing world to load it. For rename, backup and recovery steps, see {{guide:install-and-worlds|Install, update and find your worlds}}. {{worlds-page}}"
+       "text": "Select a world in the list, then choose **Play world**, press [[Enter]] or double-click its row. One click only selects it. For rename, duplicate, backup and recovery steps, see {{guide:install-and-worlds|Install, update and find your worlds}}. {{worlds-page}}"
       },
       {
        "t": "note",
@@ -154,7 +154,7 @@
       {
        "t": "note",
        "kind": "careful",
-       "text": "Check the selected world carefully before deleting it. The {{guide:install-and-worlds|Worlds guide}} explains the confirmation and recovery options."
+       "text": "To delete a world, select it and hold **Delete world** (or the [[Delete]] key) for 3 seconds; letting go early cancels. Deleting removes the save for good and cannot be undone, so make a backup first with **Create backup**. The world you are currently in cannot be deleted. {{worlds-page}}"
       }
      ]
     },
@@ -287,7 +287,7 @@
       },
       {
        "t": "p",
-       "text": "With the inventory closed, [[Tab]] cycles through the tools and weapons you carry and back to empty hands. Bindings are saved with the world. {{hotbar-quick-slots}}"
+       "text": "With the inventory closed, [[Tab]] cycles through the tools and weapons you carry and back to empty hands. Your hotbar slot assignments are saved with the world. {{hotbar-quick-slots}}"
       },
       {
        "t": "note",
@@ -302,7 +302,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "There are exactly two modes. Press [[F4]] to switch, except on the start menu or while connected to a server; your pack, hotbar and position stay as they are, and each world remembers the mode you left it in. {{game-modes}}"
+       "text": "There are exactly two modes. Press [[F4]] to switch, except on the start menu, while joined to someone else's server, or while a stopped host waits for recovery. When you host a world, the switch happens once the server confirms it. Your pack, hotbar and position stay as they are, and each world remembers the mode you left it in. {{game-modes}}"
       },
       {
        "t": "h",
@@ -359,7 +359,7 @@
         ],
         [
          "F6",
-         "Save the world right now ('World saved safely')."
+         "Save your local world, or the world you host, now ('World saved safely'). In a server world you joined, nothing is written on your computer and the game says 'This session does not save the world locally'."
         ],
         [
          "Save & main menu",
@@ -442,8 +442,8 @@
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "Targeted key-binding, pause and screenshot guidance was source-checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05, in bindings.rs, game/controls.rs, game/settings_search.rs and native input. The full table is generated from feature entries with their individual dated sources. Furniture, door, bed, lamp, stove, table-display, Home-tab and save-key guidance was re-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: game/furniture/controls.rs:108-143,356-535 (plan keys, move, take up, put away); game/furniture/workbench.rs:25-47,204-229 and game.rs:1549-1573 (E opens the workbench); game/doors/relocation.rs:20-48,102-165 and game/net_client/door_moves/input.rs:125-212 (door move keys); game.rs:2848-2860 and world/door.rs:219-226 (middle-click door copy); game/furniture/seating.rs:29-56,87-100 and game/furniture/resting.rs:27-72,168-200 (seat and bed); game/furniture/lamp.rs:10-30 and game/furniture/cooking_stove.rs:20-45,138-200 (lamp and stove); game/furniture/display.rs:51-65,270-320 and furniture/definition.rs:249-310 (table display); game.rs:2620-2700,2860-2872,2936-2942 (block use order, mining and placement refusals); game/home/keyboard.rs:60-125 (Home keys); src/app.rs:1557-1572,2007-2025 (F6 save). Game paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. The key bindings table itself (bindings.rs, game/controls.rs, game/settings_search.rs) has no changes since the 5 November check. The generated Every control table below the guide still carries each row's own dated source. The Ctrl + Z line under Context was re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/building.rs:283-447 and game/furniture/controls.rs:378-393.",
-    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. No native session or fresh screenshot was made. Reassigned gameplay actions differ from the printed defaults; menu navigation stays physical. Earlier receipts for the key-binding and pause guidance stand as written above. The Ctrl + Z line was source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "Targeted key-binding, pause and screenshot guidance was source-checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05, in bindings.rs, game/controls.rs, game/settings_search.rs and native input. The full table is generated from feature entries with their individual dated sources. Furniture, door, bed, lamp, stove, table-display, Home-tab and save-key guidance was re-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: game/furniture/controls.rs:108-143,356-535 (plan keys, move, take up, put away); game/furniture/workbench.rs:25-47,204-229 and game.rs:1549-1573 (E opens the workbench); game/doors/relocation.rs:20-48,102-165 and game/net_client/door_moves/input.rs:125-212 (door move keys); game.rs:2848-2860 and world/door.rs:219-226 (middle-click door copy); game/furniture/seating.rs:29-56,87-100 and game/furniture/resting.rs:27-72,168-200 (seat and bed); game/furniture/lamp.rs:10-30 and game/furniture/cooking_stove.rs:20-45,138-200 (lamp and stove); game/furniture/display.rs:51-65,270-320 and furniture/definition.rs:249-310 (table display); game.rs:2620-2700,2860-2872,2936-2942 (block use order, mining and placement refusals); game/home/keyboard.rs:60-125 (Home keys); src/app.rs:1557-1572,2007-2025 (F6 save). Game paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. The key bindings table itself (bindings.rs, game/controls.rs, game/settings_search.rs) has no changes since the 5 November check. The generated Every control table below the guide still carries each row's own dated source. The Ctrl + Z line under Context was re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/building.rs:283-447 and game/furniture/controls.rs:378-393. The Shift half-metre rule was re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game.rs:1357,2474-2480, game/building.rs:22-36 and bindings.rs:72 (N in creative).",
+    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. No native session or fresh screenshot was made. Reassigned gameplay actions differ from the printed defaults; menu navigation stays physical. Earlier source checks for the key-binding and pause guidance stand as written above. The Shift half-metre and Ctrl + Z lines were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "sections": [
     {
@@ -467,7 +467,7 @@
         ],
         [
          "Shift",
-         "Sneak (ledge guard), dive, descend in flight or steady a ranged weapon."
+         "Sneak (ledge guard), dive, descend in flight, steady a ranged weapon. Hold it while mining or placing to work on one half-metre piece."
         ],
         [
          "Ctrl + W",
@@ -546,7 +546,7 @@
       {
        "t": "list",
        "items": [
-        "**Shift** is shared by default: sneak on the ground, dive in water, descend while flying, and steady a bow or rifle. Building detail has its own action. {{sneak-ledge-guard}}",
+        "**Shift** is shared by default: sneak on the ground, dive in water, descend while flying, steady a bow or rifle, and work on one half-metre piece when you mine or place. In creative, **N** toggles half-metre building so you can release Shift. {{sneak-ledge-guard}} {{half-metre-detail-building}}",
         "**Tab** equips tools when the inventory is closed and switches tabs when it is open. {{equip-tools-tab}}",
         "**Z** zooms, but **Ctrl + Z** is undo, so Z does not zoom while Ctrl is held. It undoes furniture and chest refinishing steps in either mode, and building and door moves in creative. {{hold-to-zoom}}",
         "**C** crawls on foot. In a boat, it cycles camera stations. {{crawl}}",
@@ -766,7 +766,7 @@
    ],
    "verification": {
     "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction. Home crate, keyboard, repair, pack-up and rest instructions, including Home on a server, were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (game/home.rs, game/home/keyboard.rs, game/net_client/home.rs, session/home.rs and session/home/*.rs, the Home tab in inventory_ui.rs, and the bed rest pose in game/furniture/resting.rs). The cooking text in 'Hunt, cook and fill flasks' and the Hot meal milestone were re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026.",
-    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe receipts. The 8 November Home and cooking updates were source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, and no server Home or cooking session was run."
+    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe checks. The 8 November Home and cooking updates were source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, and no server Home or cooking session was run."
    },
    "sections": [
     {
@@ -870,7 +870,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "In survival, [[J]] drops one of the selected carried item; [[Ctrl]]+[[J]] drops everything of that kind. With Pack open, hover its icon first. After a short delay, approach the dropped stack to collect what fits; anything that does not fit stays on the ground. Dragging an item off the pack does not drop it, and dragging a hotbar slot off the bar only clears that shortcut. {{planned-ground-drops}}"
+       "text": "In survival, [[J]] drops one piece of the selected item; [[Ctrl]]+[[J]] drops everything of that kind. With Pack open, hover its icon first. After a short delay, approach the dropped stack to collect what fits; anything that does not fit stays on the ground. Dragging an item off the pack does not drop it, and dragging a hotbar slot off the bar only clears that shortcut. {{planned-ground-drops}}"
       },
       {
        "t": "note",
@@ -1169,7 +1169,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "The recipe tables are generated from data/recipes.json, refreshed on 8 November 2026 from the complete Craft-tab registry at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c and rechecked at 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (unchanged, with new source lines): 151 recipes, including the two cooking recipes shared with the stove and 90 doors by wood. tools/validate_guides.py --game rechecks every name, section, amount, game description and source line against that export. The Craft tab, its queue, the Ready filter, starred recipes and the X shortcut were source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (game/craft_queue.rs, game/crafting.rs, game/inventory_input.rs, game/inventory_qol.rs, game/net_client/crafting.rs, and the panel and screen drawing in voxelgame-render inventory_ui.rs and hud.rs). The cooking stove plan's description and connected tooltip were rechecked at 251b9e46 (inventory.rs:811, the renderer's inventory_ui.rs:391-400). The block-type section, the rest of the cooking stove, the fire and cooking text, the ingredient groups and the Glow crystal section were source-checked at dfeb362d. The gathering section keeps its earlier check (dd29d91).",
+    "method": "The recipe tables are generated from data/recipes.json, refreshed on 8 November 2026 from the complete Craft-tab registry at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c and rechecked at 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (unchanged, with new source lines): 151 recipes, including the two cooking recipes shared with the stove and 90 doors by wood. tools/validate_guides.py --game rechecks every name, section, amount, game description and source line against that export. The Craft tab, its queue, the Ready filter, starred recipes and the X shortcut were source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (game/craft_queue.rs, game/crafting.rs, game/inventory_input.rs, game/inventory_qol.rs, game/net_client/crafting.rs, and the panel and screen drawing in voxelgame-render inventory_ui.rs and hud.rs). The cooking stove plan's description and connected tooltip were rechecked at 251b9e46 (inventory.rs:811, the renderer's inventory_ui.rs:391-400). The block-type section, the rest of the cooking stove, the fire and cooking text, the ingredient groups and the Glow crystal section were source-checked at dfeb362d. The gathering section keeps its earlier check (dd29d91). The Pack text in 'Gathering and reading the pack' was re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: voxelgame-render inventory_ui.rs:318-331,367-414,453-560; voxelgame-core game/inventory_qol.rs:79-87, game/inventory_input.rs:292-327,395-401 and inventory.rs:1050-1075.",
     "limits": "Source-checked at Voxelgame dfeb362d and 251b9e46 on 8 November 2026; not play-tested. The crafting queue and cooking on a server were not tried live. Amounts are carried pieces: 8 pieces make one full one-metre block. Furnaces, smelting and metal tools do not exist yet."
    },
    "sections": [
@@ -1438,7 +1438,7 @@
       },
       {
        "t": "p",
-       "text": "The Pack tab lists everything you carry. Tools come first, then food and drink, blocks, materials and spawn eggs. Each group is sorted by name. {{pack-items-list}}"
+       "text": "Open **E > Pack** to see what you carry as a grid of icons. Tools come first, then food and drink, blocks, materials and spawn eggs, each group sorted by name; the sort button switches to one alphabetical list. [[Ctrl]]+[[F]] searches by name. {{pack-items-list}}"
       },
       {
        "t": "keys",
@@ -1456,18 +1456,18 @@
          "Bind it to that slot while the inventory is open."
         ],
         [
-         "Mouse wheel, or Prev / Next",
+         "Mouse wheel, or the Previous / Next buttons",
          "Page through the items."
         ],
         [
-         "Click Items or Character",
-         "Switch between the item list and a turning character portrait."
+         "Pack / Character icons",
+         "Switch between the item grid and a turning character portrait."
         ]
        ]
       },
       {
        "t": "p",
-       "text": "Hover an item to see its name, quantity, category and click hints. The side panel turns the item in 3D and shows what it is for, where it comes from, which recipe uses it, and how much pack room one piece takes. {{item-info-previews}}"
+       "text": "Hover an item for its name, amount, category, a short description and click hints; in Pack the tooltip also says how to get it and how much capacity one piece takes. The side panel shows the item, its short description and what it is used for. {{item-info-previews}}"
       },
       {
        "t": "note",
@@ -1558,7 +1558,7 @@
    "lead": "Each installer builds the game from source and adds a launcher. Player worlds, editable data and shared preferences live outside the versioned application payloads; updates preserve them.",
    "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "install-linux",
@@ -1579,8 +1579,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Update/world-configuration follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux orchestration passed 30 isolated tests; a compiled native binary passed first-install/reinstall, live headless-session preservation, version reporting and rollback. Save/startup regressions and inspected headless captures cover compatibility and switching; other guide details retain the earlier audit. Targeted world-library follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked Create options, selected-world actions, remembered local world and backup paths. Installation/update acceptance above retains its earlier receipt.",
-    "limits": "Not fully play-tested. Official-source fetch/build is covered by isolated Git/fake-compiler tests, not a second native rebuild. Windows/macOS managed parity and native validation are pending. Mint delivery was blocked by SSH authentication. Rollback cannot undo newer save formats. No new native install, world-switch, backup or LAN test was run for the 5 November follow-up."
+    "method": "Update/world-configuration follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b. Linux orchestration passed 30 isolated tests; a compiled native binary passed first-install/reinstall, live headless-session preservation, version reporting and rollback. Save/startup regressions and inspected headless captures cover compatibility and switching; other guide details retain the earlier audit. Targeted world-library follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked Create options, selected-world actions, remembered local world and backup paths. Installation/update acceptance above keeps its earlier check. On 8 November 2026 the macOS and Windows update scripts, Create world keys and world deletion were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: README.md:21-25; START-HERE-macOS.txt:6-9; docs/UPDATING.md:16-92; Update-macOS.command, update-windows.cmd and scripts/desktop/update_github.py:42-72; game/startup_create.rs:94-196 and game/startup/worlds.rs:420-495 (beneath crates/voxelgame-core/src/); voxelgame-render startup_ui.rs:200-270 and startup_ui/worlds.rs:366-436; src/worlds.rs:575-623.",
+    "limits": "Not fully play-tested. Official-source fetch/build is covered by isolated Git/fake-compiler tests, not a second native rebuild. Windows/macOS managed parity and native validation are pending. Rollback cannot undo newer save formats. No new native install, world-switch, backup or LAN test was run for the 5 November follow-up. The 8 November update-script, Create world and deletion text was source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "owns": [
     "install-linux",
@@ -1718,7 +1718,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Linux managed installs can report their version, update from official source and select the previous verified installation. Windows/macOS still use source reinstall; managed update and rollback on those platforms remain unfinished."
+       "text": "Linux managed installs can report their version, update from official source and select the previous verified installation. macOS and Windows have update scripts that rebuild the official source, but no version report or rollback yet."
       },
       {
        "t": "steps",
@@ -1741,11 +1741,11 @@
       {
        "t": "note",
        "kind": "careful",
-       "text": "Keep backups. Rollback switches application files only. An older executable may refuse worlds saved in a newer format; rollback does not undo changes to worlds or settings. Linux headless session preservation was checked; Windows/macOS parity and both-computer delivery remain pending."
+       "text": "Keep backups. Rollback switches application files only. An older executable may refuse worlds saved in a newer format; rollback does not undo changes to worlds or settings. Linux headless session preservation was checked; Windows and macOS updates have not been run on a real machine yet."
       },
       {
        "t": "p",
-       "text": "On Windows/macOS, close the game, extract the newer source and rerun the installer. Their existing separate data folders are preserved; verified managed rollback is Linux only."
+       "text": "On macOS, close the game, extract a fresh complete source folder and double-click **Update-macOS.command** (or run **bash update.sh**). On Windows, close the game and double-click **update-windows.cmd** in a complete source folder. Both rebuild official `main` with the Git, Python 3.9+, Rust and compiler tools you already have, and need at least 5 GiB free. They keep your worlds and settings and the previous application files, and never install missing tools or ask for administrator access. They have no **--version** or **--rollback**; verified rollback is Linux only."
       }
      ]
     },
@@ -1772,7 +1772,7 @@
       },
       {
        "t": "p",
-       "text": "On Linux, shared display, audio, controls and accessibility preferences are in $XDG_CONFIG_HOME/voxelgame/settings, defaulting to ~/.config/voxelgame/settings. Mode, environment controls, progression and accepted gameplay configuration remain in the world file. Other platforms have not received native profile-location acceptance."
+       "text": "On Linux, shared display, audio, controls and accessibility preferences are in $XDG_CONFIG_HOME/voxelgame/settings, defaulting to ~/.config/voxelgame/settings. Mode, environment controls and progression remain in the world file. Other platforms have not received native profile-location acceptance."
       },
       {
        "t": "p",
@@ -1789,7 +1789,7 @@
        "items": [
         "Open **Worlds** and choose **Create world**. Enter a name, or leave it blank for a default name.",
         "Leave **Seed** blank for a fresh world, or enter a non-negative whole number. Choose Creative or Survival and a terrain generation; the default is generation 12.",
-        "Use [[Tab]] to move between fields and the arrow keys to change mode or generation. Choose **Create world** to confirm, or **Cancel** / [[Esc]] to return without creating it."
+        "Use [[Tab]] or the Up/Down arrows to move between fields; Left/Right (or Space) change Mode and Terrain generation. Choose **Create world** or press [[Enter]] to confirm, or **Cancel** / [[Esc]] to return without creating it."
        ]
       },
       {
@@ -1799,6 +1799,10 @@
       {
        "t": "p",
        "text": "Use **Rename** ([[Ctrl]]+[[R]]) to change its display name, or **Duplicate** ([[Ctrl]]+[[D]]) to make a separately named playable copy. Rename keeps the save’s path. Duplicate saves the active local world first; stop hosting before duplicating it."
+      },
+      {
+       "t": "p",
+       "text": "To delete a world, select it and hold **Delete world** (or the [[Delete]] key) for 3 seconds; letting go early cancels. Deleting removes the save, its name, preview and star for good. Backups you made are kept, so choose **Create backup** first if you might want the world back. The world you are currently in cannot be deleted: load another world first."
       },
       {
        "t": "list",
@@ -1828,10 +1832,6 @@
        "t": "note",
        "kind": "careful",
        "text": "The installer does not move worlds from a source checkout started with ./run.sh. Copying that worlds folder into the data folder with the game closed is inferred from the save paths and has not been tested in this wiki."
-      },
-      {
-       "t": "p",
-       "text": "New saves retain gameplay-compatibility identities; a changed required configuration blocks startup and keeps the save. Use Back, restore the matching configuration, or choose a separate world. Legacy saves acquire these identities after a successful start and save."
       }
      ]
     },
@@ -1909,7 +1909,7 @@
    "lead": "Most startup failures print their reason to a terminal. Start the game from a terminal first, then use the matching section below.",
    "readTime": "5 min read",
    "audience": "Everyone",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "startup-error-reporting",
@@ -1924,8 +1924,8 @@
     "getting-started"
    ],
    "verification": {
-    "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines. The save and saving sections were narrowed against Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: src/worlds/resume.rs:12-40; src/app.rs:1043-1055,1553-1568,1641-1650,1904-1905; src/app/owner_recovery.rs:32-45. They link to the refreshed save/world guides instead of repeating older default-world or crafting-autosave assumptions.",
-    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet. These targeted save corrections are source checks only; no new play test was run. Other troubleshooting sections retain their earlier source receipts."
+    "method": "Error text, file paths, keys and save rules come from the game and installer source at the audited commit. Each ledger entry lists its source lines. The save and saving sections were narrowed against Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: src/worlds/resume.rs:12-40; src/app.rs:1043-1055,1553-1568,1641-1650,1904-1905; src/app/owner_recovery.rs:32-45. They link to the refreshed save/world guides instead of repeating older default-world or crafting-autosave assumptions. On 8 November 2026 the startup report, error window, unreadable-world dialog and Settings paths were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: src/main.rs:33-50,93-109; src/fatal_error.rs:174-201,244-278,330-370; src/fatal_dialog.py:67-106; src/local_startup.rs:11-23; voxelgame-render startup_ui.rs:705-771; voxelgame-core settings.rs:25-89,653,933-989.",
+    "limits": "Source-checked, not play-tested on every platform. Linux is the platform the installer is tested on. Windows and macOS graphics and sound are marked Limited because no real machine has validated them yet. These targeted save corrections are source checks only; no new play test was run. Other troubleshooting sections keep their earlier source checks. The 8 November corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested, and the Linux error window was not opened."
    },
    "owns": [
     "startup-error-reporting",
@@ -1947,13 +1947,13 @@
      "blocks": [
       {
        "t": "p",
-       "text": "When the game cannot start, it closes and prints the reason to the terminal. Menu and desktop launches show no error window, so start Voxelgame from a terminal to read the message."
+       "text": "When the game cannot start, or stops on a fatal error, it closes and prints a report that begins **qiqi could not continue**; its **Error:** (or **Panic:**) line gives the reason. The report is also saved as a details.txt file, and its last line, **Diagnostic file:**, says where. On Linux, a launch without options, such as from the application menu, also opens a **qiqi could not continue** window with **Copy details** and **Close**; it needs Python 3 and GTK 3. Windows and macOS show no window yet, so start the game from a terminal there to read the report."
       },
       {
        "t": "list",
        "items": [
-        "**voxelgame could not start: ...** means a bad option was given. The game exits with code 2.",
-        "**voxelgame failed: ...** means any other startup failure. The game exits with code 1."
+        "A mistyped command-line option makes the game exit with code 2.",
+        "Any other failure makes it exit with code 1."
        ]
       },
       {
@@ -1964,8 +1964,8 @@
        "t": "list",
        "items": [
         "**no Vulkan-compatible graphics adapter found**: the graphics driver is missing. See Graphics driver problems below.",
-        "**GPU ran out of memory during startup**: lower **Settings > General > Horizon distance**, then try again.",
-        "**Nearby terrain took too long to prepare; please try again**: shown on the main menu. Try again, or lower **Settings > General > Horizon distance**.",
+        "**GPU ran out of memory during startup**: lower **Settings > Graphics > Display > Horizon distance**, then try again.",
+        "**Nearby terrain took too long to prepare; please try again**: shown on the main menu. Try again, or lower **Settings > Graphics > Display > Horizon distance**.",
         "**audio disabled: playback command unavailable**: sound players are missing. See Sound and music below."
        ]
       },
@@ -1986,7 +1986,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "If a world cannot be read, keep its `.vxw` file. Copy it somewhere safe before trying repairs or a different game version."
+       "text": "If a world cannot be read, the game shows **World could not be loaded** with the file and the reason, and keeps your save. Choose **Back to menu** to pick another world, or **Open worlds folder** to find the file. Keep its `.vxw` file, and copy it somewhere safe before trying repairs or a different game version."
       },
       {
        "t": "p",
@@ -2039,7 +2039,7 @@
       },
       {
        "t": "p",
-       "text": "To reduce GPU load, set **Settings > General > Horizon distance** lower, turn off **Settings > Debug > Distant terrain**, or set **Settings > General > Shader** to **None**."
+       "text": "To reduce GPU load, try **Settings > Graphics > Display > Graphics preset > Low**, or set **Horizon distance** lower, turn off **Settings > Advanced > Diagnostics > Distant terrain**, or set **Shader** to **None** (Graphics > Display)."
       },
       {
        "t": "note",
@@ -2123,8 +2123,8 @@
     "fishing"
    ],
    "verification": {
-    "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines. The cooking advice in 'What you get from a kill' was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026.",
-    "limits": "Source-checked, not play-tested in this guide. Draw, wind-up and reload times are the code values; check them in play if they feel different. The 8 November dfeb362d check covers only that cooking advice and was not play-tested."
+    "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines. The cooking advice in 'What you get from a kill' was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026. The drop rules in that section were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/creature_melee.rs:38-81, game.rs:2121-2270, entities/melee.rs:10-11,194-286, game/item_drops.rs:102-137, dropped_items.rs:9-25 and entities/species_profile.rs:401-486, beneath crates/voxelgame-core/src/.",
+    "limits": "Source-checked, not play-tested in this guide. Draw, wind-up and reload times are the code values; check them in play if they feel different. The 8 November dfeb362d check covers only that cooking advice and was not play-tested. The drop rules were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "owns": [
     "melee-attacks",
@@ -2294,7 +2294,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "In survival, drops go straight into your pack. Meat and venison are food, feathers make arrows, and wool can replace plant fiber. Hide has no use yet. If your pack is full, drops that do not fit are lost, because there are no items on the ground. Creative kills give nothing. {{animal-drops}}"
+       "text": "In survival, a killed animal leaves its drops on the ground where it fell. After about a second, walk up to them to pick up what fits in your pack; anything that does not fit stays on the ground until you make room. Meat and venison are food, feathers make arrows, and wool can replace plant fiber. Hide has no use yet. Creative kills give nothing. {{animal-drops}}"
       },
       {
        "t": "recipes",
@@ -2440,7 +2440,7 @@
    "lead": "Two maps show the generated terrain. You can mark places, set a destination and search for biomes. Your own builds are not drawn on the maps, so save a place before you travel far.",
    "readTime": "5 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "compact-map",
@@ -2461,7 +2461,7 @@
    ],
    "verification": {
     "method": "Keys, limits and map behaviour come from the feature ledger, which cites the game source lines for each entry. Map sizes, zoom range, the 16-place Journal limit and the 320 m beacon are code values.",
-    "limits": "Source-checked, not play-tested in this guide. Compare the zoom steps and the beacon height with what you see in play."
+    "limits": "Source-checked, not play-tested in this guide. Compare the zoom steps and the beacon height with what you see in play. The route to FPS and coordinates was re-checked at Voxelgame 251b9e46 on 8 November 2026 (settings.rs:40-51,82-89,949); not play-tested."
    },
    "owns": [
     "compact-map",
@@ -2644,7 +2644,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The small readout at the top right shows FPS, your X, Y and Z in metres, and your biome. It is on by default. Turn it off in Settings > Debug with FPS and coordinates. It is hidden while a panel is open. {{position-readout}}"
+       "text": "The small readout at the top right shows FPS, your X, Y and Z in metres, and your biome. It is on by default. Turn it off in Settings > Advanced > Diagnostics > FPS and coordinates. It is hidden while a panel is open. {{position-readout}}"
       },
       {
        "t": "list",
@@ -2718,7 +2718,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS). Targeted furniture, Build-tab access, chest and server-door corrections were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191; game/chests.rs:60-85,121-125,179-229; game/doors.rs:51-56,117-162,189-226. Paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. Existing unrelated sections keep their earlier receipts. The additional Creative N detail toggle was checked at the same 5 November pin in crates/voxelgame-core/src/game/building.rs:23-35 and game.rs:1352-1353,2438-2447. Survival still uses held Shift. The doors and chests sections were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: inventory/door_recipes.rs:8-104; inventory.rs:1386-1419,1922-1942; game/crafting/doors.rs:51-122; game/inventory_qol/presentation.rs:8-16,78-91; game/doors.rs:54-231; game/doors/relocation.rs:18-186; world/door/relocation.rs:116-330; game/net_client/door_moves.rs:294-339; game/net_client/door_moves/input.rs:60-211; session/block_harvest/door.rs:98-117; game.rs:1566-1573,2848-2860; game/chests.rs:16-264; game/net_client/chests.rs:176-314; game/net_client/block_harvest/creative.rs:8-50; session/block_harvest/chest.rs:46-80; furniture/definition.rs:435-445; furniture/storage_chest_parts/tests.rs:23-57; game/furniture/chest_refinishing.rs:41-372; game/furniture/chest_refinishing/history.rs:8-81; game/net_client/furniture/history/chest_refinishing.rs:48-115. The undo section and the chest Undo paragraph were source-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/building.rs:193-240,283-447,590-607 (one history for blocks, door moves, chest refinishing and furniture; status and refusal messages; Creative keys and Build tab buttons); building.rs:424-464 (32-step limit); game.rs:2963-2970 and game/plant_support.rs:39-41 (Creative placing and mining recorded); game/blueprint_desk.rs:785-794 (a blueprint is one step); game/furniture/controls.rs:378-393,462-467 (furniture and chest steps in both modes); game/furniture/chest_refinishing/history.rs:8-81 (chest Undo and Redo checks).",
+    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS). Targeted furniture, Build-tab access, chest and server-door corrections were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191; game/chests.rs:60-85,121-125,179-229; game/doors.rs:51-56,117-162,189-226. Paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. Existing unrelated sections keep their earlier checks. The additional Creative N detail toggle was checked at the same 5 November pin in crates/voxelgame-core/src/game/building.rs:23-35 and game.rs:1352-1353,2438-2447. Survival still uses held Shift. The doors and chests sections were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: inventory/door_recipes.rs:8-104; inventory.rs:1386-1419,1922-1942; game/crafting/doors.rs:51-122; game/inventory_qol/presentation.rs:8-16,78-91; game/doors.rs:54-231; game/doors/relocation.rs:18-186; world/door/relocation.rs:116-330; game/net_client/door_moves.rs:294-339; game/net_client/door_moves/input.rs:60-211; session/block_harvest/door.rs:98-117; game.rs:1566-1573,2848-2860; game/chests.rs:16-264; game/net_client/chests.rs:176-314; game/net_client/block_harvest/creative.rs:8-50; session/block_harvest/chest.rs:46-80; furniture/definition.rs:435-445; furniture/storage_chest_parts/tests.rs:23-57; game/furniture/chest_refinishing.rs:41-372; game/furniture/chest_refinishing/history.rs:8-81; game/net_client/furniture/history/chest_refinishing.rs:48-115. The undo section and the chest Undo paragraph were source-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/building.rs:193-240,283-447,590-607 (one history for blocks, door moves, chest refinishing and furniture; status and refusal messages; Creative keys and Build tab buttons); building.rs:424-464 (32-step limit); game.rs:2963-2970 and game/plant_support.rs:39-41 (Creative placing and mining recorded); game/blueprint_desk.rs:785-794 (a blueprint is one step); game/furniture/controls.rs:378-393,462-467 (furniture and chest steps in both modes); game/furniture/chest_refinishing/history.rs:8-81 (chest Undo and Redo checks).",
     "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only. The structure library (naming, O, pictures) was checked at 9f915bcb, not play-tested. The 5 November furniture and storage corrections are source checks only, with no new play test or game capture. The newer pin applies to those targeted corrections, not to a fresh audit of this entire guide. The 8 November doors and chests refresh (door styles, woods, sizes and costs, Creative door moves, chest refinishing and server chest take-up) was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. The undo section and the chest Undo paragraph were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "owns": [
@@ -4108,8 +4108,8 @@
     "settings-and-performance"
    ],
    "verification": {
-    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit. Targeted 5 November source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: current save sections, shared preferences, generation 12, Worlds backup/recovery and stopped-host retry/choice paths. Existing unrelated opening-screen evidence keeps its earlier receipt. The game’s dated WORLD_BACKUP_20261016 verification records offscreen backup recovery; this wiki pass did not rerun it. Targeted 8 November 2026 source follow-up at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 confirms only after a local write (src/app.rs), the 8 MiB refusal in the save encoder and writer (save.rs), size refusals on servers (session/crafting.rs, creatures.rs, items.rs, water.rs and home/*.rs), dedicated-server save waits (voxelgame-server host/furniture/durability/stock.rs), the seat and bed exit check before saving (save/write.rs, game/furniture/resting.rs, seating.rs) and saved lamp and stove state (furniture/lamp_state.rs, furniture/cooking.rs).",
-    "limits": "Source-checked in this follow-up; no new game process, native save/fault injection, LAN play or screenshot capture. Existing loading-screen prose retains its earlier audit. Backup and stopped-host instructions need integration browser review; an uncheckpointed session is not guaranteed to survive a restart. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no game process, server or save-fault run."
+    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit. Targeted 5 November source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: current save sections, shared preferences, generation 12, Worlds backup/recovery and stopped-host retry/choice paths. Existing unrelated opening-screen evidence keeps its earlier check. The game’s dated WORLD_BACKUP_20261016 verification records offscreen backup recovery; it was not rerun for this guide. Targeted 8 November 2026 source follow-up at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 confirms only after a local write (src/app.rs), the 8 MiB refusal in the save encoder and writer (save.rs), size refusals on servers (session/crafting.rs, creatures.rs, items.rs, water.rs and home/*.rs), dedicated-server save waits (voxelgame-server host/furniture/durability/stock.rs), the seat and bed exit check before saving (save/write.rs, game/furniture/resting.rs, seating.rs) and saved lamp and stove state (furniture/lamp_state.rs, furniture/cooking.rs). The stopped-host recovery steps were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: voxelgame-render startup_ui/stopped_owner_choice.rs:16-61; voxelgame-core game/stopped_owner_choice.rs:132-230; src/net_client/ready_recovery/canonical_choice.rs:50-164; src/app.rs:1097-1108.",
+    "limits": "Source-checked in this follow-up; no new game process, native save/fault injection, LAN play or screenshot capture. Existing loading-screen prose retains its earlier audit. No game run has checked these backup and stopped-host steps. A session that has not been saved is not guaranteed to survive a restart. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no game process, server or save-fault run. The stopped-host recovery steps were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "owns": [
     "save-contents",
@@ -4184,14 +4184,14 @@
        "items": [
         "Keep the session open. If the save before stopping failed, the world is still hosted; fix the reported problem and try **Stop hosting** again.",
         "If hosting has stopped and pack recovery is blocked, press [[F6]] to retry. **Continue** returns to the repair session so you can adjust conflicting Creative catalogue choices.",
-        "Press [[Shift]]+[[F6]] to inspect the recovery choice. You can keep current choices, or hold the offered recovery action for 3 seconds. **Use final pack** selects the host’s final pack and mode, setting aside conflicting catalogue changes. If the final world or pack is unavailable, **Use last saved world** restores the saved world and its matching pack together.",
-        "The explicit choice first preserves an independent recovery copy. If writing that copy or a checkpoint fails, keep the session open and follow the reported error before retrying."
+        "Press [[Shift]]+[[F6]] to open the recovery choice. **Keep current choices** (or [[Esc]]) changes nothing. To accept the host's final state, hold **Hold: use final pack** for 3 seconds with the mouse, [[Enter]] or [[Space]]: your pack and mode become the host's final ones, and conflicting Creative catalogue choices are set aside; your hotbar, tools and map pins stay as they are. If the final world or pack is unavailable, the choice is **Use last saved world** instead, also held for 3 seconds: the last saved world and its matching pack come back together, and later hosted changes are set aside.",
+        "Before switching, the game saves a separate recovery copy, with a RECOVERY.txt, in a **pack-recovery-copies** folder next to the world's save file, and names it on screen; keep it. If that copy cannot be written, your current choices stay as they are and the session stays open; follow the reported error before choosing again with [[Shift]]+[[F6]]."
        ]
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "An unresolved pack blocks ordinary saving, world replacement and quitting. Recovery files protect a successfully recorded checkpoint; do not remove them to bypass the choice. The dialog explains which later state will be set aside. {{mp-menu-lan-hosting}}"
+       "text": "An unresolved pack blocks ordinary saving, world replacement and quitting. Recovery files next to the save belong to the unfinished recovery; do not delete them to get past the choice. The dialog explains which later state will be set aside. {{mp-menu-lan-hosting}}"
       }
      ]
     },
@@ -4463,8 +4463,8 @@
     "building-basics"
    ],
    "verification": {
-    "method": "Crosshair spread, aim steadiness, the looking-at card, the status line, camera effects, the collection feed and water effects come from the feature ledger, which cites Voxelgame source lines. The numbers were rechecked at Voxelgame commit 0494a0ce: 6 m target reach, Speed FOV 5 degrees reaching full at 16 m/s with a 0.3 s ease, a 7 cm damage dip on hits of at least 1 HP, 5 feed rows shown for 4 s with a 0.8 s fade, and 14 splash droplets. On 8 November 2026 the looking-at section was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: voxelgame-render target_ui.rs:140-147 and 260-291, hud.rs:487-492, menus_ui.rs:181-195; voxelgame-core settings.rs:65, 82-89 and 598-616.",
-    "limits": "Source-checked, not play-tested, and without screenshots. Judge the bob and dip strength in play. Spread amounts are internal values, so the guide describes their direction rather than exact degrees. The looking-at section was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested."
+    "method": "Crosshair spread, aim steadiness, the looking-at card, the status line, camera effects, the collection feed and water effects come from the feature ledger, which cites Voxelgame source lines. The numbers were rechecked at Voxelgame commit 0494a0ce: 6 m target reach, Speed FOV 5 degrees reaching full at 16 m/s with a 0.3 s ease, a 7 cm damage dip on hits of at least 1 HP, 5 feed rows shown for 4 s with a 0.8 s fade, and 14 splash droplets. On 8 November 2026 the looking-at section was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: voxelgame-render target_ui.rs:140-147 and 260-291, hud.rs:487-492, menus_ui.rs:181-195; voxelgame-core settings.rs:65, 82-89 and 598-616. On 8 November 2026 the status-line drop sentence, the camera settings route and the character portrait were re-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/item_drops.rs:102-137 and game/creature_melee.rs:71-81 (beneath crates/voxelgame-core/src/); voxelgame-core settings.rs:68-89; voxelgame-render inventory_ui.rs:461-480.",
+    "limits": "Source-checked, not play-tested, and without screenshots. Judge the bob and dip strength in play. Spread amounts are internal values, so the guide describes their direction rather than exact degrees. The looking-at section was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. Those three corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "owns": [
     "crosshair-and-reticle",
@@ -4586,7 +4586,7 @@
         "Mining reports \"Collected <block> x<pieces>\". Pieces go straight into your pack.",
         "A full pack says \"Capacity full; block left behind\". The block stays in the world.",
         "Opening your pack says \"Inventory opened\".",
-        "Mined blocks throw debris and play a break sound. Dropped items are not on the ground yet."
+        "Mined blocks throw debris and play a break sound. In survival, items you drop with [[J]] and animal drops lie on the ground until you pick them up."
        ]
       },
       {
@@ -4602,7 +4602,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Three camera effects change how movement and hits feel. Each has a row in Settings > General. {{camera-bob-and-speed-fov}}"
+       "text": "Three camera effects change how movement and hits feel. Each has a row in Settings > Gameplay > Movement. {{camera-bob-and-speed-fov}}"
       },
       {
        "t": "keys",
@@ -4681,7 +4681,7 @@
       },
       {
        "t": "p",
-       "text": "Press E, stay on Pack and click Character to see a 3D portrait of your explorer. Move the pointer across it to turn the model. It shows Creative or your health, and what you are holding. There are no appearance, outfit or skin options. Remote players in multiplayer use the same fixed explorer model. {{character-tab-portrait}}"
+       "text": "Press E, stay on Pack and click the Character icon beside the Pack icon to see a 3D portrait of your explorer. Move the pointer across it to turn the model. It shows Creative or your health, and what you are holding. There are no appearance, outfit or skin options. Remote players in multiplayer use the same fixed explorer model. {{character-tab-portrait}}"
       }
      ]
     }
@@ -5066,8 +5066,8 @@
     "maps-and-finding-your-way"
    ],
    "verification": {
-    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042. Furniture availability and remaining bed/closet/extendable-table gaps were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (crates/voxelgame-core/src/furniture/definition.rs:18-97; game/furniture/catalog.rs:43-76; game/furniture/workbench.rs:97-116). This is a targeted correction, not a new check of the other missing-feature sections. Multiplayer follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked hosted save/refusal, F6 retry, Shift+F6 recovery choice, server-owned stock/crafting and Survival recovery. Preserve the separate furniture helper’s verification additions. Multiplayer and furniture follow-up on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 in joined and hosted worlds (src/app.rs), dedicated-server save waits (voxelgame-server host.rs, host/raise.rs, host/furniture/durability/stock.rs), server size refusals (session/*.rs), the owner's seat and bed exit before stopping (session/hosting.rs), Creative Home and storage supplies (game/net_client/home.rs, furniture_storage.rs, session/home/*.rs), Creative moves of paid furniture (game/net_client/furniture/commands.rs) and the furniture list and limits (furniture/definition.rs, modular_table.rs, placement.rs, inventory.rs).",
-    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships. No new native host/join, two-computer LAN, fault-injection or gameplay capture in this multiplayer follow-up. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no host, join or dedicated-server session."
+    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042. Furniture availability and remaining bed/closet/extendable-table gaps were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (crates/voxelgame-core/src/furniture/definition.rs:18-97; game/furniture/catalog.rs:43-76; game/furniture/workbench.rs:97-116). This is a targeted correction, not a new check of the other missing-feature sections. Multiplayer follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked hosted save/refusal, F6 retry, Shift+F6 recovery choice, server-owned stock/crafting and Survival recovery. Multiplayer and furniture follow-up on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 in joined and hosted worlds (src/app.rs), dedicated-server save waits (voxelgame-server host.rs, host/raise.rs, host/furniture/durability/stock.rs), server size refusals (session/*.rs), the owner's seat and bed exit before stopping (session/hosting.rs), Creative Home and storage supplies (game/net_client/home.rs, furniture_storage.rs, session/home/*.rs), Creative moves of paid furniture (game/net_client/furniture/commands.rs) and the furniture list and limits (furniture/definition.rs, modular_table.rs, placement.rs, inventory.rs). The Stop hosting save failure and the default player name were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: src/app.rs:1009-1034 and src/net_client.rs:1084-1099.",
+    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships. No new native host/join, two-computer LAN, fault-injection or gameplay capture in this multiplayer follow-up. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no host, join or dedicated-server session. Those two corrections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
    },
    "owns": [],
    "partial": [],
@@ -5091,7 +5091,7 @@
         "Open **Multiplayer** on the main menu and choose **Host this world**.",
         "Read the join address shown. Other players can choose your world from their LAN list, or type that complete address and port into **SERVER**. {{mp-lan-world-list}}",
         "Keep the host computer on and connected. Opening **Main menu** keeps hosting.",
-        "Choose **Stop hosting** to disconnect other players and return to solo play with the recovered world and pack. If the initial save fails, hosting continues; fix the reported problem and try again. If you are sitting or lying on furniture and the space beside it is blocked, saving and stopping wait until you can stand up safely. Clear the space or get up, then try again."
+        "Choose **Stop hosting** to disconnect other players and return to solo play with the recovered world and pack. If the world cannot be saved when you stop, you stay hosted; fix the reported problem, such as a full disk, and choose **Stop hosting** again. If you are sitting or lying on furniture and the space beside it is blocked, saving and stopping wait until you can stand up safely. Clear the space or get up, then try again."
        ]
       },
       {
@@ -5106,7 +5106,7 @@
        "t": "steps",
        "items": [
         "Open **Multiplayer**. Choose a LAN world or one of your last eight servers, or type HOST or HOST:PORT in **SERVER**. The default port is 27015.",
-        "Enter your display name in **NAME**; leave it empty to use your login name. [[Tab]] switches fields.",
+        "Enter your display name in **NAME**; leave it empty to use your login name, or Player if none is set. [[Tab]] switches fields.",
         "Choose **Join server** or press [[Enter]]. [[Esc]] cancels while joining. Your local world is saved before joining; the server world is kept by its host."
        ]
       },

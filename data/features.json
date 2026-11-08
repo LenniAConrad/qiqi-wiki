@@ -137,20 +137,25 @@
     "creative",
     "survival"
    ],
-   "summary": "There are exactly two modes. Press F4 any time to switch between creative and survival; your pack, hotbar and position stay as they are. New worlds always start in creative, and each world remembers the mode it was saved in.",
+   "summary": "There are exactly two modes. Press F4 in the world to switch between creative and survival; your pack, hotbar and position stay as they are. New worlds start in the mode you pick in Create world (Creative by default), and each world remembers the mode it was saved in. On a server, visitors are refused with 'The server sets your game mode'; the host's switch waits for the server to confirm it.",
    "controls": [
     [
      "F4",
-     "Switch creative / survival (in the world (refused while connected to a server))"
+     "Switch creative / survival (in the world; refused for visitors on a server and while a stopped host waits for recovery)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/player.rs:55-72 — only Creative and Survival exist",
-    "crates/voxelgame-core/src/game.rs:894-908 — F4 toggle, stops flight, shows 'creative mode' / 'survival mode'",
-    "crates/voxelgame-core/src/game.rs:592 — new sessions start in creative",
-    "src/app.rs:540-558 — Create world copies settings and packs but has no mode choice"
+    "crates/voxelgame-core/src/player.rs:62-67 — only Creative and Survival exist",
+    "crates/voxelgame-core/src/game.rs:1484-1488 — F4 switches the mode; the structure workshop is always creative",
+    "crates/voxelgame-core/src/game/net_client.rs:592-653 — refusals for a stopped host, unfinished actions and visitors; the host's request",
+    "crates/voxelgame-core/src/game/net_client.rs:656-690 — switching stops flight and shows 'creative mode' / 'survival mode'",
+    "crates/voxelgame-core/src/game.rs:945 — new sessions start in creative",
+    "crates/voxelgame-core/src/game/startup_create.rs:64-75 — Create world starts on Creative",
+    "crates/voxelgame-core/src/game/startup_create.rs:139-148 — the Mode field switches to Survival",
+    "src/local_startup.rs:26-34 — the chosen mode reaches the new world",
+    "crates/voxelgame-core/src/save/write.rs:348 — the mode is saved with the world"
    ],
-   "notes": "Creative: instant mining, free placing/crafting, any tool, unlimited ammo, Build catalog/brushes/undo, block picking, flight, map travel, world controls and one-hit animal removal without drops. Survival: timed mining/tool advice, carry capacity, health/food/water/stamina bars, falls, R eat, T drink, X craft, read-only World tab and rest-point respawn. No difficulty presets. Targeted 35cfc2f8 update: ambient temperature has no survival effect; other mode evidence retains its original audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. F4 and the new-world default were re-checked; the lists keep their earlier audit. Creative: instant mining, free placing/crafting, any tool, unlimited ammo, Build catalog/brushes/undo, block picking, flight, map travel, world controls and one-hit animal removal without drops. Survival: timed mining/tool advice, carry capacity, health/food/water/stamina bars, falls, R eat, T drink, X craft, read-only World controls and rest-point respawn. No difficulty presets.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -181,17 +186,17 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/startup.rs:18-92 — entry labels",
-    "crates/voxelgame-core/src/game/startup.rs:322-342 — pointer and Enter",
+    "crates/voxelgame-core/src/game/startup.rs:78-93 — entry labels",
+    "crates/voxelgame-core/src/game/startup.rs:322-343 — pointer and Enter",
     "crates/voxelgame-core/src/game/startup/main.rs:17-25 — usable world required",
     "crates/voxelgame-core/src/game/startup/main.rs:71-87 — arrow navigation",
-    "crates/voxelgame-core/src/game.rs:3472-3488 — return from sub-pages"
+    "crates/voxelgame-core/src/game.rs:3550-3566 — Esc returns from sub-pages"
    ],
    "backlog": [
     "VOX-OWNER-START-TITLE",
     "VOX-OWNER-LOADING-SPLASH"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). This description covers the base-game menu; contributed entries depend on enabled content. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. This description covers the base-game menu.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -245,7 +250,7 @@
     "crates/voxelgame-render/src/startup_ui/worlds.rs:459-494 — selected-world seed, mode, generation and history"
    ],
    "backlog": [],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Rename changes display metadata. Duplicate and backup preserve independent copies; active hosting and unfinished save recovery must be resolved first. Some old worlds have unknown or partial session history. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Rename changes display metadata. Duplicate and backup preserve independent copies; active hosting and unfinished save recovery must be resolved first. Some old worlds have unknown or partial session history. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -542,12 +547,14 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/startup_create.rs:64-78 — Creative creation default",
-    "src/local_startup.rs:25-33 — chosen seed, generation and mode reach the new game",
-    "crates/voxelgame-core/src/inventory.rs:882-893 — starter supplies; no grants on switch/respawn",
-    "crates/voxelgame-core/src/game/net_client.rs:576-635 — local/hosted mode controls and pending-action refusals"
+    "crates/voxelgame-core/src/game/startup_create.rs:64-75 — Creative creation default",
+    "src/local_startup.rs:26-34 — chosen seed, generation and mode reach the new game",
+    "crates/voxelgame-core/src/inventory.rs:1000-1012 — starter supplies; no grants on switch/respawn",
+    "crates/voxelgame-core/src/game/net_client.rs:592-653 — local/hosted mode controls and pending-action refusals",
+    "src/net_client/ready_recovery/canonical_choice.rs:58-71 — the host's final pack brings back the host's final mode",
+    "crates/voxelgame-render/src/startup_ui/stopped_owner_choice.rs:28-36 — 'Your pack and mode will use the hosted world's final state.'"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Mode switching and respawning do not grant another starter pack. A stopped-host recovery cannot change mode. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Mode switching and respawning do not grant another starter pack. While a stopped host waits for recovery, F4 is refused ('The stopped host cannot change game mode'); choosing the host's final pack also brings back the host's final mode. No two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -1045,7 +1052,7 @@
     "crates/voxelgame-core/src/game/screenshots.rs:14-28 — completion feedback",
     "src/screenshots.rs:7-40 — destination"
    ],
-   "notes": "Targeted screenshot check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). F1 and F10 can be rebound. Screenshots go under Pictures/voxelgame and report the saved path or failure. Preserved image receipts are unchanged; no new capture or play test.",
+   "notes": "Targeted screenshot check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). F1 and F10 can be rebound. Screenshots go under Pictures/voxelgame and report the saved path or failure. Preserved images are unchanged; no new capture or play test.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -1675,12 +1682,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:598 — slots start unbound",
-    "crates/voxelgame-core/src/game/hotbar.rs:11-57 — drag to bind, swap or clear",
-    "crates/voxelgame-core/src/game/hotbar.rs:61-139 — hover + digit binding",
-    "crates/voxelgame-core/src/game/hotbar.rs:254-291 — digits, brackets and wheel select slots"
+    "crates/voxelgame-core/src/game.rs:951 — slots start unbound",
+    "crates/voxelgame-core/src/game/hotbar.rs:26-75 — drag to bind, swap or clear",
+    "crates/voxelgame-core/src/game/hotbar.rs:77-113 — hover + digit binding",
+    "crates/voxelgame-core/src/game/hotbar.rs:230-267 — digits, brackets and wheel select slots",
+    "crates/voxelgame-core/src/save/write.rs:456-465 — slot assignments are saved with the world"
    ],
-   "notes": "Slots are bindings, not containers: the count is everything of that kind in the pack. Bindings are saved with the world. Selecting a block slot puts away any tool, since an equipped tool blocks placement. With an empty slot selected the label reads 'EMPTY HANDS | E OPEN INVENTORY'.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The slot rules and saving were re-checked; the label text keeps its earlier audit. Slots are bindings, not containers: the count is everything of that kind in the pack. Your hotbar slot assignments are saved with the world. Selecting a block slot puts away any tool, since an equipped tool blocks placement. With an empty slot selected the label reads 'EMPTY HANDS | E OPEN INVENTORY'.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -1763,7 +1771,7 @@
     "crates/voxelgame-core/src/game/furniture/workbench.rs:25-47 — plans select a construction gesture and selected materials",
     "crates/voxelgame-core/src/game/inventory_input.rs:268-322 — creative search and item selection input"
    ],
-   "notes": "Furniture-plan exception checked on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; source only, no new play test. Plans never add a carried chair or table. Ordinary creative catalog items retain take/remove/star and hotbar controls. Survival has separate hammer-enabled carpentry, not the free creative catalog. Other catalog categorization and capacity receipts remain at the earlier ledger baseline.",
+   "notes": "Furniture-plan exception checked on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; source only, no new play test. Plans never add a carried chair or table. Ordinary creative catalog items retain take/remove/star and hotbar controls. Survival has separate hammer-enabled carpentry, not the free creative catalog. Other catalog categorization and capacity checks remain at the earlier ledger baseline.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -2142,7 +2150,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Hold left click on a block within 6 m. In survival a progress bar fills, then the whole 1 m block (up to 8 pieces) goes straight into your pack; hold Shift to take a single half-metre piece. Nothing drops on the ground: if the pieces do not fit, the block stays put.",
+   "summary": "Hold left click on a block within 6 m. In survival a progress bar fills, then the whole 1 m block (up to 8 pieces) goes straight into your pack; hold Shift to take a single half-metre piece. Mined pieces do not drop on the ground: if they do not fit, the block stays put.",
    "controls": [
     [
      "Hold left click",
@@ -2154,10 +2162,10 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1824-1848 — survival mining progress vs creative instant break",
-    "crates/voxelgame-core/src/game.rs:2379-2426 — drops go directly into the pack; full pack restores the block ('Capacity full; block left behind')",
-    "crates/voxelgame-core/src/game.rs:2395-2399 — Wild flax yields Plant fiber",
-    "crates/voxelgame-core/src/world/block.rs:543-551 — Meadow turf drops Dirt, Snow drops Packed snow, Fallen fruit drops Fruit block;",
+    "crates/voxelgame-core/src/game.rs:2887-2911 — survival mining progress vs creative instant break",
+    "crates/voxelgame-core/src/game.rs:3345-3395 — pieces go directly into the pack; a full pack leaves the block ('Capacity full; block left behind')",
+    "crates/voxelgame-core/src/inventory.rs:599-609 — Wild flax yields Plant fiber",
+    "crates/voxelgame-core/src/world/block.rs:701-709 — Meadow turf drops Dirt, Snow drops Packed snow, Fallen fruit drops Fruit block",
     "crates/voxelgame-core/src/game.rs:2863-2872 — furniture in front stops mining: 'Furniture blocks that mining target'",
     "crates/voxelgame-core/src/game/mining.rs:31-45 — survival crack feedback, dropped while furniture is targeted",
     "crates/voxelgame-core/src/game/furniture/controls.rs:146-164 — furniture counts only when one of its parts is nearer than the aimed block",
@@ -2170,7 +2178,7 @@
     "VOX-OWNER-BLOCK-BREAK-ANIMATION",
     "VOX-PLAY-002"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. If furniture stands between you and the block, holding left click stops with 'Furniture blocks that mining target' and nothing is mined. Gaps between furniture parts and blocks nearer than the furniture still work. Water and other liquids cannot be collected. Creative mining collects nothing and can be undone. Feedback is a status-line message and flying chips; in survival, cracks also grow on the block in 8 stages, and gains show in the lower-right collection feed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. If furniture stands between you and the block, holding left click stops with 'Furniture blocks that mining target' and nothing is mined. Gaps between furniture parts and blocks nearer than the furniture still work. Water and other liquids cannot be collected. Creative mining collects nothing and can be undone. Feedback is a status-line message and flying chips; in survival, cracks also grow on the block in 8 stages, and gains show in the lower-right collection feed.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -3810,7 +3818,7 @@
     "crates/voxelgame-core/src/save/load.rs:191-196 — saved generator decoded",
     "crates/voxelgame-render/src/startup_ui/worlds.rs:467-475 — saved generation displayed"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. The preserved atlas retains its older generation-9 evidence. Choosing a new-world generation does not change existing saves. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. The preserved atlas retains its older generation-9 evidence. Choosing a new-world generation does not change existing saves. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-islands-and-biomes.html",
@@ -3832,7 +3840,7 @@
     "src/local_startup.rs:25-33 — selected seed and generation applied",
     "crates/voxelgame-render/src/startup_ui/worlds.rs:459-475 — saved seed displayed"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Valid seed range is 0–18446744073709551615. A fresh seed is resolved only on confirmation; Cancel creates no world. A matching seed alone does not promise matching terrain across different generations. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit."
+   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Valid seed range is 0–18446744073709551615. A fresh seed is resolved only on confirmation; Cancel creates no world. A matching seed alone does not promise matching terrain across different generations. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit."
   },
   {
    "id": "biomes-92",
@@ -4135,12 +4143,16 @@
     ]
    ],
    "evidence": [
+    "crates/voxelgame-core/src/settings.rs:39 — World subpage holds rows 14-16",
+    "crates/voxelgame-core/src/settings.rs:82-89 — World sits under Gameplay",
+    "crates/voxelgame-core/src/settings.rs:682-686 — chip labels",
     "crates/voxelgame-core/src/settings.rs:39 — World tab holds rows 14-16",
     "crates/voxelgame-core/src/settings.rs:86 — the World tab sits in the Gameplay group",
     "crates/voxelgame-core/src/ui.rs:1777-1780 — rows with more than four choices use < and > arrows",
     "crates/voxelgame-core/src/environment.rs:202-228 — row values such as CYCLE / DAY, AUTO / RAIN and AUTO / SUMMER",
     "crates/voxelgame-core/src/environment.rs:100-109 — weather order Auto, Clear, Partly cloudy, Cloudy, Rain, Rainstorm, Thunderstorm, Foggy",
     "crates/voxelgame-core/src/settings.rs:1156-1164 — 'CREATIVE WORLD CONTROL' descriptions",
+    "crates/voxelgame-core/src/game/music_settings.rs:183-187 — rows editable only in creative; survival says 'Time, weather, and season controls are read-only in survival'",
     "crates/voxelgame-core/src/game/music_settings.rs:183-187 — survival says 'Time, weather, and season controls are read-only in survival'",
     "crates/voxelgame-core/src/game/settings_search.rs:126-146 — Reset page restores Cycle and Auto in creative only"
    ],
@@ -4590,14 +4602,16 @@
     "creative",
     "survival"
    ],
-   "summary": "A small top-right readout shows FPS, your X, Y and Z in metres and the biome you are in. It is on by default each session and can be turned off with Settings > Debug > FPS and coordinates. It is hidden while panels are open.",
+   "summary": "A small top-right readout shows FPS, your X, Y and Z in metres and the biome you are in. It is on by default each session and can be turned off with Settings > Advanced > Diagnostics > FPS and coordinates. It is hidden while panels are open.",
    "evidence": [
-    "crates/voxelgame-render/src/debug_ui.rs:10-35 — readout labels FPS, X, Y, Z, BIOME",
-    "crates/voxelgame-core/src/game.rs:632 — debug_visible defaults to true",
-    "crates/voxelgame-render/src/hud.rs:227 — shown only when no panel is open",
-    "crates/voxelgame-core/src/settings.rs:422 — setting name 'FPS AND COORDINATES'"
+    "crates/voxelgame-render/src/debug_ui.rs:14-39 — readout labels FPS, X, Y, Z, BIOME",
+    "crates/voxelgame-core/src/game.rs:111 — the readout is on by default",
+    "crates/voxelgame-render/src/hud.rs:465 — shown only when no panel is open",
+    "crates/voxelgame-core/src/settings.rs:40-51 — FPS and coordinates is on the Diagnostics subpage",
+    "crates/voxelgame-core/src/settings.rs:82-89 — Diagnostics sits under Advanced",
+    "crates/voxelgame-core/src/settings.rs:949 — setting name 'FPS AND COORDINATES'"
    ],
-   "notes": "Useful for writing down coordinates before teleporting. North is -Z and east is +X.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The Settings route, default and readout labels were re-checked; the compass directions keep their earlier audit. Useful for writing down coordinates before teleporting. North is -Z and east is +X.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4802,16 +4816,24 @@
    "modes": [
     "survival"
    ],
-   "summary": "In survival, an animal you kill puts its drops straight into your pack. Meat and venison are food, feathers make arrows, and wool can replace plant fiber; hide currently has no use.",
+   "summary": "In survival, an animal you kill leaves its drops on the ground where it fell. After about a second, walk within about 1.4 m to pick up what fits in your pack; anything you cannot carry stays on the ground. Meat and venison are food, feathers make arrows, and wool can replace plant fiber; hide currently has no use.",
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1911-1929 — drops added in survival; 'Capacity full; collected n/m' when the pack is full",
-    "crates/voxelgame-core/src/inventory.rs:909-912 — wool binds, feathers make arrows",
-    "crates/voxelgame-core/src/inventory.rs:1152-1158 — wool binds, feathers make arrows"
+    "crates/voxelgame-core/src/game/creature_melee.rs:38-81 — survival melee kills leave loot ('Defeated … | collect the dropped items'); a refused hit keeps the animal",
+    "crates/voxelgame-core/src/game.rs:2121-2166 — arrow kills leave loot; a refused impact keeps the animal and items",
+    "crates/voxelgame-core/src/game.rs:2167-2198 — thrown-rock kills leave loot",
+    "crates/voxelgame-core/src/game.rs:2219-2270 — rifle kills leave loot",
+    "crates/voxelgame-core/src/entities/melee.rs:10-11 — loot within 1 m of the animal, 1 s pickup delay",
+    "crates/voxelgame-core/src/entities/melee.rs:194-286 — loot needs a clear spot, otherwise the kill is refused",
+    "crates/voxelgame-core/src/game/item_drops.rs:102-137 — walk within 1.4 m; only what fits is collected",
+    "crates/voxelgame-core/src/dropped_items.rs:9-25 — up to 128 stacks; no expiry",
+    "crates/voxelgame-core/src/entities/species_profile.rs:401-486 — drops per species",
+    "crates/voxelgame-core/src/inventory.rs:1499-1502 — wool can replace fiber as binding",
+    "crates/voxelgame-core/src/inventory.rs:1879-1885 — feathers make arrows"
    ],
    "backlog": [
     "VOX-PLAY-002"
    ],
-   "notes": "Drops that do not fit are lost (there are no ground items). Killing animals in creative collects nothing. Hunting controls are covered by the combat audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Killing animals in creative collects nothing. If the loot has no clear spot, the hit is refused and the animal is kept. Hunting controls are covered by the combat audit.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5324,27 +5346,27 @@
     "creative",
     "survival"
    ],
-   "summary": "Press E, stay on Pack and click Character to see a 3D portrait of your explorer; move the pointer across it to turn the model. It shows Creative or your health and what you are holding; there are no appearance, outfit or skin options.",
+   "summary": "Press E, stay on Pack and click the Character icon beside the Pack icon to see a 3D portrait of your explorer; move the pointer across it to turn the model. It shows Creative or your health and what you are holding; there are no appearance, outfit or skin options.",
    "controls": [
     [
-     "Click Items / Character",
-     "Switch the Pack view between your items and the portrait (E > Pack)"
+     "Pack / Character icons",
+     "Switch the Pack view between your item grid and the portrait (E > Pack)"
     ],
     [
      "Move the pointer over the portrait",
-     "Turn the explorer (Character subtab)"
+     "Turn the explorer (Character view)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-render/src/inventory_ui.rs:282-305 — Items/Character buttons and portrait",
-    "crates/voxelgame-core/src/game/inventory_input.rs:176-186 — clicking the tabs",
-    "crates/voxelgame-render/src/character_preview.rs:14-96 — 'Your character', 'Move pointer to turn', mode/health line and held item",
-    "crates/voxelgame-render/src/player_avatar.rs:11-15 — one fixed outfit palette; same mesh as the F5 view"
+    "crates/voxelgame-render/src/inventory_ui.rs:461-480 — Pack and Character icon buttons; the portrait replaces the grid",
+    "crates/voxelgame-core/src/game/inventory_input.rs:395-401 — clicking an icon switches the view",
+    "crates/voxelgame-render/src/character_preview.rs:14-95 — 'Your character', 'Move pointer to turn', mode/health line and held item",
+    "crates/voxelgame-render/src/player_avatar.rs:11-21 — one fixed outfit palette, also used for remote players"
    ],
    "backlog": [
     "VOX-OWNER-PLAYER-SKIN-EDITOR"
    ],
-   "notes": "Remote players in multiplayer use the same fixed explorer model.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Remote players in multiplayer use the same fixed explorer model.",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -5859,6 +5881,13 @@
    "summary": "Wind, rain (including rain drumming on a roof above you), storms, forest, caves, morning birds, night wildlife, ponds, shorelines and streams fade in and out around you automatically. Ambience keeps playing behind in-world menus but is silent underwater and on the start menu; deep underground under a roof only the cave sound remains. Settings > Audio > Volume > Ambience volume sets its level.",
    "evidence": [
     "crates/voxelgame-core/src/ambience.rs:12-37 — ambience layers",
+    "crates/voxelgame-core/src/ambience.rs:38-80 — silent underwater; rain at altitude, roof and cave checks",
+    "crates/voxelgame-core/src/ambience.rs:192-209 — birdsong after sunrise, faded by noon",
+    "crates/voxelgame-core/src/game.rs:2498-2501 — silent on the start menu",
+    "src/audio.rs:939-948 — ambience scaled by its own volume",
+    "src/audio.rs:976-984 — Master volume applied last",
+    "crates/voxelgame-core/src/settings.rs:38 — Ambience volume on the Volume subpage",
+    "crates/voxelgame-core/src/settings.rs:953 — setting name 'AMBIENCE VOLUME'",
     "crates/voxelgame-core/src/ambience.rs:39-80 — underwater silence and cave rule",
     "crates/voxelgame-core/src/ambience.rs:190-218 — roof, birds and night wildlife",
     "crates/voxelgame-core/src/game.rs:2496-2512 — quiet on the start menu; in-world menus keep it",
@@ -6021,16 +6050,21 @@
    "area": "platform",
    "name": "Updating an installed game",
    "status": "partial",
-   "summary": "Linux managed installs report installed identity, stage an isolated official-source build and atomically switch the launcher after verification. Earlier releases and player data are kept; verified rollback selects the previous application payload. Windows/macOS retain source reinstall.",
+   "summary": "Linux managed installs report installed identity, stage an isolated official-source build and atomically switch the launcher after verification. Earlier releases and player data are kept; verified rollback selects the previous application payload. On macOS, Update-macOS.command (or bash update.sh), and on Windows, update-windows.cmd rebuild official main with the tools already installed and keep the old application files and player data, but have no version report, already-current check or verified rollback.",
    "evidence": [
-    "tools/update_install.py:1-18 — Linux managed-update scope and official source",
-    "docs/UPDATING.md:1-15 — version/update/rollback commands and limitations",
+    "README.md:21-25 — update entry points for Linux, macOS and Windows",
+    "START-HERE-macOS.txt:6-9 — macOS: fresh source folder, double-click Update-macOS.command, existing tools",
+    "docs/UPDATING.md:16-60 — update scripts and prerequisites; tools are never installed",
+    "scripts/desktop/update_github.py:42-72 — the updater uses tools already installed and stops if any are missing",
+    "docs/UPDATING.md:82-92 — macOS/Windows keep old payloads but lack Linux manifests, same-commit no-op and verified rollback",
+    "docs/UPDATING.md:113-125 — Linux managed version reporting from official main",
+    "tools/test_update_github.py:198-240 — update.sh runs from another folder and refuses a dirty checkout",
     "tools/test_update_install.py:1-20 — isolated orchestration regressions"
    ],
    "backlog": [
     "VOX-OWNER-UPDATE-INSTALLER"
    ],
-   "notes": "17 October follow-up at 36ff7d46073a7f8d0202a1b47b6d7deb580f301b: Linux orchestration has isolated failure/preservation tests. Native running-session and both-host acceptance remain pending; Windows/macOS managed updates are unfinished. Rollback does not undo newer save formats. See the updated installation guide; other ledger entries retain their stated audit baseline.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The update scripts (Update-macOS.command, update.sh, update-windows.cmd and scripts/desktop/update_github.py) were read at the same commit: they need Git, Python 3.9+, Cargo/Rust and at least 5 GiB free, refuse a missing, unknown or customised installation, and never install tools. No native Windows or macOS update run is confirmed. Rollback does not undo newer save formats. See the installation guide; other ledger entries retain their stated audit baseline.",
    "guide": {
     "state": "partial",
     "page": "guide-install-and-worlds.html",
@@ -6135,7 +6169,7 @@
     "src/world_backup.rs:133-155 — save/name/preview/session files",
     "src/worlds.rs:96-102 — override, remembered local world and DEBUG fallback"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. World mode, environment and progression remain local; display/audio/input preferences are shared. Pending recovery files are separate guarded state and must be preserved with their save until recovery completes. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. World mode, environment and progression remain local; display/audio/input preferences are shared. Pending recovery files are kept separately and must stay with their save until recovery completes. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6157,7 +6191,7 @@
     "src/app.rs:1965-1975 — remember existing ordinary local worlds",
     "crates/voxelgame-core/src/game/startup/main.rs:17-25 — absent/unreadable save disables Continue"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. An unreadable remembered world opens recovery and is kept; it is not silently replaced with a fresh world. Display/audio/input preferences remain shared. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. An unreadable remembered world opens recovery and is kept; it is not silently replaced with a fresh world. Display/audio/input preferences remain shared. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-install-and-worlds.html",
@@ -6176,7 +6210,7 @@
    "controls": [
     [
      "F6",
-     "Save now; retry guarded pack recovery when pending"
+     "Save now; retry pack recovery when it is pending"
     ],
     [
      "Ctrl+Q / Save & quit / window close",
@@ -6196,7 +6230,7 @@
     "src/app.rs:2002-2025 — 'World saved safely' only after a local write; otherwise 'This session does not save the world locally'",
     "src/app.rs:1597-1606 — main-menu save and return",
     "src/app.rs:1644-1660 — 30-second dirty-state autosave",
-    "src/app.rs:1884-1922 — save before leaving, continued hosting on menu visits, guarded close",
+    "src/app.rs:1884-1922 — save before leaving, continued hosting on menu visits, protected close",
     "src/app/owner_recovery.rs:11-45 — F6 retry and Shift+F6 choice",
     "crates/voxelgame-core/src/game/save_status.rs:14-29 — 'Save refused: …' warning kept until a save succeeds"
    ],
@@ -6312,7 +6346,7 @@
     "crates/voxelgame-core/src/save/load.rs:191-196 — saved generation restored",
     "crates/voxelgame-core/src/world/generator.rs:601-629 — persistent rules and generation 12"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Keep a backup before trying an older executable. Error texts remain “not a voxelgame save”, “world predates the half-metre voxel grid; a new world is required” and “world was saved by a newer version of voxelgame”. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Keep a backup before trying an older executable. Error texts remain “not a voxelgame save”, “world predates the half-metre voxel grid; a new world is required” and “world was saved by a newer version of voxelgame”. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
@@ -6327,17 +6361,18 @@
    "modes": [
     "any"
    ],
-   "summary": "An unreadable world opens a recovery dialog showing its world, file and reason. Back returns to the menu; Open Worlds folder requests the local folder. The file stays intact. An unreadable startup save is held behind a menu-only state, so Continue cannot play or overwrite it; choose another world or recover a separate backup copy.",
+   "summary": "An unreadable world opens a 'World could not be loaded' dialog showing its world, file and reason. 'Back to menu' returns to the menu; 'Open worlds folder' asks your system to open the worlds folder. The file stays intact. An unreadable startup save is held behind a menu-only state, so Continue cannot play or overwrite it; choose another world or recover a separate backup copy.",
    "evidence": [
     "src/local_startup.rs:9-22 — startup load failure opens recovery menu",
     "crates/voxelgame-core/src/game/startup_recovery.rs:20-51 — protected placeholder and diagnostic",
     "crates/voxelgame-core/src/game/startup_recovery.rs:87-123 — Back/Esc and Open Worlds folder",
+    "crates/voxelgame-render/src/startup_ui.rs:705-771 — 'World could not be loaded', 'Your save has been kept', 'Back to menu' and 'Open worlds folder'",
     "src/net_client/ready_recovery.rs:389-409 — malformed recovery file kept under guard",
     "src/local_startup.rs:108-126 — Continue/selection failures preserve diagnostic",
     "src/net_client/pending_import.rs:31-51 — unknown import retains protected startup state"
    ],
    "backlog": [],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Do not delete an owner-recovery or pending-save file to force loading. A Pending native import offers an explicit saved-world-and-matching-pack choice; unknown item quantities are not inferred. Folder-opening errors retain the original load diagnostic. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Only the dialog title and button labels were re-checked here; the rest keeps its 5 November check at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Do not delete a recovery or pending-save file next to the save to force loading. A Pending native import offers an explicit saved-world-and-matching-pack choice; unknown item quantities are not inferred. Folder-opening errors retain the original load diagnostic. No native game or two-computer play test was run.",
    "guide": {
     "state": "partial",
     "page": "guide-troubleshooting.html",
@@ -6364,7 +6399,7 @@
     "docs/verification/WORLD_BACKUP_20261016.md:27-43 — earlier offscreen native backup/recovery results"
    ],
    "backlog": [],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Snapshots keep the save, label, optional preview and available session metadata. .pending is unfinished. Backups survive source deletion. No Restore button is documented; the procedure opens a separate copy. Cited 16 October native verification is earlier game evidence, not a new wiki test. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Snapshots keep the save, label, optional preview and available session metadata. .pending is unfinished. Backups survive source deletion. No Restore button is documented; the procedure opens a separate copy. Cited 16 October native verification is earlier game evidence, not a new wiki test. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
    "controls": [
     [
      "Worlds > Create backup / Ctrl+B",
@@ -6417,17 +6452,22 @@
    "modes": [
     "any"
    ],
-   "summary": "When the game cannot start, for example with no usable GPU, an unreadable starting world or a mistyped option, it closes and prints the reason to the terminal ('voxelgame failed:...' or 'voxelgame could not start:...'). Menu and desktop launches show no error window, so start the launcher from a terminal to see the message.",
+   "summary": "When the game cannot start, for example with no usable GPU or a mistyped option, it closes and prints a report beginning 'qiqi could not continue' to the terminal, with the reason on its 'Error:' line, and saves the same report as a details.txt file. On Linux, a launch without options, such as from the application menu, also opens a window with Copy details and Close; Windows and macOS show no window yet. An unreadable world does not close the game: a 'World could not be loaded' dialog names the file and reason and keeps the save.",
    "evidence": [
-    "src/main.rs:59-70 — option errors exit with code 2, other failures with code 1, text on stderr only",
-    "src/app/startup.rs:42-65 — startup failures end the loading window",
-    "src/app/startup.rs:164-166 — startup failures end the loading window",
-    "crates/voxelgame-render/src/loading.rs:57-68 — 'no Vulkan-compatible graphics adapter found' and window-size limit errors"
+    "src/main.rs:33-50 — failures are reported and exit with a non-zero code",
+    "src/main.rs:93-109 — option errors exit with code 2, other failures with code 1",
+    "src/fatal_error.rs:174-201 — report header 'qiqi could not continue' and Error line",
+    "src/fatal_error.rs:244-278 — report printed to the terminal and saved as details.txt",
+    "src/fatal_error.rs:330-370 — window only for a launch without options on a desktop display; Linux only, with Python 3 and GTK 3",
+    "src/fatal_dialog.py:67-106 — window title, explanation, Copy details and Close",
+    "crates/voxelgame-render/src/loading.rs:64-73 — 'no Vulkan-compatible graphics adapter found'",
+    "src/local_startup.rs:11-23 — an unreadable starting world opens recovery instead of closing",
+    "crates/voxelgame-render/src/startup_ui.rs:705-771 — 'World could not be loaded', 'Back to menu' and 'Open worlds folder'"
    ],
    "backlog": [
     "VOX-OWNER-NATIVE-ERROR-WINDOW"
    ],
-   "notes": "Other messages: 'GPU ran out of memory during startup', 'Nearby terrain took too long to prepare; please try again' (shown on the menu), 'audio disabled: playback command unavailable (aplay on Linux; ffplay on Windows/macOS)'. Problems loading other worlds are shown on the main menu instead. Only run.sh shows a dialog, and only for a failed build (run.sh:100-104). Linux launcher path for terminal use: ~/.local/share/voxelgame/app/launch.sh (install.sh:140).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Other messages: 'GPU ran out of memory during startup', 'Nearby terrain took too long to prepare; please try again' (shown on the menu) and 'audio disabled: playback command unavailable (aplay on Linux; ffplay on Windows/macOS)'. The report file goes under ~/.local/state/tisu/crash-reports (or $XDG_STATE_HOME/tisu/crash-reports), or the system temporary folder if that fails. Linux launcher path for terminal use: ~/.local/share/voxelgame/app/launch.sh.",
    "guide": {
     "state": "partial",
     "page": "guide-troubleshooting.html",
@@ -6559,7 +6599,7 @@
     "VOX-NET-SERVER-REPORTS",
     "VOX-NET-SEC-QUINN-FLOOR"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Shared does not mean a communal inventory. Joined Creative players store only real carried supplies, not catalogue items. F6 does not save a joined world locally. Dedicated servers confirm most changes only after saving them. Vehicles/boats and some guarded actions stay limited. This does not establish complete multiplayer parity or physical target-device acceptance. Not tested on two computers."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Shared does not mean a communal inventory. Joined Creative players store only real carried supplies, not catalogue items. F6 does not save a joined world locally. Dedicated servers confirm most changes only after saving them. Vehicles/boats and some other actions stay limited. This does not establish complete multiplayer parity or physical target-device acceptance. Not tested on two computers."
   },
   {
    "id": "mp-dedicated-server",
@@ -6619,16 +6659,16 @@
    "area": "platform",
    "name": "Multiplayer menu: Host this world (LAN hosting)",
    "status": "partial",
-   "summary": "Host this world hosts the current saved local world and shows its join address. Main menu continues hosting. Stop hosting saves, disconnects players and recovers the owner’s world and pack for solo play. A refused initial save keeps hosting; a stopped-pack recovery error keeps the session guarded for F6 retry or an explicit Shift+F6 choice.",
+   "summary": "Host this world hosts the current saved local world and shows its join address. Main menu continues hosting. Stop hosting saves, disconnects players and recovers the owner’s world and pack for solo play. If the save made when you stop hosting is refused, hosting continues; a stopped-pack recovery error keeps the session open for an F6 retry or an explicit Shift+F6 choice.",
    "evidence": [
     "src/app.rs:941-996 — save first; refuse joined world/workshop",
-    "src/app.rs:1009-1033 — initial save failure keeps hosting",
-    "src/app.rs:1038-1094 — guarded stopped pack and explicit retry",
+    "src/app.rs:1009-1033 — a failed save on Stop hosting keeps hosting",
+    "src/app.rs:1038-1094 — protected stopped pack and explicit retry",
     "src/app/owner_recovery.rs:32-45 — retry/choice keys",
     "crates/voxelgame-render/src/startup_ui/stopped_owner_choice.rs:16-57 — choice explanation and 3-second hold",
     "src/net_client/ready_recovery/canonical_choice.rs:48-87 — preserve copy before final-pack selection",
     "src/net_client/ready_recovery/missing_world.rs:157-190 — preserve copy before saved-world-and-pack selection",
-    "src/app.rs:1906-1922 — menu continues hosting; guarded shutdown",
+    "src/app.rs:1906-1922 — menu continues hosting; protected shutdown",
     "src/app.rs:2007-2012 — F6 writes the hosted world while you host",
     "crates/voxelgame-core/src/session/hosting.rs:421-440 — a blocked seat or bed exit makes the owner's save/handback wait",
     "crates/voxelgame-core/src/game/home/keyboard.rs:24-50 — the Creative host's Home actions go to the server"
