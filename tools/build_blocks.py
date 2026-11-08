@@ -16,6 +16,7 @@ from reference_layout import article_open, article_close
 from build_guides import recipe_anchor
 
 ROOT = Path(__file__).resolve().parents[1]
+ICONS = json.loads((ROOT / 'data/block-icons.json').read_text())
 TABLE = 'crates/voxelgame-core/src/world/block/table.rs'
 FAMILIES = (
     ('ground', 'Natural ground'), ('stone', 'Stone and minerals'),
@@ -381,13 +382,14 @@ def render(data):
                                  for name in block.get('recipes', []))
             if block.get('creativeOnly'):
                 recipes = 'Creative only'
-            out.append(f'<tr id="{block["anchor"]}"><th scope="row">'
-                       f'<span class="block-swatch" style="background:rgb({color})" aria-hidden="true"></span>'
+            out.append(f'<tr id="{block["anchor"]}"><th scope="row">{block_icon(block, color)}'
                        f'<a href="#{block["anchor"]}">{escape(block["name"])}</a></th>'
                        f'<td data-label="Description">{escape(block["description"])}</td>'
                        f'<td data-label="How to get it">{recipes}</td></tr>')
         out.append('</tbody></table></div></section>')
-    out.append('<p class="reference-receipt">Colours are base tints; textures and lighting change their appearance. '
+    out.append('<p class="reference-receipt">Icons are cropped unchanged from the game’s creative Catalogue '
+               '(<a href="data/block-icons.json">icon receipt</a>, 8 November 2026); a square colour is a base tint '
+               'shown where the Catalogue has no icon. '
                f'<a href="data/blocks.json">Block reference</a>: {data["catalogCount"]} entries, including air, '
                f'Voxelgame <code>{data["game"]["commit"][:7]}</code>. '
                f'<a href="guide-crafting.html#recipes">Recipes</a>: '
@@ -395,6 +397,17 @@ def render(data):
                f'<a href="features.html#f-block-materials-catalogue">material ledger</a>, '
                f'<code>{data["acquisitionGame"]["commit"][:7]}</code>.</p>')
     return ''.join(out) + article_close()
+
+
+def block_icon(block, color, icons=None):
+    """The block's Catalogue icon from the shared sprite, or its base-colour swatch."""
+    icons = ICONS if icons is None else icons
+    index = icons['icons'].get(block['name'])
+    if index is None:
+        return f'<span class="block-swatch" style="background:rgb({color})" aria-hidden="true"></span>'
+    size, columns = icons['size'], icons['columns']
+    return (f'<span class="block-icon" style="background-position:-{index % columns * size}px '
+            f'-{index // columns * size}px" aria-hidden="true"></span>')
 
 
 def main():

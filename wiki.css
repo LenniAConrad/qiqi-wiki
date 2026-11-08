@@ -44,8 +44,8 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .home-palette a { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; line-height: 1.35; text-align: center; text-decoration: none; }
 .home-palette a:hover > span:last-child { text-decoration: underline; }
 /* Each colour sits in a recessed wood slot, like a block in the inventory; the colour itself is drawn untouched. */
-.material-color { display: block; flex: none; width: 56px; height: 56px; border-radius: 2px; background: linear-gradient(var(--material), var(--material)) center / 40px 40px no-repeat, linear-gradient(var(--edge), var(--edge)) center / 42px 42px no-repeat, var(--slot); box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); }
-.home-palette a:hover .material-color, .home-palette a:focus-visible .material-color { box-shadow: inset 0 0 0 1px var(--brass-light), 0 0 0 2px #cea65566; }
+.home-palette .block-icon { margin: 0; flex: none; }
+.home-palette a:hover .block-icon, .home-palette a:focus-visible .block-icon { box-shadow: 0 0 0 1px var(--brass-light), 0 0 0 3px #cea65566; }
 .wiki-search label { display: block; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; line-height: 26px; color: var(--title); font-synthesis: none; margin-bottom: 8px; }
 .wiki-search input { width: 100%; min-height: 46px; padding: 11px 14px; }
 .wiki-search .search-help { font-size: 11px; line-height: 1.5; color: var(--muted); margin: 7px 0 0; }
@@ -171,6 +171,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .block-swatch::before, .block-swatch::after { content: ""; position: absolute; }
 .block-swatch::before { inset: 0; border-radius: 2px; background: var(--slot); box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); }
 .block-swatch::after { inset: 3px; background: inherit; }
+.block-icon { display: inline-block; width: 46px; height: 46px; margin-right: 10px; vertical-align: middle; border-radius: 2px; background: url(images/blocks/icons.webp) no-repeat; image-rendering: pixelated; box-shadow: 0 0 0 1px var(--edge); }
 .block-table tr, .mob-table tr, .recipe-table tr { scroll-margin-top: 16px; }
 /* Block and animal tables read like the game's lists: brass header, line-separated rows, hover fill. */
 .reference-page .block-table th, .reference-page .block-table td, .reference-page .mob-table th, .reference-page .mob-table td { padding-inline: 10px 12px; }

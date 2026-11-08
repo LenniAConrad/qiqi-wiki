@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 
+from build_blocks import block_icon
 from build_guides import recipe_anchor
 from build_changelog import read as read_changelog, search_records as history_records
 from build_mobs import habitat_names, mob_anchor
@@ -57,9 +58,8 @@ def render_home():
     palette = []
     for symbol in ('GRASS', 'PLANKS', 'STONE', 'SAND', 'GLASS', 'GLOWSTONE'):
         block = blocks[symbol]
-        color = ' '.join(str(round(c * 255)) for c in block['color'])
-        palette.append(f'<li><a href="blocks.html#{block["anchor"]}">'
-                       f'<span class="material-color" style="--material:rgb({color})" aria-hidden="true"></span>'
+        color = ','.join(str(round(c * 255)) for c in block['color'])
+        palette.append(f'<li><a href="blocks.html#{block["anchor"]}">{block_icon(block, color)}'
                        f'<span>{escape(block["name"])}</span></a></li>')
     portraits = []
     for slug in ('fox', 'swan'):
@@ -103,7 +103,7 @@ def render_home():
             '<figcaption><a href="atlas.html#biome=Meadow">Meadow</a>'
             ' · Game capture, 28 September 2026</figcaption></figure></div>'
             '<section class="home-palette" aria-labelledby="palette-title"><div>'
-            '<h2 id="palette-title">A few building blocks</h2><p>Colours from the block catalog</p></div>'
+            '<h2 id="palette-title">A few building blocks</h2><p>Icons from the game’s Catalogue</p></div>'
             '<ul>' + ''.join(palette) + '</ul></section>'
             '<section id="categories" aria-labelledby="categories-title" class="home-catalog">'
             '<div class="section-label"><h2 id="categories-title">Inside the game</h2>'
