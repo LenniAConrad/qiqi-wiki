@@ -3884,7 +3884,7 @@
     "not-in-the-game-yet"
    ],
    "verification": {
-    "method": "On 8 November 2026 every section was re-checked against the game source at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game.rs (G, group lighting, detonation, damage and knockback), explosives.rs (blast reach, the 512-piece limit, lit-charge movement, cover), explosion_terrain.rs (crater and chain lighting), world/block.rs (blast resistance), game/explosion_loot.rs (animals), game/ranged_input.rs and projectile.rs (dynamite), inventory.rs (recipes), session/tnt.rs, session/tnt/dynamite.rs, game/net_client/tnt.rs, game/net_client/dynamite_throws.rs and docs/MULTIPLAYER.md (servers). Blast and damage distances are calculated from code constants, not measured in play.",
+    "method": "On 8 November 2026 every section was re-checked against the game source at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game.rs (G, group lighting, detonation, damage and knockback), explosives.rs (blast reach, the 512-piece limit, lit-charge movement, cover), explosion_terrain.rs (crater and chain lighting), world/block.rs (blast resistance), game/explosion_loot.rs (animals), game/ranged_input.rs and projectile.rs (dynamite), inventory.rs (recipes), session/tnt.rs, session/tnt/dynamite.rs, game/net_client/tnt.rs, game/net_client/dynamite_throws.rs and docs/MULTIPLAYER.md (servers). The furniture-support rules for lighting, single-player blasts, shells and tank tracks were re-checked at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc (game.rs, world/placed_furniture.rs). Blast and damage distances are calculated from code constants, not measured in play.",
     "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. No server session was run. No explosion screenshots exist yet, so the blast sizes are not checked against a headless capture."
    },
    "owns": [
@@ -3932,7 +3932,7 @@
       },
       {
        "t": "p",
-       "text": "Lit TNT pops loose and can fall, roll or float before it blows. Touching pieces go off together as one blast. One press lights at most 64 whole blocks (512 pieces). {{tnt-place-and-ignite}}"
+       "text": "Lit TNT pops loose and can fall, roll or float before it blows. Touching pieces go off together as one blast. One press lights at most 64 whole blocks (512 pieces). If any piece of the group holds up placed furniture, nothing is lit and the status line says \"This TNT cluster touches furniture support\". {{tnt-place-and-ignite}}"
       },
       {
        "t": "note",
@@ -3960,7 +3960,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "In a single-player world a blast breaks your own builds too. On a multiplayer server it leaves doors, chests and the blocks that hold up furniture alone, breaks nothing on land the person who lit it may not build on, and does not hurt players or animals standing there."
+       "text": "A blast never removes a block that holds up placed furniture, so the furniture keeps its support. Otherwise, in a single-player world a blast breaks your own builds too. On a multiplayer server it also leaves doors alone, breaks nothing on land the person who lit it may not build on, and does not hurt players or animals standing there."
       },
       {
        "t": "note",
