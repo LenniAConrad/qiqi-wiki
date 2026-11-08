@@ -842,7 +842,7 @@
       },
       {
        "t": "p",
-       "text": "Only four foods exist. Berries come only from the starter pack, so the renewable food is hunting, best cooked over charcoal (below). Fruit blocks and Date clusters are building blocks, not food. {{eating}} {{drinking-flasks}}"
+       "text": "Only four foods exist. Berries come only from the starter pack, so renewable food comes from hunting and {{guide:fishing|fishing}}, best cooked over charcoal (below). Fruit blocks and Date clusters are building blocks, not food. {{eating}} {{drinking-flasks}}"
       },
       {
        "t": "note",
@@ -2107,7 +2107,7 @@
    "title": "Hunting, weapons and animals",
    "headline": "Hunt with a sword,<br><em>bow, rifle or rock.</em>",
    "summary": "Animals never attack. Learn the melee, throwing, bow and rifle controls, and what each kill gives you.",
-   "lead": "Hunting is the renewable food in survival. No animal fights back, so the only hard part is getting close enough and keeping the weapon ready.",
+   "lead": "Hunting is one of the two renewable food sources in survival; the other is fishing. No animal fights back, so the only hard part is getting close enough and keeping the weapon ready.",
    "readTime": "4 min read",
    "audience": "Everyone",
    "updated": "2026-11-08",
@@ -2124,7 +2124,8 @@
    ],
    "next": [
     "first-survival-day",
-    "crafting-and-recipes"
+    "crafting-and-recipes",
+    "fishing"
    ],
    "verification": {
     "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines. The cooking advice in 'What you get from a kill' was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026.",
@@ -5908,6 +5909,248 @@
         "**Lamps:** switching waits for the server. Switch a lamp on before taking it up: **Switch the lamp on before taking it up; history keeps its power**.",
         "**Changing woods:** storage pieces and the wall shelf can change materials on a server; beds and lamps cannot (**This furniture does not support material changes on servers**).",
         "Opening doors and drawers are drawn only on your own screen; other players see the piece closed."
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fishing",
+   "page": "guide-fishing.html",
+   "number": 24,
+   "gap": null,
+   "kicker": "Survival",
+   "title": "Fishing",
+   "headline": "Cast a line,<br><em>reel in a meal.</em>",
+   "summary": "Make a Reed fishing rod, cast into open water, wait for a bite and reel in Raw meat. Where you can fish, which fish bite where, and fishing on a server.",
+   "lead": "Fishing is a quiet way to find food without hunting. The rod costs a few boards, reeds and fiber, never wears out and needs no bait, and every catch is a piece of Raw meat.",
+   "readTime": "5 min read",
+   "audience": "Everyone",
+   "updated": "2026-11-08",
+   "state": "complete",
+   "covers": [
+    "fishing",
+    "fishing-catches",
+    "fishing-on-servers",
+    "equip-tools-tab",
+    "creative-catalog",
+    "ingredient-groups",
+    "material-sources",
+    "planned-ground-drops",
+    "eating"
+   ],
+   "next": [
+    "hunting-and-animals",
+    "crafting-and-recipes"
+   ],
+   "verification": {
+    "method": "Source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 on 8 November 2026. Cast and line reach, accepted waters, the wait, catch tables and messages: fishing.rs:17-237. Rod controls, the full pack and catch messages: game/fishing.rs:23-90 and game.rs:2030-2036 and 2653-2657. Rod name, description, recipe and ingredient groups: inventory.rs:734, 845, 861-885 and 1872-1878. Equipping and the Creative catalogue: game/crafting.rs:126-128, game/hotbar.rs:393-428, game/consumables.rs:44-55 and game/creative_catalog.rs:182-225. Making room: game/item_drops.rs:53-63, game/inventory_input.rs:180-197 and inventory.rs:957-960. Hotbar and crosshair hints: the renderer's hotbar_ui.rs:248-253 and menus_ui.rs:119-124; the float and line: fishing_view.rs:20-49. Servers: session/fishing.rs:78-324, game/net_client/fishing.rs:101-315 and the server's host/fishing.rs:88-94. Food values and cooking: survival.rs:70-75 and inventory/cooking.rs:7-13. Paths beginning game/, session/, fishing.rs, inventory, game.rs or survival.rs are beneath crates/voxelgame-core/src/; renderer files are beneath crates/voxelgame-render/src/; host/ is beneath crates/voxelgame-server/src/.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. No new game capture, server or LAN session. The game's own player guide does not describe fishing yet; this guide follows the code."
+   },
+   "owns": [
+    "fishing",
+    "fishing-catches",
+    "fishing-on-servers"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "rod",
+     "title": "Make and equip a rod",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "In Survival, craft a **Reed fishing rod** in [[E]] > **Craft** > **Tools & arms**. It costs 4 boards of any species, 4 Reeds and 2 Plant fiber, and Wool can stand in for the fiber. Counts are half-metre pieces, as everywhere in the Craft tab. {{fishing}} {{ingredient-groups}}"
+      },
+      {
+       "t": "p",
+       "text": "Reeds grow in wetlands. Plant fiber comes from Wild flax, which grows in some meadows of newer worlds; older worlds have none, so use Wool there. Wool comes from sheep. {{material-sources}}"
+      },
+      {
+       "t": "p",
+       "text": "A rod you craft is equipped at once. Otherwise press [[Tab]] (or [[Shift]] + [[Tab]]) until the status line says **Equipped Reed fishing rod**, click the rod in the Pack, or bind it to a hotbar slot and select that slot. {{equip-tools-tab}}"
+      },
+      {
+       "t": "p",
+       "text": "In Creative, click the Reed fishing rod in the Build catalogue: you take one and it is equipped. Fishing works the same way there, and the Raw meat still goes into your pack. On a server, fishing needs Survival; see the last section. {{creative-catalog}}"
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "Fishing uses nothing up. The rod does not wear out, and there is no bait."
+      }
+     ]
+    },
+    {
+     "id": "cast",
+     "title": "Cast, wait and reel in",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Stand by open water and aim at its surface, no more than 12 m away.",
+        "Right click to cast. The status line says **Line cast | wait for a bite; RMB reels in, LMB cancels**, and a small cream-and-red float sits on the water at the end of a thin line.",
+        "Wait 2 to 4 seconds for a bite. The status line says **A bite! Reel in when ready**.",
+        "Right click to reel in. The status line names the catch, for example **Caught a trout | +1 Raw meat**, and you hear the usual pickup sound."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Right click",
+         "Cast. After a bite, reel in. Before a bite it changes nothing and shows **Waiting for a bite**."
+        ],
+        [
+         "Left click",
+         "Cancel the line: **Fishing line cancelled**."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The hotbar shows the rod's state, **Ready to cast**, **Waiting for a bite** or **A bite! Reel in when ready**, with the hint **RMB CAST/REEL / LMB CANCEL**. A bite never gets away: the fish waits on the line until you reel in or cancel."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "There is no bite sound, and the float does not move when a fish bites. Watch the status line or the hotbar."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "While the rod is equipped it takes both mouse buttons, so you cannot mine, place blocks or hit animals. At a boat's helm the rod does nothing; press [[V]] to leave the helm first. Selecting a block or another tool puts the rod away and cancels the line."
+      }
+     ]
+    },
+    {
+     "id": "where",
+     "title": "Where you can fish",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Your cast lands on the first thing your aim meets within 12 m. Three kinds of water take a line: {{fishing-catches}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Fresh water**, in lakes, rivers and most inland wetlands.",
+        "Sea **Water**, in the ocean and along coasts.",
+        "**Black water**, in warm, very wet lowlands such as bayous."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Ice of any kind, Hot spring water, Boiling water and Dark fjord water do not take a line. Nor do Water lilies, Kelp, reeds or other plants in the water, or grass on the bank between you and the water: aim past them at open water. Depth, time of day, weather and season make no difference."
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Aim at open water within 12 m to cast**: your aim meets nothing within 12 m.",
+        "**Fish in open fresh, sea or black water**: your aim meets something else first, such as ground, a plant or ice."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Once the line is out you can look around and walk a little. The line is cancelled if you move more than 16 m from the float (**Fishing line cancelled | too far from the water**) or if the water under the float changes, for example when a block is placed there (**Fishing line cancelled | the water changed**). Opening the inventory does not cancel it."
+      }
+     ]
+    },
+    {
+     "id": "catches",
+     "title": "What you catch",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Every catch is 1 **Raw meat**; the fish only changes the message. Which fish it is depends on the water and on the biome where the float lands:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Fresh water:** carp, sometimes trout. In Pine highlands, Snowy tundra, Snowy peaks, Frozen lake, Frozen fjord and Rocky highlands it is the other way round: trout, sometimes carp.",
+        "**Sea water:** salmon, sometimes crab. In Coral shallows, Mangrove coast, Gravel shore, Shell beach and Tide pools it is crab, sometimes salmon.",
+        "**Black water:** always catfish."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "\"Sometimes\" means about one cast in three. The catch is chosen when you cast. Fishing does not take animals out of the water, and you do not need to see a fish to catch one."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "There is no fish item, bait, rare catch or better rod. The game treats its catch tables and the 2 to 4 second wait as a first version, so they may change."
+      }
+     ]
+    },
+    {
+     "id": "full-pack",
+     "title": "If your pack is full",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A catch that does not fit is not lost. The status line says **Pack full | make room, then reel in the waiting catch**, an **Inventory full** notice appears, and the catch stays on the line."
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Keep the rod equipped.",
+        "Make room. Open the Pack with [[E]], point at something you do not need and press [[J]] to drop one, or [[Ctrl]] + [[J]] to drop all of that kind. If you are hungry, eating a Raw meat or Venison from the Pack also makes room for one catch. {{planned-ground-drops}}",
+        "Close the Pack and right click again to reel in."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "With the Pack closed, [[J]] drops the rod itself, and that cancels the line."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Lines are never saved. Reel in before you leave: a catch still on the line is lost when you quit, load another world or disconnect."
+      }
+     ]
+    },
+    {
+     "id": "food",
+     "title": "Eat or cook the catch",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Raw meat from fishing is the same as Raw meat from hunting. In Survival, when you are not full, [[R]] eats the first food you carry, in the order Berries, Venison, Raw meat, Cooked meat, or you can click Raw meat in the Pack to eat it. Raw meat restores 8 hunger and Cooked meat 30, so cook it when you can. {{eating}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Burn a charcoal pile",
+        "Cook raw meat"
+       ]
+      },
+      {
+       "t": "p",
+       "text": "**Cook raw meat** turns 1 Raw meat and 1 Charcoal into 1 Cooked meat in the Craft tab's **Fire & food** section. A placed Cooking stove cooks it too; see {{guide:crafting-and-recipes|Crafting and recipes}}."
+      }
+     ]
+    },
+    {
+     "id": "servers",
+     "title": "Fishing on a server",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Fishing works on a server, including a world you host, but only in Survival. In Creative it is refused with **Fishing on servers requires Survival mode**. The rod must be in your own pack on the server. {{fishing-on-servers}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Each cast, reel and cancel waits for the server. The status line says **Waiting for the server's fishing decision** until it answers. Just after you join, it may say **Fishing waits for your server stock and personal state** until your pack arrives.",
+        "The server uses the same water, wait and catch rules as solo play. Only you see your float and line.",
+        "If another of your actions is still waiting for the server, the status line says **Wait for the server to finish the current action | catch kept**. Try again once it has finished.",
+        "Refusals start with **Fishing refused:**, for example **Fishing refused: Furniture covers that fishing water** when furniture stands between you and the water, or **Fishing refused: Wait a moment before fishing again** after a very quick second click.",
+        "The server cancels your line if your mode changes, you die or respawn, or you stop carrying the rod, for example **Fishing line cancelled | fishing rod is no longer carried**.",
+        "**Caught a salmon | +1 Raw meat** and similar messages appear once the meat is in your pack. On a dedicated server that saves its world this can take a moment, because the server saves your catch first.",
+        "A full pack works as in solo play: the catch waits on the line until you make room and reel again. Disconnecting or a server restart drops the line."
        ]
       }
      ]

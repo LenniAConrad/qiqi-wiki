@@ -4730,6 +4730,133 @@
    }
   },
   {
+   "id": "fishing",
+   "area": "creatures",
+   "name": "Fishing with the Reed fishing rod",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Craft a Reed fishing rod from 4 boards, 4 Reeds and 2 Plant fiber or Wool, then equip it. Right click open water within 12 m to cast. A bite comes after 2 to 4 seconds and waits until you right click again to reel in 1 Raw meat. Left click cancels the line. Moving more than 16 m from the float, changing the water under it or putting the rod away also cancels it.",
+   "controls": [
+    [
+     "Right click (rod equipped)",
+     "Cast at open water within 12 m; after a bite, reel in the catch"
+    ],
+    [
+     "Left click (rod equipped)",
+     "Cancel the line"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/inventory.rs:1872-1878 — Reed fishing rod recipe in Tools: 4 boards, 4 Reeds, 2 Plant fiber",
+    "crates/voxelgame-core/src/inventory.rs:861-885 — boards of any species; fiber or wool",
+    "crates/voxelgame-core/src/inventory.rs:734 — item name 'Reed fishing rod'",
+    "crates/voxelgame-core/src/inventory.rs:845 — description: RMB casts or reels in; LMB cancels; catches wait if the pack is full",
+    "crates/voxelgame-core/src/entities/species_profile.rs:410 — sheep drop Wool",
+    "crates/voxelgame-core/src/inventory.rs:451-462 — the rod is in the Creative catalogue with the other tools",
+    "crates/voxelgame-core/src/game/creative_catalog.rs:182-225 — taking a tool from the Creative catalogue adds one and equips it",
+    "crates/voxelgame-core/src/game/crafting.rs:126-128 — a crafted tool is equipped at once",
+    "crates/voxelgame-core/src/game/hotbar.rs:393-428 — Tab cycles carried tools: 'Equipped <tool>'",
+    "crates/voxelgame-core/src/game/consumables.rs:44-55 — clicking a tool in the Pack equips or stows it",
+    "crates/voxelgame-core/src/game.rs:2588-2593 — Creative can use a tool without carrying it",
+    "crates/voxelgame-core/src/fishing.rs:17-18 — 12 m cast reach and 16 m line reach",
+    "crates/voxelgame-core/src/fishing.rs:100-142 — cast refusals, a 2 to 4 second wait and 1 Raw meat per catch",
+    "crates/voxelgame-core/src/fishing.rs:144-170 — bite message; cancelled when too far away or when the water changes; a bite never times out",
+    "crates/voxelgame-core/src/fishing.rs:190-197 — Ready to cast / Waiting for a bite / A bite! labels",
+    "crates/voxelgame-core/src/game/fishing.rs:23-40 — putting the rod away cancels the line; bite notice",
+    "crates/voxelgame-core/src/game/fishing.rs:42-90 — right click casts or reels, left click cancels; catch and pack-full messages; nothing is spent",
+    "crates/voxelgame-core/src/game.rs:2653-2657 — the rod takes both clicks before mining, placing or hitting",
+    "crates/voxelgame-core/src/game.rs:2030-2036 — rod input only on foot, not while at a boat's helm or in another vehicle",
+    "crates/voxelgame-core/src/game/mod_vehicles.rs:133-147 — no block highlight while the rod is equipped",
+    "crates/voxelgame-core/src/game/pickup_feed.rs:262-266 — a catch plays the pickup sound and joins the pickup list",
+    "crates/voxelgame-core/src/game/fishing/tests.rs:44-70 — the catch is saved; a line is not",
+    "crates/voxelgame-core/src/game/fishing/tests.rs:72-94 — a full pack keeps the catch on the line; making room lets the next reel land it",
+    "crates/voxelgame-core/src/game/fishing/tests.rs:111-123 — the open Pack takes the mouse and keeps the waiting catch",
+    "crates/voxelgame-core/src/game/item_drops.rs:53-63 — with the Pack closed, J drops the equipped tool first",
+    "crates/voxelgame-core/src/game/inventory_input.rs:180-197 — with the Pack open, J drops the item under the pointer",
+    "crates/voxelgame-core/src/inventory.rs:957-960 — Raw meat and Venison weigh 0.20 each, Berries 0.03, Cooked meat 0.18",
+    "crates/voxelgame-render/src/hotbar_ui.rs:248-253 — hotbar shows the line state and RMB CAST/REEL / LMB CANCEL",
+    "crates/voxelgame-render/src/menus_ui.rs:119-124 — crosshair hint RMB CAST / REEL | LMB CANCEL LINE",
+    "crates/voxelgame-render/src/fishing_view.rs:20-49 — a still cream-and-red float on a thin line from the rod tip"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The rod never wears out and fishing uses nothing up; there is no bait. While it is equipped the rod takes both mouse buttons, so you cannot mine, place blocks or hit animals, and it does nothing at a boat's helm. Lines are never saved. There is no bite sound and the float does not move: the status line and hotbar show the bite. The game's player guide does not describe fishing yet.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-fishing.html",
+    "label": "Fishing"
+   }
+  },
+  {
+   "id": "fishing-catches",
+   "area": "creatures",
+   "name": "Where to fish and what you catch",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Only open Fresh water, sea Water and Black water take a line; ice, Hot spring water, Boiling water, Dark fjord water and plants in the water do not. Every catch is 1 Raw meat. The fish named depends on the water and biome: carp or trout in fresh water (trout more often in cold and highland biomes), salmon or crab in the sea (crab more often on shallow shores), and always catfish in black water.",
+   "evidence": [
+    "crates/voxelgame-core/src/fishing.rs:62-78 — Fresh water, Water and Black water are the accepted waters",
+    "crates/voxelgame-core/src/fishing.rs:100-105 — ice, thermal water, dark fjord water and waterlogged plants are excluded",
+    "crates/voxelgame-core/src/fishing.rs:123-139 — the first occupied voxel within 12 m; the fish is chosen at the cast; 1 Raw meat",
+    "crates/voxelgame-core/src/fishing.rs:213-237 — catch tables by water and biome",
+    "crates/voxelgame-core/src/fishing.rs:3-7 — prototype tables; catches reuse Raw meat and never change animals",
+    "crates/voxelgame-core/src/entities/mod.rs:587-595 — 'a' or 'an' before the fish name in the catch message",
+    "crates/voxelgame-core/src/world/generator.rs:1967-2002 — lakes and inland drainage are fresh; warm, very wet lowlands are black water",
+    "crates/voxelgame-core/src/world/generator.rs:2221-2249 — frozen water becomes ice; ocean, fresh, black and thermal water blocks",
+    "crates/voxelgame-core/src/survival.rs:70-75 — Raw meat restores 8 hunger, Cooked meat 30",
+    "crates/voxelgame-core/src/inventory/cooking.rs:7-13 — Cook raw meat: 1 Raw meat and 1 Charcoal make 1 Cooked meat"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The likelier fish comes up about two casts in three. Depth, time of day, weather and season make no difference, and fishing does not take animals out of the water. There is no fish item, bait or rare catch; the game calls its catch tables and wait a first version.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-fishing.html",
+    "label": "Fishing"
+   }
+  },
+  {
+   "id": "fishing-on-servers",
+   "area": "creatures",
+   "name": "Fishing on a server",
+   "status": "partial",
+   "modes": [
+    "survival"
+   ],
+   "summary": "On a server, including a world you host, fishing works in Survival only and the rod must be in your own pack. Each cast, reel and cancel waits for the server, which uses the same water, wait and catch rules. Only you see your float and line. Creative is refused with 'Fishing on servers requires Survival mode'; other refusals start with 'Fishing refused:'.",
+   "controls": [
+    [
+     "Right click (rod equipped, on a server)",
+     "Ask the server to cast or reel in"
+    ],
+    [
+     "Left click (rod equipped, on a server)",
+     "Ask the server to cancel the line"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/session/fishing.rs:78-136 — a living Survival player with the rod in their pack; a short wait between attempts",
+    "crates/voxelgame-core/src/session/fishing.rs:138-178 — the server casts from your eye; furniture over the water refuses the cast",
+    "crates/voxelgame-core/src/session/fishing.rs:228-273 — the whole catch is added once, or stays on the line",
+    "crates/voxelgame-core/src/session/fishing.rs:286-324 — the server cancels on a mode change, death or respawn, or when the rod is no longer carried",
+    "crates/voxelgame-core/src/game/net_client/fishing.rs:101-162 — Creative and busy refusals; 'Waiting for the server's fishing decision'",
+    "crates/voxelgame-core/src/game/net_client/fishing.rs:253-266 — cancel, pack-full and 'Fishing refused:' messages",
+    "crates/voxelgame-core/src/game/net_client/fishing.rs:293-315 — the catch message waits until the meat is in your pack",
+    "crates/voxelgame-server/src/host/fishing.rs:88-94 — a saving dedicated server confirms a catch after saving it",
+    "crates/voxelgame-core/src/session/fishing/persistence.rs:102-121 — lines are never saved",
+    "src/net_client/hosting.rs:3-12 — the hosting player joins their own hosted world",
+    "docs/MULTIPLAYER.md:1309-1330 — private Survival fishing on servers"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A catch waiting on the line survives a full pack: make room while the rod stays equipped and reel again. Disconnecting, dying or a server restart drops the line. Another of your actions still waiting for the server blocks the rod until it finishes.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-fishing.html",
+    "label": "Fishing"
+   }
+  },
+  {
    "id": "no-hostile-mobs",
    "area": "creatures",
    "name": "Peaceful world: no hostile mobs",

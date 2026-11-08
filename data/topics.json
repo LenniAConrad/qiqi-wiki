@@ -39,7 +39,7 @@
     {
       "id": "mobs", "title": "Animals and mobs", "page": "topic-mobs.html",
       "summary": "Animal families, habitats, spawning, calls and interactions.",
-      "guides": ["creatures", "hunting-and-animals"],
+      "guides": ["creatures", "hunting-and-animals", "fishing"],
       "references": [["mobs.html", "Animal family reference"], ["animals.html", "Animal portrait gallery"], ["guide-creatures.html#eggs", "Spawn eggs"], ["guide-hunting.html#peaceful", "Peaceful animals and hunting"]],
       "related": ["exploration", "items", "getting-started"]
     },
@@ -58,6 +58,7 @@
         {"name": "Bows", "description": "Hold to draw, then release to shoot. Make an Alder bow with plant fiber or wool, or use reeds.", "href": "guide-hunting.html#bow"},
         {"name": "Arrows", "description": "Ammunition for bows. Each recipe makes four; survival shots use one arrow.", "href": "guide-crafting.html#recipe-four-arrows"},
         {"name": "Throwing rocks", "description": "Equip a rock, hold right-click to wind up, then release to throw.", "href": "guide-hunting.html#rocks"},
+        {"name": "Reed fishing rod", "description": "Right-click open water to cast, wait for a bite, then right-click again to reel in Raw meat.", "href": "guide-fishing.html#rod"},
         {"name": "Cooked meat", "description": "Cook meat in the crafting panel and eat it to restore hunger.", "href": "guide-crafting.html#recipe-cook-raw-meat"},
         {"name": "Building materials", "description": "Boards, bricks, glass and stone for walls, floors and roofs.", "href": "blocks.html"}
       ],
