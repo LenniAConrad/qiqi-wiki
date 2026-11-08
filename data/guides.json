@@ -29,7 +29,7 @@
    "lead": "Everything you need for the first twenty minutes: starting a world, moving around, finding your pack and leaving without losing anything.",
    "readTime": "7 min read",
    "audience": "New players",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "start-menu",
@@ -54,7 +54,7 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit. Targeted menu, pause, rebinding, screenshot and settings changes were checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Other gameplay paragraphs retain earlier receipts. Targeted Pack, drop and death-screen guidance was checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: crates/voxelgame-core/src/inventory.rs:882-893; game/inventory_input.rs:55-67; game/item_drops.rs:53-137; game/death.rs:80-123,234-263; crates/voxelgame-render/src/inventory_ui.rs:425-535. Inventory remains under active development.",
+    "method": "Every key, number and message below was read from the game source at the audited commit and traced to a ledger entry. The four screenshots come from the same commit's release build, run headless against a throwaway world. The Target info, Speed FOV and Damage bob settings were checked against game commit 6acf338 (main 4bd6541), which came after the audited commit. Targeted menu, pause, rebinding, screenshot and settings changes were checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Other gameplay paragraphs retain earlier receipts. Targeted Pack, drop and death-screen guidance was checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026: crates/voxelgame-core/src/inventory.rs:882-893; game/inventory_input.rs:55-67; game/item_drops.rs:53-137; game/death.rs:80-123,234-263; crates/voxelgame-render/src/inventory_ui.rs:425-535. Inventory remains under active development. The Pack load header was checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026: crates/voxelgame-render/src/inventory_ui.rs:17-26,87-94.",
     "limits": "Source-checked, not play-tested. The four preserved screenshots are 11 October 2026 captures of the older audited build; they do not show the current menu or inventory layout. No new game capture or native run was made. Inventory and death source tests were read, not run in this wiki update."
    },
    "sections": [
@@ -250,7 +250,7 @@
       },
       {
        "t": "p",
-       "text": "Press [[E]] to open or close the inventory. Switch tabs with the mouse, [[Tab]] or [[Shift]]+[[Tab]]. Creative has the free Build catalog; Survival carpentry adds Build when you carry a Furniture hammer. The pack holds up to 1000 capacity. {{inventory-workspaces}} {{carry-capacity}}"
+       "text": "Press [[E]] to open or close the inventory. Switch tabs with the mouse, [[Tab]] or [[Shift]]+[[Tab]]. Creative has the free Build catalog; Survival carpentry adds Build when you carry a Furniture hammer. The pack holds up to 1000 capacity. The header at the top right shows your load, for example \"Load: 0.1 / 1000\". {{inventory-workspaces}} {{carry-capacity}}"
       },
       {
        "t": "p",
@@ -3570,7 +3570,7 @@
    "lead": "TNT and dynamite break blocks in a wide circle. Blasted blocks are destroyed, not collected. Creative players can use them freely. In survival, both need Glow crystal, which the world does not generate naturally.",
    "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "partial",
    "covers": [
     "tnt-place-and-ignite",
@@ -3584,8 +3584,8 @@
     "not-in-the-game-yet"
    ],
    "verification": {
-    "method": "Controls, fuse times, blast reach, damage rules and dynamite throwing come from the game source at the ledger's audited commit dd29d91 (game.rs, explosives.rs, projectile.rs, ranged_input.rs, inventory.rs). Blast distances are calculated from code constants, not measured in play.",
-    "limits": "Source-checked, not play-tested in this guide. No explosion screenshots exist yet, so the blast sizes are not checked against a headless capture."
+    "method": "Controls, fuse times, blast reach, damage rules and dynamite throwing come from the game source at the ledger's audited commit dd29d91 (game.rs, explosives.rs, projectile.rs, ranged_input.rs, inventory.rs). Blast distances are calculated from code constants, not measured in play. On 8 November 2026 the place-and-light, dynamite and saves sections were re-checked for multiplayer servers at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: game.rs:2808-2820, game/net_client/tnt.rs:41-155, game/ranged_input.rs:76-97, game/net_client/dynamite_throws.rs:61-212, session/tnt.rs:40-137, session/tnt/dynamite.rs:17-110 and docs/MULTIPLAYER.md:2500-2539. The other sections keep the dd29d91 receipt.",
+    "limits": "Source-checked, not play-tested in this guide. The server behaviour was source-checked at Voxelgame dfeb362d on 8 November 2026; no server session was run. No explosion screenshots exist yet, so the blast sizes are not checked against a headless capture."
    },
    "owns": [
     "tnt-place-and-ignite",
@@ -3637,7 +3637,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "G does not work on multiplayer servers. The game shows \"Explosives aren't available on servers yet\"."
+       "text": "On a multiplayer server, [[G]] asks the server to light the TNT. The status line says \"Requesting TNT ignition | move away\"; wait for the reply before you use another explosive. The server checks that you can reach the TNT and are allowed to build there. It then says, for example, \"8-charge TNT cluster ignited by server | move away\". A refusal starts with \"TNT ignition refused:\" and gives the reason. If the server restarts while a fuse burns, that TNT is lost."
       }
      ]
     },
@@ -3708,7 +3708,7 @@
         "You cannot place blocks while you hold dynamite.",
         "Opening a menu cancels a wind-up.",
         "Creative throws are unlimited. Survival uses one stick per throw. A throw that cannot fly keeps the stick.",
-        "Dynamite does not work on multiplayer servers."
+        "On a multiplayer server, releasing asks the server to throw. The status line says \"Requesting dynamite throw\", then \"Dynamite thrown by server\". Wait for the reply before you throw again. A refused throw keeps the stick, for example \"Wait for the server to finish the current action | dynamite kept\". In Survival the server spends one stick when it accepts the throw; Creative throws stay free."
        ]
       },
       {
@@ -3747,6 +3747,7 @@
        "t": "list",
        "items": [
         "Lit TNT and burning dynamite are not saved. Quitting during a fuse loses that TNT.",
+        "On a multiplayer server, lit TNT and burning dynamite are lost if the server restarts. Blasted ground, injuries and loot are kept.",
         "Explosions are not recorded in build history."
        ]
       }
@@ -4102,7 +4103,7 @@
    "lead": "Wild animals appear on their own as you walk, sail and fly around the world. Which ones you see depends on the biome and nearby water. This page covers where animals appear, how many there can be, which species call, and how to use creative spawn eggs.",
    "readTime": "3 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "animal-natural-spawning",
@@ -4116,8 +4117,8 @@
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "Spawn rules come from crates/voxelgame-core/src/entities/mod.rs at Voxelgame 51169272 (spawn rules) and 98c662d6 (species roster: Species::ALL has 94 entries; names from name()): the 36-animal cap, 32 m spawn cells, the empty-cell roll, the 96 m height limit, the 180 m removal distance, the per-species caps and the biome species groups. Call rules come from has_ambient_call, ambient_call and the 24 m falloff in the same file. Egg rules come from ranged_input.rs (wind-up, survival use, 64-creature limit for thrown eggs in entities/mod.rs) and ui.rs (MOBS tab only). A search of the game code found no spawn-egg crafting recipe.",
-    "limits": "Source-checked, not play-tested in this guide. No captures of spawned animals exist yet. Exact spawn counts depend on the terrain around you, so the numbers here are caps, not what you will always see."
+    "method": "Spawn rules come from crates/voxelgame-core/src/entities/mod.rs at Voxelgame 51169272 (spawn rules) and 98c662d6 (species roster: Species::ALL has 94 entries; names from name()): the 36-animal cap, 32 m spawn cells, the empty-cell roll, the 96 m height limit, the 180 m removal distance, the per-species caps and the biome species groups. Call rules come from has_ambient_call, ambient_call and the 24 m falloff in the same file. Egg rules come from ranged_input.rs (wind-up, survival use, 64-creature limit for thrown eggs in entities/mod.rs) and ui.rs (MOBS tab only). A search of the game code found no spawn-egg crafting recipe. On 8 November 2026 the height and eggs sections were re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: entities/persistence.rs:1-22 and 146-194 (hatched animals are saved and wake within 180 m), entities/mod.rs:100-102 and 1411-1419 (36 wild animals, 64 hatched animals, 180 m), entities/hatching.rs:64-81, save/write.rs:132-136 and game.rs:2203-2212.",
+    "limits": "Source-checked, not play-tested in this guide. No captures of spawned animals exist yet. Exact spawn counts depend on the terrain around you, so the numbers here are caps, not what you will always see. The height and eggs sections were source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested."
    },
    "owns": [
     "animal-natural-spawning",
@@ -4158,7 +4159,7 @@
       },
       {
        "t": "p",
-       "text": "Any animal more than 180 m from you is removed from the world."
+       "text": "Any wild animal more than 180 m from you is removed from the world. Animals you hatched from eggs are set aside instead. They are saved with the world and come back when you return within 180 m. {{animal-spawn-eggs}}"
       }
      ]
     },
@@ -4248,7 +4249,8 @@
       {
        "t": "list",
        "items": [
-        "A thrown egg can add animals above the normal 36 limit, but the world never holds more than 64 creatures in total.",
+        "A thrown egg can add animals above the normal 36 limit. An egg cannot hatch while 64 animals are around you, once the world keeps 64 hatched animals, or where the animal does not fit. The game then says \"The egg burst, but nothing could hatch here\".",
+        "Hatched animals are saved with the world. When you move more than 180 m away they wait where they were, and they return when you come back.",
         "In survival, a thrown egg uses one you are carrying. Eggs have no crafting recipe."
        ]
       }
@@ -4268,7 +4270,7 @@
    "lead": "This guide explains what the screen tells you while you move and aim, and the camera settings that change how movement feels.",
    "readTime": "5 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "crosshair-and-reticle",
@@ -4286,8 +4288,8 @@
     "building-basics"
    ],
    "verification": {
-    "method": "Crosshair spread, aim steadiness, the looking-at card, the status line, camera effects, the collection feed and water effects come from the feature ledger, which cites Voxelgame source lines. The numbers were rechecked at Voxelgame commit 0494a0ce: 6 m target reach, Speed FOV 5 degrees reaching full at 16 m/s with a 0.3 s ease, a 7 cm damage dip on hits of at least 1 HP, 5 feed rows shown for 4 s with a 0.8 s fade, and 14 splash droplets.",
-    "limits": "Source-checked, not play-tested, and without screenshots. Judge the bob and dip strength in play. Spread amounts are internal values, so the guide describes their direction rather than exact degrees."
+    "method": "Crosshair spread, aim steadiness, the looking-at card, the status line, camera effects, the collection feed and water effects come from the feature ledger, which cites Voxelgame source lines. The numbers were rechecked at Voxelgame commit 0494a0ce: 6 m target reach, Speed FOV 5 degrees reaching full at 16 m/s with a 0.3 s ease, a 7 cm damage dip on hits of at least 1 HP, 5 feed rows shown for 4 s with a 0.8 s fade, and 14 splash droplets. On 8 November 2026 the looking-at section was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: voxelgame-render target_ui.rs:140-147 and 260-291, hud.rs:487-492, menus_ui.rs:181-195; voxelgame-core settings.rs:65, 82-89 and 598-616.",
+    "limits": "Source-checked, not play-tested, and without screenshots. Judge the bob and dip strength in play. Spread amounts are internal values, so the guide describes their direction rather than exact degrees. The looking-at section was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested."
    },
    "owns": [
     "crosshair-and-reticle",
@@ -4369,9 +4371,10 @@
       {
        "t": "list",
        "items": [
-        "The card shows the block's 3D icon, name and distance.",
+        "The card shows the block's 3D icon, name and distance. The block icon stays still, so thin blocks such as doors stay readable.",
         "The mining advice is one of: \"CREATIVE INSTANT BREAK\", the recommended tool, or \"NO SPECIAL TOOL NEEDED\".",
-        "An animal gets its own card, with its health."
+        "An animal gets its own card, with its health. Its model turns slowly.",
+        "If furniture is between you and the block, the card is hidden. The hint under the crosshair names the furniture instead, for example \"TABLE | BLOCKS TERRAIN INTERACTION\". You cannot mine or build through it."
        ]
       },
       {
@@ -4382,8 +4385,8 @@
          "Hide or show the card in the world."
         ],
         [
-         "Settings > General > TARGET INFO (F2)",
-         "The same setting. It is saved with each world."
+         "Settings > Interface > Layout > TARGET INFO (F2)",
+         "The same setting. It follows you between worlds."
         ]
        ]
       },

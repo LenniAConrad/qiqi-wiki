@@ -987,7 +987,7 @@
     "creative",
     "survival"
    ],
-   "summary": "When you aim at a block within 6 m, a card at the top right, just left of the compact map, shows its 3D icon, name, distance and mining advice ('CREATIVE INSTANT BREAK', a recommended tool, or 'NO SPECIAL TOOL NEEDED'). Animals get their own card with health. Press F2 to hide or show it, or use the Target info row in Settings > Interface > Layout.",
+   "summary": "When you aim at a block within 6 m, a card at the top right, just left of the compact map, shows its 3D icon, name, distance and mining advice ('CREATIVE INSTANT BREAK', a recommended tool, or 'NO SPECIAL TOOL NEEDED'). Animals get their own card with health. The block icon is drawn from a fixed angle, while an animal's model turns slowly. If furniture is in front of the block, the card is hidden and the crosshair hint names the furniture instead, for example 'TABLE | BLOCKS TERRAIN INTERACTION'. Press F2 to hide or show it, or use the Target info row in Settings > Interface > Layout.",
    "controls": [
     [
      "F2",
@@ -1000,9 +1000,14 @@
     "crates/voxelgame-render/src/hud.rs:236-250 — card shown only with a target, the setting on and no menu open",
     "crates/voxelgame-core/src/ui.rs:594-600 — right-aligned card rectangle",
     "crates/voxelgame-render/src/target_ui.rs:26-65 — mining advice and badge",
-    "crates/voxelgame-core/src/settings.rs:65-88 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:65-88 — current settings route",
+    "crates/voxelgame-render/src/target_ui.rs:260-291 — no terrain card behind furniture; block icon at a fixed angle",
+    "crates/voxelgame-render/src/target_ui.rs:140-147 — animal preview turns with time",
+    "crates/voxelgame-render/src/hud.rs:487-492 — card space skipped when furniture covers the aimed block",
+    "crates/voxelgame-render/src/menus_ui.rs:181-195 — crosshair hint '<FURNITURE> | BLOCKS TERRAIN INTERACTION'",
+    "crates/voxelgame-render/src/furniture_mesh/controls/tests/terrain_occlusion.rs:9-24 — test: card hidden, hint 'COFFEE TABLE | BLOCKS TERRAIN INTERACTION'"
    ],
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test.",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -1506,10 +1511,14 @@
     "crates/voxelgame-core/src/game.rs:968-981 — E toggles the inventory (blocked in vehicles and while typing)",
     "crates/voxelgame-core/src/game/inventory_input.rs:36-53 — Tab/Shift+Tab cycle the available views",
     "crates/voxelgame-core/src/game/inventory_input.rs:10-13 — survival falls back from Build to Pack",
-    "crates/voxelgame-render/src/inventory_ui.rs:28-56 — header shows VOXELGAME, pack mass, and tab buttons",
-    "crates/voxelgame-core/src/ui.rs:88-112 — Milestones added to the available tab lists"
+    "crates/voxelgame-render/src/inventory_ui.rs:71-94 — header shows the tab title, tab buttons and the Load readout",
+    "crates/voxelgame-core/src/ui.rs:88-112 — Milestones added to the available tab lists",
+    "crates/voxelgame-render/src/inventory_ui.rs:17-26 — 'Load: used / maximum', or 'Load: waiting for supplies'",
+    "crates/voxelgame-render/src/inventory_ui.rs:1267-1273 — test expects 'Load: 0.1 / 1000'",
+    "crates/voxelgame-core/src/game/net_client/furniture_storage.rs:190-202 — a joined Creative player's Home, chest, storage and stove views use server supplies",
+    "crates/voxelgame-core/src/game/net_client/furniture_storage.rs:252-264 — no load figure until the server reports carried stock"
    ],
-   "notes": "The header always shows 'Capacity: <carried> / <capacity>'. Journal is covered by the world/maps audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. The header always shows 'Load: <carried> / <capacity>', for example 'Load: 0.1 / 1000'. A player who has joined someone else's Creative server briefly sees 'Load: waiting for supplies' in Home, chest, storage and cooking stove views until the server reports their carried items. Journal is covered by the world/maps audit.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -1527,16 +1536,16 @@
    ],
    "summary": "Your pack holds up to 1000 capacity in creative and survival. Items are grouped by kind rather than stored in fixed slots; grid pages and hotbar slots do not add storage. Block materials are counted in half-metre pieces, eight per full one-metre block.",
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:29-30 — player capacity is 1000",
+    "crates/voxelgame-core/src/inventory.rs:32-33 — player capacity is 1000",
     "crates/voxelgame-core/src/inventory.rs:820-826 — a carried block item is one voxel piece",
     "crates/voxelgame-core/src/inventory.rs:858-865 — per-kind quantities, constrained by capacity rather than slots or small stack limits",
     "crates/voxelgame-core/src/inventory.rs:960-983 — additions admit only the quantity that fits",
-    "crates/voxelgame-render/src/inventory_ui.rs:15-24 — abstract Capacity label and capacity per piece"
+    "crates/voxelgame-render/src/inventory_ui.rs:17-30 — header 'Load: used / maximum' and capacity per piece"
    ],
    "backlog": [
     "VOX-OWNER-INVENTORY-CAPACITY-1000"
    ],
-   "notes": "The 1000-capacity pack is implemented. A stack is the total carried amount of one kind; there is no 64-item stack cap. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. The inventory header reads 'Load: <carried> / 1000'. The 1000-capacity pack is implemented. A stack is the total carried amount of one kind; there is no 64-item stack cap. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1937,7 +1946,12 @@
     "crates/voxelgame-core/src/game.rs:1824-1848 — survival mining progress vs creative instant break",
     "crates/voxelgame-core/src/game.rs:2379-2426 — drops go directly into the pack; full pack restores the block ('Capacity full; block left behind')",
     "crates/voxelgame-core/src/game.rs:2395-2399 — Wild flax yields Plant fiber",
-    "crates/voxelgame-core/src/world/block.rs:543-551 — Meadow turf drops Dirt, Snow drops Packed snow, Fallen fruit drops Fruit block;"
+    "crates/voxelgame-core/src/world/block.rs:543-551 — Meadow turf drops Dirt, Snow drops Packed snow, Fallen fruit drops Fruit block;",
+    "crates/voxelgame-core/src/game.rs:2863-2872 — furniture in front stops mining: 'Furniture blocks that mining target'",
+    "crates/voxelgame-core/src/game/mining.rs:31-45 — survival crack feedback, dropped while furniture is targeted",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:146-164 — furniture counts only when one of its parts is nearer than the aimed block",
+    "crates/voxelgame-render/src/highlight.rs:80-91 — cracks drawn on the block being mined",
+    "crates/voxelgame-render/src/crack_overlay.rs:27-28 — 8 crack stages"
    ],
    "backlog": [
     "VOX-OWNER-BLOCK-TREE-DROPS",
@@ -1945,7 +1959,7 @@
     "VOX-OWNER-BLOCK-BREAK-ANIMATION",
     "VOX-PLAY-002"
    ],
-   "notes": "Water and other liquids cannot be collected. Creative mining collects nothing and can be undone. Feedback is a status-line message plus flying chips; there is no on-block crack animation and no pickup feed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. If furniture stands between you and the block, holding left click stops with 'Furniture blocks that mining target' and nothing is mined. Gaps between furniture parts and blocks nearer than the furniture still work. Water and other liquids cannot be collected. Creative mining collects nothing and can be undone. Feedback is a status-line message and flying chips; in survival, cracks also grow on the block in 8 stages, and gains show in the lower-right collection feed.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -2967,13 +2981,17 @@
     "creative",
     "survival"
    ],
-   "summary": "Only blocks can be placed; tools, food and other items cannot. Nothing is placed in occupied cells, in survival without enough pieces, or while a tool, bow, rifle or throwing rock is in hand; the Home crate is protected and edits stop at the world's save limit.",
+   "summary": "Only blocks can be placed; tools, food and other items cannot. Nothing is placed in occupied cells, in survival without enough pieces, or while a tool, bow, rifle or throwing rock is in hand; the Home crate is protected and edits stop at the world's save limit. Furniture in front of the block also refuses the click with 'Furniture blocks that placement', and nothing is spent.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:351-356 — only items that map to a block are placeable",
     "crates/voxelgame-core/src/game/readouts.rs:11-16 — no placement with a tool equipped or empty hands",
-    "crates/voxelgame-core/src/game.rs:1893-1904 — refusal messages"
+    "crates/voxelgame-core/src/game.rs:1893-1904 — refusal messages",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:27-42 — 'Furniture blocks that placement' (on a display table: '| Use a red lantern on the tabletop')",
+    "crates/voxelgame-core/src/game.rs:2933-2942 — the furniture refusal comes before any placement, so nothing is spent",
+    "crates/voxelgame-core/src/game/readouts.rs:11-14 — no placement preview behind furniture",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:146-164 — furniture counts only when one of its parts is nearer than the aimed block"
    ],
-   "notes": "Multiplayer specifics belong to the platform area. TNT ignition and dynamite are refused on servers.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Multiplayer specifics belong to the platform area. TNT ignition and dynamite go through the server when connected. Gaps between furniture parts, and blocks nearer than the furniture, can still be built on.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3400,7 +3418,7 @@
    "controls": [
     [
      "G",
-     "Ignite the aimed TNT and all TNT touching it (aiming at TNT within 6 m, single-player)"
+     "Ignite the aimed TNT and all TNT touching it (aiming at TNT within 6 m; on a server, after the server confirms)"
     ],
     [
      "Right click",
@@ -3412,12 +3430,17 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1751-1765 — G ignition; 'Aim at a TNT and press G to ignite'; refused when connected",
+    "crates/voxelgame-core/src/game.rs:2808-2820 — G lights the aimed TNT, or sends a server request when connected; 'Aim at a TNT charge and press G to ignite'",
     "crates/voxelgame-core/src/game.rs:1940-2001 — flood fill of face/edge/corner-touching TNT; charges removed from the world;",
     "crates/voxelgame-core/src/explosives.rs:40-73 — lit charges are physical: they pop up, fall, bounce, slide and float",
-    "crates/voxelgame-core/src/explosives.rs:200-229 — lit charges are physical: they pop up, fall, bounce, slide and float"
+    "crates/voxelgame-core/src/explosives.rs:200-229 — lit charges are physical: they pop up, fall, bounce, slide and float",
+    "crates/voxelgame-core/src/game/net_client/tnt.rs:41-114 — connected G waits for the server: 'Requesting TNT ignition | move away' and the wait messages",
+    "crates/voxelgame-core/src/game/net_client/tnt.rs:126-155 — server reply: 'n-charge TNT cluster ignited by server | move away' or 'TNT ignition refused: <reason>'",
+    "crates/voxelgame-core/src/session/tnt.rs:40-137 — the server checks reach, furniture, plots, edit budget and charge capacity before lighting",
+    "docs/MULTIPLAYER.md:2500-2527 — shared TNT on servers; lit charges are lost across a server restart",
+    "search: crates/voxelgame-core/src/save/write.rs and save.rs write no TNT, charge or projectile state, so lit charges are not saved"
    ],
-   "notes": "In survival TNT is crafted and a whole block spends 8 pieces. Pressing G on one whole block reports an '8-charge TNT cluster' because each block counts as 8 half-metre charges. Lit charges are not saved: quitting while a fuse burns loses that TNT (README.md:674-675). On multiplayer servers G shows 'Explosives aren't available on servers yet'.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. On multiplayer servers G asks the server to light the TNT; the old 'Explosives aren't available on servers yet' refusal no longer applies. The server reports the result, and lit TNT on a server is lost if the server restarts. In survival TNT is crafted and a whole block spends 8 pieces. Pressing G on one whole block reports an '8-charge TNT cluster' because each block counts as 8 half-metre charges. Lit charges are not saved: quitting while a fuse burns loses that TNT.",
    "guide": {
     "state": "complete",
     "page": "guide-explosives.html",
@@ -3468,9 +3491,14 @@
     "crates/voxelgame-core/src/projectile.rs:1029-1036 — settles just short of whatever surface it hits",
     "crates/voxelgame-core/src/projectile.rs:893-902 — falls again if its support is removed",
     "crates/voxelgame-core/src/projectile.rs:983-990 — falls again if its support is removed",
-    "crates/voxelgame-core/src/game/ranged_input.rs — a stick that cannot fly is not spent and says so (da52f269)"
+    "crates/voxelgame-core/src/game/ranged_input.rs — a stick that cannot fly is not spent and says so (da52f269)",
+    "crates/voxelgame-core/src/game/ranged_input.rs:76-97 — connected eggs, rocks and dynamite go to the server before the old 'Explosives aren't available on servers yet' check",
+    "crates/voxelgame-core/src/game/net_client/dynamite_throws.rs:61-161 — connected refusals end '| dynamite kept'; 'Requesting dynamite throw'",
+    "crates/voxelgame-core/src/game/net_client/dynamite_throws.rs:176-212 — 'Dynamite thrown by server' or 'Dynamite throw refused: <reason> | dynamite kept'",
+    "crates/voxelgame-core/src/session/tnt/dynamite.rs:17-110 — the server checks room, plots and capacity, then spends one Survival stick; Creative is free",
+    "docs/MULTIPLAYER.md:2528-2539 — shared dynamite on servers; burning sticks are lost across a server restart"
    ],
-   "notes": "Creative throws are unlimited; survival spends one stick per throw. You cannot place blocks while dynamite is in hand. Refused on multiplayer servers. Opening a menu cancels a wind-up.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Works on multiplayer servers: releasing sends a request, the server throws the stick and, in Survival, spends one; a refused throw keeps the stick. The old 'Explosives aren't available on servers yet' refusal no longer applies to dynamite. Burning dynamite on a server is lost if the server restarts. Creative throws are unlimited; survival spends one stick per throw. You cannot place blocks while dynamite is in hand. Opening a menu cancels a wind-up.",
    "guide": {
     "state": "complete",
     "page": "guide-explosives.html",
@@ -4690,13 +4718,16 @@
     "creative",
     "survival"
    ],
-   "summary": "Animals appear around you according to the biome: each biome has its own small group of species and every one of the 94 can appear somewhere; swans turn up in wetlands and deltas, fish only in deep enough water. Up to 36 wild animals are around you at once, with per-species limits; animals more than 180 m away are removed and new ones appear as you explore. Animals are not saved.",
+   "summary": "Animals appear around you according to the biome: each biome has its own small group of species and every one of the 94 can appear somewhere; swans turn up in wetlands and deltas, fish only in deep enough water. Up to 36 wild animals are around you at once, with per-species limits; wild animals more than 180 m away are removed and new ones appear as you explore. Wild animals are not saved; animals you hatched from eggs are.",
    "evidence": [
     "crates/voxelgame-core/src/entities/mod.rs:2377-2570 — spawning in 32 m cells around the player on natural ground or in water",
     "crates/voxelgame-core/src/entities/mod.rs:2598-2916 — biome species groups (all 94 species referenced)",
-    "crates/voxelgame-core/src/save/write.rs:116-136 — no animal data in the save"
+    "crates/voxelgame-core/src/save/creatures.rs:1-9 — the save holds only player-hatched animals, never wild ones",
+    "crates/voxelgame-core/src/entities/mod.rs:100 — up to 36 wild animals",
+    "crates/voxelgame-core/src/entities/mod.rs:1411-1419 — animals more than 180 m from every player leave the active world",
+    "crates/voxelgame-core/src/entities/persistence.rs:146-194 — hatched animals wake again within 180 m"
    ],
-   "notes": "Animals do not spawn on built roofs or manufactured floors, and spawning waits while you fly high above the ground.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Animals do not spawn on built roofs or manufactured floors, and spawning waits while you fly high above the ground.",
    "guide": {
     "state": "complete",
     "page": "guide-creatures.html",
@@ -4722,9 +4753,15 @@
     "crates/voxelgame-core/src/ui.rs:128-130 — eggs listed only in the MOBS tab, not ALL",
     "crates/voxelgame-core/src/ui.rs:160 — eggs listed only in the MOBS tab, not ALL",
     "crates/voxelgame-core/src/ui.rs:180-183 — eggs listed only in the MOBS tab, not ALL",
-    "crates/voxelgame-core/src/game/ranged_input.rs:68-74 — egg throw speed and '<animal> egg away!'"
+    "crates/voxelgame-core/src/game/ranged_input.rs:68-74 — egg throw speed and '<animal> egg away!'",
+    "crates/voxelgame-core/src/entities/persistence.rs:1-22 — player hatchlings are saved; wild animals never are",
+    "crates/voxelgame-core/src/entities/persistence.rs:146-194 — saved hatchlings wake within 180 m of a player, ahead of wild animals",
+    "crates/voxelgame-core/src/entities/hatching.rs:64-81 — no hatch with 64 animals around you or 64 saved hatchlings",
+    "crates/voxelgame-core/src/entities/mod.rs:100-102 — 36 wild animals, 64 hatched animals",
+    "crates/voxelgame-core/src/save/write.rs:132-136 — hatched animals are written with the save",
+    "crates/voxelgame-core/src/game.rs:2203-2212 — '<animal> hatched!' or 'The egg burst, but nothing could hatch here'"
    ],
-   "notes": "A thrown egg is consumed only in survival (if carried there). Hatched animals despawn like wild ones when you move more than 180 m away.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. A thrown egg is consumed only in survival (if carried there). Hatched animals are saved with the world. When you move more than 180 m away they are set aside, and they return when you come back. A world keeps at most 64 hatched animals, and an egg cannot hatch while 64 animals are around you ('The egg burst, but nothing could hatch here').",
    "guide": {
     "state": "complete",
     "page": "guide-creatures.html",
