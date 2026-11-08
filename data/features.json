@@ -3411,11 +3411,11 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, Ctrl+Z undoes and Ctrl+Shift+Z redoes your building in this session: brush actions, single blocks placed, and blocks or trees mined. Undo changes nothing if those cells were altered since, if it would put a block inside you, or at the save edit limit.",
+   "summary": "In creative, Ctrl+Z undoes and Ctrl+Shift+Z redoes your building in this session: brush actions, blueprints, single blocks placed, and blocks or trees mined. Door moves, chest refinishing and furniture steps share the same history, so the newest step is undone first; at most 32 steps are kept. Undo changes nothing if those cells were altered since or if it would put a block inside you, and it stops at the save edit limit.",
    "controls": [
     [
      "Ctrl+Z",
-     "Undo the last building action (creative)"
+     "Undo the newest step (creative)"
     ],
     [
      "Ctrl+Shift+Z",
@@ -3423,19 +3423,24 @@
     ],
     [
      "Undo / Redo buttons",
-     "Same as the keys (E > Build)"
+     "Same as the keys (E > Build, creative)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/building.rs:158-197 — atomic undo/redo; refusal 'Undo blocked: cells changed, player overlaps, or save budget reached'",
-    "crates/voxelgame-core/src/game/building.rs:204-207 — Ctrl+Z and Ctrl+Shift+Z",
-    "crates/voxelgame-core/src/game.rs:1867-1880 — creative placement, felling and mining are recorded",
-    "crates/voxelgame-core/src/game.rs:2321-2333 — creative placement, felling and mining are recorded",
-    "crates/voxelgame-core/src/game/furniture/controls.rs:321-331 — a furniture undo step remains available when the gesture is put away",
-    "crates/voxelgame-core/src/game/furniture/controls.rs:402-407 — Ctrl+Z and Shift+Ctrl+Z undo or redo a furniture step",
-    "crates/voxelgame-core/src/game/building.rs:283-327 — local furniture history application, with a separate connected request path"
+    "crates/voxelgame-core/src/game/building.rs:283-431 — one history for door moves, chest refinishing, furniture and blocks; 'Undid building', 'Undid door move', 'Undid chest refinishing | Legacy contents restored', 'Undid furniture'",
+    "crates/voxelgame-core/src/game/building.rs:386-406 — refusal 'Undo blocked: cells changed, player overlaps, or save budget reached', then the ordinary edit checks",
+    "crates/voxelgame-core/src/game/building.rs:193-240 — edits refused at the save edit budget and over chests, doors, open leaves, furniture and the Home crate",
+    "crates/voxelgame-core/src/game/building.rs:432-447 — Ctrl+Z and Ctrl+Shift+Z in creative; survival returns first",
+    "crates/voxelgame-core/src/game/building.rs:582-607 — Build tab Ctrl+Z and the Undo and Redo buttons",
+    "crates/voxelgame-core/src/building.rs:424-464 — every step joins one list; at most 32 steps and 16,384 changed pieces are kept",
+    "crates/voxelgame-core/src/game.rs:2963-2970 — creative placement is recorded",
+    "crates/voxelgame-core/src/game/plant_support.rs:39-41 — creative mining and felling are recorded",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:785-794 — an offline creative blueprint is built as one step",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:378-393 — with the plan put away, Ctrl+Z still reaches furniture and chest-refinishing steps in both modes",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:462-467 — with a plan out, Ctrl+Z cancels a move or undoes",
+    "crates/voxelgame-core/src/game/doors/relocation.rs:133-134 — 'Finish or cancel the door move before Undo'"
    ],
-   "notes": "Targeted furniture exception checked on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; no new play test. Survival block edits and explosions are not recorded; local furniture actions have their own undo steps in both modes. Other creative block-history claims retain the earlier ledger baseline. History is session-only; empty history reports \"No building history in this session\".",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Survival block edits and explosions are not recorded; in survival Ctrl+Z reaches only furniture and chest-refinishing steps. Door moves are Creative only. On a server, Undo and Redo of door moves, chest refinishing and furniture wait for the server. History is session-only; empty history reports \"No building history in this session\".",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
