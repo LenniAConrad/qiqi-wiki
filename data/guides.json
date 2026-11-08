@@ -5395,7 +5395,7 @@
       {
        "t": "note",
        "kind": "planned",
-       "text": "There is no lava liquid. Volcanic areas and lava tubes are solid rock: basalt, obsidian, lava rock, pahoehoe and magma stone. Lava tubes are cooled and walkable. Nothing flows, burns or cools into stone. {{flowing-lava}}"
+       "text": "There is no lava liquid. Volcanic areas and lava tubes are solid rock: basalt, obsidian, lava rock, smooth lava rock and magma stone. Lava tubes are cooled and walkable. Nothing flows, burns or cools into stone. {{flowing-lava}}"
       },
       {
        "t": "note",

@@ -3581,7 +3581,7 @@
    "controls": [
     [
      "O",
-     "Open the structure library (creative, Blueprint)"
+     "Open the structure library (creative, Blueprint); press again to close it"
     ],
     [
      "Up / Down arrows",
@@ -3589,7 +3589,7 @@
     ],
     [
      "Enter",
-     "Save the capture under the typed name"
+     "Save the capture under the typed name; when browsing, rename while typing, otherwise place the picked structure"
     ],
     [
      "Delete, twice",
@@ -3601,15 +3601,18 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:387 — O opens the library",
-    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:439 — Escape closes the panel",
-    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:465-476 — Up/Down pick, Enter saves, Delete removes after a second press",
-    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:210 — store writes the file, rename keeps the old one until the new is written",
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:34 — MAX_LIBRARY_BLUEPRINTS 64",
-    "crates/voxelgame-render/src/structure_library_ui.rs:1 — library panel with 64 x 48 thumbnails and the large picture",
-    "crates/voxelgame-core/src/game/blueprint_desk/library_tests.rs:168 — Keep both test"
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:523-526 — O opens the library",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:602-604 — Escape closes the panel",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:613-648 — Up/Down pick, Enter saves or places, Delete removes after a second press",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:313-358 — store replaces the file in one step; Keep both counts up from Name 2",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:372-410 — rename keeps the old file until the new one is written",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:35 — MAX_LIBRARY_BLUEPRINTS 64",
+    "crates/voxelgame-render/src/structure_library_ui.rs:165-172 — library rows with 64 x 48 thumbnails (larger on tall rows) and the large picture",
+    "crates/voxelgame-core/src/game/blueprint_desk/library_tests.rs:174 — replace on a second press and Keep both test",
+    "crates/voxelgame-core/src/game/blueprint_desk/library_search_tests.rs:53 — search narrows the list",
+    "crates/voxelgame-core/src/game/net_client/raise.rs:156-170 — on a server only Creative blueprints are placed"
    ],
-   "notes": "Checked at Voxelgame 9f915bcb (library_tests.rs covers capture, Keep both, O and delete). Not play-tested in a running game for this guide. Keep both saves a copy as 'Name 2'. The library search narrows the list to names containing the typed text (8ef8aed4). Blueprints are refused on servers, as for creative blueprints.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Keep both saves a copy as 'Name 2'. The library search narrows the list to names containing the typed text. On a server, Creative players can place blueprints; Survival is refused with 'Survival blueprints aren't available on servers yet'.",
    "guide": {
     "state": "partial",
     "page": "guide-building.html",
@@ -3874,12 +3877,13 @@
    "status": "planned",
    "summary": "There are no switches, levers, pistons or item-moving machines to build.",
    "evidence": [
-    "crates/voxelgame-core/src/world/block/table.rs — 174 blocks; grep 'switch|lever|piston|hopper|conveyor|gate|button' finds none",
-    "docs/CIRCUIT_LAB.md:69-79 — the board is a render-only preview; terrain component placement is not implemented"
+    "crates/voxelgame-core/src/world/block/table.rs — 332 block entries; no switch, lever, piston, hopper, conveyor, gate or button among their names",
+    "search: grep -i 'lever|piston|conveyor|redstone|dispenser|pressure plate|tripwire' over crates/ and src/ finds no block or furniture of that kind"
    ],
    "backlog": [
     "VOX-OWNER-MECHANICAL-BUILDING"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Still not in the game."
   },
   {
    "id": "world-generation-version",
@@ -3916,12 +3920,14 @@
    ],
    "summary": "Create world accepts an unsigned decimal seed, or a blank field for a fresh seed. Choose the same seed and terrain generation to use the same procedural rules. Worlds shows the selected save’s seed when its header can be read.",
    "evidence": [
-    "crates/voxelgame-core/src/game/startup_create.rs:31-42 — blank or decimal seed; full u64 range",
-    "crates/voxelgame-core/src/game/startup_create.rs:171-185 — validated choices submitted on confirmation",
-    "src/local_startup.rs:25-33 — selected seed and generation applied",
+    "crates/voxelgame-core/src/game/startup_create.rs:31-43 — blank or decimal seed; full u64 range",
+    "crates/voxelgame-core/src/game/startup_create.rs:111-136 — the seed box takes at most 64 characters",
+    "crates/voxelgame-core/src/game/startup_create.rs:171-195 — validated choices submitted on confirmation",
+    "src/local_startup.rs:25-34 — a blank seed is resolved once on confirmation; selected generation applied",
+    "crates/voxelgame-render/src/startup_ui.rs:211 — seed field label: blank is a fresh seed, or a decimal 0 to 18446744073709551615",
     "crates/voxelgame-render/src/startup_ui/worlds.rs:459-475 — saved seed displayed"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Valid seed range is 0–18446744073709551615. A fresh seed is resolved only on confirmation; Cancel creates no world. A matching seed alone does not promise matching terrain across different generations. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Valid seed range is 0–18446744073709551615; the seed box takes at most 64 characters. A fresh seed is resolved only on confirmation; Cancel creates no world. A matching seed alone does not promise matching terrain across different generations."
   },
   {
    "id": "biomes-92",
@@ -4018,14 +4024,15 @@
    "modes": [
     "any"
    ],
-   "summary": "Rare large sites appear across the world. Impact fields have a main crater bowl with a raised ejecta rim plus two smaller craters. Amethyst gorges are winding canyons through crystal-studded rock. On volcanic islands, cooled lava tubes are walkable roofed passages with two open skylights. Other sites include hot-spring terraces, geyser basins, oases, tepui mesas, ice spires, granite domes, karst towers, moraines and limestone pavements.",
+   "summary": "Rare large sites appear across the world. Impact fields have a main crater bowl with a raised ejecta rim plus two smaller craters. Amethyst gorges are winding canyons through crystal-studded rock. On volcanic islands, cooled lava tubes are walkable roofed passages with two open skylights. Other sites include hot-spring terraces, geyser basins, oases, tepui mesas, ice spires, granite domes, karst towers, moraines and limestone pavements, outwash plains, firn domes and slate quarries.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator/regions.rs:216-247 — site rules: none in Legacy worlds, on water, near spawn or in battlefield terrain",
-    "crates/voxelgame-core/src/world/generator/regions.rs:258-277 — site kind chosen by setting; lava passages, geysers and hot springs need volcanic ground",
-    "crates/voxelgame-core/src/world/generator/regions.rs:299-313 — impact craters with ejecta rims",
+    "crates/voxelgame-core/src/world/generator/regions.rs:216-247 — site rules: none in Generation 1 worlds, on water, near the start, in battlefield terrain, on low or very rugged ground",
+    "crates/voxelgame-core/src/world/generator/regions.rs:253-276 — site kind chosen by setting; lava passages, geysers and hot springs need volcanic ground",
+    "crates/voxelgame-core/src/world/generator/regions.rs:299-314 — impact craters with ejecta rims",
+    "crates/voxelgame-core/src/world/generator/regions.rs:323-350 — lava tubes: passage with two open skylights",
     "crates/voxelgame-core/src/world/generator/regions.rs:348-349 — 'Cooled lava tubes are traversable, not uniformly molten'"
    ],
-   "notes": "Meteor craters appear only where the site is not volcanic. Lava tubes appear only on volcanic ground. Generation-1 worlds have no impact, gorge or lava-tube sites.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Meteor craters appear only where the site is not volcanic. Lava tubes appear only on volcanic ground. Generation-1 worlds have no impact, gorge or lava-tube sites.",
    "guide": {
     "state": "complete",
     "page": "guide-caves-and-landmarks.html",
@@ -4347,15 +4354,17 @@
    "modes": [
     "any"
    ],
-   "summary": "There is no lava liquid. Volcanoes and lava tubes are made of cooled, solid rock: basalt, obsidian, lava rock, pahoehoe and glowing but harmless magma stone. Nothing flows, burns or cools into stone.",
+   "summary": "There is no lava liquid. Volcanoes and lava tubes are made of cooled, solid rock: basalt, obsidian, lava rock, smooth lava rock and glowing but harmless magma stone. Nothing flows, burns or cools into stone.",
    "evidence": [
-    "crates/voxelgame-core/src/world/block.rs:358-368 — only six water blocks are liquids",
-    "crates/voxelgame-core/src/world/mod.rs:2018-2022 — fluid simulation handles Block::WATER only",
-    "crates/voxelgame-core/src/world/generator/regions.rs:348-349 — lava tubes are cooled and walkable"
+    "crates/voxelgame-core/src/world/block.rs:490-500 — only six water blocks are liquids",
+    "crates/voxelgame-core/src/world/mod.rs:2187-2257 — fluid simulation handles Block::WATER only",
+    "crates/voxelgame-core/src/world/generator/regions.rs:347-349 — lava tubes are cooled and walkable",
+    "crates/voxelgame-core/src/world/block/table.rs:275-279 — Basalt, Obsidian and Magma stone; 433-435 Smooth lava rock and Lava rock"
    ],
    "backlog": [
     "VOX-OWNER-FLOWING-LAVA"
    ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Still no lava liquid in the block list.",
    "guide": {
     "state": "none",
     "next": "Not in the game yet"
@@ -4976,7 +4985,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, the catalog's Water block is a flowing source: it spreads up to 7 half-metre cells sideways and pours down over edges. Any block placed into water displaces it, and digging next to the sea or a lake lets water flow into the gap. Flowing water never recedes. There are no buckets, survival players cannot pick up or place water, and the other five water types are still blocks that do not flow.",
+   "summary": "In creative, the catalog's Water block is a flowing source: it spreads up to 7 half-metre cells sideways and pours down over edges. Any block placed into water displaces it, and digging next to the sea or a lake lets water flow into the gap. Cover the source or cut the stream off with a block and the water it fed drains away; natural seas and lakes stay. There are no buckets, survival players cannot pick up or place water, and the other five water types are still blocks that do not flow.",
    "controls": [
     [
      "Right-click with Water selected",
@@ -4988,12 +4997,15 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:131 — Water is in the creative catalog, described as 'A placeable source of flowing water'",
-    "crates/voxelgame-core/src/inventory.rs:410 — Water is in the creative catalog, described as 'A placeable source of flowing water'",
-    "crates/voxelgame-core/src/world/mod.rs:1528-1534 — placed Water becomes a source; other blocks clear flow",
-    "crates/voxelgame-core/src/world/mod.rs:2008-2050 — tick_fluids: only Block::WATER flows; no recession logic"
+    "crates/voxelgame-core/src/inventory.rs:266 — Water is in the creative catalog",
+    "crates/voxelgame-core/src/inventory.rs:751 — described as 'A placeable source of flowing water'",
+    "crates/voxelgame-core/src/world/mod.rs:1881-1883 — a placed Water block becomes a source",
+    "crates/voxelgame-core/src/world/mod.rs:2187-2257 — tick_fluids_if: only Block::WATER flows, sideways to level 7 and downwards",
+    "crates/voxelgame-core/src/world/mod.rs:2462-2465 — placing any other block next to flowing water wakes it",
+    "crates/voxelgame-core/src/world/fluid_retraction.rs:26-38 — flow with no supply left is cleared; sources and natural water stay",
+    "crates/voxelgame-core/src/world/fluid_retraction_tests.rs:76-97 — breaking the source clears the stream"
    ],
-   "notes": "To get rid of unwanted flowing water, fill each wet cell with blocks. Water from creative building brushes behaves the same way. On a multiplayer server the server runs the water.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. To get rid of unwanted flowing water, place a block in the cell where you put the Water source. Water from creative building brushes behaves the same way. On a multiplayer server the server runs the water.",
    "guide": {
     "state": "partial",
     "page": "guide-building.html",
@@ -5544,12 +5556,13 @@
    ],
    "summary": "Animals cannot be tamed, bred, ridden, fed, milked or sheared yet. Breeding, taming and in-world drops are listed for a later milestone.",
    "evidence": [
-    "search: grep -i 'tame|breed|milk|shear|riding' over crates/ found no gameplay code"
+    "search: grep -iE 'tame|breed|milk|shear|saddle|riding' over crates/ and src/ found no gameplay code (only gallery saddle markings and cloud shear)"
    ],
    "backlog": [
     "VOX-PLAY-004",
     "VOX-PLAY-005"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Still not in the game."
   },
   {
    "id": "held-items-first-person",
@@ -5646,12 +5659,14 @@
    "summary": "Changing how your explorer looks (skins, import/export or painting) is requested but not in the game. Everyone uses the same built-in outfit.",
    "evidence": [
     "crates/voxelgame-render/src/player_avatar.rs:11-15 — fixed coat, trousers, leather, skin and scarf colours",
-    "crates/voxelgame-core/src/settings.rs:206-242 — no appearance setting"
+    "crates/voxelgame-render/src/player_avatar.rs:31-52 — remote players use the same explorer model",
+    "crates/voxelgame-core/src/settings.rs:390-480 — the Settings struct has no appearance setting"
    ],
    "backlog": [
     "VOX-OWNER-PLAYER-SKIN-EDITOR",
     "VOX-OWNER-RESOURCE-EDITOR-FEATURES"
    ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Still not in the game; everyone uses the same built-in explorer.",
    "guide": {
     "state": "none",
     "next": "Not in the game yet"
@@ -6005,13 +6020,14 @@
    "summary": "Planned: GPU pass timings in the F3 overlay during normal play. The normal window does not request timestamp queries; its GPU box falls back to “GPU timing unavailable in this view”.",
    "evidence": [
     "crates/voxelgame-render/src/loading.rs:84-91 — timestamps only in offscreen devtools",
-    "crates/voxelgame-render/src/gpu_profile.rs:64-68 — timestamp requirement",
+    "crates/voxelgame-render/src/gpu_profile.rs:64-70 — timestamp requirement",
+    "crates/voxelgame-render/src/construction.rs:482 — the profile exists only when the device offers timestamps",
     "crates/voxelgame-render/src/debug_ui.rs:245-252 — fallback"
    ],
    "backlog": [
     "VOX-OWNER-GPU-TIMING-BOX"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Ordinary windowed play remains separate from developer offscreen GPU profiling; no status advancement is warranted. Source review only; no new play test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Ordinary windowed play stays separate from developer offscreen GPU profiling; no status change is warranted."
   },
   {
    "id": "horizon-1024",
@@ -6020,14 +6036,17 @@
    "status": "available",
    "summary": "A 1024-chunk distant horizon is selectable in Settings > Graphics > Display > Horizon distance. Its radius is 16,384 m, about 16 km. This changes the distant view, not the nearby simulation radius.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:265-268 — selectable maximum",
-    "crates/voxelgame-core/src/settings.rs:1088-1089 — nearby detail separate"
+    "crates/voxelgame-core/src/settings.rs:265-268 — selectable maximum of 1024 chunks",
+    "crates/voxelgame-core/src/settings.rs:26-27 — the Display tab holds the Horizon distance row (row 1)",
+    "crates/voxelgame-core/src/settings.rs:936 — row label HORIZON DISTANCE",
+    "crates/voxelgame-core/src/settings.rs:1089 — 'Low-detail horizon radius; near voxels stay nine chunks'",
+    "crates/voxelgame-core/src/world/mod.rs:108-111 — a chunk is 16 m, so 1024 chunks is 16,384 m"
    ],
    "backlog": [
     "VOX-OWNER-HORIZON-1024",
     "VOX-OWNER-HORIZON-1024-QA"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Implemented in landed source; no current 1024-chunk visual/performance run was made for this wiki update. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Implemented in landed source; no 1024-chunk visual or performance run was made for this wiki.",
    "modes": [
     "any"
    ],
@@ -6044,16 +6063,18 @@
    "status": "partial",
    "summary": "The native app requests that the desktop stay awake while the game window is focused and visible, including menus and loading. It releases the request on focus loss, hiding, minimization or covering the window. Desktop support varies.",
    "evidence": [
-    "src/app.rs:86-93 — native controller",
-    "src/app.rs:267-278 — updates",
-    "src/app.rs:582-589 — eligibility",
+    "src/app.rs:86-94 — native controller",
+    "src/app.rs:248-263 — released on suspend and exit",
+    "src/app.rs:267-279 — updates",
+    "src/app.rs:566-574 — eligibility",
     "src/display_awake.rs:3-9 — scope",
-    "src/display_awake.rs:64-94 — requests/failure handling"
+    "src/display_awake.rs:64-96 — requests/failure handling",
+    "src/display_awake.rs:113-145 — grant held only while eligible"
    ],
    "backlog": [
     "VOX-OWNER-DISPLAY-AWAKE"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). This does not change power settings or prevent deliberate lock/sleep. Unsupported desktop sessions can refuse the request. No native desktop behavior was retested. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. This does not change power settings or prevent deliberate lock/sleep. Unsupported desktop sessions can refuse the request. Pauses, settings and loading do not change it. No native desktop behaviour was retested.",
    "modes": [
     "any"
    ],
@@ -6162,11 +6183,12 @@
    ],
    "summary": "The Credits screen plays its own music, fading out the previous song. Leaving Credits returns to music for the current screen.",
    "evidence": [
-    "crates/voxelgame-core/src/music.rs:722-759 — exclusive credits track, screen transitions and repeat gap",
-    "crates/voxelgame-core/src/music.rs:791-798 — credits-only track selection",
-    "src/audio/music_schedule_tests.rs:203-215 — source regression for credits music and fades"
+    "crates/voxelgame-core/src/music.rs:722-762 — exclusive credits track, screen transitions and repeat gap",
+    "crates/voxelgame-core/src/music.rs:485-486 — 15 seconds of quiet before the credits piece plays again",
+    "crates/voxelgame-core/src/music.rs:785-796 — credits-only track selection",
+    "src/audio/music_schedule_tests.rs:203-216 — source regression for credits music and fades"
    ],
-   "notes": "Source-reviewed at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026. No new listening or gameplay test was run for this wiki update."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. The credits piece repeats after a 15-second rest."
   },
   {
    "id": "now-playing-album-art",
@@ -6176,13 +6198,13 @@
    "modes": [
     "any"
    ],
-   "summary": "When a song starts playing, a short Now Playing card shows its title and available author, album and cover art. It appears with the gameplay notices and is hidden while a menu is open.",
+   "summary": "When a song starts playing, a short Now Playing card shows its title and available author, album and cover art. It appears at the top of the lower-right column of gameplay notices and is hidden while a menu is open.",
    "evidence": [
-    "crates/voxelgame-render/src/now_playing_ui.rs:19-80 — title, credits and optional cover; hidden while the UI is open",
-    "crates/voxelgame-core/src/music.rs:456-469 — six-second card and reduced-motion presentation",
+    "crates/voxelgame-render/src/now_playing_ui.rs:20-80 — title, author and album, optional cover; hidden while the UI is open",
+    "crates/voxelgame-core/src/music.rs:455-473 — six-second card; reduced motion keeps it fully visible",
     "crates/voxelgame-render/src/hud.rs:331 — gameplay HUD draws the card"
    ],
-   "notes": "Source-reviewed at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026. No new playback or gameplay test was run for this wiki update."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. With Reduce motion on, the card stays fully visible until it ends instead of fading."
   },
   {
    "id": "system-requirements",
@@ -6923,11 +6945,14 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/game/chat.rs:1-12 — Enter opens and sends; Escape drops the line",
-    "crates/voxelgame-core/src/game/chat.rs:104 — Enter opens and sends; Escape drops the line",
-    "crates/voxelgame-core/src/game/chat.rs:123 — Enter opens and sends; Escape drops the line",
-    "crates/voxelgame-core/src/game.rs:723 — chat only while connected"
+    "crates/voxelgame-core/src/game/chat.rs:117-150 — Enter opens the entry, Escape drops it, Enter sends; empty lines are not sent",
+    "crates/voxelgame-core/src/game/chat.rs:56-67 — only printable ASCII is shown, other characters become '?'",
+    "crates/voxelgame-core/src/game/chat.rs:22-27 — lines stay 10 seconds; an entry holds up to 256 bytes",
+    "crates/voxelgame-core/src/game.rs:1223-1225 — chat only while connected and no menu is open",
+    "crates/voxelgame-core/src/game/chat/filter.rs:22-60 — /chatfilter commands",
+    "crates/voxelgame-render/src/chat_overlay.rs:15-26 — up to eight lines above the hotbar"
    ],
-   "notes": "Only printable ASCII is shown; other characters appear as '?'."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Only printable ASCII is shown; other characters appear as '?'. A line holds up to 256 bytes; Enter on an empty line just closes the entry. Typing /chatfilter help in chat explains an optional local word filter that starts off and is cleared when you rejoin."
   },
   {
    "id": "mp-menu-lan-hosting",
@@ -6974,14 +6999,16 @@
    "status": "partial",
    "summary": "While the Multiplayer page is open, it lists worlds hosted on your local network: up to 8, each with its name and address, above the remembered servers. Enter or a click joins the selected row. Your own hosted world is not listed, and a world from another game version shows as one. The list updates by itself; if the selected world stops hosting, the selection moves to Join server.",
    "evidence": [
-    "crates/voxelgame-net/src/discovery.rs:26-40 — discovery group 239.255.27.15, port 27016, 1.5 s announce, 5 s lifetime, 8 worlds, 128-byte beacon",
+    "crates/voxelgame-net/src/discovery.rs:24-40 — discovery group 239.255.27.15, port 27016, 1.5 s announce, 5 s lifetime, 8 worlds, 128-byte beacon",
+    "crates/voxelgame-net/src/discovery.rs:163 — multicast time to live 1",
     "crates/voxelgame-core/src/game/startup_multiplayer.rs:32 — MAX_LAN_WORLDS is 8",
-    "crates/voxelgame-core/src/game/startup_multiplayer.rs:92-93 — the list is set while the page is open and cut to 8",
-    "src/net_client/discovery.rs:47-66 — own world is filtered out; another protocol version shows as a world for another game version",
-    "crates/voxelgame-render/src/startup_ui.rs:442-490 — LAN rows are drawn above remembered servers with the LAN badge",
-    "src/net_client/hosting.rs:205-211 — hosting starts the LAN announcer for the hosted world"
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:88-93 — the list is set while the page is open and cut to 8",
+    "crates/voxelgame-core/src/game/startup_multiplayer.rs:314-323 — Enter or a click on a row joins it",
+    "src/net_client/discovery.rs:62-77 — own world is filtered out; another protocol version shows as a world for another game version",
+    "crates/voxelgame-render/src/startup_ui.rs:361-425 — LAN rows are drawn above remembered servers with the LAN badge",
+    "src/net_client/hosting.rs:557-563 — hosting starts the LAN announcer for the hosted world"
    ],
-   "notes": "Source commit f8cdb531 at Voxelgame origin/main (VOX-NET-M5-LAN slice 3). Described from source and the debug scenario tools/debug_scenarios/multiplayer_lan.json; not play-tested on two computers. Only worlds on the same local network send beacons (multicast time to live 1).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Described from source and the debug scenario tools/debug_scenarios/multiplayer_lan.json; not play-tested on two computers. Only worlds on the same local network send beacons (multicast time to live 1).",
    "backlog": [
     "VOX-NET-M5-LAN"
    ]
