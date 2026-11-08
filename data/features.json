@@ -5431,13 +5431,15 @@
    "modes": [
     "any"
    ],
-   "summary": "25 species, including cows, pigs, sheep, goats, geese, swans, wolves, bears, lions, tigers and crows, make calls you can hear within about 24 m; at most one call plays every 7 to 13 seconds. Blue jays and crows call only during morning birdsong, and resting cows, sheep, pigs and chickens stay quiet at night.",
+   "summary": "57 species, including farm animals, wolves, bears, big cats, deer, monkeys, seals, whales, penguins and many birds, make calls you can hear within about 24 m; at most one call plays every 7 to 13 seconds. A called species also yelps when hit and gives a soft sigh when a blow kills it. Fish, insects, snakes, lizards, turtles and quiet animals such as rabbits stay silent.",
    "evidence": [
-    "crates/voxelgame-core/src/entities/mod.rs:456-485 — species with calls",
-    "crates/voxelgame-core/src/entities/mod.rs:999-1040 — one nearby caller within 24 m; resting animals silent; blue jays and crows need birdsong",
-    "crates/voxelgame-core/src/game/audio.rs:154-170 — one call attempt every 7 to 13 s",
+    "crates/voxelgame-core/src/entities/mod.rs:456-521 — the 57 species with calls",
+    "crates/voxelgame-core/src/game/audio.rs:157-173 — a struck animal's yelp, or a sigh when the hit was fatal, over the hit thud",
+    "src/audio/effects.rs — quiet species add no voice to the hit thud",
+    "crates/voxelgame-core/src/entities/mod.rs:1035-1076 — one nearby caller within 24 m; resting animals silent; blue jays and crows need birdsong",
+    "crates/voxelgame-core/src/game/audio.rs:175-191 — one call attempt every 7 to 13 s",
     "crates/voxelgame-core/src/events.rs:74-86 — a call's voice follows its animal",
-    "crates/voxelgame-core/src/events.rs:155-160 — call loudness falls to silence at 24 m",
+    "crates/voxelgame-core/src/events.rs:163-168 — call loudness falls to silence at 24 m",
     "src/audio.rs:889-917 — a playing call's position, left-right side and loudness are updated as the animal and listener move",
     "crates/voxelgame-core/src/ambience.rs:190-209 — birdsong between sunrise and noon, near trees, not under a roof",
     "crates/voxelgame-core/src/entities/idle_behaviour.rs:15-19 — cows, sheep, pigs and chickens rest at night"
@@ -5445,7 +5447,7 @@
    "backlog": [
     "VOX-OWNER-MOVING-MOB-AUDIO"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A call follows the animal while it plays: you hear it from the animal's side, and it gets louder, quieter or more muffled as you or the animal move.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. The yelps and sighs arrived in that day's game update, which widened calls from 25 to 57 species. Blue jays and crows call only during morning birdsong, and resting cows, sheep, pigs and chickens stay quiet at night. A call follows the animal while it plays: you hear it from the animal's side, and it gets louder, quieter or more muffled as you or the animal move.",
    "guide": {
     "state": "complete",
     "page": "guide-creatures.html",
