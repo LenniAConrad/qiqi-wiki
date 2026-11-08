@@ -1192,9 +1192,10 @@
     "crates/voxelgame-core/src/survival.rs:68-75 — food values and eating order (cooked meat saved for last)",
     "crates/voxelgame-core/src/game.rs:1115-1120 — R handling",
     "crates/voxelgame-core/src/game/consumables.rs:42-55 — clicking a food eats it",
-    "crates/voxelgame-core/src/entities/mod.rs:1437-1521 — animals drop Raw meat or Venison"
+    "crates/voxelgame-core/src/entities/mod.rs:1437-1521 — animals drop Raw meat or Venison",
+    "crates/voxelgame-core/src/fishing.rs:123-139 — a fishing catch is 1 Raw meat"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. This check covered the food values and cooking; the R and click evidence keeps its earlier audit. Only four foods exist. Berries come only from the starter pack (no bushes); renewable food is hunting, ideally cooked with Charcoal on the Craft tab or a cooking stove. Fruit block and Date cluster are building blocks and cannot be eaten. No food poisoning.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. This check covered the food values, eating order and cooking; the R and click evidence keeps its earlier audit. Only four foods exist. Berries come only from the starter pack (no bushes); renewable food comes from hunting and fishing (a catch is 1 Raw meat; see the Fishing guide), ideally cooked with Charcoal on the Craft tab or a cooking stove. Fruit block and Date cluster are building blocks and cannot be eaten. No food poisoning.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",

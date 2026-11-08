@@ -5988,6 +5988,12 @@
        "text": "In Survival, craft a **Reed fishing rod** in [[E]] > **Craft** > **Tools & arms**. It costs 4 boards of any species, 4 Reeds and 2 Plant fiber, and Wool can stand in for the fiber. Counts are half-metre pieces, as everywhere in the Craft tab. {{fishing}} {{ingredient-groups}}"
       },
       {
+       "t": "recipes",
+       "names": [
+        "Reed fishing rod"
+       ]
+      },
+      {
        "t": "p",
        "text": "Reeds grow in wetlands. Plant fiber comes from Wild flax, which grows in some meadows of newer worlds; older worlds have none, so use Wool there. Wool comes from sheep. {{material-sources}}"
       },
