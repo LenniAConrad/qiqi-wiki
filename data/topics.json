@@ -5,7 +5,7 @@
       "id": "getting-started", "title": "Getting started", "page": "topic-getting-started.html",
       "summary": "Your first world, creative and survival play, and saving your progress.",
       "guides": ["getting-started", "first-survival-day", "not-in-the-game-yet"],
-      "references": [["guide-install-and-worlds.html", "Install or update the game"], ["guide-controls.html#essentials", "Essential controls"], ["guide-not-in-game.html#multiplayer", "Host or join a world"]],
+      "references": [["guide-install-and-worlds.html", "Install or update the game"], ["guide-controls.html#essentials", "Essential controls"], ["guide-fishing.html#rod", "Make a fishing rod"], ["guide-storage-beds-lamps.html#beds", "Beds and resting"], ["guide-not-in-game.html#multiplayer", "Host or join a world"]],
       "related": ["controls", "crafting", "troubleshooting"]
     },
     {
@@ -19,35 +19,35 @@
       "id": "blocks", "title": "Blocks and materials", "page": "topic-blocks.html",
       "summary": "Look up building materials, colours and links to their recipes.",
       "guides": [],
-      "references": [["blocks.html", "Block and material catalogue"], ["guide-crafting.html#materials", "Building materials and glass"], ["guide-crafting.html#gathering", "Gathering materials"], ["guide-building.html#pieces", "Whole blocks and smaller pieces"]],
+      "references": [["blocks.html", "Block and material catalogue"], ["guide-crafting.html#materials", "Building materials and glass"], ["guide-crafting.html#gathering", "Gathering materials"], ["guide-building.html#pieces", "Whole blocks and smaller pieces"], ["guide-furniture.html#materials", "Furniture materials"]],
       "related": ["crafting", "building", "items"]
     },
     {
       "id": "crafting", "title": "Crafting", "page": "topic-crafting.html",
       "summary": "Open the crafting panel and look up ingredients and quantities.",
       "guides": ["crafting-and-recipes"],
-      "references": [["guide-crafting.html#recipes", "Complete recipe tables"], ["guide-crafting.html#chain", "Fire, glass and cooking"], ["guide-crafting.html#cooking-stove", "Cooking on a stove"], ["guide-crafting.html#lumen", "Lanterns, rifles and explosives"]],
+      "references": [["guide-crafting.html#recipes", "Complete recipe tables"], ["guide-crafting.html#chain", "Fire, glass and cooking"], ["guide-crafting.html#cooking-stove", "Cooking on a stove"], ["guide-crafting.html#lumen", "Lanterns, rifles and explosives"], ["guide-furniture.html#start", "Furniture hammer and plans"], ["guide-fishing.html#rod", "Reed fishing rod"]],
       "related": ["blocks", "items", "getting-started"]
     },
     {
       "id": "building", "title": "Building", "page": "topic-building.html",
       "summary": "Place blocks, make furniture, use doors and chests, and save structures for later.",
       "guides": ["building-basics", "furniture-and-carpentry", "storage-beds-and-lamps"],
-      "references": [["guide-furniture.html#materials", "Furniture plans and materials"], ["guide-storage-beds-lamps.html#beds", "Beds and resting"], ["guide-building.html#doors", "Placing and opening doors"], ["guide-building.html#chests", "Chests and storage"], ["guide-building.html#blueprints", "Blueprint placement"], ["guide-building.html#structure-library", "The structure library"], ["guide-building.html#undo", "Undo and redo"]],
+      "references": [["guide-furniture.html#materials", "Furniture plans and materials"], ["guide-storage-beds-lamps.html#beds", "Beds and resting"], ["guide-storage-beds-lamps.html#storage", "Furniture storage"], ["guide-storage-beds-lamps.html#lamps", "Floor, table and wall lamps"], ["guide-building.html#doors", "Placing and opening doors"], ["guide-building.html#chests", "Chests and storage"], ["guide-building.html#blueprints", "Blueprint placement"], ["guide-building.html#structure-library", "The structure library"], ["guide-building.html#undo", "Undo and redo"]],
       "related": ["blocks", "crafting", "exploration"]
     },
     {
       "id": "mobs", "title": "Animals and mobs", "page": "topic-mobs.html",
       "summary": "Animal families, habitats, spawning, calls and interactions.",
       "guides": ["creatures", "hunting-and-animals", "fishing"],
-      "references": [["mobs.html", "Animal family reference"], ["animals.html", "Animal portrait gallery"], ["guide-creatures.html#eggs", "Spawn eggs"], ["guide-hunting.html#peaceful", "Peaceful animals and hunting"]],
+      "references": [["mobs.html", "Animal family reference"], ["animals.html", "Animal portrait gallery"], ["guide-creatures.html#eggs", "Spawn eggs"], ["guide-hunting.html#peaceful", "Peaceful animals and hunting"], ["guide-fishing.html#catches", "Which fish you catch"]],
       "related": ["exploration", "items", "getting-started"]
     },
     {
       "id": "exploration", "title": "Biomes and exploration", "page": "topic-exploration.html",
       "summary": "Read the map, find your way home and explore islands, caves and weather.",
       "guides": ["maps-and-finding-your-way", "islands-and-biomes", "caves-and-landmarks", "volcanoes-water-and-expeditions", "weather-and-day-night", "seasons"],
-      "references": [["atlas.html", "Biome photographs and field notes"], ["islands.html", "Island maps and panoramas"], ["guide-maps.html#lost-build", "Find a lost build"], ["scale.html", "World scale comparison"]],
+      "references": [["atlas.html", "Biome photographs and field notes"], ["islands.html", "Island maps and panoramas"], ["guide-maps.html#lost-build", "Find a lost build"], ["guide-fishing.html#where", "Where you can fish"], ["scale.html", "World scale comparison"]],
       "related": ["vehicles", "mobs", "building"]
     },
     {
@@ -59,11 +59,12 @@
         {"name": "Arrows", "description": "Ammunition for bows. Each recipe makes four; survival shots use one arrow.", "href": "guide-crafting.html#recipe-four-arrows"},
         {"name": "Throwing rocks", "description": "Equip a rock, hold right-click to wind up, then release to throw.", "href": "guide-hunting.html#rocks"},
         {"name": "Reed fishing rod", "description": "Right-click open water to cast, wait for a bite, then right-click again to reel in Raw meat.", "href": "guide-fishing.html#rod"},
+        {"name": "Furniture hammer", "description": "Carry it to open the Carpentry tab and use furniture plans. Make it from two board pieces and one natural stone piece.", "href": "guide-furniture.html#start"},
         {"name": "Cooked meat", "description": "Cook meat in the crafting panel and eat it to restore hunger.", "href": "guide-crafting.html#recipe-cook-raw-meat"},
         {"name": "Building materials", "description": "Boards, bricks, glass and stone for walls, floors and roofs.", "href": "blocks.html"}
       ],
       "guides": ["explosives"],
-      "references": [["guide-getting-started.html#pack", "Inventory and the hotbar"], ["guide-first-survival-day.html#tools", "Making your first tools"], ["guide-hunting.html", "Bows, rifles and hunting"], ["guide-first-survival-day.html#eat-drink", "Food, thirst and drinking"], ["guide-crafting.html#lumen", "Lanterns, rifles and explosives"]],
+      "references": [["guide-getting-started.html#pack", "Inventory and the hotbar"], ["guide-first-survival-day.html#tools", "Making your first tools"], ["guide-hunting.html", "Bows, rifles and hunting"], ["guide-first-survival-day.html#eat-drink", "Food, thirst and drinking"], ["guide-crafting.html#lumen", "Lanterns, rifles and explosives"], ["guide-furniture.html#start", "Furniture hammer"], ["guide-fishing.html", "Fishing rod, casting and catches"]],
       "related": ["crafting", "mobs", "getting-started"]
     },
     {

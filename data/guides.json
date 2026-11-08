@@ -762,7 +762,8 @@
    ],
    "next": [
     "crafting-and-recipes",
-    "controls-reference"
+    "controls-reference",
+    "storage-beds-and-lamps"
    ],
    "verification": {
     "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction. Home crate, keyboard, repair, pack-up and rest instructions, including Home on a server, were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (game/home.rs, game/home/keyboard.rs, game/net_client/home.rs, session/home.rs and session/home/*.rs, the Home tab in inventory_ui.rs, and the bed rest pose in game/furniture/resting.rs). The cooking text in 'Hunt, cook and fill flasks' and the Hot meal milestone were re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026.",
@@ -1166,7 +1167,8 @@
    ],
    "next": [
     "first-survival-day",
-    "controls-reference"
+    "controls-reference",
+    "furniture-and-carpentry"
    ],
    "verification": {
     "method": "The recipe tables are generated from data/recipes.json, refreshed on 8 November 2026 from the complete Craft-tab registry at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c and rechecked at 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (unchanged, with new source lines): 151 recipes, including the two cooking recipes shared with the stove and 90 doors by wood. tools/validate_guides.py --game rechecks every name, section, amount, game description and source line against that export. The Craft tab, its queue, the Ready filter, starred recipes and the X shortcut were source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (game/craft_queue.rs, game/crafting.rs, game/inventory_input.rs, game/inventory_qol.rs, game/net_client/crafting.rs, and the panel and screen drawing in voxelgame-render inventory_ui.rs and hud.rs). The cooking stove plan's description and connected tooltip were rechecked at 251b9e46 (inventory.rs:811, the renderer's inventory_ui.rs:391-400). The block-type section, the rest of the cooking stove, the fire and cooking text, the ingredient groups and the Glow crystal section were source-checked at dfeb362d. The gathering section keeps its earlier check (dd29d91). The Pack text in 'Gathering and reading the pack' was re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: voxelgame-render inventory_ui.rs:318-331,367-414,453-560; voxelgame-core game/inventory_qol.rs:79-87, game/inventory_input.rs:292-327,395-401 and inventory.rs:1050-1075.",
@@ -2765,7 +2767,8 @@
    ],
    "next": [
     "maps-and-finding-your-way",
-    "controls-reference"
+    "controls-reference",
+    "furniture-and-carpentry"
    ],
    "verification": {
     "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS). Targeted furniture, Build-tab access, chest and server-door corrections were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191; game/chests.rs:60-85,121-125,179-229; game/doors.rs:51-56,117-162,189-226. Paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. Existing unrelated sections keep their earlier checks. The additional Creative N detail toggle was checked at the same 5 November pin in crates/voxelgame-core/src/game/building.rs:23-35 and game.rs:1352-1353,2438-2447. Survival still uses held Shift. The doors and chests sections were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: inventory/door_recipes.rs:8-104; inventory.rs:1386-1419,1922-1942; game/crafting/doors.rs:51-122; game/inventory_qol/presentation.rs:8-16,78-91; game/doors.rs:54-231; game/doors/relocation.rs:18-186; world/door/relocation.rs:116-330; game/net_client/door_moves.rs:294-339; game/net_client/door_moves/input.rs:60-211; session/block_harvest/door.rs:98-117; game.rs:1566-1573,2848-2860; game/chests.rs:16-264; game/net_client/chests.rs:176-314; game/net_client/block_harvest/creative.rs:8-50; session/block_harvest/chest.rs:46-80; furniture/definition.rs:435-445; furniture/storage_chest_parts/tests.rs:23-57; game/furniture/chest_refinishing.rs:41-372; game/furniture/chest_refinishing/history.rs:8-81; game/net_client/furniture/history/chest_refinishing.rs:48-115. The undo section and the chest Undo paragraph were source-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/building.rs:193-240,283-447,590-607 (one history for blocks, door moves, chest refinishing and furniture; status and refusal messages; Creative keys and Build tab buttons); building.rs:424-464 (32-step limit); game.rs:2963-2970 and game/plant_support.rs:39-41 (Creative placing and mining recorded); game/blueprint_desk.rs:785-794 (a blueprint is one step); game/furniture/controls.rs:378-393,462-467 (furniture and chest steps in both modes); game/furniture/chest_refinishing/history.rs:8-81 (chest Undo and Redo checks).",
@@ -3333,7 +3336,8 @@
    ],
    "next": [
     "controls-reference",
-    "maps-and-finding-your-way"
+    "maps-and-finding-your-way",
+    "fishing"
    ],
    "verification": {
     "method": "Source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 on 8 November 2026. Launch, packing and limits: game/sailing.rs:43-115, game.rs:2743-2768, game/crafting.rs:118-125, vehicle/sailing.rs:60-148,245-304 and sailing.rs:17-23. Helm, sails, steering and grounding: vehicle.rs:108,845-872,934-939,1085-1103,1255-1279, vehicle/occupied.rs:49-105, vehicle/sailing.rs:8-27,161-225 and game.rs:1548-1551,1811-1823. Wind and speed: sailing.rs:274-300, environment.rs:402-411 and navigation.rs:1-11. Sailing panel: the renderer's vehicle_ui.rs:17-24,100-224. Saving: save/write.rs:139-154,538-547, save/load.rs:798-818 and game/sailing.rs:9-13. Paths are beneath crates/voxelgame-core/src/ unless they name the renderer (crates/voxelgame-render/src/).",
