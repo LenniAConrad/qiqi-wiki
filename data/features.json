@@ -4309,24 +4309,65 @@
     "creative",
     "survival"
    ],
-   "summary": "A small north-up terrain map sits in the top-right corner and is on by default. It shows 128 m around you with your heading arrow, saved places, your destination and any locator highlight. Press M to hide or show it.",
+   "summary": "A small north-up terrain map sits in the top-right corner and is on by default. It shows 128 m across, centred on you, with your heading arrow, saved places, your destination and any locator highlight. Press M to hide or show it. Settings > Interface > Layout > Compact map heading turns it to face your heading; the fullscreen map stays north-up.",
    "controls": [
     [
      "M",
      "Show or hide the compact map (in the world)"
+    ],
+    [
+     "Settings > Interface > Layout > Compact map heading",
+     "Off keeps north at the top (default); On turns the compact map with you (settings)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:818-845 — M toggles the map; Shift+M opens the fullscreen map",
-    "crates/voxelgame-core/src/game.rs:635 — map_visible defaults to true",
-    "crates/voxelgame-render/src/map.rs:110 — hidden in clean view (F1) and while a panel is open",
-    "crates/voxelgame-render/src/map_ui.rs:401-415 — 'M 128M' range label"
+    "crates/voxelgame-core/src/game.rs:1385-1419 — M toggles the compact map; Shift+M opens or closes the fullscreen map; M on the fullscreen map closes it and hides the compact map",
+    "crates/voxelgame-core/src/game.rs:1008 — the compact map starts shown",
+    "crates/voxelgame-render/src/map.rs:14-22 — 32 cells of 4 m: a 128 m view",
+    "crates/voxelgame-render/src/map.rs:141-147 — hidden in clean view (F1) and while a panel is open",
+    "crates/voxelgame-render/src/map.rs:178-188 — the view follows you voxel by voxel",
+    "crates/voxelgame-render/src/map_ui.rs:183-202 — 'M  128M' range label",
+    "crates/voxelgame-render/src/map_ui/compact.rs:7-13 — heading-up turns only the compact map",
+    "crates/voxelgame-core/src/settings.rs:1026-1029 — 'FULLSCREEN MAP STAYS NORTH UP'"
    ],
    "backlog": [
     "VOX-OWNER-MAP-SMOOTH-MOTION",
     "VOX-OWNER-MAP-PLAYER-MARKER"
    ],
-   "notes": "The terrain moves in 4 m jumps because the view snaps to the sample spacing (map.rs:126-134). Like the fullscreen map, it shows only generated terrain: your builds and dug or blasted ground do not appear.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The terrain glides under you as you move rather than jumping in 4 m steps. Like the fullscreen map, it shows only generated terrain: your builds and dug or blasted ground do not appear.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-maps.html",
+    "label": "Maps and finding your way back"
+   }
+  },
+  {
+   "id": "hud-compass",
+   "area": "maps",
+   "name": "HUD compass",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Settings > Interface > Layout > HUD compass (off by default) adds a bearing strip at the top left, under the status line. It shows N, E, S and W around the way you face, your saved places as small amber marks, and the nearest known landmark (an expedition site or your locator pin) as a cyan triangle. A line below names that landmark with its distance and counts your pins.",
+   "controls": [
+    [
+     "Settings > Interface > Layout > HUD compass",
+     "Off (default) or On (settings)"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/settings.rs:65 — Layout tab rows include HUD compass and Compact map heading",
+    "crates/voxelgame-core/src/settings.rs:153-156 — HUD compass and Compact map heading rows",
+    "crates/voxelgame-core/src/settings.rs:588-589 — both off by default",
+    "crates/voxelgame-core/src/settings.rs:1022-1029 — help text",
+    "crates/voxelgame-render/src/compass_ui.rs:15-50 — nearest landmark from expedition sites and the locator result",
+    "crates/voxelgame-render/src/compass_ui.rs:52-149 — strip, pins, landmark triangle and label; hidden while a panel is open",
+    "crates/voxelgame-render/src/hud.rs:508-514 — drawn at the top left, below the sailing panel at the helm",
+    "crates/voxelgame-core/src/navigation.rs:1-11 — bearings: north 0, east 90"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The strip covers 90 degrees either side of your facing, so places behind you do not show. With no landmark known it reads 'No known landmark'. Expedition sites exist only in generation-10 and later worlds. Clean view (F1) hides the compass with the rest of the HUD. The setting is kept with your interface preferences (crates/voxelgame-core/src/settings_profile.rs:107).",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4342,7 +4383,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Shift+M opens a north-up world map, 512 m across by default. The mouse wheel zooms from 128 m to about 131 km across, and dragging looks around without moving you. A readout under the map gives the cursor's X/Z and its distance from you. The view returns to you each time the map opens, and the world pauses while the map is open.",
+   "summary": "Shift+M opens a north-up world map, 512 m across and centred on you each time it opens. The mouse wheel zooms through 11 levels from 128 m to about 131 km across, and dragging looks around without moving you. A readout under the map gives the cursor's X/Z and its distance from you. Offline the world pauses while the map is open; on a server it keeps running.",
    "controls": [
     [
      "Shift+M",
@@ -4374,16 +4415,19 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:819-831 — Shift+M opens the map and resets the pan",
-    "crates/voxelgame-core/src/game/map.rs:182-224 — wheel zoom, hover and drag panning",
-    "crates/voxelgame-core/src/game/map.rs:428-458 — recenter_map and zoom_map ('Map N m across')",
-    "crates/voxelgame-core/src/game.rs:848-855 — update returns early while the map is open;"
+    "crates/voxelgame-core/src/game.rs:1390-1404 — Shift+M opens the map and resets the pan, or closes it",
+    "crates/voxelgame-core/src/game.rs:1420-1428 — update returns early while the map is open",
+    "crates/voxelgame-core/src/game/net_client.rs:781-785 — a server's world does not pause; offline the game pauses",
+    "crates/voxelgame-core/src/ui.rs:56-63 — eleven zoom spacings: 128 m to about 131 km, 512 m by default",
+    "crates/voxelgame-core/src/game/map.rs:191-233 — wheel zoom, hover and drag panning",
+    "crates/voxelgame-core/src/game/map.rs:436-466 — recenter_map and zoom_map ('Map N m across')",
+    "crates/voxelgame-render/src/map_ui.rs:332-351 — CURSOR and CENTER readout"
    ],
    "backlog": [
     "VOX-OWNER-MAP-CRATERS-HEIGHT",
     "VOX-OWNER-MAP-NAVIGATION-RECOVERY"
    ],
-   "notes": "With the pointer off the map, the readout shows 'CENTER X.. Y.. Z..': the map centre (your position rounded to the sample spacing, plus any panning) and your height. Terrain gets light slope shading from neighbouring heights (map.rs:302-309), but no elevation number is shown. Opening Settings also pauses the world.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. With the pointer off the map, the readout shows 'CENTER X.. Y.. Z.. M': the map centre and your height. Terrain gets light slope shading from neighbouring heights (crates/voxelgame-render/src/map.rs:390-397), but no elevation number is shown. Opening Settings also pauses an offline world.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4399,7 +4443,7 @@
     "creative",
     "survival"
    ],
-   "summary": "The panel left of the fullscreen map lists Volcano, Cliff island and Mountain range, then all 92 biomes alphabetically. Type to filter the list, then click a result or press Enter. The search spirals outward from the map centre, recentres and zooms the map on the first match, highlights matching terrain in cyan and drops a pin with distance and coordinates. It never moves you.",
+   "summary": "The panel left of the fullscreen map lists Volcano, Cliff island and Mountain range, then all 92 biomes alphabetically. Type to filter the list, then click a result or press Enter. The search spirals outward from the map centre, up to about 131 km, recentres and zooms the map on the first match, highlights matching terrain in cyan and drops a pin with distance and coordinates. It never moves you.",
    "controls": [
     [
      "Click the search field and type",
@@ -4419,7 +4463,7 @@
     ],
     [
      "FIND NEXT",
-     "Continue outward to a match more than about 1 km from the last one (after a match)"
+     "Continue outward to a match at least about 1 km from the last one (after a match)"
     ],
     [
      "CLEAR",
@@ -4428,11 +4472,14 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/map_locator.rs:44-76 — catalog order and aliases",
-    "crates/voxelgame-core/src/map_locator.rs:78-94 — three biomes are unavailable in generation-1 worlds",
-    "crates/voxelgame-core/src/map_locator.rs:183 — searches pause while the fullscreen map is closed",
-    "crates/voxelgame-core/src/game/map.rs:79-163 — Enter, row clicks, Find Next, Clear, Back to Player; only the map moves"
+    "crates/voxelgame-core/src/map_locator.rs:78-85 — three biomes are unavailable in generation-1 worlds",
+    "crates/voxelgame-core/src/world/generator.rs:349 — 92 biomes",
+    "crates/voxelgame-core/src/map_locator.rs:183-263 — searches pause while the map is closed; 131,072 m limit; start, Find Next and Clear",
+    "crates/voxelgame-core/src/map_locator.rs:311-315 — Find Next skips 1 km around the last match",
+    "crates/voxelgame-core/src/game/map.rs:91-176 — Enter, row clicks, Find Next, Clear, Back to Player; only the map moves",
+    "crates/voxelgame-render/src/map_locator_ui.rs:113-147 — 'SEARCH', 'NO MATCH IN SAMPLED AREA' and '* UNAVAILABLE IN THIS WORLD' lines"
    ],
-   "notes": "The search starts from the map centre, not from you, so pan the map first to search somewhere else. In survival the locator still reveals everything, because there is no fog of war. The highlight and pin stay on the compact map until you press Clear.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The search starts from the map centre, not from you, so pan the map first to search somewhere else. In Survival the locator still reveals everything, because there is no fog of war. The highlight and pin stay on the compact map until you press Clear, and the HUD compass can point to the pin.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4447,7 +4494,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, type X Z in the fullscreen map's COORDINATES (METRES) field and press Enter or TELEPORT to land on a safe surface spot. Type X Y Z for an exact position. In survival the button reads CREATIVE MODE ONLY.",
+   "summary": "In Creative, type X Z in the fullscreen map's COORDINATES (METRES) field and press Enter or TELEPORT to land on a safe surface spot. Type X Y Z for an exact position. Spaces or commas both work, and values must be within ±1,000,000. In Survival the button reads CREATIVE MODE ONLY.",
    "controls": [
     [
      "Click COORDINATES field, type X Z or X Y Z",
@@ -4455,7 +4502,7 @@
     ],
     [
      "Enter or TELEPORT",
-     "Travel there (fullscreen map, creative, not in a vehicle)"
+     "Travel there (fullscreen map, Creative, not at a boat helm)"
     ],
     [
      "Ctrl+Backspace",
@@ -4463,11 +4510,15 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/map.rs:254-281 — error messages 'Switch to creative to teleport', 'Exit your vehicle first', 'Position blocked;",
-    "crates/voxelgame-core/src/game/map.rs:283-315 — travel closes the map and reports 'Teleported to X Y Z | <biome>'",
-    "crates/voxelgame-render/src/map_locator_ui.rs:160-218 — field, TELEPORT / CREATIVE MODE ONLY button, 'X Z = SAFE SURFACE LANDING' hint"
+    "crates/voxelgame-core/src/game/map.rs:49-73 — typing, Ctrl+Backspace clears, Enter travels",
+    "crates/voxelgame-core/src/game/map.rs:263-290 — 'Switch to creative to teleport', 'Exit your vehicle first', 'Position blocked; try X Z instead', 'No clear landing nearby'",
+    "crates/voxelgame-core/src/game/map.rs:292-324 — travel closes the map and reports 'Teleported to X Y Z m | <biome>'",
+    "crates/voxelgame-core/src/game/map.rs:469-492 — two or three numbers, spaces or commas, within +/-1M",
+    "crates/voxelgame-render/src/map_locator_ui.rs:149-206 — field, TELEPORT / CREATIVE MODE ONLY button, 'X Z = SAFE SURFACE LANDING' hint",
+    "crates/voxelgame-core/src/game/net_client.rs:762-772 — on a server the jump is sent to the server",
+    "crates/voxelgame-core/src/session.rs:80-86 — the server allows one trip a second"
    ],
-   "notes": "Single-player players can press F4 to switch to creative. Teleporting saves no 'previous location' and there is no 'go back' button, so add a Journal place before jumping.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. In a solo world, press F4 to switch to Creative. Teleporting saves no previous location and there is no go back button, so add a Journal place before jumping.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4482,22 +4533,24 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, click (without dragging) anywhere on the fullscreen map to travel to a clear landing spot there. In survival a click only shows a reminder, because the map is a chart only. You must leave any vehicle or boat helm first.",
+   "summary": "In Creative, click (without dragging) anywhere on the fullscreen map to travel to clear dry ground within about 9 m of that spot, or onto the water surface when there is none. In Survival a click only shows a reminder, because the map is a chart only. Leave the boat helm first.",
    "controls": [
     [
      "Left-click on the map (no drag)",
-     "Travel to that column (fullscreen map, creative, not controlling a vehicle)"
+     "Travel to that spot (fullscreen map, Creative, not at a boat helm)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/map.rs:226-251 — click versus drag, creative check, vehicle check, landing search",
-    "crates/voxelgame-render/src/map_ui.rs:117-123 — hint 'CLICK TO TRAVEL' in creative, 'DRAG TO LOOK AROUND' otherwise"
+    "crates/voxelgame-core/src/game/map.rs:234-261 — click versus drag, Creative check, 'Exit the controlled vehicle before map travel', landing search",
+    "crates/voxelgame-core/src/game/map.rs:326-380 — landing within 18 voxels (9 m): dry ground first, the water surface as a fallback",
+    "crates/voxelgame-render/src/map_ui.rs:175-181 — hint 'CLICK TO TRAVEL' in Creative, 'DRAG TO LOOK AROUND' otherwise"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
     "label": "Maps and finding your way back"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. On a server the server makes the jump and allows one trip a second (crates/voxelgame-core/src/session.rs:80-86)."
   },
   {
    "id": "map-right-click-markers",
@@ -4508,7 +4561,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Right-click a spot on the fullscreen map to save a numbered 'Marker N' place there and make it your destination. Right-click on an existing pin to delete it. Markers share the Journal's 16-place limit and can be renamed in the Journal.",
+   "summary": "Right-click a spot on the fullscreen map to save a numbered 'Marker N' place there and make it your destination; on water it stands on the surface. Right-click an existing pin to delete it, and use Restore removed in the Journal to bring back the last removed place until you leave the world. Markers share the Journal's 16-place limit and can be renamed in the Journal.",
    "controls": [
     [
      "Right-click on the map",
@@ -4516,10 +4569,12 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/exploration.rs:48-117 — toggle_map_marker: removes the nearest pin within reach, otherwise adds 'Marker N' standing on the land or…",
-    "crates/voxelgame-render/src/map_ui.rs:501 — hint 'RIGHT-CLICK MARKS'"
+    "crates/voxelgame-core/src/game/map.rs:184-190 — right-click marks or removes; removal reaches about as far as the drawn pin",
+    "crates/voxelgame-core/src/game/exploration.rs:126-184 — toggle_map_marker: removes the nearest pin within reach, otherwise adds 'Marker N' on the land or water surface and makes it the destination",
+    "crates/voxelgame-core/src/game/exploration.rs:61-124 — 'Removed <name> | Restore removed in Journal'; one restore, never saved",
+    "crates/voxelgame-render/src/map_ui.rs:564 — hint 'RIGHT-CLICK MARKS'"
    ],
-   "notes": "Removal works on any saved pin, including named Journal places, so a right-click in the wrong spot can delete a place. Removing one says 'Removed <name>'. With 16 places saved, the game says 'Journal holds 16 places; remove one to make room'.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Removal works on any saved pin, including named Journal places, so a right-click in the wrong spot can delete a place. With 16 places saved, the game says 'Journal holds 16 places; remove one to make room'. A new marker reports 'Marker N set at X Z m | right-click it again to remove'.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4535,15 +4590,15 @@
     "creative",
     "survival"
    ],
-   "summary": "The Journal stores up to 16 named places, each with a short note, and lists them with their distance from you. 'Pin this location' saves where you stand, using the Name and Note fields. Select a place to edit it or make it your destination. Places appear as small amber squares on both maps, with names on the fullscreen map.",
+   "summary": "The Journal stores up to 16 named places, each with a short note, and lists them with their distance from you. 'Pin this location' saves where you stand and makes it the destination. Click a place to select it, edit it and make it your destination. Show on map opens the fullscreen map on it, and Restore removed brings back the last removed place. Places appear as small amber squares on both maps, with names on the fullscreen map.",
    "controls": [
     [
-     "E, then Tab to Journal, or the map's Journal button",
+     "E, then the Journal tab (or Tab until it shows), or the map's Journal button",
      "Open the Journal (in the world)"
     ],
     [
      "Click Name / Note fields and type; Enter",
-     "Edit the text; Enter ends typing (Journal)"
+     "Edit the text; Enter ends typing; names up to 32 bytes, notes up to 96 (Journal)"
     ],
     [
      "Pin this location",
@@ -4555,11 +4610,19 @@
     ],
     [
      "Save selected note",
-     "Update the selected place's name and note (Journal)"
+     "Update the selected place's name and note; a blank name keeps the old one (Journal)"
     ],
     [
      "Remove selected pin",
      "Delete the selected place. It clears the destination only when that place is the destination; another destination stays (Journal)"
+    ],
+    [
+     "Restore removed",
+     "Bring back the last removed place with its name and note, until you leave the world (Journal)"
+    ],
+    [
+     "Show on map",
+     "Open the fullscreen map centred on the selected place, or on your home crate when none is selected (Journal)"
     ],
     [
      "Prev / Next",
@@ -4567,12 +4630,16 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/exploration.rs:313-420 — Journal input: sites, place rows, five action buttons, text fields",
-    "crates/voxelgame-render/src/inventory_ui.rs:589-665 — 'Your places | select to edit notes', rows with distance, 'To <name>: N m' line and site clue",
-    "crates/voxelgame-render/src/map_locator_ui.rs:257-294 — pins drawn on both maps, labelled on the fullscreen map",
-    "crates/voxelgame-core/src/save/write.rs:305-333 — places, discoveries and the destination are saved"
+    "crates/voxelgame-core/src/game/exploration.rs:320-467 — Journal input: sites, place rows, action buttons, text fields",
+    "crates/voxelgame-core/src/game/exploration.rs:211-240 — Show on map centres the selected place or home",
+    "crates/voxelgame-core/src/expedition.rs:67-71 — 16 places, 32-byte names, 96-byte notes",
+    "crates/voxelgame-core/src/game/inventory_input.rs:40-59 — clicking a view tab",
+    "crates/voxelgame-core/src/game/inventory_input.rs:83-100 — Tab and Shift+Tab cycle the views",
+    "crates/voxelgame-render/src/inventory_ui.rs:1062-1216 — 'Your places | select to edit notes', rows with distance, seven buttons, 'To <name>: N m' line",
+    "crates/voxelgame-render/src/map_locator_ui.rs:321-338 — pins drawn on both maps, labelled on the fullscreen map",
+    "crates/voxelgame-core/src/save/write.rs:523-536 — places and notes are saved"
    ],
-   "notes": "Names longer than the byte limit stop accepting characters, so non-Latin names hold fewer characters. Places use absolute world positions and are kept per world.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Names longer than the byte limit stop accepting characters, so accented and non-Latin names hold fewer characters. Places use absolute world positions and are kept per world.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4588,14 +4655,17 @@
     "creative",
     "survival"
    ],
-   "summary": "Your chosen destination (an expedition site, a Journal place or a map marker) shows as an amber '+' on both maps, an amber light column 320 m tall in the world, and a gold diamond on screen with its name and distance ('HERE' within 3 m). The diamond sticks to the screen edge when the destination is out of view. With no destination chosen, the maps show your home crate instead (map '+' only, no beacon).",
+   "summary": "Your chosen destination (an expedition site, a Journal place or a map marker) shows as an amber '+' square on both maps, an amber light column 320 m tall in the world, and a gold diamond on screen with its name and distance ('HERE' within 3 m). The square and the diamond stay at the edge when the destination is out of view. With no destination chosen, the maps show your home crate instead (map '+' only, no beacon). The destination is saved.",
    "evidence": [
-    "crates/voxelgame-core/src/game/exploration.rs:24-47 — personal_destination falls back to Home; marked_destination is the explicit choice only",
-    "crates/voxelgame-render/src/uploads.rs:162-164 — beacon added to the world",
-    "crates/voxelgame-render/src/reticle_ui.rs:47-125 — on-screen indicator",
-    "crates/voxelgame-render/src/hud.rs:309-311 — indicator hidden while a panel is open"
+    "crates/voxelgame-core/src/game/exploration.rs:38-60 — personal_destination falls back to Home; marked_destination is the explicit choice only",
+    "crates/voxelgame-render/src/uploads.rs:247-249 — beacon added to the world",
+    "crates/voxelgame-render/src/reticle_ui.rs:17-51 — amber column 320 m tall",
+    "crates/voxelgame-render/src/reticle_ui.rs:53-110 — on-screen diamond, edge pinning and 'HERE' within 3 m",
+    "crates/voxelgame-render/src/hud.rs:597-599 — indicator hidden while a panel is open",
+    "crates/voxelgame-render/src/map_locator_ui.rs:339-358 — '+' square on both maps, held at the rim",
+    "crates/voxelgame-core/src/save/write.rs:554-564 — the destination is saved"
    ],
-   "notes": "There is no separate 'clear destination' button. Picking another place changes it, and removing the selected place clears it only when that place is the destination; removing another place keeps it (exploration.rs:48-60 remove_map_pin, 288 Journal delete). The diamond is part of the HUD, so clean view (F1) hides it.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. There is no separate clear button. Picking another place changes it, and removing the selected place clears it only when that place is the destination; removing another place keeps it (crates/voxelgame-core/src/game/exploration.rs:61-79). The Journal shows 'To <name>: N m' under its buttons. The diamond is part of the HUD, so clean view (F1) hides it.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4611,12 +4681,14 @@
     "creative",
     "survival"
    ],
-   "summary": "On both maps you are shown as a gold arrowhead with a dark outline, pointing the way you face. It is hidden when you are outside the visible area, for example after panning away. N, S, E and W labels mark the edges, and the fullscreen map has a scale bar.",
+   "summary": "On both maps you are shown as a grey two-tone arrow with a dark outline, pointing the way you face. It is hidden when you are outside the visible area, for example after panning away. N, S, E and W labels mark the edges. The fullscreen map has a scale bar in the lower-left corner and a legend in the lower-right corner.",
    "evidence": [
-    "crates/voxelgame-render/src/map_ui.rs:7-39 — draw_player_map_arrow (gold kite shape)",
-    "crates/voxelgame-render/src/map_ui.rs:138-159 — player position only drawn inside the map",
-    "crates/voxelgame-render/src/map_ui.rs:373-391 — cardinal labels",
-    "crates/voxelgame-render/src/map_ui.rs:222-258 — scale bar"
+    "crates/voxelgame-render/src/map_ui.rs:11-34 — arrow colours and size",
+    "crates/voxelgame-render/src/map_ui.rs:60-107 — draw_player_map_arrow: a two-tone chevron on a dark keyline",
+    "crates/voxelgame-render/src/map_ui.rs:204-226 — player position only drawn inside the map",
+    "crates/voxelgame-render/src/map_ui.rs:463-498 — cardinal labels and the arrow, turned with a heading-up compact map",
+    "crates/voxelgame-render/src/map_ui.rs:287-330 — scale bar",
+    "crates/voxelgame-render/src/map_locator_ui.rs:392-451 — legend"
    ],
    "backlog": [
     "VOX-OWNER-MAP-PLAYER-MARKER"
@@ -4625,7 +4697,8 @@
     "state": "complete",
     "page": "guide-maps.html",
     "label": "Maps and finding your way back"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. With Compact map heading on, the arrow on the compact map always points up and the edge labels move instead."
   },
   {
    "id": "survival-map-chart",
@@ -4635,10 +4708,11 @@
    "modes": [
     "survival"
    ],
-   "summary": "In survival the maps show the whole generated world, including places you have never visited. You can zoom, drag, search with the locator and set markers, but clicking does not travel and coordinate teleport is creative-only.",
+   "summary": "In Survival the maps show the whole generated world, including places you have never visited. You can zoom, drag, search with the locator and set markers, but clicking does not travel and coordinate teleport is Creative only.",
    "evidence": [
-    "crates/voxelgame-core/src/game/map.rs:234-237 — survival click shows 'Map travel is a creative-mode convenience | drag to look around'",
-    "crates/voxelgame-core/src/game/map.rs:262-265 — 'Switch to creative to teleport'",
+    "crates/voxelgame-core/src/game/map.rs:243-247 — a Survival click shows 'Map travel is a creative-mode convenience | drag to look around'",
+    "crates/voxelgame-core/src/game/map.rs:272-274 — 'Switch to creative to teleport'",
+    "crates/voxelgame-render/src/map_locator_ui.rs:181-191 — CREATIVE MODE ONLY button",
     "search: grep -i 'explored|fog of war|unexplored|reveal' in core/render map code — no discovery masking"
    ],
    "backlog": [
@@ -4648,7 +4722,8 @@
     "state": "complete",
     "page": "guide-maps.html",
     "label": "Maps and finding your way back"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test."
   },
   {
    "id": "position-readout",
@@ -4659,8 +4734,14 @@
     "creative",
     "survival"
    ],
-   "summary": "A small top-right readout shows FPS, your X, Y and Z in metres and the biome you are in. It is on by default each session and can be turned off with Settings > Advanced > Diagnostics > FPS and coordinates. It is hidden while panels are open.",
+   "summary": "A small readout under the compact map shows FPS, your X, Y and Z in metres and the biome you are in. It is on by default each session and can be turned off with Settings > Advanced > Diagnostics > FPS and coordinates. It is hidden while panels are open.",
    "evidence": [
+    "crates/voxelgame-render/src/debug_ui.rs:14-50 — readout labels FPS, X, Y, Z, BIOME",
+    "crates/voxelgame-core/src/game.rs:111 — on by default",
+    "crates/voxelgame-render/src/hud.rs:465-478 — shown only when no panel is open, under the compact map",
+    "crates/voxelgame-core/src/settings.rs:40-49 — FPS and coordinates row on the Diagnostics tab",
+    "crates/voxelgame-core/src/settings.rs:88 — Diagnostics sits under Advanced",
+    "crates/voxelgame-core/src/game/music_settings.rs:161-164 — the setting toggles the readout",
     "crates/voxelgame-render/src/debug_ui.rs:14-39 — readout labels FPS, X, Y, Z, BIOME",
     "crates/voxelgame-core/src/game.rs:111 — the readout is on by default",
     "crates/voxelgame-render/src/hud.rs:465 — shown only when no panel is open",
@@ -4668,7 +4749,7 @@
     "crates/voxelgame-core/src/settings.rs:82-89 — Diagnostics sits under Advanced",
     "crates/voxelgame-core/src/settings.rs:949 — setting name 'FPS AND COORDINATES'"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The Settings route, default and readout labels were re-checked; the compass directions keep their earlier audit. Useful for writing down coordinates before teleporting. North is -Z and east is +X.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Useful for writing down coordinates before teleporting. North is -Z and east is +X. The choice is not saved, so the readout is back on next session.",
    "guide": {
     "state": "complete",
     "page": "guide-maps.html",
@@ -4684,7 +4765,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Select the Small sailing boat and right-click open water within 6 m to launch it. It floats on any water: sea, lakes and all six water types, at their real surface height. To carry it again, look at an unoccupied boat within 6 m and Shift-right-click, with 18 capacity free in your pack. Survival uses up and returns the boat item; creative launches from the catalog without using one.",
+   "summary": "Craft the Small sailing boat (Timber) or take it from the Creative catalog. Select it and right-click open water within 6 m to launch it, facing the way you look. It floats on any water: sea, lakes and all six water types, at their real surface height. To carry it again, look at an unoccupied boat within 6 m and Shift-right-click, with 18 capacity free in your pack. Survival uses up the boat item; packing gives one back in both modes.",
    "controls": [
     [
      "Right-click open water",
@@ -4692,16 +4773,19 @@
     ],
     [
      "Shift + right-click",
-     "Pack up the boat you are looking at (unoccupied boat within 6 m, any item held)"
+     "Pack up the boat you are looking at into your pack (unoccupied boat within 6 m, any item held)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/sailing.rs:42-112 — launch and pack messages, survival item use, 8-boat cap",
-    "crates/voxelgame-core/src/game.rs:1712-1740 — Shift-right-click packing works whatever item you hold",
-    "crates/voxelgame-core/src/game/crafting.rs:100-105 — crafting the boat selects it",
-    "crates/voxelgame-core/src/vehicle/sailing.rs:52-86 — launch needs water under the whole hull and room for the mast"
+    "crates/voxelgame-core/src/game/sailing.rs:43-115 — server refusal, pack and launch messages, 18 capacity check, Survival item use",
+    "crates/voxelgame-core/src/game.rs:2743-2768 — Shift-right-click packing works whatever item you hold",
+    "crates/voxelgame-core/src/game/crafting.rs:118-125 — crafting the boat selects it",
+    "crates/voxelgame-core/src/inventory.rs:1949-1955 — recipe in Timber",
+    "crates/voxelgame-core/src/vehicle/sailing.rs:60-94 — launch: 8-boat limit, water under the whole hull, room for the mast, clear of other boats",
+    "crates/voxelgame-core/src/vehicle/sailing.rs:108-148 — packing within 6 m; wrecks cannot be packed and are cleared at the next launch",
+    "crates/voxelgame-core/src/vehicle/sailing.rs:245-304 — real water surface and nine hull support points"
    ],
-   "notes": "A failed launch says 'Boat needs clear water and room for its hull and mast (8 boats maximum)' and uses nothing. Wrecked boats (0 HP) cannot be boarded or packed and are cleared when you next launch (crates/voxelgame-core/src/vehicle/sailing.rs:125-141). Boats are disabled on multiplayer servers ('Boats aren't available on servers yet', game/sailing.rs:49). The recipe belongs to the survival audit and is listed here only for reference.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A failed launch says 'Boat needs clear water and room for its hull and mast (8 boats maximum)' and uses nothing. Aiming at anything but water says 'Aim at open water within 6 m to launch the sailing boat'. Without room, packing says 'Free 18 capacity to pack the boat'. Wrecked boats (0 HP) cannot be boarded or packed. On multiplayer servers launching and packing say 'Boats aren't available on servers yet'.",
    "guide": {
     "state": "complete",
     "page": "guide-sailing.html",
@@ -4717,11 +4801,11 @@
     "creative",
     "survival"
    ],
-   "summary": "Walk or jump onto the boat's wooden deck like normal ground. Press V within 9 m to take the helm, and press V again to step back onto the cockpit. At the helm, hold W to raise the sails and S to reef them, press Space to lower them fully, and steer with A/D. Press C or F5 to switch between first-person and chase view, and hold Alt for free look.",
+   "summary": "Walk or jump onto the boat's wooden deck like normal ground. Press V within 9 m of the hull to take the helm, and press V again to step back into the cockpit. At the helm, hold W to raise the sails and S to reef them, press Space to lower them fully, and steer with A/D. Press C or F5 to switch between first-person and chase view, and hold Alt for free look.",
    "controls": [
     [
      "V",
-     "Take or leave the helm (within 9 m of the boat or on its deck)"
+     "Take or leave the helm (within 9 m of the hull or on its deck)"
     ],
     [
      "W (hold)",
@@ -4745,16 +4829,22 @@
     ],
     [
      "Hold Alt",
-     "Free look (at the helm)"
+     "Free look; the view swings back when you let go (at the helm)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/vehicle.rs:865-870 — helm hint 'V exit | W raise sail S reef Space lower | A/D rudder | C first/chase Alt free look'",
-    "crates/voxelgame-core/src/vehicle/sailing.rs:153-209 — sail and steering simulation",
-    "crates/voxelgame-core/src/vehicle/occupied.rs:33-74 — leaving the helm stops the boat and puts you in the cockpit",
-    "crates/voxelgame-core/src/vehicle/sailing.rs:12-19 — sails lower by themselves when nobody is at the helm"
+    "crates/voxelgame-core/src/vehicle.rs:934-939 — helm hint 'V exit | W raise sail S reef Space lower | A/D rudder | C first/chase Alt free look'",
+    "crates/voxelgame-core/src/vehicle.rs:108 — 9 m entry range",
+    "crates/voxelgame-core/src/vehicle.rs:1255-1279 — for boats the range is measured from the hull",
+    "crates/voxelgame-core/src/vehicle/sailing.rs:8-27 — two-second hoist; sails lower by themselves when nobody is at the helm",
+    "crates/voxelgame-core/src/vehicle/sailing.rs:161-225 — sail and steering simulation; the boat stops dead when blocked",
+    "crates/voxelgame-core/src/vehicle/occupied.rs:49-105 — leaving the helm stops the boat and puts you in the cockpit",
+    "crates/voxelgame-core/src/vehicle.rs:1085-1103 — C or F5 changes the camera",
+    "crates/voxelgame-core/src/vehicle.rs:845-872 — Alt free look returns the view on release",
+    "crates/voxelgame-core/src/game.rs:1548-1551 — the pack does not open at the helm",
+    "crates/voxelgame-core/src/game.rs:1811-1823 — V is refused on servers"
    ],
-   "notes": "There is no reverse. The boat can turn while stopped. It stops dead if the hull would run aground or hit another boat, and it can only turn where the new heading still has water under the whole hull (crates/voxelgame-core/src/vehicle/sailing.rs:159-205), so a grounded boat may need packing up and relaunching. Leaving the helm stops the boat immediately. Opening the pack (E) pauses the boat (game.rs:1149).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. There is no reverse. The boat turns slowly while stopped and faster at speed. It stops dead if the hull would run aground or hit another boat, and it can only turn where the new heading still has water under the whole hull (crates/voxelgame-core/src/vehicle/sailing.rs:170-211), so a grounded boat may need packing up and relaunching. A boat with nobody at the helm does not drift. On servers V says 'Vehicles aren't available on servers yet'.",
    "guide": {
     "state": "complete",
     "page": "guide-sailing.html",
@@ -4770,18 +4860,23 @@
     "creative",
     "survival"
    ],
-   "summary": "Each world has a fixed prevailing wind direction, and its strength changes with the weather: about 2.8 m/s in clear weather up to 8.5 m/s in thunderstorms. Running with the wind is fastest, and across the wind gives about two-thirds of the wind speed. Within 45 degrees of sailing straight into the wind the sails give no push, so zig-zag (tack) to go upwind. The red masthead pennant and the HUD flag (bow at the top) point downwind.",
+   "summary": "Each world has a fixed prevailing wind direction, and its strength changes with the weather: about 2.8 m/s in clear weather up to 8.5 m/s in thunderstorms. Running with the wind is fastest, up to the boat's 6 m/s top speed, and across the wind gives about two-thirds of the wind speed. Within 45 degrees of sailing straight into the wind the sails give no push, so zig-zag (tack) to go upwind. The red masthead pennant and the HUD flag (bow at the top) point downwind.",
    "evidence": [
-    "crates/voxelgame-core/src/sailing.rs:272-277 — wind direction fixed by seed, speed from weather",
-    "crates/voxelgame-core/src/game.rs:1648-1652 — sailing_wind used by physics, flag and HUD",
-    "crates/voxelgame-core/src/sailing.rs:121-139 — red pennant points where the air travels",
-    "crates/voxelgame-render/src/vehicle_ui.rs:110-118 — HUD 'WIND x M/S TO n DEG'"
+    "crates/voxelgame-core/src/sailing.rs:274-279 — direction fixed by seed; 2.5 m/s plus 6 m/s times the weather's wind",
+    "crates/voxelgame-core/src/environment.rs:402-411 — weather wind values (clear 0.05, thunderstorm 1.0)",
+    "crates/voxelgame-core/src/sailing.rs:281-300 — 45-degree no-push sector, speed curve and 6 m/s cap",
+    "crates/voxelgame-core/src/game.rs:2578-2580 — sailing_wind used by physics, flag and HUD",
+    "crates/voxelgame-core/src/sailing.rs:120-140 — red pennant points where the air travels",
+    "crates/voxelgame-render/src/vehicle_ui.rs:100-112 — 'HP | KN | TRIM | HDG' line",
+    "crates/voxelgame-render/src/vehicle_ui.rs:146-159 — 'WIND x M/S TO n' and the tack advice",
+    "crates/voxelgame-render/src/vehicle_ui.rs:177-224 — bow-up flag box",
+    "crates/voxelgame-core/src/navigation.rs:1-11 — compass bearings: north 0, east 90"
    ],
    "backlog": [
     "VOX-OWNER-SAILING-HANDLING",
     "VOX-OWNER-BOAT-SIZE-ART"
    ],
-   "notes": "Because the wind direction never changes in a world, the same routes are always upwind. The HUD bearing 'TO n DEG' is not a compass bearing: 0 deg points to +Z (south on the map) and 90 deg to +X (east) (vehicle_ui.rs:112). Read the flags instead. Seasons do not affect the wind.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The panel shows speed in knots, TRIM as the sail setting, HDG as a compass heading and 'WIND x M/S TO n' as the compass bearing the air blows towards (0 north, 90 east). It says 'TACK: TURN ACROSS WIND' inside the no-push zone and 'BOW UP FLAG' otherwise. Speed scales with the sail setting. Seasons do not affect the wind.",
    "guide": {
     "state": "complete",
     "page": "guide-sailing.html",
@@ -4797,17 +4892,20 @@
     "creative",
     "survival"
    ],
-   "summary": "Up to 8 launched boats are saved with their position, heading and health. If you save while at the helm, you reload standing in the stopped boat's cockpit rather than at the helm.",
+   "summary": "Up to 8 launched boats are saved with the world, with their position, heading and health; wrecked boats (0 HP) are not saved. If you save while at the helm, you reload standing in the stopped boat's cockpit rather than at the helm.",
    "evidence": [
-    "crates/voxelgame-core/src/save.rs:100 — saving at the helm writes the cockpit position",
+    "crates/voxelgame-core/src/save/write.rs:139-154 — saving at the helm writes the cockpit position",
     "crates/voxelgame-core/src/game/sailing.rs:9-13 — sailing_save_position",
-    "crates/voxelgame-core/src/sailing.rs:26-32 — saved boat record (position, yaw, health)"
+    "crates/voxelgame-core/src/sailing.rs:27-33 — saved boat record (position, heading, health)",
+    "crates/voxelgame-core/src/vehicle/sailing.rs:33-43 — only boats above 0 HP are saved",
+    "crates/voxelgame-core/src/save/load.rs:798-818 — up to 8 boats are read back"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-sailing.html",
     "label": "Sailing a boat"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test."
   },
   {
    "id": "flowing-water",

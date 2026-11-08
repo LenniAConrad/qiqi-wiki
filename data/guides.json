@@ -2436,14 +2436,15 @@
    "kicker": "Exploration",
    "title": "Maps and finding your way back",
    "headline": "Mark it, find it,<br><em>get back to it.</em>",
-   "summary": "Use the compact and fullscreen maps, the biome locator, Journal places and destinations. Keep a build easy to find after a long trip.",
+   "summary": "Use the compact and fullscreen maps, the HUD compass, the biome locator, Journal places and destinations. Keep a build easy to find after a long trip.",
    "lead": "Two maps show the generated terrain. You can mark places, set a destination and search for biomes. Your own builds are not drawn on the maps, so save a place before you travel far.",
-   "readTime": "5 min read",
+   "readTime": "6 min read",
    "audience": "Everyone",
    "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "compact-map",
+    "hud-compass",
     "fullscreen-map",
     "map-locator",
     "map-coordinate-teleport",
@@ -2460,11 +2461,12 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Keys, limits and map behaviour come from the feature ledger, which cites the game source lines for each entry. Map sizes, zoom range, the 16-place Journal limit and the 320 m beacon are code values.",
-    "limits": "Source-checked, not play-tested in this guide. Compare the zoom steps and the beacon height with what you see in play. The route to FPS and coordinates was re-checked at Voxelgame 251b9e46 on 8 November 2026 (settings.rs:40-51,82-89,949); not play-tested."
+    "method": "Source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 on 8 November 2026. Map keys: game.rs:1385-1428. Fullscreen map, zoom, clicks, markers and coordinates: game/map.rs:22-492 and ui.rs:56-63. Journal, markers and destinations: game/exploration.rs:38-467, expedition.rs:67-71 and save/write.rs:523-564. Locator: map_locator.rs:44-315. Server map travel: game/net_client.rs:762-772 and session.rs:80-86,881-911. Drawing of both maps, the arrow, pins, legend, beacon, compass and readout: the renderer's map.rs, map_ui.rs, map_ui/compact.rs, map_locator_ui.rs, inventory_ui.rs:1062-1216, reticle_ui.rs:17-110, compass_ui.rs:15-149, hud.rs:465-599 and debug_ui.rs:14-50. Settings routes: settings.rs:40-88,153-156,588-589,1022-1029. Paths are beneath crates/voxelgame-core/src/ unless they name the renderer (crates/voxelgame-render/src/).",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. This guide has no screenshots, and no new game capture was made. Compare the zoom steps, the beacon height and the compass with what you see in play."
    },
    "owns": [
     "compact-map",
+    "hud-compass",
     "fullscreen-map",
     "map-locator",
     "map-coordinate-teleport",
@@ -2484,7 +2486,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The compact map is a small north-up view in the top-right corner. It shows about 128 m around you and is on by default. The fullscreen map covers 512 m at first and can zoom out to about 131 km. {{compact-map}} {{fullscreen-map}}"
+       "text": "The compact map is a small north-up view in the top-right corner. It shows 128 m across, centred on you, and is on by default. The fullscreen map is 512 m across when it opens and zooms from 128 m to about 131 km. {{compact-map}} {{fullscreen-map}}"
       },
       {
        "t": "keys",
@@ -2495,18 +2497,26 @@
         ],
         [
          "Shift + M",
-         "Open or close the fullscreen map."
+         "Open or close the fullscreen map. The compact map stays."
         ],
         [
          "Esc",
          "Close the fullscreen map."
+        ],
+        [
+         "M on the fullscreen map",
+         "Close it and hide the compact map."
         ]
        ]
       },
       {
+       "t": "p",
+       "text": "To make the compact map turn with you, set **Settings > Interface > Layout > Compact map heading** to On. The way you face is then always at the top, and the N, E, S and W labels move round the edge. The fullscreen map always stays north-up."
+      },
+      {
        "t": "note",
        "kind": "limit",
-       "text": "The maps show generated terrain only. Blocks you place or dig do not appear on them."
+       "text": "The maps show generated terrain only. Blocks you place or dig do not appear on them. The compact map is hidden while a panel is open and in clean view ([[F1]])."
       }
      ]
     },
@@ -2517,15 +2527,19 @@
       {
        "t": "steps",
        "items": [
-        "Press Shift + M to open the map. When you play offline, the world pauses while it is open. On a server, the world keeps running.",
+        "Press [[Shift]] + [[M]] to open the map. It opens centred on you. When you play offline, the world pauses while it is open. On a server, the world keeps running.",
         "Scroll the mouse wheel over the map to zoom in or out.",
         "Drag with the left mouse button to look around. Dragging does not move you.",
-        "Press BACK TO PLAYER in the side panel to centre the map on you again."
+        "Press **BACK TO PLAYER** in the side panel to centre the map on you again."
        ]
       },
       {
        "t": "p",
-       "text": "The readout under the map shows the X and Z position under the cursor and its distance from you. With the cursor off the map, it shows the map centre. {{map-player-marker}} Your position is a gold arrow that points the way you face."
+       "text": "The readout under the map shows the X and Z position under the cursor and its distance from you. With the cursor off the map, it shows the map centre and your height. {{map-player-marker}} You are the grey arrow with a dark outline. It points the way you face."
+      },
+      {
+       "t": "p",
+       "text": "N, E, S and W labels mark the edges. A scale bar sits in the lower-left corner, and a legend in the lower-right corner names the markers."
       }
      ]
     },
@@ -2537,18 +2551,18 @@
        "t": "steps",
        "items": [
         "Open the fullscreen map.",
-        "Right-click the spot you want. The game adds a pin named Marker 1, Marker 2 and so on, and sets it as your destination.",
+        "Right-click the spot you want. The game adds a pin named Marker 1, Marker 2 and so on, and sets it as your destination. On water, the pin stands on the surface.",
         "Right-click an existing pin to remove it."
        ]
       },
       {
        "t": "p",
-       "text": "Markers use the same 16-place limit as the Journal. Rename them in the Journal to give them a clear name. {{map-right-click-markers}}"
+       "text": "Markers use the same 16-place limit as the Journal. Rename them in the Journal to give them a clear name. Pins show as small amber squares on both maps, with their names on the fullscreen map. {{map-right-click-markers}}"
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "Right-clicking a pin removes it even when it is a named Journal place. If the game says the Journal is full, remove a place first."
+       "text": "Right-clicking a pin removes it, even a named Journal place. To undo, open the Journal and press **Restore removed**. Only the last place you removed can come back, and only until you leave the world. If the game says the Journal is full, remove a place first."
       }
      ]
     },
@@ -2559,15 +2573,23 @@
       {
        "t": "steps",
        "items": [
-        "Press E, then Tab to reach the Journal. You can also click the Journal button on the fullscreen map.",
-        "Type a name and an optional note in the Name and Note fields. Press Enter to finish typing.",
-        "Click Pin this location to save the spot where you stand. A blank name becomes Place 1, Place 2 and so on.",
-        "Click a place to select it, make it your destination, or change its text. Click Save selected note to keep the changes."
+        "Press [[E]], then click the **Journal** tab or press [[Tab]] until it shows. You can also click the **Journal** button on the fullscreen map.",
+        "Click the **Name** or **Note** field and type. Press [[Enter]] to finish typing. A name holds up to 32 plain letters and a note up to 96; accented and non-Latin letters take more room.",
+        "Click **Pin this location** to save the spot where you stand. It also becomes your destination. A blank name becomes Place 1, Place 2 and so on.",
+        "Click a place to select it. This also makes it your destination and loads its name and note. Edit them and click **Save selected note**."
        ]
       },
       {
        "t": "p",
-       "text": "The Journal holds 16 places and lists each one with its distance from you. Use Prev and Next to page through them. Places are saved per world. {{journal-places}}"
+       "text": "The Journal holds 16 places and lists each one with its distance from you. Use **Prev** and **Next** to page through them. Places are saved per world. {{journal-places}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Remove selected pin** deletes the selected place.",
+        "**Restore removed** brings back the last place you removed, with its name and note.",
+        "**Show on map** opens the fullscreen map centred on the selected place, or on your home crate when no place is selected."
+       ]
       }
      ]
     },
@@ -2577,19 +2599,20 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The destination is the place the maps and the screen point to. It can be a map marker, a Journal place or an expedition site. {{destination-beacon}}"
+       "text": "The destination is the place the maps and the screen point to. It can be a map marker, a Journal place or an expedition site. It is saved with the world. {{destination-beacon}}"
       },
       {
        "t": "list",
        "items": [
-        "On both maps it shows as an amber +.",
-        "In the world it shows as an amber light column about 320 m tall.",
-        "On screen it shows as a gold diamond with the name and distance. The diamond sticks to the screen edge when the place is out of view. It reads HERE within 3 m."
+        "On both maps it shows as an amber square with a +. When it is off the map, the square waits at the edge in its direction.",
+        "In the world it shows as an amber light column 320 m tall.",
+        "On screen it shows as a gold diamond with the name and distance. The diamond sticks to the screen edge when the place is out of view. It reads HERE within 3 m.",
+        "The Journal shows the distance to it under its buttons, for example To Camp: 120 m."
        ]
       },
       {
        "t": "p",
-       "text": "There is no clear button. Pick another place to change the destination, or remove the selected place to clear it, but only when that place is the destination. Removing another place keeps the destination. With no destination, the maps show your home crate as a + instead. {{home-crate}}"
+       "text": "There is no clear button. Pick another place to change the destination, or remove the selected place to clear it, but only when that place is the destination. Removing another place keeps the destination. With no destination, the maps show your home crate as the + square instead, with no beacon or diamond. {{home-crate}}"
       }
      ]
     },
@@ -2602,39 +2625,47 @@
        "items": [
         "Open the fullscreen map and click the search field on the left.",
         "Type a name, such as crystal, meteorite, caldera or lava tunnel. The list filters as you type.",
-        "Press Enter, or click a result. The map centres on the first match, highlights it in cyan and drops a pin with the distance and coordinates.",
-        "Press FIND NEXT to search outward for another match, or CLEAR to remove the pin and highlight."
+        "Press [[Enter]], or click a result. The map centres on the first match, highlights the matching terrain in cyan and drops a pin with the distance and coordinates.",
+        "Press **FIND NEXT** to search outward for another match at least about 1 km from the last one, or **CLEAR** to remove the pin and highlight."
        ]
       },
       {
        "t": "p",
-       "text": "The locator does not move you. Pan the map first if you want to search from another spot, because the search starts at the map centre. {{map-locator}} The list includes Volcano, Cliff island, Mountain range and all 92 biomes."
+       "text": "The locator does not move you. Pan the map first if you want to search from another spot, because the search starts at the map centre. It only searches while the fullscreen map is open, out to about 131 km. NO MATCH IN SAMPLED AREA means it found nothing. {{map-locator}}"
+      },
+      {
+       "t": "p",
+       "text": "The list includes Volcano, Cliff island, Mountain range and all 92 biomes. A name marked * cannot appear in this world, because the world was made by an older version of the game."
       }
      ]
     },
     {
      "id": "travel",
-     "title": "Travel by map (creative only)",
+     "title": "Travel by map (Creative only)",
      "blocks": [
       {
        "t": "p",
-       "text": "In creative you can jump to a place from the map. Survival maps are a chart only."
+       "text": "In Creative you can jump to a place from the map. In Survival the map is a chart only."
       },
       {
        "t": "steps",
        "items": [
-        "Click a spot on the fullscreen map without dragging. You land on a clear spot there.",
-        "Or click the COORDINATES field, type X Z, or X Y Z for an exact height, and press Enter or TELEPORT."
+        "Click a spot on the fullscreen map without dragging. You land on clear dry ground within about 9 m of it, or on the water surface when there is none.",
+        "Or click the **COORDINATES (METRES)** field, type X Z, or X Y Z for an exact height, and press [[Enter]] or **TELEPORT**. Spaces or commas both work, and values must be within ±1,000,000."
        ]
+      },
+      {
+       "t": "p",
+       "text": "X Z always looks for a safe surface spot. An X Y Z spot must be free, or the game says Position blocked; try X Z instead. After the jump, the status line gives your new X, Y and Z and the biome. On a server, the server makes the jump and allows one trip a second."
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "Teleporting does not save where you came from, and there is no go back button. Save a Journal place before you jump. You must leave a vehicle or boat helm first. {{map-click-travel}} {{map-coordinate-teleport}}"
+       "text": "Teleporting does not save where you came from, and there is no go back button. Save a Journal place before you jump. Leave the boat helm first. {{map-click-travel}} {{map-coordinate-teleport}}"
       },
       {
        "t": "p",
-       "text": "In survival, clicking the map only shows a reminder. Zooming, dragging, the locator and markers still work. {{survival-map-chart}}"
+       "text": "In Survival, clicking the map only shows a reminder, and the button reads CREATIVE MODE ONLY. Zooming, dragging, the locator and markers still work, and the maps show the whole world, even places you have not visited. In a solo world, [[F4]] switches to Creative. {{survival-map-chart}}"
       }
      ]
     },
@@ -2644,13 +2675,32 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The small readout at the top right shows FPS, your X, Y and Z in metres, and your biome. It is on by default. Turn it off in Settings > Advanced > Diagnostics > FPS and coordinates. It is hidden while a panel is open. {{position-readout}}"
+       "text": "The small readout under the compact map shows FPS, your X, Y and Z in metres and your biome. It is on each time you start the game. Turn it off in **Settings > Advanced > Diagnostics > FPS and coordinates**. It is hidden while a panel is open. {{position-readout}}"
       },
       {
        "t": "list",
        "items": [
-        "North is -Z and east is +X.",
+        "North is -Z and east is +X, so walking north makes Z smaller.",
         "Write the numbers down before a long trip. They are the same numbers the coordinates field uses."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "compass",
+     "title": "Turn on the HUD compass",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The HUD compass is off by default. Turn it on in **Settings > Interface > Layout > HUD compass**. {{hud-compass}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "A strip at the top left, under the status line, shows N, E, S and W around the way you face.",
+        "Your saved places show on the strip as small amber marks while they are within 90 degrees of your facing.",
+        "A cyan triangle points to the nearest known landmark: an expedition site or your locator pin. The line below names it, gives its distance and counts your pins.",
+        "Like the rest of the HUD, it hides in clean view ([[F1]]) and while a panel is open."
        ]
       }
      ]
@@ -2662,9 +2712,9 @@
       {
        "t": "steps",
        "items": [
-        "Stand at the build and open the Journal. Type a name in the Name box, then press Pin this location. To rename a place, select it, edit the name and press Save selected note.",
-        "Before you travel far, open the fullscreen map and check the place shows as a pin.",
-        "To return, select the place in the Journal and make it your destination. Then follow the beacon or the diamond."
+        "Stand at the build and open the Journal. Type a name in the **Name** box, then press **Pin this location**.",
+        "Before you travel far, select the place and press **Show on map** to check where it sits.",
+        "To return, click the place in the Journal to make it your destination. Then follow the beacon, the on-screen diamond or the amber mark on the HUD compass."
        ]
       },
       {
@@ -3269,11 +3319,11 @@
    "kicker": "Water",
    "title": "Sailing a boat",
    "headline": "Launch it, steer it,<br><em>read the wind.</em>",
-   "summary": "Launch and pack up the Small sailing boat, take the helm, set the sails, tack upwind and save your boats.",
+   "summary": "Launch and pack up the Small sailing boat, take the helm, set the sails, tack upwind, read the sailing panel and save your boats.",
    "lead": "The Small sailing boat floats on any water in the game. You launch it from the hotbar, steer it from the helm and set the sails to catch the wind. Boats are not available on multiplayer servers yet.",
-   "readTime": "5 min read",
+   "readTime": "6 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "sailing-launch-and-pack",
@@ -3286,8 +3336,8 @@
     "maps-and-finding-your-way"
    ],
    "verification": {
-    "method": "Launch, pack, helm keys, sail and steering behaviour, wind speeds and saving come from the feature ledger, which cites the game source lines for each entry. The 6 m launch and pack range, 9 m helm range, 18 capacity of free pack room, 8-boat limit and 45 degree no-push zone are code values.",
-    "limits": "Source-checked, not play-tested in this guide and without screenshots. Test the tacking advice and the 45 degree no-push zone on open water before you rely on them."
+    "method": "Source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 on 8 November 2026. Launch, packing and limits: game/sailing.rs:43-115, game.rs:2743-2768, game/crafting.rs:118-125, vehicle/sailing.rs:60-148,245-304 and sailing.rs:17-23. Helm, sails, steering and grounding: vehicle.rs:108,845-872,934-939,1085-1103,1255-1279, vehicle/occupied.rs:49-105, vehicle/sailing.rs:8-27,161-225 and game.rs:1548-1551,1811-1823. Wind and speed: sailing.rs:274-300, environment.rs:402-411 and navigation.rs:1-11. Sailing panel: the renderer's vehicle_ui.rs:17-24,100-224. Saving: save/write.rs:139-154,538-547, save/load.rs:798-818 and game/sailing.rs:9-13. Paths are beneath crates/voxelgame-core/src/ unless they name the renderer (crates/voxelgame-render/src/).",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested, and this guide has no screenshots. Test the tacking advice and the 45 degree no-push zone on open water before you rely on them."
    },
    "owns": [
     "sailing-launch-and-pack",
@@ -3303,20 +3353,26 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Crafting the Small sailing boat selects it, ready to launch. Launching it works in creative and survival, and the boat can float on any water: sea, lakes and all six water types, at their real surface height. {{sailing-launch-and-pack}}"
+       "text": "Craft the Small sailing boat from the Timber recipes. Crafting it selects it, ready to launch. In Creative, take it from the catalog. The boat floats on any water: sea, lakes and all six water types, at their real surface height. {{sailing-launch-and-pack}}"
+      },
+      {
+       "t": "recipes",
+       "names": [
+        "Small sailing boat"
+       ]
       },
       {
        "t": "steps",
        "items": [
         "Select the Small sailing boat in your hotbar or inventory.",
-        "Look at open water within 6 m and right-click. The boat appears on the water.",
-        "In survival, the launch uses one boat item. In creative, the boat comes from the catalog and no item is used."
+        "Look at open water within 6 m and right-click. The boat appears on the water, facing the way you look.",
+        "In Survival, the launch uses one boat item. In Creative, no item is used."
        ]
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "The launch needs water under the whole hull and clear room for the mast. If it fails, the game says \"Boat needs clear water and room for its hull and mast (8 boats maximum)\" and nothing is used. You can have up to 8 boats in the world at once."
+       "text": "The launch needs water under the whole hull, no blocks in the way of the hull or mast, and space clear of other boats. If it fails, the game says \"Boat needs clear water and room for its hull and mast (8 boats maximum)\" and nothing is used. You can have up to 8 boats in the world at once."
       }
      ]
     },
@@ -3332,21 +3388,21 @@
        "t": "steps",
        "items": [
         "Walk up to a boat that has nobody at the helm and look at it from within 6 m.",
-        "Hold Shift and right-click. You can hold any item.",
-        "The boat goes into your pack. In survival, the boat item comes back to you."
+        "Hold [[Shift]] and right-click. You can hold any item.",
+        "The game says Sailing boat packed, and a Small sailing boat item goes into your pack, in Survival and in Creative."
        ]
       },
       {
        "t": "list",
        "items": [
-        "You need 18 capacity of free pack room. A boat that is too heavy for your pack cannot be packed.",
-        "A boat with 0 health (wrecked) cannot be boarded or packed. The game clears it the next time you launch a boat."
+        "You need 18 capacity of free pack room. Otherwise the game says \"Free 18 capacity to pack the boat\".",
+        "A boat with 0 HP (wrecked) cannot be boarded or packed. Wrecks are not saved, and the game clears them the next time you launch a boat."
        ]
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Boats are not available on multiplayer servers yet. The game refuses with \"Boats aren't available on servers yet\"."
+       "text": "Boats are not available on multiplayer servers yet. Launching or packing says \"Boats aren't available on servers yet\", and [[V]] says \"Vehicles aren't available on servers yet\"."
       }
      ]
     },
@@ -3356,18 +3412,18 @@
      "blocks": [
       {
        "t": "p",
-       "text": "You can walk and jump on the wooden deck like normal ground. The helm is where you steer and set the sails. {{sailing-helm-controls}}"
+       "text": "You can walk and jump on the wooden deck like normal ground. The helm is where you steer and set the sails. Within 9 m of a boat, the hint by the crosshair reads PRESS V TO ENTER SMALL SAILING BOAT. {{sailing-helm-controls}}"
       },
       {
        "t": "keys",
        "rows": [
         [
          "V",
-         "Take the helm, or step back to the cockpit. You must be within 9 m of the boat or on its deck."
+         "Take the helm, or step back to the cockpit. You must be within 9 m of the hull or on its deck."
         ],
         [
          "W (hold)",
-         "Raise the sails. They follow over about 2 seconds."
+         "Raise the sail setting. The sails follow over about 2 seconds."
         ],
         [
          "S (hold)",
@@ -3387,7 +3443,7 @@
         ],
         [
          "Hold Alt",
-         "Look around freely without turning the boat."
+         "Look around freely. The view swings back when you let go."
         ]
        ]
       },
@@ -3395,9 +3451,10 @@
        "t": "list",
        "items": [
         "There is no reverse. Lower the sails to slow down, and steer to turn.",
-        "The boat can turn while it is stopped.",
+        "The boat can turn slowly while it is stopped. It turns faster the faster it sails.",
         "The boat stops dead if its hull would run aground or hit another boat. It can only turn where the new heading still has water under the whole hull. If the boat is stuck on the shore, pack it up and launch it again.",
-        "Stepping off the helm stops the boat at once. Opening your pack with E pauses it."
+        "Stepping off the helm stops the boat at once, and the sails lower by themselves. A boat with nobody at the helm does not drift.",
+        "At the helm, [[E]] does not open your pack and map travel is refused. Press [[V]] to step off first."
        ]
       }
      ]
@@ -3413,26 +3470,25 @@
       {
        "t": "list",
        "items": [
-        "Running with the wind (sailing straight downwind) is fastest.",
+        "Running with the wind (sailing straight downwind) is fastest. The boat reaches the wind speed, up to its top speed of 6 m/s.",
         "Sailing across the wind gives about two-thirds of the wind speed.",
-        "Within 45 degrees of sailing straight into the wind, the sails give no push. To go upwind, zig-zag: sail one side of the wind, then turn across it to the other side. This is called tacking."
+        "Within 45 degrees of sailing straight into the wind, the sails give no push. To go upwind, zig-zag: sail one side of the wind, then turn across it to the other side. This is called tacking.",
+        "Lower sails give less speed. Half sail gives half the speed."
        ]
       },
       {
        "t": "h",
-       "text": "Read the flags"
+       "text": "Read the flags and the panel"
       },
       {
        "t": "list",
        "items": [
         "The red pennant at the top of the mast points downwind, the way the air travels.",
-        "The HUD flag shows the wind with the bow of your boat at the top of the screen."
+        "At the helm, a panel titled SAILBOAT sits at the top left, under the status line. Its flag box shows the same wind with the bow of your boat at the top.",
+        "WIND n M/S TO n gives the wind speed and the compass bearing the air blows towards: 0 is north, 90 east, 180 south and 270 west.",
+        "The panel says TACK: TURN ACROSS WIND when your bow is in the no-push zone, and BOW UP FLAG otherwise.",
+        "The line above shows the boat's HP, its speed in knots (KN), the sail setting (TRIM) and your compass heading (HDG)."
        ]
-      },
-      {
-       "t": "note",
-       "kind": "limit",
-       "text": "The HUD bearing reads \"TO n DEG\", but it is not a compass bearing. 0 degrees points to +Z, which is south on the map, and 90 degrees points to +X, which is east. Use the flags to judge the wind."
       }
      ]
     },
@@ -3442,7 +3498,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Up to 8 launched boats are saved with their position, heading and health. Your boats are still there when you load the world. {{sailing-saving}}"
+       "text": "Up to 8 launched boats are saved with the world, with their position, heading and health. Your boats are still there when you load the world. {{sailing-saving}}"
       },
       {
        "t": "note",
