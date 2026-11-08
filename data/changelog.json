@@ -31,10 +31,10 @@
         "date": "2026-10-09"
       },
       "last": {
-        "commit": "fd7d8b89865495d5a6d339fba44de679659561c3",
+        "commit": "ae2bb121d07dca51a3441a9d14dedd12a18f5f17",
         "date": "2026-11-08"
       },
-      "commitCount": 177,
+      "commitCount": 179,
       "tags": [],
       "publicCommitLinks": true,
       "releases": "none",
@@ -417,7 +417,7 @@
         {
           "kind": "Changed",
           "area": "Changelog",
-          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame c56a00c4 on 8 November, with day groups for 13 October to 8 November.",
+          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame a5b4d699 on 8 November, with day groups for 13 October to 8 November.",
           "refs": [
             {
               "commit": "ec84c2d323419f3b5b74b78cf6b0f7f9d5f930e2",
@@ -426,9 +426,25 @@
             {
               "commit": "c3919193330c0d99b0af8cde0bc12f4b8920ba51",
               "date": "2026-11-08"
+            },
+            {
+              "commit": "ae2bb121d07dca51a3441a9d14dedd12a18f5f17",
+              "date": "2026-11-08"
             }
           ],
           "publicSummary": "Extended the game changelog to 8 November."
+        },
+        {
+          "kind": "Changed",
+          "area": "Player guides",
+          "text": "Sailing now describes the boat sounds you hear at the helm, and Crafting explains how a queued craft the server turns away as too soon is retried, both checked at Voxelgame a5b4d699.",
+          "refs": [
+            {
+              "commit": "ae2bb121d07dca51a3441a9d14dedd12a18f5f17",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Added boat sounds to the sailing guide and server busy retries to the crafting guide."
         }
       ],
       "publicTitle": "New guides, a full recheck and the game's look"
