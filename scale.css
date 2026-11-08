@@ -1,53 +1,113 @@
 /* SPDX-License-Identifier: GPL-3.0-only */
+/* World scale page in the game's stone-and-brass interface. wiki.css loads after this file and defines the tokens
+   (--stone-face, --brackets, --raised, --pixel, --px2/--px3 ...); selectors here carry the page class to stay specific. */
 .scale-page .intro-row p { max-width: 400px; }
-.scale-toolbar, .scale-presets, .scale-selection, .scale-navigation, .scale-zoom-buttons { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
-.scale-toolbar { justify-content:space-between; border-top:1px solid var(--line); padding:18px 0; gap:16px; }
-.scale-toolbar label, .scale-navigation label { display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--muted); }
-.scale-page select, .scale-page .scale-presets button, .scale-selection button, .scale-navigation button { background:transparent; color:var(--ink); border:1px solid var(--line); border-radius:4px; padding:10px 12px; font-size:12px; min-height:40px; }
-.scale-page select { max-width:100%; }
-.scale-presets button:hover, .scale-navigation button:hover { background:var(--theme-control-hover); }
-.scale-selection { gap:7px; padding:0 0 18px; }
-.scale-selection button { border-radius:20px; padding:7px 13px; min-height:36px; }
-.scale-selection button[aria-pressed=true] { background:var(--ink); border-color:var(--ink); color:var(--paper); }
-.scale-selection button:disabled { cursor:default; opacity:1; }
-.scale-canvas-wrap { background:#14241e; color:#edf0e3; border-radius:5px; overflow:hidden; }
-.scale-canvas-heading, .scale-canvas-footer { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; padding:18px 23px; font-size:10px; letter-spacing:1.2px; color:#c9d2bf; }
-.scale-canvas-heading { border-bottom:1px solid #ffffff12; }
-.scale-canvas-footer { border-top:1px solid #ffffff12; letter-spacing:0; font-size:11px; }
-#scale-diagram { width:100%; height:560px; display:block; touch-action:none; cursor:grab; }
-#scale-diagram:active { cursor:grabbing; }
-#scale-diagram:focus-visible { outline:2px solid #dcb588; outline-offset:-3px; }
-#scale-diagram text { fill:#edf0e3; font:12px var(--sans); }
-#scale-diagram .body-label { font-weight:600; }
-#scale-diagram .body-guide { stroke:#a4b39b; stroke-width:1; opacity:.6; fill:none; }
-#scale-diagram .game-map { image-rendering:auto; }
-.scale-navigation { padding:17px 0 4px; }
-.scale-zoom-buttons { margin-right:auto; }
-.scale-zoom-buttons button { min-width:40px; }
-.scale-note { color:var(--muted); font-size:12px; line-height:1.7; max-width:1000px; }
-.scale-status { font:20px/1.45 var(--serif); min-height:1.5em; margin:15px 0 0; }
-.scale-catalog { padding-top:62px; }
-.scale-table-wrap { max-width:100%; overflow-x:auto; }
-.scale-table-wrap table { width:100%; border-collapse:collapse; font-size:13px; font-variant-numeric:tabular-nums; }
-.scale-table-wrap caption { text-align:left; color:var(--muted); font-size:12px; margin:0 0 18px; line-height:1.6; }
-.scale-table-wrap th, .scale-table-wrap td { padding:15px 10px; text-align:right; border-bottom:1px solid var(--line); white-space:nowrap; }
-.scale-table-wrap th:first-child { text-align:left; }
-.scale-table-wrap thead th { color:var(--muted); font-size:11px; font-weight:500; line-height:1.7; }
-.scale-table-wrap tbody th { font-weight:500; }
-.scale-table-wrap .reference-row { background:var(--theme-highlight); }
-.scale-table-wrap button { background:none; border:0; padding:6px 0; text-align:left; text-decoration:underline; text-underline-offset:4px; }
-.scale-table-wrap a { font-size:10px; margin-left:8px; color:var(--muted); }
-.scale-table-wrap .world-kind { display:block; font-size:10px; font-weight:400; color:var(--muted); margin-top:4px; }
-.scale-page #comparison:fullscreen { overflow:auto; padding:20px; background:var(--paper); }
-.scale-page #comparison:fullscreen #scale-diagram { height:calc(100vh - 340px); min-height:300px; }
-@media(max-width:1100px) { .scale-page .edition { display:none; } }
+.scale-page h1 { overflow-wrap: anywhere; }
+.scale-page .eyebrow { color: var(--accent); }
+
+/* Interactive comparison: one stone panel holding the controls, the framed canvas and the readout. */
+.scale-page #comparison { background: var(--brackets), var(--stone-face); border: 1px solid var(--edge); border-radius: 3px; box-shadow: var(--panel-shadow); padding: 22px 24px 24px; }
+.scale-toolbar, .scale-presets, .scale-selection, .scale-navigation, .scale-zoom-buttons { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.scale-page .scale-toolbar { justify-content: space-between; gap: 14px 16px; border: 0; padding: 0 0 22px; margin-bottom: 14px; background: var(--diamond) center bottom / 9px 8px no-repeat, var(--rule) left bottom 3px / calc(50% - 7px) 2px no-repeat, var(--rule) right bottom 3px / calc(50% - 7px) 2px no-repeat; }
+.scale-page .scale-toolbar label, .scale-page .scale-navigation label { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; color: var(--muted); font-synthesis: none; }
+
+/* Fields are square, #282421 with a one-pixel edge; focus turns the edge brass. */
+.scale-page .scale-toolbar select, .scale-page .scale-navigation select { font-family: var(--sans); font-size: 14px; line-height: 1.3; color: var(--ink); background-color: var(--field); border: 1px solid var(--edge); border-radius: 0; box-shadow: none; padding: 9px 12px; min-height: 40px; max-width: 100%; }
+.scale-page .scale-toolbar select:hover, .scale-page .scale-navigation select:hover { border-color: var(--muted); }
+.scale-page .scale-toolbar select:focus, .scale-page .scale-navigation select:focus { border-color: var(--brass); }
+.scale-page .scale-toolbar option, .scale-page .scale-navigation option { background: var(--field); color: var(--ink); }
+
+/* Raised game buttons; the Go button is the primary brass one. */
+.scale-page .scale-presets button, .scale-page .scale-navigation button { font-family: var(--pixel); font-size: var(--px2); line-height: 1; font-synthesis: none; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); padding: 9px 14px; min-height: 40px; }
+.scale-page .scale-presets button:hover, .scale-page .scale-navigation button:hover { background: var(--hover); border-color: var(--brass); }
+.scale-page .scale-presets button:active, .scale-page .scale-navigation button:active { background: var(--press); box-shadow: none; transform: translateY(1px); }
+.scale-page .scale-navigation #scale-focus-go { color: #151412; background: var(--brass); border-color: var(--brass); }
+.scale-page .scale-navigation #scale-focus-go:hover { background: var(--brass-light); border-color: var(--brass-light); }
+
+/* Choice chips: capsules, brass fill when selected. */
+.scale-page .scale-selection { gap: 8px; padding: 0 0 18px; }
+.scale-page .scale-selection button { font-family: var(--pixel); font-size: var(--px2); line-height: 1; font-synthesis: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; box-shadow: none; padding: 9px 16px; min-height: 40px; }
+.scale-page .scale-selection button:hover:not(:disabled) { background: var(--hover); border-color: var(--edge); }
+.scale-page .scale-selection button[aria-pressed=true] { color: #151412; background: var(--brass); border-color: var(--brass); }
+.scale-page .scale-selection button[aria-pressed=true]:hover:not(:disabled) { background: var(--brass-light); border-color: var(--brass-light); }
+.scale-page .scale-selection button:disabled { cursor: default; opacity: 1; }
+
+/* The canvas keeps its own colours inside an edge-bordered frame; the bars around it are game surface. */
+.scale-canvas-wrap { background: var(--surface); color: var(--muted); border: 1px solid var(--edge); border-radius: 3px; overflow: hidden; box-shadow: 0 2px 0 var(--drop); }
+.scale-canvas-heading, .scale-canvas-footer { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; padding: 10px 16px; background: var(--surface); color: var(--muted); font-size: 11px; letter-spacing: 1.2px; }
+.scale-canvas-heading { border-bottom: 1px solid var(--edge); }
+.scale-canvas-footer { border-top: 1px solid var(--edge); letter-spacing: 0; }
+.scale-page #scale-zoom { font-family: var(--pixel); font-size: var(--px2); line-height: 1; letter-spacing: 0; color: var(--accent); font-synthesis: none; }
+#scale-diagram { width: 100%; height: 560px; display: block; touch-action: none; cursor: grab; background: #14241e; }
+#scale-diagram:active { cursor: grabbing; }
+#scale-diagram:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
+#scale-diagram text { fill: #edf0e3; font: 12px var(--sans); }
+#scale-diagram .body-label { font-weight: 600; }
+#scale-diagram .body-guide { stroke: #a4b39b; stroke-width: 1; opacity: .6; fill: none; }
+#scale-diagram .game-map { image-rendering: auto; }
+.scale-navigation { padding: 18px 0 4px; }
+.scale-zoom-buttons { margin-right: auto; }
+.scale-page .scale-zoom-buttons button { min-width: 44px; }
+.scale-page .scale-note { color: var(--muted); font-size: 13px; line-height: 1.7; max-width: 1000px; margin: 14px 0 0; }
+.scale-page .scale-status { font-family: var(--pixel); font-size: var(--px2); line-height: 1.4; font-synthesis: none; color: var(--title); min-height: 0; margin: 14px 0 0; padding: 10px 14px; background: var(--field); border: 1px solid var(--edge); border-radius: 0; }
+.scale-page .scale-status:empty { display: none; }
+.scale-page #comparison noscript p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+/* The numbers: a second panel with the table as a game list. */
+.scale-page .scale-catalog { background: var(--brackets), var(--stone-face); border: 1px solid var(--edge); border-radius: 3px; box-shadow: var(--panel-shadow); padding: 26px 24px 24px; margin-top: 40px; }
+.scale-page .scale-catalog .section-heading-row { margin-bottom: 22px; }
+.scale-page .scale-catalog .section-heading-row p { font-size: 12px; }
+.scale-table-wrap { max-width: 100%; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--brass) var(--surface); background: var(--surface); border: 1px solid var(--edge); border-radius: 3px; }
+.scale-table-wrap table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+.scale-table-wrap caption { text-align: left; color: var(--muted); font-size: 12px; line-height: 1.6; padding: 12px 16px; border-bottom: 1px solid var(--edge); }
+.scale-table-wrap th, .scale-table-wrap td { padding: 14px 16px; text-align: right; border-top: 1px solid var(--line); white-space: nowrap; }
+.scale-table-wrap th:first-child { text-align: left; }
+.scale-table-wrap thead th { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; font-synthesis: none; line-height: 1.3; color: var(--accent); background: var(--stone); border-top: 0; border-bottom: 1px solid var(--edge); white-space: normal; vertical-align: bottom; }
+.scale-table-wrap thead th span { font-family: var(--sans); font-size: 11px; color: var(--muted); }
+.scale-table-wrap tbody th { font-weight: 500; }
+.scale-table-wrap tbody td { color: var(--ink); }
+.scale-table-wrap .reference-row > * { background: var(--hover); }
+.scale-table-wrap .reference-row > th { box-shadow: inset 3px 0 var(--brass); }
+.scale-table-wrap button { background: none; border: 0; border-radius: 0; box-shadow: none; padding: 10px 0; min-height: 40px; text-align: left; color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 4px; }
+.scale-table-wrap button:hover { color: var(--accent); }
+.scale-table-wrap a { font-size: 11px; margin-left: 8px; color: var(--muted); text-decoration-color: var(--brass); }
+.scale-table-wrap a:hover { color: var(--accent); }
+.scale-table-wrap .world-kind { display: block; font-size: 11px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+
+/* Method notes: each is a stone panel with its number in a recessed slot. */
+.scale-page .method { border-top: 0; gap: 48px; padding: 44px 0 36px; }
+.scale-page .method > div > p { font-size: 13px; line-height: 1.75; }
+.scale-page .method-details article { gap: 18px; margin: 0 0 22px; padding: 20px 22px; background: var(--brackets), var(--stone-face); border: 1px solid var(--edge); border-radius: 3px; box-shadow: var(--panel-shadow); }
+.scale-page .method-details article:last-child { margin-bottom: 0; }
+.scale-page .method-details article > span { flex: none; align-self: flex-start; display: grid; place-items: center; min-width: 44px; height: 44px; padding: 0; background: var(--slot); border-radius: 2px; box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); font-family: var(--pixel); font-size: var(--px2); line-height: 1; font-synthesis: none; color: var(--title); }
+.scale-page .method h3 { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; font-synthesis: none; line-height: 1.35; color: var(--title); margin: 0 0 10px; }
+.scale-page .method-details p { font-size: 13px; line-height: 1.8; color: var(--ink); }
+.scale-page .method-details a { text-decoration-color: var(--brass); text-underline-offset: 3px; }
+.scale-page .method-details a:hover { color: var(--accent); }
+.scale-page .method code { font-family: var(--mono); font-size: .9em; color: var(--ink); background: var(--field); border: 1px solid var(--line); border-radius: 2px; padding: 0 4px; }
+.scale-page #comparison:fullscreen { overflow: auto; padding: 20px; background: var(--paper); }
+.scale-page #comparison:fullscreen #scale-diagram { height: calc(100vh - 420px); min-height: 300px; }
+@media(max-width:1100px) { .scale-page .edition { display: none; } }
 @media(max-width:650px) {
-  #scale-diagram { height:430px; }
-  .scale-toolbar { align-items:stretch; }
-  .scale-toolbar label { width:100%; }
-  .scale-toolbar select { flex:1; min-width:0; }
-  .scale-canvas-heading, .scale-canvas-footer { padding:15px; }
-  .scale-status { font-size:18px; }
-  .scale-presets button, .scale-navigation button, .scale-selection button { min-height:44px; }
-  .scale-table-wrap th, .scale-table-wrap td { padding:12px 8px; font-size:12px; }
+  .scale-page #comparison { padding: 18px 15px 20px; }
+  #scale-diagram { height: 430px; }
+  .scale-page .scale-toolbar { align-items: stretch; padding-bottom: 20px; }
+  .scale-page .scale-toolbar label { width: 100%; flex-wrap: nowrap; }
+  .scale-page .scale-toolbar select { flex: 1; min-width: 0; }
+  .scale-page .scale-presets { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; width: 100%; }
+  .scale-page .scale-presets button { padding-inline: 8px; line-height: 1.15; }
+  .scale-canvas-heading, .scale-canvas-footer { padding: 10px 12px; }
+  .scale-page .scale-navigation label { flex: 1 1 100%; flex-wrap: nowrap; order: 2; }
+  .scale-page .scale-navigation label select { flex: 1; min-width: 0; }
+  .scale-page .scale-zoom-buttons { flex: 1 1 100%; margin-right: 0; }
+  .scale-page .scale-navigation #scale-focus-go { order: 3; flex: 1; }
+  .scale-page .scale-navigation #scale-fullscreen { order: 3; flex: 1; }
+  .scale-page .scale-selection button, .scale-page .scale-presets button, .scale-page .scale-navigation button { min-height: 44px; }
+  .scale-page .scale-catalog { padding: 20px 15px; margin-top: 28px; }
+  .scale-page .scale-status { font-size: var(--px2); }
+  .scale-table-wrap th, .scale-table-wrap td { padding: 12px 10px; font-size: 12px; }
+  .scale-table-wrap thead th { padding: 12px 10px; font-size: var(--px2); }
+  .scale-table-wrap tbody th { white-space: normal; min-width: 150px; }
+  .scale-page .method { gap: 28px; padding-top: 32px; }
+  .scale-page .method-details article { padding: 18px 16px; gap: 14px; flex-direction: column; }
 }

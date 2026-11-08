@@ -1,56 +1,108 @@
 /* SPDX-License-Identifier: GPL-3.0-only */
+/* Load analysis in the game's stone-and-brass interface. wiki.css loads after this file and defines the tokens
+   (--stone-face, --brackets, --raised, --pixel, --px2/--px3 ...); selectors here carry the page class to stay specific. */
 .performance-page .intro-row p { max-width: 400px; }
-.study-meta { padding: 0 0 23px; color: var(--muted); font-size: 12px; line-height: 1.8; }
-.performance-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-.performance-stats span { line-height: 1.6; }
-.report-nav { display: flex; flex-wrap: wrap; gap: 15px 28px; padding-block: 25px; font-size: 12px; }
-.report-nav a { text-underline-offset: 4px; }
-.report-section { padding: 44px 0 54px; border-bottom: 1px solid var(--line); }
-.report-section .eyebrow { margin-bottom: 14px; }
-.report-lead { max-width: 780px; margin: 22px 0 28px; font-size: 15px; line-height: 1.85; color: var(--muted); }
-.cost-chart { margin: 0 0 30px; }
-.cost-chart img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
-.cost-chart figcaption { margin-top: 12px; color: var(--muted); font-size: 11px; line-height: 1.8; }
-.cost-chart figcaption a { margin-left: 10px; white-space: nowrap; }
-.table-wrap { max-width: 100%; overflow-x: auto; margin: 28px 0 18px; }
-.table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.performance-page h1 { overflow-wrap: anywhere; }
+.performance-page .eyebrow { color: var(--accent); }
+.study-meta { padding: 0 0 22px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+
+/* Key findings: three stone panels with the figure in Trailhead. */
+.performance-page .stats.performance-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; border: 0; padding: 4px 0 14px; }
+.performance-page .stats.performance-stats > div, .performance-page .stats.performance-stats > div:first-child, .performance-page .stats.performance-stats > div:last-child { padding: 20px 24px 22px; background: var(--brackets), var(--stone-face); border: 1px solid var(--edge); border-radius: 3px; box-shadow: var(--panel-shadow); }
+.performance-page .performance-stats strong { font-size: var(--px3); line-height: 1.2; color: var(--accent); }
+.performance-page .performance-stats span { font-size: 12px; line-height: 1.6; margin-top: 8px; color: var(--muted); }
+
+/* In-report navigation: a row of game tabs. */
+.report-nav { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 0 26px; }
+.performance-page .report-nav a { display: inline-flex; align-items: center; min-height: 40px; padding: 9px 14px; font-family: var(--pixel); font-size: var(--px2); line-height: 1.1; font-synthesis: none; color: var(--ink); background: var(--surface); border-radius: 4px; box-shadow: var(--raised); text-decoration: none; }
+.performance-page .report-nav a:hover { background: var(--hover); box-shadow: var(--raised), inset 0 -2px var(--brass); }
+.performance-page .report-nav a:active { background: var(--press); box-shadow: none; transform: translateY(1px); }
+
+/* Report sections are stone panels; their contents sit in recessed lists and frames. */
+.performance-page .report-section { padding: 32px 34px 34px; margin: 0 0 30px; background: var(--brackets), var(--stone-face); border: 1px solid var(--edge); border-radius: 3px; box-shadow: var(--panel-shadow); }
+.performance-page main > .report-section:first-child { margin-top: 28px; }
+.report-section .eyebrow { margin-bottom: 12px; }
+.performance-page .report-section .section-heading h2 { font-size: var(--px3); line-height: 1.3; margin: 0; }
+.performance-page .report-section > p:not([class]) { max-width: 82ch; margin: 18px 0 0; font-size: 15px; line-height: 1.8; color: var(--ink); }
+.performance-page .report-section > p:not([class]) a, .performance-page .report-lead a, .performance-page .measurement-note a, .performance-page .report-details a { text-decoration-color: var(--brass); text-underline-offset: 3px; }
+.performance-page .report-section a:hover { color: var(--accent); }
+.performance-page .report-lead { max-width: 780px; margin: 20px 0 26px; font-size: 15px; line-height: 1.8; color: var(--ink); }
+.performance-page .measurement-note { max-width: 900px; margin: 18px 0 0; padding-left: 14px; border-left: 2px solid var(--edge); color: var(--muted); font-size: 12px; line-height: 1.85; }
+
+/* Charts stay untinted inside an edge-bordered frame. */
+.cost-chart { margin: 0 0 28px; }
+.cost-chart > a { display: block; padding: 6px; background: var(--surface); border: 1px solid var(--edge); border-radius: 3px; }
+.cost-chart img { display: block; width: 100%; height: auto; border: 0; border-radius: 0; }
+.cost-chart figcaption { margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.cost-chart figcaption a { margin-left: 10px; white-space: nowrap; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+
+/* Tables read as game lists: a Trailhead header row, ruled rows, brass figures. */
+.performance-page .table-wrap { max-width: 100%; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--brass) var(--surface); margin: 24px 0 18px; background: var(--surface); border: 1px solid var(--edge); border-radius: 3px; }
+.performance-page .table-wrap:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 .report-section table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; line-height: 1.7; }
-.report-section caption { text-align: left; font-size: 11px; color: var(--muted); margin-bottom: 13px; }
-.report-section th, .report-section td { padding: 15px 16px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
-.report-section th:first-child { text-align: left; padding-left: 0; }
-.report-section thead th { font-size: 11px; font-weight: 600; color: var(--muted); background: var(--theme-highlight); }
-.report-section thead th:first-child { padding-left: 12px; }
+.report-section caption { text-align: left; margin: 0; padding: 12px 16px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--edge); }
+.report-section th, .report-section td { padding: 14px 16px; border-top: 1px solid var(--line); border-bottom: 0; text-align: right; white-space: nowrap; }
+.report-section th:first-child { text-align: left; padding-left: 16px; }
+.report-section thead th { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; font-synthesis: none; line-height: 1.3; color: var(--accent); background: var(--stone); border-top: 0; border-bottom: 1px solid var(--edge); white-space: normal; vertical-align: bottom; }
+.report-section thead th:first-child { padding-left: 16px; }
 .report-section tbody th { font-weight: 500; }
-.measurement-note { max-width: 900px; color: var(--muted); font-size: 12px; line-height: 1.85; }
-.report-details { border-block: 1px solid var(--line); padding: 19px 0; margin-top: 28px; }
-.report-details summary { cursor: pointer; font-size: 13px; font-weight: 600; }
-.report-details p { font-size: 13px; line-height: 1.85; color: var(--muted); max-width: 880px; }
-.finding-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; margin-top: 32px; }
-.finding-pair h3, .priority-list h3 { font-size: 16px; font-weight: 550; line-height: 1.5; }
-.finding-pair p, .priority-list p { color: var(--muted); font-size: 13px; line-height: 1.85; }
-.streaming-finding { background: var(--theme-highlight); padding: 30px 34px; margin-top: 34px; border-left: 3px solid var(--ink); }
-.streaming-finding h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.2; margin: 12px 0 20px; }
-.streaming-finding p { max-width: 900px; font-size: 14px; line-height: 1.85; }
-.streaming-finding .measurement-note { font-size: 12px; }
-.priority-list { padding-left: 25px; max-width: 900px; }
-.priority-list li { padding: 5px 0 8px 15px; }
-.priority-list li::marker { font-family: var(--serif); font-size: 20px; }
-.evidence-links { display: flex; gap: 14px; flex-wrap: wrap; margin: 30px 0; }
-.evidence-links a { padding: 12px 15px; border: 1px solid var(--line); border-radius: 3px; font-size: 12px; text-decoration: none; }
-.evidence-links a:hover { background: var(--theme-highlight); }
+.report-section td strong { color: var(--accent); font-weight: 600; }
+
+/* Disclosure: a recessed list header. */
+.performance-page .report-details { margin-top: 24px; padding: 0; background: var(--surface); border: 1px solid var(--edge); border-block: 1px solid var(--edge); border-radius: 3px; }
+.performance-page .report-details summary { display: list-item; list-style-position: inside; min-height: 44px; padding: 11px 16px; cursor: pointer; font-family: var(--pixel); font-size: var(--px2); font-weight: 400; font-synthesis: none; line-height: 1.4; color: var(--title); }
+.performance-page .report-details summary:hover { background: var(--hover); }
+.performance-page .report-details[open] summary { border-bottom: 1px solid var(--edge); }
+.performance-page .report-details summary::marker { color: var(--accent); }
+.performance-page .report-details > p { margin: 14px 16px; max-width: 880px; font-size: 13px; line-height: 1.85; color: var(--ink); }
+.performance-page .report-details > p:last-child { margin-bottom: 16px; }
+.performance-page .report-details .table-wrap { margin: 16px; background: var(--paper); }
+
+/* Findings: recessed blocks with Trailhead headings. */
+.finding-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 28px; }
+.performance-page .finding-pair > * { min-width: 0; padding: 20px 22px 22px; background: var(--surface); border: 1px solid var(--edge); border-radius: 3px; box-shadow: none; }
+.performance-page .finding-pair h3, .priority-list h3 { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; font-synthesis: none; line-height: 1.35; color: var(--title); margin: 0 0 10px; }
+.performance-page .finding-pair p, .performance-page .priority-list p { margin: 0 0 12px; color: var(--ink); font-size: 13px; line-height: 1.85; }
+.performance-page .finding-pair p:last-child, .performance-page .priority-list p:last-child { margin-bottom: 0; }
+.performance-page .finding-pair .measurement-note { color: var(--muted); font-size: 12px; margin-top: 14px; }
+
+/* The headline finding keeps its brackets and a brass edge. */
+.performance-page .streaming-finding { margin-top: 34px; padding: 30px 34px 32px; background: var(--brackets), linear-gradient(var(--sheen), transparent 45%), var(--surface); border: 1px solid var(--brass); border-radius: 3px; box-shadow: 0 0 0 2px #cea65529; }
+.performance-page .streaming-finding h3 { font-family: var(--pixel); font-size: var(--px3); font-weight: 400; font-synthesis: none; line-height: 1.3; color: var(--title); margin: 12px 0 18px; }
+.performance-page .streaming-finding p { max-width: 900px; font-size: 14px; line-height: 1.85; color: var(--ink); }
+.performance-page .streaming-finding strong { color: var(--accent); }
+.performance-page .streaming-finding .measurement-note { font-size: 12px; color: var(--muted); }
+
+/* Priorities: a numbered list with the figure in Trailhead. */
+.priority-list { max-width: 900px; margin: 24px 0 0; padding: 0 0 0 38px; }
+.priority-list li { padding: 14px 0 16px 12px; border-top: 1px solid var(--line); }
+.priority-list li:first-child { border-top: 0; }
+.priority-list li::marker { font-family: var(--pixel); font-size: var(--px2); color: var(--accent); }
+
+/* Evidence links: game buttons. */
+.evidence-links { display: flex; gap: 10px; flex-wrap: wrap; margin: 28px 0 0; }
+.performance-page .evidence-links a { display: inline-flex; align-items: center; min-height: 40px; padding: 9px 14px; font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; font-synthesis: none; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); text-decoration: none; }
+.performance-page .evidence-links a:hover { background: var(--hover); border-color: var(--brass); color: var(--ink); }
+.performance-page .evidence-links a:active { background: var(--press); box-shadow: none; transform: translateY(1px); }
 @media (max-width: 1000px) {
   .performance-page .edition { display: none; }
 }
 @media (max-width: 650px) {
-  .performance-stats { grid-template-columns: 1fr; gap: 18px; }
-  .performance-stats > div, .performance-stats > div:nth-child(3) { padding: 0; border: 0; }
-  .performance-stats strong { font-size: 32px; }
-  .report-section { padding-block: 32px; }
-  .report-section .section-heading h2 { font-size: 33px; }
-  .finding-pair { grid-template-columns: 1fr; gap: 10px; }
-  .streaming-finding { padding: 23px 20px; }
-  .streaming-finding h3 { font-size: 27px; }
+  .performance-page .stats.performance-stats { grid-template-columns: 1fr; gap: 14px; }
+  .performance-page .stats.performance-stats > div, .performance-page .stats.performance-stats > div:first-child, .performance-page .stats.performance-stats > div:last-child, .performance-page .stats.performance-stats > div:nth-child(3) { padding: 18px 18px 20px; }
+  .performance-page .report-section { padding: 24px 16px 26px; margin-bottom: 22px; }
+  .performance-page .report-section .section-heading h2 { font-size: var(--px3); }
+  .finding-pair { grid-template-columns: 1fr; gap: 14px; }
+  .performance-page .finding-pair > * { padding: 18px 16px 20px; }
+  .performance-page .streaming-finding { padding: 24px 18px 26px; }
+  .performance-page .streaming-finding h3 { font-size: var(--px2); }
   .report-section th, .report-section td { padding: 12px; }
+  .report-section th:first-child, .report-section thead th:first-child { padding-left: 12px; }
   #optimization th, #optimization td { white-space: normal; }
-  .report-nav { gap: 17px 22px; }
+  .report-nav { gap: 8px; }
+  .performance-page .report-nav a { min-height: 44px; }
+  .performance-page .evidence-links a { min-height: 44px; }
+  .performance-page .report-details .table-wrap { margin: 12px; }
+  .performance-page .report-details > p { margin-inline: 12px; }
+  .priority-list { padding-left: 30px; }
 }
