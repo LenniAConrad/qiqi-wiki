@@ -1186,6 +1186,12 @@
      "title": "How the Craft tab works",
      "blocks": [
       {
+       "t": "figure",
+       "src": "images/guides/craft-tab.webp",
+       "alt": "The survival Craft tab. Section buttons Timber, Fire & food, Materials and Tools & arms sit above three small filter icons; the Timber list shows Split alder, birch, pine and oak boards with Split alder boards selected. On the right a large preview of alder boards reads Makes Alder boards x4, the ingredient Alder log says Need 1 more, the status line says Gather the missing ingredients, and Review craft all and Queue / Enter buttons sit at the bottom.",
+       "caption": "The Craft tab in Survival with no logs carried. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world)."
+      },
+      {
        "t": "p",
        "text": "Open the inventory with [[E]] and choose **Craft**. Recipes are grouped into four sections: Timber, Fire & food, Materials and Tools & arms. Each ingredient shows as carried / required; in Survival a missing one reads 'Need … more'. The line below says 'Ready to craft', 'Gather the missing ingredients' or 'Free carry capacity for the output'. Every recipe is crafted anywhere, with no workbench, fire or furnace. {{crafting-panel}}"
       },

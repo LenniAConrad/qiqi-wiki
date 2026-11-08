@@ -5740,6 +5740,29 @@
       ],
       "sourceWidth": 1280,
       "sourceHeight": 720
+    },
+    {
+      "source": "images/guides/craft-tab.webp",
+      "sourceSha256": "d86c8bd68a818b4a737b84890673d11363cc9c2b70292d323f590fdd383a2169",
+      "kind": "guides",
+      "variants": [
+        {
+          "path": "images/thumbnails/guides/craft-tab--640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 19376,
+          "sha256": "62cbb58a947cf175863a77a3f3aec36bf9d07efa7c4a543c8e1e51844a76390c"
+        },
+        {
+          "path": "images/thumbnails/guides/craft-tab--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 37330,
+          "sha256": "9889c225e90a6ada6e14d042ad8b9a9c6a52e50f0f55a18424897f76df525251"
+        }
+      ],
+      "sourceWidth": 1280,
+      "sourceHeight": 720
     }
   ]
 }

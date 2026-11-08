@@ -76,7 +76,8 @@ recipes are extracted from the game's recipe registry and rechecked by
 packs enabled, and contain no third-party assets. Project GPL-3.0-only terms apply.
 On 8 November 2026 they were recaptured (lossy WebP quality 88) from a devtools
 build of that day, replaying `tools/captures/guide_screens.json` with the game's
-`tools/game_debug.py replay` (seed 42, offscreen, no normal saves or window).
+`tools/game_debug.py replay` (seed 42, offscreen, no normal saves or window); the
+same replay added the Craft tab screenshot, `images/guides/craft-tab.webp`.
 
 
 ## Responsive gallery and guide previews — 13 October 2026
