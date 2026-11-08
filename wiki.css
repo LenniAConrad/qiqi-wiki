@@ -272,6 +272,8 @@ footer { border-image: linear-gradient(var(--edge) 1px, var(--stone) 0) fill 0 /
 footer .wordmark { font-size: var(--px2); text-decoration: none; }
 .header-search, .theme-choice select, .site-menu > summary { font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); }
 .header-search { padding: 7px 12px; }
+.site-menu > summary { font-weight: 400; padding: 8px 12px; margin-bottom: 8px; }
+.wiki-contents summary { font-weight: 400; }
 .header-search:hover, .theme-choice select:hover, .site-menu > summary:hover { background: var(--hover); border-color: var(--brass); }
 .header-search kbd { border: 1px solid var(--edge); background: var(--paper); border-radius: 3px; color: var(--muted); }
 .theme-choice { font-family: var(--pixel); font-size: var(--px2); }
@@ -330,3 +332,8 @@ kbd, .search-label kbd { font-family: var(--mono); font-size: .86em; color: var(
 .recipe-count { font-family: var(--pixel); font-size: var(--px2); line-height: 1; color: var(--title); margin-right: 3px; }
 .recipe-table tbody tr:target, .feature:target { box-shadow: 0 0 0 2px #cea65529, inset 0 0 0 1px var(--brass-light); }
 .status { border-radius: 4px; box-shadow: var(--raised); }
+@media (max-width: 760px) {
+  h1, .wiki-home h1, .guide-page h1, .guides-index h1 { font-size: var(--px3); }
+  .site-brand .wordmark { font-size: var(--px3); }
+  .site-header .wiki-nav { gap: 6px; }
+}
