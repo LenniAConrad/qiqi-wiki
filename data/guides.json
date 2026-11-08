@@ -568,7 +568,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Default keys. Survival needs a furniture hammer in your pack for plans; Creative does not. The building guide explains each step: {{guide:building-basics|Building basics}}."
+       "text": "Default keys. Survival needs a furniture hammer in your pack for plans; Creative does not. {{guide:furniture-and-carpentry|Furniture and carpentry}} and {{guide:storage-beds-and-lamps|Storage, beds and lamps}} explain each step; doors are in {{guide:building-basics|Building basics}}."
       },
       {
        "t": "h",
@@ -2562,8 +2562,7 @@
     "door-styles-and-moves",
     "wooden-chests",
     "chest-refinishing",
-    "flowing-water",
-    "planned-doors-chests-furniture"
+    "flowing-water"
    ],
    "next": [
     "maps-and-finding-your-way",
@@ -2595,13 +2594,11 @@
     "door-styles-and-moves",
     "wooden-chests",
     "chest-refinishing",
-    "flowing-water",
-    "planned-doors-chests-furniture"
+    "flowing-water"
    ],
    "partial": [
     "flowing-water",
-    "structure-library",
-    "planned-doors-chests-furniture"
+    "structure-library"
    ],
    "sections": [
     {
@@ -2861,52 +2858,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Chairs, tables, stools, benches, armchairs and sofas are available, including modular sofa pieces. The plans also include kitchen counters and cupboards, sinks, a washbasin, a toilet and a bathtub. {{planned-doors-chests-furniture}}"
-      },
-      {
-       "t": "steps",
-       "items": [
-        "In Survival, open E > Craft > Tools and make a **Furniture hammer** from two board pieces and one natural stone piece. Keep it in your pack to unlock carpentry.",
-        "Open E > Build and click a furniture plan. In creative, you can choose a plan from the catalog too. A plan is reusable; it is not a carried chair or table.",
-        "Choose the materials for the frame, top, upholstery or fronts, as offered by that plan. Read the **Need / have** counts. Survival spends these selected ingredients only when you place the furniture; creative placement is free.",
-        "Choose **Place**, aim at the top of solid ground and check the ghost. Press R to turn it 90 degrees, then right-click to place it. Wall cupboards need solid backing instead: aim at a wall side and use R to turn the back toward it.",
-        "Press B to put the furniture tool away. Select an ordinary block or empty hands before using a seat, kitchen storage or basin."
-       ]
-      },
-      {
-       "t": "keys",
-       "rows": [
-        [
-         "E, with the furniture tool active",
-         "Customize the selected or aimed furniture."
-        ],
-        [
-         "Shift + Left click, with the furniture tool active",
-         "Start moving the aimed furniture. Right-click places it at the ghost; Left click cancels and keeps the original."
-        ],
-        [
-         "Left click, with the furniture tool active",
-         "Take up the aimed furniture. Empty its storage first."
-        ],
-        [
-         "Space or Right click, while seated",
-         "Stand up when there is a clear, supported exit."
-        ]
-       ]
-      },
-      {
-       "t": "p",
-       "text": "To sit, put the construction tool away, stand on dry supported ground within 2 m of a seat and right-click it. To use kitchen storage, right-click the counter or cupboard; click an item to move one, or Shift-click to move all of that item. Aim away from a sink bowl when you want its cabinet storage."
-      },
-      {
-       "t": "note",
-       "kind": "limit",
-       "text": "Furniture sizes are fixed. A sink, washbasin or bathtub does not create or store water: in Survival its basin can only use fresh water already within reach. Blueprints refuse a capture that touches placed furniture; they cannot copy furniture or its contents."
-      },
-      {
-       "t": "note",
-       "kind": "planned",
-       "text": "Beds, closets and extendable tables are still missing. The available seats and cupboards do not add sleeping or plumbing."
+       "text": "Chairs, tables, desks, sofas, kitchen units, bathroom fixtures, storage furniture, beds and lamps are built from reusable furniture plans. In Survival, carry a **Furniture hammer** from E > Craft > Tools & arms; in Creative, pick a plan in the Build catalogue. Survival pays for the chosen materials when you place a piece. Plans, materials, moving, table joins and lanterns on tables are explained in {{guide:furniture-and-carpentry|Furniture and carpentry}}."
       }
      ]
     },
@@ -5119,9 +5071,434 @@
    ]
   },
   {
+   "id": "furniture-and-carpentry",
+   "page": "guide-furniture.html",
+   "number": 22,
+   "gap": null,
+   "kicker": "Building",
+   "title": "Furniture and carpentry",
+   "headline": "Plan it, place it,<br><em>set the table.</em>",
+   "summary": "Unlock carpentry with the Furniture hammer, choose materials, place, move and change furniture, join tables and desks, and put a lantern on a table.",
+   "lead": "Furniture is built from reusable plans. Pick a plan, choose its woods and other materials, and place it in the world. In Survival you carry a Furniture hammer and pay for the materials when the piece is placed. In Creative it is free.",
+   "readTime": "8 min read",
+   "audience": "Everyone",
+   "updated": "2026-11-08",
+   "state": "complete",
+   "covers": [
+    "planned-doors-chests-furniture",
+    "furniture-tables-and-desks",
+    "furniture-table-displays",
+    "furniture-move-and-history",
+    "build-undo-redo"
+   ],
+   "next": [
+    "storage-beds-and-lamps",
+    "building-basics",
+    "crafting-and-recipes"
+   ],
+   "verification": {
+    "method": "Controls, costs, sizes, refusal messages and server limits were read from the game source at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c and are cited in the ledger rows planned-doors-chests-furniture, furniture-tables-and-desks, furniture-table-displays and furniture-move-and-history. Main files, beneath crates/voxelgame-core/src/: furniture/definition.rs, furniture/placement.rs, furniture/modular_table.rs, furniture/display.rs, game/furniture.rs, game/furniture/controls.rs, game/furniture/catalog.rs, game/furniture/display.rs, game/furniture/materials.rs, game/furniture/object_actions.rs, game/furniture/seating.rs, game/net_client/furniture/history.rs and inventory.rs; on-screen text from crates/voxelgame-render/src/furniture_workbench_ui.rs and furniture_catalog_text.rs. The seat, kitchen and bathroom facts moved here from the building guide were rechecked at the same commit.",
+    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no screenshots and no live server session. Table joins, lanterns on tables and server Undo follow the code and its tests only."
+   },
+   "owns": [
+    "planned-doors-chests-furniture",
+    "furniture-tables-and-desks",
+    "furniture-table-displays",
+    "furniture-move-and-history"
+   ],
+   "partial": [],
+   "sections": [
+    {
+     "id": "start",
+     "title": "Start carpentry",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Furniture comes from plans. A plan is a reusable recipe, not a carried chair or table: choose it once and place it as often as you like. {{planned-doors-chests-furniture}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "In Survival, open [[E]] > **Craft** > Tools & arms and make a **Furniture hammer** from two board pieces and one natural stone piece.",
+        "Keep the hammer in your pack. While you carry it, the Build tab opens as **Carpentry** and shows every furniture plan. Without it the game says \"Carry a furniture hammer to use furniture plans\".",
+        "In Creative you need no hammer. Open [[E]] > **Build** and find a plan in the catalogue, for example **Table plan**.",
+        "Click a plan to select it. To keep a plan on the hotbar, hover it and press a number key from 1 to 0."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "With the hammer in your hand, right-click to open the carpentry workbench. Pressing [[E]] while a plan is selected, or while the hammer is in your hand, opens it too."
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Seats:** chair, stool, bench, armchair, sofa, sofa section and sofa corner.",
+        "**Tables:** table, coffee table, side table and desk.",
+        "**Kitchen:** kitchen counter, sink, cupboard, wall cupboard, counter cabinet and sink cabinet, and the cooking stove.",
+        "**Bathroom:** washbasin, toilet and bathtub.",
+        "**Storage, beds and lamps:** wardrobe, chest of drawers, wooden chest, bookcase, wall shelf, single and double bed, floor lamp and table lamp."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "materials",
+     "title": "Choose materials and pay",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A selected plan shows buttons for the parts it has, such as **Frame**, **Panel**, **Top**, **Basin**, **Upholstery** or **Front**. Click a button to step to the next material, or Shift-click to step back. **Use held wood** follows the boards in your hand, or oak if you hold none."
+      },
+      {
+       "t": "p",
+       "text": "In Survival, the panel lists each ingredient as, for example, **Need 1, have 3**. Nothing is spent while you browse, preview or cancel. The materials leave your pack only when the piece is placed. If you are short, the game says \"You need more of the selected materials\". Creative placement is free."
+      },
+      {
+       "t": "list",
+       "items": [
+        "A chair, stool, bench or any table costs two board pieces: one of the frame wood and one of the seat or top wood.",
+        "An armchair, sofa section or sofa corner costs two frame boards and two wool. A sofa costs three frame boards and four wool.",
+        "Cushions come in cream, sage or rust. The colour is only a finish: every colour uses ordinary wool.",
+        "Kitchen and bathroom pieces list their boards, stone, marble, clay or iron ore in the same way."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "The small **EN** button on the furniture panel switches its captions between English, German and Chinese. It changes no materials."
+      }
+     ]
+    },
+    {
+     "id": "place",
+     "title": "Place and turn furniture",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Select a plan. Choose **Place in world** or close the inventory to return to the world.",
+        "Aim at the top of solid ground within reach. The ghost shows where the piece will stand.",
+        "Press [[R]] to turn it 90 degrees.",
+        "Right-click to place it. The status line says \"Furniture placed | Ctrl+Z undoes it\".",
+        "Press [[B]] to put the furniture tool away before you sit, open storage or use a basin."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Wall pieces, such as the kitchen wall cupboard, hang instead of standing. Aim at the side of a wall and press [[R]] until the back faces it."
+      },
+      {
+       "t": "p",
+       "text": "Placement is refused, and the status line says why, when:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "You aim at a wall or ceiling: \"Aim at the top of solid ground\".",
+        "A leg would not stand on a solid block: \"Every furniture leg needs solid ground\". Leaves, plants, doors and chests do not hold furniture up.",
+        "A wall piece has no complete solid wall behind it.",
+        "A block or other furniture is in the way: \"That space is already occupied\". An open door gives \"An open door stands in that space\".",
+        "You or another player stand there: \"Someone stands where the furniture would go\".",
+        "Part of the piece is more than 6 m from you: \"The furniture is out of reach\".",
+        "In Survival, you are short of a material.",
+        "The world already holds 256 pieces of furniture: \"This world has reached its furniture limit\"."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "move-and-take-up",
+     "title": "Move, turn and take up",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Select any furniture plan to work on furniture you have already placed. {{furniture-move-and-history}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Shift + Left click",
+         "Lock the aimed piece for a move. It stays where it is until the move succeeds."
+        ],
+        [
+         "R, while moving",
+         "Turn the ghost 90 degrees."
+        ],
+        [
+         "Right click, while moving",
+         "Move the piece to the ghost."
+        ],
+        [
+         "Left click or Ctrl+Z, while moving",
+         "Cancel the move and keep the original."
+        ],
+        [
+         "Left click",
+         "Take up the aimed piece."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "A move costs nothing. The piece keeps its materials and contents, and the new spot must pass the same checks as new furniture.",
+        "Taking up returns only materials that were paid for in Survival, and only when your pack has room for all of them. Otherwise the game says \"Make room for the furniture's boards first\". Furniture built in Creative returns nothing.",
+        "Empty storage furniture before you take it up, for example \"Empty the kitchen counter before removing it\".",
+        "Stand up before you change a seat. A seat or bed someone else is using cannot be changed."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "change-materials",
+     "title": "Change placed furniture",
+     "blocks": [
+      {
+       "t": "steps",
+       "items": [
+        "Select a furniture plan, or take the Furniture hammer in your hand. In Survival the hammer must be in your pack.",
+        "Aim at the placed piece and press [[E]]. The panel opens as **Change this furniture**, locked to that piece.",
+        "Step through its material buttons. **Pay** lists the extra materials the change needs, as needed / carried. **Returned** lists paid materials you get back.",
+        "Choose **Apply changes**. The status line says \"Furniture updated | Ctrl+Z restores its previous materials\". **Cancel** keeps the original."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Materials shared by the old and new choice are reused, so you pay only the difference. Only materials paid for in Survival come back. The same panel has **Move**, **Rotate** and **Take up**. **Rotate** turns the piece where it stands, if the turned piece is clear and supported. These buttons wait until you apply or cancel a material preview."
+      }
+     ]
+    },
+    {
+     "id": "undo",
+     "title": "Undo and redo furniture",
+     "blocks": [
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Ctrl+Z",
+         "Undo the last furniture step."
+        ],
+        [
+         "Ctrl+Shift+Z",
+         "Redo it."
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Each placement, move, turn, take-up, material change and table lantern is one step. Furniture steps work in Survival and Creative, even after you put the furniture tool away. In the material panel, the first Ctrl+Z cancels a preview you have not applied."
+      },
+      {
+       "t": "list",
+       "items": [
+        "Undoing a Survival placement gives its materials back. Redoing it, or undoing a take-up, pays for the piece again.",
+        "If the piece changed since, Undo is refused with \"Furniture has changed; history kept\".",
+        "Storage furniture must be empty before its placement or take-up can be undone.",
+        "History is cleared when you leave the world."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "blocks-and-mining",
+     "title": "Blocks and mining around furniture",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Furniture stands in front of whatever is behind it. Right-clicking furniture with a block in hand places nothing: the game says \"Furniture blocks that placement\". Holding left click on furniture stops mining with \"Furniture blocks that mining target\". {{planned-doors-chests-furniture}}"
+      },
+      {
+       "t": "p",
+       "text": "You can still aim through open gaps, such as the space between table legs. To remove furniture, select a plan and take it up."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "Furniture sizes are fixed. Blueprints refuse a capture that touches placed furniture and tell you to use Move or Take up, so they cannot copy furniture or its contents."
+      }
+     ]
+    },
+    {
+     "id": "seats",
+     "title": "Chairs, benches and sofas",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Chairs, stools, armchairs, sofa sections, sofa corners and the toilet have one sitting place. Benches and sofas have two. {{planned-doors-chests-furniture}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Put the furniture tool away with [[B]].",
+        "Stand on dry, supported ground within 2 m of a sitting place.",
+        "Right-click the seat. The nearest clear place is used.",
+        "Press [[Space]] or right-click to stand up. You need a clear, supported place to step to."
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "\"Move within 2 m of a sitting position\": step closer.",
+        "\"Stand on clear, dry ground before sitting\": you are flying or not standing on dry, firm ground.",
+        "\"The seat needs a clear, supported standing exit\": clear a spot beside the seat.",
+        "\"All seat legs need solid ground before sitting\": the ground under the seat has gone."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Sofa sections join into longer sofas. Match the frame, wool and facing, and place them 1 m apart. A sofa corner joins sections on both open sides; turn the sections toward the open corner."
+      }
+     ]
+    },
+    {
+     "id": "tables",
+     "title": "Tables and desks",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "There are four table plans. Each has its own **Frame** wood for the legs and rails and **Panel** wood for the top. Each costs one board piece of each wood. {{furniture-tables-and-desks}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "**Table:** 1 m square, 0.75 m high.",
+        "**Coffee table:** 1.5 by 0.75 m, 0.4375 m high.",
+        "**Side table:** 0.5 m square, 0.625 m high.",
+        "**Desk:** a writing desk, 1.5 by 0.75 m, 0.75 m high."
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Join tables into one top"
+      },
+      {
+       "t": "p",
+       "text": "Place two Tables edge to edge on the same floor height, with the same frame and top woods. The shared legs and rails disappear and the tops run together. Tables join on any side and at any turn, so you can build long runs, L and T shapes and wider squares."
+      },
+      {
+       "t": "p",
+       "text": "Desks join only end to end, when both lie along the same line. A desk never joins a Table, and coffee tables and side tables never join. Different woods or heights stay apart."
+      },
+      {
+       "t": "p",
+       "text": "Each table in a run stays its own piece. It keeps its own materials, cost and lantern, and you move, change or take up one piece at a time. Each piece still needs solid ground under all four corners, even where its legs are hidden."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "When one piece of a run moves, turns, changes or goes, its neighbours get their legs back. If a returning leg or rail would hit a block, furniture or a person, the game says \"Clear the table join before separating these sections\". A neighbour that is out of reach gives \"A connected table is protected or out of reach\"."
+      }
+     ]
+    },
+    {
+     "id": "table-lanterns",
+     "title": "Put a lantern on a table",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Any of the four tables can hold one red lantern in the middle of its top. Nothing else can stand on a table: ordinary blocks are refused with \"Furniture blocks that placement | Use a red lantern on the tabletop\". {{furniture-table-displays}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Put the furniture tool away with [[B]], and any tool you hold.",
+        "Select a red lantern in the hotbar.",
+        "Aim at the top of the table within 6 m and right-click. The lantern stands in the centre of the top.",
+        "To take it back, select an empty hotbar slot, aim at the lantern and right-click."
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "In Survival, the lantern comes from your pack, and taking it off returns it, even if you have switched to Creative since. A lantern placed in Creative is free and returns nothing.",
+        "Keep room in your pack to take a paid lantern back.",
+        "The half-metre space above the centre of the top must be clear. Otherwise the game says \"Clear the space above the tabletop first\" or \"Another object occupies the display space\".",
+        "The lantern lights the area around it, as a placed lantern does. It stays on the table when you save.",
+        "Moving or turning a table carries its lantern, so the new spot needs room for it too.",
+        "Take the lantern off before you change the table's materials or take the table up.",
+        "Joined tables keep separate lanterns. Each piece of a run can hold one.",
+        "Ctrl+Z and Ctrl+Shift+Z undo and redo placing or taking a lantern. A paid lantern goes back to your pack, and putting it back uses one again."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "kitchen-and-bathroom",
+     "title": "Kitchen units and bathroom fixtures",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The kitchen plans are the counter, sink, cupboard, wall cupboard, counter cabinet and sink cabinet. The bathroom plans are the washbasin, toilet and bathtub. You place, move and take them up like other furniture. {{planned-doors-chests-furniture}}"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Counters and counter cabinets take a wood, stone or marble top. Sinks and sink cabinets take a stone or marble basin.",
+        "The washbasin, toilet and bathtub take a clay, stone, marble or iron body. Clay uses Clay and iron uses Iron ore.",
+        "To line up floor kitchen pieces, select a floor kitchen plan and aim at the outside edge of a placed one. A ghost appears 1 m away: hold [[Shift]] and right-click to place it there. A plain right-click opens the aimed piece instead.",
+        "The wall cupboard needs a complete solid wall behind it, but no floor.",
+        "With the furniture tool put away, right-click a counter, cupboard or cabinet to open its storage. On a sink cabinet, aim at the bowl to use water or at the cabinet below for storage.",
+        "A sink, washbasin or bathtub holds no water and has no plumbing. In Survival, right-clicking the bowl drinks or fills flasks only from fresh water already within reach. Without it the game says \"No fresh water within reach | carried water kept\".",
+        "The toilet has one sitting place. Its cistern is only decoration."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "The **Cooking stove** plan builds a stove with wooden feet and a stone or iron body. Cooking on it is explained in {{guide:crafting-and-recipes|Crafting and recipes}}."
+      }
+     ]
+    },
+    {
+     "id": "storage-beds-and-lamps",
+     "title": "Storage, beds and lamps",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "The same workbench builds wardrobes, chests of drawers, a bookcase, a wall shelf, single and double beds, and floor and table lamps. They use the plans, materials, placing and take-up controls on this page. Their storage, resting and lighting, and the lantern on a bookcase or wall shelf, are covered in {{guide:storage-beds-and-lamps|Storage, beds and lamps}}."
+      },
+      {
+       "t": "p",
+       "text": "The **Wooden chest** plan refinishes a portable wooden chest. Chests are covered in {{guide:building-basics|Building basics and creative tools}}."
+      }
+     ]
+    },
+    {
+     "id": "servers",
+     "title": "Furniture on a server",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "On a server, the game sends one furniture action at a time and waits for the server to confirm it. Only then does the piece appear, move or go, and only then does your pack change. The status line says \"Waiting for the server to confirm furniture\". {{furniture-move-and-history}}"
+      },
+      {
+       "t": "p",
+       "text": "These work on a server:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Placing, moving, turning and taking up furniture in Survival and Creative. In Survival you must carry a Furniture hammer, and the server takes and refunds the materials.",
+        "Changing the materials of tables, coffee tables, side tables, desks, kitchen counters, sinks, cupboards and cabinets, bathroom fixtures and storage furniture. The panel shows no price: the server works out the cost and refund when you apply.",
+        "Sitting and standing, once the server confirms the seat.",
+        "Putting a red lantern on a table and taking it off. No hammer is needed.",
+        "Undo and redo, once the server confirms each step. Aim at the table when you undo or redo a lantern."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "On a server, chairs, stools, benches, armchairs and sofas cannot change materials; take the piece up and build it again. A step that paid or refunded Survival materials can only be undone in Survival, and a free Creative lantern can only be put back in Creative. In Survival, only moves, lanterns and paid steps can be undone. If an answer is lost, the game asks you to reconnect and check the world before you try again."
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "storage-beds-and-lamps",
    "page": "guide-storage-beds-lamps.html",
-   "number": 22,
+   "number": 23,
    "gap": null,
    "kicker": "Home",
    "title": "Storage, beds and lamps",
@@ -5141,6 +5518,7 @@
     "rest-respawn-point"
    ],
    "next": [
+    "furniture-and-carpentry",
     "building-basics",
     "first-survival-day"
    ],
@@ -5163,7 +5541,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Every piece here is built from a furniture plan. In Survival, carry a **Furniture hammer**, open [[E]] > Build, pick the plan and its woods and check the **Need / have** counts; the materials are spent only when the piece is placed, and Creative placement is free. Press [[R]] to turn the ghost and right click to place it. See Furniture and carpentry for placing, turning and moving furniture."
+       "text": "Every piece here is built from a furniture plan. In Survival, carry a **Furniture hammer**, open [[E]] > Build, pick the plan and its woods and check the **Need / have** counts; the materials are spent only when the piece is placed, and Creative placement is free. Press [[R]] to turn the ghost and right click to place it. See {{guide:furniture-and-carpentry|Furniture and carpentry}} for placing, turning and moving furniture."
       },
       {
        "t": "p",

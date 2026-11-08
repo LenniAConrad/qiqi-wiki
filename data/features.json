@@ -2489,31 +2489,38 @@
    "id": "planned-doors-chests-furniture",
    "area": "building",
    "name": "Furniture and carpentry",
-   "status": "partial",
+   "status": "available",
    "modes": [
     "creative",
     "survival"
    ],
-   "summary": "Reusable plans build chairs, tables, stools, benches, upholstered and modular sofas, kitchen units and bathroom fixtures in creative or Survival. Carry a Furniture hammer for Survival carpentry; choose materials and pay only on placement. Beds, closets and extendable tables remain missing.",
+   "summary": "Thirty reusable plans build seats, four table sizes, kitchen units, bathroom fixtures, a cooking stove, storage furniture, beds and lamps. Survival carpentry needs a carried Furniture hammer: choose the materials, read the Need / have counts and pay only when the piece is placed. Creative is free. Blocks and mining aimed at furniture are refused.",
    "evidence": [
-    "crates/voxelgame-core/src/furniture/definition.rs:18-97 — exhaustive 17-design list: seats, table, kitchen units and bathroom fixtures; no bed or closet",
-    "crates/voxelgame-core/src/inventory.rs:1840-1845 — Tools recipe: Furniture hammer = two board pieces and one natural stone piece",
-    "crates/voxelgame-core/src/game/furniture/workbench.rs:25-47 — plans are reusable choices; Survival requires a carried hammer",
-    "crates/voxelgame-core/src/game/furniture/workbench.rs:97-116 — carrying the hammer exposes the Survival Build workspace",
-    "crates/voxelgame-core/src/game/furniture/catalog.rs:43-76 — only Standard size is supported; the size control is disabled",
-    "crates/voxelgame-core/src/game/furniture/catalog.rs:158-191 — select materials; Place closes the panel without spending",
-    "crates/voxelgame-core/src/game/furniture/controls.rs:166-212 — ground furniture needs top support; wall cupboards need correctly oriented backing",
-    "crates/voxelgame-core/src/game/furniture/controls.rs:311-459 — furniture selection, B dismissal, rotate, move, take-up and placement input",
-    "crates/voxelgame-core/src/game/furniture.rs:76-107 — local Survival pays selected materials atomically; creative is free",
-    "crates/voxelgame-render/src/furniture_workbench_ui.rs:128-201 — clickable plans and per-material Need / have counts",
-    "crates/voxelgame-core/src/game/furniture/seating.rs:27-48 — ordinary sit and stand hints",
-    "crates/voxelgame-core/src/game/furniture/seating.rs:120-156 — support, dry ground, 2 m seat distance and clear exit required",
-    "crates/voxelgame-core/src/game/furniture/storage.rs:46-124 — ordinary kitchen storage targeting and click / Shift-click transfer hint",
-    "crates/voxelgame-render/src/furniture_workbench_ui.rs:107-124 — empty storage before taking furniture up",
-    "crates/voxelgame-core/src/game/furniture/sink.rs:8-11 — basins never create or store water",
-    "crates/voxelgame-core/src/game/furniture/sink.rs:86-117 — Survival basin use requires fresh water already within reach",
-    "crates/voxelgame-core/src/game/blueprint.rs:303-340 — any overlap with active furniture parts refuses the entire blueprint capture",
-    "crates/voxelgame-core/src/bindings.rs:29-38 — default Space, E and R bindings"
+    "crates/voxelgame-core/src/furniture/definition.rs:81-114 — thirty fixed designs: seats, four tables, kitchen, bathroom, storage, beds, stove and lamps",
+    "crates/voxelgame-core/src/inventory.rs:1950-1956 — Tools recipe: Furniture hammer = two board pieces and one natural stone piece",
+    "crates/voxelgame-core/src/game/furniture/workbench.rs:25-52 — plans are reusable choices; Survival requires a carried hammer",
+    "crates/voxelgame-core/src/game/furniture/workbench.rs:102-127 — carrying the hammer adds the Survival Build (Carpentry) workspace",
+    "crates/voxelgame-core/src/game.rs:1566-1573 — E with a plan selected or the hammer in hand opens the carpentry workbench",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:107-141 — on-screen hints: Shift+RMB join, Shift+LMB move, LMB take up, R rotate, E customize, B put away",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:196-276 — ground pieces need the top of solid ground; wall pieces need a wall side; furniture limit",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:354-539 — B, Ctrl+Z, R, left click take-up, Shift+left click move and right click placement",
+    "crates/voxelgame-core/src/game/furniture/controls/adjoining.rs:16-71 — Shift+right click joins only floor kitchen pieces, 1 m from the aimed side",
+    "crates/voxelgame-core/src/furniture/placement.rs:151-166 — placement refusal messages",
+    "crates/voxelgame-core/src/furniture/placement.rs:367-380 — every leg needs a full solid support voxel below it",
+    "crates/voxelgame-core/src/game/furniture.rs:83-116 — local Survival pays the selected materials at placement; Creative is free",
+    "crates/voxelgame-core/src/game/furniture.rs:261-275 — every part must be within 6 m reach",
+    "crates/voxelgame-core/src/furniture.rs:89 — at most 256 furniture records per world",
+    "crates/voxelgame-core/src/furniture/definition.rs:390-425 — material choices per family, including clay and iron bathroom bodies",
+    "crates/voxelgame-render/src/furniture_workbench_ui.rs:192-284 — clickable plans and Need / have counts",
+    "crates/voxelgame-render/src/furniture_catalog_text.rs:883-941 — material button labels, Place in world and Cancel",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:27-42 — ordinary block placement aimed at furniture is refused",
+    "crates/voxelgame-core/src/game.rs:2863-2872 — mining aimed at furniture stops: \"Furniture blocks that mining target\"",
+    "crates/voxelgame-core/src/game/furniture/seating.rs:29-52 — sit and stand hints",
+    "crates/voxelgame-core/src/game/furniture/seating.rs:113-188 — support, dry ground, 2 m seat distance and clear exit required",
+    "crates/voxelgame-core/src/furniture/storage.rs:29-56 — storage furniture must be empty before removal",
+    "crates/voxelgame-core/src/game/furniture/sink.rs:86-124 — Survival basin use only from fresh water already within reach",
+    "crates/voxelgame-core/src/game/blueprint.rs:22-24 — blueprint capture refuses a selection that enters furniture",
+    "crates/voxelgame-core/src/bindings.rs:29-45 — default Space, Shift, Ctrl, E, R, Z and B bindings"
    ],
    "backlog": [
     "VOX-OWNER-FURNITURE-SET",
@@ -2521,18 +2528,34 @@
     "VOX-OWNER-FURNITURE-WOOD-VARIANTS"
    ],
    "guide": {
-    "state": "partial",
-    "page": "guide-building.html",
-    "label": "Building basics and creative tools"
+    "state": "complete",
+    "page": "guide-furniture.html",
+    "label": "Furniture and carpentry"
    },
    "controls": [
     [
-     "E > Build",
-     "Choose a furniture plan; Survival needs a carried Furniture hammer"
+     "E with a plan selected or the hammer in hand",
+     "Open the carpentry workbench; aim at placed furniture to change its materials"
     ],
     [
      "R / Right click",
      "Turn the furniture ghost 90 degrees / place it"
+    ],
+    [
+     "Left click, with a plan selected",
+     "Take up the aimed furniture; empty its storage first"
+    ],
+    [
+     "Shift + Left click, with a plan selected",
+     "Lock the aimed furniture to move it: R turns, right click places, left click cancels"
+    ],
+    [
+     "Shift + Right click",
+     "Place a floor kitchen piece against the side of the aimed one"
+    ],
+    [
+     "Ctrl+Z / Ctrl+Shift+Z",
+     "Undo / redo the last furniture step"
     ],
     [
      "B",
@@ -2540,10 +2563,139 @@
     ],
     [
      "Right click a seat / Space or Right click while seated",
-     "Sit nearby / stand when the exit is clear"
+     "Sit nearby with the plan put away / stand when the exit is clear"
+    ],
+    [
+     "Right click a block or hold left click at furniture",
+     "Refused: \"Furniture blocks that placement\" / \"Furniture blocks that mining target\""
     ]
    ],
-   "notes": "Targeted source check on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. No new play test. Seventeen fixed designs replace the old blanket planned claim; beds, closets and extendable tables remain absent. Sinks and bathtubs have no stored water or plumbing. The guide covers basic local carpentry; connected furniture has separate server checks and is not accepted here as a live multiplayer test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Beds, wardrobes and joining tables now exist, replacing the old missing-furniture claim. Sizes stay fixed; the Standard size control is disabled. Basins store no water. On a server, furniture waits for the server to confirm each action. The in-game coffee and side table plan tooltips still say displays are unsupported; the code supports them. Storage, beds and lamps are only summarised in this guide."
+  },
+  {
+   "id": "furniture-tables-and-desks",
+   "area": "building",
+   "name": "Tables, coffee tables, side tables and desks",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Four table plans: a 1 m square Table, a 1.5 by 0.75 m coffee table, a 0.5 m side table and a 1.5 by 0.75 m writing desk. Each has separate frame and top woods and costs one board piece of each. Matching Tables placed edge to edge join on any side into runs, L and T shapes; matching desks join end to end. Each piece keeps its own materials, cost and lantern.",
+   "controls": [
+    [
+     "Right click, with a table plan selected",
+     "Place the table; a matching Table or desk at the right distance joins up"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/definition.rs:53-58 — coffee table, side table and desk sizes and heights",
+    "crates/voxelgame-core/src/furniture/definition.rs:182-184 — preset parts from the shared table geometry",
+    "crates/voxelgame-core/src/furniture/definition.rs:256-259 — only the Table and the Desk join",
+    "crates/voxelgame-core/src/furniture/table.rs:29-66 — four legs and rails in the frame wood, the top in the panel wood",
+    "crates/voxelgame-core/src/furniture/table/presets_tests.rs:18-60 — every table preset costs one frame and one top board piece",
+    "crates/voxelgame-core/src/furniture/placement.rs:38-61 — Tables join 1 m apart on four sides; desks 1.5 m apart on their long axis",
+    "crates/voxelgame-core/src/furniture/modular_table.rs:7-71 — joins need the same design, materials and floor height; shared legs and rails go",
+    "crates/voxelgame-core/src/furniture/placement.rs:267-280 — joined parts replace the canonical ones, support stays per piece",
+    "crates/voxelgame-core/src/world/placed_furniture/table_connections.rs:9-87 — separating refusals for returning legs and rails",
+    "crates/voxelgame-core/src/inventory.rs:797-801 — plan tooltips for the coffee table, side table and desk",
+    "crates/voxelgame-core/src/game/furniture/catalog.rs:43-86 — Standard size is the only size; the control stays disabled"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Coffee and side tables never join, and a desk never joins a Table. Each piece in a run stays separate: it is moved, changed and taken up on its own and still needs ground under its own four corners. Splitting a run refuses if a returning leg or rail would hit something.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-furniture.html",
+    "label": "Furniture and carpentry"
+   }
+  },
+  {
+   "id": "furniture-table-displays",
+   "area": "building",
+   "name": "Lantern displays on tables",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "Hold a red lantern and right-click the top of a Table, coffee table, side table or desk to stand one lantern at its centre; right-click it with an empty slot to take it back. Survival uses one carried lantern and returns it later, even in Creative; Creative lanterns are free. Moving a table carries its lantern; changing materials or taking the table up needs the lantern off first.",
+   "controls": [
+    [
+     "Right click a tabletop holding a red lantern",
+     "Place one lantern at the centre of the top"
+    ],
+    [
+     "Right click the lantern with an empty slot",
+     "Take the lantern back"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/furniture/display.rs:14-38 — one red lantern with its own payment record",
+    "crates/voxelgame-core/src/furniture/display.rs:140-154 — take the display before restyling or taking up",
+    "crates/voxelgame-core/src/furniture/display.rs:165-187 — a fixed half-metre lantern at the top centre of the four tables",
+    "crates/voxelgame-core/src/furniture/display/interaction.rs:12-72 — aim rules and refusal messages",
+    "crates/voxelgame-core/src/furniture/display/interaction.rs:89-166 — the space above must be clear, permitted and unoccupied",
+    "crates/voxelgame-core/src/furniture/definition.rs:283-295 — designs that hold a display",
+    "crates/voxelgame-core/src/game/furniture/display.rs:11-49 — moving a decorated table checks room for its lantern",
+    "crates/voxelgame-core/src/game/furniture/display.rs:51-63 — a red lantern or an empty slot, with the furniture tool put away",
+    "crates/voxelgame-core/src/game/furniture/display.rs:132-169 — Survival spends one lantern; servers queue the change",
+    "crates/voxelgame-core/src/game/furniture/display.rs:173-222 — paid lanterns come back and need pack room",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:27-42 — blocks aimed at a table are refused with a lantern hint",
+    "crates/voxelgame-core/src/game/net_client/furniture/commands.rs:389-396 — servers allow displays without a hammer",
+    "crates/voxelgame-core/src/game/net_client/furniture/history/display.rs:24-85 — server Undo needs aim and the original mode",
+    "crates/voxelgame-render/src/local_lights.rs:11-43 — displayed lanterns light nearby surfaces"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Only a red lantern can be displayed. Joined tables hold separate lanterns. The lantern stays through saves. On a server, wait for confirmation; Undo restores a paid lantern only in Survival and a free one only in Creative. The bookcase and wall shelf use the same display and are covered with storage furniture.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-furniture.html",
+    "label": "Furniture and carpentry"
+   }
+  },
+  {
+   "id": "furniture-move-and-history",
+   "area": "building",
+   "name": "Moving, changing materials and furniture Undo",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "With a plan selected, Shift+left click locks a piece to move it, R turns the ghost and right click places it; left click takes it up and returns only paid materials when the pack has room. E on placed furniture opens Change this furniture: pick materials, read Pay and Returned, then Apply changes. Ctrl+Z and Ctrl+Shift+Z undo and redo furniture steps in both modes; on a server they wait for confirmation.",
+   "controls": [
+    [
+     "Shift + Left click, then Right click",
+     "Move the aimed furniture; Left click cancels"
+    ],
+    [
+     "E aimed at placed furniture",
+     "Change its materials, or Move, Rotate or Take up it"
+    ],
+    [
+     "Ctrl+Z / Ctrl+Shift+Z",
+     "Undo / redo the last furniture step"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/game/furniture.rs:131-149 — take-up; servers queue it",
+    "crates/voxelgame-core/src/game/furniture.rs:153-214 — moves keep design and materials and recheck the destination",
+    "crates/voxelgame-core/src/game/furniture.rs:337-428 — history refunds only paid materials, needs empty storage and pays again on recreation",
+    "crates/voxelgame-core/src/game/furniture/object_actions.rs:59-135 — Move, Rotate and Take up in the editor",
+    "crates/voxelgame-core/src/game/furniture/customization.rs:56-125 — locked material editor and Apply",
+    "crates/voxelgame-core/src/game/furniture/materials.rs:153-269 — local exchange pays the difference and returns paid materials",
+    "crates/voxelgame-core/src/game/furniture/materials.rs:79-118 — server material changes only for supported designs",
+    "crates/voxelgame-core/src/furniture/definition.rs:306-320 — designs that change materials on servers",
+    "crates/voxelgame-render/src/furniture_workbench_ui.rs:64-170 — Pay and Returned columns; server-priced editor text",
+    "crates/voxelgame-core/src/game/building.rs:365-384 — local furniture Undo and Redo",
+    "crates/voxelgame-core/src/game/net_client/furniture/history.rs:135-160 — server history: paid steps need Survival",
+    "crates/voxelgame-core/src/game/net_client/furniture/history.rs:549-600 — which confirmed server steps get an Undo step",
+    "crates/voxelgame-core/src/game/net_client/furniture/commands.rs:317-358 — server furniture waits; Survival needs a carried hammer"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. On a server, seats and sofas cannot change materials; tables, kitchen, bathroom and storage pieces can, priced by the server. Creative material changes on a server now have Undo. In Survival on a server only moves and paid steps can be undone. History is cleared when you leave the world.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-furniture.html",
+    "label": "Furniture and carpentry"
+   }
   },
   {
    "id": "wooden-chests",
@@ -6236,7 +6388,6 @@
     "fire",
     "flowing-lava",
     "waterfalls-dripstone",
-    "planned-doors-chests-furniture",
     "player-skins"
    ],
    "readiness": "blocked-planned",
