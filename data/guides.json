@@ -2771,8 +2771,8 @@
     "furniture-and-carpentry"
    ],
    "verification": {
-    "method": "Controls, brush order, limits and undo rules come from the feature ledger, which cites the game source for each entry (building.rs, game/building.rs, game.rs). Brush sizes and the 512-piece limit are code values. Middle-click picking, water and placement refusals come from the ledger rows middle-click-pick, building-in-water and placement-restrictions, checked at Voxelgame 5a69dce2 (game.rs middle-click handler, world/raycast.rs, world/block.rs replaceable(), game/readouts.rs placement_preview, game/mod_vehicles.rs block_interaction_available, save.rs MAX_EDITS). Targeted furniture, Build-tab access, chest and server-door corrections were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191; game/chests.rs:60-85,121-125,179-229; game/doors.rs:51-56,117-162,189-226. Paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. Existing unrelated sections keep their earlier checks. The additional Creative N detail toggle was checked at the same 5 November pin in crates/voxelgame-core/src/game/building.rs:23-35 and game.rs:1352-1353,2438-2447. Survival still uses held Shift. The doors and chests sections were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: inventory/door_recipes.rs:8-104; inventory.rs:1386-1419,1922-1942; game/crafting/doors.rs:51-122; game/inventory_qol/presentation.rs:8-16,78-91; game/doors.rs:54-231; game/doors/relocation.rs:18-186; world/door/relocation.rs:116-330; game/net_client/door_moves.rs:294-339; game/net_client/door_moves/input.rs:60-211; session/block_harvest/door.rs:98-117; game.rs:1566-1573,2848-2860; game/chests.rs:16-264; game/net_client/chests.rs:176-314; game/net_client/block_harvest/creative.rs:8-50; session/block_harvest/chest.rs:46-80; furniture/definition.rs:435-445; furniture/storage_chest_parts/tests.rs:23-57; game/furniture/chest_refinishing.rs:41-372; game/furniture/chest_refinishing/history.rs:8-81; game/net_client/furniture/history/chest_refinishing.rs:48-115. The undo section and the chest Undo paragraph were source-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/building.rs:193-240,283-447,590-607 (one history for blocks, door moves, chest refinishing and furniture; status and refusal messages; Creative keys and Build tab buttons); building.rs:424-464 (32-step limit); game.rs:2963-2970 and game/plant_support.rs:39-41 (Creative placing and mining recorded); game/blueprint_desk.rs:785-794 (a blueprint is one step); game/furniture/controls.rs:378-393,462-467 (furniture and chest steps in both modes); game/furniture/chest_refinishing/history.rs:8-81 (chest Undo and Redo checks).",
-    "limits": "Source-checked at 5a69dce2, not play-tested in this guide. Water and the 200,000-edit limit were read from code only. The structure library (naming, O, pictures) was checked at 9f915bcb, not play-tested. The 5 November furniture and storage corrections are source checks only, with no new play test or game capture. The newer pin applies to those targeted corrections, not to a fresh audit of this entire guide. The 8 November doors and chests refresh (door styles, woods, sizes and costs, Creative door moves, chest refinishing and server chest take-up) was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. The undo section and the chest Undo paragraph were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "Re-audited on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: the place, picking/water/limits, flowing water, half-metre pieces, brushes, blueprints, structure workshop, structure library and Build tab sections were each checked against the code that decides them. Placement and reach: game.rs:2005-2010,2441-2445,2474-2480,2848-2861,2862-2871,2933-3006; game/readouts.rs:11-45,334-387; world/door.rs:1147-1155; world/block.rs:207-230,566-569; world/raycast.rs:29-38,262-279; game/furniture/controls.rs:27-42; voxelgame-render highlight.rs:56-60,137-196. Edit limit: save.rs:117-120; save/write.rs:118-123; game.rs:2052-2063; world/mod.rs:1049-1066. Water: world/mod.rs:120-131,1880-1886,2187-2257,2504-2528; world/fluid_retraction.rs:22-83; world/fluid_retraction_tests.rs:76-155,209-226. Detail and brushes: game/building.rs:23-36,48-191,193-256,432-580,582-634; building.rs:12,106-148,528-593,595-653; game/furniture/controls.rs:369-376,428-436; voxelgame-render hotbar_ui.rs:191-216. Blueprints and library: game/blueprint_desk.rs:35-42,478-541,573-616,710-797,801-860; game/blueprint.rs:39-48,102-130,317-360,692-726; game/blueprint_materials.rs:38-147; game/blueprint_desk/library.rs:444-521,580-707,789-860,879-935; game/blueprint_desk/workshop.rs:47-118,129-300; game/blueprint_desk/library/standalone.rs:16-220,280-300; game/net_client/raise.rs:156-197; session/raise.rs:35-40,92-111; session/edits.rs:48-50; game/startup.rs:431-440; game/startup/main.rs:16-25; game/workshop.rs:64-93; src/worlds.rs:90-94; src/app.rs:2066; voxelgame-render structure_library_ui.rs:393-485. Build tab: game/creative_catalog.rs:10-34,79-105,171-243; game/inventory_input.rs:61-77,326-334,501-575; voxelgame-render inventory_ui/catalogue.rs:26-36,86-101,125-130,134-174; game/inventory_qol/presentation.rs:20-31; game/furniture/workbench.rs:102-127. Paths are beneath crates/voxelgame-core/src/ unless they start with src/ or name the voxelgame-render crate. Sections not re-checked keep their earlier checks: the doors and chests sections were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (inventory/door_recipes.rs:8-104; inventory.rs:1386-1419,1922-1942; game/crafting/doors.rs:51-122; game/inventory_qol/presentation.rs:8-16,78-91; game/doors.rs:54-231; game/doors/relocation.rs:18-186; world/door/relocation.rs:116-330; game/net_client/door_moves.rs:294-339; game/net_client/door_moves/input.rs:60-211; session/block_harvest/door.rs:98-117; game.rs:1566-1573,2848-2860; game/chests.rs:16-264; game/net_client/chests.rs:176-314; game/net_client/block_harvest/creative.rs:8-50; session/block_harvest/chest.rs:46-80; furniture/definition.rs:435-445; furniture/storage_chest_parts/tests.rs:23-57; game/furniture/chest_refinishing.rs:41-372; game/furniture/chest_refinishing/history.rs:8-81; game/net_client/furniture/history/chest_refinishing.rs:48-115). The furniture pointer section keeps the 5 November checks at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (inventory.rs:1812-1845; furniture/definition.rs:18-97; game/furniture/workbench.rs:25-47,97-116,191-207; game/furniture/controls.rs:166-212,311-459; game/furniture/catalog.rs:43-76,182-191) and the feature ledger rows they cite. The undo section and the chest Undo paragraph were source-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/building.rs:193-240,283-447,590-607 (one history for blocks, door moves, chest refinishing and furniture; status and refusal messages; Creative keys and Build tab buttons); building.rs:424-464 (32-step limit); game.rs:2963-2970 and game/plant_support.rs:39-41 (Creative placing and mining recorded); game/blueprint_desk.rs:785-794 (a blueprint is one step); game/furniture/controls.rs:378-393,462-467 (furniture and chest steps in both modes); game/furniture/chest_refinishing/history.rs:8-81 (chest Undo and Redo checks).",
+    "limits": "The place, picking, water, limits, half-metre, brush, blueprint, structure workshop, structure library and Build tab sections were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. Water flow and draining, the 200,000-piece save limit, server blueprint building and the new structure editor were read from code and its tests only, with no game capture. The doors and chests sections remain source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. The undo section and the chest Undo paragraph were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. The furniture pointer section was not re-checked in this pass."
    },
    "owns": [
     "block-targeting-feedback",
@@ -2811,7 +2811,7 @@
        "t": "steps",
        "items": [
         "Select a block in the hotbar with keys 1 to 0, or pick it from the Build catalog in creative.",
-        "Aim at the face where you want the block. A ghost shows the cell it will fill.",
+        "Aim at the face where you want the block. A see-through ghost of the block, in its own texture, shows the cell it will fill.",
         "Right-click to place one block. The held item must be a block. With a bow, rifle or throwing rock in hand, right-click aims or throws instead."
        ]
       },
@@ -2822,7 +2822,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "If any part of the target cell is occupied, the whole block is refused and the outline turns red. You cannot place a block inside yourself. Plants and water in the target cell are overwritten."
+       "text": "If any part of the target cell is occupied, the whole block is refused and a red outline shows instead of the ghost. You cannot place a block inside yourself. Plants and water in the target cell are overwritten, except bamboo. Furniture between you and the block stops the click too: the status line says \"Furniture blocks that placement\", or \"Furniture blocks that mining target\" when you mine, and nothing is spent. See {{guide:furniture-and-carpentry|Furniture and carpentry}}."
       }
      ]
     },
@@ -2836,20 +2836,21 @@
       },
       {
        "t": "p",
-       "text": "Your aim passes through water to the first solid block. Stand on the shore and aim at a lake or sea bed, then build up from it. You cannot click the water surface itself. Placed blocks replace water and plants in their cell. {{building-in-water}}"
+       "text": "Your aim passes through water to the first block beyond it. Stand on the shore and aim at a lake or sea bed, then build up from it. You cannot click the water surface itself. Placed blocks replace water and plants in their cell. {{building-in-water}}"
       },
       {
        "t": "p",
-       "text": "A block is refused, with a message in the status line, when:"
+       "text": "A block is not placed when:"
       },
       {
        "t": "list",
        "items": [
         "For ordinary block placement, select a block. Furniture, doors and chests have their own placement steps below.",
-        "Your hands are empty, or a tool, bow, rifle or throwing rock is in hand.",
-        "A solid block is in the target cell.",
-        "In survival, your pack does not have 8 pieces of the material for a whole block.",
-        "The world already holds 200,000 changed blocks. New building is refused, and the save warns before the limit. {{placement-restrictions}}"
+        "Your hands are empty, or a tool, bow, rifle or throwing rock is in hand. No ghost shows and nothing happens.",
+        "A solid block, an open door leaf or bamboo is in the target cell: \"That space is already occupied\".",
+        "Furniture stands between you and the block: \"Furniture blocks that placement\".",
+        "In survival, your pack does not have 8 pieces of the material for a whole block (1 for a half-metre piece): \"Need 8 ... pieces to place a block\".",
+        "In creative, the world already holds 200,000 changed half-metre pieces, the save limit: \"Save edit budget reached\". From 190,000 the status line warns you. Survival building is not stopped, but a world past 200,000 can no longer be saved. {{placement-restrictions}}"
        ]
       }
      ]
@@ -2860,13 +2861,14 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The Water block in the creative catalog is a flowing source. Right-click with Water selected to place one. It spreads up to 7 half-metre cells sideways and pours down over edges. Flowing water does not go away on its own. {{flowing-water}}"
+       "text": "The Water block in the creative catalog is a flowing source. Right-click with Water selected to place one. It spreads up to 7 half-metre cells sideways into open air and pours down over edges. {{flowing-water}}"
       },
       {
        "t": "list",
        "items": [
         "Placing a block into water replaces that water cell.",
-        "Digging next to the sea or a lake lets water flow into the new gap.",
+        "Fill the source cell, or cut the stream off with a block, and the water it fed drains away cell by cell. Water on the source side of a new block stays.",
+        "Digging next to the sea or a lake lets water flow into the new gap. Natural seas and lakes never drain.",
         "Survival players cannot pick up or place water. There are no buckets.",
         "The other five water types are blocks. They do not flow."
        ]
@@ -2874,7 +2876,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "To stop unwanted flowing water, fill each wet cell with blocks. On a multiplayer server the server runs the water."
+       "text": "To get rid of unwanted flowing water, place a block in the cell where you put the Water source. On a multiplayer server the server runs the water."
       }
      ]
     },
@@ -2884,14 +2886,14 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Hold [[Shift]] to place or mine one half-metre piece instead of a whole cube. In creative, press [[N]] to toggle detail size without holding Shift; press N again for whole blocks. This lets you keep flying level while building small details. {{half-metre-detail-building}}"
+       "text": "Hold [[Shift]] to place or mine one half-metre piece instead of a whole cube. The ghost shrinks to that piece. In creative, press [[N]] to toggle detail size without holding Shift; press N again for whole blocks. The status line says **Detail building: 0.5 m** or **Whole blocks: 1 m**. This lets you keep flying level while building small details. {{half-metre-detail-building}}"
       },
       {
        "t": "keys",
        "rows": [
         [
          "Shift + Right click",
-         "Place one half-metre piece."
+         "Place one half-metre piece. In survival it uses one piece."
         ],
         [
          "Shift + Left click",
@@ -2899,7 +2901,7 @@
         ],
         [
          "F1",
-         "Clean view. Hides the outline, ghost and HUD while you play."
+         "Clean view. Hides the ghost, outlines and HUD while you play."
         ]
        ]
       },
@@ -3070,7 +3072,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "In creative mode, press B to move to the next brush. The order is Block, Line, Wall, Floor, Replace, Copy, Blueprint, Bench, Railing and Roof. You can also pick a brush from the E > Build tab. {{creative-brush-cycle}}"
+       "text": "In creative mode, press B to move to the next brush. The order is Block, Line, Wall, Floor, Replace, Copy, Blueprint, Bench, Railing and Roof. After Roof, B selects the Chair furniture plan, and B again goes back to Block. The **Tool** button in E > Build > + Tools also steps to the next brush. {{creative-brush-cycle}}"
       },
       {
        "t": "list",
@@ -3079,16 +3081,16 @@
         "Line: Right-click once to set the first corner, aim at the far end and right-click again. The line follows the longer direction. {{brush-line-wall-floor}}",
         "Wall: Same two clicks. The wall stands upright along the longer horizontal direction.",
         "Floor: Same two clicks. The floor stays level at the height of the first corner.",
-        "Replace: Aim at a block of the material to swap and right-click. Aim at the opposite corner and right-click again. Matching blocks in the box become the block in your hand. {{brush-replace}}",
-        "Copy: Right-click two opposite corners to copy every block in that box except air and the Camp crate. Water and plants are copied too. Right-click again to paste at the ghost. R turns the paste 90 degrees. B discards the copy. {{brush-copy-paste}}",
+        "Replace: Aim at a block of the material to swap and right-click. Aim at the opposite corner and right-click again. Matching blocks in the box become the block in your hand. If the box holds none, the status line says \"0 matching pieces\". {{brush-replace}}",
+        "Copy: Right-click two opposite corner blocks to copy the box, at most 512 half-metre pieces (for example 4 by 4 by 4 m). Air, the Home crate, chests and doors are left out; water and plants are copied. A box that takes in furniture is refused. Each further right-click pastes a copy at the ghost. R turns the paste 90 degrees. B discards the copy. In the Structure workshop, only blocks you placed are copied. {{brush-copy-paste}}",
         "Blueprint: Save a build, then place it again. See the Blueprints section. {{creative-blueprints}}",
-        "Bench, Railing, Roof: One right-click stamps a fixed shape at the ghost. Press R first to turn it 90 degrees. {{brush-bench-railing-roof}}"
+        "Bench, Railing, Roof: One right-click stamps a fixed half-metre shape at the ghost: a 2 m bench, a 3.5 m railing or a 3 by 3 m stepped roof. Press R first to turn it 90 degrees. {{brush-bench-railing-roof}}"
        ]
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Every brush except Block shows a ghost first. One action changes at most 512 half-metre pieces (64 whole blocks). Blueprints have their own limits. If a cell holds a solid block, nothing is built. Water and plants do not block a build. Replace is the exception: it swaps only the material you aim at. Hold Shift on the first click for half-metre steps."
+       "text": "Every brush except Block shows a ghost first, red if the build would be refused. One action changes at most 512 half-metre pieces (64 whole blocks). Blueprints have their own limits. If a cell holds a solid block, a chest, a door or the Home crate, nothing is built and the status line says \"Selection blocked\". Water and plants do not block a build. Replace is the exception: it swaps only the material you aim at. Hold Shift (or use N) on the first click for half-metre steps."
       },
       {
        "t": "p",
@@ -3102,7 +3104,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "A blueprint is a build you save and place again. In creative mode it is free to place. In survival, placing it uses pieces from your pack. Blueprints do not work on servers yet."
+       "text": "A blueprint is a build you save and place again. In creative mode it is free to place. In survival, placing it uses pieces from your pack. On a server, Creative players can place blueprints too; in Survival on a server, placement is refused with \"Survival blueprints aren't available on servers yet\"."
       },
       {
        "t": "h",
@@ -3114,9 +3116,9 @@
         "Press [[B]] until the brush says **Blueprint**. You can also pick it in **E > Build**.",
         "Aim at a ground corner of the build and press [[Shift]] + right-click. The status says **First corner set**.",
         "Aim at the opposite ground corner and press [[Shift]] + right-click again. The **Structures** panel opens with a picture of what was taken. Nothing is saved yet. Until then, each corner you marked shows a post, and the box that would be saved is outlined. To cancel, press [[Shift]] + right-click on the same corner again.",
-        "Type a name and press **Save**. A name that is taken needs a second press to replace it. **Keep both** saves a copy called Name 2. Closing the panel discards the capture.",
+        "Type a name (up to 32 characters) and press **Save** or [[Enter]]. A name that is taken needs a second press to replace it. **Keep both** saves a copy called Name 2. **Discard**, or closing the panel, throws the capture away.",
         "If you just placed a saved blueprint, its name is filled in and the panel says **Enter updates it**. Press **Enter**, then **Enter** again, to replace that file. Type another name to keep both.",
-        "Aim where you want it. The ghost shows the result. Right-click to build it. The whole build is one undo step, so [[Ctrl]]+[[Z]] removes it."
+        "Aim where you want it. The ghost shows the result, centred on the cell you aim at. Right-click to build it. The whole build is one undo step, so [[Ctrl]]+[[Z]] removes it."
        ]
       },
       {
@@ -3134,7 +3136,7 @@
       },
       {
        "t": "p",
-       "text": "Each half-metre piece you change costs one piece of the item that block drops when mined. A whole block is 8 pieces. Dirt-type turf costs dirt. Voxels that already hold the right block cost nothing. If you lack any material, nothing is built or spent, and the status names the missing items."
+       "text": "Each half-metre piece you change costs one piece of the item that block drops when mined. A whole block is 8 pieces. Dirt-type turf costs dirt. Voxels that already hold the right block cost nothing. If you lack any material, nothing is built or spent, and the status names the missing items. The Shift + right-click save also works in survival, by the game source; it is not checked in play."
       },
       {
        "t": "keys",
@@ -3145,11 +3147,15 @@
         ],
         [
          "Page Up / Page Down",
-         "Lift the ghost 1 m up or down."
+         "Lift the ghost 1 m up or down, up to 64 m."
         ],
         [
          "Left / Right arrows",
          "Choose another saved blueprint."
+        ],
+        [
+         "O",
+         "Open the structure library."
         ],
         [
          "Delete, twice",
@@ -3160,11 +3166,16 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "The save leaves out water, cells you carved out of the terrain and the Camp crate. The status line says how many. A blueprint can be up to 128 m along any side and you can keep up to 64. Placement is refused if it would build over blocks you placed yourself or the Camp crate, or on top of you. Step back and try again."
+       "text": "The save leaves out water, cells you carved out of the terrain, the Home crate, chests and doors. The panel says how many cells were left out. A box that takes in furniture saves nothing: move or take up the furniture first. A blueprint can be up to 128 m along any side and 16,384 half-metre pieces, and you can keep up to 64. Placement builds over natural ground, plants and water. It is refused if it would build over blocks you placed yourself or the Home crate, or around you (\"Step back: it would be built around you\")."
       },
       {
        "t": "p",
-       "text": "Saved blueprints are plain files with the `.blueprint` extension in a folder named `blueprints`. The game looks for that folder where it starts. Without it, blueprints last only until you leave the session."
+       "text": "Saved blueprints are plain files with the `.blueprint` extension in a folder named `blueprints`, in the folder the game starts from. The game makes it when you save your first blueprint, and every world shares it."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "On a server, a Creative blueprint appears at once and the server then confirms it; if the server refuses, the build is taken away again. Every piece must be within 64 m of you, each build waits a moment after the last (\"Blueprints wait a moment between builds\"), and very large blueprints are refused (\"Too large to build on a server at once\")."
       },
       {
        "t": "h",
@@ -3172,20 +3183,24 @@
       },
       {
        "t": "p",
-       "text": "The Structure workshop is a flat creative world for designing a build away from your home. Choose **Structure workshop** on the main menu. It is always creative, at midday, with no animals. Your current world is saved first."
+       "text": "Choose **Structure workshop** on the main menu to open the structure library. Pick a saved structure and choose **Open structure**, or choose **Create new**, type a name and choose **Create structure**. Your current world is saved before the editor opens."
       },
       {
        "t": "p",
-       "text": "Build as you would anywhere, then save the build as a blueprint. Choose **Leave workshop** to return to the world you came from. The flat ground is never part of a blueprint, and you can travel without reaching an edge."
+       "text": "The structure opens on flat ground in its own editor. It is always creative, at midday, with no animals, and it is not saved as a world. Build with the ordinary controls. Press [[F6]] to save the structure to your blueprints; a structure you opened is replaced by the new version. Press [[Esc]] to go back to the library. With unsaved changes you choose **Save and exit**, **Discard** or **Cancel**."
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "The flat workshop has not been checked in play yet. This page follows the game source and its tests."
+       "text": "F6 saves only blocks. The save is refused, with the reason in the status line, while the editor holds furniture, water, a chest, a door or ground you dug away. The structure editor has not been checked in play yet. This page follows the game source and its tests."
       },
       {
        "t": "p",
-       "text": "Workshops made before this change are listed in **Worlds** with **(legacy workshop)**. Opening one keeps its original terrain, platform, player position and builds. The main menu makes a new flat workshop and does not change the old save."
+       "text": "In the library, **Rename** changes a name, **Duplicate** saves an independent copy, and **Delete structure** removes one after you hold it for 3 seconds. **Back** returns to the main menu, where **Continue** takes you back to your world."
+      },
+      {
+       "t": "p",
+       "text": "Workshops made before the structure library are listed in **Worlds** with **(legacy workshop)**. Opening one keeps its original terrain, platform, player position and builds. Choose **Leave workshop** on the main menu to return to the world you came from."
       },
       {
        "t": "h",
@@ -3197,14 +3212,14 @@
         "Open the legacy workshop from **Worlds**.",
         "Save the build as a blueprint (see Save a blueprint, creative above).",
         "Choose **Leave workshop** to return to your world, then choose **Structure workshop** on the main menu.",
-        "Select the saved blueprint and check its ghost in the new workshop.",
+        "In the library, select the saved blueprint and choose **Open structure** to check it in the editor.",
         "Keep the legacy workshop until you have checked the copy. It stays available for more edits."
        ]
       },
       {
        "t": "note",
        "kind": "planned",
-       "text": "Sharing or importing blueprints is not in this version. Saving a blueprint in survival is not checked in play yet. They are tracked in the {{structure-workshop-blueprints|feature ledger}}."
+       "text": "Sharing or importing blueprints is not in this version. It is tracked in the {{structure-workshop-blueprints|feature ledger}}."
       }
      ]
     },
@@ -3214,18 +3229,22 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Press [[O]] to open the library. Each saved structure has its own picture. The picked one is shown large, with its size and piece count."
+       "text": "With the Blueprint tool out, press [[O]] to open the library. Each saved structure has its own picture. The picked one is shown large, with its size and piece count."
       },
       {
        "t": "keys",
        "rows": [
         [
          "O",
-         "Open the library."
+         "Open the library, or close it again."
         ],
         [
          "Up / Down arrows",
          "Pick the previous or next structure."
+        ],
+        [
+         "Enter or Place",
+         "Close the library with the picked structure ready to aim."
         ],
         [
          "Delete",
@@ -3239,11 +3258,11 @@
       },
       {
        "t": "p",
-       "text": "Rename writes the new file before the old one is removed, so a failed rename keeps the original. The library holds up to 64 structures. Click the search field above the list and type part of a name to narrow it. Enter ends the search and keeps the matches, and Up and Down pick among them."
+       "text": "Click the name to rename a structure; **Rename** or [[Enter]] saves the new name. Rename writes the new file before the old one is removed, so a failed rename keeps the original. The library holds up to 64 structures. Click the search field above the list and type part of a name to narrow it. Enter ends the search and keeps the matches, and Up and Down pick among them."
       },
       {
        "t": "note",
-       "text": "Checked at Voxelgame 9f915bcb. Not yet play-tested for this guide.",
+       "text": "Source-checked at Voxelgame 251b9e46. Not yet play-tested for this guide.",
        "kind": "careful"
       }
      ]
@@ -3293,7 +3312,8 @@
        "items": [
         "Click an ordinary catalog item to take one. Shift-click to take as many as fit in your pack. Furniture plans select a reusable construction choice instead of adding a carried item.",
         "Right-click an item to remove one you carry. Shift-right-click removes all of them.",
-        "Middle-click an item to star it.",
+        "Middle-click an item to star it. Starred items are listed under **STARRED**.",
+        "Click the search box, or press [[Ctrl+F]], and type part of a name. Enter ends typing; right-click the box to clear it.",
         "Hover an item and press 1 to 0, or drag it onto a slot, to bind it to the hotbar."
        ]
       },
@@ -4777,11 +4797,11 @@
    "kicker": "World",
    "title": "Caves and geological landmarks",
    "headline": "Caves and geological landmarks<br><em>rare rock features, and what each one is like.</em>",
-   "summary": "Some hills have a cave with one of three layouts. Rare large sites such as meteor craters, amethyst gorges and lava tubes appear on certain ground. Caves are small and bounded, not deep networks.",
+   "summary": "Some hills have a shallow cave with one of three layouts. Rare large sites such as meteor craters, amethyst gorges and lava tubes appear on certain ground. Caves are small and bounded, not deep networks.",
    "lead": "Caves and landmarks are not on every hill or valley. This page covers where caves open, the three cave layouts, and the landmark sites you can find in the base game.",
    "readTime": "3 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "caves",
@@ -4793,8 +4813,8 @@
     "building-basics"
    ],
    "verification": {
-    "method": "Cave rules come from crates/voxelgame-core/src/world/generator/caves.rs at Voxelgame 0494a0ce: one candidate per 384 m cell, 132 m passage radius, the 32 m hillside and 10 m entrance height rules, the 100 m entrance offset, the three layouts and the floor grade. Landmark rules come from crates/voxelgame-core/src/world/generator/regions.rs in the same commit: the 220-320 m site radius, the 512 m origin exclusion, the water and volcanic checks, the site kinds by ground type and the crater, gorge and lava tube sizes. Cave ambience comes from crates/voxelgame-core/src/ambience.rs.",
-    "limits": "Source-checked, not play-tested in this guide. Sizes are the code's ranges, so a site you find may look different. Sites are rare and depend on the seed, so this page does not give a map location."
+    "method": "Re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480. Caves: crates/voxelgame-core/src/world/generator/caves.rs:104-160 (the three layouts), 166-237 (one site in 38 of 100 cells of 384 m, none within 240 m of the origin, 132 m radius, 100 m entrance, 32 m site and 10 m entrance heights, the walk-in entrance of current worlds) and 240-248 (the floor stays within 9 m of the entrance floor, itself 2 m below the entrance ground); world/generator/dripstone.rs:9-104 and world/generator/voxel.rs:410-419 (limestone formations in current worlds); world/generator/surface.rs:117-125 (scattered iron ore in ordinary stone); ambience.rs:63-80 (cave ambience). Landmarks: world/generator/regions.rs:109-127 (site biomes), 204-214 (one site per 2048 m cell), 216-277 (radius, exclusions, 20 m height rule and site kinds) and 296-350 (crater, gorge and lava tube shapes); world/generator/structures.rs:41-42,263-295 and surface.rs:523,538 (what lies on the ground); world/generator/voxel.rs:203-222 and map_locator.rs:12-60 (map locator).",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. Sizes are the code's ranges, so a site you find may look different. Sites depend on the seed, so this page gives no map positions."
    },
    "owns": [
     "caves",
@@ -4808,11 +4828,11 @@
      "blocks": [
       {
        "t": "p",
-       "text": "A cave is one bounded site. Every passage stays within about 132 m of the cave's centre, so it is not a deep network of tunnels. {{caves}}"
+       "text": "A cave is one bounded site. Every passage stays within about 132 m of the cave's centre, so it is not a deep network of tunnels. There is at most one cave in each 384 m square, and none within about 240 m of the world's origin. {{caves}}"
       },
       {
        "t": "p",
-       "text": "A cave needs a hill at least 32 m above sea level. Its entrance is cut into the hillside about 100 m from the cave's centre, on ground at least 10 m above sea level."
+       "text": "A cave needs a hill at least 32 m above sea level. Its entrance is cut into the hillside about 100 m from the cave's centre, on ground at least 10 m above sea level. Caves are shallow: the floor never runs more than about 11 m below the ground at the entrance. In worlds made with the current generator, the entrance opens at ground level so you can walk in."
       },
       {
        "t": "p",
@@ -4828,16 +4848,21 @@
       },
       {
        "t": "p",
-       "text": "Floors climb in walkable half-metre steps. A cave ambience plays when you are under a roof."
+       "text": "Floors climb in walkable half-metre steps. A cave ambience plays when you are more than 2 m below the ground with rock above you."
+      },
+      {
+       "t": "p",
+       "text": "In caves cut through limestone, worlds made with the current generator have limestone stalagmites and stalactites in the high chambers, some joined into columns. They stay clear of the walking routes."
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Caves do not show on the map. Inside a cave there are no stalactites, dripstone, ores or lights."
+       "text": "Caves do not show on the map. They have no lights of their own. The rock is ordinary underground rock, so plain stone walls can hold the odd Iron ore block, as anywhere underground."
       },
       {
-       "t": "p",
-       "text": "Planned, not in the game yet: deeper cave networks, cave maps and dripstone caves."
+       "t": "note",
+       "kind": "planned",
+       "text": "Planned, not in the game yet: deeper cave networks and cave maps."
       }
      ]
     },
@@ -4847,7 +4872,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Landmarks are rare sites about 220 to 320 m across. They do not form on water or lakes, on the ground within 512 m of the world's origin, or on very rugged ground. {{geological-landmarks}}"
+       "text": "Landmarks are rare sites that spread 220 to 320 m out from their centre, so a whole site is about 440 to 640 m across. There is at most one in each 2 km square. They form only where the centre stands at least 20 m above sea level, not on water or lakes, not within 512 m of the world's origin and not on very rugged ground. {{geological-landmarks}}"
       },
       {
        "t": "p",
@@ -4856,9 +4881,9 @@
       {
        "t": "list",
        "items": [
-        "Meteor crater: a bowl with a raised rim and two smaller craters beside it. Only on ground that is not volcanic.",
-        "Amethyst gorge: a winding canyon, 36 to 60 m wide and 24 to 54 m deep, through crystal-studded rock.",
-        "Lava tube: a walkable, roofed passage with two open skylights. Only on volcanic ground.",
+        "Meteor crater: a main bowl about 185 to 270 m across and 20 to 30 m deep, with a raised rim and two smaller craters beside it. The ground is scorched stone and impact glass, with meteorite rocks of Iron ore and Impact glass. Only on ground that is not volcanic.",
+        "Amethyst gorge: a winding canyon 24 to 54 m deep, about 70 to 120 m across at the top, with a floor 15 to 25 m wide. Its dark stone is studded with Amethyst blocks and crystal clusters.",
+        "Lava tube: a walkable, roofed passage about 15 m below the ground, up to 8 m high and 16 m wide, with two open skylights. Only on volcanic ground.",
         "Geyser basin and hot-spring terraces: only on volcanic ground.",
         "Cold uplands: ice spires, moraine ridges, outwash plains and firn domes.",
         "Warm, wet ground: karst towers and tepui mesas. Warm, dry ground: spring oases.",
@@ -4872,7 +4897,7 @@
       },
       {
        "t": "p",
-       "text": "Sites are rare. Most of the map has none."
+       "text": "Sites are rare. Most of the map has none. To head for one, search the {{map-locator|map locator}} for **Meteor field**, **Amethyst gorge** or **Surface lava tubes**; the other sites are listed under their biome names, such as Geyser basin or Tepui plateau."
       }
      ]
     }
