@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: GPL-3.0-only */
-/* Paper and ink for reading; accents follow the game's turf, soil, sand and water palette. */
-:root { --paper: #f6f3e9; --ink: #243a2d; --muted: #5d685c; --line: #d7d8c9; --accent: #914a27; --grass: #408f38; --soil: #6b4729; --sand: #c7b87d; --water: #0f59a8; --display: 'Trebuchet MS', 'Segoe UI', sans-serif; --mono: 'DejaVu Sans Mono', Consolas, monospace; }
+/* Material colours from the game's turf, soil, sand and water; the interface palette is set with the themes below. */
+:root { --grass: #408f38; --soil: #6b4729; --sand: #c7b87d; --water: #0f59a8; --display: 'Trebuchet MS', 'Segoe UI', sans-serif; --mono: 'DejaVu Sans Mono', Consolas, monospace; }
 [hidden] { display: none !important; }
 .site-header { height: auto; min-height: 0; display: block; padding-block: 17px 0; border-top: 5px solid var(--grass); border-bottom: 2px solid var(--ink); }
 .site-brand { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 18px; }
@@ -207,11 +207,13 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 }
 @media (prefers-reduced-motion: reduce) { :root { scroll-behavior: auto; } }
 
-/* Theme changes affect the interface, never photographs, maps or block colours. */
-:root { --theme-emphasis: #6b7960; --theme-hover: #e7e9df; --theme-image-bed: #dbe0d3; --theme-image-open: #f5f3ebed; --theme-link-hover: #e5e9dd; --theme-note: #f1f2ea; --theme-careful: #f6ece5; --theme-tip: #4f7a58; --theme-warning: #b4512d; --theme-control-hover: #e6eadf; --theme-highlight: #e8ecdf; --theme-surface: #fffdf7; --theme-available-bg: #dfe9d8; --theme-available-ink: #24452f; --theme-partial-bg: #f2e7cc; --theme-partial-ink: #5c4413; --theme-developer-bg: #e3e5e6; --theme-developer-ink: #3b4248; --theme-development-bg: #dbe7ee; --theme-development-ink: #234556; --theme-planned-ink: #8a3a1d; --theme-key-line: #c4cbbb; --theme-key-bg: #fbfaf5; --theme-ready-line: #9fb68f; }
-:root[data-theme="dark"] { color-scheme: dark; --paper: #18231d; --ink: #e8e8d8; --muted: #afbba8; --line: #415444; --accent: #e4a079; --theme-emphasis: #b4c4a7; --theme-hover: #293b2d; --theme-image-bed: #26352c; --theme-image-open: #202e25ed; --theme-link-hover: #293b2d; --theme-note: #202e25; --theme-careful: #38291f; --theme-tip: #8bb695; --theme-warning: #e4a079; --theme-control-hover: #293b2d; --theme-highlight: #26382b; --theme-surface: #202e25; --theme-available-bg: #263e2c; --theme-available-ink: #bedab8; --theme-partial-bg: #3d3420; --theme-partial-ink: #ead4a1; --theme-developer-bg: #30373a; --theme-developer-ink: #d2dadd; --theme-development-bg: #253942; --theme-development-ink: #bcd9e8; --theme-planned-ink: #e8ac89; --theme-key-line: #52644e; --theme-key-bg: #26382b; --theme-ready-line: #8ba47b; }
+/* Theme changes affect the interface, never photographs, maps or block colours.
+   Both themes follow the game's stone-and-brass interface (voxelgame-render ui_style.rs, linear RGB converted to sRGB);
+   dark is the in-game look: PANEL #151412, stone face #2e2b25, EDGE #5b4c34, ACCENT #cea655, BRASS_LIGHT #efcb7c, TEXT #e7e6e2, MUTED #afadaa, wood slots #483522. */
+:root { --stone: #f4efe4; --edge: #a58c5e; --brass: #b68a3a; --brass-light: #e2bf72; --surface: #ebe4d5; --hover: #ddd2bb; --press: #cfc1a3; --slot: #dccaa6; --slot-shade: #5a3c1438; --slot-lip: #ffffffa0; --bevel-lit: #ffffffb0; --bevel-shade: #503c1e26; --drop: #3c2d141f; --sheen: #ffffff73; --masonry: var(--masonry-light); --field: #fbf8f1; --title: #1f1b16; --paper: #e6e0d2; --ink: #27231d; --muted: #5a5347; --line: #cbbfa6; --accent: #7f5b17; --theme-emphasis: #7f5b17; --theme-hover: #ddd2bb; --theme-image-bed: #d8cfbd; --theme-image-open: #f4efe4ed; --theme-link-hover: #e6dcc7; --theme-note: #efe8da; --theme-careful: #f3e1d6; --theme-tip: #4f7a58; --theme-warning: #a3442a; --theme-control-hover: #ddd2bb; --theme-highlight: #ece2cc; --theme-surface: #f7f3ea; --theme-available-bg: #dde6cf; --theme-available-ink: #24452f; --theme-partial-bg: #f1e3c2; --theme-partial-ink: #5c4413; --theme-developer-bg: #e4e1da; --theme-developer-ink: #3b3a36; --theme-development-bg: #dbe4ea; --theme-development-ink: #234556; --theme-planned-ink: #8a3a1d; --theme-key-line: #c2b394; --theme-key-bg: #f7f3ea; --theme-ready-line: #9fb68f; }
+:root[data-theme="dark"] { color-scheme: dark; --stone: #2e2b25; --edge: #5b4c34; --brass: #cea655; --brass-light: #efcb7c; --surface: #282421; --hover: #3d3830; --press: #151412; --slot: #483522; --slot-shade: #00000036; --slot-lip: #6c61504d; --bevel-lit: #6c615059; --bevel-shade: #0000002e; --drop: #0000001c; --sheen: #61594d17; --masonry: var(--masonry-dark); --field: #282421; --title: #f3efe2; --paper: #151412; --ink: #e7e6e2; --muted: #afadaa; --line: #3e382f; --accent: #cea655; --theme-emphasis: #c8a873; --theme-hover: #3d3830; --theme-image-bed: #201e1b; --theme-image-open: #151412ed; --theme-link-hover: #3d3830; --theme-note: #24211d; --theme-careful: #38221c; --theme-tip: #9cc79f; --theme-warning: #e59581; --theme-control-hover: #3d3830; --theme-highlight: #2a2620; --theme-surface: #282421; --theme-available-bg: #263021; --theme-available-ink: #c7e0b8; --theme-partial-bg: #3a3020; --theme-partial-ink: #efcb7c; --theme-developer-bg: #2c2b2a; --theme-developer-ink: #d6d4cf; --theme-development-bg: #22303a; --theme-development-ink: #bcd9e8; --theme-planned-ink: #e59581; --theme-key-line: #5b4c34; --theme-key-bg: #282421; --theme-ready-line: #8ba47b; }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { color-scheme: dark; --paper: #18231d; --ink: #e8e8d8; --muted: #afbba8; --line: #415444; --accent: #e4a079; --theme-emphasis: #b4c4a7; --theme-hover: #293b2d; --theme-image-bed: #26352c; --theme-image-open: #202e25ed; --theme-link-hover: #293b2d; --theme-note: #202e25; --theme-careful: #38291f; --theme-tip: #8bb695; --theme-warning: #e4a079; --theme-control-hover: #293b2d; --theme-highlight: #26382b; --theme-surface: #202e25; --theme-available-bg: #263e2c; --theme-available-ink: #bedab8; --theme-partial-bg: #3d3420; --theme-partial-ink: #ead4a1; --theme-developer-bg: #30373a; --theme-developer-ink: #d2dadd; --theme-development-bg: #253942; --theme-development-ink: #bcd9e8; --theme-planned-ink: #e8ac89; --theme-key-line: #52644e; --theme-key-bg: #26382b; --theme-ready-line: #8ba47b; }
+  :root:not([data-theme="light"]) { color-scheme: dark; --stone: #2e2b25; --edge: #5b4c34; --brass: #cea655; --brass-light: #efcb7c; --surface: #282421; --hover: #3d3830; --press: #151412; --slot: #483522; --slot-shade: #00000036; --slot-lip: #6c61504d; --bevel-lit: #6c615059; --bevel-shade: #0000002e; --drop: #0000001c; --sheen: #61594d17; --masonry: var(--masonry-dark); --field: #282421; --title: #f3efe2; --paper: #151412; --ink: #e7e6e2; --muted: #afadaa; --line: #3e382f; --accent: #cea655; --theme-emphasis: #c8a873; --theme-hover: #3d3830; --theme-image-bed: #201e1b; --theme-image-open: #151412ed; --theme-link-hover: #3d3830; --theme-note: #24211d; --theme-careful: #38221c; --theme-tip: #9cc79f; --theme-warning: #e59581; --theme-control-hover: #3d3830; --theme-highlight: #2a2620; --theme-surface: #282421; --theme-available-bg: #263021; --theme-available-ink: #c7e0b8; --theme-partial-bg: #3a3020; --theme-partial-ink: #efcb7c; --theme-developer-bg: #2c2b2a; --theme-developer-ink: #d6d4cf; --theme-development-bg: #22303a; --theme-development-ink: #bcd9e8; --theme-planned-ink: #e59581; --theme-key-line: #5b4c34; --theme-key-bg: #282421; --theme-ready-line: #8ba47b; }
 }
 .header-tools { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 .theme-choice { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
@@ -221,3 +223,110 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
   .header-tools { width: 100%; justify-content: space-between; gap: 12px; }
 }
 .wiki-search input::placeholder { color: var(--muted); opacity: 1; }
+
+/* Game interface skin. Shapes follow the game's own controls in ui_style.rs: stone panels with a one-pixel
+   edge, a lit/shaded bevel and brass corner brackets with rivets; raised buttons with a 4px radius; tabs with an
+   inset brass underline; recessed wood slots with a brass frame when selected; a brass rule with a diamond.
+   Display text uses Trailhead, the game's own pixel face (fonts/README.md), at whole multiples of its pixel. */
+@font-face { font-family: Trailhead; src: url(fonts/trailhead.woff2) format('woff2'); font-display: swap; }
+:root {
+  --pixel: Trailhead, 'DejaVu Sans Mono', Consolas, monospace; --serif: var(--pixel); --display: var(--pixel);
+  --px2: 22px; --px3: 33px; --px4: 44px; --px5: 55px;
+  --bracket-tl: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'><path fill-opacity='.45' d='M1 1h12v2H1zm0 2h2v10H1z'/><path fill='%23cea655' d='M0 0h12v2H0zm0 2h2v10H0z'/><path fill='%23efcb7c' d='M0 0h12v1H0zm0 1h1v11H0z'/><path fill-opacity='.5' d='M4 4h3v3H4z'/><path fill='%23efcb7c' d='M3 3h3v3H3z'/><path fill='%23ffedbc' d='M4 4h1v1H4z'/></svg>");
+  --bracket-tr: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'><g transform='matrix(-1 0 0 1 16 0)'><path fill-opacity='.45' d='M1 1h12v2H1zm0 2h2v10H1z'/><path fill='%23cea655' d='M0 0h12v2H0zm0 2h2v10H0z'/><path fill='%23efcb7c' d='M0 0h12v1H0zm0 1h1v11H0z'/><path fill-opacity='.5' d='M4 4h3v3H4z'/><path fill='%23efcb7c' d='M3 3h3v3H3z'/><path fill='%23ffedbc' d='M4 4h1v1H4z'/></g></svg>");
+  --bracket-bl: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'><g transform='matrix(1 0 0 -1 0 16)'><path fill-opacity='.45' d='M1 1h12v2H1zm0 2h2v10H1z'/><path fill='%23cea655' d='M0 0h12v2H0zm0 2h2v10H0z'/><path fill='%23efcb7c' d='M0 0h12v1H0zm0 1h1v11H0z'/><path fill-opacity='.5' d='M4 4h3v3H4z'/><path fill='%23efcb7c' d='M3 3h3v3H3z'/><path fill='%23ffedbc' d='M4 4h1v1H4z'/></g></svg>");
+  --bracket-br: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' shape-rendering='crispEdges'><g transform='matrix(-1 0 0 -1 16 16)'><path fill-opacity='.45' d='M1 1h12v2H1zm0 2h2v10H1z'/><path fill='%23cea655' d='M0 0h12v2H0zm0 2h2v10H0z'/><path fill='%23efcb7c' d='M0 0h12v1H0zm0 1h1v11H0z'/><path fill-opacity='.5' d='M4 4h3v3H4z'/><path fill='%23efcb7c' d='M3 3h3v3H3z'/><path fill='%23ffedbc' d='M4 4h1v1H4z'/></g></svg>");
+  --diamond: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='9' height='8'><path fill='%23cea655' d='M4.5 0 8.5 3.5 4.5 7 .5 3.5z'/><path fill='%23efcb7c' d='M4.5 1.5 6.5 3.5 4.5 5.5 2.5 3.5z'/></svg>");
+  --rule: linear-gradient(#cea655b3 0 1px, #0000002e 1px 2px);
+  /* Running-bond ashlar from ui_common.wgsl: 20px courses, 52px blocks, 1px mortar and lit/shaded lips. */
+  --masonry-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='52' height='40' shape-rendering='crispEdges'><path fill-opacity='.05' d='M0 20h25v18H0zm26 0h26v18H26z'/><path fill='%23fff' fill-opacity='.045' d='M0 0h51v1H0zm0 1h1v17H0zm0 19h25v1H0zm26 0h26v1H26zm0 1h1v17h-1z'/><path fill-opacity='.13' d='M0 18h51v1H0zm50-18h1v18h-1zM0 38h25v1H0zm26 0h26v1H26zm-2-18h1v18h-1z'/><path fill-opacity='.36' d='M0 19h52v1H0zm0 20h52v1H0zm51-39h1v19h-1zM25 20h1v19h-1z'/></svg>");
+  --masonry-light: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='52' height='40' shape-rendering='crispEdges'><path fill-opacity='.012' d='M0 20h25v18H0zm26 0h26v18H26z'/><path fill='%23fff' fill-opacity='.55' d='M0 0h51v1H0zm0 1h1v17H0zm0 19h25v1H0zm26 0h26v1H26zm0 1h1v17h-1z'/><path fill-opacity='.035' d='M0 18h51v1H0zm50-18h1v18h-1zM0 38h25v1H0zm26 0h26v1H26zm-2-18h1v18h-1z'/><path fill-opacity='.07' d='M0 19h52v1H0zm0 20h52v1H0zm51-39h1v19h-1zM25 20h1v19h-1z'/></svg>");
+  --brackets: var(--bracket-tl) left 3px top 3px no-repeat, var(--bracket-tr) right 3px top 3px no-repeat, var(--bracket-bl) left 3px bottom 3px no-repeat, var(--bracket-br) right 3px bottom 3px no-repeat;
+  --stone-face: linear-gradient(var(--sheen), transparent 45%), var(--masonry), var(--stone);
+  --panel-shadow: inset 1px 1px var(--bevel-lit), inset -1px -1px var(--bevel-shade), 0 3px 0 var(--drop), 0 5px 0 3px #0000000d;
+  --raised: inset 0 1px #fff3da12, inset 0 -1px #00000024;
+}
+body { background: var(--paper); color: var(--ink); }
+a { color: inherit; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+
+/* Display type: the pixel face never takes negative tracking or faux bold. */
+h1, h2, .wiki-home h1, .wiki-home h2, .guide-page h1, .guides-index h1, .guide-section h2, .section-heading h2, .method h2, .hero h2, .card h3, .empty h3, .detail-title-row h2, .stats strong, .key-table caption, .recipe-table caption, .site-brand .wordmark, footer .wordmark { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; color: var(--title); font-synthesis: none; -webkit-font-smoothing: none; }
+h1 em, h2 em { font-style: normal; color: var(--brass); }
+h1, .wiki-home h1, .guide-page h1, .guides-index h1 { font-size: var(--px4); line-height: 1.25; }
+.wiki-home h1 { font-size: var(--px5); }
+h2, .wiki-home h2, .guide-section h2, .guide-page .guide-section h2, .section-heading h2, .method h2, .detail-title-row h2, .hero h2 { font-size: var(--px3); line-height: 1.3; }
+.card h3, .empty h3, .stats strong, .key-table caption, .recipe-table caption { font-size: var(--px2); line-height: 1.4; }
+.hero h2 { color: #f3efe2; }
+.eyebrow, .edition, .wiki-home .wiki-kicker { color: var(--brass); }
+.wiki-home a, .wiki-article a, .guide-section a { text-decoration-color: color-mix(in srgb, var(--brass) 70%, transparent); }
+.wiki-home a:hover, .wiki-article a:hover, .guide-section a:hover { color: var(--accent); }
+
+/* Header and footer: full-width stone bars; navigation is a row of game tabs. */
+.site-header, footer { border-top: 0; border-bottom: 0; border-image: linear-gradient(var(--stone) calc(100% - 1px), var(--edge) 0) fill 0 // 0 100vw; }
+.site-header { padding-block: 14px 12px; margin-bottom: 4px; }
+footer { border-image: linear-gradient(var(--edge) 1px, var(--stone) 0) fill 0 // 0 100vw; margin-top: 40px; }
+.site-brand { padding-bottom: 12px; }
+.site-brand .wordmark { font-size: var(--px3); gap: 14px; }
+.site-brand .wordmark-light { font-family: var(--sans); color: var(--muted); }
+footer .wordmark { font-size: var(--px2); text-decoration: none; }
+.header-search, .theme-choice select, .site-menu > summary { font-family: var(--pixel); font-size: var(--px2); line-height: 1.2; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); }
+.header-search { padding: 7px 12px; }
+.header-search:hover, .theme-choice select:hover, .site-menu > summary:hover { background: var(--hover); border-color: var(--brass); }
+.header-search kbd { border: 1px solid var(--edge); background: var(--paper); border-radius: 3px; color: var(--muted); }
+.theme-choice { font-family: var(--pixel); font-size: var(--px2); }
+.theme-choice select { padding: 5px 8px; min-height: 36px; }
+.site-header .wiki-nav, .site-header .atlas-nav { gap: 6px; font-family: var(--pixel); font-size: var(--px2); }
+.site-header nav a { padding: 7px 14px 8px; border-radius: 4px; background: var(--surface); box-shadow: var(--raised); text-decoration: none; line-height: 1.2; }
+.site-header nav a:hover { background: var(--hover); color: var(--ink); text-decoration: none; }
+.site-header nav [aria-current], .site-header .atlas-nav [aria-current] { font-weight: 400; color: var(--title); background: linear-gradient(var(--brass), var(--brass)) center bottom 1px / calc(100% - 8px) 2px no-repeat, var(--hover); box-shadow: var(--raised); }
+.site-header .atlas-nav { border-top: 0; margin-top: 8px; }
+footer nav a { color: var(--muted); }
+footer nav a:hover { color: var(--accent); }
+
+/* Panels: the stone face, its bevel and brass corner brackets. */
+.wiki-contents, .guide-note, .home-landscape > a, .catalog-columns > section, .home-palette, .search-results, .topic-directory > li, .guide-card, .feature, .status-legend, dialog, .finding-pair > *, .ledger-stats > div {
+  background: var(--brackets), var(--stone-face); border: 1px solid var(--edge); border-radius: 3px; box-shadow: var(--panel-shadow);
+}
+.wiki-contents { padding: 14px 16px; }
+.wiki-contents summary { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; color: var(--title); }
+.guide-note { border-left: 1px solid var(--edge); padding: 14px 18px; }
+.guide-note strong { color: var(--brass); }
+.guide-note-careful { border-color: var(--theme-warning); background: var(--brackets), linear-gradient(var(--sheen), transparent 45%), var(--theme-careful); }
+.guide-note-careful strong { color: var(--theme-warning); }
+.guide-note-tip { border-color: var(--theme-tip); }
+.guide-note-tip strong { color: var(--theme-tip); }
+.guide-note-planned { border: 1px dashed var(--theme-warning); background: transparent; box-shadow: none; }
+.home-landscape > a { padding: 8px; }
+dialog { color: var(--ink); }
+dialog::backdrop { background: #151412e0; backdrop-filter: blur(4px); }
+
+/* The brass rule with a diamond separates guide sections, as it separates a heading from controls in game. */
+.guide-section, .guide-page .guide-section { border-bottom: 0; background: var(--diamond) center bottom / 9px 8px no-repeat, var(--rule) left bottom 3px / calc(50% - 7px) 2px no-repeat, var(--rule) right bottom 3px / calc(50% - 7px) 2px no-repeat; }
+.guide-section:last-child { background: none; }
+
+/* Buttons and inputs: raised stone controls; pressed toggles read as the selected tab. */
+.filters button, .view-controls button, .empty button, .detail-actions button, .habitat-links a, .round-button, .close {
+  font-family: var(--pixel); font-size: var(--px2); line-height: 1; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-radius: 4px; box-shadow: var(--raised); text-decoration: none;
+}
+.filters button:hover, .view-controls button:hover, .empty button:hover, .detail-actions button:hover, .habitat-links a:hover, .round-button:hover, .close:hover { background: var(--hover); border-color: var(--brass); }
+.filters button:active, .view-controls button:active, .empty button:active, .detail-actions button:active { background: var(--press); box-shadow: none; transform: translateY(1px); }
+.filters button, .view-controls button { border-radius: 999px; border-color: transparent; background: var(--surface); box-shadow: none; }
+.filters button[aria-pressed=true], .view-controls button[aria-pressed=true] { color: #151412; border-color: var(--brass); background: var(--brass); }
+.round-button, .close { border-radius: 4px; }
+.wiki-search input, .search-label, .sort-label select { background: var(--field); color: var(--ink); border: 1px solid var(--edge); border-radius: 0; box-shadow: none; }
+.wiki-search input:focus, .search-label:focus-within, .sort-label select:focus { border-color: var(--brass); outline: 0; }
+.wiki-search input:hover, .search-label:hover { border-color: var(--muted); }
+.wiki-search input { font-size: 16px; }
+.search-label { padding-inline: 10px; }
+.search-label input { background: transparent; border: 0; box-shadow: none; }
+kbd, .search-label kbd { font-family: var(--mono); font-size: .86em; color: var(--ink); background: var(--surface); border: 1px solid var(--edge); border-bottom-width: 2px; border-radius: 4px; padding: 1px 6px; box-shadow: var(--raised); }
+
+/* Tables read like the game's lists; recipe counts sit in recessed wood slots like a stack count. */
+.key-table th, .key-table td, .recipe-table th, .recipe-table td { border-top: 1px solid var(--line); }
+.key-table thead th, .recipe-table thead th { font-family: var(--pixel); font-size: var(--px2); font-weight: 400; color: var(--brass); border-top: 0; border-bottom: 1px solid var(--edge); }
+.recipe-inputs { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; list-style: none; }
+.guide-page .guide-section .recipe-inputs li, .recipe-inputs li { padding: 3px 9px 3px 4px; background: var(--slot); border-radius: 2px; box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); line-height: 1.5; }
+.recipe-count { font-family: var(--pixel); font-size: var(--px2); line-height: 1; color: var(--title); margin-right: 3px; }
+.recipe-table tbody tr:target, .feature:target { box-shadow: 0 0 0 2px #cea65529, inset 0 0 0 1px var(--brass-light); }
+.status { border-radius: 4px; box-shadow: var(--raised); }
