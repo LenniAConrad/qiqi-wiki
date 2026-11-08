@@ -4826,16 +4826,24 @@
    "kicker": "World",
    "title": "Volcanoes, water and expedition sites",
    "headline": "Volcanoes, water and expedition sites<br><em>volcanic ground, the kinds of water, and the three finds.</em>",
-   "summary": "Some islands have volcanoes of solid, cooled rock. Lakes, rivers, wetlands and hot springs each have their own kind of water. New worlds have three expedition sites with a one-time supply find.",
-   "lead": "This page covers the volcanic ground, the kinds of water you will find, and how to reach and collect the three expedition sites in a new world.",
-   "readTime": "3 min read",
+   "summary": "Some islands have volcanoes of solid, cooled rock. Lakes, wetlands, springs and the sea each have their own kind of water. Worlds of generation 10 or later have three expedition sites near spawn with a one-time supply find.",
+   "lead": "This page covers the volcanic ground, the kinds of water you will find, and how to reach and collect the three expedition sites near spawn.",
+   "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "volcanoes",
     "rivers-lakes-wetlands",
-    "expedition-sites"
+    "expedition-sites",
+    "map-locator",
+    "flowing-water",
+    "swimming-diving",
+    "drinking-flasks",
+    "destination-beacon",
+    "survival-milestones",
+    "flowing-lava",
+    "fire"
    ],
    "next": [
     "caves-and-landmarks",
@@ -4843,8 +4851,8 @@
     "sailing-a-boat"
    ],
    "verification": {
-    "method": "Volcano shapes and ages come from crates/voxelgame-core/src/world/generator/relief.rs at Voxelgame 0494a0ce (volcano_plan, lines 172-195). Surface water kinds come from crates/voxelgame-core/src/world/generator.rs at the same commit (surface water material, lines 3666-3690), and the inland lake limit from MAX_INLAND_LAKE_LEVEL (sea level + 62 m, line 54). Block names come from crates/voxelgame-core/src/world/block/table.rs. Expedition placement, discovery, collection and find contents come from crates/voxelgame-core/src/game/exploration.rs in the same commit; the Journal labels come from crates/voxelgame-render/src/inventory_ui.rs.",
-    "limits": "Source-checked, not play-tested in this guide. A site is skipped when its square has no dry, level spot, so some new worlds may have fewer than three. The site squares are the code's rule; the exact site is somewhere inside its square. Source HEAD has moved past this pin, so the values here are from 0494a0ce."
+    "method": "Re-checked against the Voxelgame 251b9e46 source on 8 November 2026. Volcano shapes, ages, size limits and the starting-island rule: crates/voxelgame-core/src/world/generator/relief.rs, regions.rs and terrain_profile.rs. Volcanic and geothermal ground and vents: generator/surface.rs, structures.rs and features/vents.rs. Block names: world/block/table.rs. Water kinds, lakes, springs and ice: world/generator.rs, generator/terrain_profile.rs and generator/surface.rs. Water flow: world/mod.rs. Swimming, drinking and damage: world/block.rs, survival.rs and survival/water.rs. Expedition sites, discovery and finds: game/exploration.rs; the Journal labels: crates/voxelgame-render/src/inventory_ui.rs.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. A site is skipped when its square has no dry, level spot, so some worlds may have fewer than three. The squares and distances are the code's rule; the exact site is somewhere inside its square. Lake heights and water kinds follow generation thresholds and were not measured in a world."
    },
    "owns": [
     "volcanoes",
@@ -4866,21 +4874,30 @@
        "items": [
         "Shield volcano: a broad, low mountain.",
         "Stratovolcano: a steeper cone.",
-        "Breached caldera: a summit crater with one side broken open. These are older and more worn down."
+        "Breached caldera: a wide summit crater with one side broken open. Calderas are always old and worn down."
        ]
       },
       {
        "t": "p",
-       "text": "Older volcanoes are more eroded and more overgrown. Volcanic ground is made of basalt, obsidian, volcanic ash, lava rock, pahoehoe stone and magma stone."
+       "text": "Older volcanoes are lower, wider and more overgrown; young ones are bare and hotter. A volcano only forms on an island big enough to hold it, never on an atoll, and the starting island very rarely has one. To find one, search for Volcano in the {{map-locator|map locator}}."
       },
       {
        "t": "p",
-       "text": "Magma stone glows, but it does not heat you or set anything on fire. Steam vents and warm or boiling pools are found in the geothermal ground beside the volcanoes."
+       "text": "Volcanic ground is made of Basalt, Obsidian, Volcanic ash, Lava rock, Smooth lava rock and Magma stone. Hot springs and geyser basins add Mineral crust, Sulfur crust and Geyser stone."
+      },
+      {
+       "t": "p",
+       "text": "Magma stone glows, but it does not light up the ground around it. Steam vents sit in the mouths of small vent cones in volcanic fields, calderas, surface lava tubes, hot springs and geyser basins."
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "There is no molten lava and nothing burns. Steam vents are plain blocks: they do not make steam clouds. Flowing lava and fire are not in the game yet."
+       "text": "Nothing here can hurt you: you can walk on magma stone and steam vents and swim in boiling water. Steam vents are plain blocks and do not give off steam."
+      },
+      {
+       "t": "note",
+       "kind": "planned",
+       "text": "Molten, flowing lava and fire are not in the game yet. Volcanoes are solid, cooled rock and nothing burns. {{flowing-lava}} {{fire}}"
       }
      ]
     },
@@ -4890,11 +4907,15 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Islands have river channels, inland lakes, marshes, bogs, mangroves, bayous and frozen lakes. Inland lakes sit no higher than 62 m above sea level. {{rivers-lakes-wetlands}}"
+       "text": "Islands have river channels, inland lakes, marshes, bogs, mangroves, bayous and frozen lakes. Inland lakes lie between about 6 and 56 m above sea level. {{rivers-lakes-wetlands}}"
       },
       {
        "t": "p",
-       "text": "Natural water stays still. Rivers do not flow and do not push you. Water you place or dig out does flow."
+       "text": "Water only stands at sea level, in lakes and in small springs and pools. A river channel holds water where it cuts down to sea level; higher up the island its valley is dry."
+      },
+      {
+       "t": "p",
+       "text": "Natural water stays still: rivers do not flow, and water never pushes you. Only the sea's Water can flow. In Creative, the catalog's Water block spreads and pours over edges, and digging next to the sea lets it run into the gap. The other five kinds of water never flow, even when you dig beside them. See {{flowing-water|flowing water}}."
       },
       {
        "t": "p",
@@ -4903,17 +4924,20 @@
       {
        "t": "list",
        "items": [
-        "Ocean: Water.",
-        "Lakes and rivers: Fresh water.",
-        "Warm wetlands (marshes, bogs, mangroves and bayous): Black water.",
+        "Sea and coasts: Water.",
+        "Lakes, springs, oases, inland river channels and cooler wetlands: Fresh water.",
+        "Warm, very wet lowlands such as bayous: Black water.",
         "Hot springs and geothermal ground: Hot spring water. The hottest pools are Boiling water.",
-        "Frozen lakes: Ice or Black ice. Frozen sea: Ice, Black ice or Glacier ice."
+        "Frozen lakes: Ice or Black ice, with Fresh water underneath. Frozen fjords: Ice, Black ice or Glacier ice. Under Glacier ice the water is Dark fjord water."
        ]
       },
       {
-       "t": "note",
-       "kind": "limit",
-       "text": "Boiling water and steam do not hurt you in this version."
+       "t": "p",
+       "text": "You can {{swimming-diving|swim}} in every kind of water. There is no air meter, so you cannot drown."
+      },
+      {
+       "t": "p",
+       "text": "You can drink and fill flasks at Water, Fresh water and Hot spring water. Black water, Boiling water and Dark fjord water are not drinkable. {{drinking-flasks}}"
       }
      ]
     },
@@ -4923,21 +4947,21 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Worlds made in the current generation (generation 10) have three small expedition sites near spawn. Each site is somewhere inside a square about 240 m wide. The three squares are centred about 215 m, 340 m and 440 m from spawn. The site ground must be dry and level. {{expedition-sites}}"
+       "text": "Worlds of generation 10 or later have three small expedition sites near spawn; new worlds use generation 12. Each site is somewhere inside a square about 120 m wide, on dry, level ground. The squares are centred about 110 m east, 170 m south-west and 220 m north-east of X 0, Z 0, where a new world starts. {{expedition-sites}}"
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "Older worlds have no expedition sites. If the game cannot find a dry, level spot in a square, that site is missing."
+       "text": "Worlds older than generation 10 have no expedition sites. If the game cannot find a dry, level spot in a square, that site is missing."
       },
       {
        "t": "steps",
        "items": [
-        "Press E, then Tab to the Journal. The three sites are listed. A '?' means you have not found it yet, and a '+' means you have.",
-        "Click a site name to make it your destination. A beacon and an on-screen marker show the way.",
-        "Walk on the ground to within 12 m of the site. The status line says 'Discovered' and the site name.",
-        "Stay within 12 m, open the Journal and click Find next to the site. You must be on foot, not flying, sailing or riding.",
-        "Check that you have pack space. If you do not, the game says the find will wait there, so free some space and try again."
+        "Press [[E]], then press [[Tab]] until the Journal opens, or click its tab. The three sites are listed under Expeditions. A '?' means you have not found it yet, and a '+' means you have.",
+        "Click a site name to make it your destination. A light beacon and an on-screen marker with its distance show the way. {{destination-beacon}}",
+        "Walk to within 12 m of the site and stand on the ground. Flying, sailing or riding does not count. The status line says 'Discovered' and the site name.",
+        "While still within 12 m, open the Journal and click Find next to the site. Jumping or swimming is fine, but not flying, sailing or riding; otherwise the game says 'Discover on land; collect nearby without flying or riding'.",
+        "If your pack is too full, the game says 'Leave pack space; the find will wait here'. Free some space and try again."
        ]
       },
       {
@@ -4950,12 +4974,12 @@
       },
       {
        "t": "p",
-       "text": "After you collect a find, its button reads Taken. Use Craft to turn the materials into buildings."
+       "text": "After you collect a find, the game says 'Find collected | use Craft to turn it into building materials', and its button reads Taken. You can still mine the site's own blocks. In Survival, reaching a site and collecting a find complete the Landmark and Supplies {{survival-milestones|milestones}}."
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "Each find can be collected only once, and the game saves that it was taken. Collect it before your pack is full; a find that does not fit waits at the site."
+       "text": "Each find can be collected only once, and the game saves that it was taken. Finds are for solo worlds: on a server the button reads Solo only."
       }
      ]
     }
@@ -4973,12 +4997,16 @@
    "lead": "This page explains the shape of a world: the sea and its islands, the starting island, the biomes you can find, and why a saved world keeps its own terrain.",
    "readTime": "3 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "archipelago-and-starting-island",
     "biomes-92",
-    "world-generation-version"
+    "world-generation-version",
+    "map-locator",
+    "fps-coordinates-readout",
+    "animal-natural-spawning",
+    "expedition-sites"
    ],
    "next": [
     "maps-and-finding-your-way",
@@ -4986,8 +5014,8 @@
     "saves"
    ],
    "verification": {
-    "method": "Voxelgame a83e0c42, located by item name: crates/voxelgame-core/src/world/generator/archipelago.rs island tiers, atoll shape and fused cell pairs; world/generator.rs MIN_SATELLITE_STRAIT (240 m) and GeneratorVersion::Current = 10; Biome::ALL (92 entries) and generated_naturally() (true for every biome); game.rs with_seed (always Current) and save load restoring the saved generation; world/generator/terrain_profile.rs starting-island relief; crates/voxelgame-render/src/inventory_ui.rs Journal expedition text.",
-    "limits": "Source-checked, not play-tested. Island sizes are internal envelope values, so the tiers are described, not measured. The spawn point itself was not traced in code. Biome locations depend on the seed, so this page gives no map positions."
+    "method": "Re-checked against the Voxelgame 251b9e46 source on 8 November 2026. Island tiers, atolls, continental pairs and satellite islets: crates/voxelgame-core/src/world/generator/archipelago.rs and the spacing constants in world/generator.rs. Spawn at X 0, Z 0: game.rs. The starting meadow and gentler starting island: generator/biomes.rs and generator/terrain_profile.rs. Biome::ALL (92 entries), generated_naturally() and the names: world/generator.rs; tree mixes: generator/trees.rs. Map locator catalogue and generation-1 limits: map_locator.rs and crates/voxelgame-render/src/map_locator_ui.rs. Generations: GeneratorVersion (Current = 12) in world/generator.rs, game/startup_create.rs, src/local_startup.rs, save/load.rs and the Create world and Worlds screens in crates/voxelgame-render/src/startup_ui.rs and startup_ui/worlds.rs.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. Island sizes are internal envelope values, so the tiers are described, not measured. Biome locations depend on the seed, so this page gives no map positions. The island atlas and survey pages show older generations and builds."
    },
    "owns": [
     "archipelago-and-starting-island",
@@ -5007,18 +5035,18 @@
       {
        "t": "list",
        "items": [
-        "Small islets and palm-ringed atolls.",
-        "Regional and large islands.",
-        "Rare continent-sized landmasses."
+        "Small islands and palm-ringed coral atolls.",
+        "Regional and great islands.",
+        "Continental landmasses, the largest of all."
        ]
       },
       {
        "t": "p",
-       "text": "A small islet sits at least 240 m of open water away from the main island it belongs to."
+       "text": "Many islands have up to eight small satellite islets offshore, across a strait of roughly 240 m or more. Atolls have none."
       },
       {
        "t": "p",
-       "text": "Your world begins on the starting island, at the origin (X 0, Z 0). Its terrain is gentler than the destination islands, and it is very unlikely to have a volcano."
+       "text": "Your world begins on the starting island, at X 0, Z 0. You start in a meadow clearing that blends into the island's own biomes a few hundred metres out. The starting island's terrain is gentler than other islands, and it very rarely has a volcano."
       }
      ]
     },
@@ -5028,11 +5056,15 @@
      "blocks": [
       {
        "t": "p",
-       "text": "A world has 92 named biomes. They range from meadows, orchards and bamboo thickets to salt flats, kelp forests, meteor fields and surface lava tubes. Every one of them can appear in a natural world. {{biomes-92}}"
+       "text": "A world has 92 named biomes. They range from meadows, orchards and bamboo thickets to salt flats, kelp forests, meteor fields and surface lava tubes. Every one of them can appear in a new world. {{biomes-92}}"
       },
       {
        "t": "p",
-       "text": "The map locator can find any of the 92 biomes, so you can travel to one you have not seen yet. See the maps guide for how to set a destination."
+       "text": "Each biome has its own ground, plants and trees. Forests mix a leading tree with a few others: oak in Dense forest, redwoods in Coastal redwood forest and cypress in Blackwater bayou, for example. Coral atolls grow palms. The animals you meet also depend on the biome. {{animal-natural-spawning}}"
+      },
+      {
+       "t": "p",
+       "text": "The {{fps-coordinates-readout|FPS and coordinates readout}} shows the biome you are in, after BIOME. The {{map-locator|map locator}} can find any of the 92 biomes, so you can travel to one you have not seen yet. See the maps guide for how to set a destination."
       }
      ]
     },
@@ -5042,16 +5074,20 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Each world keeps the terrain rules it was made with. Worlds made with Create world use generation 10. A saved world keeps its generation when it loads, so an update does not reshape land you have already built on. {{world-generation-version}}"
+       "text": "Each world keeps the terrain rules it was made with, called its generation. In Create world, the Terrain generation field starts at 12, the current rules. Click it or press Left or Right to pick an earlier generation, back to 1 (Legacy). {{world-generation-version}}"
+      },
+      {
+       "t": "p",
+       "text": "A saved world keeps its generation when it loads, so an update does not reshape land you have already built on. The Worlds list shows each save's generation after its mode, for example 'Creative / Gen 12'."
       },
       {
        "t": "note",
        "kind": "limit",
-       "text": "No screen shows the generation number. The Journal's expedition section says \"Landmarks appear in new generation-10 worlds\" when your world is older."
+       "text": "Expedition sites need generation 10 or later. In an older world, the Journal says \"Landmarks appear in new generation-10 worlds\" instead of listing sites. {{expedition-sites}}"
       },
       {
        "t": "p",
-       "text": "A generation 1 world cannot contain meteor fields, surface lava tubes or amethyst gorges. To see them, create a new world."
+       "text": "A generation 1 world cannot contain meteor fields, surface lava tubes or amethyst gorges. Its map locator marks them with * and UNAVAILABLE IN THIS WORLD. To see them, create a new world."
       }
      ]
     }

@@ -3833,16 +3833,17 @@
    "modes": [
     "any"
    ],
-   "summary": "Each world keeps its saved terrain generation. Create world defaults to generation 12 and allows earlier preserved generations. Loading an existing save restores its generation instead of upgrading its terrain rules.",
+   "summary": "Each world keeps its saved terrain generation. Create world's Terrain generation field starts at 12 (Current); click it or press Left or Right to pick an earlier preserved generation, back to 1 (Legacy). Loading a save restores its generation instead of upgrading its terrain, and the Worlds list shows it as 'Gen' after the mode, for example 'Creative / Gen 12'.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator.rs:601-629 — persistent generation IDs; Current=12",
-    "crates/voxelgame-core/src/game/startup_create.rs:64-70 — default generation",
-    "crates/voxelgame-core/src/game/startup_create.rs:149-165 — generation chooser",
-    "src/local_startup.rs:25-29 — new game uses chosen generation",
-    "crates/voxelgame-core/src/save/load.rs:191-196 — saved generator decoded",
-    "crates/voxelgame-render/src/startup_ui/worlds.rs:467-475 — saved generation displayed"
+    "crates/voxelgame-core/src/world/generator.rs:601-630 — persistent generation IDs 1 to 12; Current = 12 is the default",
+    "crates/voxelgame-core/src/game/startup_create.rs:64-70 — Create world starts at the default generation",
+    "crates/voxelgame-core/src/game/startup_create.rs:149-165 — Left, Right or a click cycles generations 1 to 12",
+    "crates/voxelgame-render/src/startup_ui.rs:192-208 — the field shows the number and a name",
+    "src/local_startup.rs:26-29 — a new game uses the chosen generation",
+    "crates/voxelgame-core/src/save/load.rs:193-200 — a save's generation is read back; very old saves load as generation 1",
+    "crates/voxelgame-render/src/startup_ui/worlds.rs:467-475 — the Worlds list shows mode / Gen N"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. The preserved atlas retains its older generation-9 evidence. Choosing a new-world generation does not change existing saves. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The Create world field names both 11 and 12 'Current' (startup_ui.rs:206); 12 is the real default. Choosing a new-world generation does not change existing saves. Expedition sites need generation 10 or later. The preserved atlas retains its older generation-9 evidence.",
    "guide": {
     "state": "complete",
     "page": "guide-islands-and-biomes.html",
@@ -3874,14 +3875,21 @@
    "modes": [
     "any"
    ],
-   "summary": "Worlds contain 92 named biomes, from meadows, orchards and bamboo thickets to salt flats, kelp forests, meteor fields and surface lava tubes. All 92 can generate naturally, and the map locator can find any of them.",
+   "summary": "Worlds contain 92 named biomes, from meadows, orchards and bamboo thickets to salt flats, kelp forests, meteor fields and surface lava tubes. All 92 can generate in new worlds and the map locator lists every one. Generation 1 worlds cannot have meteor fields, surface lava tubes or amethyst gorges, and their locator marks those unavailable. The FPS and coordinates readout names the biome you are in.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator.rs:159-345 — Biome enum",
-    "crates/voxelgame-core/src/world/generator.rs:348 — Biome::ALL is a 92-entry array",
-    "crates/voxelgame-core/src/world/generator.rs:448-450 — generated_naturally() returns true for every biome",
-    "crates/voxelgame-core/src/world/generator.rs:466-560 — player-facing biome names, e.g. 'Orchard grove', 'Surface lava tubes'"
+    "crates/voxelgame-core/src/world/generator.rs:160-345 — Biome enum",
+    "crates/voxelgame-core/src/world/generator.rs:349 — Biome::ALL is a 92-entry array",
+    "crates/voxelgame-core/src/world/generator.rs:449-451 — generated_naturally() returns true for every biome",
+    "crates/voxelgame-core/src/world/generator.rs:468-563 — player-facing biome names, e.g. 'Orchard grove', 'Surface lava tubes'",
+    "crates/voxelgame-core/src/map_locator.rs:45-58 — locator list: Volcano, Cliff island, Mountain range, then all biomes alphabetically",
+    "crates/voxelgame-core/src/map_locator.rs:79-85 — meteor fields, lava tubes and amethyst gorges are unavailable in generation 1",
+    "crates/voxelgame-core/src/world/generator/regions.rs:222-227 — generation 1 has no geological sites",
+    "crates/voxelgame-render/src/map_locator_ui.rs:42-51 — unavailable targets are marked with '*'",
+    "crates/voxelgame-render/src/map_locator_ui.rs:136-142 — the list footer reads '* UNAVAILABLE IN THIS WORLD'",
+    "crates/voxelgame-render/src/debug_ui.rs:30-36 — the readout shows BIOME and the biome name",
+    "crates/voxelgame-core/src/world/generator/trees.rs:2170-2202 — current forests mix a leading tree with companions"
    ],
-   "notes": "You can read your current biome on the FPS-and-coordinates readout (see position-readout) or in the status message after map travel.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Examples of leading trees: oak in Dense forest, redwood in Coastal redwood forest, cypress in Blackwater bayou; Coral atoll grows palms (generator.rs:592). Animals per biome belong to the creatures row.",
    "guide": {
     "state": "complete",
     "page": "guide-islands-and-biomes.html",
@@ -3896,14 +3904,21 @@
    "modes": [
     "any"
    ],
-   "summary": "The world is an endless sea of island groups. You start at X 0, Z 0 on a large island several kilometres across, in a protected, gentle meadow clearing. Other islands range from small islets and palm-ringed atolls to large islands and occasional continent-sized landmasses. Open ocean separates island groups, and satellite islets sit at least 240 m offshore.",
+   "summary": "The world is an endless sea of island groups separated by open ocean. Islands range from small islands and palm-ringed coral atolls through regional and great islands to continental landmasses, and many have up to eight satellite islets across a strait of roughly 240 m or more. You start at X 0, Z 0 on the starting island, several kilometres across, in a meadow clearing that blends into the island's own biomes a few hundred metres out. The starting island is gentler than other islands and very rarely has a volcano.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator/archipelago.rs:145-201 — island tiers (Small, Regional, Great, Continental) and the atoll shape",
-    "crates/voxelgame-core/src/world/generator/archipelago.rs:24-36 — fused cell pairs make continental landmasses",
-    "crates/voxelgame-core/src/world/generator/archipelago.rs:39-66 — fused cell pairs make continental landmasses",
-    "crates/voxelgame-core/src/world/generator.rs:59-80 — archipelago spacing and the up-to-1.5x island growth from generation 8"
+    "crates/voxelgame-core/src/world/generator/archipelago.rs:141-171 — island tiers (Small, Regional, Great, Continental) and the fixed starting-island size",
+    "crates/voxelgame-core/src/world/generator/archipelago.rs:187-197 — atolls are small reef islands",
+    "crates/voxelgame-core/src/world/generator/archipelago.rs:38-62 — paired cells make continental landmasses",
+    "crates/voxelgame-core/src/world/generator/archipelago.rs:216-229 — up to 3, 5 or 8 satellite islets by tier; none on atolls",
+    "crates/voxelgame-core/src/world/generator/archipelago.rs:858 — satellite strait of 240 m plus up to 420 m",
+    "crates/voxelgame-core/src/world/generator.rs:61-90 — archipelago spacing, island growth from generation 8, MIN_SATELLITE_STRAIT",
+    "crates/voxelgame-core/src/game.rs:915-916 — a new world spawns above X 0, Z 0",
+    "crates/voxelgame-core/src/world/generator/biomes.rs:14-24 — the protected start fades out by about 440-480 m",
+    "crates/voxelgame-core/src/world/generator/biomes.rs:44-46 — the centre of the start is Meadow",
+    "crates/voxelgame-core/src/world/generator/terrain_profile.rs:43-56 — gentler starting relief, a rare starting volcano, none on atolls",
+    "crates/voxelgame-core/src/navigation.rs:6-11 — yaw zero faces +Z, which is south"
    ],
-   "notes": "The size figures are internal envelope values, not measured coastline lengths, so the wiki should say only 'several kilometres across'. The starting island keeps its size in every generation (archipelago.rs:159-163). Coordinates: north is -Z, south is +Z and east is +X.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The size figures are internal envelope values, not measured coastlines, so the wiki says only 'several kilometres across'. The starting island keeps its size in every generation (archipelago.rs:155-159). Coordinates: north is -Z, south is +Z and east is +X.",
    "guide": {
     "state": "complete",
     "page": "guide-islands-and-biomes.html",
@@ -3967,18 +3982,27 @@
    "modes": [
     "any"
    ],
-   "summary": "Some islands carry shield volcanoes, steep stratovolcanoes or breached calderas. Older ones are eroded and overgrown. Volcanic ground has basalt, obsidian, ash, lava rock, pahoehoe and glowing magma stone, and nearby geothermal areas have warm and boiling pools and steam vents. Everything is solid and cooled: there is no molten lava, and nothing burns.",
+   "summary": "Some islands carry a shield volcano, a steeper stratovolcano or an old breached caldera. A volcano needs a big enough island, never forms on an atoll and very rarely on the starting island. Older volcanoes are lower, wider and overgrown. Volcanic ground has Basalt, Obsidian, Volcanic ash, Lava rock, Smooth lava rock and glowing Magma stone, and steam vents sit in small vent cones. Everything is solid and cooled: there is no molten lava, and nothing burns or hurts you.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator/relief.rs:172-195 — volcano shapes (Shield, Stratovolcano, BreachedCaldera) and their ages",
-    "crates/voxelgame-core/src/world/block/table.rs:243 — Magma stone is an ordinary block",
-    "crates/voxelgame-core/src/world/block.rs:358-368 — the only liquids are the six waters (no lava)",
-    "crates/voxelgame-render/src/shader.wgsl:3695-3697 — magma stone is drawn self-lit (visual glow only)"
+    "crates/voxelgame-core/src/world/generator/relief.rs:182-205 — volcano shapes (Shield, Stratovolcano, BreachedCaldera) and ages; calderas are always mature",
+    "crates/voxelgame-core/src/world/generator/relief.rs:344-351 — minimum island span for each shape",
+    "crates/voxelgame-core/src/world/generator/regions.rs:50-55 — current worlds use the wider volcano roll",
+    "crates/voxelgame-core/src/world/generator/terrain_profile.rs:43-56 — the starting island rarely keeps a volcano; atolls never have one",
+    "crates/voxelgame-core/src/world/generator/surface.rs:464-471 — volcanic field surface: Magma stone on the hottest ground, Volcanic ash, Basalt",
+    "crates/voxelgame-core/src/world/generator/surface.rs:212-217 — lava flows: Smooth lava rock, Lava rock, Volcanic ash, Basalt",
+    "crates/voxelgame-core/src/world/generator/structures.rs:27-30 — vent cones in hot springs, geyser basins, volcanic fields, lava tubes and calderas",
+    "crates/voxelgame-core/src/world/generator/features/vents.rs:21-27 — each vent cone holds a Steam vent block",
+    "crates/voxelgame-core/src/world/block/table.rs:275-287 — Basalt, Obsidian, Magma stone, Volcanic ash, Mineral crust, Steam vent",
+    "crates/voxelgame-core/src/world/block/table.rs:427-435 — Geyser stone, Boiling water, Sulfur crust, Smooth lava rock, Lava rock",
+    "crates/voxelgame-render/src/shader.wgsl:3439-3442 — Magma stone is drawn self-lit (visual glow only)",
+    "crates/voxelgame-core/src/world/block.rs:534-539 — Magma stone is not a light source",
+    "crates/voxelgame-core/src/survival.rs:13-26 — player damage causes: no heat, burning or drowning"
    ],
    "backlog": [
     "VOX-OWNER-FLOWING-LAVA",
     "VOX-OWNER-FIRE"
    ],
-   "notes": "No code damages players from magma stone, boiling water or steam vents (grep for MAGMA_STONE/BOILING_WATER/STEAM_VENT outside generation and rendering finds no gameplay use). Steam vents are static blocks with no steam particles.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. In current worlds about 3 in 10 islands roll a volcano (1 in 10 in generation 1), kept only if the island is wide enough. Steam vents are static blocks with no steam particles. The map locator's Volcano entry finds any volcano (map_locator.rs:15-16).",
    "guide": {
     "state": "complete",
     "page": "guide-volcanoes-water-and-expeditions.html",
@@ -3993,18 +4017,25 @@
    "modes": [
     "any"
    ],
-   "summary": "Islands have river channels, inland lakes up to 62 m above sea level, marshes, bogs, mangroves, bayous and frozen lakes. All natural water is still: rivers do not flow or push you. The kind of water depends on the place: ocean water, fresh water in lakes and rivers, black water in warm wetlands, warm or boiling mineral water at hot springs, dark fjord water, and ice on frozen lakes.",
+   "summary": "Islands have river channels, inland lakes 6 to 56 m above sea level, marshes, bogs, mangroves, bayous and frozen lakes. Water only stands at sea level, in lakes and in springs and pools, so river valleys higher up are dry. Natural water is still and never pushes you; only the sea's Water can flow. Lakes, springs and cooler wetlands hold Fresh water, warm very wet lowlands Black water, geothermal pools Hot spring or Boiling water. Lakes and fjords can freeze, with Dark fjord water under Glacier ice. You can swim in all of it and cannot drown.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator/terrain_profile.rs:814-826 — river drainage channels",
-    "crates/voxelgame-core/src/world/generator.rs:54 — MAX_INLAND_LAKE_LEVEL = sea + 62",
-    "crates/voxelgame-core/src/world/generator.rs:3670-3690 — water kind to block: Water, Fresh water, Black water, Hot spring water, Boiling water, Ice/Black ice",
-    "crates/voxelgame-core/src/world/mod.rs:2008-2050 — only player-placed or disturbed water flows"
+    "crates/voxelgame-core/src/world/generator.rs:1966-2003 — natural water: lakes, spring pools or sea-level water; Fresh or Black water inland",
+    "crates/voxelgame-core/src/world/generator.rs:2093-2131 — thermal and groundwater spring pools; the hottest are boiling",
+    "crates/voxelgame-core/src/world/generator.rs:2221-2247 — water kind to block: Water, Fresh water, Black water, Hot spring water, Boiling water; Ice, Black ice or Glacier ice when frozen",
+    "crates/voxelgame-core/src/world/generator/surface.rs:31-48 — Fresh water under lake ice, Dark fjord water under Glacier ice",
+    "crates/voxelgame-core/src/world/generator/terrain_profile.rs:1224-1229 — lake sites only between sea + 8 and sea + 58 m",
+    "crates/voxelgame-core/src/world/generator/terrain_profile.rs:1253-1254 — lake surface 2 m below its site, clamped to sea + 6 to sea + 62 m",
+    "crates/voxelgame-core/src/world/mod.rs:2187-2207 — only the Water block runs in the flow simulation",
+    "crates/voxelgame-core/src/world/mod.rs:2504-2525 — an opened cell wakes only neighbouring Water",
+    "crates/voxelgame-core/src/world/block.rs:490-508 — six swimmable waters; only Water, Fresh water and Hot spring water are drinkable",
+    "crates/voxelgame-core/src/survival.rs:13-26 — no drowning damage cause"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-volcanoes-water-and-expeditions.html",
     "label": "Volcanoes, water and expedition sites"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. No lake is centred within about 300 m of X 0, Z 0 (terrain_profile.rs:1212). Player movement has no water current. Swimming and diving cost no stamina (survival.rs:41-52). Black water, Boiling water and Dark fjord water cannot be drunk."
   },
   {
    "id": "waterfalls-dripstone",
@@ -4038,31 +4069,33 @@
     "creative",
     "survival"
    ],
-   "summary": "Generation-10 worlds have three small landmarks in squares about 240 m wide, centred about 215, 340 and 440 m from spawn: the Survey workshop to the east, the Reed refuge to the south-west and the Stone overlook to the north-east. Click one in the Journal to make it your destination. Walk to within 12 m of it on foot to discover it, then press Find in the Journal while still nearby to collect its one-time supplies.",
+   "summary": "Worlds of generation 10 or later (new worlds use 12) have three small landmarks on dry, level ground, each inside a square about 120 m wide centred about 110 m east, 170 m south-west and 220 m north-east of X 0, Z 0: the Survey workshop, Reed refuge and Stone overlook. Click one in the Journal to make it your destination. Stand on the ground within 12 m to discover it, then press Find in the Journal while still nearby to collect its one-time supplies. Finds are for solo worlds.",
    "controls": [
     [
-     "E, then Tab to Journal (or the Journal button on the…",
-     "Open the Journal with the three expedition sites listed ('?' undiscovered, '+' discovered) (in the world)"
+     "E, then Tab until Journal (or click its tab)",
+     "Open the Journal; the three sites are listed with '?' (not found yet) or '+' (discovered)"
     ],
     [
      "Click a site name",
-     "Make it your destination (map marker, light beacon and on-screen marker) (Journal)"
+     "Make it your destination: map marker, light beacon and on-screen marker (Journal)"
     ],
     [
      "Find button",
-     "Collect the site's supplies; it shows 'Taken' afterwards (Journal, within 12 m of a discovered site, on foot)"
+     "Collect the site's supplies; it reads 'Taken' afterwards and 'Solo only' on a server (Journal, within 12 m of a discovered site, not flying, sailing or riding)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/exploration.rs:138-255 — sites are built only in generation-10 worlds, on dry, level ground",
-    "crates/voxelgame-core/src/game/exploration.rs:175 — site names and descriptions",
-    "crates/voxelgame-core/src/game/exploration.rs:276-312 — collection rules: on foot, within 12 m, pack space needed, only once",
-    "crates/voxelgame-core/src/game/content_install.rs:20-27 — a terrain-changing pack removes the sites"
+    "crates/voxelgame-core/src/game/exploration.rs:473-503 — sites only from generation 10; squares at 100/40, -110/130 and 170/-140 m with ±60 m tries on dry, level ground",
+    "crates/voxelgame-core/src/game/exploration.rs:508 — site names and descriptions",
+    "crates/voxelgame-core/src/game/exploration.rs:245-270 — discovery within 12 m, on the ground, not flying, no vehicle, no panel open",
+    "crates/voxelgame-core/src/game/exploration.rs:274-318 — collection: solo only, within 12 m, not flying or in a vehicle, pack space, once; find contents",
+    "crates/voxelgame-render/src/inventory_ui.rs:1062-1111 — Journal: '?'/'+', Find/Taken/Solo only, older-world message",
+    "crates/voxelgame-core/src/game/milestones.rs:18-21 — milestones count only in Survival"
    ],
    "backlog": [
     "VOX-OWNER-DISCOVERIES-HOME"
    ],
-   "notes": "If no dry, level spot is found near a site's base position, that site is skipped, so a world can have fewer than three. The site buildings are regenerated each session and do not show on the map, but any blocks you mine or place there are kept. Without enough pack space the game says 'Leave pack space; the find will wait here'. You can still harvest the site's blocks after taking the find. The Reed refuge has a small fresh-water pool, the workshop has a glass block and carved-stone floor, and the overlook has a Glow crystal light (exploration.rs:192-242).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A square with no dry, level spot after 48 tries loses its site. The Journal's empty-list text still says 'generation-10 worlds' although 11 and 12 also have sites. Blocks you mine or place at a site are kept, and its blocks can still be harvested after the find. The Reed refuge has a small Fresh water pool, the workshop a Glass block and Carved stone floor, the overlook a Glow crystal (exploration.rs:524-574).",
    "guide": {
     "state": "complete",
     "page": "guide-volcanoes-water-and-expeditions.html",
