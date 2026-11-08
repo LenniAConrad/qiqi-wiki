@@ -46,7 +46,7 @@ class History(unittest.TestCase):
 
     def test_sources_outside_the_review_are_rejected(self):
         data = read()
-        data['compatibility'][0]['refs'][0]['date'] = '2026-10-14'
+        data['compatibility'][0]['refs'][0]['date'] = '2026-11-09'
         with self.assertRaisesRegex(AssertionError, 'outside covered range'):
             validate(data)
 

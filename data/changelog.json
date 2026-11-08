@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "reviewed": "2026-11-05",
+  "reviewed": "2026-11-08",
   "sources": [
     {
       "id": "game",
@@ -8,18 +8,18 @@
       "page": "changelog.html",
       "repository": "https://github.com/LenniAConrad/qiqi",
       "first": {
-        "commit": "6c39b717820ae80f3fd369fdcc406f693bdc8652",
+        "commit": "f4c9aee8bd9f9fbb5cb1d95235a28dd93ece0055",
         "date": "2026-08-16"
       },
       "last": {
-        "commit": "5856103c4d15fd12a2118e72d0b51bbb9f074895",
-        "date": "2026-10-13"
+        "commit": "21d656c2d5c32e82fd6287804078f391ef930657",
+        "date": "2026-11-08"
       },
-      "commitCount": 704,
+      "commitCount": 2472,
       "tags": [],
       "publicCommitLinks": false,
       "releases": "unavailable",
-      "checked": "2026-10-13"
+      "checked": "2026-11-08"
     },
     {
       "id": "wiki",
@@ -41,19 +41,19 @@
       "checked": "2026-11-05"
     }
   ],
-  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test. The 5 November continuation reviews only the 12 later wiki changes through 9017e34 and selected relevant patches; the game-history cutoff and its compatibility entries remain 13 October until separately reviewed.",
+  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test. The 5 November continuation reviewed only the 12 later wiki changes through 9017e34. The 8 November continuation reviews all 1,768 game changes after the 13 October cutoff through 21d656c2 (1,405 non-merge subjects, with message bodies, file lists and selected patches), checks added features against a clean export of 251b9e46 and 21d656c2, and re-checks every compatibility note there. The public game history was rewritten after the 13 October review without changing its shape: the same 704 commits, dates and subjects lead to the old cutoff 5856103c, which is 4723e3fc in the current history. Groups through 13 October keep the identifiers recorded at that review; later groups, the new 13 October entries and the new compatibility evidence use current identifiers, and the source range is pinned to the current root f4c9aee8 and 21d656c2 (2,472 commits).",
   "gaps": [
     "The game history starts with a large snapshot on 16 August 2026. Earlier development and changes between recorded snapshots cannot be dated more precisely.",
     "There are no tags in either inspected checkout. The public game release endpoint returned 404 during review, so game releases could not be verified. The wiki release endpoint returned an empty list. No release numbers are inferred from package metadata.",
     "Optional content, internal refactors, test-only changes and development plans are omitted. Some recorded days therefore have no entry. Broad early snapshots can only support grouped summaries.",
     "Wiki history begins with the standalone import on 9 October. Older atlas capture dates describe preserved media, not earlier commits in this repository.",
-    "The cutoff is explicit below. Later commits are not covered until the next review; this chronology does not refresh the dates or receipts in older guides and galleries."
+    "The cutoff is explicit below. Later commits are not covered until the next review; this chronology does not refresh the dates or receipts in older guides and galleries. Days with only internal, test, documentation, music-review or optional-content changes have no group; 1–3 November 2026 have no game changes at all."
   ],
   "compatibility": [
     {
       "kind": "Compatibility",
       "area": "Save files",
-      "text": "At the reviewed game revision, saves are written as format 29 and formats 10–29 are accepted. Format 28 widened stored block IDs; format 29 stores survival milestones. Keep a separate copy of your world before trying an older build: there is no downgrade conversion.",
+      "text": "At the 13 October review, saves were written as format 29 and formats 10–29 were accepted. Format 28 widened stored block IDs; format 29 stores survival milestones. Re-checked at game revision 251b9e46 (8 November 2026): saves are written as format 40 and formats 10–40 are accepted. Formats 30–40 (16–26 October) add precise positions, weather continuity, plot claims, furniture, the 1024-chunk horizon, hatched animals, carried stock and, in format 40, dropped items. Keep a separate copy of your world before trying an older build: there is no downgrade conversion.",
       "refs": [
         {
           "commit": "208a24f1e1cbdb1334820c956b82b47cc5057eb1",
@@ -62,6 +62,10 @@
         {
           "commit": "1363b0c88222ff3ec230111f165f0ddd8b27ab8b",
           "date": "2026-10-13"
+        },
+        {
+          "commit": "e01b3cf46fdcd0c2f4d50655112e72fbe932f20d",
+          "date": "2026-10-26"
         }
       ],
       "publicSummary": "Back up your world before trying an older game version. Newer saves may not open in older versions."
@@ -69,7 +73,7 @@
     {
       "kind": "Compatibility",
       "area": "Older terrain",
-      "text": "Saves before format 10 predate the half-metre grid and are refused, not converted. Supported saved worlds retain their generator selection; updating the game does not turn an old world into the newest terrain generation.",
+      "text": "Saves before format 10 predate the half-metre grid and are refused, not converted. Supported saved worlds retain their generator selection; updating the game does not turn an old world into the newest terrain generation. Re-checked at 251b9e46 (8 November 2026): saves before format 10 are still refused, and each world still loads its saved generator.",
       "refs": [
         {
           "commit": "bc28842b1a2ff126e8b672c0246fcb10b5556815",
@@ -85,7 +89,7 @@
     {
       "kind": "Compatibility",
       "area": "Multiplayer",
-      "text": "The reviewed client and server use protocol 16. Protocol and terrain/build checks can refuse a mismatched peer, so update both ends together. The LAN features described here do not imply full shared survival or public-internet readiness.",
+      "text": "At the 13 October review the client and server used protocol 16. Re-checked at game revision 251b9e46 (8 November 2026): protocol 104, raised on 8 November with wall lamps. The handshake and LAN listing accept only an exactly equal protocol number. Protocol and terrain/build checks refuse a mismatched peer, so update the server and every player together. This note makes no claim about public-internet hosting.",
       "refs": [
         {
           "commit": "4c8170fc17cc5ab75899e56abbceafedf124bbb9",
@@ -102,6 +106,10 @@
         {
           "commit": "5f1052e624c7461cb5d5ab0ee9ed59fab4afa3f6",
           "date": "2026-10-13"
+        },
+        {
+          "commit": "930d9fabfc07c04b83dcb47ca56c66052b79d751",
+          "date": "2026-11-08"
         }
       ],
       "publicSummary": "Use matching game versions on the server and each player’s computer."
@@ -109,7 +117,7 @@
     {
       "kind": "Compatibility",
       "area": "Structure workshop",
-      "text": "New flat workshops are separate saves. Elevated workshops remain in Worlds as legacy workshops with their builds intact. Move a build through the Blueprint library and check the copy before removing the original.",
+      "text": "New flat workshops are separate saves. Elevated workshops remain in Worlds as legacy workshops with their builds intact. Move a build through the Blueprint library and check the copy before removing the original. Re-checked at 251b9e46 (8 November 2026): legacy workshops still keep their original plate and builds.",
       "refs": [
         {
           "commit": "f8dec3b526371af258b3cefbd5f5b570fb54773e",
@@ -121,7 +129,7 @@
     {
       "kind": "Compatibility",
       "area": "Blueprint files",
-      "text": "The reviewed blueprint format is version 1 and records blocks by stable name. Doors are excluded from captures. Newer or unknown content can be refused; the world-save format number is not the blueprint format number.",
+      "text": "The reviewed blueprint format is version 1 and records blocks by stable name. Doors are excluded from captures. Newer or unknown content can be refused; the world-save format number is not the blueprint format number. Re-checked at 251b9e46 (8 November 2026): still format 1 without door leaves; since 25 October a selection that touches placed furniture is not captured and reports \"Furniture (n): use Move or Take up\".",
       "refs": [
         {
           "commit": "99cc8a687754114f8d358d9a7e795bbe5aabe749",
@@ -134,9 +142,13 @@
         {
           "commit": "208a24f1e1cbdb1334820c956b82b47cc5057eb1",
           "date": "2026-10-13"
+        },
+        {
+          "commit": "05929389d707868fc37078886b0b8891e8134ee7",
+          "date": "2026-10-25"
         }
       ],
-      "publicSummary": "Blueprints leave out doors. A blueprint using unsupported blocks may not load."
+      "publicSummary": "Blueprints leave out doors and cannot include furniture. A blueprint using unsupported blocks may not load."
     }
   ],
   "periods": [
@@ -781,6 +793,3793 @@
       "publicTitle": "The standalone wiki"
     },
     {
+      "id": "game-2026-11-08",
+      "source": "game",
+      "date": "2026-11-08",
+      "title": "Beds, cooking stove, lamps, lantern light and animal voices",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Single and double bed plans with a wooden frame and Cream, Sage or Rust wool bedding (single 3 boards + 4 wool, double 6 boards + 7 wool). With the plan put away, right-click a bed to lie down and Space or right-click to get up at a clear, supported exit; a double bed has two places. Resting is only a pose: time and Survival needs carry on and it does not set Home or respawn. It works solo and on servers, where the server confirms the pose, other players see you lying down and two players can share a double bed; occupied beds cannot be moved, changed or taken up.",
+          "refs": [
+            {
+              "commit": "4a642ab320086ace48b10be61b33b9521983436c",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "aa30cb9bf6c170b63b479c1ff51b232845704fc3",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "aa12274a1c32e00afc61480670a46c920658721a",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "92851eb855ef746eb09cb65a915ff722d4d43e02",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Added single and double beds with a choice of frame wood and bedding colour. Lie down to rest, alone or on a server, where two players can share a double bed."
+        },
+        {
+          "kind": "Added",
+          "area": "Cooking",
+          "text": "The Cooking stove plan builds a 1 m stove with wooden feet and a stone or iron body (one board and six stone or raw iron ore). With the plan put away, right-click it, add carried raw meat or venison and charcoal (up to 16 each) and Start one batch; Cancel returns the ingredients. Cooking keeps going while you walk away, is kept through saves and gives no offline progress. It also works on servers and when hosting your own world, where each step waits for the server, and a filled stove must be emptied before taking it up.",
+          "refs": [
+            {
+              "commit": "e94409028e5c00b0016b4e08b46007d749900ade",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "c8f57d0ebf828cb59712438904cd9d002b3f81df",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "12fff2959766f6d3d4fc8ae40ba1a8ef8c8ef20d",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "e63772eba3b467f52d59c4ab814ee4e1455f854f",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "3031094194e3d15c18f17fe71f0281fffc06029b",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Added a cooking stove you build from a furniture plan. Cook raw meat or venison with charcoal, in solo play or on a server."
+        },
+        {
+          "kind": "Added",
+          "area": "Lighting",
+          "text": "Floor lamp, Table lamp and Wall lamp plans, each costing one red lantern plus two boards in the chosen woods. Lamps start switched on; with the plan put away, right-click with an empty hand to switch one off or on, and the setting is saved with the world. Wall lamps hang on a complete solid wall, and the table lamp stands on solid blocks, not on furniture. Switching also works on servers, where a lamp must be on before it is taken up.",
+          "refs": [
+            {
+              "commit": "64926d80337b2f11b264fd04e0a162fea92efc85",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "49ad5d0322fbbb89810827b63d9bb7fd682aef59",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "dfeb362ddeca56ff5de77fa26ccdb6e37d05192c",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "930d9fabfc07c04b83dcb47ca56c66052b79d751",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Added floor, table and wall lamps that you switch on and off by hand. They need no fuel and stay as you left them after saving."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Lighting",
+          "text": "Red lanterns displayed on tables, desks, bookcases and wall shelves, and lit lamps, now feed the normal nearby-light system, so they light the surrounding walls, floor and ceiling like a placed red lantern. The usual limit of 16 nearby light sources still applies.",
+          "refs": [
+            {
+              "commit": "4e587a20d2f1a51418a3584a68e96fc807a15a1e",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed lanterns on furniture not lighting the walls and floor around them."
+        },
+        {
+          "kind": "Changed",
+          "area": "Performance",
+          "text": "Distant light sources are rejected before their blocks are read when gathering nearby lights, and visible terrain is sorted by cached distance each frame with the same order.",
+          "refs": [
+            {
+              "commit": "b115ba20c951edf0d509def81a25d58c9794c297",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "f6128c996ef732cc3b54cf1ec12a5b9fa60535ef",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Improved performance when many lights and much terrain are in view."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Furniture",
+          "text": "On a server, if another player moved or changed a piece you had locked for a move, the next right-click could place a brand-new piece and spend materials. The move now stays locked and refused ('Source changed | LMB cancels; select again') until you cancel and select the piece again.",
+          "refs": [
+            {
+              "commit": "b48ebe6c98a52ba4592d47fe61c0a166fd2a23c1",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed a furniture move on a server turning into a new paid piece when someone else had moved the original first."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Beds and seats",
+          "text": "On a dedicated server, eating while sitting or lying with a blocked way out is refused with 'Make room to stand up before eating' instead of spending the meal without saving it. A host lying in a bed with a blocked exit is no longer refused every other world action, so they can clear the obstruction instead of being stuck until restart.",
+          "refs": [
+            {
+              "commit": "ac59a4d3015d126bf8edd13edef247cdfdb0b671",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "720ce16efb4ad587de3ef63330595298694dd09a",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "251b9e46aeefd207a5e34046dd8a973c2a2cb480",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed meals being lost on a server while lying in a bed with a blocked exit, and the host getting stuck in such a bed."
+        },
+        {
+          "kind": "Added",
+          "area": "Animals",
+          "text": "Calls now cover 57 species that plausibly call, up from 25. Hitting one of them plays a short hurt yelp over the shared hit thud, and a fatal blow plays a softer falling sigh. Fish, sharks, jellies, molluscs, crustaceans, insects, snakes, lizards, turtles and quiet mammals such as rabbits and giraffes stay silent.",
+          "refs": [
+            {
+              "commit": "30ebbb9649689c61577614d95a9d60c240a70764",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Added calls for 57 animal species, a short yelp when you hit one and a soft sigh when a blow kills it."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "Backing up the world you are playing now saves it through the normal checked save first, which also settles a stopped host's recovery record; a direct write could leave that record refusing every later load of the world.",
+          "refs": [
+            {
+              "commit": "45948fe7bd10e733bab7ef4ee41942892d1436f2",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed backing up the open world after hosting it, which could stop that world from loading again."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "On a server, an open stove re-reads itself once after another furniture change made its view stale, a furniture-move refusal is no longer hidden by background waiting text, and door moves no longer stay blocked after a move whose source was already released.",
+          "refs": [
+            {
+              "commit": "6bd383d8ddf6c71afbf304020c75a5824435dd41",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "b808e7167ed88b598411f4b1f8855f70d7b12ffd",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "c1f91a4704c1f8ad04b381896501c202a2eb0ede",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed an open stove on a server needing to be reopened, move refusals being hidden, and door moves staying blocked."
+        }
+      ],
+      "publicTitle": "Beds, cooking stove, lamps, lantern light and animal voices"
+    },
+    {
+      "id": "game-2026-11-07",
+      "source": "game",
+      "date": "2026-11-07",
+      "title": "Doors, dining tables, wardrobes and bookcases",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Doors",
+          "text": "Door recipes now have separate Style, Wood and Size buttons, and a third Windowed style uses the chosen boards plus glass for its upper panes, in all fifteen woods and both sizes. The target card now shows a fixed three-quarter picture, so thin door previews stay readable instead of turning.",
+          "refs": [
+            {
+              "commit": "8ee13c6ceed90bcb9a02671219baebf55d52d8d6",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "d4d9fe16e8074aa543767db46b4ef634952f3357",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "3ee44be10e826679807ac48d016cb97938a189e3",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Added windowed doors and separate style, wood and size choices for door recipes. The target card now shows a still picture."
+        },
+        {
+          "kind": "Added",
+          "area": "Doors",
+          "text": "In Creative, middle-click copies a door's exact style, wood and size, and Shift+left-click locks a whole closed door to move: aim at clear, supported ground, press R to turn the preview and right-click to place. Left click or B cancels; Ctrl+Z and Ctrl+Shift+Z undo and redo the move. On a hosted Creative world the server confirms the lock, move and each Undo/Redo.",
+          "refs": [
+            {
+              "commit": "06d80bdc124dd64a465e2cc5edead4b25609b155",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "bafefe362360813e4136b58941cbc9fc0b13f357",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "cc6687ed10f13a671667c96bb12936638b82fc77",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "0a76c7256d5702427b3bcddd4634dff476e1955a",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Added moving whole closed doors in Creative, with undo and redo, also on servers. Middle-click copies a door's style, wood and size."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Tables placed edge to edge with matching woods and floor height now join into one dining table on any side, including L, T and wider shapes; shared legs and rails disappear while each piece stays separate. A new Desk plan (1.5 by 0.75 m) joins end to end in a straight line. Changes that would push returning legs into blocks, furniture or players are refused.",
+          "refs": [
+            {
+              "commit": "89a46d4cf9ab4e04bae8a4d780415f324e5e4e08",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "4532f08c8c8cb7f8324a2b533158f7194f481cad",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "cd0328906fea602803245b4bf27ada7b51d75d97",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Added joining tables into larger dining tables, and a writing desk that joins end to end."
+        },
+        {
+          "kind": "Added",
+          "area": "Storage",
+          "text": "New storage furniture: the Wardrobe (two doors) and Chest of drawers (three drawers), each with Body, Front and Fittings woods; an open Bookcase with private storage that can also hold a red lantern on top; and a Wall shelf that hangs on two solid wall pieces and can display a red lantern. Storage holds 250 capacity and 64 kinds of item, and pieces must be emptied before taking them up.",
+          "refs": [
+            {
+              "commit": "188133a0be7e24a214f939cdbb6070d3b73f7575",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "b52e0523f5c7cdf0e11d7a82a32c0d99199a63c6",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "06edeb041cff84068184fa0def2a1b7ed4f66063",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "24ce741eaced7038e7b9de239528abf34d2ce468",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "7c0fffe80e342ca3a75f98235dd553368ea9bd98",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Added wardrobes, chests of drawers and a bookcase to store things in, and a wall shelf. Bookcases and shelves can show a red lantern."
+        },
+        {
+          "kind": "Changed",
+          "area": "Storage",
+          "text": "While storage is open, wardrobe and kitchen cupboard doors swing open and the top drawer of a chest of drawers slides out on your own screen, if the space in front is clear; Reduce motion shows them open at once. Kitchen cupboards and wall cupboards gain a separate Fittings choice for the handle wood, costing one more board.",
+          "refs": [
+            {
+              "commit": "09d169a16ff2413d2b49c951c6199c7b9df8d184",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "f2f876110a0150f7c3185159427a5c0a2ee70f59",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "b807600490052c0eba1a52cfbfdc279da0dff058",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "c1e5e3738b0e8804145b1cdf8316db97e22efefa",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Changed wardrobe and cupboard doors to swing open, and the top drawer to slide out, while you use their storage. Cupboard handles can have their own wood."
+        },
+        {
+          "kind": "Added",
+          "area": "Chests",
+          "text": "Carry a furniture hammer, aim at a placed wooden chest and press E to Refinish chest: choose body, lid and fittings woods and Apply. The contents stay inside, Survival spends only the boards (four body, three lid, one fittings), and Ctrl+Z restores the old chest. On a server the editor first reads the chest, and Apply, Undo and Redo wait for the server.",
+          "refs": [
+            {
+              "commit": "a9e2d41d9976149eb144a0d1a985fe705d1a3f52",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "c386f7a1ea0d69cf5f25731ef97fdd8c7c2d1034",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "d78b3b5597be8c08f8e1cea666e306d4c230bc2a",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "0b8a02ce3147e56c987bf1529c03a526c47346ff",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Added refinishing wooden chests with the furniture hammer. Choose new woods for the body, lid and fittings without emptying the chest."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "On servers you can now put a red lantern on a table and take it back, with Undo and Redo; the server confirms your stock and no hammer is needed. Moving or turning a table carries its lantern, solo and online. Creative players on a server can also undo and redo furniture material changes.",
+          "refs": [
+            {
+              "commit": "c6230f197d6020fb98f9bb40461a640ae3b0532f",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "fd0d2c64d71d83cbd7d4406e323c387f005485c8",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "ac8ebeb59b1c414dcf4c21628fa9ee697a8061c5",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "8570c653e26ad35e26ccbb3f501eb91a2b76ed94",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Added putting lanterns on tables on servers, with undo and redo. Tables can now be moved with a lantern on them."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "In solo worlds, chest placement, item transfers, take-up and opening an old chest are checked against the 8 MiB world-file limit before anything changes, so an action that would make the save too big is refused and items stay where they were.",
+          "refs": [
+            {
+              "commit": "13bb5292f9be8f97ec651fd1eff182dd72e14fb9",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "1b75fb7b786c157c38a5e5bdaa0cfa370d885715",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "a83450c8641cd12fd8c6401c1163afc9783d207a",
+              "date": "2026-11-07"
+            },
+            {
+              "commit": "cc82373bf6490662d5848a4d54ffce51a8df2326",
+              "date": "2026-11-07"
+            }
+          ],
+          "publicSummary": "Fixed chest actions near the save size limit. An action that would make the world file too big is now refused before any items move."
+        }
+      ],
+      "publicTitle": "Doors, dining tables, wardrobes and bookcases"
+    },
+    {
+      "id": "game-2026-11-06",
+      "source": "game",
+      "date": "2026-11-06",
+      "title": "Coffee tables, table lanterns and server save checks",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Coffee table (1.5 by 0.75 m, 0.4375 m high) and side table (0.5 m square, 0.625 m high) plans, each with frame and top woods and costing one board of each. On servers, tables can now change their frame and top woods, with the server working out the cost and refund.",
+          "refs": [
+            {
+              "commit": "7821cfc5585147b5a91b9eb987efd2fbc069448b",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "cedfb9116601e40f0f7255769610c81ed6420da3",
+              "date": "2026-11-06"
+            }
+          ],
+          "publicSummary": "Added coffee tables and side tables. On servers, tables can now change their woods."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "With tools put away and a red lantern selected, right-click the top of a table to stand the lantern in the middle; with an empty hand, right-click it to take it back. Survival uses a carried lantern and returns it only if one was paid for. Ctrl+Z and Ctrl+Shift+Z undo and redo it, and the lantern is kept when you save. This first worked in solo worlds.",
+          "refs": [
+            {
+              "commit": "b396033c292d7afac162fde6e8867717e3baa26b",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "0bf5818dd27a876d7778d4259426a18d34d2ff6d",
+              "date": "2026-11-06"
+            }
+          ],
+          "publicSummary": "Added putting a red lantern on a table. Take it back with an empty hand, or undo it."
+        },
+        {
+          "kind": "Changed",
+          "area": "Furniture",
+          "text": "Furniture now blocks what is behind it. Right-clicking furniture with a block places nothing ('Furniture blocks that placement') and holding left click on it stops terrain mining ('Furniture blocks that mining target'), while gaps such as the space between table legs still work. The target card names the furniture in front instead of the hidden block.",
+          "refs": [
+            {
+              "commit": "5c3ee4fb00aa3108b7c6cacb031a313cdec95f8d",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "415786584025c82e01c7bbb9ecffcab715473117",
+              "date": "2026-11-06"
+            }
+          ],
+          "publicSummary": "Changed furniture to block building and mining behind it. You can still reach through gaps such as between table legs."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "On a dedicated server, more actions now wait for the world to be saved before reporting success: dropping and picking up items, crafting, fishing, chests and other containers, harvesting, placing paid blocks and doors, Home rest, eating and drinking, respawning, animal hits, shots, throws and TNT. If a save fails, the action keeps waiting until a later save works.",
+          "refs": [
+            {
+              "commit": "37edfc840ce0cbd412591a8d76e9c890bf7fceb5",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "c96ab10b4e8eee6b8f7c2b1d55fa4447be7b2dcf",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "41e6f55ead8d39bf8f00cf826569e7c220d57c0b",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "3d1b5b2d48e022a9c37b91cfa3e67d79a145c8a6",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "7f52b55bb6289fbe0cafc79c2b3b9984bcca7400",
+              "date": "2026-11-06"
+            }
+          ],
+          "publicSummary": "Fixed dedicated servers confirming item, crafting, food, combat and building actions before they had been saved."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "Hosted and dedicated servers check the complete world file before item transfers, drops and pickups, crafting, water flask exchanges, melee, ranged and blast loot and egg hatches. Near the 8 MiB limit, an action that would make the save too big is refused and keeps its items, for example 'Crafting would exceed the save budget or saved state is invalid'.",
+          "refs": [
+            {
+              "commit": "5a0173ec76b6e34cbe7ebb9a27edfc0b41fd7252",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "32af9e40914b1a338d6d109eff5434e7f5b5262e",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "d86989ce099d664a22ecd9887f991f523be4caf2",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "65cbd5b520c7be0d6df19d1ba1ea57f0075ade09",
+              "date": "2026-11-06"
+            },
+            {
+              "commit": "292c842134e13c00e8d11e46ace5c615d7280d11",
+              "date": "2026-11-06"
+            }
+          ],
+          "publicSummary": "Fixed servers near the save size limit. Actions that would make the world file too big are now refused and keep your items."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "F6 used to show the saved message even when no file had been written. It now confirms only after the local or locally hosted world has actually been written; joined server worlds and no-save sessions are not written locally.",
+          "refs": [
+            {
+              "commit": "16ae54f22fa5be22eba1ac54c3d2b4c405618a06",
+              "date": "2026-11-06"
+            }
+          ],
+          "publicSummary": "Fixed F6 reporting a save when nothing had been written."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "On a server, moving furniture in Creative that had been paid for in Survival no longer loses the record of its payment, so taking it up later still returns the materials.",
+          "refs": [
+            {
+              "commit": "97c07a4abce0d6dfeb92c97156f116500570b10c",
+              "date": "2026-11-06"
+            }
+          ],
+          "publicSummary": "Fixed furniture paid for in Survival losing its refund after being moved by a Creative player on a server."
+        }
+      ],
+      "publicTitle": "Coffee tables, table lanterns and server save checks"
+    },
+    {
+      "id": "game-2026-11-05",
+      "source": "game",
+      "date": "2026-11-05",
+      "title": "Stone-and-brass menus and Creative storage on servers",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Menus",
+          "text": "Menus get a stone-and-brass look: panels and the main-menu card show drawn masonry in warm stone with a dim brass edge, selection and main buttons turn polished brass instead of mint, hotbar slots gain wood grain with a brass frame when selected, and large startup screens get brass corner brackets and rivets.",
+          "refs": [
+            {
+              "commit": "aa136e0103ce5599c6d8a9f70c669dbc758b7357",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Changed the menus to a warm stone-and-brass look, with masonry panels, brass highlights and wooden hotbar slots."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Creative players who join a server can now use kitchen counter and cupboard storage and existing chests, and place chests and take up empty ones. They store their real carried supplies, which stay separate from the free Creative catalogue, and filled kitchen pieces keep their contents through moves and material changes.",
+          "refs": [
+            {
+              "commit": "1e39c7aa15f694be96486303b80886be448c1e71",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "174ab32d1ccc3a4996dc222f6632d97922f38ddb",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "271892a4f0c3b58190f1350053f12c63560b53bc",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "7495361d03082feb47504929e5cc103b6cacca4a",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Added kitchen storage and chests for Creative players on servers. Only real carried items can be stored, not free catalogue items."
+        },
+        {
+          "kind": "Added",
+          "area": "Home",
+          "text": "The world's owner joining its Creative server can now open and use their private Home storage, set up or repair the Home crate for free, pack up an empty crate and rest at Home, once the server confirms. Other players still cannot open or rebuild the owner's Home.",
+          "refs": [
+            {
+              "commit": "e6332fdb948495c0867ba8c4e5205933c5639925",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "b257ae8219c2c46f9dbaaa1417d1afcbf442a39a",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "7bcdab0b7c5f7c81e5258669b0238df60b1255cb",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Added Home storage, setting up and packing up the Home crate, and resting for a world's owner on a Creative server."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "On a dedicated server, placing, moving, turning, taking up and changing furniture, in Survival and Creative, and kitchen storage transfers now report success only after the world has been saved.",
+          "refs": [
+            {
+              "commit": "92d16b4c405c495d58be490c18fb6792452d19ba",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "2f9b5caf3c185c53b7c17d7ba3cad3405227fe39",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "8279e48fea985758d5678d458fc0b8b206602dcf",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "d48149216798f893f1ef8990761191090983686a",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Fixed dedicated servers confirming furniture changes and kitchen storage before they had been saved."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Hosting",
+          "text": "When you host your own world, your pack and the world are now saved together on manual saves, autosaves and when hosting stops, and a save interrupted part-way is finished when the world is next opened. Backup and Duplicate refuse until such a recovery is done ('finish native world recovery before copying this world'), and handing over your pack is refused while you sit on furniture with a blocked way out.",
+          "refs": [
+            {
+              "commit": "8e28561c02af3569f58e78a6d956200e5efd9e62",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "84a5ef8afa040361ddec6d8af64d2a93cea4eadc",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "9132423f5cacc1e21bd155327c79fed875ba3e20",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "556a97bbd9b01b335116d1925cb0128c3d77f16a",
+              "date": "2026-11-05"
+            },
+            {
+              "commit": "63f93290bff419391213046244de7b8ff3c323ef",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Fixed hosting your own world so your carried items and the world are saved together, and an interrupted save is finished on the next start."
+        }
+      ],
+      "publicTitle": "Stone-and-brass menus and Creative storage on servers"
+    },
+    {
+      "id": "game-2026-11-04",
+      "source": "game",
+      "date": "2026-11-04",
+      "title": "Kitchen cupboards, bathrooms and furniture undo on servers",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Kitchen",
+          "text": "Kitchen counter tops can now be marble as well as wood or stone, and sink basins can be stone or marble. Existing counters and sinks keep their shapes.",
+          "refs": [
+            {
+              "commit": "2b08a3e32016a965f5a788625e0a724cbdbfba38",
+              "date": "2026-11-04"
+            }
+          ],
+          "publicSummary": "Added marble tops for kitchen counters and marble basins for sinks."
+        },
+        {
+          "kind": "Added",
+          "area": "Kitchen",
+          "text": "New kitchen pieces with private storage: a floor Kitchen cupboard with two doors, a Wall cupboard that hangs on a complete solid wall with no floor needed, a Counter cabinet with a wood, stone or marble top over cabinet fronts, and a Sink cabinet with storage below its basin. To line up floor kitchen pieces, aim at the outside edge of a placed one and Shift+right-click the ghost 1 m away.",
+          "refs": [
+            {
+              "commit": "39875c60d6150738f1566cd9490b524b144d43ed",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "0ddae768f3e84dcf2783f987f1c1b5c0243a4bb2",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "fdb400c186549e2aa486b7267eee1dce3f1bc60f",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "1bac77022bb6df08897b4aaf07514d00157e42d1",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "95d2641f52298552e9521e45b3af0fb8099cb790",
+              "date": "2026-11-04"
+            }
+          ],
+          "publicSummary": "Added kitchen cupboards, wall cupboards, counter cabinets and sink cabinets with storage. Shift+right-click lines up kitchen pieces."
+        },
+        {
+          "kind": "Added",
+          "area": "Bathroom",
+          "text": "New bathroom furniture: a washbasin and a 2 m bathtub that drink or fill flasks only from fresh water already within reach, and a toilet with one sitting place and a decorative cistern. Each has a wooden frame and a clay, stone, marble or iron body; iron uses Iron ore. There is no plumbing or stored water.",
+          "refs": [
+            {
+              "commit": "74bdb283fd052e317a0e2a5933150a8659156ac2",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "fff20ed41ee29f2df2d80e92242fcf14fde50773",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "fead08dcd8abd142ac7dbaf1c7e0ed530f35644c",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "93c77c0dd69f2663c14821c8a5486aaba36963ca",
+              "date": "2026-11-04"
+            }
+          ],
+          "publicSummary": "Added a washbasin, a toilet you can sit on and a bathtub, in clay, stone, marble or iron."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "On servers, kitchen counters and sinks can now change materials, with the server working out the cost and refund; anything stored inside stays inside. Undo and Redo now also work for furniture paid for in Survival: placing, taking up and changing materials, including filled storage pieces, once the server confirms each step.",
+          "refs": [
+            {
+              "commit": "048caf9ffeed43a1bfd263a13b3b779a76e69752",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "35b781e872e2ab6d15bc0207bfdb2829a136d1f3",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "c067352127e86f924cb8256d3d014f9892839bad",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "c849d7e979f56940ea658455606a13bfaf3c81d4",
+              "date": "2026-11-04"
+            },
+            {
+              "commit": "d83ed4893c1918adece60326eaea973494b67ad1",
+              "date": "2026-11-04"
+            }
+          ],
+          "publicSummary": "Added changing kitchen materials on servers, and undo and redo for Survival furniture you paid for."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "On a dedicated server, paid furniture placement and taking up empty furniture now report success only after the world and your pack have been saved.",
+          "refs": [
+            {
+              "commit": "0f0b34ff63f535375f381eb882054abba9f3bed3",
+              "date": "2026-11-04"
+            }
+          ],
+          "publicSummary": "Fixed dedicated servers confirming paid furniture placement before it had been saved."
+        }
+      ],
+      "publicTitle": "Kitchen cupboards, bathrooms and furniture undo on servers"
+    },
+    {
+      "id": "game-2026-10-31",
+      "source": "game",
+      "date": "2026-10-31",
+      "title": "Kitchen counters, sinks and modular sofas",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Added a paid kitchen counter plan: an open worktop with its own wooden frame, placed one metre from the next piece to form straight or corner runs.",
+          "refs": [
+            {
+              "commit": "da5c62ba0fee33dc55686a93b7c4c068b1a8bcea",
+              "date": "2026-10-31"
+            }
+          ],
+          "publicSummary": "Added kitchen counters you place in runs, with a separate wood for the frame and the top."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Counters now store items. Solo storage is private to the counter, a filled counter can be moved with its contents, and the same storage works on servers with the server confirming each transfer. Stone counter tops were added alongside wood.",
+          "refs": [
+            {
+              "commit": "1a73f1199a29482625accb60d060e8d1b5fb1c08",
+              "date": "2026-10-31"
+            },
+            {
+              "commit": "df3b8107ea792ef23434982f2cc1513a1a301765",
+              "date": "2026-10-31"
+            },
+            {
+              "commit": "dde5d48086e769381eb6f1654fc19dbd00326928",
+              "date": "2026-10-31"
+            },
+            {
+              "commit": "1c83617dc80e463af1ce1dec48d5bce823851972",
+              "date": "2026-10-31"
+            }
+          ],
+          "publicSummary": "Added storage in kitchen counters, including on servers. A filled counter keeps its items when moved, and counters can have a stone top."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Added a kitchen sink with a stone basin that lines up with the counters. Right clicking the basin uses nearby fresh water, with guarded drinking and flask refills.",
+          "refs": [
+            {
+              "commit": "49474a2e1b508bcfb4cbc5e9e3a187284f970c66",
+              "date": "2026-10-31"
+            },
+            {
+              "commit": "f69cab6b3b2f6f339ea1607b9550027f87c3c5ff",
+              "date": "2026-10-31"
+            }
+          ],
+          "publicSummary": "Added kitchen sinks with stone basins. Drink from a sink or refill a flask at it."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Added modular sofas: separate sofa sections that join and split into longer straight runs, plus a corner sofa piece that completes an L-shaped seating arrangement.",
+          "refs": [
+            {
+              "commit": "e0e09c16027916ff3788ecd54bb3d8bd1e5bf11f",
+              "date": "2026-10-31"
+            },
+            {
+              "commit": "7bf433af498b529203d05096887ab72f99b5c053",
+              "date": "2026-10-31"
+            }
+          ],
+          "publicSummary": "Added sofa sections that join into longer sofas, and a corner sofa for L-shaped seating."
+        }
+      ],
+      "publicTitle": "Kitchen counters, sinks and sofas"
+    },
+    {
+      "id": "game-2026-10-30",
+      "source": "game",
+      "date": "2026-10-30",
+      "title": "Water lighting pass, stools, benches, armchairs and sofas",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Added plain stools and two-seat backless benches using the same placement, moving and take-up controls as chairs and tables.",
+          "refs": [
+            {
+              "commit": "e0bc09f7df7ed7d083452dd578e6493085e1b93f",
+              "date": "2026-10-30"
+            }
+          ],
+          "publicSummary": "Added stools and two-seat benches you can sit on."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Added a paid armchair and a two-seat sofa with a selectable wooden frame and cream, sage or rust wool upholstery.",
+          "refs": [
+            {
+              "commit": "5886ccff3a7e27402e124c57693adcd14f89b3af",
+              "date": "2026-10-30"
+            }
+          ],
+          "publicSummary": "Added armchairs and two-seat sofas with a choice of frame wood and cream, sage or rust upholstery."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Seating now works on servers: the server decides who occupies a seat, owners are returned to a checked exit when they leave, and a first-time seat user or a player caught in a blast is released correctly.",
+          "refs": [
+            {
+              "commit": "a2b8f4bd6d301b1b5d37d41b17bb9a0f41c09512",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "a78ef03644f02a2477dc73a7b6c7862801c6fa7f",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "3a5420f0f95f519325079087c0e89127ac83d8cc",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "effeb5353c2516d0a314823b85b8a60f2cf76642",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "f6e83d3ddb27e0bd7cecf2424a6086bb19bf7122",
+              "date": "2026-10-30"
+            }
+          ],
+          "publicSummary": "Added sitting on furniture on servers. You stand at a clear exit when you leave a seat."
+        },
+        {
+          "kind": "Changed",
+          "area": "Water",
+          "text": "A long run of water-lighting corrections: shore surf fades with the full water depth, shallow waves and foam stay continuous, light is dimmed as it passes through water to the bed, submerged walls and plants are shaded at the waterline, shoreline reflections fade out smoothly and haze no longer covers water.",
+          "refs": [
+            {
+              "commit": "b02602f72c7109df18df00f3a80eb08cee8a5bd8",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "a472bc1fbb8ab4baa817ee2664234ac4a818c763",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "c93d4d45dce138aafb0330c7f1a9672f1aea1aa7",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "62ea80ddc76fef34a69004921dc0a833db7093eb",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "000c3af61ee978041af8cc44c4648509a0508555",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "747c1f76f671d45681f4ef98157350c052857c3d",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "fadd99fbd3e3cd2999c8d6d70eda46a4fb8572d4",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "a4d8404a9f595aaed3e3fd5bcd2b831beecc142f",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "acf05b5abdbb12ee41c361545f909de355b6cc04",
+              "date": "2026-10-30"
+            },
+            {
+              "commit": "6cdb2ccaf057f1350e75f69d00c51a3d5e4cc96a",
+              "date": "2026-10-30"
+            }
+          ],
+          "publicSummary": "Improved water, with smoother shore surf and foam, more natural light through water, better shading of submerged walls and plants, and no haze over water."
+        }
+      ],
+      "publicTitle": "Water lighting, stools, benches, armchairs and sofas"
+    },
+    {
+      "id": "game-2026-10-29",
+      "source": "game",
+      "date": "2026-10-29",
+      "title": "Server storage, doors and fishing, hosted-world recovery and water",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Creative players on servers can now use chests and Home storage with server confirmation: confirmed storage, free chest placement, taking up an empty chest, Home creation and repair, packing up an empty Home and resting. Only real carried items can be stored, not free catalogue items.",
+          "refs": [
+            {
+              "commit": "7da54b0af4fc88c2b9f0b9c51373da620243206b",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "e7b12306bc27d94b489257534e2ed3161a0cffcc",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "2a2ff76ce830c8ee5894123e29cd7882b57d4a08",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "f98d0be0ed2c9c94b799b485ce502599c22161d5",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "2fe3cdd4c60cd2bb18e99bbf2801321e2eed87fd",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "9a8eadb837ee1078094200c11c0ec97425804cb2",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "a51385145c3e51378e458fe5dd3ed2f0f903894f",
+              "date": "2026-10-29"
+            }
+          ],
+          "publicSummary": "Added chests, Home storage and resting for Creative players on servers."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Survival doors can now be hung on servers, spending a matching carried door once the server confirms, and taking a whole door down refunds it. Survival fishing on servers is now owned by the server.",
+          "refs": [
+            {
+              "commit": "123ef7ed228e3dd724c3109367cdd0c1ae114d56",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "bb25879451505d6afad3d40bb122667f4949bef5",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "e8103b9b2b6f480e6b0753a1b8485679a662a124",
+              "date": "2026-10-29"
+            }
+          ],
+          "publicSummary": "Added hanging and taking down doors, and fishing, in Survival on servers."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "When a hosted world stopped or a save failed, carried items, final Creative choices and queued hand-overs could be left unresolved. Unfinished hand-overs are now kept as recoverable copies, retried and finished on the next start, including after the world is missing or the host restarts.",
+          "refs": [
+            {
+              "commit": "8ff436ac3c52707c2382f24efe15e20d3ffe8b3c",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "40e485d13d912a3e3f5628180cfda57f7e7d6163",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "719805c0c749ae9f1a320f5349d40350f392a06d",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "399b4be5057f332109e2d59a169ef0d753009036",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "c3ba68d0dc1db96072d6f6949f29cb1d55e32c8f",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "a94ccc65673885d9ecdd7dad0915f983f3ab9878",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "7a232f27b458f2e888b5b2e1920b6820ffa5a3ca",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "ed2aeb3a305638f7c95d0fce01e95436360c5899",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "de18ff23f96b93a063a55ddd4f5a1e7cf3ee6a5d",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "731cadaaa67e174f9e76c7f9e9d1e8e418b6f320",
+              "date": "2026-10-29"
+            }
+          ],
+          "publicSummary": "Fixed items being lost if a hosted world stopped during a save. Unfinished hand-overs are kept and finished the next time the world starts."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "Dedicated servers now recover their last complete world and player stock after an interrupted save, before the world loads, including custom worlds. Player records are published through a safe replacement step.",
+          "refs": [
+            {
+              "commit": "6845e27c15ab180a716f271af03a392fba263393",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "0b476b4d6a8b37a4a0e54b0d14032f1f27848a44",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "b3cc3d8077d538631fb1612363be89446e7467b1",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "d45a8c5fb42b1ac7025ddb0c90682af0bd080ddc",
+              "date": "2026-10-29"
+            }
+          ],
+          "publicSummary": "Fixed dedicated servers losing recent changes after an interrupted save. The last complete save is recovered on the next start."
+        },
+        {
+          "kind": "Changed",
+          "area": "Water",
+          "text": "Reduced banding on the water surface, rebalanced underwater sunlight, clipped underwater view paths so clear water shows its underside, attached sunlight to covered terrain tops and filtered foreshortened ripples.",
+          "refs": [
+            {
+              "commit": "2fbf2c2fa7475b7611b1e124b432939934061cd4",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "0a0304bf889dd761f09ac810c5312d74b15ff3b0",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "a9d03c3e99993f074d2349c745d0ebce6864cb03",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "c85ff626f4747da1337b26bb3fb9c47fbfc8602b",
+              "date": "2026-10-29"
+            },
+            {
+              "commit": "c1d87807ffcd7b9d3e7a9a51b70f9756690aac57",
+              "date": "2026-10-29"
+            }
+          ],
+          "publicSummary": "Improved water, with less banding on the surface, better sunlight underwater and cleaner ripples at shallow angles."
+        }
+      ],
+      "publicTitle": "Server storage, doors, fishing and hosted-world recovery"
+    },
+    {
+      "id": "game-2026-10-28",
+      "source": "game",
+      "date": "2026-10-28",
+      "title": "Home storage on servers, water, hand-tool icons and host recovery",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Survival Home storage on servers: personal storage, repairing the Home crate, establishing a Home, resting in shelter and packing up are all confirmed by the server. Survival chests can also be placed and taken up on servers.",
+          "refs": [
+            {
+              "commit": "298277bf11216f01a7bd3fdf9eb824c5f8c2afb3",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "598d289ec1651b09fbd9fc05545061f259dd2240",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "d212928643a234baae020a34700e42026e2b3fcd",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "846cec63f556f8c660aaa8d3f651d6c18155e23b",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "0c067a716cd4696563221dc7a527ae9262aefab7",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "c3ce6de6b62442d42c3d8e01bab9df060bde3667",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "f5c4315521e437a0d5af4950e9e6dd6eb9eb76e3",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "135b48f526255c55669256c5134d368014bd77ae",
+              "date": "2026-10-28"
+            }
+          ],
+          "publicSummary": "Added Home storage, setting up, repairing, resting in and packing up your Home, plus placing and taking up chests, in Survival on servers."
+        },
+        {
+          "kind": "Changed",
+          "area": "Water",
+          "text": "Improved water depth and clarity, calmer lake surfaces and continuous underwater caustic lighting where water depths join.",
+          "refs": [
+            {
+              "commit": "9e05a71f70ab51740d1dfca74c9466e0830a0d97",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "193f6f81cba9ef3f76946a564e7b356fbcb00209",
+              "date": "2026-10-28"
+            }
+          ],
+          "publicSummary": "Improved water, with better depth and clarity, calmer lakes and smoother light patterns underwater."
+        },
+        {
+          "kind": "Added",
+          "area": "Items",
+          "text": "Added original still pixel-art icons for the eight hand tools in Pack, the catalogue, selected previews and quick slots. Corrected the working direction of held tools, forward arm actions and the sword grip.",
+          "refs": [
+            {
+              "commit": "dee6b26f84c3dff0fabc57da7ff6429edf8809fc",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "b1165f5ad67f7b74299a8dd751f18112736319d7",
+              "date": "2026-10-28"
+            }
+          ],
+          "publicSummary": "Added new icons for hand tools, and corrected how tools and swords are held and swung in first person."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Held items",
+          "text": "Held sleeves no longer show gaps at wide fields of view.",
+          "refs": [
+            {
+              "commit": "1c1ce9d29c0d50de910fefde912514e6619d6d16",
+              "date": "2026-10-28"
+            }
+          ],
+          "publicSummary": "Fixed gaps showing in held sleeves at wide fields of view."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Graphics",
+          "text": "Corrected the texture target used for the world texture atlas on OpenGL, which had left world textures sampling as black.",
+          "refs": [
+            {
+              "commit": "2ab6c8db8b46b5b96d1a9c778239fbc7b3ac43c9",
+              "date": "2026-10-28"
+            }
+          ],
+          "publicSummary": "Fixed world textures appearing black on OpenGL graphics."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saving",
+          "text": "The hosted owner's carried items and Creative choices are now preserved when the host disconnects, stops or reopens; queued requests are drained before shutdown and refused hand-overs are recovered.",
+          "refs": [
+            {
+              "commit": "8e4aa62cf3744361af42fb8e8a64159bf723074c",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "3f2870c45ad9946c882bc9df18e7eea0effdbc4a",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "0066f6cc00f37e5c5b1b367a518e02606a9a54a8",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "cc04bfd5ff376428ba41d0467e0f8e04de0757b6",
+              "date": "2026-10-28"
+            },
+            {
+              "commit": "840e1b52f526ff924a46016744d988ab410f236a",
+              "date": "2026-10-28"
+            }
+          ],
+          "publicSummary": "Fixed carried items and Creative choices being lost when a world you host stopped or was reopened."
+        }
+      ],
+      "publicTitle": "Home storage on servers, water and tool icons"
+    },
+    {
+      "id": "game-2026-10-27",
+      "source": "game",
+      "date": "2026-10-27",
+      "title": "Survival actions on servers, quick-slot display and settings menu",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Servers now own health and recovery, confirm eating before food is spent, handle TNT ignition, shared fuses and blasts, and run paid dynamite flight and blast for everyone.",
+          "refs": [
+            {
+              "commit": "da5017abd0da9c85df9f93a455ea776c73a59f04",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "5870400f097870a51e2bdd65742514febd5f9b98",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "8748dca0b815712eac3fca53f3266dbf197d3256",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "2b1fd5b96e974c1cb23c57f79cf1e89f859daa4a",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "a39b00ff4a4cb1f59a6da1c96b02fdfd36ec90c0",
+              "date": "2026-10-27"
+            }
+          ],
+          "publicSummary": "Added health and recovery, eating, TNT and dynamite on servers, all confirmed by the server and shared by everyone."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Base crafting, drinking and flask refills, Survival mining and harvesting, paid block placement, paid Survival furniture and chest transfers now work on servers, each waiting for the server to confirm. Chest refusals stay visible in Pack.",
+          "refs": [
+            {
+              "commit": "afec87418a6a2ba4a8231719e70369a5efea3144",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "ae33c800aede4740f2bf6956c8eabbbca36b0c34",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "4e06216bd999decb1484ec1e7f82a48770500114",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "66b654c20aafbc8e10d8ef9011dd756976e74ddf",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "7a9249ccbacf69b91007d190153b46fa3a2003e8",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "9af7c8d36348909877030839e52bcfa0b192ce58",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "76f967ef9900f64d9a4a5e4866c3fdb6619c4466",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "48cda77212482dae48f9a65c9909f1f4bb11779b",
+              "date": "2026-10-27"
+            }
+          ],
+          "publicSummary": "Added crafting, drinking, harvesting, block building, paid furniture and chest transfers on servers. Each waits for the server to confirm before items change."
+        },
+        {
+          "kind": "Changed",
+          "area": "Menus",
+          "text": "The Esc menu now offers Settings in Graphics, Audio, Controls, Gameplay, Interface and Advanced groups; Controls opens the key bindings reference and editor. First steps can be hidden and reopened from Esc.",
+          "refs": [
+            {
+              "commit": "9af7c8d36348909877030839e52bcfa0b192ce58",
+              "date": "2026-10-27"
+            }
+          ],
+          "publicSummary": "Changed the Esc menu: Settings is split into groups, Controls opens the key bindings editor, and First steps can be hidden or reopened."
+        },
+        {
+          "kind": "Changed",
+          "area": "Hotbar",
+          "text": "Quick slots stay aligned with their drag targets, a mint mark shows the selection and quiet bottom-left text shows the current item or an inventory hint.",
+          "refs": [
+            {
+              "commit": "d7ea82ccf8f61e104c9685a5d4e07c698a3c05eb",
+              "date": "2026-10-27"
+            }
+          ],
+          "publicSummary": "Changed quick slots to show the selection with a mint mark and the current item in small text at the bottom left."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Held items",
+          "text": "Fixed first-person grips on guns and tools, completed gun models and unified held tool previews with smoother visual weapon aim.",
+          "refs": [
+            {
+              "commit": "96cb97e3f7eb28554e461b671e7ca50d9747726f",
+              "date": "2026-10-27"
+            },
+            {
+              "commit": "41662131decc175f878c5254d1045d779cde21c3",
+              "date": "2026-10-27"
+            }
+          ],
+          "publicSummary": "Improved how guns and tools look in first person, with corrected grips and smoother aiming."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Fishing",
+          "text": "The fishing line stays attached when you change equipment.",
+          "refs": [
+            {
+              "commit": "1ac6b6955f1041fb1c770958cc3b0cff871bc9ce",
+              "date": "2026-10-27"
+            }
+          ],
+          "publicSummary": "Fixed the fishing line coming off when you change what you hold."
+        }
+      ],
+      "publicTitle": "Survival actions on servers and settings menu"
+    },
+    {
+      "id": "game-2026-10-26",
+      "source": "game",
+      "date": "2026-10-26",
+      "title": "Shared drops, loot and ranged attacks on servers",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Dropped carried items are now shared with everyone on a server and kept in the saved world.",
+          "refs": [
+            {
+              "commit": "e01b3cf46fdcd0c2f4d50655112e72fbe932f20d",
+              "date": "2026-10-26"
+            }
+          ],
+          "publicSummary": "Added dropped items on servers: everyone sees them, and they are kept when the world is saved."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Survival melee hits, paid bow arrows, rifle shots and ammunition, and rock throws now work against animals on servers, with the server deciding injuries and dropping loot. Arrow and egg flights are shown between position updates, and Survival eggs spend carried stock.",
+          "refs": [
+            {
+              "commit": "ce8ad1f4ae9f2112cfa6de2806b2d7ffa55f7aa5",
+              "date": "2026-10-26"
+            },
+            {
+              "commit": "1f4aa3a22e597a2f7b39e95d2da8addcb6b037b8",
+              "date": "2026-10-26"
+            },
+            {
+              "commit": "d37c17d22fab04c59ac2fc68abd9a0d2ea728892",
+              "date": "2026-10-26"
+            },
+            {
+              "commit": "99c1e2ffbeba21d1bc3770268159d160432cc269",
+              "date": "2026-10-26"
+            },
+            {
+              "commit": "8793ec718baa53bb713f1c897404681dbc7ed36b",
+              "date": "2026-10-26"
+            },
+            {
+              "commit": "e90451ca13bcb691c51e0f899eaf5d34a9c48266",
+              "date": "2026-10-26"
+            }
+          ],
+          "publicSummary": "Added Survival melee, bows, rifles, rock throws and eggs on servers. Animals drop loot for everyone, and arrows cost real ammunition."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Survival",
+          "text": "Animal loot from solo bow kills, blasts and shells is now complete and kept consistently.",
+          "refs": [
+            {
+              "commit": "8e0eff5675bd04e4d277e560c03c2b94e7b81a6e",
+              "date": "2026-10-26"
+            },
+            {
+              "commit": "e965360478181d9701b1c8db5d636f40c9fc0dab",
+              "date": "2026-10-26"
+            },
+            {
+              "commit": "318233104096d87bc443b8fa3e95ac6a31672e82",
+              "date": "2026-10-26"
+            }
+          ],
+          "publicSummary": "Fixed animals killed by bows, explosions and shells dropping incomplete loot."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Controls",
+          "text": "Remapped controls are no longer overwritten when a key clashes with the item drop key.",
+          "refs": [
+            {
+              "commit": "3998465e53d63d09693cccb917b0013e9f06d327",
+              "date": "2026-10-26"
+            }
+          ],
+          "publicSummary": "Fixed remapped controls being overwritten when a key clashed with the item drop key."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Interface",
+          "text": "Item labels stay visible through decorative plants.",
+          "refs": [
+            {
+              "commit": "bf2fecdbad634b7c4662b220ad1df729bcf3d0cc",
+              "date": "2026-10-26"
+            }
+          ],
+          "publicSummary": "Fixed collectible labels being hidden behind decorative plants."
+        }
+      ],
+      "publicTitle": "Shared item drops, animal loot and ranged attacks on servers"
+    },
+    {
+      "id": "game-2026-10-25",
+      "source": "game",
+      "date": "2026-10-25",
+      "title": "Sitting, the furniture hammer, doors, shared wildlife and foliage",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Placed chairs can be sat on by right clicking with tools put away; Space or right click stands you at a clear supported exit, and reloading a seated save places you safely beside the chair.",
+          "refs": [
+            {
+              "commit": "20a7fb33ec3475fd34af3339c59f04f452d3a262",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Added sitting on placed chairs. Press Space or right click to stand."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Added a customise panel for chairs and tables where the frame and panel woods are chosen independently, with keyboard controls and translated labels.",
+          "refs": [
+            {
+              "commit": "96b49a226ba55924cfd92aac26b771cbd6d3e26e",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "5baa467b9021d83b9090f504570b07822467dd8b",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Added choosing the frame and panel wood of a chair or table before you place it."
+        },
+        {
+          "kind": "Added",
+          "area": "Survival",
+          "text": "Added the Furniture hammer, crafted from two board pieces and one natural stone piece. Carrying it adds a Carpentry tab, and equipping it and right clicking opens a workbench where Survival players pay the exact boards for chairs and tables. Plans can be bound to quick slots.",
+          "refs": [
+            {
+              "commit": "38d49d35aa295717d85b101a769b904fd43d952e",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "685849502f4c63a3458162f84e5e1c30b39efd32",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "9e77621713c346199b8400c190eb6ab273cb3fe4",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Added the Furniture hammer for Survival. It opens a Carpentry workbench for paid chairs and tables, and plans can be bound to quick slots."
+        },
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "The furniture hammer can also change the woods of an already placed chair or table in place, and its object actions are guarded against copying through furniture.",
+          "refs": [
+            {
+              "commit": "80e4230cbf61fcfa08e89b406b632b9cb9f1bbda",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "05929389d707868fc37078886b0b8891e8134ee7",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Added changing the woods of a placed chair or table in place with the furniture hammer."
+        },
+        {
+          "kind": "Changed",
+          "area": "Furniture",
+          "text": "Blocks, blueprints and doors can no longer overlap placed furniture, and closing a door onto furniture now explains why it was refused.",
+          "refs": [
+            {
+              "commit": "bd695b605d261dd99fb2aa184fe5200c351ad96c",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "2f62cd1e5f942c0cc03316484fab57c3a82cfda1",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Changed building so blocks, blueprints and doors cannot overlap placed furniture. A message now explains why a door will not close."
+        },
+        {
+          "kind": "Added",
+          "area": "Doors",
+          "text": "Added panelled wooden doors in all fifteen woods, in a small (1 m by 2 m) and a wide (2 m by 3 m) size. Held doors and placement previews now match the placed door and its handles.",
+          "refs": [
+            {
+              "commit": "6511884bb3853a7ae48babcf23f5399cf1ef9928",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "946f62a46457f11b3c823f766cf8b0d3daf01d8e",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "ba478a4456cdb605d376571e31818d53f2e7e888",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "ed896dbd3779ce7d061a42e93aa81435682e47c0",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Added wooden doors in every wood, with plain and panelled designs in small and wide sizes. Held doors and previews now match the placed door."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Creative players on servers can place, move, take up and undo chairs and tables. The server confirms each step and sends furniture to players who join, and saved Creative hosts can reopen.",
+          "refs": [
+            {
+              "commit": "4043e2f06725c6c0f2d43a231f7c25b7d2a0cda3",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "9b3b066a29ce8cc769fffd81b1649c4183f827b3",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "8007720c304fa6cdd2dc682f155806f557f3e546",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "0f6930f9d57a4ccc588275839800c933ff9610a7",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "e8963682eac24ae053680f12ba0daae7416e38a9",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Added placing, moving and undoing chairs and tables for Creative players on servers. Furniture appears for everyone who joins."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "Servers now share wildlife with every joined player, so everyone sees the same animals moving smoothly. Creative wildlife removal and egg flight and hatching are shared, and hatchlings are kept when the host restarts.",
+          "refs": [
+            {
+              "commit": "04785ac3ac48091c06a1d1e7c8e5715e5e91fb66",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "e6a325308a7e9b0375e8bf7fbbc9389f63d2a194",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "6488e5e4dfaa31ba80615b794fca1b77c22f3832",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "1f17b84fcea3ca4531bb2e95424f09fece3035da",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "ee0d465653be22f5cf00014044736953b09ecc03",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "c1798e86e05bdbe68b87adaf27e5bcc49954c578",
+              "date": "2026-10-25"
+            },
+            {
+              "commit": "5d8800ad3124a52cd909f328d6ba583eb6466219",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Added shared wildlife on servers. Everyone sees the same animals, and Creative removal and egg hatching work for all players."
+        },
+        {
+          "kind": "Changed",
+          "area": "Textures",
+          "text": "Replaced the pine canopy with a darker needle texture, with the pine leaf card matched to it.",
+          "refs": [
+            {
+              "commit": "0c365de4310826326eee65844fcbad0e0f4ce2fe",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Changed pine trees to a darker needle foliage texture."
+        },
+        {
+          "kind": "Changed",
+          "area": "Terrain",
+          "text": "Bushes now render as low, dense blocky foliage, and the main menu's rainbow cube and lowercase qiqi title are drawn smoothly.",
+          "refs": [
+            {
+              "commit": "9b81c4542f42ddc865eaba91663aba17e5b15375",
+              "date": "2026-10-25"
+            }
+          ],
+          "publicSummary": "Changed bushes to low, dense blocky foliage, and smoothed the rainbow cube and title on the main menu."
+        }
+      ],
+      "publicTitle": "Sitting, furniture hammer, doors and shared wildlife"
+    },
+    {
+      "id": "game-2026-10-24",
+      "source": "game",
+      "date": "2026-10-24",
+      "title": "Chairs and tables in Build, new menus and animal remodels",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Furniture",
+          "text": "Chair and table placement is now usable from the Build controls: pick Chair or Table in the Build workspace or with Shift+B, choose a wood, turn with R, place with right click, take up with left click and move a placed piece with Shift+left click. Placed furniture is saved with the world, and the preview shows why a spot is refused.",
+          "refs": [
+            {
+              "commit": "4c0c3cd1cd03198fbd92679f806fd5820c3f2833",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "70e6fd44ef835d6a7b4b79d666f14b182b4052d0",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "d59c156a4b9ba811509db32f0ad098f318ccf2e4",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "232bb24b4c808b1253daae794cc7ed07196f2113",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "ec6d038fe9483d3c8b6463d8a2b3f829ed516f5e",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Added chairs and tables in Build. Place them on supported ground with right click, turn with R, take one up with left click or Shift+left click to move it."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Interface",
+          "text": "Furniture help text no longer overlaps the hotbar, stock labels clear the Survival meters, and hover outlines stay readable against wood.",
+          "refs": [
+            {
+              "commit": "df4c7753bebf40d2467a80254ca711833bf5f4e1",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "6065e8e5bda823800084b39a63de70109f5bfe6a",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "79b5e7790f1be32c7f9331095a62aab768a67c59",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Fixed furniture help text covering the hotbar, stock labels covering Survival meters and hover outlines being hard to see on wood."
+        },
+        {
+          "kind": "Changed",
+          "area": "Menus",
+          "text": "The start menu is now a centred card with larger controls, the rainbow cube beside the lowercase qiqi name, and the same name in the loading screen and window title. Buttons react to hover, press or deliberate keyboard focus, and Continue stays disabled when there is no world to resume.",
+          "refs": [
+            {
+              "commit": "10803aa9703bf41f275e4bff27d62fecaafcf26a",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "63ea742008ee90e35da97e83762b7d42add6e24f",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "1d95560908690def9ccd33fbc97e4e1545608479",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Changed the start menu to a centred card with the rainbow cube and the name qiqi. Continue is greyed out when there is no world to resume."
+        },
+        {
+          "kind": "Changed",
+          "area": "Menus",
+          "text": "In Worlds, a single click selects a world to show a larger preview, name and history, then Play world opens it (double click also works). Deleting a world needs the Delete world button or key to be held for three seconds, and rename, duplicate and backup act on the selected world.",
+          "refs": [
+            {
+              "commit": "41105937c81a50e40efb0dfb470ec8f616abb527",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Changed Worlds so you select a world to see its preview, then press Play world. Deleting a world now needs a three-second hold on the selected save."
+        },
+        {
+          "kind": "Added",
+          "area": "Building",
+          "text": "The main menu has a Structure workshop with a searchable library of your saved structures. Open, rename, duplicate or hold-to-delete one, or create a new one to build in a flat daylight workshop; F6 saves it and Esc returns to the library.",
+          "refs": [
+            {
+              "commit": "fe75f2eeae58987fee985a274f4cd0d6b7485d5b",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Added a Structure workshop to the main menu, a library of saved structures you can open, rename, duplicate, delete or create to build in a flat daylight workshop."
+        },
+        {
+          "kind": "Changed",
+          "area": "Lighting",
+          "text": "Dusk and night scenes lose some colour towards a slightly cool grey while keeping things visible. Daylight is unchanged.",
+          "refs": [
+            {
+              "commit": "89630a9ed957ac2c7ff7b46eace2ae9e0c200f7b",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Changed dusk and night to be less colourful and slightly cooler, while staying easy to see. Daylight is unchanged."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "A LAN host can now switch their own game mode with F4, and flight is released once the server confirms the change.",
+          "refs": [
+            {
+              "commit": "01bb8854c0143c8f5c571cb64c5f88933521143f",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "1c88fec140cb40033ee6fed9b9b29676194023a5",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Fixed LAN hosts being unable to switch their own game mode, and flying carrying on after the server confirmed a mode change."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Terrain",
+          "text": "Textures on the tops and bottoms of distant terrain blocks now face the same way as nearby ones.",
+          "refs": [
+            {
+              "commit": "751a8ab3c73e8352b48e43e9fc46f5277b6c1466",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Fixed textures on distant terrain being turned a different way from nearby terrain."
+        },
+        {
+          "kind": "Changed",
+          "area": "Animals",
+          "text": "Remodelled and fixed the walking of many animals with simpler silhouettes and feet that stay planted on the ground, including the toucan, penguin, swan, bear, river otter, skunk, anteater, gelada, jerboa, sugar glider, blue jay, chicken, bat and butterfly, plus simpler squid, comb jelly, catfish, banana slug, mimic octopus and anaconda.",
+          "refs": [
+            {
+              "commit": "a64b72aa183c1b49738b92611f7e2f92fc67fbe1",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "8a1a3ec7b78bb1c959e2a81635c1846ea02d5641",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "4a23495a60c7c8000e95e138545eadfdbfdb60d8",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "303f5208d7c23af21edd8e9dc7dc101ce9a64c83",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "2973ba0af9fbf9360f7d0620924db6b8f5b31647",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "5a24eff9cbb31546c2c47a07b31ed5cf067340ae",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "b02c9e5adfcb00f65789f7bcd0076e94bb99610d",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "51ab35cfbebabd836bc71a45301e20bb17337039",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "0127deffdb71fb523322d7b5044b14d8a5251b59",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "0b4e0b9295f5528ce445f607a3e14feb2dcd3141",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "81c7380b473cafe56cdedae91146a0b5b868a312",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "ca8e5defddd70f7ef02cce14604a8959ebffffcd",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "b59fa3097c36414788da375ff1c11410d9379415",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "c7fb71edde40526d078bd67a673b02c11b4254f4",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "8f36b06e6966759d078a5294931bdf030738ffbc",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "09bb9e47b6f4e92eb8716e49fa97036186381608",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "5b02966c5e8ac8a85c410ee7c54de6475fe78a1c",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "94475ebc3645143084306444d45c3c8df7bb316b",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "1531d206ca65f58679b3ea085efefdf17f2dd3c2",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "ede44f29e587370ed4f09de057abbd49db0c1cbb",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "f8cb7071d9785d4c2ef6d0c44a74be6ac7c26b2b",
+              "date": "2026-10-24"
+            },
+            {
+              "commit": "3cb9ac2b5d3b0db31fec5ed15c6cd570e88f6e1f",
+              "date": "2026-10-24"
+            }
+          ],
+          "publicSummary": "Changed many animals, including the toucan, penguin, swan, bear, otter, skunk and bat, to simpler, clearer models whose feet stay planted as they walk."
+        }
+      ],
+      "publicTitle": "Chairs and tables, new start menu and animal remodels"
+    },
+    {
+      "id": "game-2026-10-23",
+      "source": "game",
+      "date": "2026-10-23",
+      "title": "Creative Detail building key and more animal remodels",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Building",
+          "text": "A new remappable Detail / whole block building action (default N) toggles Creative carving and building between half-metre Detail pieces and whole 1 m blocks while hovering; the hotbar shows the current size and key. Flight ascent and descent stay on Space/Shift, and holding Shift still selects detail temporarily. Older control profiles keep their keys and only gain N if it is free.",
+          "refs": [
+            {
+              "commit": "137a964efcf014f9baf30ce10cca00a03357a403",
+              "date": "2026-10-23"
+            }
+          ],
+          "publicSummary": "Added N in Creative to switch between half-metre Detail building and whole blocks, so fine building no longer needs Shift while flying. The key can be changed in Controls."
+        },
+        {
+          "kind": "Changed",
+          "area": "Animals",
+          "text": "Remodelled several animals with fewer, chunkier boxes and planted legs: the blobfish (nine cuboids with readable eyes), cockroach (twelve boxes, six planted legs), alligator snapping turtle (twelve boxes), mantis shrimp (twenty boxes, four walking legs), emu and bald eagle (compact body, planted walking feet).",
+          "refs": [
+            {
+              "commit": "427e15a8cf37c1617f62b3759bc1d78524b23d2d",
+              "date": "2026-10-23"
+            },
+            {
+              "commit": "0676bdf89c5621dd633ec3972d2bad9b27c43cfe",
+              "date": "2026-10-23"
+            },
+            {
+              "commit": "4bf287688a3ad5b97e81ea54d4027423b9f30f40",
+              "date": "2026-10-23"
+            },
+            {
+              "commit": "8b77a56bc0df5a1b3e20670eb221926efce78115",
+              "date": "2026-10-23"
+            },
+            {
+              "commit": "b845a4ba1fece9b460f53576dac8bc1ae9e16f32",
+              "date": "2026-10-23"
+            },
+            {
+              "commit": "ba241fcc03bc92db9d9854c164982df07ab87e30",
+              "date": "2026-10-23"
+            }
+          ],
+          "publicSummary": "Changed the blobfish, cockroach, snapping turtle, mantis shrimp, emu and bald eagle to simpler, clearer models whose feet stay planted as they walk."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Animals",
+          "text": "The raccoon's tail now shows its two rings once instead of repeating them, its paws no longer scrape the floor, and ear flicks ease between ears instead of jumping. Platypuses now use the paddling swim of other shore swimmers in water and their soles meet the ground when walking.",
+          "refs": [
+            {
+              "commit": "b425047ab955dab8a3bc4741a8ce516bfd33e252",
+              "date": "2026-10-23"
+            },
+            {
+              "commit": "14f9499663346d909a1b8f12f47fe5c9333e1a6c",
+              "date": "2026-10-23"
+            }
+          ],
+          "publicSummary": "Fixed the raccoon's tail rings, scraping paws and jumping ears, and platypuses not swimming properly in water."
+        }
+      ],
+      "publicTitle": "Creative Detail building key and animal remodels"
+    },
+    {
+      "id": "game-2026-10-22",
+      "source": "game",
+      "date": "2026-10-22",
+      "title": "Animal remodels and blinking eyes, grass sides, album covers",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Animals",
+          "text": "A large remodelling pass simplified many animals to fewer, clearer boxes: goat, zebra, beaver, turkey, peafowl, gazelle, kangaroo, gorilla, capuchin (question-mark tail), rattlesnake, Komodo dragon and orca were rebuilt; the giraffe is now under 4 m, the moose has a 1.4 m rack, and eyes on the frog, salmon, crocodile and sea turtle were made easier to see.",
+          "refs": [
+            {
+              "commit": "848b7e05b8dd37c728d479b56d072cca36eef933",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "95188c130b92e9e8686e10c00ab774bd87ba32b9",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "bc2568dabaab8b4b8c772a28e65eef1d6c43c12b",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "c5700570acde0dbb17581b2c8bdbb069b6aaf552",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "3aa3c0fed997eecac1e8518d689974b192d482f8",
+              "date": "2026-10-22"
+            }
+          ],
+          "publicSummary": "Changed many animals to simpler, clearer models, including the goat, zebra, giraffe, gorilla, orca, Komodo dragon and moose, and made small eyes easier to see."
+        },
+        {
+          "kind": "Added",
+          "area": "Animal movement",
+          "text": "Tall birds, ground birds and primates now blink. The roadrunner pumps its tail and raises its crest when alarmed, the ostrich's plume trails its bob and its wings balance when fleeing, the elephant's trunk curls clear of the ground ahead, whale and orca flippers scull with each stroke, and startled fish burst away at once while stopped swimmers settle instead of beating on the spot.",
+          "refs": [
+            {
+              "commit": "0b4936e915bed1a7ec338927ddde3d3718b21095",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "c7ab6b26efb521f5f79822392cff7885e0995606",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "b9639cabd4931cb0af5de9dc71e6547eb1569205",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "75f6382633e370489a9f2300f5cb541d9988a576",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "4e59dc41dc87c9fd7fc16221f8e13635951ea517",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "d91f817a3d6cd97dee992cb3c87fe10d5c8c4c7c",
+              "date": "2026-10-22"
+            }
+          ],
+          "publicSummary": "Added blinking eyes to many birds and primates and livelier motion: a roadrunner's crest rises in alarm, an elephant's trunk curls over the ground and startled fish dart away."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Animals",
+          "text": "The fox no longer cuts its legs through a half-metre step, the shoebill, goose and crow collide with their remodelled bodies rather than their old shapes, the Komodo dragon's feet hold on uneven terrain, and the gorilla's shins and the kangaroo's soles sit correctly on the floor.",
+          "refs": [
+            {
+              "commit": "46af5bccd7dbabc0c6f2c88a721454d40d86d9e7",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "97d76d795e4df7388a7db91a455bc3dab0f51827",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "14a6a305cfb2847608fc48a9f72afcdc00a6f372",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "b9639cabd4931cb0af5de9dc71e6547eb1569205",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "8976a571566490ca9e1e200874b30310405a725e",
+              "date": "2026-10-22"
+            }
+          ],
+          "publicSummary": "Fixed fox legs passing through steps, bird collision not matching their new shapes, and Komodo dragon, gorilla and kangaroo feet on the ground."
+        },
+        {
+          "kind": "Changed",
+          "area": "Textures",
+          "text": "Grass block sides now use the dirt texture itself under an irregular tufted grass fringe, forest soil sides gain matching dirt with an uneven humus cap, and jungle bark is darker and cooler with less repetitive mangrove roots.",
+          "refs": [
+            {
+              "commit": "bac369d27c8b4ee422bf49f81a2807f630796601",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "2ec2a89da1952bc0c294cfc1771bf81ac2bea734",
+              "date": "2026-10-22"
+            },
+            {
+              "commit": "2231d2004f4e135010e261c1e386c9c6824643e5",
+              "date": "2026-10-22"
+            }
+          ],
+          "publicSummary": "Changed grass block and forest soil sides to show plain soil under an uneven grassy edge, and darkened jungle bark."
+        },
+        {
+          "kind": "Changed",
+          "area": "Music",
+          "text": "The six albums' covers shown on the Now Playing card were replaced with new original artwork built as editable 3D scenes, and the songs' embedded covers were updated to match. The music itself is unchanged.",
+          "refs": [
+            {
+              "commit": "da2bcf1692e50afd4a563babc00c5d8a608dee0a",
+              "date": "2026-10-22"
+            }
+          ],
+          "publicSummary": "Changed the album covers on the Now Playing card to six new original pictures."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Graphics",
+          "text": "A shader parameter name was rejected by the NVIDIA OpenGL compiler, and parallel pipeline building could time out on OpenGL's single context; the game now builds OpenGL pipelines one at a time.",
+          "refs": [
+            {
+              "commit": "181da6a9a47a2e69c4c9a4f1d190c63a256c7f2c",
+              "date": "2026-10-22"
+            }
+          ],
+          "publicSummary": "Fixed the game's graphics failing to start on NVIDIA computers that use OpenGL."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "A client could treat a server connection as closed before it had read the server's final reliable messages; it now reads everything already received before reporting the disconnect.",
+          "refs": [
+            {
+              "commit": "ef79ce6e330c11c0e08567f6beac53eaa8636792",
+              "date": "2026-10-22"
+            }
+          ],
+          "publicSummary": "Fixed the last messages from a server sometimes being lost when the server closed the connection."
+        }
+      ],
+      "publicTitle": "Animal remodels, grass block sides and new album covers"
+    },
+    {
+      "id": "game-2026-10-21",
+      "source": "game",
+      "date": "2026-10-21",
+      "title": "All-original textures, galloping animals and renamed music",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Textures",
+          "text": "The last 133 block textures derived from outside artwork were removed; the default and built-in textures now use only original project tiles. Many were redrawn the same day: glass became a clear framed pane instead of reading as ice, bamboo a living green with warm brown shoots, reed thatch bundled courses, sea sand a warm beach sand, shell sand bright cream, and deadwood, mangrove bark and roots, carved stone and several grasses and soils were made to read as themselves.",
+          "refs": [
+            {
+              "commit": "b0454bec13f6142228a78d46e8da5d5c9e689efe",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "210e361d183d7b9a77ce632dce0af3b1154eed12",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "f548c1f57876ebc584559f5d9c365b58dfb8f111",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "92e82c2d1b00ad19577e2e124c6709d4f64d80ca",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "1b4a6fb15b8a30bb95c9df87588ecd12700537c6",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "41004c497b13910d0efa0cef9265613aad9f6c65",
+              "date": "2026-10-21"
+            }
+          ],
+          "publicSummary": "Changed every remaining block texture to original artwork and redrew many: glass no longer looks like ice, bamboo is a living green, and thatch, sand, bark and soils look more like themselves."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Plants",
+          "text": "Cutout textures such as flowers, grass blades and thin stems kept their full shape at every distance level instead of thinning out within one or two steps.",
+          "refs": [
+            {
+              "commit": "b615828783b2b86a81f9ffbf820751be9616c829",
+              "date": "2026-10-21"
+            }
+          ],
+          "publicSummary": "Fixed thin stems, petals and grass blades thinning out or vanishing at a distance."
+        },
+        {
+          "kind": "Changed",
+          "area": "Animals",
+          "text": "Small creatures were rebuilt from a few chunky blocks: the crab (sixteen blocks), leafcutter ant (with a swaying leaf), tarantula hawk, Devils Hole pupfish and triops. The smallest animals, including the frog, triops, pupfish, leafcutter ant, tarantula hawk and comb jelly, are drawn at least a quarter metre long so they can be seen. Faces read head-on with clear eyes, tails are thick enough to show, antlers use a few chunky boxes, boar tusks are slimmer and the fox's head sits lower on a short neck.",
+          "refs": [
+            {
+              "commit": "dffbe955d018d37cf15b217974e2e5ede80757c1",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "d834a54f5d261469343cda073d8f20e497b99bc9",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "a367f51013933148b3ac00f96b2d0b6a2b9deec5",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "f37df046552eab57bad0ca59d71b676fb1fcdff7",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "f39a16a138314aedab2100a17ba604a930ec338d",
+              "date": "2026-10-21"
+            }
+          ],
+          "publicSummary": "Changed many animal models: the crab, leafcutter ant and other small creatures were rebuilt and made large enough to spot, and faces, eyes and tails are easier to see."
+        },
+        {
+          "kind": "Changed",
+          "area": "Animal movement",
+          "text": "Fleeing four-legged animals now gallop or bound with all feet briefly off the ground instead of trotting faster. Heads nod and tails sway with the walk, planted feet hold across terrain steps, the frog lands forefeet first, and the fly, triops and comb jelly now move as they travel.",
+          "refs": [
+            {
+              "commit": "1fe83e6cc44c81a28c4356f2e72768b4b9f8f77e",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "f567f1ffea970144d18c0393eed9df267a56e028",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "bd07aabe43c26487fa1c026c6af0cb18fe613102",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "c389b68ccc289ad679875f36b611977d2f080d26",
+              "date": "2026-10-21"
+            }
+          ],
+          "publicSummary": "Changed fleeing four-legged animals to gallop or bound, and made heads nod, tails sway and feet stay planted on steps as animals walk."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Animals",
+          "text": "Overlapping flat surfaces on animal models no longer flicker, and resting snake tails, seal hips and turtle flippers now touch the ground.",
+          "refs": [
+            {
+              "commit": "a8ce96757993df49917fef8b0b07bddd459b9c4a",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "5afb3ee07ab1ffcce67625f416c24a0baee70b27",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "42bd804ca9d62b4875e390a2eb759e9b22aa52a1",
+              "date": "2026-10-21"
+            }
+          ],
+          "publicSummary": "Fixed flickering patches on animal models and resting snakes, seals and turtles floating above the ground."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Loading",
+          "text": "Entering a world could stall on the loading screen on some laptop graphics because terrain uploads were not serviced until a frame was drawn; world entry now keeps them moving.",
+          "refs": [
+            {
+              "commit": "9cf5b97f9bfb84874588c2b40253184ba7ef69db",
+              "date": "2026-10-21"
+            }
+          ],
+          "publicSummary": "Fixed some worlds getting stuck on the loading screen when entering them."
+        },
+        {
+          "kind": "Changed",
+          "area": "Music",
+          "text": "Many song titles and two album names that borrowed another game's places and items were renamed with the game's own words, as shown on the Now Playing card. The recordings are unchanged.",
+          "refs": [
+            {
+              "commit": "453d12481e3fbd786035e05b8a92367c52ca0585",
+              "date": "2026-10-21"
+            },
+            {
+              "commit": "8ccd4bbadacf1bdcb939cc4e9b51da161988e5f1",
+              "date": "2026-10-21"
+            }
+          ],
+          "publicSummary": "Changed the names of many songs and two albums to fit the game's own world."
+        }
+      ],
+      "publicTitle": "Original textures, galloping animals and renamed songs"
+    },
+    {
+      "id": "game-2026-10-20",
+      "source": "game",
+      "date": "2026-10-20",
+      "title": "1024-chunk horizon, mood-based music, album covers and a texture overhaul",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Settings",
+          "text": "The Horizon setting gains an optional 1024-chunk step (16.384 km), doubling the previous 512-chunk (8 km) maximum. Remote terrain is grouped into larger batches and saves remember the generator in use, so existing worlds keep their terrain. Dense forests can need a lot of graphics memory at this setting.",
+          "refs": [
+            {
+              "commit": "cebce8604757d11475b14b4087b01a7a932b9d74",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Added an optional 1024-chunk Horizon setting that reaches about 16 km, double the previous maximum. It is demanding, so lower it if the game runs slowly."
+        },
+        {
+          "kind": "Changed",
+          "area": "Music",
+          "text": "Music is now chosen by screen and world mood: title themes in menus, a dedicated piece in the credits, calm pieces during the study timer, and in the world songs matched to weather, caves, sea, building, home, landscape and time of day, separated by minutes of quiet. A short Now Playing card names each song as it starts.",
+          "refs": [
+            {
+              "commit": "16330e88a61cadc11b69b0ba79202e2e65fcfca1",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Changed music to follow where you are, with different songs for menus, credits, weather, caves, the sea, building and time of day, plus quiet gaps and a short Now Playing card."
+        },
+        {
+          "kind": "Added",
+          "area": "Music",
+          "text": "Every album gets an abstract voxel cover, shown on the Now Playing card beside the song title.",
+          "refs": [
+            {
+              "commit": "79fe240aeff2f5d93721ea45cefd4e6a14317980",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Added abstract voxel album covers that appear on the Now Playing card."
+        },
+        {
+          "kind": "Changed",
+          "area": "Music",
+          "text": "Music now streams as 48 kHz stereo with its own stereo image. Previous/Next crossfades to the chosen song once it has buffered, and turning music off fades it out briefly; turning it on resumes the song. A stalled decoder is stopped after 10 seconds and reported.",
+          "refs": [
+            {
+              "commit": "0197ece656cc4e1c3e8571eb83428faa6790c53f",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Improved music playback: songs now crossfade when you skip, fade out when music is switched off, and play in full stereo."
+        },
+        {
+          "kind": "Changed",
+          "area": "Textures",
+          "text": "Large texture pass over natural materials. Bark and end grain were redrawn for five tree species and jungle boards; the ice family gained readable cracks, bands and facets; the main stone was neutralised and ten rock types given a distinct identity; pale rocks, basalt, obsidian, gravel, leaves and many wood, leaf, stone and plant materials were redrawn, and cherry, mangrove and willow planks were regenerated.",
+          "refs": [
+            {
+              "commit": "d4228df0e2a8cd0e9ac354b616b73ce4e08d00ba",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "dd1b0c00dda3a567f9886da72b3fcf0ae339c6ea",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "7cdc844ed2f8c2be00684a3f86e7c8d081076e2d",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "5c522104a8a256fb641819c6e4926989f11db706",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "5bf080018e6e8981513b1593abf8968f89fa736b",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "149d54e3f25de9103c7d55fb9fd7865e65270075",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "11b86f3f424e085d76bb9ce6a239ba3954c45d40",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "dc29330cfa1f0f3738d2237291d0d4e4ad07104b",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "1381216eef07454b30ed3b009b4fb30e2b22e6e1",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "887b288549f845e8607f9899565f245969b72c8d",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Changed the look of bark, end grain, ice, stone, rock, gravel, leaves and many other natural blocks with new original textures that are easier to tell apart."
+        },
+        {
+          "kind": "Added",
+          "area": "Textures",
+          "text": "New original textures for duckweed, roots, bamboo and bamboo shoots, ferns, kelp, seagrass and red, gold and blue coral.",
+          "refs": [
+            {
+              "commit": "f2e1abf04eeb69bf2cbfd6cc671fe522b19b2cd5",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "421baca65d92f8ec703882f3d382db1a6f2144c9",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "bdabced167e409facf2e8639725fe5de81a188fc",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "54af13c7068c24d987509562b30c64b641df651b",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "d92afed8034949e9ecdb9fd25006eefce2c0f551",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "85ce2ed0e17b3ec3058d3411e60e47ed5fd48c6f",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "be3c88e0cd8ef91a633df877836bf90dd770fd87",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "a2b5a0363ad9a30c0b16ae0df21bf84a874ef074",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "b4d02f5af6ba7ea10ed20058b9d0d8552c02736a",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "37226c8f7fd4ea7d230e0fecb09ff8220c7fdcb2",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Added new original textures for duckweed, roots, bamboo, ferns, kelp, seagrass and red, gold and blue coral."
+        },
+        {
+          "kind": "Changed",
+          "area": "Textures",
+          "text": "Many creature texture layers received finer painted detail, each checked in the game; unconvincing stamped-looking bird masters were rejected and retried with coarser detail.",
+          "refs": [
+            {
+              "commit": "cd6b5653e258ec21d95eea771ffa5eb44da1b6ff",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "deacbdb7fbedb11b672fcdf742a8c593330f9040",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "77325b448040787285a16f14b2f9ffcc509327ea",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "c650a162b2cd3510ff1cbb36b544c3e216259140",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "706f1f493e07ed4a07ca8a44d1179eae4f708da4",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Added finer detail to many creature textures."
+        },
+        {
+          "kind": "Changed",
+          "area": "Animals",
+          "text": "The cave centipede was remodelled under a new creature style contract with fixed cuboid budgets, and the butterfly's antennae were thinned. Minimum feature sizes now scale with small bodies so thin parts are never slivers.",
+          "refs": [
+            {
+              "commit": "38ad5c560a4c153e85dad2472d8f5b266f8049c2",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "df94b490512d8f04d0c27446b2103966eefbfe63",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Changed the cave centipede to a new, simpler model and gave the butterfly thinner antennae."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Animals",
+          "text": "Coat patterns are laid out with box UVs on reptiles and centred on single-row faces for whales and snakes; the gull, turkey, bald eagle and mantis shrimp part tiles are mirrored across the spine so both sides match.",
+          "refs": [
+            {
+              "commit": "c0ee3c8638338ebf17e8fd2ead76f63926b5f8ab",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "bfbf666e0038429aae6b9e909f48d6afc22c870f",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "59fbdecfc4feee47d3ee4a0a4f64f35a7fcc9b2a",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "eed760ee9aba5812dab27c55c3ccfcc17dad7942",
+              "date": "2026-10-20"
+            },
+            {
+              "commit": "0d97ec2ddb0c5624469aa63a9615ec4662062778",
+              "date": "2026-10-20"
+            }
+          ],
+          "publicSummary": "Fixed coat markings on reptiles, snakes, whales, gulls, turkeys, bald eagles and mantis shrimp so both sides of the animal match."
+        }
+      ],
+      "publicTitle": "Optional 16 km horizon, music by mood, album covers and new textures"
+    },
+    {
+      "id": "game-2026-10-19",
+      "source": "game",
+      "date": "2026-10-19",
+      "title": "Plot chat controls, operator console and new tree, plant and ground textures",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "On a hosted world, /plot in chat gives current-column protection controls: info (with exact X/Z bounds), claim, release, players, trust ID, untrust ID, builders and untrust-key KEY to revoke a saved builder who is offline. Columns cover all heights, replies are private, you are told when protected land or your access changes, and claims and grants are saved with the world.",
+          "refs": [
+            {
+              "commit": "ec8df5072602f061ad6a26a6e63bb4ff1808a8ff",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "c809eabcfcb24f04113a4fdae1d641296343aa36",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "ad0bce72710f5f456b9d3e9866f9333bb8e2cae3",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "353d7b63ade1f77670441487ee5df8628b1f1c87",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "21fcea996f53475684ea4b9a94f18a8b2a4843d0",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Added /plot chat commands on servers to claim land, trust builders and check boundaries. Claims are saved with the world and you get a private notice when protected land changes."
+        },
+        {
+          "kind": "Added",
+          "area": "Multiplayer",
+          "text": "The dedicated server opens a coloured operator console on a terminal; --no-tui, or redirected output, keeps plain lines.",
+          "refs": [
+            {
+              "commit": "00a2edec841e5bd88d726db5694d03880e9298a4",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Added a coloured operator console to the dedicated server, with a plain-text mode for scripts."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "A private LAN host now listens on all interfaces of its address family and joins itself through loopback, so a VPN-selected address no longer restricts who can connect.",
+          "refs": [
+            {
+              "commit": "25ac3d5f978e99f04c9f8e07d20b93ccce3dc3bc",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Fixed LAN worlds being unreachable from other devices when a VPN picked the wrong network address."
+        },
+        {
+          "kind": "Changed",
+          "area": "Multiplayer",
+          "text": "The server now waits until it can take a whole multi-block build request before applying it, instead of splitting a request across steps; large builds still arrive over several ticks.",
+          "refs": [
+            {
+              "commit": "52abc4535e35a8ef9cc3e377c564f99afc01c3d4",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Changed building on servers so each build request is applied whole rather than partly."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Building",
+          "text": "While flying in Creative, holding the Undo/Redo shortcut keys no longer counts as a fresh movement-toggle press.",
+          "refs": [
+            {
+              "commit": "b13746decb786123f4d5869b94cd1c24feae4fe1",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Fixed Creative Undo and Redo shortcuts being read as flight toggles while flying."
+        },
+        {
+          "kind": "Added",
+          "area": "Textures",
+          "text": "New original textures for tree leaves, bark, end grain and boards. Golden, russet, palm, broad-leaf, alder, birch and pine foliage got their own cores and cards, birch and pine got separate bark, end grain and boards, and oak, alder, acacia and fruitwood board grain was redrawn.",
+          "refs": [
+            {
+              "commit": "1b3a77095ee7d1c0fa4bfd805bb13c76a8c5aee6",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "120dbdb4c6af418f8701c1d3587f66faec67b7dd",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "01e9c65a946a38bfb30f138f331e072f2dcd228a",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "dbe5c26780ea1279dd2fb40151a3d8cf87700bc8",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "7167ef8e1dcee6ad2e19cff554299f4fb1b900a7",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "6787038900662bd23915706bf78411ad77410d9b",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "d42da07dcacd0b691feeed8f72dc15e71899eba0",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "572eb7e7ff12f4024209dea388271678ad7f1409",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "c338ea78a33d952cf203d7f790e1cf8029be9d5f",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "223ac98587b5d96e254a9b9f41944186339ff940",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "a50ee2c99fe23cd4cb6ef399257f63c928fd6f41",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "b681c79708f92b7d84325366484f55247fd35419",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "489421b92e4d27b301b81b74f0e6a409a563b703",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "c8d5200ce86952d116917877216f8eb769c68188",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "5ce9106e24a0f7ade988303f1f9d5b2c5d86ac44",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "c141547813c7d3820dcb5295be954912cba1cd9a",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "fcbd73c9978efc34c05b230b169d69060c3723e7",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "12ed79ae66600d54dd807262986e14da677d4512",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "13735d9e179abbee06f5a571070d9bdc4237eb5a",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "66f758fa30860d3a6b88514179c8537c683359af",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "7f12622003b931f7084940281b4f4a9b03123b21",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "35c8e14d34da909b00629424c2b3f9ee40c2bde2",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "0383cc36f5dc4a5047ee25cc0a2d87bb88b90cf5",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "f66f5b550bacfee7b7d4628007a17aae55a67ce3",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "4d18560ba36fb09da8b72932fb254155b85bf4b7",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "5be7cf4fa09d075e9ad6502f2b8d15e6086bb052",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "787a8efe89c9783f19e678e21f2cc252dd705bfa",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Added new original textures for leaves, bark, end grain and boards, including separate birch and pine looks and redrawn oak, alder, acacia and fruitwood boards."
+        },
+        {
+          "kind": "Added",
+          "area": "Textures",
+          "text": "New original textures for ribbed cactus sides and caps, dry shrub and reeds. Turf, earth, moss and clay palettes were toned down while keeping the soil visible at turf edges through the seasons.",
+          "refs": [
+            {
+              "commit": "4807a021c13868d9ca6bc643870d27ba588b9e26",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "153039f99d1a22ff24e07e7ccf097cf658ec4332",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "13b5d57716f874ae973698b9e151251d141418d0",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "51ed3ffc8113a96e29e9b88228e32823ebfd1362",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "dd015e7533a7654650a600a62f29144111b645bc",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "826e1eba621034722ff750dedd58c881fc439b14",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "304912ec7ea5869f37754953adee26bf5933b61f",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "cdf3e51cf1f5ab93c2ab5bfb3992c1b468bc1c34",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Added new original cactus, dry shrub and reed textures, and toned down the colours of turf, earth, moss and clay."
+        },
+        {
+          "kind": "Changed",
+          "area": "Performance",
+          "text": "Terrain building shares its background workers more sensibly on computers with few CPU cores, skips empty terrain pieces and cancels outdated distant-terrain work, so chunks load with less waiting.",
+          "refs": [
+            {
+              "commit": "a0092c87b4468bdbf3b3786b0144a70809625208",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "6f063263140a975a8bba047267143e087bbc8085",
+              "date": "2026-10-19"
+            },
+            {
+              "commit": "e71103caa7fafad5f7e8cb4798e453183897b9af",
+              "date": "2026-10-19"
+            }
+          ],
+          "publicSummary": "Improved loading of nearby and distant terrain, especially on computers with few CPU cores."
+        }
+      ],
+      "publicTitle": "Plot controls on servers, server console and new tree and plant textures"
+    },
+    {
+      "id": "game-2026-10-18",
+      "source": "game",
+      "date": "2026-10-18",
+      "title": "Darker nights, autumn leaves, interface sounds, Journal restore and softer textures",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Lighting",
+          "text": "Night ambience is dimmer and cooler while daytime stays bright and local lamps remain useful. Cloud shadows also soften with distance between the cloud and the surface they fall on. Held items adapt smoothly to shelter lighting over about a fifth of a second, and creatures receive smoother sky light.",
+          "refs": [
+            {
+              "commit": "c88b66a8d59b7dd5223a7c93eeb948c33a1ff81d",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "8b4b7046bb1e2485d57b89e63b922981e3b8e561",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "f4a1a27be61dc8455333fa9436ddb9e85eabda06",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "25639ebb2c3964fcdebb4b4dde821098f9b0ce6b",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Changed nights to be darker and cooler, with lamps still useful, and softened cloud shadows with distance."
+        },
+        {
+          "kind": "Added",
+          "area": "Weather",
+          "text": "In autumn, nearby deciduous canopies occasionally shed small windblown leaf flakes in Fast and Cinematic. Reduced motion hides the effect; trees and their harvestable leaves are unchanged.",
+          "refs": [
+            {
+              "commit": "25639ebb2c3964fcdebb4b4dde821098f9b0ce6b",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Added occasional windblown leaves drifting from autumn trees in Fast and Cinematic. Reduced motion hides them."
+        },
+        {
+          "kind": "Added",
+          "area": "Audio",
+          "text": "Interface feedback now includes quiet pointer and keyboard-focus ticks, separate inventory open and close tones, and a short rejection tone for unavailable crafting or invalid key bindings. They follow the UI volume slider and are rate-limited.",
+          "refs": [
+            {
+              "commit": "66691ea6966d176ecfdecc6ee2d7235aa921158e",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Added quiet interface sounds for hovering controls, opening and closing the inventory, and refused actions. They follow the UI volume slider."
+        },
+        {
+          "kind": "Changed",
+          "area": "Audio",
+          "text": "Nearby animal calls now keep following their source: loudness and direction change during the same call as you or the animal moves.",
+          "refs": [
+            {
+              "commit": "c59d60888faf389079e2c8b3917748572ba19cc3",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Changed animal calls to follow the animal as you or it moves, shifting in direction and loudness during the call."
+        },
+        {
+          "kind": "Added",
+          "area": "Journal",
+          "text": "The Journal and fullscreen map gain Restore removed, which recovers the latest deleted place during the current session. Expedition supply finds are one-time pickups in solo worlds.",
+          "refs": [
+            {
+              "commit": "794e64980c408564e9bdc04218f6f0f9fdfa47eb",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Added a Restore removed button to the Journal so the last deleted place can be brought back."
+        },
+        {
+          "kind": "Added",
+          "area": "Building",
+          "text": "Creative Undo and Redo are now visible in the Build tab, which shows step counts and shortcuts, and Redo stays steady while flying.",
+          "refs": [
+            {
+              "commit": "ef0c3f0d8436c25deb9a8516c9122d84720cefc1",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Added Undo and Redo step counts and shortcuts to the Creative Build tab, and made Redo steadier in flight."
+        },
+        {
+          "kind": "Changed",
+          "area": "Movement",
+          "text": "Moving through occupied leaves is now half speed, including Creative flight; normal acceleration returns on leaving the foliage.",
+          "refs": [
+            {
+              "commit": "591a98681944ebcb6b2efe2ceed6bfcb725f994a",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Changed movement through leaves to half speed, including Creative flight."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Rendering",
+          "text": "Standing with the camera inside leaves or stone no longer shows a hole in the view; the cut surface now shows the material's own artwork.",
+          "refs": [
+            {
+              "commit": "f93eec0605f250686626025d891af9d06688f328",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Fixed the camera seeing through leaves and stone when it sits inside them."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Movement",
+          "text": "Map travel, server teleports and respawn now share one arrival reset: zero speed, no leftover ground contact, an upright body and a fresh posture check at the destination.",
+          "refs": [
+            {
+              "commit": "2b4f189433cea71dea7e573fbf2edd6cd0a0c389",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Fixed map travel, server teleports and respawn carrying over old momentum or posture."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "LAN world discovery retries every three seconds if its listener cannot open, and discovered LAN worlds show their IP and port in the Multiplayer menu.",
+          "refs": [
+            {
+              "commit": "6f594cdd4a041cb85a44f1990aec0233b60bd8de",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Fixed LAN world discovery giving up when it could not start, and added the address and port to discovered worlds."
+        },
+        {
+          "kind": "Changed",
+          "area": "Textures",
+          "text": "Texture pass over clay, sand, sandstone, red sand, mud, forest soil, gravel, ice, old snow, iron ore, lichen, oak and mossy logs, turf and alder bark. Surface noise was reduced and readable structure kept, turf palettes warmed, and alder bark moved toward grey-brown plates.",
+          "refs": [
+            {
+              "commit": "2a825397ddd0174867f0ac174aa1022c8bfd2a68",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "9e6f074807cbdb902cf8ea60c9db9260895173f7",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "9625d15e1e920d30bd4fc708df718835ebebae50",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "c494cf03ed2badeccdcc1c319e705d1846049383",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "6127cc584cc92af86b3b5f59ff616188fd7c11f1",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "03722f21a880cee179a05747e9ad39b3ad92154c",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "b320550859881e2ad86b16c54930a9387920549e",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "8184047cc9b8eee2375e3c1851f4e589a0be8ffd",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "b33599126d4b0e0c07dffa6df7f919514da38c2f",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "6710235aaa0f16e603174f47015945543d4dd48e",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "dd64fbe4747558f432640e6f29b29b9c14b5929f",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "4a9bbf57bbc2e837ff70ea6439c5ed8f96275348",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "20faf5045b8c1354be26974c982af529665f0079",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "e3ff671e232b3977968aa9400bbd7f17645ac1fd",
+              "date": "2026-10-18"
+            },
+            {
+              "commit": "ed247580ecd298e1b2a2300239bc18c1df30cfb2",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Changed the look of clay, sand, sandstone, mud, soil, gravel, ice, snow, ores, logs and turf with calmer, more readable original textures."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Textures",
+          "text": "Coastal rock colour now continues across block faces instead of showing seams.",
+          "refs": [
+            {
+              "commit": "7167dae7e21c255a03e3dcb17a072996b8660301",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Fixed visible colour seams between faces of coastal rock blocks."
+        },
+        {
+          "kind": "Changed",
+          "area": "Performance",
+          "text": "Hidden batches of distant terrain are skipped when they cannot be seen, using cached view ranges.",
+          "refs": [
+            {
+              "commit": "f24befaf51e18844f4b9cef87939da34ffedb693",
+              "date": "2026-10-18"
+            }
+          ],
+          "publicSummary": "Improved performance by skipping distant terrain that is hidden from view."
+        }
+      ],
+      "publicTitle": "Darker nights, interface sounds, Journal restore and texture updates"
+    },
+    {
+      "id": "game-2026-10-17",
+      "source": "game",
+      "date": "2026-10-17",
+      "title": "Settings, Controls editor, first steps, fishing and cave formations",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Controls",
+          "text": "Settings gain a Controls editor: click an action (or select it and press Enter), then press its replacement key. Escape cancels, Delete unbinds, duplicate keys show a conflict warning, and Backspace resets the map. Menu navigation and text entry stay physical, a cancelled capture keeps feedback, and panel navigation keeps priority over customised gameplay keys.",
+          "refs": [
+            {
+              "commit": "c8079beec61390680c6bb16e9d452127e050180c",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "25f669c8a245e7fd741c8f2cde89abec3e810433",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "f6258ea59a182c172394d6176fce7baaef1b63e0",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added a Controls editor where you can rebind keys. It warns about duplicate keys and can reset everything to the defaults."
+        },
+        {
+          "kind": "Added",
+          "area": "Settings",
+          "text": "Audio has separate Music, Effects, Ambience and UI volumes under master volume. The Input tab offers Hold or Toggle for sprint, sneak and crawl and separate horizontal and vertical mouse sensitivity, and the Interface tab adds a 75-200% UI scale and a HUD-text-only scale.",
+          "refs": [
+            {
+              "commit": "23a4b0096947b0cce47874aff198e2d7b99f0c7c",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "73fe7fcb521013ea8eb5590104a43ce22fc618a2",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added separate Music, Effects, Ambience and UI volumes, Hold or Toggle for sprint, sneak and crawl, and a UI scale from 75 to 200 percent."
+        },
+        {
+          "kind": "Added",
+          "area": "Settings",
+          "text": "High contrast adds stronger panel edges, solid HUD backing and larger crosshair arms; Reduce motion turns off walking bob, speed FOV, hurt dip, blast shake, menu fades and idle held-item motion. Graphics presets (Low, Balanced, High, Cinematic) set shading, view distance, fog, fade and frame rate, and Find (Ctrl+F) filters settings by name, with Restore tab defaults for one tab.",
+          "refs": [
+            {
+              "commit": "3731ddc96aa637cba30019efc7670ef4c918cdf3",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added High contrast and Reduce motion options, Low to Cinematic graphics presets, and a Find box to search the settings."
+        },
+        {
+          "kind": "Added",
+          "area": "Settings",
+          "text": "Crosshair settings offer Cross, Dot or Brackets, 50-200% size, adaptive inversion or an outlined colour, and 25-100% opacity, without changing weapon accuracy. Audio problems show a notice explaining which playback tool to install.",
+          "refs": [
+            {
+              "commit": "0110c903518f56d7c6431c4e97544f0d98fe6c8d",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added crosshair options for shape, size, colour and opacity, and a notice when the game cannot play sound."
+        },
+        {
+          "kind": "Added",
+          "area": "Survival",
+          "text": "An optional First steps card guides movement, gathering wood, crafting boards and a stone hatchet, then eating or drinking; it can be closed and reopened from the pause menu. After a fatal fall, starvation, thirst or blast, the death screen names the cause and the respawn place and keeps your inventory. Collected items group in a pickup feed, and notices such as Inventory full stay visible.",
+          "refs": [
+            {
+              "commit": "a18696dbb046eddd07c7b62900d43cf8d1f39d99",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added an optional First steps card, a death screen that names the cause and lets you respawn when ready, and a pickup feed."
+        },
+        {
+          "kind": "Added",
+          "area": "Survival",
+          "text": "The HUD keeps health, hunger, thirst and stamina visible with a low-warning threshold (10-40%), optional slow pulses, named warnings and brief direction arrows for positioned hits such as explosions. F10 or the pause menu Screenshot action saves a PNG to your Pictures folder, and a confirmation appears once it is written.",
+          "refs": [
+            {
+              "commit": "5a3bb88d596617e35ff6352b8c9728bde72eb09c",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "cdaf551fe315746bc40de28f4e8a5b4df9e0d736",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added low-resource warnings on the HUD and a Screenshot action (F10) that saves pictures to your Pictures folder."
+        },
+        {
+          "kind": "Added",
+          "area": "Worlds",
+          "text": "Worlds shows each save's seed, mode, generator version, last-played time and playtime, with the active world first, then starred worlds. Ctrl+R renames and Ctrl+D duplicates the selected save. Creating a world opens a dialog for name, seed, Creative or Survival and terrain generator, and the pause menu has a Help / keys page with the live key list.",
+          "refs": [
+            {
+              "commit": "5a3bb88d596617e35ff6352b8c9728bde72eb09c",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "eebd8d9c9fda7339a917b995216463b4e493261b",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added a create-world dialog with name, seed, mode and generator, rename and duplicate for saved worlds, playtime in the Worlds list and a key Help page."
+        },
+        {
+          "kind": "Added",
+          "area": "Menus",
+          "text": "Ctrl+Tab and Ctrl+Shift+Tab visit visible menu controls with a mint outline and Enter or Space activates them; item grids can be used from the keyboard. Latin-1 accented letters are drawn in menus, and an unreadable save opens a recovery dialog with Back to menu and Open worlds folder.",
+          "refs": [
+            {
+              "commit": "062321d0e4740bda1ca3e34744f75d4557456e39",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "0110c903518f56d7c6431c4e97544f0d98fe6c8d",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added keyboard control of menus with Ctrl+Tab, accented letters in text, and a recovery dialog when a saved world cannot be read."
+        },
+        {
+          "kind": "Changed",
+          "area": "Menus",
+          "text": "The main menu backdrop shows your Continue world as a wide isometric landscape with soft sun shadows, quiet distant detail and a light haze, cached while the menu is idle; shared menu and overlay surfaces use one style.",
+          "refs": [
+            {
+              "commit": "134234f0d8b403f79b9ff4fda4396d54a96e4ab1",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "0eeec1efbc999d4840473b51d6079a60636d9c4c",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "cd8d1c313e72ec307ca87c7fbc359b0a96006257",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "ca059268608fe86cb6a1d9fa77337d943954fb0d",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "63f76b8c0feadae7a5ac81b4ab310ee8c7a6b54c",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Changed the main menu background to a wide isometric overview of your world with soft shadows and haze."
+        },
+        {
+          "kind": "Added",
+          "area": "Crafting",
+          "text": "In Survival, crafts enter a short queue of up to eight orders; progress shows on the HUD and Craft tab and Stop queue cancels unfinished orders. Materials are only spent when an order completes, missing ingredient rows show how many more are needed, and creative crafting stays instant.",
+          "refs": [
+            {
+              "commit": "23b2f0215fb34bdcd4e6eed64e0cd356060d09e9",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "0110c903518f56d7c6431c4e97544f0d98fe6c8d",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added a craft queue in Survival with progress and a Stop queue button, and crafting lists show how many more ingredients you need."
+        },
+        {
+          "kind": "Changed",
+          "area": "Crafting",
+          "text": "The alder rifle, its rounds and TNT no longer need the finite Glow crystal find: rifle binding uses four reeds, four rounds use one charcoal and one TNT block uses eight charcoal. The red lantern is now a charcoal-lit paper lantern assembled from paper screens, charcoal and boards, with no glow crystal and no refuelling.",
+          "refs": [
+            {
+              "commit": "512abbbc316dea36af80c823a0674c8c4906e929",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "ac78ba4e95362fe9567a8ac929910d394fcad9c4",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Changed the rifle, its rounds, TNT and red lanterns so they no longer need the rare Glow crystal; charcoal and paper screens are used instead."
+        },
+        {
+          "kind": "Added",
+          "area": "Fishing",
+          "text": "A reed fishing rod (four board pieces, four reed pieces and two fibre or wool) lets you cast at open fresh, sea or black water within 12 m with right click, wait for the bite prompt and reel in with right click; left click cancels. The catch waits while the pack is full. Fishing is single-player only and its balance is still under review. Cows, sheep, pigs and chickens now rejoin nearby groups and rest at night until startled.",
+          "refs": [
+            {
+              "commit": "84fa170bab2d3db64ba07c05bf241bd0a5f1a54f",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added a reed fishing rod you cast and reel in with right click, and farm animals that gather in groups and rest at night."
+        },
+        {
+          "kind": "Changed",
+          "area": "Plants",
+          "text": "Cutting a mined block's support also gathers its rooted flowers, ferns and stalks, and in Survival the whole cut must fit in the pack first. Bamboo is made of solid narrow stalks with raised joints near and at middle distance, grouped silhouettes far away, and rigid stalks must be cut before building or swinging a door through them.",
+          "refs": [
+            {
+              "commit": "a717e18f87ab5bc05b902f75a33504ca649c6a13",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "f24c4030e897a7d950c880f4c29b828abfe9fcf9",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "bd5e83727611899c8c15824a624d1183157930a6",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Changed bamboo to solid stalks, and mining ground now also gathers the flowers, ferns and stalks rooted in it."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Doors",
+          "text": "Doors only swing or shut when the arc is clear of players, animals and walking characters, and a saved position is only moved if restored structures newly block it.",
+          "refs": [
+            {
+              "commit": "1e67824c22b29b155ca0df6ac00d1dfb375c95d6",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "6a8fb885f8257e0091d5ba0a1c6590d7cc553b53",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Fixed doors swinging or shutting through people and animals, and fixed saved positions being moved needlessly."
+        },
+        {
+          "kind": "Added",
+          "area": "Exploration",
+          "text": "Show on map in the Journal centres the full-screen map on the selected place, or on your Home when none is selected, without moving you. New worlds (generation 12) have walk-in cave entrance aprons and tapered limestone stalactites, stalagmites and joined columns in covered limestone chambers.",
+          "refs": [
+            {
+              "commit": "6f7579889fdffc0847e8b312e8a12f8b45d37d42",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "fe76a93932a5a5ae8860f56986d701861793ab40",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "c62004e44dd9ffe71158678152c5d3ddcfc9af64",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Added a Show on map button to the Journal, and walk-in cave entrances with limestone stalactites and stalagmites in new worlds."
+        },
+        {
+          "kind": "Changed",
+          "area": "Sailing",
+          "text": "Boats throw distance-spaced bow spray, loaded dinghy sails heel gently in a crosswind and idle hulls settle, the boat HUD shows knots, sail trim, heading and an upwind tack hint, and the weather, including the wind used for sailing, continues after reloading a world.",
+          "refs": [
+            {
+              "commit": "fb74e77ccacb3bbdbe2a43402a260a1d883a35ca",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "ec41055df0d3a699379bea1c2b0b7a2e7d75e481",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "94e5a2029d6cbc92ad37bf899834140ef4e464af",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "062321d0e4740bda1ca3e34744f75d4557456e39",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "762edce96649a18a804f512ff90837d4a90bc091",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Improved sailing with bow spray, a gentle heel in crosswinds and a boat display of speed, sail trim and heading. Weather now continues when a world is reloaded."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Rendering",
+          "text": "Cutout plants such as kelp and tall grass show upright in inventory icons, palmed rocks and spawn eggs stay visible in the hand, held plants keep their full cutouts, crystal facets stay readable instead of washed teal, underwater caustics follow the terrain texel grid and water under ice is shaded by the real depth.",
+          "refs": [
+            {
+              "commit": "3cd48d0a27610b3cb730bd203247b7a37dd83883",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "db76cb0ef70ce6feb17e47528004bceb8c98dbe7",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "9a3dffc67e5b2a977f41b236c0b83cb139b2eb46",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "8e8a654d067b444b5be3376d3e9ad10b9c62ca90",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "bada67dfecd0e39d6e7a8dd255d36b8dcd9d334d",
+              "date": "2026-10-17"
+            },
+            {
+              "commit": "5f2ecc430b71c9aa767c0d50cbb31d1dfc8b8aa5",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Fixed hollow-looking plant icons, held plants and rocks, washed-out crystals and water depth under ice."
+        },
+        {
+          "kind": "Changed",
+          "area": "Trees",
+          "text": "Trees keep their half-metre leaf shape through the intermediate distance rings instead of simplifying early.",
+          "refs": [
+            {
+              "commit": "5540cf0ae0caa8477d236d6c4d248abef254449a",
+              "date": "2026-10-17"
+            }
+          ],
+          "publicSummary": "Improved distant trees so they keep their leafy shape instead of turning into simple blocks."
+        }
+      ],
+      "publicTitle": "Settings, Controls editor, first steps, fishing and cave formations"
+    },
+    {
+      "id": "game-2026-10-16",
+      "source": "game",
+      "date": "2026-10-16",
+      "title": "World backups, canopy climbing, chat filter and gentler survival",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Terrain",
+          "text": "Grass, foliage and water colours blend continuously with the local climate across nearby and distant terrain, and the historical turf types share one grass texture.",
+          "refs": [
+            {
+              "commit": "44ff085e5e09cfdaf23977aeb4ee1f2d029eb87d",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Changed grass, leaf and water colours to blend smoothly with the local climate, near and far."
+        },
+        {
+          "kind": "Added",
+          "area": "Movement",
+          "text": "You can walk through tree leaves, hold Space to climb and Shift to descend, and release both to hold your height inside the canopy. Leaf tops support standing and Shift drops through them; trunks and branches stay solid. Map travel destinations are kept clear of leafy foliage.",
+          "refs": [
+            {
+              "commit": "554923f1380400ee82d19e5683a7beff482dd46a",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "79c9fe32be03ef9d048d1bc888c909c1facb677a",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Added walking and climbing through tree leaves: Space climbs, Shift descends and releasing both holds your height. Trunks and branches stay solid."
+        },
+        {
+          "kind": "Added",
+          "area": "Chat",
+          "text": "An optional local chat word filter, initially off, is controlled with /chatfilter (add, remove, on, off, clear, list).",
+          "refs": [
+            {
+              "commit": "1908ef1c8a21755e836611ae9e72ecc4816b656e",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Added an optional chat word filter you control with /chatfilter. It starts switched off."
+        },
+        {
+          "kind": "Added",
+          "area": "Worlds",
+          "text": "A world can be backed up from the Worlds list with its Create backup button or Ctrl+B. The local world is saved first, the loading screen reports real stages, and the finished location or an error is shown. Backups are stored separately from the saves.",
+          "refs": [
+            {
+              "commit": "92a1b2408c8d8bf42c8acc0b3f221f49455ea971",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Added world backups: use Create backup or Ctrl+B in the Worlds list to save a separate copy of a world."
+        },
+        {
+          "kind": "Changed",
+          "area": "Worlds",
+          "text": "Deleting an inactive save needs a three-second hold on its Delete button or key, and the menu reports Deleted only once removal succeeded. Continue now resumes the last world you selected, a missing save is no longer silently replaced by a new world, and naming problems and save failures stay visible until they are resolved. The world-name field states the characters it accepts and new save folders use safe names.",
+          "refs": [
+            {
+              "commit": "a0da5459e8a6de627badf940e12539f8bb299a4f",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "f9536075e8f257722803a4d28259afc291f11ae0",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "9237c45f872b7582c25cb06a1b6465abb7f7e430",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "2bf0172b96a965478d4286f2060e91c9facf3a34",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "21ed7f05494c63430c1b42f4abcbff9fcc4ec04a",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "afc6421931079c3f19bc9b977613602d5666a089",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Changed world handling: Continue reopens your last world, deleting needs a visible hold, and save or naming problems are now reported instead of being ignored."
+        },
+        {
+          "kind": "Changed",
+          "area": "Menus",
+          "text": "The credits can be stepped with Previous / Next or the Left and Right keys, with Tab selecting the footer buttons. The game window also asks the desktop not to blank the screen while it is focused.",
+          "refs": [
+            {
+              "commit": "75b50a1200e4c583230f9e1b71c196a37bbab9f1",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Added Previous and Next controls to the credits, and the game now asks the desktop not to blank the screen while its window is in use."
+        },
+        {
+          "kind": "Changed",
+          "area": "Mining",
+          "text": "In Survival, suitable pickaxes, hatchets and shovels keep their material advantage while hands and unsuitable items are slower on rock, timber and soil; delicate plants stay quick to gather. Cutting reeds, tall reeds or bamboo removes the column above the cut and leaves lower segments and neighbours. Mining cracks show on recessed faces of carved blocks, and glass and ice fragments stay translucent.",
+          "refs": [
+            {
+              "commit": "0814bafe7618af0d1782fd549627076a30bdce5a",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "b2f645b75fa9f4a355596aaf7f3cec48014919d0",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Changed Survival mining so bare hands are slower on hard materials, and cutting reeds or bamboo now removes only the part above the cut. Fixed cracks on carved blocks."
+        },
+        {
+          "kind": "Changed",
+          "area": "Weapons",
+          "text": "Handheld guns, armed planes and tanks share the same four-line crosshair; vehicle sights follow the actual gun solution and tanks show a separate HULL direction marker. Zoom and aiming keep their real-time response below 20 frames per second.",
+          "refs": [
+            {
+              "commit": "089c592ea585ca6883b2c7085588c838e0bb5670",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Changed gun sights so handheld guns and vehicles share one crosshair, with a HULL marker for tanks, and aiming stays responsive on slow computers."
+        },
+        {
+          "kind": "Changed",
+          "area": "Survival",
+          "text": "Ambient temperature no longer damages health or acts as a survival need. The Home readout no longer lists temperature, and resting still needs shelter but uses no food.",
+          "refs": [
+            {
+              "commit": "3246875295ebffc0f2b490f99218e09e7853252d",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Changed Survival so heat and cold no longer harm you. Health, food, water and stamina are the only meters."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Water",
+          "text": "Flowing water drains when its source or upstream supply is removed, while natural water and portions fed by another source remain. Capped spreading resumes, and drinking from a source now reports what actually happened and makes no sound when nothing changes.",
+          "refs": [
+            {
+              "commit": "058bb8c936d5b510d49b38a4a1425f8b37bd99cb",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "a0da5459e8a6de627badf940e12539f8bb299a4f",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "c5155580b7d10e2bff688afac3d6b73c4f1349b1",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed streams staying behind after their source is removed, and drinking from water making a sound when nothing happened."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Projectiles",
+          "text": "Thrown dynamite sticks to solid floors, walls and ceilings until the fuse ends, and falls again if its support is removed. When the thrown-item limit is reached the oldest rock or spawn egg makes room, an armed charge is never discarded, and a refused throw keeps your item. Rifle rounds expire quietly after four seconds and shells after twelve, and arrows and thrown items use the real water surface height for drag.",
+          "refs": [
+            {
+              "commit": "8979adf154e808feb23fe82050652aea6ddd86ec",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "e1c236d524090375d038e801eaa30c48043d8e4b",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "2211bfa00f747c47205ab02e582d35e70e85d2d6",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed thrown dynamite, armed throws at the throw limit, and water drag on arrows. Dynamite now sticks to surfaces until it goes off."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Movement",
+          "text": "Sprinting costs stamina only while you actually move forward: pushing against a wall costs nothing and held sprint no longer restarts itself while exhausted. Walls give more careful contact and corner support.",
+          "refs": [
+            {
+              "commit": "99c15f46580081b7efaf1756e906050b1588d553",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "181f0fd1e74686bcb0aaa9fa0ee9d815b6621c26",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed sprinting using stamina while pushed against a wall, and held sprint restarting itself when you are exhausted."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Animals",
+          "text": "Aim labels, melee and projectile hits now test the animal's posed body, and a cat's collision height fits its shape. Animals use the same aim ray for targeting and damage.",
+          "refs": [
+            {
+              "commit": "731cbd984cf6a4bac0c05af4ac115a498be8c7a0",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "8937ec94c2ab7c2c257df2d3a53505249fe82e4a",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed hits on animals to follow their posed bodies, and fitted cat collision heights to their shape."
+        },
+        {
+          "kind": "Added",
+          "area": "Home",
+          "text": "The Home screen can be driven from the keyboard: Left/Right chooses an action or switches Pack and Storage, Up/Down selects items, Page Up/Page Down changes page and Enter or Space transfers one item (Shift moves as many as fit).",
+          "refs": [
+            {
+              "commit": "ef1313111ed0bcf1ade4085527454de76e0a9173",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Added keyboard control of the Home screen for choosing actions and moving items between your inventory and Home storage."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Movement",
+          "text": "Player movement, camera motion and arrows keep fine positions far from the world origin, avoiding rough movement in distant regions. Worlds saved afterwards use save format 30, which older game builds refuse.",
+          "refs": [
+            {
+              "commit": "9dbf8985847331a64970b5573da443653b5be408",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed rough movement, camera and arrow flight far from the centre of a world. Worlds saved afterwards cannot be opened by older game versions."
+        },
+        {
+          "kind": "Changed",
+          "area": "Performance",
+          "text": "Large distant-terrain tile uploads advance in small pieces across frames, keeping existing terrain visible while replacements arrive, and nearby deep-shaft walls and floors are drawn from the detailed band rather than stale coarse terrain.",
+          "refs": [
+            {
+              "commit": "6025a42f3e7899351ae27a3ccf65016b4eb9fcc9",
+              "date": "2026-10-16"
+            },
+            {
+              "commit": "d13a7c6886fa07d90612ff9750233b385c9fd176",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Improved distant terrain loading on integrated graphics, and fixed stale terrain showing in deep shafts."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Rendering",
+          "text": "Held blocks show complete one-metre cubes with their attached face textures and a visible grip.",
+          "refs": [
+            {
+              "commit": "a56ad3e1f7ff8c6a3a4fbb373f827d2333f9ba1b",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed held blocks to show a complete cube with the right textures and a visible grip."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Text input",
+          "text": "Pinyin and other input-method text entry works on X11 with the focused input method.",
+          "refs": [
+            {
+              "commit": "c22b13cea087fcd1d492dfef36c8414d7cd41ed9",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed typing Chinese Pinyin in text fields on Linux X11."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Music",
+          "text": "A song whose decoding takes longer than 30 seconds is stopped and reported, so another song can be chosen and music re-enabled.",
+          "refs": [
+            {
+              "commit": "2211bfa00f747c47205ab02e582d35e70e85d2d6",
+              "date": "2026-10-16"
+            }
+          ],
+          "publicSummary": "Fixed a song that takes too long to load blocking the music; it is now reported and you can pick another."
+        }
+      ],
+      "publicTitle": "World backups, canopy climbing, chat filter and gentler survival"
+    },
+    {
+      "id": "game-2026-10-15",
+      "source": "game",
+      "date": "2026-10-15",
+      "title": "Bushy leaves, cloud layers and a simpler main menu",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Trees",
+          "text": "Tree crowns keep solid blocky leaf volumes with half-metre steps and gain visibly fluffy leaf tufts across exposed canopy faces; leafy bushes and placed leaf blocks use fuller rotated cutout clusters with gentle wind. Existing leaf textures are kept.",
+          "refs": [
+            {
+              "commit": "07f5c1ed939433865e83ea894e023e589231696b",
+              "date": "2026-10-15"
+            },
+            {
+              "commit": "782074d905ae7244e4f2f58004584885aa8e7de2",
+              "date": "2026-10-15"
+            },
+            {
+              "commit": "7aae200d8b491b6cfd363f9b4a63d25b4293124e",
+              "date": "2026-10-15"
+            }
+          ],
+          "publicSummary": "Changed tree leaves and bushes to look bushier, with fluffy leaf tufts on exposed canopies and fuller leafy bushes."
+        },
+        {
+          "kind": "Changed",
+          "area": "Weather",
+          "text": "Cloud decks now sit at 1,200, 1,800 and 2,500 metres. Rain, drawn as finer tapered drops, and its sound fade through the lowest deck and stop above it; weather below the clouds is unchanged.",
+          "refs": [
+            {
+              "commit": "23fb142d9cef0c2bb204f1685594a2bc54e18f86",
+              "date": "2026-10-15"
+            }
+          ],
+          "publicSummary": "Changed rain to fade out as you climb through the lowest cloud layer and to stop above the clouds, and raised the cloud layers."
+        },
+        {
+          "kind": "Changed",
+          "area": "Weapons",
+          "text": "The bow is held on the right with both hands visible and a clear aim, and the held-hands pose uses the correct item for the stone and glass cases.",
+          "refs": [
+            {
+              "commit": "dc4b131f1c83986ddc8890e2b74a764e57ec50a7",
+              "date": "2026-10-15"
+            }
+          ],
+          "publicSummary": "Changed the bow to be held on the right with both hands visible and a clearer aim."
+        },
+        {
+          "kind": "Changed",
+          "area": "Loading",
+          "text": "The loading mark is shown complete and centred on a darker background, and its glow colours follow the rotating cube corners. The app icon outline matches the darker background.",
+          "refs": [
+            {
+              "commit": "6207e627c4820ec7bd6e74a5d112a7b9fe525978",
+              "date": "2026-10-15"
+            },
+            {
+              "commit": "0b8c01194294574eac99bbbaeb1c72e48d9b75aa",
+              "date": "2026-10-15"
+            },
+            {
+              "commit": "15a63ba82208fb79dcb22c34b5858fde2e0d38d0",
+              "date": "2026-10-15"
+            }
+          ],
+          "publicSummary": "Improved the loading screen: the whole cube and wordmark now appear centred on a darker background, with glow colours that follow the cube."
+        },
+        {
+          "kind": "Changed",
+          "area": "Menus",
+          "text": "The main menu is reduced to the title and navigation buttons, and small-window menus stay above their footer controls instead of being scaled below the documented layout.",
+          "refs": [
+            {
+              "commit": "485ce64077ae69c23d2dc9ab3decb3d9d2bf472e",
+              "date": "2026-10-15"
+            },
+            {
+              "commit": "bd6a6192a3a22a4b3f070b95352d07b123539cc4",
+              "date": "2026-10-15"
+            }
+          ],
+          "publicSummary": "Simplified the main menu to the title and its buttons, and fixed menus overlapping their footer buttons in small windows."
+        }
+      ],
+      "publicTitle": "Bushy leaves, cloud layers and a simpler main menu"
+    },
+    {
+      "id": "game-2026-10-14",
+      "source": "game",
+      "date": "2026-10-14",
+      "title": "New logo, loading cube, scrolling world list and gravel shores",
+      "entries": [
+        {
+          "kind": "Changed",
+          "area": "Branding",
+          "text": "The Voxelgame logo and application icons become the open cube in an outlined pastel rainbow with a white centre and a neutral outline that stays visible on light backgrounds.",
+          "refs": [
+            {
+              "commit": "f79191050926a094149485f48ca96f7711a952d0",
+              "date": "2026-10-14"
+            }
+          ],
+          "publicSummary": "Changed the game logo and icons to an outlined pastel rainbow cube."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Survival",
+          "text": "Mining damage stays on the stored work target, so mining cracks stay on the block being worked through brief aim loss, including with the HUD hidden.",
+          "refs": [
+            {
+              "commit": "9948d6a2a0626eced42f1a9dc6384ee814cd14db",
+              "date": "2026-10-14"
+            }
+          ],
+          "publicSummary": "Fixed mining cracks disappearing when your aim briefly leaves the block you are mining."
+        },
+        {
+          "kind": "Added",
+          "area": "Menus",
+          "text": "The Worlds list can be scrolled with the mouse wheel, trackpad, arrow keys and Page Up / Page Down; the selected row stays visible and the list shows its position. The menu lists up to 256 worlds.",
+          "refs": [
+            {
+              "commit": "15ce4319762734ee02af597e36193bb70ae45d2c",
+              "date": "2026-10-14"
+            }
+          ],
+          "publicSummary": "Added scrolling in the Worlds list with the wheel, trackpad and Page Up / Page Down, so long lists of saved worlds are easy to browse."
+        },
+        {
+          "kind": "Added",
+          "area": "Loading",
+          "text": "A new loading presentation shows a rotating pastel wireframe cube with the tisu wordmark; the cube was sharpened and its strokes now stop at the central junction.",
+          "refs": [
+            {
+              "commit": "67342f4597804f7b76133729dc173601a9730f56",
+              "date": "2026-10-14"
+            },
+            {
+              "commit": "34dc5f606f03e2c4b2433d7506c28629a7d209b3",
+              "date": "2026-10-14"
+            },
+            {
+              "commit": "353a948cb484fcf80bf3c4c9b71be30650f73303",
+              "date": "2026-10-14"
+            }
+          ],
+          "publicSummary": "Added a new loading screen with a rotating pastel rainbow cube."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Terrain",
+          "text": "New worlds use terrain generation 11, where gravel shores pick their cobblestone patches from a deposit field instead of a regularly repeating carrier, removing repeated stripes of cobblestone. Older worlds keep their existing terrain.",
+          "refs": [
+            {
+              "commit": "bc81ebfe0164e5a5ce50dd83065a7a264b16372b",
+              "date": "2026-10-14"
+            },
+            {
+              "commit": "1a69012c2751c2177573695959fa1f8f692bfa9d",
+              "date": "2026-10-14"
+            }
+          ],
+          "publicSummary": "Fixed gravel shores in new worlds showing regular repeating bands of cobblestone; older worlds are unchanged."
+        }
+      ],
+      "publicTitle": "New logo, loading cube, scrolling world list and gravel shores"
+    },
+    {
       "id": "game-2026-10-13",
       "source": "game",
       "date": "2026-10-13",
@@ -1025,6 +4824,106 @@
             }
           ],
           "publicSummary": "Fixed terrain recovery after a loading failure and long waits while joining an unresponsive server."
+        },
+        {
+          "kind": "Changed",
+          "area": "Survival",
+          "text": "Survival mining now keeps its progress while you move or aim across the same block; a brief loss of aim pauses the work instead of resetting it, and releasing the button cancels it.",
+          "refs": [
+            {
+              "commit": "622eb10849fecbc3858d60cc5bf658d01fb76022",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Improved Survival mining so progress is kept when your aim briefly slips off a block, instead of starting again."
+        },
+        {
+          "kind": "Added",
+          "area": "Crafting",
+          "text": "The twelve log species that had no boards of their own (oak, fruitwood, acacia, willow, mangrove, jungle, cherry, giant, palm, mesquite, fig and cypress) each get their own boards block, with a per-species recipe that splits one log piece into four boards and a Creative catalogue entry next to each log. Boards of every species satisfy recipes that ask for boards.",
+          "refs": [
+            {
+              "commit": "a8e9f1e93991ae28b47b74cf171be731621a05f5",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Added boards of their own for twelve more kinds of log, including oak, acacia and cypress, each made by splitting a log piece into four boards."
+        },
+        {
+          "kind": "Changed",
+          "area": "Building",
+          "text": "The block placement preview is built from the same voxel faces the placed block will have, so patterns repeat at the real scale. The always-on outline around the aimed block and the outline around a valid placement are gone; a refused placement still shows a red outline.",
+          "refs": [
+            {
+              "commit": "84ee606cf319392c9f2843ddac6caafe3edad97a",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Changed the block placement preview to show the real texture scale and removed the outlines around the aimed block and valid placements. Refused placements still show red."
+        },
+        {
+          "kind": "Changed",
+          "area": "Weapons",
+          "text": "Arrows, rifle rounds and thrown items, and mounted weapon sights, now pass through decorative grass, flowers and other soft ground plants. Turf, trunks, leaves and walls still give cover, and artillery still detonates on water contact.",
+          "refs": [
+            {
+              "commit": "6b221b8c988d3e1eb600c93459ba33d0800b7e68",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Changed arrows, rifle rounds and thrown items to pass through grass, flowers and other soft plants. Turf, trunks, leaves and walls still block them."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Interface",
+          "text": "Status messages are fitted to their box using the font's real letter widths, so messages of narrow letters are no longer cut off at half the room available. The HUD's text plates, edges and light text also share one set of tones.",
+          "refs": [
+            {
+              "commit": "6869a06d2f17339745c3deba0e0510f814685395",
+              "date": "2026-10-13"
+            },
+            {
+              "commit": "277866ea4e097da4a538306452f66039e4a15d72",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Fixed status messages being cut short with room to spare, and made the HUD backing plates and text colours more consistent."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Map",
+          "text": "The map forgets the previous world's pixels and sampling when a world is reset or another is opened.",
+          "refs": [
+            {
+              "commit": "0aeb006648ac771e67143bdbf4ab1fff43d3e7ee",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Fixed the map briefly showing the previous world when you switch worlds."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "On a server, a door is now judged after the steps its player took before using it, so a door you walk out of and shut at once is no longer refused for your own body.",
+          "refs": [
+            {
+              "commit": "f0dced786100da26db825a77656741697057f112",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Fixed doors on servers sometimes refusing to shut right after you walk through them."
+        },
+        {
+          "kind": "Changed",
+          "area": "Multiplayer",
+          "text": "Explicit saves of a hosted world wait at most 30 seconds without dropping queued writes; a timeout or a refused save (for example a full disk) is reported with its reason, the world stays hosted and the save can be retried.",
+          "refs": [
+            {
+              "commit": "6fed604e5517aebe9d99bf4d90e0e375683aed25",
+              "date": "2026-10-13"
+            }
+          ],
+          "publicSummary": "Changed hosted worlds to report why a save failed or is taking too long, and to keep running so you can make room and try again."
         }
       ],
       "publicTitle": "Milestones, shared doors and safer saves"
