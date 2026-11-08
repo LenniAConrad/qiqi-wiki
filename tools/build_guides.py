@@ -18,6 +18,7 @@ Inline markup in text fields: [[W]] renders a key cap, **text** is bold, {{featu
 import argparse
 from build_gallery_previews import attributes as preview_attributes
 from base_game import public_ledger
+from catalogue_icons import icon_html
 from wiki_layout import TOPICS, header_html, footer_html, topic_for_guide
 from html import escape
 import json
@@ -114,7 +115,17 @@ def key_rows(ctx, rows):
 
 def recipe_cell(items):
     return "<ul class=\"recipe-inputs\">" + "".join(
-        f"<li><span class=\"recipe-count\">{count}×</span> {text(item)}</li>" for item, count in items) + "</ul>"
+        f"<li>{icon_html(item, 'small')}<span class=\"recipe-count\">{count}×</span> {text(item)}</li>"
+        for item, count in items) + "</ul>"
+
+
+def recipe_output(recipe):
+    """The output as a Catalogue slot with its count badge (read first, as in "4 Alder boards"), else count×."""
+    icon = icon_html(recipe["output"])
+    if icon:
+        return (f'<span class="recipe-slot">{icon}<span class="slot-count">{recipe["quantity"]}</span></span>'
+                f' {text(recipe["output"])}')
+    return f'<span class="recipe-count">{recipe["quantity"]}×</span> {text(recipe["output"])}'
 
 
 def recipe_anchor(name):
@@ -138,7 +149,7 @@ def recipe_tables(ctx, block):
             note = f'<p class="recipe-note">{ctx.inline(recipe["notes"])}</p>' if recipe.get("notes") else ""
             rows.append(
                 f'<tr id="{recipe_anchor(recipe["name"])}"><th scope="row">{text(recipe["name"])}</th>'
-                f'<td data-label="Makes"><span class="recipe-count">{recipe["quantity"]}×</span> {text(recipe["output"])}</td>'
+                f'<td data-label="Makes">{recipe_output(recipe)}</td>'
                 f'<td data-label="Needs">{recipe_cell(recipe["inputs"])}{note}</td></tr>')
         parts.append(
             f'<div class="table-wrap"><table class="recipe-table"><caption>{text(section["label"])} '
