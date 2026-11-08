@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 
 from build_blocks import block_icon
+from catalogue_icons import icon_html
 from build_guides import recipe_anchor
 from build_changelog import read as read_changelog, search_records as history_records
 from build_mobs import habitat_names, mob_anchor
@@ -150,6 +151,11 @@ def render_home():
             '</aside></main>' + footer_html() + '</body></html>\n')
 
 
+# Topic catalogue rows that name a group show one representative Catalogue icon.
+CATALOG_ICONS = {'Stone tools': 'Stone pickaxe', 'Bows': 'Alder bow', 'Arrows': 'Arrow',
+                 'Throwing rocks': 'Throwing rock', 'Building materials': 'Alder boards'}
+
+
 def render_topic(topic):
     guides = {guide['id']: guide for guide in read('guides')['guides']}
     sections = ([('catalog', 'In your pack')] if topic.get('catalog') else []) + (
@@ -159,7 +165,8 @@ def render_topic(topic):
     if topic.get('catalog'):
         out.append('<section class="guide-section" id="catalog"><h2>In your pack</h2><dl class="item-catalog">')
         for item in topic['catalog']:
-            out.append(f'<div><dt><a href="{escape(item["href"])}">{escape(item["name"])}</a></dt>'
+            icon = icon_html(CATALOG_ICONS.get(item['name'], item['name']))
+            out.append(f'<div><dt>{icon}<a href="{escape(item["href"])}">{escape(item["name"])}</a></dt>'
                        f'<dd>{escape(item["description"])}</dd></div>')
         out.append('</dl></section>')
     if topic['guides']:

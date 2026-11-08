@@ -119,8 +119,8 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .wiki-home .home-updates h2 { font-size: var(--px3); }
 .wiki-home .home-updates p { margin: 0; font-size: 13px; }
 .item-catalog { display: block; margin: 0; padding: 0; border: 0; }
-.item-catalog > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 17px 0; border-top: 1px solid var(--line); }
-.item-catalog dt { font-size: 15px; font-weight: 600; color: var(--ink); text-transform: none; letter-spacing: 0; line-height: 1.6; }
+.item-catalog > div { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 20px; padding: 17px 0; border-top: 1px solid var(--line); }
+.item-catalog dt { display: flex; align-items: center; font-size: 15px; font-weight: 600; color: var(--ink); text-transform: none; letter-spacing: 0; line-height: 1.6; }
 .item-catalog dd { margin: 0; font: 15px/1.7 var(--sans); }
 .wiki-breadcrumb { padding-top: 26px; font-family: var(--sans); font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; line-height: 1.8; }
 .wiki-breadcrumb a { text-decoration-color: color-mix(in srgb, var(--brass) 70%, transparent); text-underline-offset: 3px; }
@@ -239,7 +239,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
   .catalog-columns { grid-template-columns: 1fr; gap: 20px; }
   .home-play { grid-template-columns: 1fr; gap: 22px; padding: 28px 0; }
   .topic-directory { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
-  .item-catalog > div { grid-template-columns: 120px minmax(0, 1fr); gap: 14px; }
+  .item-catalog > div { grid-template-columns: 175px minmax(0, 1fr); gap: 14px; }
   .section-label > span { font-size: 11px; text-align: right; }
   .wiki-breadcrumb { padding-top: 6px; font-size: 11px; }
   .wiki-breadcrumb a { display: inline-flex; align-items: center; min-height: 40px; }
