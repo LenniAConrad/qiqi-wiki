@@ -772,8 +772,8 @@
     "storage-beds-and-lamps"
    ],
    "verification": {
-    "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction. Home crate, keyboard, repair, pack-up and rest instructions, including Home on a server, were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (game/home.rs, game/home/keyboard.rs, game/net_client/home.rs, session/home.rs and session/home/*.rs, the Home tab in inventory_ui.rs, and the bed rest pose in game/furniture/resting.rs). The cooking text in 'Hunt, cook and fill flasks' and the Hot meal milestone were re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026.",
-    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe checks. The 8 November Home and cooking updates were source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, and no server Home or cooking session was run."
+    "method": "Source review at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657 on 8 November 2026 of the bars, eating and drinking, mining and tool speeds, pack capacity, item dropping, melee and animal drops, the Home tab, resting, death and respawn, and the milestone hints (game/survival.rs, survival/water.rs, game/consumables.rs, game.rs, game/mining/rates.rs, game/item_drops.rs, game/home.rs, game/home/keyboard.rs, game/death.rs, milestone.rs, game/milestones.rs, hud/survival.rs and the Home tab in inventory_ui.rs, beneath crates/). Earlier receipts still stand for the parts not re-checked: starter quantities, Pack controls, manual item dropping and death/respawn were checked at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026, including the relevant source tests. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction. Home crate, keyboard, repair, pack-up and rest instructions, including Home on a server, were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (game/home.rs, game/home/keyboard.rs, game/net_client/home.rs, session/home.rs and session/home/*.rs, the Home tab in inventory_ui.rs, and the bed rest pose in game/furniture/resting.rs); none of those files changed by 21d656c2. The cooking text in 'Hunt, cook and fill flasks' and the Hot meal milestone were re-checked at dfeb362d and again at 21d656c2 (inventory/cooking.rs, game/crafting.rs).",
+    "limits": "Source-checked at Voxelgame 21d656c2 on 8 November 2026; not play-tested. No game build or native test run was performed. Inventory is still being developed; this guide documents the landed controls at the stated source pin. Older recipe counts and the X shortcut were not re-read at 21d656c2. No server Home or cooking session was run."
    },
    "sections": [
     {
@@ -800,7 +800,7 @@
        "rows": [
         [
          "HP",
-         "Health. It regenerates slowly while both hunger and thirst stay above 65."
+         "Health. It regenerates about 1 HP every 3 seconds while both hunger and thirst stay above 65. While either bar is empty you lose 1.5 HP a second."
         ],
         [
          "HUNGER",
@@ -812,13 +812,13 @@
         ],
         [
          "STAMINA",
-         "Spent by sprinting, which needs more than 3% left. Resting at home refills it."
+         "Spent by sprinting ([[Ctrl]] + [[W]]): a full bar lasts about 8 seconds, and it refills in about 6 once you stop. Sprinting needs more than 3% left."
         ]
        ]
       },
       {
        "t": "p",
-       "text": "The bars do not change in creative. The starter pack is good for roughly 24 minutes of food and 21 minutes of water, which the Home tab's trip readout will tell you. {{survival-meters}} {{trip-preparation-readout}}"
+       "text": "The bars sit lower left in survival, hide while a menu is open and do not change in creative. When one runs low, its label turns into a warning such as 'LOW THIRST!' (at 20% by default; the LOW SURVIVAL WARNING setting changes that). The starter pack adds roughly 24 minutes of food and 21 minutes of water on top of the full bars, which the Home tab's trip readout will tell you. {{survival-meters}} {{trip-preparation-readout}}"
       }
      ]
     },
@@ -831,7 +831,7 @@
        "rows": [
         [
          "T next to water",
-         "Drink (+22 thirst) and refill every Empty flask you carry."
+         "Drink (+22 thirst) and refill every Empty flask you carry that fits. The water must be within about 1.6 m of your chest."
         ],
         [
          "T away from water",
@@ -839,7 +839,7 @@
         ],
         [
          "R",
-         "Eat one food: Berries first, then Venison, Raw meat, and Cooked meat last."
+         "Eat one food: Berries first, then Venison, Raw meat, and Cooked meat last. A nearly full hunger bar refuses with 'Already full'."
         ],
         [
          "Click a food in the Pack",
@@ -849,12 +849,12 @@
       },
       {
        "t": "p",
-       "text": "Only four foods exist. Berries come only from the starter pack, so renewable food comes from hunting and {{guide:fishing|fishing}}, best cooked over charcoal (below). Fruit blocks and Date clusters are building blocks, not food. {{eating}} {{drinking-flasks}}"
+       "text": "Only four foods exist: Berries restore 5 hunger, Venison 18, Raw meat 8 and Cooked meat 30. Berries come only from the starter pack, so renewable food comes from hunting and {{guide:fishing|fishing}}, best cooked over charcoal (below). Fruit blocks and Date clusters are building blocks, not food. A filled flask is heavier than an empty one (0.75 capacity against 0.30), so a nearly full pack fills only some flasks and the status line says so. {{eating}} {{drinking-flasks}}"
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "T only reaches water that you can see from your chest. A solid block between you and the water stops the drink, and so does a block that the line only clips at a corner or edge. Remove the block or step to the open side."
+       "text": "T only reaches water within about 1.6 m that you can see from your chest. A solid block between you and the water stops the drink, and so does a block that the line only clips at a corner or edge. Remove the block or step to the open side."
       }
      ]
     },
@@ -864,11 +864,11 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Hold left click on a block within 6 m. A progress bar fills before the block breaks; a full one-metre block yields up to eight pieces. Each swing that lands while you mine gives a soft tap of the block's sound. Letting go or breaking the block makes no tap. Hold [[Shift]] to take a single half-metre piece of any block except a log or cactus. Logs and cactus fell the whole connected tree or stem instead, and Shift does not change that. Keep space in your pack and read the status line if gathering is refused. {{mining-harvesting}}"
+       "text": "Hold left click on a block within 6 m. A progress bar fills before the block breaks; a full one-metre block yields up to eight pieces. Each swing that lands while you mine gives a soft tap of the block's sound. Letting go or breaking the block makes no tap. Hold [[Shift]] to take a single half-metre piece of any block except a log or cactus. Logs and cactus fell the whole connected tree or stem instead, and Shift does not change that. If your pack cannot hold the result, nothing is mined and the status line says 'Capacity full; block left behind', or how much free capacity a whole tree needs. {{mining-harvesting}}"
       },
       {
        "t": "p",
-       "text": "Your pack is limited by capacity, 1000, not by slots. {{carry-capacity}} Any block can be mined by hand; a tool only speeds up its own material: the pickaxe about 4× on rock, glass and masonry, the hatchet about 3.6× on logs, boards and leaves, the shovel about 3.4× on loose ground. {{mining-speed-tools}}"
+       "text": "Your pack is limited by capacity, 1000, not by slots. {{carry-capacity}} Any block can be mined by hand, but hands and the wrong tool take 1.5× longer on rock, wood and loose ground than the base time. A tool speeds up only its own material, so against bare hands the pickaxe is about 6× faster on rock, glass and masonry, the hatchet about 5.4× on logs and boards and the shovel about 5.1× on loose ground. Leaves and plants are quick by hand, so the hatchet gains 3.6× there. {{mining-speed-tools}}"
       },
       {
        "t": "p",
@@ -877,7 +877,7 @@
       {
        "t": "note",
        "kind": "tip",
-       "text": "In survival, [[J]] drops one piece of the selected item; [[Ctrl]]+[[J]] drops everything of that kind. With Pack open, hover its icon first. After a short delay, approach the dropped stack to collect what fits; anything that does not fit stays on the ground. Dragging an item off the pack does not drop it, and dragging a hotbar slot off the bar only clears that shortcut. {{planned-ground-drops}}"
+       "text": "In survival, [[J]] drops one piece of the selected item; [[Ctrl]]+[[J]] drops everything of that kind. With Pack open, hover its icon first. After about a second, walk within about 1.4 m of the dropped stack, with nothing solid between, to collect what fits; anything that does not fit stays on the ground. Stacks never expire, but the world holds at most 128 at once. Dragging an item off the pack does not drop it, and dragging a hotbar slot off the bar only clears that shortcut. {{planned-ground-drops}}"
       },
       {
        "t": "note",
@@ -930,7 +930,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Animals never attack you. Left click one to hit it: a bare hand or ordinary tool deals 12 damage and the Stone sword deals 28. In survival, collect its dropped items by approaching them. If your pack is full, free some capacity and return for the remaining items. {{melee-attacks}} {{animal-drops}}"
+       "text": "Animals never attack you. Left click one within 6 m to hit it: an empty hand, a held block or a Stone pickaxe, hatchet or shovel deals 12 damage and the Stone sword deals 28. In survival, a kill leaves its drops on the ground; approach them to collect them. If your pack is full, free some capacity and return for the remaining items. {{guide:hunting-and-animals|Hunting, weapons and animals}} covers the ranged weapons and what each animal drops. {{melee-attacks}} {{animal-drops}}"
       },
       {
        "t": "recipes",
@@ -944,7 +944,7 @@
       },
       {
        "t": "p",
-       "text": "Cook from your pack anywhere on the Craft tab's **Fire & food** section, or on a placed cooking stove ({{guide:crafting-and-recipes|Crafting and recipes}}). There is no campfire or furnace. Raw meat restores 8 hunger and Cooked meat 30, and one Venison roasts into two Cooked meat. {{fire-and-glass-chain}} {{cooking-stove}}"
+       "text": "Cook from your pack anywhere on the Craft tab's **Fire & food** section, or on a placed cooking stove ({{guide:crafting-and-recipes|Crafting and recipes}}). There is no campfire or furnace. Each cooking uses 1 Charcoal, and four boards burn into two. Cooked meat restores 30 hunger against 8 for Raw meat, and one Venison (18) roasts into two Cooked meat. {{fire-and-glass-chain}} {{cooking-stove}}"
       }
      ]
     },
@@ -955,9 +955,9 @@
       {
        "t": "steps",
        "items": [
-        "Stand on dry, solid ground, open the **Home** tab and choose **Establish home**. It costs 8 board pieces in Survival and nothing in Creative, and places a small crate 1.5 m beside you.",
+        "Stand on dry, solid ground, open the **Home** tab and choose **Establish home**. It costs 8 board pieces in Survival and nothing in Creative, and places a small crate 1.5 m from you on the first side with a clear, level spot. Without the boards the game says 'Home needs 8 board pieces; split a log in Craft'.",
         "Move items to and from the crate by clicking rows in the Home tab; it holds up to 400 capacity while you are within 6 m. Shift + click moves as many as fit.",
-        "Build a roof with cover on at least two sides next to the crate, then choose **Rest / set respawn** there."
+        "Build a roof and walls beside the crate, stand under them within 6 m of it and choose **Rest / set respawn**. You need a roof within 4 m above your head and solid cover within 3 m on at least two of your four sides, or the game says 'Rest needs dry ground, a roof and cover on two sides'."
        ]
       },
       {
@@ -983,11 +983,11 @@
       },
       {
        "t": "p",
-       "text": "To move your home, empty its storage, stand within 6 m of the crate and choose **Pack up**. Survival gives back 8 Alder board pieces, so leave room for them in your pack; Creative gives nothing back. Your last rest point stays, and you can establish a new home elsewhere."
+       "text": "To move your home, empty its storage, stand within 6 m of the crate and choose **Pack up**. Survival gives back 8 Alder board pieces, so leave room for them in your pack ('Leave room in your pack for 8 board pieces'); Creative gives nothing back. Your last rest point stays, and you can establish a new home elsewhere. Mining the crate does nothing but show 'Home crate: use Home > Pack up to keep storage safe'."
       },
       {
        "t": "p",
-       "text": "Resting sets your respawn point and refills stamina; it does not heal or feed you. Leaves and tree trunks count as cover, plants and water do not. Lying in a bed is separate: it never moves your respawn point. {{home-crate}} {{rest-respawn-point}}"
+       "text": "Resting sets your respawn point and refills stamina; it does not heal or feed you. Leaves, tree trunks and walls count as cover; plants, water and open doors do not. Lying in a bed is separate ({{guide:storage-beds-and-lamps|Storage, beds and lamps}}): it never moves your respawn point. {{home-crate}} {{rest-respawn-point}}"
       },
       {
        "t": "h",
@@ -1016,9 +1016,9 @@
        "t": "list",
        "items": [
         "**Falls:** up to 3 m is free, each extra metre costs 5 HP, so about 23 m is fatal from full health. Only landing on solid ground counts. {{fall-damage-hazards}}",
-        "**Starvation and thirst** when the bars run empty.",
+        "**Starvation and thirst:** with either bar empty you lose 1.5 HP a second.",
         "**Explosions.** No drowning, lava, fire or hostile animals exist in this version. Direct fire/lava contact hazards remain planned.",
-        "**Death** opens a 'You died' screen showing the cause and respawn location. Click **Respawn** or press [[Enter]] when ready. You keep your inventory and return to your rest point, or a nearby safe spot if it is blocked or flooded. Until you rest at home, the rest point is the world's start. {{death-respawn}}"
+        "**Death** opens a 'You died' screen showing the cause and respawn location. Click **Respawn** or press [[Enter]] when ready. You keep your inventory and return to your rest point, or a nearby safe spot if it is blocked or flooded. Health and stamina refill, and hunger and thirst come back up to at least 65. Until you rest at home, the rest point is the world's start. {{death-respawn}}"
        ]
       },
       {
@@ -1034,7 +1034,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The game marks 15 first-time steps of a survival life. Each one counts once per world, only in survival mode, and the reached set is saved with the world. A milestone shows in the status line as 'Milestone: <name> (<reached>/15)'. Open the inventory with [[E]] and the **Milestones** tab to see all 15 and what reaches each one. Reached ones are marked with +; the rest show with -."
+       "text": "The game marks 15 first-time steps of a survival life. Each one counts once per world, only in survival mode, and the reached set is saved with the world. A line on screen announces it for a few seconds, as 'Milestone: Timber (1/15)'; two at once read 'Milestones: Boatwright, Set sail (7/15)'. Open the inventory with [[E]] and the **Milestones** tab to see all 15 and what reaches each one. Reached ones are marked with +; the rest show with -."
       },
       {
        "t": "keys",
@@ -2140,8 +2140,8 @@
     "fishing"
    ],
    "verification": {
-    "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines. The cooking advice in 'What you get from a kill' was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026. The drop rules in that section were re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: game/creature_melee.rs:38-81, game.rs:2121-2270, entities/melee.rs:10-11,194-286, game/item_drops.rs:102-137, dropped_items.rs:9-25 and entities/species_profile.rs:401-486, beneath crates/voxelgame-core/src/.",
-    "limits": "Source-checked, not play-tested in this guide. Draw, wind-up and reload times are the code values; check them in play if they feel different. The 8 November dfeb362d check covers only that cooking advice and was not play-tested. The drop rules were source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested."
+    "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines. Re-checked at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657 on 8 November 2026, beneath crates/voxelgame-core/src/: melee reach, damage and refusals (game/creature_melee.rs, session/creatures.rs, inventory.rs), throw, draw and rifle input and damage (game/ranged_input.rs, game/readouts.rs, projectile.rs, projectile/rifles.rs), shots passing soft plants (world/raycast.rs), kills, loot and the drop table (entities/melee.rs, entities/species_profile.rs, game/item_drops.rs, dropped_items.rs), animal behaviour (entities/mod.rs, entities/idle_behaviour.rs), and the hurt and death cries (game/audio.rs, events.rs and src/audio/effects.rs in the game root). The cooking advice in 'What you get from a kill' was first re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026, and the drop rules at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 on the same day.",
+    "limits": "Source-checked at Voxelgame 21d656c2 on 8 November 2026; not play-tested. Draw, wind-up and reload times are the code values; check them in play if they feel different. The hit counts come from the animals' health and the damage numbers, not from play. The bow, rocks and rifle on a server were not re-read at 21d656c2."
    },
    "owns": [
     "melee-attacks",
@@ -2160,7 +2160,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Every animal is passive. None of them attack, chase or damage you. Farm animals stay calm near you. Small wild animals, such as rabbits and foxes, keep their distance and run when you come close. Any animal runs for a few seconds after you hurt it. {{no-hostile-mobs}} {{animal-behaviour}}"
+       "text": "Every animal is passive. None of them attack, chase or damage you. Farm animals stay calm near you; cows, sheep, pigs and chickens drift in loose groups and stand still through the night. Small wild animals, such as rabbits and foxes, keep their distance and run when you come close. Any animal runs for a few seconds after you hurt it. {{no-hostile-mobs}} {{animal-behaviour}}"
       },
       {
        "t": "note",
@@ -2176,20 +2176,29 @@
       {
        "t": "steps",
        "items": [
-        "Get within reach of the animal and aim at it.",
+        "Aim at the animal from within 6 m.",
         "Left-click to hit it.",
         "A hurt animal runs off for a few seconds. Chase it and hit it again."
        ]
       },
       {
        "t": "p",
-       "text": "A bare hand or an ordinary tool deals 12 damage. The Stone sword deals 28. In creative, one hit removes the animal and gives you nothing. Tall grass or flowers between you and the animal can block the hit. {{melee-attacks}}"
+       "text": "An empty hand, a held block or a Stone pickaxe, hatchet or shovel deals 12 damage. The Stone sword deals 28. Rabbits and chickens fall to one hit, pigs, sheep and goats to one sword hit, deer and wolves to two. A cow takes two sword hits, or five bare-handed. In creative, one hit removes the animal and gives you nothing. Tall grass or flowers between you and the animal can block the hit. {{melee-attacks}}"
       },
       {
        "t": "recipes",
        "names": [
         "Stone sword"
        ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "With a bow, rocks, a fishing rod or the furniture hammer in hand, left click does not hit animals in survival. Put it away or equip a stone tool."
+      },
+      {
+       "t": "p",
+       "text": "A struck animal yelps, and a kill ends with a short sigh. The 57 animals with voices do this; quiet ones, such as fish, insects and rabbits, make only the hit thud. See {{guide:creatures|Creatures}}."
       }
      ]
     },
@@ -2212,7 +2221,7 @@
       },
       {
        "t": "p",
-       "text": "Harder throws fly farther and hit harder. Each throw uses one rock in survival. A throw that cannot fly, such as one with no valid aim, keeps the rock. Rocks hurt animals only, not you or vehicles. {{throwing-rocks}}"
+       "text": "Harder throws fly farther and hit harder: a full wind-up deals 20 damage, a half wind-up a quarter of that. Each throw uses one rock in survival. A throw that cannot fly, such as one with no valid aim, keeps the rock. Rocks hurt animals only, not you or vehicles, and fly through grass and flowers. {{throwing-rocks}}"
       },
       {
        "t": "recipes",
@@ -2250,7 +2259,7 @@
       },
       {
        "t": "p",
-       "text": "Longer draws fly faster and hit harder. In survival each shot uses one arrow, and arrows are not recovered. A shot that cannot fly, such as one with no valid aim, keeps the arrow. Arrows stop on grass, flowers and other small plants. An arrow that lands in grass or leaves makes a soft rustle. Other impacts make a thunk that fades out by about 48 m. Creative arrows are unlimited. {{alder-bow}}"
+       "text": "Longer draws fly faster and hit harder: a full draw deals 30 damage, a half draw a quarter of that. A DRAW gauge fills while you hold. In survival each shot uses one arrow, and arrows are not recovered. A shot that cannot fly, such as one with no valid aim, keeps the arrow. Arrows fly through grass, flowers and other soft ground plants, but stop on turf, trunks, leaves, buildings and furniture. An arrow that lands in leaves makes a soft rustle. Other impacts make a thunk that fades out by about 48 m. Creative arrows are unlimited. {{alder-bow}}"
       },
       {
        "t": "recipes",
@@ -2294,7 +2303,7 @@
       },
       {
        "t": "p",
-       "text": "The rifle reloads itself about one second after every shot. Survival uses one rifle round per shot; creative is unlimited. A shot that cannot fly keeps its round. Rounds hurt animals and vehicles. {{alder-rifle}}"
+       "text": "The rifle reloads itself about one second after every shot, and a RELOAD gauge shows it. Each round deals 44 damage. Survival uses one rifle round per shot; creative is unlimited. A shot that cannot fly keeps its round. Rounds hurt animals and vehicles and, like arrows, fly through grass and flowers. {{alder-rifle}}"
       },
       {
        "t": "recipes",
@@ -2311,7 +2320,52 @@
      "blocks": [
       {
        "t": "p",
-       "text": "In survival, a killed animal leaves its drops on the ground where it fell. After about a second, walk up to them to pick up what fits in your pack; anything that does not fit stays on the ground until you make room. Meat and venison are food, feathers make arrows, and wool can replace plant fiber. Hide has no use yet. Creative kills give nothing. {{animal-drops}}"
+       "text": "In survival, a killed animal leaves its drops on the ground where it fell, and the status line reads 'Defeated … | collect the dropped items'. After about a second, walk up to them to pick up what fits in your pack; anything that does not fit stays on the ground until you make room. Creative kills give nothing. If the drops would have no clear spot to land, the killing blow is refused ('Animal kept') and the animal survives. {{animal-drops}}"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Cow",
+         "3 Raw meat, 2 Hide"
+        ],
+        [
+         "Pig",
+         "3 Raw meat"
+        ],
+        [
+         "Sheep",
+         "2 Raw meat, 3 Wool"
+        ],
+        [
+         "Chicken",
+         "1 Raw meat, 3 Feathers"
+        ],
+        [
+         "Deer",
+         "3 Venison, 1 Hide (the only Venison)"
+        ],
+        [
+         "Rabbit, duck, goose, frog, fish",
+         "1 Raw meat"
+        ],
+        [
+         "Goat, boar, horse, zebra",
+         "2 Raw meat, 1 Hide"
+        ],
+        [
+         "Wolf, lion, tiger",
+         "2 Raw meat, 2 Hide"
+        ],
+        [
+         "Fox",
+         "1 Hide only"
+        ]
+       ]
+      },
+      {
+       "t": "p",
+       "text": "Other mammals drop 1 to 3 Raw meat and 1 to 2 Hide, and other birds 1 or 2 Raw meat and 2 Feathers. Whales and elephants give meat only, and butterflies, flies, bats, hummingbirds and other tiny animals drop nothing. Meat and venison are food, feathers make arrows, and wool can replace plant fiber. Hide has no use yet."
       },
       {
        "t": "recipes",
@@ -2323,7 +2377,7 @@
       },
       {
        "t": "p",
-       "text": "Cook meat with Charcoal before you eat it: craft it on the Craft tab, or cook it on a placed {{cooking-stove|cooking stove}}. Cooked meat restores much more hunger than raw meat. See {{guide:first-survival-day|Your first survival day}} for the hunger numbers."
+       "text": "Cook meat with Charcoal before you eat it: craft it on the Craft tab, or cook it on a placed {{cooking-stove|cooking stove}}. Cooked meat restores 30 hunger against 8 for Raw meat, and Venison roasts into two. See {{guide:first-survival-day|Your first survival day}} for the other hunger numbers."
       }
      ]
     }

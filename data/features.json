@@ -1197,7 +1197,7 @@
    "modes": [
     "survival"
    ],
-   "summary": "Survival shows four bars: HP, HUNGER, THIRST and STAMINA (0-100). A full hunger bar lasts about 40 minutes and a full thirst bar about 30 minutes; health slowly regenerates while both stay above 65.",
+   "summary": "Survival shows four bars: HP, HUNGER, THIRST and STAMINA (0-100). A full hunger bar lasts about 40 minutes and a full thirst bar about 30 minutes. Health regenerates about 1 HP every 3 seconds while both stay above 65 and drains 1.5 HP a second while either is empty. Sprinting drains a full stamina bar in about 8 seconds, and it refills in about 6. A bar's label becomes a warning (LOW THIRST!, STARVING!) at 20% by default.",
    "controls": [
     [
      "Ctrl + W",
@@ -1205,11 +1205,14 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/survival.rs:8-77 — meters and update rules",
-    "crates/voxelgame-render/src/hud.rs:314-350 — HP, HUNGER, THIRST, STAMINA bars (survival only)",
-    "crates/voxelgame-core/src/game.rs:1099-1114 — meters update only in survival; a connected client does not apply damage"
+    "crates/voxelgame-core/src/survival.rs:41-52 — stamina drains 13 a second while sprinting and recovers 18 a second otherwise; swimming costs none",
+    "crates/voxelgame-core/src/survival.rs:124-167 — hunger and thirst drain, fall damage, 1.5 HP a second with an empty bar, 0.35 HP a second regeneration above 65",
+    "crates/voxelgame-core/src/player.rs:648-654 — sprint needs the sprint key and more than 3% stamina",
+    "crates/voxelgame-render/src/hud/survival.rs:8-62 — HP, HUNGER, THIRST, STAMINA bars and their LOW / STARVING / DEHYDRATED / EXHAUSTED warnings; survival only, hidden while a menu is open",
+    "crates/voxelgame-core/src/settings.rs:157-163 — LOW SURVIVAL WARNING level 10, 20, 30 or 40% (default 20% at settings.rs:586)",
+    "crates/voxelgame-core/src/game.rs:1775-1797 — meters update only in survival; a connected client does not apply damage"
    ],
-   "notes": "Meters do not change in creative. There is no drowning: being underwater only slows stamina recovery.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Meters do not change in creative. There is no drowning, and being underwater does not drain or slow stamina.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1224,7 +1227,7 @@
    "modes": [
     "survival"
    ],
-   "summary": "Press R to eat one food when you are not full: Berries first, then Venison, Raw meat, and Cooked meat last. Click a food in the Pack to eat that one instead.",
+   "summary": "Press R to eat one food when you are not full: Berries (+5 hunger) first, then Venison (+18), Raw meat (+8), and Cooked meat (+30) last. A nearly full bar answers 'Already full'. Click a food in the Pack to eat that one instead.",
    "controls": [
     [
      "R",
@@ -1237,12 +1240,15 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/survival.rs:68-75 — food values and eating order (cooked meat saved for last)",
-    "crates/voxelgame-core/src/game.rs:1115-1120 — R handling",
-    "crates/voxelgame-core/src/game/consumables.rs:42-55 — clicking a food eats it",
-    "crates/voxelgame-core/src/entities/mod.rs:1437-1521 — animals drop Raw meat or Venison",
-    "crates/voxelgame-core/src/fishing.rs:123-139 — a fishing catch is 1 Raw meat"
+    "crates/voxelgame-core/src/survival.rs:168-195 — eating is refused from 99.5 hunger",
+    "crates/voxelgame-core/src/game.rs:1799-1805 — R handling (not while in a vehicle or holding a furniture plan)",
+    "crates/voxelgame-core/src/game/consumables.rs:56-76 — clicking a food eats it",
+    "crates/voxelgame-core/src/game/consumables.rs:101-117 — R eats the first available food ('Already full', 'No food carried')",
+    "crates/voxelgame-core/src/entities/species_profile.rs:401-486 — animals drop Raw meat; deer drop Venison",
+    "crates/voxelgame-core/src/fishing.rs:123-139 — a fishing catch is 1 Raw meat",
+    "crates/voxelgame-core/src/inventory/cooking.rs:7-22 — Cook raw meat and Roast venison"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. This check covered the food values, eating order and cooking; the R and click evidence keeps its earlier audit. Only four foods exist. Berries come only from the starter pack (no bushes); renewable food comes from hunting and fishing (a catch is 1 Raw meat; see the Fishing guide), ideally cooked with Charcoal on the Craft tab or a cooking stove. Fruit block and Date cluster are building blocks and cannot be eaten. No food poisoning.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Only four foods exist. Berries come only from the starter pack (no bushes); renewable food comes from hunting and fishing (a catch is 1 Raw meat; see the Fishing guide), ideally cooked with Charcoal on the Craft tab or a cooking stove. Fruit block and Date cluster are building blocks and cannot be eaten. No food poisoning. On a server, eating while lying in a bed with a blocked exit is refused with 'Make room to stand up before eating' (crates/voxelgame-server/src/host/food.rs:47-54).",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1257,7 +1263,7 @@
    "modes": [
     "survival"
    ],
-   "summary": "Press T next to drinkable water to drink (+22 thirst) and refill every Empty flask you carry. Away from water, T drinks one Water flask (+35) and you keep the Empty flask.",
+   "summary": "Press T next to drinkable water (within about 1.6 m of your chest, with nothing solid in the line) to drink (+22 thirst) and refill every Empty flask that fits. Away from water, T drinks one Water flask (+35) and you keep the Empty flask. A nearly full thirst bar answers 'Not thirsty'; flasks still fill at water.",
    "controls": [
     [
      "T",
@@ -1269,14 +1275,17 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/consumables.rs:91-110 — T near water fills flasks, otherwise drinks a flask",
-    "crates/voxelgame-core/src/game/consumables.rs:144-152 — a solid block between the player and the water stops the T drink",
-    "crates/voxelgame-core/src/game/consumables.rs:148-172 — fills every empty flask that fits",
-    "crates/voxelgame-core/src/game.rs:1121-1123 — T handled in survival",
-    "crates/voxelgame-core/src/game/tests.rs:4235 — flask filling tests",
-    "crates/voxelgame-core/src/game/consumables.rs — the line to the water walks every voxel it enters, so a block touching the line only at a corner or edge blocks the drink (da52f269)"
+    "crates/voxelgame-core/src/game/consumables.rs:119-131 — T near water fills flasks, otherwise drinks a flask",
+    "crates/voxelgame-core/src/game/consumables.rs:146-160 — the water check and filling every empty flask that fits",
+    "crates/voxelgame-core/src/survival/water.rs:9-48 — 1.6 m reach and the status messages ('Not thirsty', 'no capacity to fill flasks')",
+    "crates/voxelgame-core/src/survival/water.rs:50-104 — flask exchange; refusals 'No filled flask…' and 'No water flask carried…'",
+    "crates/voxelgame-core/src/survival/water.rs:107-139 — any solid voxel the line to the water touches, even at a corner or edge, blocks the drink",
+    "crates/voxelgame-core/src/survival.rs:197-220 — flask +35, source +22, refused from 99.5 thirst",
+    "crates/voxelgame-core/src/game.rs:1806-1808 — T handled in survival",
+    "crates/voxelgame-core/src/inventory.rs:963-964 — a Water flask takes 0.75 capacity, an Empty flask 0.30",
+    "crates/voxelgame-core/src/inventory.rs:1666-1672 — Blow glass flasks: 1 block of Glass and 1 Charcoal make 2 Empty flasks"
    ],
-   "notes": "More flasks: 'Blow glass flasks' (8 Glass + 1 Charcoal -> 2 Empty flasks). Each filled flask takes 0.75 capacity vs 0.30 empty, so filling needs pack room.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. More flasks: 'Blow glass flasks' (8 Glass + 1 Charcoal -> 2 Empty flasks). Each filled flask takes 0.75 capacity vs 0.30 empty, so filling needs pack room.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1293,11 +1302,13 @@
    ],
    "summary": "Base-game survival has no body-temperature meter, ambient-temperature damage or shelter warmth. Cold nights, rain and altitude do not reduce health through temperature. Shelter still matters when resting to set your respawn point.",
    "evidence": [
-    "crates/voxelgame-core/src/survival.rs — 35cfc2f8: survival tick leaves the compatibility temperature field inert and applies no temperature health damage",
-    "crates/voxelgame-core/src/game.rs — 35cfc2f8: survival update has no ambient drift or shelter warmth",
-    "crates/voxelgame-core/src/game/home.rs — 35cfc2f8: shelter remains a rest requirement; Home no longer shows ambient temperature"
+    "crates/voxelgame-core/src/survival.rs:3 — 'legacy temperature is inert'",
+    "crates/voxelgame-core/src/survival.rs:119-126 — the ambient temperature argument is ignored",
+    "crates/voxelgame-core/src/survival.rs:262-302 — test: no temperature or ambient value changes health, hunger, thirst or stamina",
+    "crates/voxelgame-core/src/game/home.rs:310-341 — the Home readout has no temperature line",
+    "crates/voxelgame-core/src/game/home.rs:227-248 — shelter remains a rest requirement"
    ],
-   "notes": "Targeted policy correction at 35cfc2f8, superseding the dd29d91 temperature/shelter rules and ambient Home readout. The saved temperature field remains only for compatibility. Direct fire/lava contact hazards remain requested work; this correction does not implement or verify them. Magma stone and Boiling water remain decorative with respect to contact damage.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Policy first set at 35cfc2f8, superseding the dd29d91 temperature/shelter rules and ambient Home readout. The saved temperature field remains only for compatibility. Direct fire/lava contact hazards remain requested work; this correction does not implement or verify them. Magma stone and Boiling water remain decorative with respect to contact damage.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1314,10 +1325,11 @@
    ],
    "summary": "Falls of up to 3 m are free; each extra metre costs 5 HP, so about 23 m is fatal from full health. Animals never attack; besides falls, starvation, thirst and explosions hurt you. Ambient cold and heat do not cause damage.",
    "evidence": [
-    "crates/voxelgame-core/src/player.rs:725-731 — 'three-block safe fall'",
-    "crates/voxelgame-core/src/entities/mod.rs:1869-1872 — animals keep a non-hostile distance"
+    "crates/voxelgame-core/src/player.rs:803 — 'three-block safe fall'",
+    "crates/voxelgame-core/src/survival.rs:146-152 — fall damage: the first 3 m free, then 5 HP per metre",
+    "crates/voxelgame-core/src/entities/mod.rs:1190-1197 — animals keep a non-hostile distance"
    ],
-   "notes": "No drowning, lava, fire, cactus or hostile-mob damage exists in this snapshot. Fall damage only applies when landing on solid ground. Targeted policy update at 35cfc2f8: survival.rs tick no longer applies temperature damage; existing fall/animal evidence retains its original audit. Direct fire/lava contact damage remains requested and unverified.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. No drowning, lava, fire, cactus or hostile-mob damage exists in this snapshot. Fall damage only applies when landing on solid ground. Survival.rs applies no temperature damage (see temperature-shelter). Direct fire/lava contact damage remains requested and unverified.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1332,15 +1344,16 @@
    "modes": [
     "survival"
    ],
-   "summary": "At 0 HP the 'You died' screen shows the cause and respawn location. Click Respawn or press Enter when ready. You keep your inventory and return to your rest point, with a safe nearby fallback if it is blocked or flooded.",
+   "summary": "At 0 HP the 'You died' screen shows the cause and respawn location. Click Respawn or press Enter when ready. You keep your inventory and return to your rest point, with a safe nearby fallback if it is blocked or flooded. Health and stamina refill and hunger and thirst come back up to at least 65.",
    "evidence": [
     "crates/voxelgame-core/src/game/death.rs:55-123 — death panel, explicit Enter/click confirmation and respawn",
-    "crates/voxelgame-render/src/death_ui.rs:15-44 — cause, inventory-kept message, coordinates and Respawn button",
-    "crates/voxelgame-core/src/game/death.rs:234-263 — test: frozen death state, explicit confirmation and inventory retained",
-    "crates/voxelgame-core/src/game/home.rs:58-74 — safe respawn fallback without changing the stored rest point",
-    "crates/voxelgame-core/src/game/home.rs:684-696 — test: blocked rest point keeps carried items"
+    "crates/voxelgame-render/src/death_ui.rs:15-40 — cause, inventory-kept message, coordinates and Respawn button",
+    "crates/voxelgame-core/src/survival.rs:222-228 — respawn refills health and stamina and lifts hunger and thirst to at least 65",
+    "crates/voxelgame-core/src/game/death.rs:234-264 — test: frozen death state, explicit confirmation and inventory retained",
+    "crates/voxelgame-core/src/game/home.rs:57-75 — safe respawn fallback without changing the stored rest point",
+    "crates/voxelgame-core/src/game/home.rs:690-705 — test: blocked rest point keeps carried items"
    ],
-   "notes": "The initial rest point is the world start; establishing a home alone does not move it. Rest / set respawn changes it. Respawning grants no new starter supplies. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. The initial rest point is the world start; establishing a home alone does not move it. Rest / set respawn changes it. Respawning grants no new starter supplies.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1398,10 +1411,11 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/home.rs:186-225 — establish: dry ground, clear spot beside you, 8 board pieces in Survival, free in Creative",
-    "crates/voxelgame-core/src/game/home.rs:162-184 — repair a lost crate within 6 m; dry, solid, clear spot; refusals keep boards and items",
+    "crates/voxelgame-core/src/game/home.rs:186-225 — establish: dry ground, the first clear spot 1.5 m to one side, 8 board pieces in Survival, free in Creative",
+    "crates/voxelgame-core/src/game/home.rs:157-184 — repair a lost crate within 6 m; dry, solid, clear spot; refusals keep boards and items",
     "crates/voxelgame-core/src/game/home.rs:250-287 — pack up needs empty storage and pack room; Survival refunds 8 Alder boards, Creative none",
     "crates/voxelgame-core/src/game/home.rs:289-308 — transfers within 6 m; connected transfers go to the server",
+    "crates/voxelgame-core/src/game.rs:3266-3277 — the crate cannot be mined: 'Home crate: use Home > Pack up to keep storage safe'",
     "crates/voxelgame-core/src/game/home/keyboard.rs:24-50 — connected Survival and Creative send establish/repair, rest and pack up to the server",
     "crates/voxelgame-core/src/game/home/keyboard.rs:60-127 — arrows, Page Up/Down, Enter/Space and Shift on the Home tab",
     "crates/voxelgame-render/src/inventory_ui.rs:733-803 — Home tab buttons, 'Carried supplies' heading on servers, 'Home: X / 400'",
@@ -1411,7 +1425,7 @@
     "crates/voxelgame-core/src/game/net_client/furniture_storage.rs:190-232 — joined Creative storage lists real server supplies, not the catalogue"
    ],
    "backlog": [],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. One home at a time; to move it, empty storage and Pack up. A destroyed crate keeps its items; Establish home within 6 m of the old spot repairs it if the spot is dry, solid underneath and clear of you, otherwise nothing is used up. Pack up refunds Alder boards whatever species paid. Your rest point stays. On a server the crate also needs build permission on its plot, and other players are refused. Creative crate work earns no Home milestone.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. One home at a time; to move it, empty storage and Pack up. A destroyed crate keeps its items; Establish home within 6 m of the old spot repairs it if the spot is dry, solid underneath and clear of you, otherwise nothing is used up. Pack up refunds Alder boards whatever species paid; your rest point stays. Refusal: 'Empty home storage before packing up'. On a server the crate also needs build permission on its plot. Creative crate work earns no Home milestone.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1427,16 +1441,18 @@
     "creative",
     "survival"
    ],
-   "summary": "Home tab > Rest / set respawn works within 6 m of your crate, on dry ground, under a roof with cover on at least two sides. It sets your respawn point there and refills stamina, but does not heal or feed you. On a server the saved owner can rest in Survival or Creative; wait for 'Rested at Home | respawn point set'.",
+   "summary": "Home tab > Rest / set respawn works within 6 m of your crate, on dry ground, with a roof within 4 m above you and solid cover within 3 m on at least two of your four sides. It sets your respawn point there and refills stamina, but does not heal or feed you. On a server the saved owner can rest in Survival or Creative; wait for 'Rested at Home | respawn point set'.",
    "evidence": [
     "crates/voxelgame-core/src/game/home.rs:227-248 — rest conditions and effects ('Rest needs dry ground, a roof and cover on two sides')",
     "crates/voxelgame-core/src/game/home.rs:35-55 — shelter roof and wall probes shared by solo and server rest",
-    "crates/voxelgame-core/src/game/home.rs:615-643 — test: rest restores stamina only",
+    "crates/voxelgame-core/src/expedition.rs:44-48 — sheltered needs at least 3 of 5 roof probes and 2 of 4 wall probes",
+    "crates/voxelgame-core/src/world/block.rs:547-550 — solid cover is anything that is not air, liquid, a plant or an open door",
+    "crates/voxelgame-core/src/game/home.rs:615-640 — test: rest restores stamina only",
     "crates/voxelgame-core/src/session/home/rest.rs:19-104 — server rest for the saved owner in Survival or Creative; same shelter check; respawn and stamina only",
     "crates/voxelgame-core/src/game/net_client/home.rs:189-216 — connected rest waits for the server ('Resting at Home | waiting for server')",
     "crates/voxelgame-core/src/game/furniture/resting.rs:11-14 — lying in a bed never changes the home or spawn"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Leaves and tree trunks count as solid cover; plants and water do not. The shelter check runs when you press Rest. Shelter gives no warmth. Creative rest on a server, for the host or the saved owner, sets the respawn point and stamina but earns no Rested milestone. Bed rest is separate and never moves the respawn point.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Leaves, tree trunks and walls count as solid cover; plants, water and open doors do not. The shelter check runs when you press Rest. Shelter gives no warmth. Creative rest on a server, for the host or the saved owner, sets the respawn point and stamina but earns no Rested milestone. Bed rest is separate and never moves the respawn point.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1454,10 +1470,10 @@
    ],
    "summary": "The bottom of the Home tab estimates how many minutes of food and water you carry, counts empty flasks, shows free pack space and whether your spot is sheltered. It has no temperature line.",
    "evidence": [
-    "crates/voxelgame-core/src/game/home.rs:259-295 — preparation lines",
-    "crates/voxelgame-render/src/inventory_ui.rs:526-531 — drawn in two columns"
+    "crates/voxelgame-core/src/game/home.rs:310-341 — preparation lines (food minutes = food value x 0.4, water minutes = flasks x 35 x 0.3)",
+    "crates/voxelgame-render/src/inventory_ui.rs:826-832 — drawn in two columns"
    ],
-   "notes": "Shelter readout: 'sheltered', 'roofed, exposed sides' or 'exposed; build a roof'. The starter pack reads about 24 min of food and 21 min of water. Targeted home.rs source update at 35cfc2f8 removes the ambient-temperature line; remaining readout evidence retains its original audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Shelter readout: 'sheltered', 'roofed, exposed sides' or 'exposed; build a roof'. The starter pack reads about 24 min of food and 21 min of water. The readout has no temperature line.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1589,15 +1605,15 @@
    "summary": "Your pack holds up to 1000 capacity in creative and survival. Items are grouped by kind rather than stored in fixed slots; grid pages and hotbar slots do not add storage. Block materials are counted in half-metre pieces, eight per full one-metre block.",
    "evidence": [
     "crates/voxelgame-core/src/inventory.rs:32-33 — player capacity is 1000",
-    "crates/voxelgame-core/src/inventory.rs:820-826 — a carried block item is one voxel piece",
-    "crates/voxelgame-core/src/inventory.rs:858-865 — per-kind quantities, constrained by capacity rather than slots or small stack limits",
-    "crates/voxelgame-core/src/inventory.rs:960-983 — additions admit only the quantity that fits",
-    "crates/voxelgame-render/src/inventory_ui.rs:17-30 — header 'Load: used / maximum' and capacity per piece"
+    "crates/voxelgame-core/src/inventory.rs:939-946 — a carried block item is one voxel piece",
+    "crates/voxelgame-core/src/inventory.rs:977-984 — per-kind quantities, constrained by capacity rather than slots or small stack limits",
+    "crates/voxelgame-core/src/inventory.rs:1079-1103 — additions admit only the quantity that fits",
+    "crates/voxelgame-render/src/inventory_ui.rs:17-32 — header 'Load: used / maximum' and capacity per piece"
    ],
    "backlog": [
     "VOX-OWNER-INVENTORY-CAPACITY-1000"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. The inventory header reads 'Load: <carried> / 1000'. The 1000-capacity pack is implemented. A stack is the total carried amount of one kind; there is no 64-item stack cap. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. The inventory header reads 'Load: <carried> / 1000'. The 1000-capacity pack is implemented. A stack is the total carried amount of one kind; there is no 64-item stack cap. Source tests were read, not run; no native play test is claimed.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -2202,15 +2218,17 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:2887-2911 — survival mining progress vs creative instant break",
-    "crates/voxelgame-core/src/game.rs:3345-3395 — pieces go directly into the pack; a full pack leaves the block ('Capacity full; block left behind')",
-    "crates/voxelgame-core/src/inventory.rs:599-609 — Wild flax yields Plant fiber",
+    "crates/voxelgame-core/src/game.rs:2873-2931 — survival mining progress vs creative instant break",
+    "crates/voxelgame-core/src/game.rs:3294-3346 — logs and cactus fell the whole connected tree; 'Need … capacity free to collect this connected tree'",
+    "crates/voxelgame-core/src/game.rs:3347-3380 — pieces go directly into the pack; a full pack leaves the block ('Capacity full; block left behind')",
+    "crates/voxelgame-core/src/game.rs:3266-3277 — the Home crate cannot be mined: 'Home crate: use Home > Pack up to keep storage safe'",
+    "crates/voxelgame-core/src/inventory.rs:603-609 — Wild flax yields Plant fiber",
     "crates/voxelgame-core/src/world/block.rs:701-709 — Meadow turf drops Dirt, Snow drops Packed snow, Fallen fruit drops Fruit block",
-    "crates/voxelgame-core/src/game.rs:2863-2872 — furniture in front stops mining: 'Furniture blocks that mining target'",
-    "crates/voxelgame-core/src/game/mining.rs:31-45 — survival crack feedback, dropped while furniture is targeted",
+    "crates/voxelgame-core/src/game.rs:2864-2872 — furniture in front stops mining: 'Furniture blocks that mining target'",
+    "crates/voxelgame-core/src/game/mining.rs:31-50 — survival crack feedback, dropped while furniture is targeted",
     "crates/voxelgame-core/src/game/furniture/controls.rs:146-164 — furniture counts only when one of its parts is nearer than the aimed block",
-    "crates/voxelgame-render/src/highlight.rs:80-91 — cracks drawn on the block being mined",
-    "crates/voxelgame-render/src/crack_overlay.rs:27-28 — 8 crack stages"
+    "crates/voxelgame-render/src/highlight.rs:78-92 — cracks drawn on the block being mined",
+    "crates/voxelgame-render/src/crack_overlay.rs:28-44 — 8 crack stages"
    ],
    "backlog": [
     "VOX-OWNER-BLOCK-TREE-DROPS",
@@ -2218,7 +2236,7 @@
     "VOX-OWNER-BLOCK-BREAK-ANIMATION",
     "VOX-PLAY-002"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. If furniture stands between you and the block, holding left click stops with 'Furniture blocks that mining target' and nothing is mined. Gaps between furniture parts and blocks nearer than the furniture still work. Water and other liquids cannot be collected. Creative mining collects nothing and can be undone. Feedback is a status-line message and flying chips; in survival, cracks also grow on the block in 8 stages, and gains show in the lower-right collection feed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. If furniture stands between you and the block, holding left click stops with 'Furniture blocks that mining target' and nothing is mined. Gaps between furniture parts and blocks nearer than the furniture still work. Water and other liquids cannot be collected. Creative mining collects nothing and can be undone. Feedback is a status-line message and flying chips; in survival, cracks also grow on the block in 8 stages, and gains show in the lower-right collection feed.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -2233,12 +2251,16 @@
    "modes": [
     "survival"
    ],
-   "summary": "Any block can be mined by hand; a tool only speeds up its own material class. Pickaxe x4 on rock, crystal, glass, ice and masonry; hatchet x3.6 on logs, boards, leaves and other wooden blocks; shovel x3.4 on loose ground.",
+   "summary": "Any block can be mined by hand, but hands and the wrong tool take 1.5x longer on rock, wood and loose ground than a block's base time. A tool only speeds up its own material class: pickaxe x4 on rock, crystal, glass, ice and masonry (about 6x faster than bare hands), hatchet x3.6 on logs, boards, leaves and other wooden blocks (about 5.4x on logs and boards, 3.6x on leaves and plants, which are quick by hand), shovel x3.4 on loose ground (about 5.1x).",
    "evidence": [
-    "crates/voxelgame-core/src/world/block.rs:226-350 — wooden, loose-ground and rock classes",
-    "crates/voxelgame-core/src/game.rs:2226-2290 — mining time = hardness / tool multiplier; changing tool or target resets progress"
+    "crates/voxelgame-core/src/world/block.rs:354-380 — wooden blocks (hatchet class)",
+    "crates/voxelgame-core/src/world/block.rs:383-414 — loose ground (shovel class)",
+    "crates/voxelgame-core/src/world/block.rs:417-481 — rock, glass, ice and masonry (pickaxe class)",
+    "crates/voxelgame-core/src/inventory.rs:930-937 — tool multipliers 4, 3.6 and 3.4",
+    "crates/voxelgame-core/src/game/mining/rates.rs:8-23 — time = hardness x 1.5 for hands and unsuitable tools on rock, wood and loose ground (not plants or leaves), divided by the tool multiplier",
+    "crates/voxelgame-core/src/game/mining.rs:117-144 — changing tool or target resets progress"
    ],
-   "notes": "The time is for the whole targeted 1 m block; detail (Shift) mining takes the same time for one piece. Fallen petals and Fallen leaves are plants that a shovel speeds up; Bamboo and Date clusters are plants a hatchet speeds up.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. The time is for the whole targeted 1 m block; detail (Shift) mining takes the same time for one piece. Fallen petals and Fallen leaves are plants that a shovel speeds up; Bamboo and Date clusters are plants a hatchet speeds up.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -2279,15 +2301,17 @@
    ],
    "summary": "There is one tool tier: Stone sword, Stone pickaxe, Stone hatchet and Stone shovel. Tools never wear out or break.",
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:87-98 — the only tool items are stone tools, Alder bow and Alder rifle",
-    "crates/voxelgame-core/src/inventory.rs:463-466 — tool descriptions",
-    "search: grep -ri 'durab' crates/voxelgame-core/src — no tool durability",
-    "docs/MILESTONES.md:25 — durability is listed as future M2 work"
+    "crates/voxelgame-core/src/inventory.rs:887-903 — tool roles: the four stone tools, Alder bow, Alder rifle, fishing rod, furniture hammer and throwables",
+    "crates/voxelgame-core/src/inventory.rs:841-844 — tool descriptions",
+    "crates/voxelgame-core/src/inventory.rs:910-927 — swing damage: Stone sword 28, other tools 12",
+    "crates/voxelgame-core/src/inventory.rs:1830-1858 — recipes in pieces: sword 4 stone + 2 boards, pickaxe 6 + 4, hatchet 4 + 4, shovel 2 + 4",
+    "search: grep -ri 'durab' crates/voxelgame-core/src — only animal durability; no tool durability",
+    "docs/MILESTONES.md:27 — durability is listed as future M2 work"
    ],
    "backlog": [
     "VOX-OWNER-IRON-TOOLS"
    ],
-   "notes": "No wooden or iron tier exists. The Stone sword has no mining bonus. Bow, rifle, throwing rocks and dynamite are covered by the combat audit; their recipes are in crafting-recipes.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. No wooden or iron tier exists. The Stone sword has no mining bonus. Bow, rifle, throwing rocks and dynamite are covered by the combat audit; their recipes are in crafting-recipes.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -2380,16 +2404,16 @@
    "modes": [
     "survival"
    ],
-   "summary": "In survival, J drops one selected carried item and Ctrl+J drops everything of that kind. With Pack open, point at its icon first. Approach an unobstructed dropped stack after its short pickup delay to collect what fits; the remainder stays on the ground.",
+   "summary": "In survival, J drops one selected carried item and Ctrl+J drops everything of that kind. With Pack open, point at its icon first. About a second later, walk within about 1.4 m of an unobstructed dropped stack to collect what fits; the remainder stays on the ground.",
    "evidence": [
-    "crates/voxelgame-core/src/bindings.rs:29-31 — Ctrl is the default sprint/modifier key",
+    "crates/voxelgame-core/src/bindings.rs:31 — Ctrl is the default sprint/modifier key",
     "crates/voxelgame-core/src/bindings.rs:73 — J is the default Drop carried item binding",
-    "crates/voxelgame-core/src/game/inventory_input.rs:154-179 — drop the hovered Pack item using the resolved modifier",
-    "crates/voxelgame-core/src/game/item_drops.rs:53-99 — one/all quantity, survival-only dropping and refusal without item loss",
-    "crates/voxelgame-core/src/game/item_drops.rs:115-137 — unobstructed proximity pickup admits only what fits",
+    "crates/voxelgame-core/src/game/inventory_input.rs:174-200 — drop the hovered Pack item using the resolved modifier",
+    "crates/voxelgame-core/src/game/item_drops.rs:47-100 — one/all quantity, survival-only dropping ('Carried-item dropping currently requires Survival mode') and refusal without item loss",
+    "crates/voxelgame-core/src/game/item_drops.rs:102-139 — unobstructed proximity pickup within 1.4 m admits only what fits",
     "crates/voxelgame-core/src/dropped_items.rs:9-25 — at most 128 separate stacks, without automatic expiry",
-    "crates/voxelgame-core/src/game/item_drops/tests.rs:33-47 — test: one-item and whole-quantity dropping",
-    "crates/voxelgame-core/src/game/item_drops/tests.rs:125-155 — test: hovered Pack drops; search and Character views keep stock"
+    "crates/voxelgame-core/src/game/item_drops/tests.rs:33-49 — test: one-item and whole-quantity dropping",
+    "crates/voxelgame-core/src/game/item_drops/tests.rs:125-156 — test: hovered Pack drops; search and Character views keep stock"
    ],
    "backlog": [
     "VOX-PLAY-002",
@@ -2411,7 +2435,7 @@
      "Collect the amount that fits after the pickup delay"
     ]
    ],
-   "notes": "A blocked launch or a full ground-item pool keeps the carried items and explains the refusal. Dragging off the Pack does not drop items; dragging a hotbar slot off the bar only clears its binding. There is no manual stack-splitting control. Inventory remains under active development. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. A blocked launch or a full ground-item pool keeps the carried items and explains the refusal ('Item kept: …'). Dragging off the Pack does not drop items; dragging a hotbar slot off the bar only clears its binding. There is no manual stack-splitting control. Inventory remains under active development. The first source review was on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; its source tests were read, not run.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -5006,24 +5030,24 @@
    "modes": [
     "survival"
    ],
-   "summary": "In survival, an animal you kill leaves its drops on the ground where it fell. After about a second, walk within about 1.4 m to pick up what fits in your pack; anything you cannot carry stays on the ground. Meat and venison are food, feathers make arrows, and wool can replace plant fiber; hide currently has no use.",
+   "summary": "In survival, an animal you kill leaves its drops on the ground where it fell. After about a second, walk within about 1.4 m to pick up what fits in your pack; anything you cannot carry stays on the ground. Meat and venison are food, feathers make arrows, and wool can replace plant fiber; hide currently has no use. Cows give 3 Raw meat and 2 Hide, deer 3 Venison and 1 Hide, sheep 2 Raw meat and 3 Wool, chickens 1 Raw meat and 3 Feathers; foxes give only Hide and tiny animals nothing.",
    "evidence": [
-    "crates/voxelgame-core/src/game/creature_melee.rs:38-81 — survival melee kills leave loot ('Defeated … | collect the dropped items'); a refused hit keeps the animal",
+    "crates/voxelgame-core/src/game/creature_melee.rs:38-86 — survival melee kills leave loot ('Defeated … | collect the dropped items'); a refused hit keeps the animal",
     "crates/voxelgame-core/src/game.rs:2121-2166 — arrow kills leave loot; a refused impact keeps the animal and items",
     "crates/voxelgame-core/src/game.rs:2167-2198 — thrown-rock kills leave loot",
     "crates/voxelgame-core/src/game.rs:2219-2270 — rifle kills leave loot",
     "crates/voxelgame-core/src/entities/melee.rs:10-11 — loot within 1 m of the animal, 1 s pickup delay",
     "crates/voxelgame-core/src/entities/melee.rs:194-286 — loot needs a clear spot, otherwise the kill is refused",
-    "crates/voxelgame-core/src/game/item_drops.rs:102-137 — walk within 1.4 m; only what fits is collected",
+    "crates/voxelgame-core/src/game/item_drops.rs:102-139 — walk within 1.4 m; only what fits is collected",
     "crates/voxelgame-core/src/dropped_items.rs:9-25 — up to 128 stacks; no expiry",
     "crates/voxelgame-core/src/entities/species_profile.rs:401-486 — drops per species",
-    "crates/voxelgame-core/src/inventory.rs:1499-1502 — wool can replace fiber as binding",
-    "crates/voxelgame-core/src/inventory.rs:1879-1885 — feathers make arrows"
+    "crates/voxelgame-core/src/inventory.rs:1497-1502 — wool can replace fiber as binding",
+    "crates/voxelgame-core/src/inventory.rs:1879-1886 — feathers make arrows"
    ],
    "backlog": [
     "VOX-PLAY-002"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Killing animals in creative collects nothing. If the loot has no clear spot, the hit is refused and the animal is kept. Hunting controls are covered by the combat audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Killing animals in creative collects nothing. If the loot has no clear spot, the killing hit is refused and the animal is kept. Hide is not used by any recipe. Hunting controls are covered by the combat audit.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5168,16 +5192,18 @@
    "summary": "All animals are passive: they never attack, chase or damage you.",
    "evidence": [
     "crates/voxelgame-core/src/entities/mod.rs:3 — 'Passive creature spawning'",
-    "crates/voxelgame-core/src/entities/mod.rs:1763 — 'Bounded population of passive animals'",
-    "crates/voxelgame-core/src/entities/mod.rs:1868-1872 — farm animals stay calm; wild animals keep a non-hostile distance",
-    "crates/voxelgame-core/src/vehicle/garrison.rs:526-575 — soldiers target opposing soldiers only"
+    "crates/voxelgame-core/src/entities/mod.rs:915 — 'Bounded population of passive animals'",
+    "crates/voxelgame-core/src/entities/mod.rs:1190-1197 — farm animals stay calm; wild animals keep a non-hostile distance",
+    "crates/voxelgame-core/src/vehicle/garrison.rs:466-482 — soldiers lay on the nearest opposing soldier",
+    "crates/voxelgame-core/src/survival.rs:12-26 — the damage causes are starvation, thirst, falls, explosions, a creature attack (reserved for a later combat system) and unknown"
    ],
    "backlog": [],
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
     "label": "Hunting, weapons and animals"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test."
   },
   {
    "id": "melee-attacks",
@@ -5188,7 +5214,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Left-click an animal within reach to hit it. In survival a bare hand or ordinary tool deals 12 damage and the Stone sword 28; in creative one hit removes the animal (without drops). A hurt animal runs away for a few seconds.",
+   "summary": "Left-click an animal within 6 m to hit it. In survival an empty hand, a held block or a Stone pickaxe, hatchet or shovel deals 12 damage and the Stone sword 28; in creative one hit removes the animal (without drops). A hurt animal runs away for a few seconds. With a bow, rocks, a rod or the furniture hammer equipped, left click does not hit in survival.",
    "controls": [
     [
      "Left click",
@@ -5196,10 +5222,14 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1787-1815 — melee path tests animals only",
-    "crates/voxelgame-core/src/game.rs:1911-1940 — 'Startled', 'Collected from', 'Removed' messages"
+    "crates/voxelgame-core/src/game/creature_melee.rs:10-86 — melee path: tool gate, 6 m reach, damage, 'Defeated … | collect the dropped items', 'Animal kept: …' refusals",
+    "crates/voxelgame-core/src/session/creatures.rs:14 — melee reach is 6 m",
+    "crates/voxelgame-core/src/session/creatures.rs:222-237 — reach is cut short by terrain (including grass and flowers) and furniture",
+    "crates/voxelgame-core/src/inventory.rs:909-927 — swing damage: sword 28, other melee tools and bare hands 12, furniture hammer none",
+    "crates/voxelgame-core/src/game.rs:3009-3036 — 'Startled', 'Collected from', 'Removed' messages",
+    "crates/voxelgame-core/src/game/audio.rs:154-172 — the hit thud plus the animal's own yelp or final sigh"
    ],
-   "notes": "Melee does not damage characters or vehicles. Tall grass or flowers in front of an animal count as the nearer block and can block a melee hit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Melee does not damage characters or vehicles. Tall grass or flowers in front of an animal count as the nearer block and can block a melee hit. Hit counts follow the animal's health (entities/species_profile.rs:10-80): a rabbit 10, a pig or sheep 24, a deer 36, a cow 56.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5215,7 +5245,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Equip the bow, hold right click to draw (full draw takes 0.85 s) and release to shoot; letting go before about a fifth of a draw cancels the shot. Longer draws fly faster and hit harder. In survival each shot uses one arrow and arrows are not recovered; creative arrows are unlimited.",
+   "summary": "Equip the bow, hold right click to draw (full draw takes 0.85 s) and release to shoot; letting go before about a fifth of a draw cancels the shot. Longer draws fly faster and hit harder: a full draw deals 30 damage, a half draw a quarter of that. In survival each shot uses one arrow and arrows are not recovered; creative arrows are unlimited.",
    "controls": [
     [
      "Hold right click, release",
@@ -5231,17 +5261,22 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/ranged_input.rs:131-192 — draw, release, ammo use, messages",
-    "crates/voxelgame-core/src/projectile.rs:117-158 — arrow removed on impact; hits nearest animal or character",
-    "crates/voxelgame-render/src/reticle_ui.rs:547-575 — draw bar and DRAW % label just below the crosshair",
-    "crates/voxelgame-core/src/game/ranged_input.rs — an arrow that cannot fly is not spent and says so (da52f269)"
+    "crates/voxelgame-core/src/game/ranged_input.rs:191-270 — draw, release, ammo use, messages; damage 30 x draw squared",
+    "crates/voxelgame-core/src/game/readouts.rs:60-62 — draw fraction over 0.85 s",
+    "crates/voxelgame-core/src/projectile.rs:216-307 — arrow flight: hits the nearest animal or vehicle, stops on blocks and furniture",
+    "crates/voxelgame-core/src/world/raycast.rs:53-74 — arrows pass through soft ground plants; solid turf, trunks, leaves and hard decorations still stop them",
+    "crates/voxelgame-render/src/reticle_ui.rs:737-760 — DRAW gauge while the bow is drawn",
+    "crates/voxelgame-core/src/game/ranged_input.rs:245-253 — an arrow that cannot fly is not spent and says so",
+    "src/audio/effects.rs:343-347 — an arrow stopped by leaves rustles; other impacts thunk",
+    "crates/voxelgame-core/src/game/audio.rs:26 — arrow impacts are heard out to 48 m",
+    "crates/voxelgame-core/src/game/audio.rs:135-152 — the arrow impact sound follows the struck material"
    ],
    "backlog": [
     "VOX-OWNER-AIM-HUD-OCCLUSION",
     "VOX-OWNER-SHOOT-THROUGH-PLANTS",
     "VOX-OWNER-FAR-COORD-MOVEMENT-ARROWS"
    ],
-   "notes": "Arrows stop on grass, flowers and other small plants. Recipe counts are carried pieces (half-metre voxels); 'Stone' accepts any raw stone and 'Boards' any board species.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Arrows fly through grass, flowers and other soft ground plants; the earlier wording that they stop on small plants was outdated (shots pass soft plants since 6b221b8c, 13 October). An arrow that lands in leaves makes a soft rustle. Recipe counts are carried pieces (half-metre voxels); 'Stone' accepts any raw stone and 'Boards' any board species.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5257,7 +5292,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Left click fires; hold right click to raise the sights for less spread and sway. After every shot the rifle reloads itself in about one second; R does not reload it (in survival R eats food instead). Survival uses one rifle round per shot; creative is unlimited.",
+   "summary": "Left click fires; hold right click to raise the sights for less spread and sway. After every shot the rifle reloads itself in about one second; R does not reload it (in survival R eats food instead). Each round deals 44 damage. Survival uses one rifle round per shot; creative is unlimited.",
    "controls": [
     [
      "Left click",
@@ -5273,13 +5308,16 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/ranged_input.rs:272-328 — firing, one round per Survival shot, 'No rifle rounds carried', 'Finish reloading before aiming'; a round that cannot fly is not spent and the rifle does not reload ('Rifle not fired | no valid aim')",
+    "crates/voxelgame-core/src/game/ranged_input.rs:272-329 — firing, one round per Survival shot, 44 damage, 'No rifle rounds carried', 'Finish reloading before aiming'; a round that cannot fly is not spent and the rifle does not reload ('Rifle not fired | no valid aim')",
     "crates/voxelgame-core/src/projectile/rifles.rs:10 — 0.95-second reload",
     "crates/voxelgame-core/src/game.rs:1649-1656 — the sights rise only while right click is held and the rifle is not reloading",
-    "crates/voxelgame-core/src/game.rs:1775-1805 — in Survival R eats food on foot",
-    "crates/voxelgame-core/src/inventory.rs:1900-1913 — Alder rifle: 5 blocks of stone, 2 blocks of boards and 4 reeds; Four rifle rounds: a block of stone, a block of sand and 1 Charcoal"
+    "crates/voxelgame-core/src/game.rs:1799-1805 — in Survival R eats food on foot",
+    "crates/voxelgame-core/src/world/raycast.rs:53-74 — rounds pass through soft ground plants",
+    "crates/voxelgame-render/src/lib.rs:2285 — the rifle reload fraction feeds the HUD gauge",
+    "crates/voxelgame-render/src/reticle_ui.rs:737-760 — RELOAD gauge while the rifle reloads",
+    "crates/voxelgame-core/src/inventory.rs:1901-1913 — Alder rifle: 5 blocks of stone, 2 blocks of boards and 4 reeds; Four rifle rounds: a block of stone, a block of sand and 1 Charcoal"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Recipe sizes: 5 blocks of stone, 2 blocks of boards and 4 reeds (one block = 8 pieces); no Glow crystal is needed. Four rifle rounds take one block of stone, one block of sand and 1 Charcoal. Rounds hurt animals and vehicles.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Recipe sizes: 5 blocks of stone, 2 blocks of boards and 4 reeds (one block = 8 pieces); no Glow crystal is needed. Four rifle rounds take one block of stone, one block of sand and 1 Charcoal. Rounds hurt animals and vehicles and fly through grass and flowers.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5295,7 +5333,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Equip throwing rocks, hold right click to wind up (full wind-up in 0.7 s) and release to throw; a too-short wind-up is cancelled. Harder throws fly farther and hit harder. Each throw uses one rock in survival.",
+   "summary": "Equip throwing rocks, hold right click to wind up (full wind-up in 0.7 s) and release to throw; a too-short wind-up is cancelled. Harder throws fly farther and hit harder: a full wind-up deals 20 damage, a half wind-up a quarter of that. Each throw uses one rock in survival.",
    "controls": [
     [
      "Hold right click, release",
@@ -5303,11 +5341,12 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/ranged_input.rs:8-112 — wind-up, release, ammo use",
-    "crates/voxelgame-core/src/projectile.rs:1003-1016 — rocks hit animals or stop on blocks",
-    "crates/voxelgame-core/src/game/ranged_input.rs — a throw that cannot fly (no valid aim) is not spent and says so (da52f269)"
+    "crates/voxelgame-core/src/game/ranged_input.rs:13-170 — wind-up, release, ammo use, damage 20 x wind-up squared",
+    "crates/voxelgame-core/src/projectile.rs:1450-1521 — rocks hit animals or stop on blocks and furniture",
+    "crates/voxelgame-core/src/world/raycast.rs:53-74 — rocks, arrows and rifle rounds fly through soft ground plants",
+    "crates/voxelgame-core/src/game/ranged_input.rs:136-143 — a throw that cannot fly (no valid aim) is not spent and says so"
    ],
-   "notes": "Rocks hurt animals only, not characters or vehicles.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. Rocks hurt animals only, not characters or vehicles. Rocks fly through grass and flowers but stop on turf, trunks, leaves and buildings.",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
@@ -5442,13 +5481,17 @@
    "modes": [
     "any"
    ],
-   "summary": "Farm animals stay calm near you; shy wild species (rabbits, foxes, frogs, many birds, horses, zebras, giraffes, big cats, wolves, crocodiles and others) keep about 5 m away (frogs 3 m) and run if you come closer. Any hurt animal bolts for a few seconds. Many animals pause to graze and idle animals turn their heads to watch you. Deer, rabbits, frogs, kangaroos and jerboas bound while fleeing; goats, deer and gazelles jump ledges up to 1 m; otters, penguins and swans swim and fish stay in water.",
+   "summary": "Farm animals stay calm near you; shy wild species (rabbits, foxes, frogs, many birds, horses, zebras, giraffes, big cats, wolves, crocodiles and others) keep about 5 m away (frogs 3 m) and run if you come closer. Any hurt animal bolts for a few seconds. Cows, sheep, pigs and chickens form loose groups and stand still at night. Many animals pause to graze and idle animals turn their heads to watch you. Deer, rabbits, frogs, kangaroos and jerboas bound while fleeing; goats, deer and gazelles jump ledges up to 1 m; otters, penguins and swans swim and fish stay in water.",
    "evidence": [
-    "crates/voxelgame-core/src/entities/mod.rs:1524-1594 — grazing, skittish species list, bounding leap species",
-    "crates/voxelgame-core/src/entities/mod.rs:1632-1693 — aquatic, amphibious and fluttering species",
-    "crates/voxelgame-core/src/entities/mod.rs:618-656 — sprint multipliers while fleeing"
+    "crates/voxelgame-core/src/entities/mod.rs:641-699 — grazing and skittish species lists",
+    "crates/voxelgame-core/src/entities/mod.rs:702-710 — bounding leap species",
+    "crates/voxelgame-core/src/entities/mod.rs:749-810 — aquatic, amphibious and fluttering species",
+    "crates/voxelgame-core/src/entities/mod.rs:1190-1209 — farm animals stay calm, skittish species flee inside 5 m (frogs 3 m), a hurt animal flees for 3.5 s",
+    "crates/voxelgame-core/src/entities/idle_behaviour.rs:7-20 — cows, sheep, pigs and chickens rest at night",
+    "crates/voxelgame-core/src/entities/obstacle_jump.rs:6-11 — goats, deer and gazelles jump ledges up to 1 m",
+    "crates/voxelgame-core/src/entities/species_locomotion.rs:75-95 — sprint multipliers while fleeing"
    ],
-   "notes": "There is no taming, riding, breeding, feeding, milking or shearing (see animal-taming-breeding).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 21d656c2d5c32e82fd6287804078f391ef930657; no new play test. There is no taming, riding, breeding, feeding, milking or shearing (see animal-taming-breeding). The 57 species with voices also yelp when hit and sigh when killed (entities/mod.rs:460-525, game/audio.rs:154-172).",
    "guide": {
     "state": "complete",
     "page": "guide-hunting.html",
