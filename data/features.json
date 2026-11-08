@@ -1061,15 +1061,17 @@
     "creative",
     "survival"
    ],
-   "summary": "A small box under the compact map shows FPS (with the frame limit), your X, Y and Z position and the biome name. It is on by default; turn it off in Settings > Advanced > Diagnostics > FPS and coordinates (there is no hotkey).",
+   "summary": "A small box at the right, under the compact map, shows measured FPS with the frame limit (or UNCAPPED), your X, Y and Z position and the biome name. It is on by default and hides while a menu is open. Turn it off in Settings > Advanced > Diagnostics > FPS and coordinates (there is no hotkey). It is not saved, so it is on again after a restart.",
    "evidence": [
-    "crates/voxelgame-render/src/debug_ui.rs:10-46 — FPS, X, Y, Z and BIOME lines",
-    "crates/voxelgame-render/src/debug_ui.rs:48-56 — right-hand placement",
-    "crates/voxelgame-core/src/game.rs:632 — on by default",
-    "crates/voxelgame-core/src/game/music_settings.rs:115-119 — toggled from Settings",
-    "crates/voxelgame-core/src/settings.rs:40-88 — current settings route"
+    "crates/voxelgame-render/src/debug_ui.rs:14-50 — FPS, X, Y, Z and BIOME lines",
+    "crates/voxelgame-render/src/debug_ui.rs:57-69 — right-hand placement",
+    "crates/voxelgame-render/src/hud.rs:465-478 — hidden in menus; placed under the compact map",
+    "crates/voxelgame-core/src/game.rs:111 — on by default",
+    "crates/voxelgame-core/src/game/music_settings.rs:161-165 — toggled from Settings",
+    "crates/voxelgame-core/src/settings.rs:1117-1120 — tooltip",
+    "crates/voxelgame-core/src/settings.rs:40-51 — Diagnostics page"
    ],
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The FPS figure is green at 55 or more, amber from 30 and red below 30 (debug_ui.rs:107-115). With the compact map hidden, the box sits at the top right. No new capture.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5211,15 +5213,18 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Graphics > Display > Shader picks the lighting tier. None is plain voxel lighting for weak hardware; Fast (default) adds sun shadows, sun rays and haze; Cinematic refines shadows and rays and adds reflective water at extra GPU cost.",
+   "summary": "Settings > Graphics > Display > Shader picks the lighting tier. None is plain voxel lighting for weak hardware; Fast (default) adds sun shadows, sun rays and haze; Cinematic refines shadows and rays and adds reflective water, costing extra frame time. Graphics presets also set it.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:146-200 — tiers and names",
-    "crates/voxelgame-core/src/settings.rs:298 — chips and tooltip",
-    "crates/voxelgame-core/src/settings.rs:453-458 — chips and tooltip",
-    "src/launch.rs:149 — --shader=none|fast|cinematic override",
-    "crates/voxelgame-core/src/settings.rs:25-37 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:347-374 — None, Fast and Cinematic tiers and names",
+    "crates/voxelgame-core/src/settings.rs:558 — Fast by default",
+    "crates/voxelgame-core/src/settings.rs:673 — chips",
+    "crates/voxelgame-core/src/settings.rs:1104-1109 — tooltip",
+    "crates/voxelgame-core/src/settings.rs:506-513 — preset values",
+    "src/launch.rs:156 — --shader=none|fast|cinematic override",
+    "src/launch.rs:235-250 — accepted override values",
+    "crates/voxelgame-core/src/settings.rs:25-37 — Display page"
    ],
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Cinematic adds per-pixel work in the existing passes rather than extra render targets (settings.rs:361-366). No benchmark or capture was made.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5234,16 +5239,19 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Graphics > Display > Horizon distance selects 8, 16, 32, 48, 64 (default), 96, 128, 192, 256, 512 or 1024 chunks. A chunk is 16 m; 1024 chunks reaches about 16 km. Nearby full-detail terrain is separate.",
+   "summary": "Settings > Graphics > Display > Horizon distance selects 8, 16, 32, 48, 64 (default), 96, 128, 192, 256, 512 or 1024 chunks. A chunk is 16 m; 1024 chunks reaches about 16 km. It sets only the low-detail distant view; full-detail terrain stays at nine chunks around you.",
    "evidence": [
     "crates/voxelgame-core/src/settings.rs:265-268 — choices/max",
-    "crates/voxelgame-core/src/settings.rs:546-547 — default",
-    "crates/voxelgame-core/src/settings.rs:1088-1089 — near detail separate"
+    "crates/voxelgame-core/src/settings.rs:547 — default",
+    "crates/voxelgame-core/src/settings.rs:1089 — near detail stays nine chunks",
+    "crates/voxelgame-core/src/game.rs:171 — nine-chunk streaming radius",
+    "crates/voxelgame-core/src/settings.rs:1277-1282 — one choice per arrow press",
+    "crates/voxelgame-core/src/settings.rs:25-37 — Display page"
    ],
    "backlog": [
     "VOX-OWNER-HORIZON-1024"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Large horizons are optional. No current hardware benchmark was made; older Iris Xe measurements are not current performance evidence. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Large horizons are optional. No current hardware benchmark was made; older Iris Xe measurements are not current performance evidence.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5258,19 +5266,22 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Graphics > Display > Frame limit caps rendered frames at 60 (default), 120, 240 or Unlimited. Unlimited removes software frame pacing.",
+   "summary": "Settings > Graphics > Display > Frame limit caps rendered frames at 60 (default), 120, 240 or Unlimited. Unlimited removes software frame pacing. There is no separate vsync setting. The FPS box shows the active LIMIT, or UNCAPPED.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:403-406 — frame interval from the limit",
-    "crates/voxelgame-render/src/loading.rs:127 — AutoNoVsync presentation",
-    "src/launch.rs:147 — --uncap ignores the saved limit",
-    "crates/voxelgame-core/src/settings.rs:25-37 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:9-12 — choices",
+    "crates/voxelgame-core/src/settings.rs:553 — 60 by default",
+    "crates/voxelgame-core/src/settings.rs:925-930 — frame interval from the limit",
+    "crates/voxelgame-render/src/loading.rs:131 — AutoNoVsync presentation",
+    "src/app.rs:748-756 — --uncap ignores the saved limit",
+    "crates/voxelgame-render/src/debug_ui.rs:17-21 — LIMIT or UNCAPPED in the FPS box",
+    "crates/voxelgame-core/src/settings.rs:25-37 — Display page"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
     "label": "Settings and performance"
    },
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The window asks for presentation without vsync where the driver offers it; the frame limit does the pacing. The same limit sets the F3 frame budget (Unlimited uses 60 FPS). No frame-rate measurement was made."
   },
   {
    "id": "atmospheric-fog",
@@ -5282,13 +5293,14 @@
    ],
    "summary": "Settings > Graphics > Display > Atmospheric fog chooses Light, Balanced (default) or Dense distance haze; Dense hides far terrain. Haze strength scales with your horizon distance.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:211-212",
-    "crates/voxelgame-core/src/settings.rs:288",
-    "crates/voxelgame-core/src/settings.rs:396-399",
-    "crates/voxelgame-core/src/settings.rs:447",
-    "crates/voxelgame-core/src/settings.rs:25-37 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:401-402 — fog level",
+    "crates/voxelgame-core/src/settings.rs:551 — Balanced by default",
+    "crates/voxelgame-core/src/settings.rs:655 — chips",
+    "crates/voxelgame-core/src/settings.rs:919-923 — density scales with the horizon",
+    "crates/voxelgame-core/src/settings.rs:1098 — tooltip",
+    "crates/voxelgame-core/src/settings.rs:25-37 — Display page"
    ],
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Graphics presets set it too: Low uses Dense and Cinematic uses Light (settings.rs:506-513). No new capture.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5303,17 +5315,20 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Graphics > Display > Field of view ranges from 60 to 96 degrees in 2-degree steps (default 72). Wider values show more without changing movement speed.",
+   "summary": "Settings > Graphics > Display > Field of view ranges from 60 to 96 degrees in 2-degree steps (default 72). Wider values show more without changing movement speed. Graphics presets leave it unchanged.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:444 — tooltip",
-    "crates/voxelgame-core/src/settings.rs:25-37 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:546 — 72 by default",
+    "crates/voxelgame-core/src/settings.rs:1274-1276 — 2-degree steps from 60 to 96",
+    "crates/voxelgame-core/src/settings.rs:1088 — tooltip",
+    "crates/voxelgame-core/src/settings.rs:845-853 — presets do not set it",
+    "crates/voxelgame-core/src/settings.rs:25-37 — Display page"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
     "label": "Settings and performance"
    },
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Speed FOV under Gameplay > Movement separately widens the view gently at high speed. No new capture."
   },
   {
    "id": "gui-size",
@@ -5323,18 +5338,21 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Interface > Layout has GUI size presets Auto, Small, Normal and Large, plus custom UI scale from 75% to 200%. HUD text only applies the chosen scale to HUD lettering while keeping compact panels fitted.",
+   "summary": "Settings > Interface > Layout has GUI size presets Auto (default), Small, Normal and Large, plus UI scale from 75% to 200% in 5% steps. HUD text only applies the chosen scale to HUD lettering while keeping compact panels fitted. Scaling is capped so the whole menu stays reachable.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:65-88 — Layout route",
-    "crates/voxelgame-core/src/settings.rs:270-344 — scales and fit cap",
-    "crates/voxelgame-core/src/settings.rs:1050-1056 — custom/text-only help"
+    "crates/voxelgame-core/src/settings.rs:65 — Layout rows",
+    "crates/voxelgame-core/src/settings.rs:82-89 — Interface group",
+    "crates/voxelgame-core/src/settings.rs:270-345 — presets, custom scale and fit cap",
+    "crates/voxelgame-core/src/settings.rs:821 — 5% custom steps",
+    "crates/voxelgame-core/src/settings.rs:1050-1057 — custom/text-only help",
+    "crates/voxelgame-core/src/settings.rs:1133-1136 — GUI size help"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
     "label": "Settings and performance"
    },
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Auto adapts to the viewport. Scaling is capped so the menu fits; a small window may reduce the requested size. Source review only; no new play test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Auto picks 125–150% from the window size; Small is 100%, Normal 125% and Large 175%. A small window may reduce the requested size so an 800×450 layout still fits."
   },
   {
    "id": "voxel-view",
@@ -5344,20 +5362,22 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Advanced > Diagnostics > Voxel view switches between Off (default), Edges, which tints every block border, and X-ray, which draws only the outlines.",
+   "summary": "Settings > Advanced > Diagnostics > Voxel view switches between Off (default), Edges, which tints every block border, and X-ray, which draws only the outlines. Unlike Performance, Chunk borders and LOD view, it is saved with your preferences.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:30-40",
-    "crates/voxelgame-core/src/settings.rs:219-222",
-    "crates/voxelgame-core/src/settings.rs:259-260",
-    "crates/voxelgame-core/src/settings.rs:299",
-    "crates/voxelgame-core/src/settings.rs:40-88 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:409-412 — edge and X-ray flags",
+    "crates/voxelgame-core/src/settings.rs:559-560 — off by default",
+    "crates/voxelgame-core/src/settings.rs:674 — chips",
+    "crates/voxelgame-core/src/settings.rs:1110 — tooltip",
+    "crates/voxelgame-core/src/settings.rs:1304-1311 — Off, Edges, X-ray cycle",
+    "crates/voxelgame-core/src/settings_profile.rs:73-74 — saved in the preference file",
+    "crates/voxelgame-core/src/settings.rs:40-51 — Diagnostics page"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
     "label": "Settings and performance"
    },
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. No new capture."
   },
   {
    "id": "distant-terrain-toggle",
@@ -5367,20 +5387,22 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Advanced > Diagnostics > Distant terrain (on by default) draws the low-detail horizon beyond nearby chunks. Turning it off saves work on slow machines; the view then ends at the loaded terrain and new chunks can appear at that edge during fast travel.",
+   "summary": "Settings > Advanced > Diagnostics > Distant terrain (on by default) draws the low-detail horizon beyond nearby chunks. Turning it off saves work on slow machines; the view then ends at the nearby loaded terrain, where new chunks appear as you move.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:231-232",
-    "crates/voxelgame-core/src/settings.rs:265",
-    "crates/voxelgame-core/src/settings.rs:482-485",
-    "src/app.rs:666-673 — far terrain streaming uses the setting",
-    "crates/voxelgame-core/src/settings.rs:40-88 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:424-425 — setting",
+    "crates/voxelgame-core/src/settings.rs:566 — on by default",
+    "crates/voxelgame-core/src/settings.rs:1137-1140 — tooltip",
+    "crates/voxelgame-render/src/far_streaming.rs:44-48 — off clears the distant terrain",
+    "crates/voxelgame-render/src/view_culling.rs:313-319 — loaded chunks then draw to their edge",
+    "crates/voxelgame-core/src/game/world_streaming.rs:60-68 — nearby detail stays loaded",
+    "crates/voxelgame-core/src/settings.rs:40-51 — Diagnostics page"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
     "label": "Settings and performance"
    },
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Saved with your preferences. No new capture or performance measurement."
   },
   {
    "id": "chunk-fade-in",
@@ -5390,20 +5412,22 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Graphics > Display > Chunk fade-in (on by default) makes newly loaded terrain fade in over 0.6 seconds; turn it off to make terrain appear at once. Terrain prepared on the loading screen is already fully visible.",
+   "summary": "Settings > Graphics > Display > Chunk fade-in (on by default) makes newly loaded terrain fade in over 0.6 seconds; turn it off to make terrain appear at once. Terrain prepared on the loading screen is already fully visible. The Low graphics preset turns it off.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:233-234",
-    "crates/voxelgame-core/src/settings.rs:266",
-    "crates/voxelgame-core/src/settings.rs:440-443",
-    "crates/voxelgame-render/src/frame.rs:714",
-    "crates/voxelgame-core/src/settings.rs:25-37 — current settings route"
+    "crates/voxelgame-core/src/settings.rs:263-264 — setting row",
+    "crates/voxelgame-core/src/settings.rs:567 — on by default",
+    "crates/voxelgame-core/src/settings.rs:1070-1073 — tooltip",
+    "crates/voxelgame-render/src/lib.rs:385-386 — 0.6-second fade",
+    "crates/voxelgame-render/src/lib.rs:1950-1957 — loading-screen terrain is solid at once",
+    "crates/voxelgame-core/src/settings.rs:506-513 — preset values",
+    "crates/voxelgame-core/src/settings.rs:25-37 — Display page"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
     "label": "Settings and performance"
    },
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. No new capture."
   },
   {
    "id": "performance-overlay",
@@ -5413,7 +5437,7 @@
    "modes": [
     "any"
    ],
-   "summary": "Press F3 (or use Settings > Advanced > Diagnostics > Performance) to show a CPU-effort pie for the last half second, frame time against your frame budget, the worst recent frame with a spike count, and the lag-spike log status. Red marks work using more than one CPU core or over half the frame budget.",
+   "summary": "Press F3 (or use Settings > Advanced > Diagnostics > Performance) to show a CPU-effort pie for the last half second, frame time against your frame budget, the worst recent frame with a spike count, and the lag-spike log status. The budget follows Frame limit (Unlimited uses 60 FPS). Red marks work using more than one CPU core or over half the frame budget. In normal play the GPU box reads “GPU timing unavailable in this view”.",
    "controls": [
     [
      "F3",
@@ -5421,14 +5445,20 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:909-917 — F3 toggle",
-    "src/profiling.rs:149-260 — measurement window and red rules",
-    "crates/voxelgame-core/src/settings.rs:40-88 — current settings route"
+    "crates/voxelgame-core/src/game.rs:1489-1497 — F3 toggle",
+    "crates/voxelgame-core/src/bindings.rs:53 — F3 default, can be reassigned",
+    "src/profiling.rs:86-126 — budget, spikes and log status",
+    "src/profiling.rs:134-152 — half-second window and red rules",
+    "src/profiling.rs:250-255 — spike threshold",
+    "crates/voxelgame-render/src/debug_ui.rs:135-280 — panel text",
+    "src/app.rs:1539-1545 — measured only while shown",
+    "crates/voxelgame-core/src/settings_profile.rs:37-43 — not saved",
+    "crates/voxelgame-core/src/settings.rs:40-51 — Diagnostics page"
    ],
    "backlog": [
     "VOX-OWNER-GPU-TIMING-BOX"
    ],
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. A spike is a frame longer than twice the budget and at least 25 ms. While the overlay is open on Linux, spikes are written to lag-spikes.jsonl in $XDG_STATE_HOME/voxelgame or ~/.local/state/voxelgame (src/profiling.rs:49-55). No benchmark was made.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5443,7 +5473,7 @@
    "modes": [
     "any"
    ],
-   "summary": "F7 draws 16 m chunk borders with the current chunk in gold. F8 cycles LOD view Off, Tint, Colors: cyan is detailed terrain, and green, blue, yellow, orange, purple and red mark the 0.5 to 16 m distant stages. F9 turns all three diagnostics off if any is on, otherwise all on with Tint. The same switches are in Settings > Advanced > Diagnostics.",
+   "summary": "F7 draws 16 m chunk borders with the current chunk in gold and neighbours in cyan. F8 cycles LOD view Off, Tint, Colors: with the standard palette, cyan is detailed terrain, and green, blue, yellow, orange, purple and red mark the 0.5 to 16 m distant stages. F9 turns all three diagnostics off if any is on, otherwise all on with Tint. The same switches are in Settings > Advanced > Diagnostics; none is saved.",
    "controls": [
     [
      "F7",
@@ -5459,12 +5489,16 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:918-948 — F7, F8, F9",
-    "crates/voxelgame-core/src/settings.rs:42-67 — LOD view modes and tooltips",
-    "crates/voxelgame-core/src/settings.rs:460-477 — LOD view modes and tooltips",
-    "crates/voxelgame-core/src/settings.rs:40-88 — current route"
+    "crates/voxelgame-core/src/game.rs:1498-1529 — F7, F8, F9",
+    "crates/voxelgame-core/src/bindings.rs:53-56 — default keys, can be reassigned",
+    "crates/voxelgame-core/src/settings.rs:116-132 — LOD view modes",
+    "crates/voxelgame-core/src/settings.rs:1111-1128 — tooltips",
+    "crates/voxelgame-render/src/hud.rs:412-437 — LOD colour legend",
+    "crates/voxelgame-render/src/hud.rs:439-452 — chunk-border legend",
+    "crates/voxelgame-core/src/settings_profile.rs:37-43 — cleared from saved preferences",
+    "crates/voxelgame-core/src/settings.rs:40-51 — Diagnostics page"
    ],
-   "notes": "Targeted route/key check at aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). F7/F8/F9 defaults can be rebound (bindings.rs:53-56). Other display behavior retains its earlier audit; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Color vision palettes can change the LOD colours (hud.rs:427). The legends hide while a menu is open. No new capture.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5548,16 +5582,19 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Audio > Volume has separate Master, Music, Effects, Ambience and UI sliders, each 0–100%. Master affects every category; zero on a category mutes only that category. Changes apply immediately.",
+   "summary": "Settings > Audio > Volume has separate Master, Music, Effects, Ambience and UI volume sliders, each 0–100% (default 100%). Arrow keys move 5% per press. Master scales every category; zero on a category mutes only that category. Changes apply immediately.",
    "evidence": [
     "crates/voxelgame-core/src/settings.rs:38 — Volume rows",
     "crates/voxelgame-core/src/settings.rs:568-572 — defaults",
-    "crates/voxelgame-core/src/settings.rs:697 — stops",
-    "crates/voxelgame-core/src/settings.rs:1042-1044 — master/category help",
-    "src/audio.rs:218-223 — live sync",
-    "src/audio.rs:390-407 — category gains"
+    "crates/voxelgame-core/src/settings.rs:697 — 0–100 stops",
+    "crates/voxelgame-core/src/settings.rs:1266-1268 — 5% key steps for category sliders",
+    "crates/voxelgame-core/src/settings.rs:1330-1333 — 5% key steps for Master",
+    "crates/voxelgame-core/src/settings.rs:1042-1045 — category help",
+    "src/audio.rs:218-224 — live sync",
+    "src/audio.rs:391-408 — category gains",
+    "src/audio.rs:976-984 — Master applied last"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Preferences follow the player between worlds. Separate effects, ambience and UI volume controls are present. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Preferences follow the player between worlds. No listening test.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5572,19 +5609,23 @@
    "modes": [
     "any"
    ],
-   "summary": "Settings > Audio > Music switches music on/off, sets Music speed from 0.5× to 2.0× in 0.1× steps, and chooses the Previous or Next song. Music volume is under Audio > Volume.",
+   "summary": "Settings > Audio > Music switches music on/off, sets Music speed from 0.5× to 2.0× in 0.1× steps (tempo and pitch; effects keep their speed), and chooses the Previous or Next song. The current title, “No music installed” or a sound-unavailable notice appears below. Music volume is under Audio > Volume.",
    "evidence": [
-    "crates/voxelgame-core/src/settings.rs:38-88 — Music and Volume routes",
-    "crates/voxelgame-core/src/settings.rs:1145-1157 — help",
-    "crates/voxelgame-core/src/game/music_settings.rs:36-54 — catalog and selection",
-    "crates/voxelgame-render/src/menus_ui.rs:455-472 — title/audio notice"
+    "crates/voxelgame-core/src/settings.rs:67 — Music rows",
+    "crates/voxelgame-core/src/settings.rs:82-89 — Audio group",
+    "crates/voxelgame-core/src/settings.rs:1145-1155 — help",
+    "crates/voxelgame-core/src/settings.rs:840 — 0.1× speed steps",
+    "crates/voxelgame-core/src/game/music_settings.rs:36-50 — catalog and selection",
+    "crates/voxelgame-core/src/game/music_settings.rs:135-137 — no song choice without music",
+    "crates/voxelgame-render/src/menus_ui.rs:477-495 — title/audio notice",
+    "src/audio.rs:151-161 — sound-unavailable messages"
    ],
    "backlog": [
     "VOX-OWNER-MUSIC-MOSS-CLOCK",
     "VOX-OWNER-MUSIC-ALBUM-ART",
     "VOX-OWNER-CREDITS-MUSIC"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Preferences follow the player. Track selection is disabled for an empty catalog. Now-playing art and credits scheduling have separate coverage. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The chosen song follows the player with the other preferences. Linux asks for alsa-utils; Windows and macOS ask for ffplay (FFmpeg). Now-playing art and credits music have separate rows. No listening test.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5599,12 +5640,16 @@
    "modes": [
     "any"
    ],
-   "summary": "Wind, rain (including rain drumming on a roof above you), storms, forest, caves, birds, night wildlife, ponds, shorelines and streams fade in and out around you automatically. Ambience goes quiet in menus and underwater and follows the master volume.",
+   "summary": "Wind, rain (including rain drumming on a roof above you), storms, forest, caves, morning birds, night wildlife, ponds, shorelines and streams fade in and out around you automatically. Ambience keeps playing behind in-world menus but is silent underwater and on the start menu; deep underground under a roof only the cave sound remains. Settings > Audio > Volume > Ambience volume sets its level.",
    "evidence": [
-    "crates/voxelgame-core/src/ambience.rs:9-60 — ambience layers and underwater/cave rules",
-    "src/audio.rs:133-160 — silent whenever a menu or panel is open"
+    "crates/voxelgame-core/src/ambience.rs:12-37 — ambience layers",
+    "crates/voxelgame-core/src/ambience.rs:39-80 — underwater silence and cave rule",
+    "crates/voxelgame-core/src/ambience.rs:190-218 — roof, birds and night wildlife",
+    "crates/voxelgame-core/src/game.rs:2496-2512 — quiet on the start menu; in-world menus keep it",
+    "src/audio/continuity_tests.rs:42-93 — inventory, settings and map keep nature audible",
+    "src/audio.rs:941-947 — Ambience volume gain"
    ],
-   "notes": "No separate toggle. Birdsong timing (rises after sunrise, fades by noon) is from README.md:500-503, not separately verified.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Birds rise just after sunrise and fade by noon (ambience.rs:192-196); wind and storms quieten under a roof. No listening test.",
    "guide": {
     "state": "complete",
     "page": "guide-settings-performance.html",
@@ -5981,18 +6026,23 @@
    "modes": [
     "any"
    ],
-   "summary": "Mode, terrain generation, environment controls and progression belong to each world. Display, audio, input and accessibility preferences are shared across worlds through a separate profile, rather than switching to a save’s old graphics and sound settings.",
+   "summary": "Mode, terrain generation, time/weather/season controls and progression belong to each world. Display, audio, input and accessibility preferences are shared across worlds through a separate preference file, rather than switching to a save’s old graphics and sound settings. It saves about half a second after a change and on exit.",
    "evidence": [
-    "src/settings_profile.rs:25-32 — inherit shared settings/bindings/onboarding on replacement",
+    "src/settings_profile.rs:25-33 — preferences carry over when another world loads",
     "src/settings_profile.rs:42-56 — XDG configuration path",
-    "src/settings_profile.rs:101-139 — load/migrate profile and preserve unreadable profile",
-    "crates/voxelgame-core/src/settings_profile.rs:19-43 — profile scope and diagnostic exclusions",
-    "crates/voxelgame-core/src/save/write.rs:163-205 — persistent world sections"
+    "src/settings_profile.rs:76-151 — load, migrate and keep an unreadable file",
+    "src/settings_profile.rs:158-195 — save after half a second",
+    "src/app.rs:258-261 — save on exit",
+    "src/settings_profile.rs:198-206 — “Settings not saved” warning",
+    "crates/voxelgame-core/src/settings_profile.rs:19-50 — profile scope and diagnostic exclusions",
+    "crates/voxelgame-core/src/save/write.rs:156-206 — persistent world sections",
+    "crates/voxelgame-core/src/save/write.rs:427-437 — time, weather and season saved per world",
+    "crates/voxelgame-core/src/game/music_settings.rs:183-186 — world controls read-only in survival"
    ],
    "backlog": [
     "VOX-OWNER-PER-WORLD-CONFIG"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Linux profile: $XDG_CONFIG_HOME/voxelgame/settings, or ~/.config/voxelgame/settings. Native Windows/macOS profile-location acceptance remains outside this slice. Existing .vxw settings fields stay compatible. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Linux profile: $XDG_CONFIG_HOME/voxelgame/settings, or ~/.config/voxelgame/settings. If it cannot be read, the game keeps it, stops saving preferences for that session and shows “Settings not saved (…)”. Native Windows/macOS profile locations were not checked. Existing .vxw settings fields stay compatible. No native or two-computer playtest.",
    "guide": {
     "state": "partial",
     "page": "guide-settings-performance.html",

@@ -3463,9 +3463,9 @@
    "headline": "Settings,<br><em>and how to make the game run smoothly.</em>",
    "summary": "Find graphics, audio, controls and interface preferences, change keys and reduce rendering work.",
    "lead": "In a world, press Esc and choose Settings; on the start menu, choose Settings directly. Most preferences follow you between worlds.",
-   "readTime": "5 min read",
+   "readTime": "6 min read",
    "audience": "Everyone",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "settings-menu",
@@ -3494,8 +3494,8 @@
     "troubleshooting"
    ],
    "verification": {
-    "method": "Current groups, values, search/reset behavior, key capture and native preference sharing were source-checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05. Normal-window GPU timing remains separate from offscreen developer profiling.",
-    "limits": "Source-checked, not play-tested. No current FPS or GPU-memory benchmark, desktop idle test or new screenshot was made. Old hardware figures are not presented as current results."
+    "method": "Every Settings group, page, option name, range, default and help text, the graphics presets, search and reset, key capture, the F3/F7/F8/F9 overlays, audio mixing, nature-ambience rules and the shared preference file were re-checked against Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 source on 2026-11-08. Normal-window GPU timing remains separate from offscreen developer profiling.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. No FPS or GPU-memory benchmark, desktop idle test or new screenshot was made. Old hardware figures are not presented as current results."
    },
    "owns": [
     "shader-tiers",
@@ -3526,9 +3526,9 @@
       {
        "t": "steps",
        "items": [
-        "In a world, press Esc and choose Settings. On the start menu, choose Settings directly.",
+        "In a world, press Esc and choose Settings. On the start menu, choose Settings directly. Ctrl+F on the pause menu opens Settings with search ready.",
         "Choose Graphics, Audio, Controls, Gameplay, Interface or Advanced, then a subpage.",
-        "Use Find settings or Ctrl+F to search. Enter or Tab leaves the search field; Ctrl+Backspace clears it."
+        "Click Find settings or press Ctrl+F, then type. A setting matches when every word appears in its group, page, name or help. Enter or Tab leaves the field; Up/Down then steps through matches on every page. Ctrl+Backspace clears the search."
        ]
       },
       {
@@ -3540,7 +3540,7 @@
         ],
         [
          "Page Up / Page Down",
-         "Previous / next subpage; within Key bindings, change action page."
+         "Previous / next subpage; on Key bindings, previous / next page of actions."
         ],
         [
          "Up / Down arrows",
@@ -3548,10 +3548,10 @@
         ],
         [
          "Left / Right arrows, or Enter",
-         "Change the selected value."
+         "Step the selected value back / forward."
         ],
         [
-         "Click a chip / drag a slider",
+         "Click a chip or < >, drag a slider",
          "Set a value directly."
         ],
         [
@@ -3560,7 +3560,7 @@
         ],
         [
          "Backspace / Reset page",
-         "Restore this page’s defaults, outside text entry. Key bindings resets all keys."
+         "Restore this page’s defaults, outside text entry. On Key bindings, Backspace or Reset keys restores every key."
         ]
        ]
       },
@@ -3577,21 +3577,23 @@
       {
        "t": "list",
        "items": [
-        "**Graphics > Display > Graphics preset** coordinates Shader, Horizon distance, Atmospheric fog, Chunk fade-in and Frame limit. Try Balanced, or Low on a slower computer. Editing a member shows Custom.",
-        "**Shader** offers None, Fast (default) or Cinematic. None uses plain lighting; Cinematic adds refined shadows and reflective water at higher GPU cost. {{shader-tiers}}",
-        "**Horizon distance** offers 8, 16, 32, 48, 64 (default), 96, 128, 192, 256, 512 and 1024 chunks. One chunk is 16 m; the largest radius is about 16 km. Nearby detail is separate. {{horizon-distance}}",
-        "**Frame limit** is 60 (default), 120, 240 or Unlimited. A cap is not a guaranteed frame rate. {{frame-limit}}",
-        "**Atmospheric fog** is Light, Balanced or Dense. **Field of view** is 60–96° in 2° steps (default 72°). **Chunk fade-in** makes newly loaded terrain appear gradually. {{atmospheric-fog}} {{field-of-view}} {{chunk-fade-in}}"
+        "**Graphics > Display** holds Graphics preset, Field of view, Horizon distance, Atmospheric fog, Frame limit, Shader and Chunk fade-in.",
+        "**Graphics preset** sets five of them at once. Low: Shader None, 32 chunks, Dense fog, no fade-in, 60 FPS. Balanced (the defaults): Fast, 64 chunks, Balanced fog, fade-in, 60 FPS. High: Fast, 128 chunks, Balanced fog, fade-in, 120 FPS. Cinematic: Cinematic, 192 chunks, Light fog, fade-in, 60 FPS. Editing one of those five shows Custom; Field of view is not part of a preset.",
+        "**Shader** offers None, Fast (default) or Cinematic. None is plain voxel lighting; Fast adds sun shadows, sun rays and haze; Cinematic refines shadows and rays and adds reflective water, at extra frame time. {{shader-tiers}}",
+        "**Horizon distance** offers 8, 16, 32, 48, 64 (default), 96, 128, 192, 256, 512 and 1024 chunks. One chunk is 16 m; the largest radius is about 16 km. It sets only the low-detail distant view; full-detail terrain near you stays at nine chunks. {{horizon-distance}}",
+        "**Frame limit** is 60 (default), 120, 240 or Unlimited. A cap is not a guaranteed frame rate. There is no separate vsync setting; Frame limit paces the frames. {{frame-limit}}",
+        "**Atmospheric fog** is Light, Balanced (default) or Dense; haze strength follows Horizon distance. **Field of view** is 60–96° in 2° steps (default 72°). **Chunk fade-in** (on by default) fades newly loaded terrain in over 0.6 seconds. {{atmospheric-fog}} {{field-of-view}} {{chunk-fade-in}}"
        ]
       },
       {
        "t": "list",
        "items": [
-        "**Controls > Mouse** has separate horizontal/vertical sensitivity (50–200%) and Invert mouse Y. Use **Controls > Key bindings** to change gameplay keys; see {{guide:controls-reference|Controls reference}}.",
-        "**Gameplay > Movement** has Camera bob, Speed FOV, Damage bob and Hold/Toggle choices. Sprint/Sneak default to Hold; Crawl defaults to Toggle.",
-        "**Interface > Layout** has GUI presets, custom scale (75–200%), HUD text only, Target info, HUD compass and compact-map heading. Scale is capped so the menu fits. {{gui-size}}",
-        "**Interface > Crosshair** changes shape (Cross, Dot or Brackets), size, colour and opacity while retaining accuracy feedback.",
-        "**Interface > Accessibility** offers high contrast, reduced motion, information-overlay colour palettes and low-survival warnings. Reduce motion suppresses optional bob, FOV kick, shake, fades and pulses."
+        "**Controls > Mouse** has separate Horizontal and Vertical sensitivity (50–200% in 10% steps, default 100%) and Invert mouse Y.",
+        "**Controls > Key bindings** changes gameplay keys. Select an action and press Enter (or click it), then press the new key. Esc cancels and Delete leaves the action unbound. Esc, F6, F11 and Print Screen cannot be assigned. A key used by two actions shows “Conflict: …”. Defaults are in {{guide:controls-reference|Controls reference}}.",
+        "**Gameplay > Movement** has Camera bob, Speed FOV, Damage bob (Off, Reduced or Full) and Hold/Toggle for Sprint, Sneak and Crawl. Sprint and Sneak default to Hold; Crawl defaults to Toggle.",
+        "**Interface > Layout** has GUI size (Auto, Small, Normal or Large), UI scale (75–200% in 5% steps), HUD text only, Target info (F2), HUD compass and Compact map heading. Scale is capped so the menu fits. {{gui-size}}",
+        "**Interface > Crosshair** sets style (Cross, Dot or Brackets), size (50–200%), colour (Adaptive, White, Lime or Cyan) and opacity (25–100%). Every style keeps accuracy feedback.",
+        "**Interface > Accessibility** has Color vision palettes for information overlays, High contrast, Reduce motion, Low survival warning and Warning pulse. The warning appears when health, food, water or stamina falls to 10, 20, 30 or 40% (default 20%). Reduce motion turns off camera bob, FOV kick, blast shake, fades and pulses; static warnings remain."
        ]
       }
      ]
@@ -3603,13 +3605,13 @@
       {
        "t": "list",
        "items": [
-        "**Audio > Volume** has separate Master, Music, Effects, Ambience and UI sliders, each 0–100%. Master affects all categories; zero on one category mutes that category alone. {{master-volume}}",
-        "**Audio > Music** switches music on/off, sets speed from 0.5× to 2.0× in 0.1× steps and offers Previous/Next song. The current title or an audio-unavailable notice appears below. {{music-player}}"
+        "**Audio > Volume** has Master, Music, Effects, Ambience and UI volume, each 0–100% (default 100%). Arrow keys move them 5% at a time. Master scales every category; zero on one category mutes only that category. {{master-volume}}",
+        "**Audio > Music** turns music on or off, sets Music speed from 0.5× to 2.0× in 0.1× steps (tempo and pitch; effects keep their speed) and picks the Previous or Next song. Below it you see the current title, “No music installed”, or a sound problem: “Sound unavailable: install alsa-utils” on Linux, or “install ffplay (FFmpeg)” on Windows and macOS. {{music-player}}"
        ]
       },
       {
        "t": "p",
-       "text": "Set Ambience to zero to silence nature sounds while keeping effects and music. {{nature-ambience}}"
+       "text": "Set Ambience volume to zero to silence nature sounds while keeping effects and music. Nature sounds continue behind in-world menus but stop underwater and on the start menu. {{nature-ambience}}"
       }
      ]
     },
@@ -3619,39 +3621,39 @@
      "blocks": [
       {
        "t": "p",
-       "text": "**Advanced > Diagnostics** has FPS and coordinates, Performance, Chunk borders, LOD view, Voxel view and Distant terrain. The FPS box shows measured frame rate and cap, position in metres and biome. {{fps-coordinates-readout}}"
+       "text": "**Advanced > Diagnostics** has LOD view, Voxel view, Distant terrain, Performance, Chunk borders and FPS and coordinates; Mesh view is shown as unavailable. The FPS box is on by default and shows measured FPS with the limit (or UNCAPPED), your X, Y and Z position and the biome. It hides while a menu is open. {{fps-coordinates-readout}}"
       },
       {
        "t": "keys",
        "rows": [
         [
          "F3",
-         "Show or hide the performance overlay. It shows the frame time against your frame budget, the worst recent frame and the CPU work for the last half second."
+         "Show or hide the performance overlay: CPU work over the last half second, frame time against the frame budget, the worst recent frame and a spike count. The budget follows Frame limit (Unlimited uses 60 FPS); a spike is a frame over twice the budget and at least 25 ms."
         ],
         [
          "F7",
-         "Show or hide chunk borders. The chunk you stand in is gold."
+         "Show or hide 16 m chunk borders. Your current chunk is gold; neighbours are cyan."
         ],
         [
          "F8",
-         "Cycle the LOD view: Off, Tint and Colors. Cyan is full detail, and the other colours mark the distant stages."
+         "Cycle the LOD view: Off, Tint and Colors. With the standard palette, cyan is full detail; green, blue, yellow, orange, purple and red mark the 0.5 to 16 m distant stages."
         ],
         [
          "F9",
-         "Turn all three diagnostics off, or all on in Tint."
+         "Turn all three overlays off if any is on; otherwise turn all on, with LOD view in Tint."
         ]
        ]
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "The keys above are defaults and can be reassigned. The same controls are on Advanced > Diagnostics. Mesh view is labelled unavailable. {{diagnostic-overlays}} {{performance-overlay}}"
+       "text": "The keys above are defaults and can be reassigned. Performance, Chunk borders and LOD view are not saved: after a restart they are off, and the FPS box is on again. {{diagnostic-overlays}} {{performance-overlay}}"
       },
       {
        "t": "list",
        "items": [
         "**Voxel view**: Off (default), Edges, which tints every block border, or X-ray, which draws only the outlines. {{voxel-view}}",
-        "**Distant terrain**: on by default. It draws the low-detail horizon beyond the nearby chunks. Turning it off saves work on slow machines. The view then ends at the loaded terrain, and new chunks can appear at that edge when you travel fast. {{distant-terrain-toggle}}"
+        "**Distant terrain**: on by default. It draws the low-detail horizon beyond the nearby chunks. Turning it off saves work on slow machines. The view then ends at the nearby loaded terrain, where new chunks appear as you move. {{distant-terrain-toggle}}"
        ]
       }
      ]
@@ -3664,8 +3666,8 @@
        "t": "steps",
        "items": [
         "Try Graphics > Display > Graphics preset > Low: plain shading, 32-chunk horizon, dense fog, no terrain fade and a 60 FPS limit.",
-        "If needed, lower Horizon distance further or turn Advanced > Diagnostics > Distant terrain off. The distant view becomes shorter.",
-        "Use the default F3 key to compare frame time with the frame budget. Compare the same place/settings before drawing conclusions."
+        "If needed, lower Horizon distance to 16 or 8 chunks, or turn Advanced > Diagnostics > Distant terrain off. The distant view becomes shorter.",
+        "Use the default F3 key to compare frame time with the frame budget. Compare the same place and settings before drawing conclusions."
        ]
       },
       {
@@ -3680,7 +3682,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Graphics, audio, interface preferences and key bindings follow the player between worlds. Time, weather and season belong to each world, under Gameplay > World; they are read-only in survival. For profile locations and recovery, see {{guide:install-and-worlds|Install, update and find your worlds}}. {{per-world-settings}}"
+       "text": "Graphics, audio, interface preferences and key bindings follow the player between worlds. They save automatically about half a second after a change and when you quit; on Linux the file is ~/.config/voxelgame/settings. If it cannot be read, the game leaves it untouched, stops saving preferences and shows “Settings not saved …”; fix the file and restart. Time, weather and season belong to each world, under Gameplay > World; they are read-only in survival. For profile locations and recovery, see {{guide:install-and-worlds|Install, update and find your worlds}}. {{per-world-settings}}"
       }
      ]
     },
