@@ -31,17 +31,17 @@
         "date": "2026-10-09"
       },
       "last": {
-        "commit": "ec84c2d323419f3b5b74b78cf6b0f7f9d5f930e2",
+        "commit": "fd7d8b89865495d5a6d339fba44de679659561c3",
         "date": "2026-11-08"
       },
-      "commitCount": 154,
+      "commitCount": 177,
       "tags": [],
       "publicCommitLinks": true,
       "releases": "none",
       "checked": "2026-11-08"
     }
   ],
-  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test. The 5 November continuation reviewed only the 12 later wiki changes through 9017e34; the 8 November continuation adds the 35 wiki changes after it through ec84c2d3. The 8 November continuation reviews all 1,768 game changes after the 13 October cutoff through 21d656c2 (1,405 non-merge subjects, with message bodies, file lists and selected patches), checks added features against a clean export of 251b9e46 and 21d656c2, and re-checks every compatibility note there. A later 8 November follow-up reviews the 39 game changes after 21d656c2 through c56a00c4 (subjects, message bodies and the patches of the player-facing ones). The public game history was rewritten after the 13 October review without changing its shape: the same 704 commits, dates and subjects lead to the old cutoff 5856103c, which is 4723e3fc in the current history. Groups through 13 October keep the identifiers recorded at that review; later groups, the new 13 October entries and the new compatibility evidence use current identifiers, and the source range is pinned to the current root f4c9aee8 and c56a00c4 (2,511 commits).",
+  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test. The 5 November continuation reviewed only the 12 later wiki changes through 9017e34; the 8 November continuation adds the 35 wiki changes after it through ec84c2d3; a later 8 November follow-up adds the 23 wiki changes after that through fd7d8b89. The 8 November continuation reviews all 1,768 game changes after the 13 October cutoff through 21d656c2 (1,405 non-merge subjects, with message bodies, file lists and selected patches), checks added features against a clean export of 251b9e46 and 21d656c2, and re-checks every compatibility note there. A later 8 November follow-up reviews the 39 game changes after 21d656c2 through c56a00c4 (subjects, message bodies and the patches of the player-facing ones). The public game history was rewritten after the 13 October review without changing its shape: the same 704 commits, dates and subjects lead to the old cutoff 5856103c, which is 4723e3fc in the current history. Groups through 13 October keep the identifiers recorded at that review; later groups, the new 13 October entries and the new compatibility evidence use current identifiers, and the source range is pinned to the current root f4c9aee8 and c56a00c4 (2,511 commits).",
   "gaps": [
     "The game history starts with a large snapshot on 16 August 2026. Earlier development and changes between recorded snapshots cannot be dated more precisely.",
     "There are no tags in either inspected checkout. The public game release endpoint returned 404 during review, so game releases could not be verified. The wiki release endpoint returned an empty list. No release numbers are inferred from package metadata.",
@@ -332,11 +332,99 @@
         },
         {
           "kind": "Changed",
+          "area": "Pictures",
+          "text": "Guide screenshots were recaptured in the current stone-and-brass interface (start menu, HUD, Catalogue and Settings, plus a new Craft tab figure), the furniture guides picture placed furniture, kitchen units and beds, and the game's own Catalogue icons now mark blocks, items, recipe outputs and ingredients and the Items pack list.",
+          "refs": [
+            {
+              "commit": "dd1726bc711b075c863a7f850591956b2ed347a7",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "68f2cf39f30423b370fe20e7176f482708e5dd33",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "3244122b4559ba2c7ec76cd489dbfdfe01cbd49c",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "cfe197a6bc96b4150c2aa86a93d9baac8676df8b",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "149542308424b0d80e70dfdb26ea196a0823bd80",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "c8a00f1726e5ef782c38d1458106c7b9679a6663",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "472d518390a3fc1983c66673ab5e0a20b3e47fb0",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "0868ee01deefa649ec1584277e706a35033d7715",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fresh screenshots in the current interface, furniture pictures and the game's own item icons."
+        },
+        {
+          "kind": "Changed",
+          "area": "Player guides",
+          "text": "A second pass checked the guides and the feature ledger against Voxelgame 21d656c2 and c56a00c4: the first survival day and hunting (meter rates, food values, animal drops), saving, installing and troubleshooting (the game now calls itself qiqi in its menus and messages), explosives (blasts, shells and tank tracks spare blocks that hold up furniture), and all 74 feature entries still dated from the 10 October review: moving, camera and menus, building and the Pack, world, music and servers, and planned and developer entries.",
+          "refs": [
+            {
+              "commit": "9ad8b900432ebad6ab76b65db57357be27805035",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "aa2f47bd3a01224d6585e4c51ff3f52c94826456",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "f64bf8ab5e42f03b8ed550432add0bd1d67fa2c1",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "3efaa524775345296b590f51a69a68caea2e25ff",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "e820a01b443990bcbf891f74770bbdcd89f0e6a9",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "afe496f400545334bca8bac913c76318724498b1",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "a29e4b7f06f41d4412bf869ce0a84938196572c7",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "f58ff3fde3832f94ea311ce95647889d23da75ce",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "fd7d8b89865495d5a6d339fba44de679659561c3",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Rechecked survival, hunting, saving, installing, troubleshooting, explosives and every remaining feature entry against the current game."
+        },
+        {
+          "kind": "Changed",
           "area": "Changelog",
-          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame 21d656c2 on 8 November, with day groups for 13 October to 8 November.",
+          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame c56a00c4 on 8 November, with day groups for 13 October to 8 November.",
           "refs": [
             {
               "commit": "ec84c2d323419f3b5b74b78cf6b0f7f9d5f930e2",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "c3919193330c0d99b0af8cde0bc12f4b8920ba51",
               "date": "2026-11-08"
             }
           ],
