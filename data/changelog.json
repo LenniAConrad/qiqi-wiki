@@ -12,10 +12,10 @@
         "date": "2026-08-16"
       },
       "last": {
-        "commit": "a5b4d69997307e4fac75e555d851d7c0fe565287",
+        "commit": "ac5a66dc684f81068bbd0b0c5e7a3c44db1dd26c",
         "date": "2026-11-08"
       },
-      "commitCount": 2667,
+      "commitCount": 2681,
       "tags": [],
       "publicCommitLinks": false,
       "releases": "unavailable",
@@ -1330,6 +1330,18 @@
             }
           ],
           "publicSummary": "Fixed queued crafts on a server being dropped when the server was briefly busy."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "On a server, an animal the network update cannot describe is now left out of the wildlife update instead of disconnecting every player near it.",
+          "refs": [
+            {
+              "commit": "0e6ecdc12b1a66de36edeb9f7cf7bce92e54d6fa",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed players near an unusual animal on a server being disconnected."
         }
       ],
       "publicTitle": "Beds, cooking stove, lamps, lantern light, animal voices and boat sounds"
