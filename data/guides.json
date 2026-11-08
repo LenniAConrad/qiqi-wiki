@@ -408,11 +408,11 @@
    "kicker": "Controls reference",
    "title": "Controls reference",
    "headline": "Every key,<br><em>and when it works.</em>",
-   "summary": "Default gameplay keys, how to change them, and controls that keep their menu meaning.",
+   "summary": "Default gameplay keys, furniture and door controls, how to change them, and controls that keep their menu meaning.",
    "lead": "These tables show default keys. For reassigned actions, use the key shown in Settings > Controls > Key bindings. Menu navigation and native window shortcuts keep their physical keys.",
    "readTime": "3 min, then look things up",
    "audience": "Everyone",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "walk-and-look",
@@ -429,15 +429,21 @@
     "game-modes",
     "input-devices-and-layout",
     "mouse-capture",
-    "saving-and-quitting"
+    "saving-and-quitting",
+    "doors",
+    "wooden-chests",
+    "planned-doors-chests-furniture",
+    "middle-click-pick",
+    "build-undo-redo",
+    "home-crate"
    ],
    "next": [
     "getting-started",
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "Targeted key-binding, pause and screenshot guidance was source-checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05, in bindings.rs, game/controls.rs, game/settings_search.rs and native input. The full table is generated from feature entries with their individual dated sources.",
-    "limits": "Source-checked, not play-tested. No native session or fresh screenshot was made. Reassigned gameplay actions differ from the printed defaults; menu navigation stays physical."
+    "method": "Targeted key-binding, pause and screenshot guidance was source-checked at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 2026-11-05, in bindings.rs, game/controls.rs, game/settings_search.rs and native input. The full table is generated from feature entries with their individual dated sources. Furniture, door, bed, lamp, stove, table-display, Home-tab and save-key guidance was re-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: game/furniture/controls.rs:108-143,356-535 (plan keys, move, take up, put away); game/furniture/workbench.rs:25-47,204-229 and game.rs:1549-1573 (E opens the workbench); game/doors/relocation.rs:20-48,102-165 and game/net_client/door_moves/input.rs:125-212 (door move keys); game.rs:2848-2860 and world/door.rs:219-226 (middle-click door copy); game/furniture/seating.rs:29-56,87-100 and game/furniture/resting.rs:27-72,168-200 (seat and bed); game/furniture/lamp.rs:10-30 and game/furniture/cooking_stove.rs:20-45,138-200 (lamp and stove); game/furniture/display.rs:51-65,270-320 and furniture/definition.rs:249-310 (table display); game.rs:2620-2700,2860-2872,2936-2942 (block use order, mining and placement refusals); game/home/keyboard.rs:60-125 (Home keys); src/app.rs:1557-1572,2007-2025 (F6 save). Game paths beginning game/ or furniture/ are beneath crates/voxelgame-core/src/. The key bindings table itself (bindings.rs, game/controls.rs, game/settings_search.rs) has no changes since the 5 November check. The generated Every control table below the guide still carries each row's own dated source.",
+    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. No native session or fresh screenshot was made. Reassigned gameplay actions differ from the printed defaults; menu navigation stays physical. Earlier receipts for the key-binding and pause guidance stand as written above."
    },
    "sections": [
     {
@@ -473,7 +479,7 @@
         ],
         [
          "Right click",
-         "Place the held block (a block selected, no tool equipped); hold to draw a bow or wind up a throw."
+         "Place the held block (a block selected, no tool equipped); hold to draw a bow or wind up a throw. Also uses what you aim at: a door, chest, seat, bed or lamp."
         ],
         [
          "E",
@@ -501,7 +507,7 @@
         ],
         [
          "F6",
-         "Save now."
+         "Save now. In a server world you joined, nothing is saved on your computer and the game says so."
         ],
         [
          "F10",
@@ -542,16 +548,148 @@
        "items": [
         "**Shift** is shared by default: sneak on the ground, dive in water, descend while flying, and steady a bow or rifle. Building detail has its own action. {{sneak-ledge-guard}}",
         "**Tab** equips tools when the inventory is closed and switches tabs when it is open. {{equip-tools-tab}}",
-        "**Z** zooms, but **Ctrl + Z** is undo in creative, so Z does not zoom while Ctrl is held. {{hold-to-zoom}}",
+        "**Z** zooms, but **Ctrl + Z** is undo, so Z does not zoom while Ctrl is held. It undoes furniture steps in either mode, and building and door moves in creative. {{hold-to-zoom}}",
         "**C** crawls on foot. In a boat, it cycles camera stations. {{crawl}}",
         "**F** toggles flight in creative; in survival it only shows 'Flight is available in creative mode'. {{creative-flight}}",
-        "**F5** cycles first person, third person rear and third person front. The perspective is not saved. {{camera-perspectives}}"
+        "**F5** cycles first person, third person rear and third person front. The perspective is not saved. {{camera-perspectives}}",
+        "**B** cycles creative brushes, and in survival takes the Blueprint tool out. With a furniture plan out it puts the plan away instead, and it cancels a door move. {{creative-brush-cycle}}"
        ]
       },
       {
        "t": "note",
        "kind": "tip",
        "text": "Key names describe physical positions. On a non-QWERTY board, use those positions or reassign gameplay actions. {{input-devices-and-layout}}"
+      }
+     ]
+    },
+    {
+     "id": "furniture-home",
+     "title": "Furniture, doors and home",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "Default keys. Survival needs a furniture hammer in your pack for plans; Creative does not. The building guide explains each step: {{guide:building-basics|Building basics}}."
+      },
+      {
+       "t": "h",
+       "text": "While a furniture plan is selected"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "E, with a plan or the hammer in hand",
+         "Open the carpentry workbench. Aim at furniture first to change its woods, or at a placed chest to refinish it."
+        ],
+        [
+         "Right click",
+         "Place the furniture at the ghost. With only the hammer in hand, it opens the workbench instead."
+        ],
+        [
+         "R",
+         "Turn the ghost 90 degrees. Wall pieces: aim at a wall side and turn their back toward it."
+        ],
+        [
+         "Left click",
+         "Take up the aimed furniture. Empty its storage first."
+        ],
+        [
+         "Shift + Left click",
+         "Lock the aimed furniture to move it. R turns it, right click places it, left click cancels."
+        ],
+        [
+         "Shift + Right click",
+         "Join a floor kitchen piece to the side of the aimed one."
+        ],
+        [
+         "B",
+         "Put the furniture away."
+        ],
+        [
+         "Ctrl + Z / Ctrl + Shift + Z",
+         "Undo / redo your last furniture step."
+        ]
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Using furniture (plan put away)"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Right click a seat",
+         "Sit. Space or right click stands you up when the way is clear."
+        ],
+        [
+         "Right click a bed",
+         "Lie down. Space or right click gets you up when the way is clear."
+        ],
+        [
+         "Right click a lamp",
+         "Switch it on or off (no tool or plan in hand)."
+        ],
+        [
+         "Right click a chest or storage furniture",
+         "Open its storage. Click an item to move one; Shift + click moves as many of that item as fit."
+        ],
+        [
+         "Right click a cooking stove",
+         "Open its panel. Click moves one item, Shift + click as many as fit; Start cooks one batch."
+        ],
+        [
+         "Right click a table top, red lantern selected",
+         "Put the lantern on display. Works on tables, desks, bookcases and wall shelves. Ctrl + Z undoes it."
+        ],
+        [
+         "Right click the display, empty slot selected",
+         "Take the lantern back."
+        ]
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Doors"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Right click a door",
+         "Open or close it."
+        ],
+        [
+         "Middle click a door (Creative)",
+         "Copy its exact style, wood and size into your hand."
+        ],
+        [
+         "Shift + Left click a closed door (Creative)",
+         "Lock it to move. R turns it, right click places it, left click or B cancels. Ctrl + Z and Ctrl + Shift + Z undo and redo the move."
+        ]
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Home tab"
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Arrow keys, Page Up / Page Down",
+         "Move between the actions and the carried and stored lists."
+        ],
+        [
+         "Enter or Space",
+         "Use the selected action, or move the selected item. Shift moves as many as fit."
+        ]
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "With a block or empty hands, aiming at furniture refuses mining (\"Furniture blocks that mining target\") and block placement (\"Furniture blocks that placement\"). On a server, wait for the server to confirm before the next furniture, bed, stove or door-move action."
       }
      ]
     },
