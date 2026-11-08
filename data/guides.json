@@ -5569,6 +5569,12 @@
      "title": "Place and turn furniture",
      "blocks": [
       {
+       "t": "figure",
+       "src": "images/guides/furniture-placed.webp",
+       "alt": "Oak furniture standing on an open meadow: a chair, a desk, a bookcase, a double bed and a single bed with cream wool bedding in front, a dining table, a sofa and an armchair behind them, and a row of kitchen and bathroom pieces further back.",
+       "caption": "Oak furniture with cream wool upholstery. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world), placed from creative furniture plans. Lamps and stoves are not shown."
+      },
+      {
        "t": "steps",
        "items": [
         "Select a plan. Choose **Place in world** or close the inventory to return to the world.",
@@ -5824,6 +5830,12 @@
      "title": "Kitchen units and bathroom fixtures",
      "blocks": [
       {
+       "t": "figure",
+       "src": "images/guides/furniture-kitchen-bath.webp",
+       "alt": "A row of joined oak kitchen units on a meadow: plain counters, cupboards and two stone-topped sinks, a wooden chest at the left end, and behind them a chest of drawers, a tall wardrobe, a bathtub and a toilet.",
+       "caption": "Kitchen units, a wooden chest, a wardrobe, drawers and bathroom fixtures. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world), placed from creative furniture plans. Lamps and stoves are not shown."
+      },
+      {
        "t": "p",
        "text": "The kitchen plans are the counter, sink, cupboard, wall cupboard, counter cabinet and sink cabinet. The bathroom plans are the washbasin, toilet and bathtub. You place, move and take them up like other furniture. {{planned-doors-chests-furniture}}"
       },
@@ -6054,6 +6066,12 @@
      "id": "beds",
      "title": "Beds and resting",
      "blocks": [
+      {
+       "t": "figure",
+       "src": "images/guides/furniture-beds.webp",
+       "alt": "A double bed and a single bed with oak frames and cream wool bedding on a meadow, seen from the side, with a sofa, an armchair, a bookcase, a desk and kitchen units around them.",
+       "caption": "A double and a single bed. Headless capture from a Voxelgame build of 8 November 2026 (1280 × 720, disposable seed-42 world), placed from creative furniture plans. Lamps and stoves are not shown."
+      },
       {
        "t": "list",
        "items": [

@@ -78,6 +78,9 @@ On 8 November 2026 they were recaptured (lossy WebP quality 88) from a devtools
 build of that day, replaying `tools/captures/guide_screens.json` with the game's
 `tools/game_debug.py replay` (seed 42, offscreen, no normal saves or window); the
 same replay added the Craft tab screenshot, `images/guides/craft-tab.webp`.
+The three furniture pictures (`images/guides/furniture-*.webp`) come from the
+same build replaying `tools/captures/furniture_scenes.json`, which places base-game
+furniture plans in a disposable creative world and photographs them.
 
 
 ## Catalogue icons — 8 November 2026

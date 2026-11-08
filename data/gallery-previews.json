@@ -5763,6 +5763,75 @@
       ],
       "sourceWidth": 1280,
       "sourceHeight": 720
+    },
+    {
+      "source": "images/guides/furniture-placed.webp",
+      "sourceSha256": "3f41b5d40ba97199f1764d9e40c9486dad95d4284fea709183d2b0bc11c7b975",
+      "kind": "guides",
+      "variants": [
+        {
+          "path": "images/thumbnails/guides/furniture-placed--640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 19186,
+          "sha256": "17e21577fdc8ebddf5f070349faf326db1745ffc40a4b9bf4079d08219b7c58f"
+        },
+        {
+          "path": "images/thumbnails/guides/furniture-placed--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 34352,
+          "sha256": "18b56f08731932faf0006ac897e956657153490d2acedd023943d16c4dd1440b"
+        }
+      ],
+      "sourceWidth": 1280,
+      "sourceHeight": 720
+    },
+    {
+      "source": "images/guides/furniture-kitchen-bath.webp",
+      "sourceSha256": "03adc833ecbe89e4c21371aed698427ac3f0caeba57ad387d43bfed1592a6f5c",
+      "kind": "guides",
+      "variants": [
+        {
+          "path": "images/thumbnails/guides/furniture-kitchen-bath--640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 18880,
+          "sha256": "d3328da278adad4fbccbac230c580eb8c3c181c0679111f5cbbeb5a12a78812f"
+        },
+        {
+          "path": "images/thumbnails/guides/furniture-kitchen-bath--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 33492,
+          "sha256": "fa497343b4a537025fe65718cf069902a749e180231feed8b0d7ff9f1319b91b"
+        }
+      ],
+      "sourceWidth": 1280,
+      "sourceHeight": 720
+    },
+    {
+      "source": "images/guides/furniture-beds.webp",
+      "sourceSha256": "8984346b9cef76511c833df211fe98964c5d5d2e566bee50e56e4295771a6400",
+      "kind": "guides",
+      "variants": [
+        {
+          "path": "images/thumbnails/guides/furniture-beds--640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 18270,
+          "sha256": "30e6bfaf45621b0801889a89511a20b0add80612ff743ffca20d4effcd0b17c0"
+        },
+        {
+          "path": "images/thumbnails/guides/furniture-beds--960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 31026,
+          "sha256": "7a42c207de34d3687066dafbbe543fe4955a15469c50b05dd2aa7d57bd63a94f"
+        }
+      ],
+      "sourceWidth": 1280,
+      "sourceHeight": 720
     }
   ]
 }
