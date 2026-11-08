@@ -1436,7 +1436,7 @@
        "t": "list",
        "items": [
         "In survival the chop takes as long as all the wood and leaves it removes together. All of it goes into your pack.",
-        "If the whole harvest does not fit, the status line says 'Need X capacity free to collect this connected tree' and nothing is cut.",
+        "If the whole harvest does not fit, the status line says 'Need X capacity free to collect this connected tree (Y available)' and nothing is cut.",
         "A log you placed yourself breaks like any other block, one piece at a time.",
         "A finished tree reports 'Felled a tree' with the number of logs and leaves."
        ]

@@ -1721,21 +1721,28 @@
     [
      "Click carried-items / Character icon",
      "Switch between the grid and the character portrait"
+    ],
+    [
+     "Hover an item + J (Ctrl+J)",
+     "Survival only: drop one piece / the whole stack"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-render/src/inventory_ui.rs:425-535 — carried-items/Character controls, search, sort and paged icon cells",
-    "crates/voxelgame-core/src/game/inventory_qol.rs:72-80 — case-insensitive name search and display ordering",
-    "crates/voxelgame-core/src/game/inventory_qol.rs:248-265 — search, sorting and page controls",
-    "crates/voxelgame-core/src/game/inventory_input.rs:55-67 — Ctrl+F focuses Pack search",
-    "crates/voxelgame-core/src/game/consumables.rs:12-89 — click use/equip actions",
-    "crates/voxelgame-core/src/game/hotbar.rs:28-74 — drags bind, swap or clear quick slots rather than splitting stock",
-    "crates/voxelgame-core/src/game/tests.rs:5620-5659 — test: grid cells resolve to the drawn entries"
+    "crates/voxelgame-render/src/inventory_ui.rs:453-563 — carried-items/Character controls, search, sort and paged icon cells",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:78-87 — case-insensitive name search and display ordering",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:257-275 — search, sort and page controls (Enter ends typing at 519-524)",
+    "crates/voxelgame-core/src/game/inventory_input.rs:62-77 — Ctrl+F focuses Pack search",
+    "crates/voxelgame-core/src/game/inventory_input.rs:292-327 — mouse wheel pages the Pack",
+    "crates/voxelgame-core/src/game/inventory_input.rs:174-200 — hover an item and press the drop key",
+    "crates/voxelgame-core/src/game/item_drops.rs:65-100 — drop one piece or the whole stack; Survival only",
+    "crates/voxelgame-core/src/game/consumables.rs:12-90 — click use/equip actions",
+    "crates/voxelgame-core/src/game/hotbar.rs:26-112 — drags and digit keys bind, swap or clear quick slots rather than splitting stock",
+    "crates/voxelgame-core/src/game/tests.rs:5627-5667 — test: grid cells resolve to the drawn entries"
    ],
    "backlog": [
     "VOX-OWNER-COMPACT-INVENTORY"
    ],
-   "notes": "Dragging within the Pack does not rearrange or split stacks. A hotbar slot is a shortcut to an item kind, so assigning it does not remove items from your pack. Inventory display preferences are session-local. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Dragging within the Pack does not rearrange or split stacks. A hotbar slot is a shortcut to an item kind, so assigning it does not remove items from your pack. Inventory display preferences are session-local. In Creative the drop key says 'Carried-item dropping currently requires Survival mode'.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1751,17 +1758,18 @@
     "creative",
     "survival"
    ],
-   "summary": "Hover a carried item to see its name, quantity, category, description and action hints. Pack tooltips also show how to obtain it and its capacity per piece. The side panel shows an item model with a short description and use.",
+   "summary": "Hover a carried item to see its name, quantity, category, description and action hints. Pack tooltips also show how to obtain it and its capacity per piece, and in Survival the drop keys. The side panel shows an item model with a short description and use.",
    "evidence": [
-    "crates/voxelgame-render/src/inventory_ui.rs:178-207 — item model preview",
-    "crates/voxelgame-render/src/inventory_ui.rs:300-312 — concise description and use beside carried stock",
-    "crates/voxelgame-render/src/inventory_ui.rs:349-385 — hover name, quantity, category, actions, acquisition and capacity",
-    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:23-85 — control help shared by pointer hover and keyboard focus"
+    "crates/voxelgame-render/src/inventory_ui.rs:186-225 — item model preview",
+    "crates/voxelgame-render/src/inventory_ui.rs:319-330 — concise description and use beside carried stock",
+    "crates/voxelgame-render/src/inventory_ui.rs:367-414 — hover name, quantity, category, actions, acquisition, capacity and Survival drop hint",
+    "crates/voxelgame-render/src/item_labels.rs:95-114 — acquisition line ('RECIPE: <name>' or a SOURCE line)",
+    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:30-109 — control help shared by pointer hover and keyboard focus"
    ],
    "backlog": [
     "VOX-OWNER-INVENTORY-ICON-DEFECTS"
    ],
-   "notes": "Use the hover text to identify small grid icons; the quantity is the total carried amount of that item kind. Inventory icons and controls remain under active development. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Use the hover text to identify small grid icons; the quantity is the total carried amount of that item kind. Inventory icons and controls remain under active development.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1831,12 +1839,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1068-1070 — Tab cycles equipment outside the inventory",
-    "crates/voxelgame-core/src/game/hotbar.rs:383-406 — cycles carried tools then 'Hands free'",
-    "crates/voxelgame-core/src/game/crafting.rs:107-109 — crafted tools are equipped",
-    "crates/voxelgame-core/src/game/consumables.rs:30-41 — clicking a tool equips/stows it"
+    "crates/voxelgame-core/src/game.rs:1706-1708 — Tab cycles equipment outside the inventory",
+    "crates/voxelgame-core/src/game/hotbar.rs:393-422 — cycles carried tools then 'Hands free'",
+    "crates/voxelgame-core/src/inventory.rs:888-902 — which items count as tools",
+    "crates/voxelgame-core/src/game/crafting.rs:126-128 — crafted tools are equipped",
+    "crates/voxelgame-core/src/game/consumables.rs:44-54 — clicking a tool equips/stows it"
    ],
-   "notes": "'Tools' for cycling include the stone tools, Alder bow, Alder rifle, Throwing rocks, Dynamite and spawn eggs.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Cycling covers whichever of these you carry: Stone sword, pickaxe, hatchet and shovel, Furniture hammer, Reed fishing rod, Alder bow, Alder rifle, Throwing rock, Dynamite and spawn eggs. With none carried it says 'No tools carried; craft one in the E inventory'.",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -1851,7 +1860,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, Build has a searchable item browser: click an ordinary item to take one, Shift-click to fill remaining pack capacity, right-click to remove one carried, Shift-right-click to remove all, and middle-click to star. Furniture plans select reusable construction choices instead of carried items.",
+   "summary": "In creative, Build has a searchable item browser beside a Pack strip of your carried items: click an ordinary item to take one, Shift-click to fill remaining pack capacity, right-click to remove one carried, Shift-right-click to remove all, and middle-click to star. Furniture plans select reusable construction choices instead of carried items.",
    "controls": [
     [
      "Click item",
@@ -1870,7 +1879,7 @@
      "Star / unstar (creative Build tab)"
     ],
     [
-     "Click search box, type; Enter",
+     "Click search box or Ctrl+F, type; Enter",
      "Filter by name; Enter finishes typing; right-click the box clears it (creative Build tab)"
     ],
     [
@@ -1883,14 +1892,17 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/creative_catalog.rs:9-33 — category and name filtering includes reusable furniture plans",
-    "crates/voxelgame-core/src/game/creative_catalog.rs:78-105 — favorite toggling",
-    "crates/voxelgame-core/src/game/creative_catalog.rs:171-207 — paging; ordinary taking respects inventory capacity; furniture plans select construction instead",
-    "crates/voxelgame-core/src/game/creative_catalog.rs:227-243 — remove one or all carried units",
-    "crates/voxelgame-core/src/game/furniture/workbench.rs:25-47 — plans select a construction gesture and selected materials",
-    "crates/voxelgame-core/src/game/inventory_input.rs:268-322 — creative search and item selection input"
+    "crates/voxelgame-core/src/game/creative_catalog.rs:9-34 — category and name filtering includes reusable furniture plans",
+    "crates/voxelgame-core/src/game/creative_catalog.rs:83-105 — recent list and favorite toggling",
+    "crates/voxelgame-core/src/game/creative_catalog.rs:171-225 — paging; ordinary taking respects inventory capacity; furniture plans select construction instead",
+    "crates/voxelgame-core/src/game/creative_catalog.rs:227-244 — remove one or all carried units",
+    "crates/voxelgame-core/src/game/furniture/workbench.rs:22-52 — plans select a construction gesture and selected materials",
+    "crates/voxelgame-core/src/game/inventory_input.rs:244-262 — creative search typing",
+    "crates/voxelgame-core/src/game/inventory_input.rs:501-571 — catalogue clicks, right-click remove, middle-click star",
+    "crates/voxelgame-core/src/game/hotbar.rs:26-75 — a short click takes the item (Shift takes as many as fit); a drag binds a quick slot",
+    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:26-58 — Pack strip of carried items beside the catalogue"
    ],
-   "notes": "Furniture-plan exception checked on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; source only, no new play test. Plans never add a carried chair or table. Ordinary creative catalog items retain take/remove/star and hotbar controls. Survival has separate hammer-enabled carpentry, not the free creative catalog. Other catalog categorization and capacity checks remain at the earlier ledger baseline.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Plans never add a carried chair or table. Ordinary creative catalog items retain take/remove/star and hotbar controls. Up to 32 stars and 12 recent items last for the session. Survival has no free catalogue; with a Furniture hammer it gets a separate carpentry Build tab.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -2341,12 +2353,14 @@
    ],
    "summary": "Cutting a log on a natural tree (or a cactus) brings down that piece and everything growing from it. In survival the chop takes the combined time of all removed wood and leaves, and all of it goes into your pack.",
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:2301-2353 — felling collects all wood and leaves or refuses if they do not fit",
-    "crates/voxelgame-core/src/world/mod.rs:1169-1203 — only generated natural trees fell; yields one piece per removed voxel",
-    "crates/voxelgame-core/src/inventory.rs:425-427 — log tooltip: cutting it removes its children",
-    "crates/voxelgame-core/src/game/tests.rs:4000 — chop time, whole-tree collection, capacity refusal"
+    "crates/voxelgame-core/src/game.rs:3312-3360 — felling collects all wood and leaves or refuses if they do not fit",
+    "crates/voxelgame-core/src/game/plant_support.rs:11-48 — plants resting on the cut come with it; furniture support and capacity refusals",
+    "crates/voxelgame-core/src/world/mod.rs:1388-1422 — only generated natural trees fell; yields one piece per removed voxel",
+    "crates/voxelgame-core/src/game/mining.rs:238-274 — chop time adds up all wood and leaves in the tree",
+    "crates/voxelgame-core/src/inventory.rs:768 — log tooltip: cutting it removes its children",
+    "crates/voxelgame-core/src/game/tests.rs:5129-5170 — test: chop time and whole-tree collection"
    ],
-   "notes": "Cutting the root removes the whole tree; cutting a branch keeps the trunk below. If the whole harvest does not fit you get 'Need X capacity free to collect this connected tree' and nothing is cut. Logs you placed yourself mine like ordinary blocks. Status shows 'Felled a tree: N <log> and M <leaves>'.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Cutting the root removes the whole tree; cutting a branch keeps the trunk below. If the whole harvest does not fit you get 'Need X capacity free to collect this connected tree (Y available)' and nothing is cut. A tree holding up placed furniture is refused until the furniture is taken up. Logs you placed yourself mine like ordinary blocks. Status shows 'Felled a tree: N <log> and M <leaves>'.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -2391,12 +2405,12 @@
    ],
    "summary": "Natural stone and wood are everywhere; Sand and Clay line shores, Reeds grow in wetlands, Wild flax (for fiber) grows in meadows of new worlds, and feathers, wool and meat come from animals.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator.rs:3737-3748 — shore deposits of Clay (below sea level), Gravel and Sand",
+    "crates/voxelgame-core/src/world/generator.rs:2294-2304 — shore deposit material: Clay at or below sea level, otherwise Gravel or Sand (used by OceanFloor and OpenOcean at world/generator/surface.rs:460, 604)",
     "crates/voxelgame-core/src/world/generator/surface.rs:444 — Desert surface is Sand",
-    "crates/voxelgame-core/src/world/generator/ecology.rs:438-449 — Wild flax only in Meadow, Flower meadow and Rolling downs of current-generation worlds",
-    "crates/voxelgame-core/src/world/generator/surface.rs:177-182 — clay on alluvial terraces, marshes and river deltas"
+    "crates/voxelgame-core/src/world/generator/ecology.rs:449-459 — Wild flax only in Meadow, Flower meadow and Rolling downs of current-generation worlds",
+    "crates/voxelgame-core/src/world/generator/surface.rs:177-182 — clay on alluvial terraces; Marsh and River delta mix in Clay at 454-458"
    ],
-   "notes": "Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Glow crystal does not generate naturally, but no recipe needs it (see lumen-crystal-supply).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Glow crystal does not generate naturally, but no recipe needs it (see lumen-crystal-supply).",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -3227,27 +3241,32 @@
     "creative",
     "survival"
    ],
-   "summary": "Aim at a block up to 6 m away: an orange outline marks the 1 m cell a left click removes, and a see-through copy of your held block with a teal outline shows where a right click places it. A red outline alone means the block cannot go there; hold Shift and both shrink to a single half-metre voxel.",
+   "summary": "Aim at a block up to 6 m away. In Survival, cracks spread over the block while you hold left click to mine it. With a block selected, a see-through copy in the block's own texture shows where a right click places it; a red outline alone means the block cannot go there. Hold Shift and the ghost shrinks to a single half-metre voxel.",
    "controls": [
     [
      "Hold Shift",
-     "Outline and ghost switch to one half-metre voxel (on foot, flying or swimming)"
+     "Ghost switches to one half-metre voxel (on foot, flying or swimming)"
     ],
     [
      "F1",
-     "Clean view hides the outline, ghost and HUD (while playing)"
+     "Hide or show the HUD; hiding it also hides the placement ghost (while playing)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-render/src/highlight.rs:20-108 — removal outline sized to the edit scale; valid placement adds a textured ghost plus place outline;",
-    "crates/voxelgame-core/src/game/readouts.rs:10-73 — no preview with a tool equipped or empty hands; whole-block mode uses the 1 m cell across the aimed face;",
-    "crates/voxelgame-core/src/world/raycast.rs:29-38 — interaction ray stops at the first non-air, non-liquid voxel",
-    "crates/voxelgame-core/src/game/mod_vehicles.rs:123-133 — bow, rifle, throwables and vehicles disable block interaction (no outline)"
+    "crates/voxelgame-render/src/highlight.rs:71-96 — mining cracks; nothing drawn while a menu is open or a ranged weapon or vehicle is out",
+    "crates/voxelgame-core/src/game/mining.rs:34-46 — mining cracks show in Survival only",
+    "crates/voxelgame-render/src/highlight.rs:173-196 — valid placement draws a textured ghost, a refused one a red outline",
+    "crates/voxelgame-render/src/highlight.rs:224-262 — ghost built from the placed block's own voxel faces",
+    "crates/voxelgame-core/src/game/readouts.rs:12-45 — no preview with a tool equipped or empty hands",
+    "crates/voxelgame-core/src/game/readouts.rs:334-387 — whole-block mode uses the 1 m cell across the aimed face; Shift uses one voxel",
+    "crates/voxelgame-core/src/game.rs:2005-2010 — interaction ray reaches 6 m",
+    "crates/voxelgame-core/src/world/raycast.rs:218-293 — interaction ray skips air and liquids and stops at the first other voxel",
+    "crates/voxelgame-core/src/game/mod_vehicles.rs:133-147 — bow, rifle, fishing rod, throwables, vehicles and furniture seats disable block interaction (no ghost)"
    ],
    "backlog": [
     "VOX-OWNER-BLOCK-PLACEMENT-PREVIEW"
    ],
-   "notes": "Colour words approximate shader values; on-screen tone depends on lighting and post-processing. The owner has asked to remove both outline boxes and make the full-block ghost show correct full-size texturing (VOX-OWNER-BLOCK-PLACEMENT-PREVIEW); not in this snapshot, so screenshots will need refreshing if it lands. Ghost UVs span 0-1 per face regardless of size, a plausible source of the owner-reported enlarged texture; not visually verified here.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Valid placements draw no box, only the ghost; the red outline is the only box left. The red of the outline approximates shader values; on-screen tone depends on lighting. Aiming at placed furniture with a block in hand gives no ghost and 'Furniture blocks that placement'. The Looking-at card (F2) names the aimed block separately.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3271,12 +3290,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1848-1905 — placement, survival piece removal, creative edits recorded for undo, status messages",
-    "crates/voxelgame-core/src/game/readouts.rs:44-72 — whole-block placement fills the metre cell across the hit face; all 8 voxels must be free",
-    "crates/voxelgame-core/src/world/block.rs:421-424 — air, liquids and plants are replaceable",
-    "crates/voxelgame-core/src/game/tests.rs:1106-1160 — 1 piece is not enough for a whole block, 8 are; standing in the cell blocks placement"
+    "crates/voxelgame-core/src/game.rs:2933-3006 — placement, survival piece removal, creative edits recorded for undo, status messages",
+    "crates/voxelgame-core/src/game/readouts.rs:365-387 — whole-block placement fills the metre cell across the hit face; all 8 voxels must be free",
+    "crates/voxelgame-core/src/world/block.rs:566-569 — air, liquids and plants are replaceable",
+    "crates/voxelgame-core/src/world/door.rs:1147-1155 — bamboo, open doors and furniture are not replaceable",
+    "crates/voxelgame-core/src/game/tests.rs:1342-1416 — test: 1 piece is not enough for a whole block, 8 are; standing in the cell blocks placement"
    ],
-   "notes": "Plants and water in the target cell are overwritten; plants are not collected (code reading). If any part of the 1 m cell is occupied the whole block is refused (red outline); hold Shift to place half-metre pieces instead. Status messages: 'Cannot place a block inside the player', 'That space is already occupied', 'Need 8 <block> pieces to place a block (N carried)'. In creative, fill quick slots from E > Build or a palette preset.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Plants and water in the target cell are overwritten (not bamboo); plants are not collected. If any part of the 1 m cell is occupied the whole block is refused (red outline); hold Shift to place half-metre pieces instead. Status messages: 'Cannot place a block inside the player', 'That space is already occupied', 'Need 8 <block> pieces to place a block (N carried)'. In creative, fill quick slots from E > Build or a palette preset.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3309,13 +3329,13 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/bindings.rs:72 — default N action",
-    "crates/voxelgame-core/src/game/building.rs:23-35 — Creative-only toggle with active gameplay and no UI",
-    "crates/voxelgame-core/src/game.rs:1352-1353 — held Shift remains a detail modifier",
-    "crates/voxelgame-core/src/game.rs:2438-2447 — held Shift or Creative toggle selects one voxel",
-    "crates/voxelgame-core/src/game/building/detail_tests.rs:34-58 — toggle survives release and preserves hovering",
-    "crates/voxelgame-core/src/game/building/detail_tests.rs:123-167 — remapping/UI ownership and unchanged Survival modifier rule"
+    "crates/voxelgame-core/src/game/building.rs:23-36 — Creative-only toggle with active gameplay and no UI",
+    "crates/voxelgame-core/src/game.rs:1357 — held Shift remains a detail modifier",
+    "crates/voxelgame-core/src/game.rs:2474-2480 — held Shift or Creative toggle selects one voxel",
+    "crates/voxelgame-core/src/game/building/detail_tests.rs:30-53 — toggle survives release and preserves hovering",
+    "crates/voxelgame-core/src/game/building/detail_tests.rs:98-134 — remapping/UI ownership and unchanged Survival modifier rule"
    ],
-   "notes": "Source-reviewed at aa136e0103ce5599c6d8a9f70c669dbc758b7357 on 5 November 2026. Source tests were read, not run; no new play test. Shift also sneaks, dives or descends, so Creative N helps with level flight. Partial shapes use half-metre pieces rather than dedicated slab or stair blocks.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Shift also sneaks, dives or descends, so Creative N helps with level flight. Partial shapes use half-metre pieces rather than dedicated slab or stair blocks.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3365,11 +3385,12 @@
    "summary": "Your aim passes through water to the first solid block, so you can target the lake or sea bed and build up from it. Water, like air and plants, counts as free space and is replaced by placed blocks; you cannot click the water surface itself.",
    "evidence": [
     "crates/voxelgame-core/src/world/raycast.rs:29-38 — interaction rays skip liquids",
-    "crates/voxelgame-core/src/world/raycast.rs:185-205 — interaction rays skip liquids",
-    "crates/voxelgame-core/src/world/block.rs:421-424 — liquids are replaceable",
-    "crates/voxelgame-core/src/game.rs:2381-2392 — breaking a plant that shares its cell with water leaves water, not an air pocket"
+    "crates/voxelgame-core/src/world/raycast.rs:266-272 — interaction rays skip liquids",
+    "crates/voxelgame-core/src/world/raycast.rs:758-778 — test: a shell meets water, an interaction ray passes through to stone",
+    "crates/voxelgame-core/src/world/block.rs:566-569 — liquids are replaceable",
+    "crates/voxelgame-core/src/world/harvest.rs:12-35 — a cut cell that held water is refilled with water, not left as an air pocket"
    ],
-   "notes": "To bridge water, build out from the shore or up from the bed. Water flow belongs to the world/water pages.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. To bridge water, build out from the shore or up from the bed. Water flow belongs to the world/water pages.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3410,11 +3431,11 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, B cycles ten brushes: Block, Line, Wall, Floor, Replace, Copy, Blueprint, Bench, Railing and Roof. Every brush except Block and Blueprint builds with the block in your hand, shows the result as a ghost first, and changes at most 512 half-metre pieces (64 whole blocks) per action.",
+   "summary": "In creative, B cycles ten brushes: Block, Line, Wall, Floor, Replace, Copy, Blueprint, Bench, Railing and Roof. One more press selects the Chair furniture plan and the next returns to Block. Every brush except Block and Blueprint builds with the block in your hand, shows the result as a ghost first, and changes at most 512 half-metre pieces (64 whole blocks) per action.",
    "controls": [
     [
      "B",
-     "Next brush; clears any corner selection and copied selection (creative, not holding a bow, rifle or throwable)"
+     "Next brush; clears any corner selection and copied selection (creative, not holding a bow, rifle, fishing rod or throwable)"
     ],
     [
      "Tool: <brush> button",
@@ -3422,12 +3443,14 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/building.rs:15-70 — the ten brushes and their order",
-    "crates/voxelgame-core/src/game/building.rs:198-214 — creative-only; B cycles and clears selection and clipboard",
-    "crates/voxelgame-render/src/hotbar_ui.rs:83-104 — caption '<Brush> | <size> | RMB build | R rotate | B tool | Ctrl+Z undo'",
-    "crates/voxelgame-core/src/game/building.rs:14-38 — selection label 'W x H x D m | N pieces' or 'Selection exceeds 512 pieces'"
+    "crates/voxelgame-core/src/building.rs:106-150 — the ten brushes in order, then the furniture plans starting with Chair",
+    "crates/voxelgame-core/src/game/building.rs:432-452 — creative-only; B steps to the next tool",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:433-468 — choosing a tool clears the corner selection and clipboard",
+    "crates/voxelgame-core/src/game/furniture/controls.rs:428-436 — B puts a furniture plan away (back to Block)",
+    "crates/voxelgame-render/src/hotbar_ui.rs:192-217 — caption '<Brush> | <size> | RMB build | R rotate (Copy, Bench, Railing, Roof) | B tool | Ctrl+Z undo'",
+    "crates/voxelgame-core/src/game/building.rs:48-86 — selection label 'W x H x D m | N pieces' or 'Selection exceeds 512 pieces'"
    ],
-   "notes": "Brushes need a block in hand; bows, rifles and throwing rocks use right click to aim or throw instead. Status messages: 'First corner set | aim at the other corner and right click', 'Built N pieces | Ctrl+Z undoes', 'Selection blocked: occupied cells, player, crate, or edit budget'.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Brushes need a block in hand; bows, rifles and throwing rocks use right click to aim or throw instead. Status messages: 'First corner set | aim at the other corner and right click', 'Built N pieces | Ctrl+Z undoes', 'Selection blocked: occupied cells, player, crate, or edit budget'.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3458,12 +3481,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/building.rs:264-302 — first corner at the ghost, then build",
-    "crates/voxelgame-core/src/building.rs:141-158 — Line keeps the longest axis; Wall drops the shorter horizontal axis; Floor drops the vertical axis",
-    "crates/voxelgame-core/src/game/building.rs:117-128 — every cell must be free (air, water or plants), outside the player and not the Home crate",
+    "crates/voxelgame-core/src/game/building.rs:531-578 — first corner at the ghost, then build",
+    "crates/voxelgame-core/src/building.rs:528-592 — Line keeps the longest axis; Wall drops the shorter horizontal axis; Floor drops the vertical axis; 512-piece limit",
+    "crates/voxelgame-core/src/game/building.rs:172-191 — every cell must be free (air, water or plants), outside the player and not a chest or door",
+    "crates/voxelgame-core/src/game/building.rs:193-240 — further refusals: past the world edge, the Home crate, chests, doors, furniture support",
     "tools/debug_scenarios/building_expeditions.json — normal-input Line build of 8 voxels, Ctrl+Z to 0, Ctrl+Shift+Z back to 8"
    ],
-   "notes": "If a cell holds a solid block nothing is built, except with Replace, which only swaps the material you aim at. Water and plants do not block a build. Line, Wall and Floor corners are ghost positions (where a block would go), unlike Copy and Replace, which use the blocks you aim at.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. If a cell holds a solid block, chest or door nothing is built, except that Replace may swap solid blocks (never chests or doors). Water and plants do not block a build. Line, Wall and Floor corners are ghost positions (where a block would go), unlike Copy and Replace, which use the blocks you aim at.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3490,11 +3514,12 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/building.rs:271-285 — first corner and replaced material come from the aimed block",
-    "crates/voxelgame-core/src/game/building.rs:103-113 — second corner is the aimed block; only cells of the first material change",
-    "crates/voxelgame-core/src/game/building.rs:117-128 — Replace may overwrite solid cells, unlike other brushes"
+    "crates/voxelgame-core/src/game/building.rs:538-552 — first corner and replaced material come from the aimed block",
+    "crates/voxelgame-core/src/game/building.rs:157-169 — second corner is the aimed block; only cells of the first material change",
+    "crates/voxelgame-core/src/game/building.rs:172-191 — Replace may overwrite solid cells, unlike other brushes (not chests or doors)",
+    "crates/voxelgame-core/src/game/building.rs:557-559 — no matching cells gives '0 matching pieces | aim at another corner or B changes tool'"
    ],
-   "notes": "The 512-piece limit counts the whole box, including cells that are not replaced. Hold Shift on the first click for half-metre steps.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. The 512-piece limit counts the whole box, including cells that are not replaced. Hold Shift on the first click for half-metre steps.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3509,7 +3534,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "Aim at one corner block and right click, then aim at the opposite corner block and right click to copy everything solid in that box. Each further right click pastes a copy with its lowest corner at the ghost; R turns it 90 degrees and B discards the copy.",
+   "summary": "Aim at one corner block and right click, then aim at the opposite corner block and right click to copy everything in that box except air, chests, doors and the Home crate. Each further right click pastes a copy with its lowest corner at the ghost; R turns it 90 degrees and B discards the copy.",
    "controls": [
     [
      "Right click, then right click",
@@ -3529,12 +3554,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/building.rs:233-263 — copy at half-metre resolution; air and the Home crate are skipped;",
-    "crates/voxelgame-core/src/game/building.rs:46-56 — paste preview at the ghost with rotation",
-    "crates/voxelgame-core/src/game/building.rs:218-227 — R rotates Copy, Bench, Railing and Roof",
-    "crates/voxelgame-core/src/game/building.rs:117-128 — every pasted cell must be free"
+    "crates/voxelgame-core/src/game/building.rs:474-530 — copy at half-metre resolution; over 512 pieces or placed furniture is refused",
+    "crates/voxelgame-core/src/game/building.rs:241-254 — air, chests, doors and the Home crate are skipped",
+    "crates/voxelgame-core/src/game/building.rs:101-111 — paste preview at the ghost with rotation",
+    "crates/voxelgame-core/src/game/building.rs:459-468 — R rotates Copy, Bench, Railing and Roof",
+    "crates/voxelgame-core/src/game/building.rs:172-191 — every pasted cell must be free"
    ],
-   "notes": "Pasting never overwrites existing blocks; the whole paste is refused if any cell is occupied. The copy is lost when you change brush or leave the world.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Pasting never overwrites existing blocks; the whole paste is refused if any cell is occupied. A box that takes in placed furniture is refused. The copy is lost when you change brush or leave the world.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3561,10 +3587,11 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/building.rs:57-101 — fixed half-metre patterns rotated about the ghost",
-    "crates/voxelgame-core/src/game/building.rs:264-268 — no corner selection for these brushes"
+    "crates/voxelgame-core/src/game/building.rs:112-156 — fixed half-metre patterns rotated about the ghost",
+    "crates/voxelgame-core/src/game/building.rs:531-536 — no corner selection for these brushes",
+    "crates/voxelgame-core/src/game/building.rs:459-468 — R rotates the pattern"
    ],
-   "notes": "Pattern sizes are fixed and always use half-metre pieces; every cell must be free. Hold Shift to position on the half-metre grid.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Pattern sizes are fixed and always use half-metre pieces: a 2 m bench, a 3.5 m railing and a 3 by 3 m stepped roof. Every cell must be free. Hold Shift to position on the half-metre grid.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3608,20 +3635,26 @@
     [
      "Delete, twice",
      "Delete the selected blueprint and its file (creative, Blueprint)"
+    ],
+    [
+     "O",
+     "Open the Structures panel to rename or delete saved blueprints (creative, Blueprint)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:287-340 — gesture: arrows pick, R turns, PgUp/PgDn lift, Delete twice removes, Shift+RMB marks corners, RMB places",
-    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:341-365 — open_structure_capture: placed structure's name offered, 'Enter updates it' (716d72c7)",
-    "crates/voxelgame-render/src/selection_outline.rs:1 — capture box outline and a post on each marked corner (716d72c7)",
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:24-31 — library limit 64, ghost face cap, lift limit 64 m",
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:362-420 — status texts and save note (water, carved cells, crate cells left out)",
-    "crates/voxelgame-core/src/game/blueprint.rs:39 — MAX_BLUEPRINT_EXTENT 256 half-metre cells (128 m)",
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:342-343 — creative mode and Blueprint brush only",
-    "src/worlds.rs:46-50 — blueprints folder, VOXELGAME_BLUEPRINT_DIR overrides it",
-    "crates/voxelgame-render/src/hotbar_ui.rs — Blueprint key caption in creative"
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:496-542 — gesture: arrows pick, R turns, PgUp/PgDn lift, O opens Structures, Delete twice removes (839-861), Shift+RMB marks corners, RMB places",
+    "crates/voxelgame-core/src/game/blueprint_desk/library.rs:471-521 — open_structure_capture: placed structure's name offered, 'Enter updates it'",
+    "crates/voxelgame-render/src/selection_outline.rs:3-5 — capture box outline and a post on each marked corner",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:34-42 — library limit 64, ghost face cap, lift limit 64 m",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:726-837 — placement refusals, build message, corner marking and save notes",
+    "crates/voxelgame-core/src/game/blueprint.rs:43 — MAX_BLUEPRINT_EXTENT 256 half-metre cells (128 m)",
+    "crates/voxelgame-core/src/game/blueprint.rs:714-726 — capture leaves out water, carved cells, doors, chests and the Home crate",
+    "crates/voxelgame-core/src/game/building.rs:432-458 — creative mode and Blueprint brush only",
+    "crates/voxelgame-core/src/game/net_client/raise.rs:148-187 — on a server a Creative build is checked, sent and confirmed; session/raise.rs:95-99 within 64 m",
+    "src/worlds.rs:88-94 — blueprints folder, VOXELGAME_BLUEPRINT_DIR overrides it",
+    "crates/voxelgame-render/src/hotbar_ui.rs:173-180 — Blueprint key caption in creative"
    ],
-   "notes": "Checked at Voxelgame e19e688 (commits 99cc8a6, 316eca2, e19e688). Refused while connected to a server (\"Blueprints aren't available on servers yet\"). Placement is refused over player-built pieces, the Camp crate or the player's own cell. Blueprint files are .blueprint text files; without a blueprints folder they last for the session only.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Placement is refused over player-built pieces, the Home crate or your own cell. Saving leaves out water, carved cells, doors, chests and the Home crate, and refuses a box holding furniture. On a server, Creative builds work if every piece is within 64 m, with a short wait between builds. Files are .blueprint text files; without a blueprints folder they last for the session only.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3714,14 +3747,15 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/blueprint_materials.rs:38-52 — placement_cost: one piece per changed voxel, paid with Block::dropped, unchanged voxels cost nothing",
-    "crates/voxelgame-core/src/game/blueprint_materials.rs:118-124 — build_blueprint_from_inventory: one transaction, checks before any spend",
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:298-310 — survival_blueprint_gesture: B takes out and puts away",
-    "crates/voxelgame-core/src/game/blueprint_desk.rs:592-596 — survival placement spends pieces and reports them",
-    "crates/voxelgame-core/src/game/building.rs:218-225 — survival keeps only the Blueprint gesture",
+    "crates/voxelgame-core/src/game/blueprint_materials.rs:38-50 — placement_cost: one piece per changed voxel, paid with Item::harvested_from, unchanged voxels cost nothing",
+    "crates/voxelgame-core/src/game/blueprint_materials.rs:118-146 — build_blueprint_from_inventory: one transaction, checks before any spend",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:475-492 — survival_blueprint_gesture: B takes out and puts away",
+    "crates/voxelgame-core/src/game/blueprint_desk.rs:776-784 — survival placement spends pieces and reports them",
+    "crates/voxelgame-core/src/game/building.rs:432-442 — survival keeps only the Blueprint gesture",
+    "crates/voxelgame-core/src/game/net_client/raise.rs:165-167 — Survival placement refused on servers",
     "crates/voxelgame-render/src/blueprint_materials_ui.rs — carried / needed list under the compact map"
    ],
-   "notes": "Checked at Voxelgame ee6fa20 (commits 960f2c7, ee6fa20). Survival saving was not confirmed in play: the gesture code also accepts Shift + right click there, so the guide labels it unverified. Blueprints still refuse to place on servers (\"Blueprints aren't available on servers yet\").",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Survival saving was not confirmed in play: the gesture code also accepts Shift + right click there, so the guide labels it unverified. On a server, Survival placement is refused with \"Survival blueprints aren't available on servers yet\". A shortage reads 'Need N more <item>'; success reads 'Built <name>: spent N pieces'.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
@@ -3786,6 +3820,10 @@
    "summary": "In creative, E > Build has a searchable catalog. Open + Tools for the brush selector, Undo, Redo, four preset palettes, Save palette, Chair and Table. A preset replaces all ten quick slots; Save palette stores them and Shift-clicking it loads them. Survival has a separate restricted carpentry Build tab while carrying a Furniture hammer.",
    "controls": [
     [
+     "Click + Tools / < Back to pack",
+     "Swap the Pack strip for the tools drawer, and back (creative, E > Build)"
+    ],
+    [
      "Click Timber / Masonry / Coastal / Garden",
      "Fill all ten quick slots and select slot 1 (creative, E > Build > + Tools)"
     ],
@@ -3803,14 +3841,14 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:26-36 — Build tools drawer replaces the carried-item pane",
-    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:87-103 — + Tools toggle and visible quick-slot assignment hint",
-    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:125-132 — inspected-item favorite button",
-    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:135-172 — Tool, Undo, Redo, four palettes, Save palette, Chair and Table buttons",
-    "crates/voxelgame-core/src/game/building.rs:526-574 — workspace actions; presets replace quick slots; Shift+Save loads saved palette",
-    "crates/voxelgame-core/src/game/furniture/workbench.rs:97-116 — carried Furniture hammer exposes Survival carpentry Build tab"
+    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:26-37 — Build tools drawer replaces the carried-item pane",
+    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:86-102 — + Tools toggle and visible quick-slot assignment hint",
+    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:106-131 — inspected-item favorite button",
+    "crates/voxelgame-render/src/inventory_ui/catalogue.rs:134-172 — Tool, Undo, Redo, four palettes, Save palette, Chair and Table buttons",
+    "crates/voxelgame-core/src/game/building.rs:582-636 — workspace actions; presets replace quick slots; Shift+Save loads saved palette",
+    "crates/voxelgame-core/src/game/furniture/workbench.rs:102-127 — carried Furniture hammer exposes Survival carpentry Build tab"
    ],
-   "notes": "Source-checked on 2026-11-05 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357; no new play test. The old claim that Build is always creative-only is superseded by hammer-enabled Survival carpentry. Preset palettes remain creative controls. Choosing a preset overwrites current quick slots, so Save palette first if needed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Preset palettes remain creative controls; Survival has only the hammer-enabled carpentry Build tab. Choosing a preset overwrites current quick slots, so Save palette first if needed. Undo and Redo buttons show how many steps remain and are disabled when none do.",
    "guide": {
     "state": "complete",
     "page": "guide-building.html",
