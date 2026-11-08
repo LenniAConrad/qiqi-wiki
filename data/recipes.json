@@ -1,14 +1,19 @@
 {
  "schema": 1,
  "game": {
-  "commit": "741d883bad3b97798a91db17b624563fd2d8ff7e",
-  "source": "crates/voxelgame-core/src/inventory.rs RECIPES"
+  "commit": "dfeb362ddeca56ff5de77fa26ccdb6e37d05192c",
+  "source": "crates/voxelgame-core/src/inventory.rs RECIPES, with inventory/cooking.rs and inventory/door_recipes.rs"
  },
  "piecesPerBlock": 8,
  "sections": [
   {
    "key": "timber",
    "label": "Timber",
+   "gameLabel": "Timber"
+  },
+  {
+   "key": "doors",
+   "label": "Timber: doors by wood",
    "gameLabel": "Timber"
   },
   {
@@ -40,7 +45,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:953-959",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1539-1545",
    "notes": "Counts are half-metre pieces: one full 1 m log block (8 pieces) splits into 32 boards."
   },
   {
@@ -55,7 +60,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:960-966"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1546-1552"
   },
   {
    "name": "Split pine boards",
@@ -69,22 +74,190 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:967-973"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1553-1559"
   },
   {
-   "name": "Split hardwood boards",
+   "name": "Split oak boards",
    "section": "timber",
-   "gameDescription": "Split one hardwood or deadwood piece into four boards",
+   "gameDescription": "Split one oak log piece into four grey-brown board pieces",
+   "output": "Oak boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Oak log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1560-1566"
+  },
+  {
+   "name": "Split fruitwood boards",
+   "section": "timber",
+   "gameDescription": "Split one fruitwood log piece into four rosy board pieces",
+   "output": "Fruitwood boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Fruit tree log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1567-1573"
+  },
+  {
+   "name": "Split acacia boards",
+   "section": "timber",
+   "gameDescription": "Split one acacia log piece into four bright orange board pieces",
+   "output": "Acacia boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Acacia log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1574-1580"
+  },
+  {
+   "name": "Split willow boards",
+   "section": "timber",
+   "gameDescription": "Split one willow log piece into four pale board pieces",
+   "output": "Willow boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Willow log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1581-1587"
+  },
+  {
+   "name": "Split mangrove boards",
+   "section": "timber",
+   "gameDescription": "Split one mangrove log piece into four deep red board pieces",
+   "output": "Mangrove boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Mangrove log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1588-1594"
+  },
+  {
+   "name": "Split jungle boards",
+   "section": "timber",
+   "gameDescription": "Split one jungle log piece into four olive-brown board pieces",
+   "output": "Jungle boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Jungle log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1595-1601"
+  },
+  {
+   "name": "Split cherry boards",
+   "section": "timber",
+   "gameDescription": "Split one cherry log piece into four red-brown board pieces",
+   "output": "Cherry boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Cherry log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1602-1608"
+  },
+  {
+   "name": "Split giant boards",
+   "section": "timber",
+   "gameDescription": "Split one giant log piece into four rust-red board pieces",
+   "output": "Giant boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Giant log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1609-1615"
+  },
+  {
+   "name": "Split palm boards",
+   "section": "timber",
+   "gameDescription": "Split one palm log piece into four streaked board pieces",
+   "output": "Palm boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Palm log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1616-1622"
+  },
+  {
+   "name": "Split mesquite boards",
+   "section": "timber",
+   "gameDescription": "Split one mesquite log piece into four dark board pieces",
+   "output": "Mesquite boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Mesquite log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1623-1629"
+  },
+  {
+   "name": "Split fig boards",
+   "section": "timber",
+   "gameDescription": "Split one fig log piece into four cream board pieces",
+   "output": "Fig boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Fig log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1630-1636"
+  },
+  {
+   "name": "Split cypress boards",
+   "section": "timber",
+   "gameDescription": "Split one cypress log piece into four golden board pieces",
+   "output": "Cypress boards",
+   "quantity": 4,
+   "inputs": [
+    [
+     "Cypress log",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1637-1643"
+  },
+  {
+   "name": "Split deadwood boards",
+   "section": "timber",
+   "gameDescription": "Split one dry deadwood piece into four plain alder-like boards",
    "output": "Alder boards",
    "quantity": 4,
    "inputs": [
     [
-     "Hardwood or deadwood (Oak, Fruit tree, Acacia, Willow, Mangrove, Jungle, Cherry, Giant old-growth, Palm, Mesquite, Fig or Cypress log, or Deadwood)",
+     "Deadwood",
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:974-980",
-   "notes": "Always makes Alder boards whatever the species. Driftwood, Charred log, Mossy log, Bamboo, Cypress roots and Mangrove roots cannot be split."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1644-1650",
+   "notes": "Makes plain Alder boards. Driftwood, Charred log and Mossy log have no splitting recipe."
   },
   {
    "name": "Burn a charcoal pile",
@@ -94,11 +267,11 @@
    "quantity": 2,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:981-987"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1651-1657"
   },
   {
    "name": "Cook raw meat",
@@ -116,8 +289,8 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:988-994",
-   "notes": "Raw meat restores 8 hunger, Cooked meat 30."
+   "evidence": "crates/voxelgame-core/src/inventory/cooking.rs:7-13",
+   "notes": "Raw meat restores 8 hunger, Cooked meat 30. A placed {{cooking-stove|cooking stove}} cooks the same recipe."
   },
   {
    "name": "Roast venison",
@@ -135,8 +308,8 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:995-1001",
-   "notes": "One Venison (18 hunger raw) becomes 2 Cooked meat (30 each)."
+   "evidence": "crates/voxelgame-core/src/inventory/cooking.rs:15-21",
+   "notes": "One Venison (18 hunger raw) becomes 2 Cooked meat (30 each). A placed {{cooking-stove|cooking stove}} cooks the same recipe."
   },
   {
    "name": "Blow glass flasks",
@@ -154,13 +327,13 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1002-1008",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1660-1666",
    "notes": "8 Glass pieces = one full glass block. Fill flasks by pressing T near drinkable water."
   },
   {
    "name": "Fire glass",
    "section": "materials",
-   "gameDescription": "Fires shore sand over charcoal into clear building glass",
+   "gameDescription": "Fires sand over charcoal into clear building glass",
    "output": "Glass",
    "quantity": 16,
    "inputs": [
@@ -173,13 +346,13 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1009-1015",
-   "notes": "3 blocks of Sand make 2 blocks of Glass. Only Sand works (not Sea, Fine dune, Red, Black or Shell sand). Besides this recipe, the Survey workshop landmark's one-time find gives 8 Glass."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1667-1673",
+   "notes": "3 blocks of Sand make 2 blocks of Glass. Only Sand works (not Sea, Dune, Red, Black or Shell sand). Besides this recipe, the Survey workshop landmark's one-time find gives 8 Glass."
   },
   {
    "name": "Kiln-fire gray brick",
    "section": "materials",
-   "gameDescription": "Bakes river clay into hard courtyard brick",
+   "gameDescription": "Bakes clay into hard courtyard brick",
    "output": "Gray brick",
    "quantity": 8,
    "inputs": [
@@ -192,8 +365,8 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1016-1022",
-   "notes": "No kiln block exists; the recipe is crafted from the pack like every other."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1674-1680",
+   "notes": "No kiln block exists; craft it from the pack."
   },
   {
    "name": "Glaze roof tile",
@@ -215,7 +388,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1023-1029"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1681-1687"
   },
   {
    "name": "Glaze pink roof tile",
@@ -237,7 +410,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1030-1036"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1688-1694"
   },
   {
    "name": "Burn lime plaster",
@@ -255,7 +428,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1037-1043",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1695-1701",
    "notes": "Only Limestone counts (Sharp limestone does not)."
   },
   {
@@ -274,7 +447,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1044-1050"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1702-1708"
   },
   {
    "name": "Dress carved stone",
@@ -288,7 +461,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1051-1057"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1709-1715"
   },
   {
    "name": "Cut sandstone",
@@ -302,7 +475,7 @@
      16
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1058-1064"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1716-1722"
   },
   {
    "name": "Lacquer timber",
@@ -312,7 +485,7 @@
    "quantity": 8,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      8
     ],
     [
@@ -324,17 +497,17 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1065-1071"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1723-1729"
   },
   {
    "name": "Paint pink boards",
    "section": "materials",
-   "gameDescription": "Stains alder boards rose pink with a wildflower paint",
+   "gameDescription": "Stains alder boards pink with a wildflower paint",
    "output": "Pink boards",
    "quantity": 8,
    "inputs": [
     [
-     "Alder boards",
+     "Boards of any species (mixable)",
      8
     ],
     [
@@ -342,7 +515,7 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1072-1078"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1730-1736"
   },
   {
    "name": "Weave paper panel",
@@ -356,17 +529,17 @@
      8
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1079-1085",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1737-1743",
    "notes": "Only Reeds count (Tall reeds do not)."
   },
   {
    "name": "Assemble red lantern",
    "section": "materials",
-   "gameDescription": "A paper lantern around a lumen crystal; it lights its room",
+   "gameDescription": "A charcoal-lit paper lantern; it lights its room without refuelling",
    "output": "Red lantern",
    "quantity": 4,
    "inputs": [
@@ -375,16 +548,16 @@
      4
     ],
     [
-     "Glow crystal",
-     2
+     "Charcoal",
+     1
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1086-1092",
-   "notes": "Makes half a block of lantern (4 pieces). Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1744-1750",
+   "notes": "Makes half a block of lantern (4 pieces)."
   },
   {
    "name": "Weave reed thatch",
@@ -402,8 +575,8 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1093-1099",
-   "notes": "Fiber comes from mining Wild flax; Wool from sheep. Raw reeds cannot stand in for the binding."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1751-1757",
+   "notes": "Plant fiber comes from Wild flax. Raw reeds cannot stand in for the binding."
   },
   {
    "name": "Dress chalk bricks",
@@ -417,7 +590,50 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1100-1106"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1758-1764"
+  },
+  {
+   "name": "Dress red rock bricks",
+   "section": "materials",
+   "gameDescription": "Cuts red rock into warm-colored masonry",
+   "output": "Red rock bricks",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Red rock",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1765-1771"
+  },
+  {
+   "name": "Dress basalt bricks",
+   "section": "materials",
+   "gameDescription": "Cuts volcanic basalt into dark masonry",
+   "output": "Basalt bricks",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Basalt",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1772-1778"
+  },
+  {
+   "name": "Polish granite",
+   "section": "materials",
+   "gameDescription": "Smooths coarse granite into a decorative building block",
+   "output": "Polished granite",
+   "quantity": 8,
+   "inputs": [
+    [
+     "Granite",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1779-1785",
+   "notes": "Only Granite counts (Flaking granite does not)."
   },
   {
    "name": "Dress marble",
@@ -435,7 +651,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1162-1168"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1786-1792"
   },
   {
    "name": "Polish marble",
@@ -453,7 +669,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1169-1175"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1793-1799"
   },
   {
    "name": "Dress marble bricks",
@@ -467,7 +683,7 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1176-1182"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1800-1806"
   },
   {
    "name": "Carve marble",
@@ -481,55 +697,12 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1183-1189"
-  },
-  {
-   "name": "Dress red rock bricks",
-   "section": "materials",
-   "gameDescription": "Cuts red ironstone into warm-colored masonry",
-   "output": "Red rock bricks",
-   "quantity": 8,
-   "inputs": [
-    [
-     "Red rock",
-     8
-    ]
-   ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1107-1113"
-  },
-  {
-   "name": "Dress basalt bricks",
-   "section": "materials",
-   "gameDescription": "Cuts volcanic basalt into dark masonry",
-   "output": "Basalt bricks",
-   "quantity": 8,
-   "inputs": [
-    [
-     "Basalt",
-     8
-    ]
-   ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1114-1120"
-  },
-  {
-   "name": "Polish granite",
-   "section": "materials",
-   "gameDescription": "Smooths coarse granite into a decorative building block",
-   "output": "Polished granite",
-   "quantity": 8,
-   "inputs": [
-    [
-     "Granite",
-     8
-    ]
-   ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1121-1127",
-   "notes": "Only Granite counts (Flaking granite does not)."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1807-1813"
   },
   {
    "name": "Cover cobblestone with moss",
    "section": "materials",
-   "gameDescription": "Beds living moss into rough cobble for weathered walls",
+   "gameDescription": "Beds living moss into rough cobblestone for weathered walls",
    "output": "Mossy cobblestone",
    "quantity": 8,
    "inputs": [
@@ -542,7 +715,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1128-1137"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1814-1823"
   },
   {
    "name": "Stone sword",
@@ -556,11 +729,11 @@
      4
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1138-1144",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1824-1830",
    "notes": "Crafted tools are equipped automatically."
   },
   {
@@ -575,11 +748,11 @@
      6
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1145-1151"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1831-1837"
   },
   {
    "name": "Stone hatchet",
@@ -593,12 +766,12 @@
      4
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1152-1158",
-   "notes": "The 4 starter boards plus 4 pieces of any natural stone (e.g. gravel dug by hand) make the first hatchet."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1838-1844",
+   "notes": "The 4 starter boards plus 4 pieces of any natural stone, gravel included, make the first hatchet."
   },
   {
    "name": "Stone shovel",
@@ -612,11 +785,11 @@
      2
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1159-1165"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1845-1851"
   },
   {
    "name": "Alder bow",
@@ -626,7 +799,7 @@
    "quantity": 1,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      8
     ],
     [
@@ -634,7 +807,7 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1166-1172"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1852-1858"
   },
   {
    "name": "Reed-bound bow",
@@ -644,7 +817,7 @@
    "quantity": 1,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      8
     ],
     [
@@ -652,8 +825,30 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1173-1179",
-   "notes": "Same Alder bow as the fiber/wool recipe, without animal drops."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1859-1865",
+   "notes": "Same Alder bow as the fiber or wool recipe, without animal drops."
+  },
+  {
+   "name": "Reed fishing rod",
+   "section": "tools",
+   "gameDescription": "A plant-fiber line on a light reed-and-board rod",
+   "output": "Reed fishing rod",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (mixable)",
+     4
+    ],
+    [
+     "Reeds",
+     4
+    ],
+    [
+     "Plant fiber or Wool (mixable)",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1866-1872"
   },
   {
    "name": "Four arrows",
@@ -667,7 +862,7 @@
      1
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      2
     ],
     [
@@ -675,7 +870,7 @@
      1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1180-1186"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1873-1879"
   },
   {
    "name": "Four reed arrows",
@@ -689,7 +884,7 @@
      1
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      2
     ],
     [
@@ -697,7 +892,7 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1187-1193"
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1880-1886"
   },
   {
    "name": "Four throwing rocks",
@@ -711,13 +906,13 @@
      4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1194-1200",
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1887-1893",
    "notes": "Each Throwing rock weighs 0.6 kg versus 0.125 kg per stone piece, so crafting rocks raises carried mass."
   },
   {
    "name": "Alder rifle",
    "section": "tools",
-   "gameDescription": "A stable shoulder-fired hunting rifle with automatic reload",
+   "gameDescription": "A reed-bound stone and alder hunting rifle with automatic reload",
    "output": "Alder rifle",
    "quantity": 1,
    "inputs": [
@@ -726,21 +921,21 @@
      40
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      16
     ],
     [
-     "Glow crystal",
-     8
+     "Reeds",
+     4
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1201-1207",
-   "notes": "40 stone = 5 blocks, 16 boards = 2 blocks, 8 Glow crystal = 1 block. Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1894-1900",
+   "notes": "40 stone = 5 blocks, 16 boards = 2 blocks."
   },
   {
    "name": "Four rifle rounds",
    "section": "tools",
-   "gameDescription": "Stone rifle shot with measured lumen propellant",
+   "gameDescription": "Stone rifle shot with charcoal fuel and sand packing",
    "output": "Rifle round",
    "quantity": 4,
    "inputs": [
@@ -753,12 +948,11 @@
      8
     ],
     [
-     "Glow crystal",
-     8
+     "Charcoal",
+     1
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1208-1214",
-   "notes": "Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1901-1907"
   },
   {
    "name": "TNT",
@@ -772,16 +966,16 @@
      32
     ],
     [
-     "Glow crystal",
+     "Charcoal",
      8
     ],
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1215-1221",
-   "notes": "Makes one full TNT block (8 pieces). Needs Glow crystal, which does not generate naturally: the only piece in a survival world sits at the Stone overlook landmark, so this recipe cannot be completed from gathered materials alone."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1908-1914",
+   "notes": "Makes one full TNT block (8 pieces) from 4 blocks of Sand, one block of Charcoal and one block of boards."
   },
   {
    "name": "Two dynamite sticks",
@@ -799,8 +993,8 @@
      2
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1222-1228",
-   "notes": "Needs half a block of TNT, which itself needs Glow crystal (see TNT)."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1915-1921",
+   "notes": "Needs half a block of TNT (4 pieces)."
   },
   {
    "name": "Wooden door",
@@ -810,12 +1004,12 @@
    "quantity": 1,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1254-1260",
-   "notes": "One block of boards. The door comes down whole when you break it."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1922-1928",
+   "notes": "One block of boards. Any species can be mixed."
   },
   {
    "name": "Wide wooden door",
@@ -825,27 +1019,27 @@
    "quantity": 1,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      16
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1261-1267",
-   "notes": "Two blocks of boards."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1929-1935",
+   "notes": "Two blocks of boards. Any species can be mixed."
   },
   {
    "name": "Wooden chest",
    "section": "timber",
-   "gameDescription": "A lidded board chest that keeps things where you set it down",
+   "gameDescription": "A lidded board chest that keeps 250 kg of things where you set it down",
    "output": "Wooden chest",
    "quantity": 1,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1268-1274",
-   "notes": "One block of boards. Set it down with right click; break it to take it up."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1936-1942",
+   "notes": "One block of boards."
   },
   {
    "name": "Small sailing boat",
@@ -855,7 +1049,7 @@
    "quantity": 1,
    "inputs": [
     [
-     "Boards of any species (Alder, Birch or Pine boards; mixable)",
+     "Boards of any species (mixable)",
      32
     ],
     [
@@ -867,8 +1061,1409 @@
      8
     ]
    ],
-   "evidence": "crates/voxelgame-core/src/inventory.rs:1229-1235",
-   "notes": "Listed last in the Timber section. Crafting selects the boat ready to launch; it weighs 18 kg."
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1943-1949",
+   "notes": "Crafting selects the boat ready to launch; it weighs 18 kg."
+  },
+  {
+   "name": "Furniture hammer",
+   "section": "tools",
+   "gameDescription": "Two board pieces and one natural stone piece make a carpentry tool",
+   "output": "Furniture hammer",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Boards of any species (mixable)",
+     2
+    ],
+    [
+     "Natural stone (any of 26 natural stones; mixable)",
+     1
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory.rs:1950-1956",
+   "notes": "Carry it to use furniture plans in Survival."
+  },
+  {
+   "name": "Alder door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Alder door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Alder boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:30-30",
+   "notes": "Only Alder boards count; other species do not, unlike the plain Wooden door."
+  },
+  {
+   "name": "Wide alder door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide alder door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Alder boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:30-30"
+  },
+  {
+   "name": "Birch door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Birch door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Birch boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:31-31"
+  },
+  {
+   "name": "Wide birch door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide birch door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Birch boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:31-31"
+  },
+  {
+   "name": "Pine door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Pine door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Pine boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:32-32"
+  },
+  {
+   "name": "Wide pine door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide pine door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Pine boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:32-32"
+  },
+  {
+   "name": "Oak door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Oak door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Oak boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:33-33"
+  },
+  {
+   "name": "Wide oak door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide oak door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Oak boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:33-33"
+  },
+  {
+   "name": "Fruitwood door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Fruitwood door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fruitwood boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:34-34"
+  },
+  {
+   "name": "Wide fruitwood door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide fruitwood door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fruitwood boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:34-34"
+  },
+  {
+   "name": "Acacia door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Acacia door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Acacia boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:35-35"
+  },
+  {
+   "name": "Wide acacia door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide acacia door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Acacia boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:35-35"
+  },
+  {
+   "name": "Willow door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Willow door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Willow boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:36-36"
+  },
+  {
+   "name": "Wide willow door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide willow door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Willow boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:36-36"
+  },
+  {
+   "name": "Mangrove door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Mangrove door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mangrove boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:37-37"
+  },
+  {
+   "name": "Wide mangrove door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide mangrove door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mangrove boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:37-37"
+  },
+  {
+   "name": "Jungle door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Jungle door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Jungle boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:38-38"
+  },
+  {
+   "name": "Wide jungle door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide jungle door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Jungle boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:38-38"
+  },
+  {
+   "name": "Cherry door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Cherry door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cherry boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:39-39"
+  },
+  {
+   "name": "Wide cherry door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide cherry door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cherry boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:39-39"
+  },
+  {
+   "name": "Giant door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Giant door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Giant boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:40-40"
+  },
+  {
+   "name": "Wide giant door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide giant door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Giant boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:40-40"
+  },
+  {
+   "name": "Palm door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Palm door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Palm boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:41-41"
+  },
+  {
+   "name": "Wide palm door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide palm door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Palm boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:41-41"
+  },
+  {
+   "name": "Mesquite door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Mesquite door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mesquite boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:42-42"
+  },
+  {
+   "name": "Wide mesquite door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide mesquite door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mesquite boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:42-42"
+  },
+  {
+   "name": "Fig door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Fig door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fig boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:43-43"
+  },
+  {
+   "name": "Wide fig door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide fig door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fig boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:43-43"
+  },
+  {
+   "name": "Cypress door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Cypress door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cypress boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:44-44"
+  },
+  {
+   "name": "Wide cypress door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide cypress door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cypress boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:44-44"
+  },
+  {
+   "name": "Panelled alder door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled alder door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Alder boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:49-49"
+  },
+  {
+   "name": "Wide panelled alder door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled alder door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Alder boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:49-49"
+  },
+  {
+   "name": "Panelled birch door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled birch door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Birch boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:50-50"
+  },
+  {
+   "name": "Wide panelled birch door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled birch door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Birch boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:50-50"
+  },
+  {
+   "name": "Panelled pine door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled pine door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Pine boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:51-51"
+  },
+  {
+   "name": "Wide panelled pine door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled pine door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Pine boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:51-51"
+  },
+  {
+   "name": "Panelled oak door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled oak door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Oak boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:52-52"
+  },
+  {
+   "name": "Wide panelled oak door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled oak door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Oak boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:52-52"
+  },
+  {
+   "name": "Panelled fruitwood door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled fruitwood door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fruitwood boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:53-53"
+  },
+  {
+   "name": "Wide panelled fruitwood door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled fruitwood door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fruitwood boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:53-53"
+  },
+  {
+   "name": "Panelled acacia door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled acacia door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Acacia boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:54-54"
+  },
+  {
+   "name": "Wide panelled acacia door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled acacia door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Acacia boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:54-54"
+  },
+  {
+   "name": "Panelled willow door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled willow door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Willow boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:55-55"
+  },
+  {
+   "name": "Wide panelled willow door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled willow door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Willow boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:55-55"
+  },
+  {
+   "name": "Panelled mangrove door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled mangrove door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mangrove boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:56-56"
+  },
+  {
+   "name": "Wide panelled mangrove door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled mangrove door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mangrove boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:56-56"
+  },
+  {
+   "name": "Panelled jungle door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled jungle door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Jungle boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:57-57"
+  },
+  {
+   "name": "Wide panelled jungle door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled jungle door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Jungle boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:57-57"
+  },
+  {
+   "name": "Panelled cherry door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled cherry door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cherry boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:58-58"
+  },
+  {
+   "name": "Wide panelled cherry door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled cherry door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cherry boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:58-58"
+  },
+  {
+   "name": "Panelled giant door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled giant door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Giant boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:59-59"
+  },
+  {
+   "name": "Wide panelled giant door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled giant door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Giant boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:59-59"
+  },
+  {
+   "name": "Panelled palm door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled palm door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Palm boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:60-60"
+  },
+  {
+   "name": "Wide panelled palm door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled palm door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Palm boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:60-60"
+  },
+  {
+   "name": "Panelled mesquite door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled mesquite door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mesquite boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:61-61"
+  },
+  {
+   "name": "Wide panelled mesquite door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled mesquite door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mesquite boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:61-61"
+  },
+  {
+   "name": "Panelled fig door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled fig door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fig boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:62-62"
+  },
+  {
+   "name": "Wide panelled fig door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled fig door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fig boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:62-62"
+  },
+  {
+   "name": "Panelled cypress door",
+   "section": "doors",
+   "gameDescription": "One leaf, one metre wide and two tall, made from these exact boards",
+   "output": "Panelled cypress door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cypress boards",
+     8
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:63-63"
+  },
+  {
+   "name": "Wide panelled cypress door",
+   "section": "doors",
+   "gameDescription": "Two leaves, two metres wide and three tall, made from these exact boards",
+   "output": "Wide panelled cypress door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cypress boards",
+     16
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:63-63"
+  },
+  {
+   "name": "Windowed alder door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed alder door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Alder boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:89-89",
+   "notes": "Six board pieces and two Glass pieces: the panes replace part of the boards."
+  },
+  {
+   "name": "Wide windowed alder door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed alder door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Alder boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:89-89"
+  },
+  {
+   "name": "Windowed birch door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed birch door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Birch boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:90-90"
+  },
+  {
+   "name": "Wide windowed birch door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed birch door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Birch boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:90-90"
+  },
+  {
+   "name": "Windowed pine door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed pine door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Pine boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:91-91"
+  },
+  {
+   "name": "Wide windowed pine door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed pine door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Pine boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:91-91"
+  },
+  {
+   "name": "Windowed oak door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed oak door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Oak boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:92-92"
+  },
+  {
+   "name": "Wide windowed oak door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed oak door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Oak boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:92-92"
+  },
+  {
+   "name": "Windowed fruitwood door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed fruitwood door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fruitwood boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:93-93"
+  },
+  {
+   "name": "Wide windowed fruitwood door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed fruitwood door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fruitwood boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:93-93"
+  },
+  {
+   "name": "Windowed acacia door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed acacia door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Acacia boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:94-94"
+  },
+  {
+   "name": "Wide windowed acacia door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed acacia door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Acacia boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:94-94"
+  },
+  {
+   "name": "Windowed willow door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed willow door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Willow boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:95-95"
+  },
+  {
+   "name": "Wide windowed willow door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed willow door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Willow boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:95-95"
+  },
+  {
+   "name": "Windowed mangrove door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed mangrove door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mangrove boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:96-96"
+  },
+  {
+   "name": "Wide windowed mangrove door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed mangrove door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mangrove boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:96-96"
+  },
+  {
+   "name": "Windowed jungle door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed jungle door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Jungle boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:97-97"
+  },
+  {
+   "name": "Wide windowed jungle door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed jungle door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Jungle boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:97-97"
+  },
+  {
+   "name": "Windowed cherry door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed cherry door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cherry boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:98-98"
+  },
+  {
+   "name": "Wide windowed cherry door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed cherry door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cherry boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:98-98"
+  },
+  {
+   "name": "Windowed giant door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed giant door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Giant boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:99-99"
+  },
+  {
+   "name": "Wide windowed giant door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed giant door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Giant boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:99-99"
+  },
+  {
+   "name": "Windowed palm door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed palm door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Palm boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:100-100"
+  },
+  {
+   "name": "Wide windowed palm door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed palm door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Palm boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:100-100"
+  },
+  {
+   "name": "Windowed mesquite door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed mesquite door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mesquite boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:101-101"
+  },
+  {
+   "name": "Wide windowed mesquite door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed mesquite door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Mesquite boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:101-101"
+  },
+  {
+   "name": "Windowed fig door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed fig door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fig boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:102-102"
+  },
+  {
+   "name": "Wide windowed fig door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed fig door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Fig boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:102-102"
+  },
+  {
+   "name": "Windowed cypress door",
+   "section": "doors",
+   "gameDescription": "One metre wide and two tall, with exact-board framing and glass panes",
+   "output": "Windowed cypress door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cypress boards",
+     6
+    ],
+    [
+     "Glass",
+     2
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:103-103"
+  },
+  {
+   "name": "Wide windowed cypress door",
+   "section": "doors",
+   "gameDescription": "Two metres wide and three tall, with exact-board framing and glass panes",
+   "output": "Wide windowed cypress door",
+   "quantity": 1,
+   "inputs": [
+    [
+     "Cypress boards",
+     12
+    ],
+    [
+     "Glass",
+     4
+    ]
+   ],
+   "evidence": "crates/voxelgame-core/src/inventory/door_recipes.rs:103-103"
   }
  ]
 }

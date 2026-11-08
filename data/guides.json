@@ -747,6 +747,7 @@
     "stone-tools",
     "quick-craft-x",
     "fire-and-glass-chain",
+    "cooking-stove",
     "melee-attacks",
     "animal-drops",
     "home-crate",
@@ -764,8 +765,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction. Home crate, keyboard, repair, pack-up and rest instructions, including Home on a server, were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (game/home.rs, game/home/keyboard.rs, game/net_client/home.rs, session/home.rs and session/home/*.rs, the Home tab in inventory_ui.rs, and the bed rest pose in game/furniture/resting.rs).",
-    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe receipts. The 8 November Home update was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, and no server Home session was run."
+    "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction. Home crate, keyboard, repair, pack-up and rest instructions, including Home on a server, were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (game/home.rs, game/home/keyboard.rs, game/net_client/home.rs, session/home.rs and session/home/*.rs, the Home tab in inventory_ui.rs, and the bed rest pose in game/furniture/resting.rs). The cooking text in 'Hunt, cook and fill flasks' and the Hot meal milestone were re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026.",
+    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe receipts. The 8 November Home and cooking updates were source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, and no server Home or cooking session was run."
    },
    "sections": [
     {
@@ -936,7 +937,7 @@
       },
       {
        "t": "p",
-       "text": "Fire work is crafting, not a placed furnace or campfire: it works anywhere. Raw meat restores 8 hunger and Cooked meat 30, and one Venison roasts into two Cooked meat. {{fire-and-glass-chain}}"
+       "text": "Cook from your pack anywhere on the Craft tab's **Fire & food** section, or on a placed cooking stove ({{guide:crafting-and-recipes|Crafting and recipes}}). There is no campfire or furnace. Raw meat restores 8 hunger and Cooked meat 30, and one Venison roasts into two Cooked meat. {{fire-and-glass-chain}} {{cooking-stove}}"
       }
      ]
     },
@@ -1073,7 +1074,7 @@
         ],
         [
          "Hot meal",
-         "Cook a meal."
+         "Cook a meal on the Craft tab (Cook raw meat or Roast venison). Cooking on a stove does not count."
         ],
         [
          "Landmark",
@@ -1138,12 +1139,12 @@
    "gap": 4,
    "kicker": "Crafting",
    "title": "Crafting and recipes",
-   "headline": "Crafting,<br><em>all 43 recipes.</em>",
-   "summary": "How the Craft tab works, which ingredients can be mixed, the quick-craft trap, and the complete recipe list with amounts.",
-   "lead": "There is no workbench: every recipe is crafted from the pack. This guide explains the panel and lists every recipe with its exact amounts.",
+   "headline": "Crafting,<br><em>all 151 recipes.</em>",
+   "summary": "How the Craft tab works, which ingredients can be mixed, cooking on a stove, and the complete recipe list with amounts.",
+   "lead": "There is no workbench: every recipe is crafted from the pack. This guide explains the panel, shows how to cook on a placed stove and lists every recipe with its exact amounts.",
    "readTime": "5 min, then look things up",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "crafting-panel",
@@ -1151,6 +1152,7 @@
     "ingredient-groups",
     "quick-craft-x",
     "fire-and-glass-chain",
+    "cooking-stove",
     "lumen-crystal-supply",
     "stone-tools",
     "tree-felling",
@@ -1164,8 +1166,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "The recipe tables are generated from data/recipes.json, which was extracted from the game's recipe registry at Voxelgame fb873488 (the other features are still from the audited commit dd29d91); tools/validate_guides.py can recheck all 43 names, sections and amounts against a source snapshot. The X shortcut was separately checked at Voxelgame 5856103c (change a6d56495): it repeats the selected Craft-tab recipe.",
-    "limits": "Source-checked, not play-tested. Amounts are carried pieces: 8 pieces make one full one-metre block. Recipes for furnaces, smelting and metal tools do not exist yet."
+    "method": "The recipe tables are generated from data/recipes.json, refreshed on 8 November 2026 from the complete Craft-tab registry at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: 151 recipes, including the two cooking recipes shared with the stove and 90 doors by wood. tools/validate_guides.py --game rechecks every name, section, amount, game description and source line against that export. The cooking stove, the fire and cooking text, the ingredient groups and the Glow crystal section were source-checked at the same commit. The panel, quick-craft, gathering and block-type sections keep their earlier checks (dd29d91; the X shortcut at 5856103c).",
+    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, and cooking on a server was not tried live. Amounts are carried pieces: 8 pieces make one full one-metre block. Furnaces, smelting and metal tools do not exist yet."
    },
    "sections": [
     {
@@ -1224,19 +1226,18 @@
       {
        "t": "list",
        "items": [
-        "**Boards:** any species (Alder, Birch or Pine).",
+        "**Boards:** any of the 15 board species, mixed freely. Doors by wood are the exception: they need boards of exactly their wood.",
         "**Natural stone:** any of 26 natural stones.",
-        "**Hardwood or deadwood:** any hardwood log or deadwood.",
         "**Plant fiber or Wool.**"
        ]
       },
       {
        "t": "p",
-       "text": "If a recipe asks for one exact species and also for any board, the exact species is filled first. The recipe then needs a second board of another species, so carry one Birch board and one Pine board to craft it. One Birch board alone is not enough."
+       "text": "Every log has its own splitting recipe, so there is no shared hardwood group. Each makes boards of its own species; Deadwood makes Alder boards."
       },
       {
        "t": "p",
-       "text": "Every other ingredient must be that exact material: Sand (not other sands), Clay (not ochre, umber, sienna, cracked or banded clay), Reeds (not Tall reeds), Limestone, Granite, Cobblestone, Moss, Chalk, Basalt, Red rock, Glass, Feather, Raw meat, Venison and Glow crystal."
+       "text": "Every other ingredient must be that exact material: Sand (not other sands), Clay (not ochre, umber, sienna, cracked or banded clay), Reeds (not Tall reeds), Limestone, Granite, Cobblestone, Moss, Chalk, Basalt, Red rock, Marble, White plaster, Wildflowers, Paper screen, Glass, Charcoal, Feather, Raw meat, Venison and TNT."
       },
       {
        "t": "note",
@@ -1266,12 +1267,91 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Fire work is crafting, not a placed furnace: burn 4 boards into 2 Charcoal, then spend Charcoal to cook meat, fire Sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer. Fill flasks by pressing [[T]] at water. {{fire-and-glass-chain}}"
+       "text": "Fire work is Craft-tab crafting, not a placed furnace: burn 4 boards into 2 Charcoal, then spend Charcoal to cook meat, fire Sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer. Fill flasks by pressing [[T]] at water. You can also cook meat on a placed cooking stove (next section). {{fire-and-glass-chain}}"
       },
       {
        "t": "note",
        "kind": "tip",
        "text": "Besides the 'Fire glass' recipe, the Survey workshop landmark's one-time find gives 8 Glass."
+      }
+     ]
+    },
+    {
+     "id": "cooking-stove",
+     "title": "Cooking on a stove",
+     "blocks": [
+      {
+       "t": "p",
+       "text": "A placed **Cooking stove** cooks Raw meat or Venison with Charcoal. It uses the same two recipes as the Craft tab: one Raw meat and one Charcoal make one Cooked meat, and one Venison and one Charcoal make two. Each batch takes 0.8 seconds. {{cooking-stove}}"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Open [[E]] > **Build** and click the **Stove** plan. In Survival the Build tab appears only while you carry a **Furniture hammer**; in Creative it is always there.",
+        "Choose **Feet** (a board wood) and **Body** (**Stone** or **Iron**). In Survival, placing the stove spends one board of that wood and six Stone or six Iron ore pieces. Creative placement is free.",
+        "Aim at the top of solid ground, press [[R]] to turn the ghost and right-click to place it. The stove is one metre square and one metre high.",
+        "Press [[B]] to put the plan away and select an ordinary block or empty hands. Then right-click the stove from within 6 m. The inventory opens on its **Cooking stove** tab."
+       ]
+      },
+      {
+       "t": "keys",
+       "rows": [
+        [
+         "Add raw meat, Add venison, Add charcoal",
+         "Move one from your pack into the stove. Shift + click moves as many as fit."
+        ],
+        [
+         "Start one batch",
+         "Cook one raw piece. That piece and one Charcoal stay reserved until the batch finishes."
+        ],
+        [
+         "Cancel | keep ingredients",
+         "Stop the batch. Nothing is spent; the food and Charcoal stay in the stove."
+        ],
+        [
+         "Take cooked meat",
+         "Move finished Cooked meat into your pack. It needs free pack capacity."
+        ],
+        [
+         "Take raw, Take charcoal",
+         "Move food or Charcoal that is not reserved back into your pack."
+        ]
+       ]
+      },
+      {
+       "t": "list",
+       "items": [
+        "The stove holds up to 16 raw pieces, 16 Charcoal and 32 Cooked meat. It takes one kind of raw food at a time: take out the meat before adding venison, or the other way round.",
+        "Start cooks one batch only. Press it again for the next one; the stove never starts another batch by itself.",
+        "Start can refuse with 'Add raw food before cooking', 'Add charcoal before cooking' or 'Take out cooked food to make room for the complete recipe'.",
+        "Creative uses real carried food and Charcoal too. The stove never makes free Cooked meat.",
+        "A batch keeps cooking while the panel is closed or you walk away. It stops while the pause menu, the settings or the fullscreen map is open, or while you are dead, and continues afterwards.",
+        "Saving keeps the contents and the time left. Nothing cooks while the world is closed.",
+        "Moving or turning the stove keeps its contents. Empty it completely before taking it up, or you see 'Empty the cooking stove before removing it'. Furniture controls are in {{guide:building-basics|Building basics}}."
+       ]
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "The stove only cooks meat. It has no flame, gives off no heat, does not hurt you and does not set nearby wood alight. It is not a furnace and cannot smelt or fire glass, bricks or plaster."
+      },
+      {
+       "t": "h",
+       "text": "Cooking on a server"
+      },
+      {
+       "t": "p",
+       "text": "Cooking also works when you join a server or LAN world and when you host your own world. Right-click the stove as usual. The tab first says it is waiting for the server, and after each click the buttons wait until the server confirms your pack. If the stove hint says 'Cooking waits for the server world, stock and recovery state', wait a moment and try again. Other players can use the same stove, plot claims still apply, and the server keeps cooking a started batch after you leave."
+      },
+      {
+       "t": "note",
+       "kind": "limit",
+       "text": "The plan's description in the game still says 'Local worlds only'. In this version cooking on servers works as described above."
+      },
+      {
+       "t": "note",
+       "kind": "careful",
+       "text": "Cooking on a stove does not count for the **Hot meal** milestone. In Survival, craft Cook raw meat or Roast venison once on the Craft tab to reach it."
       }
      ]
     },
@@ -1361,11 +1441,15 @@
     },
     {
      "id": "recipes",
-     "title": "All 43 recipes",
+     "title": "All 151 recipes",
      "blocks": [
       {
        "t": "p",
-       "text": "Every recipe in this version, in the order the Craft tab shows them. Each makes the stated amount from the stated inputs in one craft."
+       "text": "Every recipe in this version, in the order the Craft tab shows them. Each makes the stated amount from the stated inputs in one craft. The 90 doors by wood come last in the Timber section, after the Small sailing boat, and have their own table here."
+      },
+      {
+       "t": "p",
+       "text": "When a door recipe is selected, its **Style**, **Wood** and **Size** buttons jump to another door recipe. Style cycles Plain, Panelled and Windowed; Wood cycles the 15 woods and, for a plain door, **Any boards**; Size switches between 1 x 2 m and 2 x 3 m. Choose a wood before changing the style of an Any boards door."
       },
       {
        "t": "recipes"
@@ -1374,16 +1458,16 @@
     },
     {
      "id": "lumen",
-     "title": "Recipes survival cannot finish yet",
+     "title": "Lanterns, rifles and explosives",
      "blocks": [
       {
        "t": "p",
-       "text": "Red lantern, Alder rifle, Four rifle rounds, TNT and Two dynamite sticks each need Glow crystal, which does not generate naturally in the world, so a survival player cannot gather enough. They work in creative, or in survival with crystals carried over from creative by pressing [[F4]]. {{lumen-crystal-supply}}"
+       "text": "Red lantern, Alder rifle, Four rifle rounds, TNT and Two dynamite sticks use only materials you can gather or craft: stone, sand, reeds, boards, Paper screen and Charcoal. No recipe uses Glow crystal. {{lumen-crystal-supply}}"
       },
       {
        "t": "note",
        "kind": "planned",
-       "text": "A placeable furnace or campfire, smelting, metal tools and tool durability are planned and have no recipes in this version."
+       "text": "A placeable furnace or campfire, smelting, metal tools and tool durability are planned and not in this version. The cooking stove only cooks meat."
       }
      ]
     }
@@ -1394,6 +1478,7 @@
     "ingredient-groups",
     "quick-craft-x",
     "fire-and-glass-chain",
+    "cooking-stove",
     "lumen-crystal-supply",
     "tree-felling",
     "material-sources",
@@ -1962,7 +2047,7 @@
    "lead": "Hunting is the renewable food in survival. No animal fights back, so the only hard part is getting close enough and keeping the weapon ready.",
    "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "melee-attacks",
@@ -1971,15 +2056,16 @@
     "alder-rifle",
     "animal-drops",
     "animal-behaviour",
-    "no-hostile-mobs"
+    "no-hostile-mobs",
+    "cooking-stove"
    ],
    "next": [
     "first-survival-day",
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines.",
-    "limits": "Source-checked, not play-tested in this guide. Draw, wind-up and reload times are the code values; check them in play if they feel different."
+    "method": "Controls, damage, draw times and drop rules come from the game source at the audited commit. Each ledger entry lists its source lines. The cooking advice in 'What you get from a kill' was re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026.",
+    "limits": "Source-checked, not play-tested in this guide. Draw, wind-up and reload times are the code values; check them in play if they feel different. The 8 November dfeb362d check covers only that cooking advice and was not play-tested."
    },
    "owns": [
     "melee-attacks",
@@ -2161,7 +2247,7 @@
       },
       {
        "t": "p",
-       "text": "Cook meat over charcoal before you eat it. Cooked meat restores much more hunger than raw meat. See {{guide:first-survival-day|Your first survival day}} for the hunger numbers."
+       "text": "Cook meat with Charcoal before you eat it: craft it on the Craft tab, or cook it on a placed {{cooking-stove|cooking stove}}. Cooked meat restores much more hunger than raw meat. See {{guide:first-survival-day|Your first survival day}} for the hunger numbers."
       }
      ]
     }

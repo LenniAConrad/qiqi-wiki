@@ -1187,12 +1187,12 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/survival.rs:85-96 — eating order (cooked meat saved for last)",
+    "crates/voxelgame-core/src/survival.rs:68-75 — food values and eating order (cooked meat saved for last)",
     "crates/voxelgame-core/src/game.rs:1115-1120 — R handling",
     "crates/voxelgame-core/src/game/consumables.rs:42-55 — clicking a food eats it",
     "crates/voxelgame-core/src/entities/mod.rs:1437-1521 — animals drop Raw meat or Venison"
    ],
-   "notes": "Only four foods exist. Berries come only from the starter pack (no bushes); renewable food is hunting, ideally cooked with Charcoal. Fruit block and Date cluster are building blocks and cannot be eaten. No food poisoning.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. This check covered the food values and cooking; the R and click evidence keeps its earlier audit. Only four foods exist. Berries come only from the starter pack (no bushes); renewable food is hunting, ideally cooked with Charcoal on the Craft tab or a cooking stove. Fruit block and Date cluster are building blocks and cannot be eaten. No food poisoning.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -1427,7 +1427,8 @@
     "crates/voxelgame-core/src/milestone.rs:11-111 — the 15 milestones, their order, bits, titles and hints",
     "crates/voxelgame-core/src/milestone.rs:71-110 — short titles and the hint text the Milestones tab shows",
     "crates/voxelgame-core/src/game/milestones.rs:17-35 — reach_milestone: survival only, once, status line prefix",
-    "crates/voxelgame-core/src/game/milestones.rs:37-54 — crafting reaches boards, tool, charcoal, glass, cooked meat and boat",
+    "crates/voxelgame-core/src/game/milestones.rs:74-90 — crafting reaches boards, tool, charcoal, glass, cooked meat and boat",
+    "crates/voxelgame-core/src/game/crafting.rs:134-140 — milestones come from Craft-tab crafts; stove cooking reaches none",
     "crates/voxelgame-core/src/game.rs:2604 — FellTree only when the felled block is a log",
     "crates/voxelgame-core/src/game.rs:2111 — SetWindow on placing glass",
     "crates/voxelgame-core/src/game/doors.rs:103 — HangDoor on hanging a door",
@@ -1444,7 +1445,8 @@
     "state": "complete",
     "page": "guide-first-survival-day.html",
     "label": "Your first survival day"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. This check covered only how Cook a meal is reached: craft Cook raw meat or Roast venison on the Craft tab. Cooking on a stove does not count. Other milestone evidence keeps its earlier audit."
   },
   {
    "id": "planned-achievements-progression",
@@ -1841,12 +1843,16 @@
     "creative",
     "survival"
    ],
-   "summary": "All 43 recipes in this version. Counts are half-metre pieces (8 pieces = one full 1 m block); all are crafted from the Craft tab with no station, and creative crafting is free.",
+   "summary": "All 151 recipes in this version, including 90 doors by wood. Counts are half-metre pieces (8 pieces = one full 1 m block); all are crafted from the Craft tab with no station, and creative crafting is free. Meat can also be cooked on a placed cooking stove.",
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:940-1208 — RECIPES registry (all recipes)",
-    "crates/voxelgame-core/src/inventory.rs:1472-1502 — test only checks that ingredients are blocks, drops or crafted items, not that blocks generate in the world"
+    "crates/voxelgame-core/src/inventory.rs:1504-1536 — RECIPES: the menu recipes followed by the three door tables, 151 in total",
+    "crates/voxelgame-core/src/inventory.rs:1538-1957 — the 61 menu recipes; the two cooking entries are shared constants",
+    "crates/voxelgame-core/src/inventory/cooking.rs:7-21 — Cook raw meat and Roast venison",
+    "crates/voxelgame-core/src/inventory/door_recipes.rs:8-104 — 15 woods, plain, panelled and windowed, small and wide; windowed doors need Glass",
+    "crates/voxelgame-core/src/game/crafting.rs:17-35 — the Craft tab lists every recipe of the chosen section in registry order",
+    "crates/voxelgame-core/src/game/crafting/doors.rs:87-120 — Style, Wood and Size jump between existing door recipes"
    ],
-   "notes": "Hide has no recipe use. Fruit block and Date cluster are building blocks, not food. Iron ore and Bog iron have no recipe use; there is no smelting.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. The wiki's recipe data is checked against this registry by tools/validate_guides.py --game. Hide has no recipe use. Fruit block and Date cluster are building blocks, not food. Iron ore and Bog iron have no Craft-tab recipe use and there is no smelting; Iron ore can pay for iron furniture bodies. No recipe uses Glow crystal.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1862,14 +1868,17 @@
     "creative",
     "survival"
    ],
-   "summary": "Some ingredients accept a group of materials you can mix: boards of any species, any of 26 natural stones, any hardwood log or deadwood, and plant fiber or wool. Every other ingredient must be that exact material.",
+   "summary": "Some ingredients accept a group of materials you can mix: boards of any of the 15 species, any of 26 natural stones, and plant fiber or wool. Doors by wood need boards of exactly their wood. Every other ingredient must be that exact material.",
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:477-510 — group lookup and labels ('boards of any species', 'natural stone (mix types)', 'hardwood or deadwood', 'fiber…",
-    "crates/voxelgame-core/src/inventory.rs:792-805 — exact materials are claimed before group members (2987e38f), so an overlapping recipe crafts in any listed order",
-    "crates/voxelgame-core/src/inventory.rs:1374-1402 — test: refined materials (glass, glow crystal, bricks, polished granite, dirt, magma stone) do not count as…",
-    "crates/voxelgame-render/src/inventory_ui.rs:167-176 — carried count sums the whole group"
+    "crates/voxelgame-core/src/inventory.rs:855-879 — group lookup and labels ('boards of any species', 'natural stone (mix types)', 'fiber or wool')",
+    "crates/voxelgame-core/src/inventory.rs:1451-1460 — every board species counts as boards",
+    "crates/voxelgame-core/src/inventory.rs:1462-1491 — the 26 natural stones",
+    "crates/voxelgame-core/src/inventory.rs:1493-1496 — plant fiber or wool binding",
+    "crates/voxelgame-core/src/inventory.rs:1386-1419 — door recipes by wood take their exact boards",
+    "crates/voxelgame-core/src/inventory.rs:1285-1297 — exact materials are claimed before group members",
+    "crates/voxelgame-render/src/inventory_ui.rs:258-268 — the carried count sums the whole group"
    ],
-   "notes": "An exact species fills first: Birch plus any board needs one Birch and one other board. Exact-only ingredients include Sand (not other sands), Clay (not ochre/umber/sienna/cracked/banded clay), Reeds (not Tall reeds), Limestone (plaster), Granite (polish), Cobblestone and Moss (mossy cobble), Chalk, Basalt, Red rock, Glass, Feather, Raw meat, Venison, Glow crystal. Not usable as natural stone: Magma stone, Iron ore, Bog iron, Amethyst, Salt, Sulfur crust, Mineral crust, Geyser stone and all crafted masonry. Mixed species keep their own identity in the pack until spent.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Each log has its own splitting recipe; there is no hardwood group. Exact-only ingredients include each log, Deadwood, Sand (not other sands), Clay, Reeds (not Tall reeds), Limestone, Granite, Cobblestone, Moss, Chalk, Basalt, Red rock, Marble, White plaster, Wildflowers, Paper screen, Glass, Charcoal, Feather, Raw meat, Venison and TNT. Magma stone, Iron ore, Bog iron, Amethyst, Salt, crusts, Geyser stone and crafted masonry are not natural stone.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1884,17 +1893,84 @@
    "modes": [
     "survival"
    ],
-   "summary": "Fire work is instant crafting, not a placed furnace or campfire: burn 4 boards into 2 Charcoal, then use Charcoal to cook meat, fire Sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer.",
+   "summary": "Fire work is Craft-tab crafting, not a furnace or campfire: burn 4 boards into 2 Charcoal, then use Charcoal to cook meat, fire Sand into Glass, blow Glass into flasks, and fire clay, limestone and lacquer. Meat can also be cooked on a placed cooking stove.",
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:974-1029 — charcoal, cooking, flask, glass, brick, tile and plaster recipes",
-    "crates/voxelgame-core/src/inventory.rs:1504-1518 — test: charcoal -> cooked meat -> flasks loop",
-    "search: grep -ri 'furnace|campfire|smelt' crates/ src/ — no hits; no station blocks exist"
+    "crates/voxelgame-core/src/inventory.rs:1651-1701 — charcoal, flask, glass, brick, tile and plaster recipes",
+    "crates/voxelgame-core/src/inventory/cooking.rs:7-21 — Cook raw meat and Roast venison, shared by the Craft tab and the cooking stove",
+    "crates/voxelgame-core/src/inventory.rs:1723-1729 — Lacquer timber spends Charcoal",
+    "crates/voxelgame-core/src/inventory.rs:1360-1366 — the FIRE & FOOD section burns charcoal, cooks meat and blows flasks",
+    "search: grep -ri 'furnace|campfire|smelt' crates/ src/ — no furnace, campfire or smelting system; only comments saying iron furniture adds no smelting"
    ],
    "backlog": [
     "VOX-PLAY-007",
     "VOX-OWNER-SURVIVAL-PLAYTHROUGH"
    ],
-   "notes": "Glass in survival comes from the 'Fire glass' recipe (24 Sand + 1 Charcoal -> 16 Glass) or the Survey workshop find (8 Glass). Placed glass mined with any tool returns Glass pieces.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Glass in survival comes from the 'Fire glass' recipe (24 Sand + 1 Charcoal -> 16 Glass) or the Survey workshop find (8 Glass). The Craft-tab cooking recipes remain after the stove was added; the stove is a second, optional way to cook. Placed glass mined with any tool returns Glass pieces (earlier audit).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
+  },
+  {
+   "id": "cooking-stove",
+   "area": "crafting",
+   "name": "Cooking stove",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "A placed Cooking stove cooks Raw meat or Venison with Charcoal, one 0.8-second batch per Start. It uses the same recipes as the Craft tab: 1 Raw meat + 1 Charcoal -> 1 Cooked meat, 1 Venison + 1 Charcoal -> 2. Build it from the reusable Stove plan (one board and six Stone or Iron ore pieces) and right-click it with the plan and tools put away.",
+   "controls": [
+    [
+     "E > Build > Stove",
+     "Choose the plan, its Feet wood and a Stone or Iron Body (Survival needs a carried Furniture hammer)"
+    ],
+    [
+     "Right click the stove",
+     "Open the Cooking stove tab (plan put away, no tool, within 6 m)"
+    ],
+    [
+     "Click / Shift + click a stove button",
+     "Move one item / as many as fit between pack and stove"
+    ],
+    [
+     "Start one batch",
+     "Cook one piece; Cancel stops it and keeps the ingredients"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/inventory/cooking.rs:7-42 — the stove reuses the Craft tab's Cook raw meat and Roast venison recipes",
+    "crates/voxelgame-core/src/furniture/cooking.rs:13-21 — holds 16 raw pieces, 16 Charcoal and 32 Cooked meat; one batch is 48 ticks at 60 Hz (0.8 s)",
+    "crates/voxelgame-core/src/furniture/cooking.rs:194-224 — only Raw meat, Venison and Charcoal go in, one raw kind at a time",
+    "crates/voxelgame-core/src/furniture/cooking.rs:234-269 — taking items out keeps the reserved piece and respects pack capacity",
+    "crates/voxelgame-core/src/furniture/cooking.rs:276-289 — Start refusals: batch running, no raw food, no Charcoal, no room for the output",
+    "crates/voxelgame-core/src/furniture/cooking.rs:295-315 — a finished batch spends one raw piece and one Charcoal and starts no next batch; Cancel spends nothing",
+    "crates/voxelgame-core/src/furniture/stove_parts.rs:1-35 — 1 m square stove: wooden feet, stone or iron body, no door, flame or hazard",
+    "crates/voxelgame-core/src/furniture/definition.rs:397-402 — the body must be Stone or Iron",
+    "crates/voxelgame-core/src/furniture/definition.rs:435-482 — cost is the rounded part volume: 1 board of the feet wood and 6 body pieces",
+    "crates/voxelgame-core/src/furniture/upholstery.rs:127-137 — Stone bodies spend Stone, Iron bodies spend Iron ore",
+    "crates/voxelgame-core/src/game/furniture/controls/tests/stove.rs:8-17 — the stove is placed from the Build catalogue with 6 Stone or 6 Iron ore",
+    "crates/voxelgame-core/src/game/furniture/workbench.rs:105-120 — Survival shows Build only while a Furniture hammer is carried",
+    "crates/voxelgame-core/src/game.rs:2662-2686 — right click opens the stove when no tool or plan is held and Shift is not pressed",
+    "crates/voxelgame-core/src/game/furniture/cooking_stove.rs:18-48 — aim hints, including the server hint",
+    "crates/voxelgame-core/src/game/furniture/cooking_stove.rs:90-161 — local controls use real carried items in both modes; status messages; opening the Cooking stove tab",
+    "crates/voxelgame-core/src/game/furniture/cooking_stove.rs:207-248 — refusals: confirm world, respawn, menus open, stove changed",
+    "crates/voxelgame-core/src/game/furniture.rs:261-275 — every stove cell must be within 6 m and on a plot you may build on",
+    "crates/voxelgame-core/src/game/furniture/cooking_stove.rs:250-334 — batches advance only while no pause, settings or fullscreen map is open and the player is alive; no offline time",
+    "crates/voxelgame-core/src/game/furniture/cooking_stove/tests.rs:144-191 — pause, settings, death and map stop cooking; walking away does not",
+    "crates/voxelgame-core/src/furniture/storage.rs:30-35 — 'Empty the cooking stove before removing it'",
+    "crates/voxelgame-render/src/inventory_ui/cooking_stove.rs:28-82 — panel states and button labels",
+    "crates/voxelgame-render/src/inventory_ui/cooking_stove.rs:132-146 — recipe line with '0.8 s per batch'",
+    "crates/voxelgame-core/src/game/net_client/furniture/cooking.rs:175-209 — connected cooking waits for the server's world, pack and recovery state and a confirmed game mode",
+    "crates/voxelgame-core/src/session/furniture/cooking.rs:50-164 — the server checks the player's own six-metre aim, claims and pack before each transfer",
+    "crates/voxelgame-core/src/session/furniture/cooking.rs:166-238 — the server keeps advancing active batches on its own clock",
+    "crates/voxelgame-core/src/game/milestones.rs:74-90 — the Cook a meal milestone comes only from a crafted Cooked meat",
+    "crates/voxelgame-core/src/inventory.rs:805 — the plan's in-game description still says 'Local worlds only'",
+    "src/net_client/hosting/carry/tests/cooking_policy.rs:1-20 — touching an active stove leaves health and nearby wood unchanged"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Creative also spends real carried food and Charcoal. Cooking runs with the panel closed or the player away, pauses with menus, map or death, and saves keep contents and time left without offline progress. Moving keeps contents; take-up needs an empty stove. Stove cooking does not reach Cook a meal. Since e63772eb it also works when joining or hosting a server. The game's PLAYER_GUIDE and plan description still call connected cooking unavailable; this row follows the code.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1905,17 +1981,17 @@
    "id": "lumen-crystal-supply",
    "area": "crafting",
    "name": "Glow-crystal recipes in survival",
-   "status": "partial",
+   "status": "available",
    "modes": [
     "survival"
    ],
-   "summary": "Red lanterns, the Alder rifle, rifle rounds, TNT and dynamite all need Glow crystal, which does not generate naturally, so survival players cannot gather enough to craft them.",
+   "summary": "No recipe needs Glow crystal. Red lanterns, the Alder rifle, rifle rounds, TNT and dynamite are crafted in survival from gathered stone, sand, reeds, boards, paper screens and Charcoal.",
    "evidence": [
-    "search: grep 'GLOWSTONE' crates/voxelgame-core/src/world/ — no generator placements",
-    "crates/voxelgame-core/src/game/exploration.rs:240 — single GLOWSTONE voxel at the Stone overlook",
-    "crates/voxelgame-core/src/world/block/table.rs:66-67 — GLOWSTONE is the 'Glow crystal' block"
+    "crates/voxelgame-core/src/inventory.rs:1744-1750 — Red lantern: paper screen, Charcoal and boards",
+    "crates/voxelgame-core/src/inventory.rs:1894-1921 — rifle, rounds, TNT and dynamite: stone, boards, reeds, sand, Charcoal, TNT and paper screen",
+    "search: no recipe in crates/voxelgame-core/src/inventory.rs or inventory/*.rs lists GLOWSTONE as an ingredient"
    ],
-   "notes": "These recipes work in creative (free ingredients) or with crystals carried over from creative via F4. Glow lichen and Amethyst clusters glow but are not Glow crystal.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Glow crystal was removed from these recipes in game commit 512abbbc (17 October 2026).",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -2097,18 +2173,21 @@
    "modes": [
     "survival"
    ],
-   "summary": "A placeable furnace/campfire with cooking time, smelting, iron (and copper/bronze) tools and tool durability are planned; today cooking and glass are instant recipes and only stone tools exist.",
+   "summary": "A placeable furnace or campfire with smelting, iron (and copper/bronze) tools and tool durability are planned. Today Charcoal and glass are Craft-tab recipes, meat is cooked on the Craft tab or a placed cooking stove, and only stone tools exist. Iron ore can pay for iron furniture bodies without smelting.",
    "evidence": [
-    "search: grep -ri 'furnace|campfire|smelt|ingot' crates/ src/ — no hits",
-    "crates/voxelgame-core/src/inventory.rs:87-98 — only stone tools, bow and rifle",
-    "docs/MILESTONES.md:25 — durability and cooking listed under future M2"
+    "search: grep -ri 'furnace|campfire|smelt|ingot' crates/ src/ — no furnace, smelting or ingot system",
+    "crates/voxelgame-core/src/inventory.rs:882-896 — tools are stone tools, the furniture hammer, fishing rod, bow, rifle and throwables",
+    "crates/voxelgame-core/src/furniture/upholstery.rs:72-74 — iron furniture uses raw Iron ore and adds no ingot or smelting",
+    "crates/voxelgame-core/src/furniture/stove_parts.rs:1-7 — the cooking stove is an appliance without flame",
+    "docs/MILESTONES.md:27 — durability and cooking listed under future M2"
    ],
    "backlog": [
     "VOX-PLAY-007",
     "VOX-OWNER-IRON-TOOLS",
     "VOX-OWNER-COPPER-BRONZE",
     "VOX-OWNER-MINERAL-EXPANSION"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. The cooking stove (cooking-stove) is not a furnace: it only cooks Raw meat and Venison."
   },
   {
    "id": "planned-ground-drops",
@@ -3885,12 +3964,14 @@
    "modes": [
     "any"
    ],
-   "summary": "There is no fire you can light, spread or put out. The crafting 'FIRE & FOOD' tab only covers recipes such as charcoal, cooking and kilns. Explosions show a brief flash and burst but leave nothing burning.",
+   "summary": "There is no fire you can light, spread or put out. The crafting 'FIRE & FOOD' tab only covers recipes such as charcoal, cooking and kilns, and the cooking stove has no flame. Explosions show a brief flash and burst but leave nothing burning.",
    "evidence": [
-    "crates/voxelgame-core/src/world/block/table.rs — no fire or flame block (only Fireweed, a plant, line 305)",
-    "crates/voxelgame-core/src/inventory.rs:799-819 — 'FIRE & FOOD' is a recipe category",
-    "crates/voxelgame-core/src/explosives.rs:21-22 — FLASH and BURST are temporary blast visuals",
-    "search: grep -i 'campfire|flammable|spread_fire|burning' in crates/voxelgame-core/src — only TNT fuse references"
+    "crates/voxelgame-core/src/world/block/table.rs — no fire or flame block (only Fireweed, a plant, line 341)",
+    "crates/voxelgame-core/src/inventory.rs:1354 — 'FIRE & FOOD' is a recipe category",
+    "crates/voxelgame-core/src/furniture/stove_parts.rs:1-7 — the stove body has a recess but no door, flame or hazard",
+    "src/net_client/hosting/carry/tests/cooking_policy.rs:1-20 — an active stove adds no flame, contact damage or burning",
+    "crates/voxelgame-core/src/explosives.rs:30-31 — FLASH and BURST are blast visual materials",
+    "search: grep -i 'campfire|flammable|spread_fire|burning' in crates/voxelgame-core/src — only TNT fuse references and the Charcoal description"
    ],
    "backlog": [
     "VOX-OWNER-FIRE"
@@ -3898,7 +3979,8 @@
    "guide": {
     "state": "none",
     "next": "Not in the game yet"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. This check covered the Fire & food tab, the cooking stove and the blast visuals."
   },
   {
    "id": "flowing-lava",
@@ -6316,7 +6398,7 @@
     "lumen-crystal-supply"
    ],
    "readiness": "ready",
-   "why": "All 43 recipes are verified; the guide can also warn that X may burn the starter boards and that Glow crystal is scarce."
+   "why": "All 151 recipes are verified against the game registry; the guide also explains the ingredient groups and cooking on a stove."
   },
   {
    "rank": 5,

@@ -26,7 +26,7 @@
       "id": "crafting", "title": "Crafting", "page": "topic-crafting.html",
       "summary": "Open the crafting panel and look up ingredients and quantities.",
       "guides": ["crafting-and-recipes"],
-      "references": [["guide-crafting.html#recipes", "Complete recipe tables"], ["guide-crafting.html#chain", "Tool progression"], ["guide-crafting.html#lumen", "Lumen crystal equipment"]],
+      "references": [["guide-crafting.html#recipes", "Complete recipe tables"], ["guide-crafting.html#chain", "Fire, glass and cooking"], ["guide-crafting.html#cooking-stove", "Cooking on a stove"], ["guide-crafting.html#lumen", "Lanterns, rifles and explosives"]],
       "related": ["blocks", "items", "getting-started"]
     },
     {

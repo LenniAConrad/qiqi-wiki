@@ -6,8 +6,9 @@ Checks the guide schema, that every cited ledger feature exists, that planned
 features are only mentioned inside planned notes, that figures exist with the
 declared size, that every owned feature links back to its guide, that the
 generated pages exactly match a fresh render, and that every page links to the
-guides index. With --game, also checks every recipe (names, sections and
-amounts) against the recipe registry in an exported game snapshot.
+guides index. With --game, also checks every recipe (names, sections, amounts,
+game descriptions and source lines) against the complete Craft-tab registry in
+an exported game snapshot, including recipes kept in inventory/*.rs modules.
 """
 
 import argparse
@@ -153,42 +154,171 @@ def validate_recipes(recipes):
     return len(names)
 
 
+INVENTORY = "crates/voxelgame-core/src/inventory.rs"
+
+
+def amount(expression):
+    """Resolve one recipe amount such as 4, BLOCK, 2 * BLOCK or BLOCK / 2 into pieces."""
+    expression = expression.strip().replace("BLOCK", str(PIECES_PER_BLOCK))
+    match = re.fullmatch(r"(\d+)(?:\s*([*/])\s*(\d+))?", expression)
+    require(match, f"cannot read amount {expression!r}")
+    if match[2] is None:
+        return int(match[1])
+    return int(match[1]) * int(match[3]) if match[2] == "*" else int(match[1]) // int(match[3])
+
+
+def parse_recipe(chunk):
+    """Return (name, category, ingredient counts, output counts, description) of one Recipe literal."""
+    name = re.search(r'name: "([^"]+)"', chunk)[1]
+    category = re.search(r"category: RecipeCategory::(\w+)", chunk)[1]
+    description = re.search(r'description: "([^"]*)"', chunk)
+
+    def counts(label):
+        listed = re.search(rf"{label}: &\[(.*?)\],\n", chunk, re.S)[1]
+        return [amount(value) for value in AMOUNT.findall(listed)]
+
+    return name, category, counts("ingredients"), counts("outputs"), description and description[1]
+
+
 def parse_registry(source):
-    """Return (name, category, ingredient counts, output counts) per RECIPES entry."""
+    """Return (name, category, ingredient counts, output counts) per literal RECIPES entry.
+
+    Reads the older form, where RECIPES itself is the literal array of Recipe values.
+    """
     start = source.index("pub static RECIPES")
     body = source[start:source.index("\n];", start)]
+    return [parse_recipe(chunk)[:4] for chunk in re.split(r"\n    Recipe \{", body)[1:]]
 
-    def amount(expression):
-        expression = expression.strip().replace("BLOCK", str(PIECES_PER_BLOCK))
-        match = re.fullmatch(r"(\d+)(?:\s*([*/])\s*(\d+))?", expression)
-        require(match, f"cannot read amount {expression!r}")
-        if match[2] is None:
-            return int(match[1])
-        return int(match[1]) * int(match[3]) if match[2] == "*" else int(match[1]) // int(match[3])
 
+def literal_entries(lines, first, last, path):
+    """Recipe literals and module references in one array body, with 1-based source lines."""
     entries = []
-    for chunk in re.split(r"\n    Recipe \{", body)[1:]:
-        name = re.search(r'name: "([^"]+)"', chunk)[1]
-        category = re.search(r"category: RecipeCategory::(\w+)", chunk)[1]
-
-        def counts(label):
-            listed = re.search(rf"{label}: &\[(.*?)\],\n", chunk, re.S)[1]
-            return [amount(value) for value in AMOUNT.findall(listed)]
-
-        entries.append((name, category, counts("ingredients"), counts("outputs")))
+    index = first
+    while index < last:
+        line = lines[index]
+        if line == "    Recipe {":
+            end = lines.index("    },", index)
+            entries.append(("literal", "\n".join(lines[index:end + 1]) + "\n", f"{path}:{index + 1}-{end + 1}"))
+            index = end + 1
+            continue
+        reference = re.fullmatch(r"    (\w+)::(\w+),", line)
+        if reference:
+            entries.append(("reference", reference.groups(), None))
+        else:
+            require(not line.strip() or line.strip().startswith("//"), f"{path}:{index + 1}: unreadable recipe entry")
+        index += 1
     return entries
 
 
+def module_constant(snapshot, module, constant):
+    """Return the Recipe literal of `const <constant>: Recipe = Recipe {..};` in inventory/<module>.rs."""
+    path = f"crates/voxelgame-core/src/inventory/{module}.rs"
+    lines = (snapshot / path).read_text(encoding="utf-8").split("\n")
+    start = next(i for i, line in enumerate(lines) if re.search(rf"\bconst {constant}: Recipe = Recipe \{{$", line))
+    end = lines.index("};", start)
+    return parse_recipe("\n".join(lines[start:end + 1]) + "\n"), f"{path}:{start + 1}-{end + 1}"
+
+
+def macro_tables(snapshot, module):
+    """Expand recipe tables built by macro_rules! invocations in inventory/<module>.rs.
+
+    Returns {table name: [(entry, evidence)]}, where each tuple line of an invocation
+    yields one recipe per Recipe template in the macro, and evidence is that tuple line.
+    """
+    path = f"crates/voxelgame-core/src/inventory/{module}.rs"
+    source = (snapshot / path).read_text(encoding="utf-8")
+    lines = source.split("\n")
+    macros = {}
+    for match in re.finditer(r"macro_rules! (\w+) \{\n(.*?)\n\}\n", source, re.S):
+        body = match[2]
+        variables = re.findall(r"\$(\w+):\w+", re.search(r"\$\(\((.*?)\)\),\+", body)[1])
+        named = re.search(r"pub\(super\) const (\w+): \[Recipe", body)
+        templates = re.findall(r"Recipe \{\n(.*?)\n\s*\},", body, re.S)
+        macros[match[1]] = (variables, named and named[1], templates)
+    tables = {}
+    for start, line in enumerate(lines):
+        call = re.fullmatch(r"(\w+)! \{(?: (\w+);)?", line)
+        if not call or call[1] not in macros:
+            continue
+        variables, named, templates = macros[call[1]]
+        table = call[2] or named
+        rows = tables.setdefault(table, [])
+        index = start + 1
+        while lines[index] != "}":
+            values = [value.strip() for value in re.fullmatch(r"\s*\((.*)\),?", lines[index])[1].split(",")]
+            require(len(values) == len(variables), f"{path}:{index + 1}: macro row does not match its pattern")
+            bound = dict(zip(variables, values))
+            for template in templates:
+                chunk = re.sub(r"\$(\w+)", lambda m: bound[m[1]], template) + "\n"
+                rows.append((parse_recipe(chunk), f"{path}:{index + 1}-{index + 1}"))
+            index += 1
+    return tables
+
+
+def registry_entries(snapshot):
+    """Every Craft-tab recipe in registry (menu index) order.
+
+    Returns (name, category, ingredient counts, output counts, description, evidence)
+    tuples. The current game builds RECIPES from a literal LEGACY_RECIPES array, whose
+    cooking entries are constants in inventory/cooking.rs, followed by the door tables
+    that inventory/door_recipes.rs expands from macros. An older snapshot whose RECIPES
+    is itself the literal array is read directly.
+    """
+    source = (snapshot / INVENTORY).read_text(encoding="utf-8")
+    lines = source.split("\n")
+    static = re.search(r"^pub static RECIPES: \[Recipe; (\d+)\] = (?:(\w+)\(\);|\[)$", source, re.M)
+    require(static, "cannot find the RECIPES registry")
+    declared = int(static[1])
+    if static[2] is None:
+        first = source[:static.start()].count("\n") + 1
+        array, appended = (first, lines.index("];", first)), []
+    else:
+        builder = source.index(f"const fn {static[2]}(")
+        appended = list(dict.fromkeys(re.findall(r"(\w+)::(\w+)\s*\[", source[builder:source.index("\n}\n", builder)])))
+        legacy = re.search(r"^const (\w+): \[Recipe; (\d+)\] = \[$", source, re.M)
+        require(legacy and f"{legacy[1]}[" in source[builder:], "cannot find the literal recipe array")
+        first = source[:legacy.start()].count("\n") + 1
+        array = (first, lines.index("];", first))
+        require(sum(1 for kind, *_ in literal_entries(lines, *array, INVENTORY)) == int(legacy[2]),
+                "literal recipe array length differs from its declaration")
+    entries = []
+    for kind, value, evidence in literal_entries(lines, *array, INVENTORY):
+        if kind == "literal":
+            entries.append((*parse_recipe(value), evidence))
+        else:
+            recipe, evidence = module_constant(snapshot, *value)
+            entries.append((*recipe, evidence))
+    expanded = {}
+    for module, table in appended:
+        if module not in expanded:
+            expanded[module] = macro_tables(snapshot, module)
+        require(table in expanded[module], f"cannot expand {module}::{table}")
+        entries.extend((*recipe, evidence) for recipe, evidence in expanded[module][table])
+    require(len(entries) == declared, f"read {len(entries)} recipes, but RECIPES declares {declared}")
+    return entries
+
+
+def category_labels(snapshot):
+    """Craft-tab section names by RecipeCategory variant, sentence-cased as the panel draws them."""
+    source = (snapshot / INVENTORY).read_text(encoding="utf-8")
+    block = source[source.index("impl RecipeCategory {"):]
+    block = block[block.index("pub fn name(self)"):block.index("pub fn description(self)")]
+    return {variant: label[0] + label[1:].lower()
+            for variant, label in re.findall(r'Self::(\w+) => "([^"]+)"', block)}
+
+
 def check_game(recipes, snapshot):
-    source = (snapshot / "crates/voxelgame-core/src/inventory.rs").read_text(encoding="utf-8")
-    section_of = {"Timber": "timber", "Fire": "fire", "Materials": "materials", "Tools": "tools"}
-    registry = parse_registry(source)
+    labels = category_labels(snapshot)
+    section_label = {section["key"]: section["gameLabel"] for section in recipes["sections"]}
+    registry = registry_entries(snapshot)
     require(len(registry) == len(recipes["recipes"]), "recipe count differs from the game registry")
-    for (name, category, ingredients, outputs), recipe in zip(registry, recipes["recipes"]):
+    for (name, category, ingredients, outputs, description, evidence), recipe in zip(registry, recipes["recipes"]):
         require(name == recipe["name"], f"recipe order or name differs: {name} / {recipe['name']}")
-        require(section_of[category] == recipe["section"], f"{name}: section differs")
+        require(section_label[recipe["section"]] == labels[category], f"{name}: section differs")
         require(ingredients == [count for _, count in recipe["inputs"]], f"{name}: ingredient amounts differ")
         require(outputs == [recipe["quantity"]], f"{name}: output amount differs")
+        require(recipe.get("gameDescription") == description, f"{name}: game description differs")
+        require(recipe["evidence"] == evidence, f"{name}: evidence should be {evidence}")
     return len(registry)
 
 

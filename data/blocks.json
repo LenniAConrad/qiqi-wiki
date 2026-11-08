@@ -6,8 +6,8 @@
     "sourceSha256": "15f92fc7879f74ba56dc49bb6cf89909af098db291c5b989d8adf3ee5cbc05d5"
   },
   "recipeGame": {
-    "commit": "741d883bad3b97798a91db17b624563fd2d8ff7e",
-    "source": "crates/voxelgame-core/src/inventory.rs RECIPES"
+    "commit": "dfeb362ddeca56ff5de77fa26ccdb6e37d05192c",
+    "source": "crates/voxelgame-core/src/inventory.rs RECIPES, with inventory/cooking.rs and inventory/door_recipes.rs"
   },
   "acquisitionGame": {
     "commit": "dd29d912918978b9d0e74ec1104b87c0679d793e",
@@ -192,7 +192,7 @@
       "description": "Alder boards are crafted from alder wood.",
       "recipes": [
         "Split alder boards",
-        "Split hardwood boards"
+        "Split deadwood boards"
       ]
     },
     {
@@ -2921,7 +2921,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:452",
       "anchor": "block-oak-planks",
       "family": "building",
-      "description": "Oak boards are pale grey-brown boards split from oak logs."
+      "description": "Oak boards are pale grey-brown boards split from oak logs.",
+      "recipes": [
+        "Split oak boards"
+      ]
     },
     {
       "symbol": "FRUIT_PLANKS",
@@ -2936,7 +2939,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:454",
       "anchor": "block-fruit-planks",
       "family": "building",
-      "description": "Fruitwood boards are pinkish boards split from fruit tree logs."
+      "description": "Fruitwood boards are pinkish boards split from fruit tree logs.",
+      "recipes": [
+        "Split fruitwood boards"
+      ]
     },
     {
       "symbol": "ACACIA_PLANKS",
@@ -2951,7 +2957,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:456",
       "anchor": "block-acacia-planks",
       "family": "building",
-      "description": "Acacia boards are bright orange boards split from acacia logs."
+      "description": "Acacia boards are bright orange boards split from acacia logs.",
+      "recipes": [
+        "Split acacia boards"
+      ]
     },
     {
       "symbol": "WILLOW_PLANKS",
@@ -2966,7 +2975,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:458",
       "anchor": "block-willow-planks",
       "family": "building",
-      "description": "Willow boards are pale grey-pink boards split from willow logs."
+      "description": "Willow boards are pale grey-pink boards split from willow logs.",
+      "recipes": [
+        "Split willow boards"
+      ]
     },
     {
       "symbol": "MANGROVE_PLANKS",
@@ -2981,7 +2993,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:460",
       "anchor": "block-mangrove-planks",
       "family": "building",
-      "description": "Mangrove boards are deep red boards split from mangrove logs."
+      "description": "Mangrove boards are deep red boards split from mangrove logs.",
+      "recipes": [
+        "Split mangrove boards"
+      ]
     },
     {
       "symbol": "JUNGLE_PLANKS",
@@ -2996,7 +3011,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:462",
       "anchor": "block-jungle-planks",
       "family": "building",
-      "description": "Jungle boards are olive-brown boards split from jungle logs."
+      "description": "Jungle boards are olive-brown boards split from jungle logs.",
+      "recipes": [
+        "Split jungle boards"
+      ]
     },
     {
       "symbol": "CHERRY_PLANKS",
@@ -3011,7 +3029,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:464",
       "anchor": "block-cherry-planks",
       "family": "building",
-      "description": "Cherry boards are red-brown boards split from cherry logs."
+      "description": "Cherry boards are red-brown boards split from cherry logs.",
+      "recipes": [
+        "Split cherry boards"
+      ]
     },
     {
       "symbol": "GIANT_PLANKS",
@@ -3026,7 +3047,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:466",
       "anchor": "block-giant-planks",
       "family": "building",
-      "description": "Giant boards are rust-red boards split from giant logs."
+      "description": "Giant boards are rust-red boards split from giant logs.",
+      "recipes": [
+        "Split giant boards"
+      ]
     },
     {
       "symbol": "PALM_PLANKS",
@@ -3041,7 +3065,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:468",
       "anchor": "block-palm-planks",
       "family": "building",
-      "description": "Palm boards are streaked, straw-coloured boards split from palm logs."
+      "description": "Palm boards are streaked, straw-coloured boards split from palm logs.",
+      "recipes": [
+        "Split palm boards"
+      ]
     },
     {
       "symbol": "MESQUITE_PLANKS",
@@ -3056,7 +3083,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:470",
       "anchor": "block-mesquite-planks",
       "family": "building",
-      "description": "Mesquite boards are dark chocolate-brown boards split from mesquite logs."
+      "description": "Mesquite boards are dark chocolate-brown boards split from mesquite logs.",
+      "recipes": [
+        "Split mesquite boards"
+      ]
     },
     {
       "symbol": "FIG_PLANKS",
@@ -3071,7 +3101,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:472",
       "anchor": "block-fig-planks",
       "family": "building",
-      "description": "Fig boards are pale cream boards split from fig logs."
+      "description": "Fig boards are pale cream boards split from fig logs.",
+      "recipes": [
+        "Split fig boards"
+      ]
     },
     {
       "symbol": "CYPRESS_PLANKS",
@@ -3086,7 +3119,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:474",
       "anchor": "block-cypress-planks",
       "family": "building",
-      "description": "Cypress boards are golden boards split from cypress logs."
+      "description": "Cypress boards are golden boards split from cypress logs.",
+      "recipes": [
+        "Split cypress boards"
+      ]
     },
     {
       "symbol": "ALDER_DOOR",
@@ -3101,7 +3137,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:479",
       "anchor": "block-alder-door",
       "family": "doors",
-      "description": "An alder door is a single-leaf door, one metre wide and two tall. Craft it from alder boards."
+      "description": "An alder door is a single-leaf door, one metre wide and two tall. Craft it from alder boards.",
+      "recipes": [
+        "Alder door"
+      ]
     },
     {
       "symbol": "ALDER_WIDE_DOOR",
@@ -3116,7 +3155,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:483",
       "anchor": "block-alder-wide-door",
       "family": "doors",
-      "description": "A wide alder door has two leaves and is two metres wide and three tall. Craft it from alder boards."
+      "description": "A wide alder door has two leaves and is two metres wide and three tall. Craft it from alder boards.",
+      "recipes": [
+        "Wide alder door"
+      ]
     },
     {
       "symbol": "BIRCH_DOOR",
@@ -3131,7 +3173,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:485",
       "anchor": "block-birch-door",
       "family": "doors",
-      "description": "A birch door is a single-leaf door, one metre wide and two tall. Craft it from birch boards."
+      "description": "A birch door is a single-leaf door, one metre wide and two tall. Craft it from birch boards.",
+      "recipes": [
+        "Birch door"
+      ]
     },
     {
       "symbol": "BIRCH_WIDE_DOOR",
@@ -3146,7 +3191,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:489",
       "anchor": "block-birch-wide-door",
       "family": "doors",
-      "description": "A wide birch door has two leaves and is two metres wide and three tall. Craft it from birch boards."
+      "description": "A wide birch door has two leaves and is two metres wide and three tall. Craft it from birch boards.",
+      "recipes": [
+        "Wide birch door"
+      ]
     },
     {
       "symbol": "PINE_DOOR",
@@ -3161,7 +3209,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:491",
       "anchor": "block-pine-door",
       "family": "doors",
-      "description": "A pine door is a single-leaf door, one metre wide and two tall. Craft it from pine boards."
+      "description": "A pine door is a single-leaf door, one metre wide and two tall. Craft it from pine boards.",
+      "recipes": [
+        "Pine door"
+      ]
     },
     {
       "symbol": "PINE_WIDE_DOOR",
@@ -3176,7 +3227,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:495",
       "anchor": "block-pine-wide-door",
       "family": "doors",
-      "description": "A wide pine door has two leaves and is two metres wide and three tall. Craft it from pine boards."
+      "description": "A wide pine door has two leaves and is two metres wide and three tall. Craft it from pine boards.",
+      "recipes": [
+        "Wide pine door"
+      ]
     },
     {
       "symbol": "OAK_DOOR",
@@ -3191,7 +3245,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:497",
       "anchor": "block-oak-door",
       "family": "doors",
-      "description": "An oak door is a single-leaf door, one metre wide and two tall. Craft it from oak boards."
+      "description": "An oak door is a single-leaf door, one metre wide and two tall. Craft it from oak boards.",
+      "recipes": [
+        "Oak door"
+      ]
     },
     {
       "symbol": "OAK_WIDE_DOOR",
@@ -3206,7 +3263,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:501",
       "anchor": "block-oak-wide-door",
       "family": "doors",
-      "description": "A wide oak door has two leaves and is two metres wide and three tall. Craft it from oak boards."
+      "description": "A wide oak door has two leaves and is two metres wide and three tall. Craft it from oak boards.",
+      "recipes": [
+        "Wide oak door"
+      ]
     },
     {
       "symbol": "FRUIT_DOOR",
@@ -3221,7 +3281,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:503",
       "anchor": "block-fruit-door",
       "family": "doors",
-      "description": "A fruitwood door is a single-leaf door, one metre wide and two tall. Craft it from fruitwood boards."
+      "description": "A fruitwood door is a single-leaf door, one metre wide and two tall. Craft it from fruitwood boards.",
+      "recipes": [
+        "Fruitwood door"
+      ]
     },
     {
       "symbol": "FRUIT_WIDE_DOOR",
@@ -3236,7 +3299,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:507",
       "anchor": "block-fruit-wide-door",
       "family": "doors",
-      "description": "A wide fruitwood door has two leaves and is two metres wide and three tall. Craft it from fruitwood boards."
+      "description": "A wide fruitwood door has two leaves and is two metres wide and three tall. Craft it from fruitwood boards.",
+      "recipes": [
+        "Wide fruitwood door"
+      ]
     },
     {
       "symbol": "ACACIA_DOOR",
@@ -3251,7 +3317,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:509",
       "anchor": "block-acacia-door",
       "family": "doors",
-      "description": "An acacia door is a single-leaf door, one metre wide and two tall. Craft it from acacia boards."
+      "description": "An acacia door is a single-leaf door, one metre wide and two tall. Craft it from acacia boards.",
+      "recipes": [
+        "Acacia door"
+      ]
     },
     {
       "symbol": "ACACIA_WIDE_DOOR",
@@ -3266,7 +3335,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:513",
       "anchor": "block-acacia-wide-door",
       "family": "doors",
-      "description": "A wide acacia door has two leaves and is two metres wide and three tall. Craft it from acacia boards."
+      "description": "A wide acacia door has two leaves and is two metres wide and three tall. Craft it from acacia boards.",
+      "recipes": [
+        "Wide acacia door"
+      ]
     },
     {
       "symbol": "WILLOW_DOOR",
@@ -3281,7 +3353,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:515",
       "anchor": "block-willow-door",
       "family": "doors",
-      "description": "A willow door is a single-leaf door, one metre wide and two tall. Craft it from willow boards."
+      "description": "A willow door is a single-leaf door, one metre wide and two tall. Craft it from willow boards.",
+      "recipes": [
+        "Willow door"
+      ]
     },
     {
       "symbol": "WILLOW_WIDE_DOOR",
@@ -3296,7 +3371,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:519",
       "anchor": "block-willow-wide-door",
       "family": "doors",
-      "description": "A wide willow door has two leaves and is two metres wide and three tall. Craft it from willow boards."
+      "description": "A wide willow door has two leaves and is two metres wide and three tall. Craft it from willow boards.",
+      "recipes": [
+        "Wide willow door"
+      ]
     },
     {
       "symbol": "MANGROVE_DOOR",
@@ -3311,7 +3389,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:521",
       "anchor": "block-mangrove-door",
       "family": "doors",
-      "description": "A mangrove door is a single-leaf door, one metre wide and two tall. Craft it from mangrove boards."
+      "description": "A mangrove door is a single-leaf door, one metre wide and two tall. Craft it from mangrove boards.",
+      "recipes": [
+        "Mangrove door"
+      ]
     },
     {
       "symbol": "MANGROVE_WIDE_DOOR",
@@ -3326,7 +3407,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:525",
       "anchor": "block-mangrove-wide-door",
       "family": "doors",
-      "description": "A wide mangrove door has two leaves and is two metres wide and three tall. Craft it from mangrove boards."
+      "description": "A wide mangrove door has two leaves and is two metres wide and three tall. Craft it from mangrove boards.",
+      "recipes": [
+        "Wide mangrove door"
+      ]
     },
     {
       "symbol": "JUNGLE_DOOR",
@@ -3341,7 +3425,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:527",
       "anchor": "block-jungle-door",
       "family": "doors",
-      "description": "A jungle door is a single-leaf door, one metre wide and two tall. Craft it from jungle boards."
+      "description": "A jungle door is a single-leaf door, one metre wide and two tall. Craft it from jungle boards.",
+      "recipes": [
+        "Jungle door"
+      ]
     },
     {
       "symbol": "JUNGLE_WIDE_DOOR",
@@ -3356,7 +3443,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:531",
       "anchor": "block-jungle-wide-door",
       "family": "doors",
-      "description": "A wide jungle door has two leaves and is two metres wide and three tall. Craft it from jungle boards."
+      "description": "A wide jungle door has two leaves and is two metres wide and three tall. Craft it from jungle boards.",
+      "recipes": [
+        "Wide jungle door"
+      ]
     },
     {
       "symbol": "CHERRY_DOOR",
@@ -3371,7 +3461,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:533",
       "anchor": "block-cherry-door",
       "family": "doors",
-      "description": "A cherry door is a single-leaf door, one metre wide and two tall. Craft it from cherry boards."
+      "description": "A cherry door is a single-leaf door, one metre wide and two tall. Craft it from cherry boards.",
+      "recipes": [
+        "Cherry door"
+      ]
     },
     {
       "symbol": "CHERRY_WIDE_DOOR",
@@ -3386,7 +3479,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:537",
       "anchor": "block-cherry-wide-door",
       "family": "doors",
-      "description": "A wide cherry door has two leaves and is two metres wide and three tall. Craft it from cherry boards."
+      "description": "A wide cherry door has two leaves and is two metres wide and three tall. Craft it from cherry boards.",
+      "recipes": [
+        "Wide cherry door"
+      ]
     },
     {
       "symbol": "GIANT_DOOR",
@@ -3401,7 +3497,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:539",
       "anchor": "block-giant-door",
       "family": "doors",
-      "description": "A giant door is a single-leaf door, one metre wide and two tall. Craft it from giant boards."
+      "description": "A giant door is a single-leaf door, one metre wide and two tall. Craft it from giant boards.",
+      "recipes": [
+        "Giant door"
+      ]
     },
     {
       "symbol": "GIANT_WIDE_DOOR",
@@ -3416,7 +3515,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:543",
       "anchor": "block-giant-wide-door",
       "family": "doors",
-      "description": "A wide giant door has two leaves and is two metres wide and three tall. Craft it from giant boards."
+      "description": "A wide giant door has two leaves and is two metres wide and three tall. Craft it from giant boards.",
+      "recipes": [
+        "Wide giant door"
+      ]
     },
     {
       "symbol": "PALM_DOOR",
@@ -3431,7 +3533,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:545",
       "anchor": "block-palm-door",
       "family": "doors",
-      "description": "A palm door is a single-leaf door, one metre wide and two tall. Craft it from palm boards."
+      "description": "A palm door is a single-leaf door, one metre wide and two tall. Craft it from palm boards.",
+      "recipes": [
+        "Palm door"
+      ]
     },
     {
       "symbol": "PALM_WIDE_DOOR",
@@ -3446,7 +3551,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:549",
       "anchor": "block-palm-wide-door",
       "family": "doors",
-      "description": "A wide palm door has two leaves and is two metres wide and three tall. Craft it from palm boards."
+      "description": "A wide palm door has two leaves and is two metres wide and three tall. Craft it from palm boards.",
+      "recipes": [
+        "Wide palm door"
+      ]
     },
     {
       "symbol": "MESQUITE_DOOR",
@@ -3461,7 +3569,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:551",
       "anchor": "block-mesquite-door",
       "family": "doors",
-      "description": "A mesquite door is a single-leaf door, one metre wide and two tall. Craft it from mesquite boards."
+      "description": "A mesquite door is a single-leaf door, one metre wide and two tall. Craft it from mesquite boards.",
+      "recipes": [
+        "Mesquite door"
+      ]
     },
     {
       "symbol": "MESQUITE_WIDE_DOOR",
@@ -3476,7 +3587,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:555",
       "anchor": "block-mesquite-wide-door",
       "family": "doors",
-      "description": "A wide mesquite door has two leaves and is two metres wide and three tall. Craft it from mesquite boards."
+      "description": "A wide mesquite door has two leaves and is two metres wide and three tall. Craft it from mesquite boards.",
+      "recipes": [
+        "Wide mesquite door"
+      ]
     },
     {
       "symbol": "FIG_DOOR",
@@ -3491,7 +3605,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:557",
       "anchor": "block-fig-door",
       "family": "doors",
-      "description": "A fig door is a single-leaf door, one metre wide and two tall. Craft it from fig boards."
+      "description": "A fig door is a single-leaf door, one metre wide and two tall. Craft it from fig boards.",
+      "recipes": [
+        "Fig door"
+      ]
     },
     {
       "symbol": "FIG_WIDE_DOOR",
@@ -3506,7 +3623,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:561",
       "anchor": "block-fig-wide-door",
       "family": "doors",
-      "description": "A wide fig door has two leaves and is two metres wide and three tall. Craft it from fig boards."
+      "description": "A wide fig door has two leaves and is two metres wide and three tall. Craft it from fig boards.",
+      "recipes": [
+        "Wide fig door"
+      ]
     },
     {
       "symbol": "CYPRESS_DOOR",
@@ -3521,7 +3641,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:563",
       "anchor": "block-cypress-door",
       "family": "doors",
-      "description": "A cypress door is a single-leaf door, one metre wide and two tall. Craft it from cypress boards."
+      "description": "A cypress door is a single-leaf door, one metre wide and two tall. Craft it from cypress boards.",
+      "recipes": [
+        "Cypress door"
+      ]
     },
     {
       "symbol": "CYPRESS_WIDE_DOOR",
@@ -3536,7 +3659,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:567",
       "anchor": "block-cypress-wide-door",
       "family": "doors",
-      "description": "A wide cypress door has two leaves and is two metres wide and three tall. Craft it from cypress boards."
+      "description": "A wide cypress door has two leaves and is two metres wide and three tall. Craft it from cypress boards.",
+      "recipes": [
+        "Wide cypress door"
+      ]
     },
     {
       "symbol": "ALDER_PANELLED_DOOR",
@@ -3551,7 +3677,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:572",
       "anchor": "block-alder-panelled-door",
       "family": "doors",
-      "description": "A panelled alder door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from alder boards."
+      "description": "A panelled alder door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from alder boards.",
+      "recipes": [
+        "Panelled alder door"
+      ]
     },
     {
       "symbol": "ALDER_PANELLED_WIDE_DOOR",
@@ -3566,7 +3695,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:576",
       "anchor": "block-alder-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled alder door has two leaves with recessed panels and is two metres wide and three tall. Craft it from alder boards."
+      "description": "A wide panelled alder door has two leaves with recessed panels and is two metres wide and three tall. Craft it from alder boards.",
+      "recipes": [
+        "Wide panelled alder door"
+      ]
     },
     {
       "symbol": "BIRCH_PANELLED_DOOR",
@@ -3581,7 +3713,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:578",
       "anchor": "block-birch-panelled-door",
       "family": "doors",
-      "description": "A panelled birch door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from birch boards."
+      "description": "A panelled birch door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from birch boards.",
+      "recipes": [
+        "Panelled birch door"
+      ]
     },
     {
       "symbol": "BIRCH_PANELLED_WIDE_DOOR",
@@ -3596,7 +3731,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:582",
       "anchor": "block-birch-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled birch door has two leaves with recessed panels and is two metres wide and three tall. Craft it from birch boards."
+      "description": "A wide panelled birch door has two leaves with recessed panels and is two metres wide and three tall. Craft it from birch boards.",
+      "recipes": [
+        "Wide panelled birch door"
+      ]
     },
     {
       "symbol": "PINE_PANELLED_DOOR",
@@ -3611,7 +3749,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:584",
       "anchor": "block-pine-panelled-door",
       "family": "doors",
-      "description": "A panelled pine door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from pine boards."
+      "description": "A panelled pine door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from pine boards.",
+      "recipes": [
+        "Panelled pine door"
+      ]
     },
     {
       "symbol": "PINE_PANELLED_WIDE_DOOR",
@@ -3626,7 +3767,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:588",
       "anchor": "block-pine-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled pine door has two leaves with recessed panels and is two metres wide and three tall. Craft it from pine boards."
+      "description": "A wide panelled pine door has two leaves with recessed panels and is two metres wide and three tall. Craft it from pine boards.",
+      "recipes": [
+        "Wide panelled pine door"
+      ]
     },
     {
       "symbol": "OAK_PANELLED_DOOR",
@@ -3641,7 +3785,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:590",
       "anchor": "block-oak-panelled-door",
       "family": "doors",
-      "description": "A panelled oak door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from oak boards."
+      "description": "A panelled oak door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from oak boards.",
+      "recipes": [
+        "Panelled oak door"
+      ]
     },
     {
       "symbol": "OAK_PANELLED_WIDE_DOOR",
@@ -3656,7 +3803,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:594",
       "anchor": "block-oak-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled oak door has two leaves with recessed panels and is two metres wide and three tall. Craft it from oak boards."
+      "description": "A wide panelled oak door has two leaves with recessed panels and is two metres wide and three tall. Craft it from oak boards.",
+      "recipes": [
+        "Wide panelled oak door"
+      ]
     },
     {
       "symbol": "FRUIT_PANELLED_DOOR",
@@ -3671,7 +3821,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:596",
       "anchor": "block-fruit-panelled-door",
       "family": "doors",
-      "description": "A panelled fruitwood door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from fruitwood boards."
+      "description": "A panelled fruitwood door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from fruitwood boards.",
+      "recipes": [
+        "Panelled fruitwood door"
+      ]
     },
     {
       "symbol": "FRUIT_PANELLED_WIDE_DOOR",
@@ -3686,7 +3839,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:600",
       "anchor": "block-fruit-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled fruitwood door has two leaves with recessed panels and is two metres wide and three tall. Craft it from fruitwood boards."
+      "description": "A wide panelled fruitwood door has two leaves with recessed panels and is two metres wide and three tall. Craft it from fruitwood boards.",
+      "recipes": [
+        "Wide panelled fruitwood door"
+      ]
     },
     {
       "symbol": "ACACIA_PANELLED_DOOR",
@@ -3701,7 +3857,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:602",
       "anchor": "block-acacia-panelled-door",
       "family": "doors",
-      "description": "A panelled acacia door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from acacia boards."
+      "description": "A panelled acacia door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from acacia boards.",
+      "recipes": [
+        "Panelled acacia door"
+      ]
     },
     {
       "symbol": "ACACIA_PANELLED_WIDE_DOOR",
@@ -3716,7 +3875,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:606",
       "anchor": "block-acacia-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled acacia door has two leaves with recessed panels and is two metres wide and three tall. Craft it from acacia boards."
+      "description": "A wide panelled acacia door has two leaves with recessed panels and is two metres wide and three tall. Craft it from acacia boards.",
+      "recipes": [
+        "Wide panelled acacia door"
+      ]
     },
     {
       "symbol": "WILLOW_PANELLED_DOOR",
@@ -3731,7 +3893,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:608",
       "anchor": "block-willow-panelled-door",
       "family": "doors",
-      "description": "A panelled willow door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from willow boards."
+      "description": "A panelled willow door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from willow boards.",
+      "recipes": [
+        "Panelled willow door"
+      ]
     },
     {
       "symbol": "WILLOW_PANELLED_WIDE_DOOR",
@@ -3746,7 +3911,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:612",
       "anchor": "block-willow-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled willow door has two leaves with recessed panels and is two metres wide and three tall. Craft it from willow boards."
+      "description": "A wide panelled willow door has two leaves with recessed panels and is two metres wide and three tall. Craft it from willow boards.",
+      "recipes": [
+        "Wide panelled willow door"
+      ]
     },
     {
       "symbol": "MANGROVE_PANELLED_DOOR",
@@ -3761,7 +3929,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:614",
       "anchor": "block-mangrove-panelled-door",
       "family": "doors",
-      "description": "A panelled mangrove door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from mangrove boards."
+      "description": "A panelled mangrove door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from mangrove boards.",
+      "recipes": [
+        "Panelled mangrove door"
+      ]
     },
     {
       "symbol": "MANGROVE_PANELLED_WIDE_DOOR",
@@ -3776,7 +3947,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:618",
       "anchor": "block-mangrove-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled mangrove door has two leaves with recessed panels and is two metres wide and three tall. Craft it from mangrove boards."
+      "description": "A wide panelled mangrove door has two leaves with recessed panels and is two metres wide and three tall. Craft it from mangrove boards.",
+      "recipes": [
+        "Wide panelled mangrove door"
+      ]
     },
     {
       "symbol": "JUNGLE_PANELLED_DOOR",
@@ -3791,7 +3965,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:620",
       "anchor": "block-jungle-panelled-door",
       "family": "doors",
-      "description": "A panelled jungle door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from jungle boards."
+      "description": "A panelled jungle door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from jungle boards.",
+      "recipes": [
+        "Panelled jungle door"
+      ]
     },
     {
       "symbol": "JUNGLE_PANELLED_WIDE_DOOR",
@@ -3806,7 +3983,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:624",
       "anchor": "block-jungle-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled jungle door has two leaves with recessed panels and is two metres wide and three tall. Craft it from jungle boards."
+      "description": "A wide panelled jungle door has two leaves with recessed panels and is two metres wide and three tall. Craft it from jungle boards.",
+      "recipes": [
+        "Wide panelled jungle door"
+      ]
     },
     {
       "symbol": "CHERRY_PANELLED_DOOR",
@@ -3821,7 +4001,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:626",
       "anchor": "block-cherry-panelled-door",
       "family": "doors",
-      "description": "A panelled cherry door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from cherry boards."
+      "description": "A panelled cherry door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from cherry boards.",
+      "recipes": [
+        "Panelled cherry door"
+      ]
     },
     {
       "symbol": "CHERRY_PANELLED_WIDE_DOOR",
@@ -3836,7 +4019,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:630",
       "anchor": "block-cherry-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled cherry door has two leaves with recessed panels and is two metres wide and three tall. Craft it from cherry boards."
+      "description": "A wide panelled cherry door has two leaves with recessed panels and is two metres wide and three tall. Craft it from cherry boards.",
+      "recipes": [
+        "Wide panelled cherry door"
+      ]
     },
     {
       "symbol": "GIANT_PANELLED_DOOR",
@@ -3851,7 +4037,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:632",
       "anchor": "block-giant-panelled-door",
       "family": "doors",
-      "description": "A panelled giant door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from giant boards."
+      "description": "A panelled giant door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from giant boards.",
+      "recipes": [
+        "Panelled giant door"
+      ]
     },
     {
       "symbol": "GIANT_PANELLED_WIDE_DOOR",
@@ -3866,7 +4055,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:636",
       "anchor": "block-giant-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled giant door has two leaves with recessed panels and is two metres wide and three tall. Craft it from giant boards."
+      "description": "A wide panelled giant door has two leaves with recessed panels and is two metres wide and three tall. Craft it from giant boards.",
+      "recipes": [
+        "Wide panelled giant door"
+      ]
     },
     {
       "symbol": "PALM_PANELLED_DOOR",
@@ -3881,7 +4073,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:638",
       "anchor": "block-palm-panelled-door",
       "family": "doors",
-      "description": "A panelled palm door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from palm boards."
+      "description": "A panelled palm door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from palm boards.",
+      "recipes": [
+        "Panelled palm door"
+      ]
     },
     {
       "symbol": "PALM_PANELLED_WIDE_DOOR",
@@ -3896,7 +4091,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:642",
       "anchor": "block-palm-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled palm door has two leaves with recessed panels and is two metres wide and three tall. Craft it from palm boards."
+      "description": "A wide panelled palm door has two leaves with recessed panels and is two metres wide and three tall. Craft it from palm boards.",
+      "recipes": [
+        "Wide panelled palm door"
+      ]
     },
     {
       "symbol": "MESQUITE_PANELLED_DOOR",
@@ -3911,7 +4109,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:644",
       "anchor": "block-mesquite-panelled-door",
       "family": "doors",
-      "description": "A panelled mesquite door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from mesquite boards."
+      "description": "A panelled mesquite door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from mesquite boards.",
+      "recipes": [
+        "Panelled mesquite door"
+      ]
     },
     {
       "symbol": "MESQUITE_PANELLED_WIDE_DOOR",
@@ -3926,7 +4127,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:648",
       "anchor": "block-mesquite-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled mesquite door has two leaves with recessed panels and is two metres wide and three tall. Craft it from mesquite boards."
+      "description": "A wide panelled mesquite door has two leaves with recessed panels and is two metres wide and three tall. Craft it from mesquite boards.",
+      "recipes": [
+        "Wide panelled mesquite door"
+      ]
     },
     {
       "symbol": "FIG_PANELLED_DOOR",
@@ -3941,7 +4145,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:650",
       "anchor": "block-fig-panelled-door",
       "family": "doors",
-      "description": "A panelled fig door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from fig boards."
+      "description": "A panelled fig door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from fig boards.",
+      "recipes": [
+        "Panelled fig door"
+      ]
     },
     {
       "symbol": "FIG_PANELLED_WIDE_DOOR",
@@ -3956,7 +4163,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:654",
       "anchor": "block-fig-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled fig door has two leaves with recessed panels and is two metres wide and three tall. Craft it from fig boards."
+      "description": "A wide panelled fig door has two leaves with recessed panels and is two metres wide and three tall. Craft it from fig boards.",
+      "recipes": [
+        "Wide panelled fig door"
+      ]
     },
     {
       "symbol": "CYPRESS_PANELLED_DOOR",
@@ -3971,7 +4181,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:656",
       "anchor": "block-cypress-panelled-door",
       "family": "doors",
-      "description": "A panelled cypress door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from cypress boards."
+      "description": "A panelled cypress door is a single-leaf door with recessed panels, one metre wide and two tall. Craft it from cypress boards.",
+      "recipes": [
+        "Panelled cypress door"
+      ]
     },
     {
       "symbol": "CYPRESS_PANELLED_WIDE_DOOR",
@@ -3986,7 +4199,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:660",
       "anchor": "block-cypress-panelled-wide-door",
       "family": "doors",
-      "description": "A wide panelled cypress door has two leaves with recessed panels and is two metres wide and three tall. Craft it from cypress boards."
+      "description": "A wide panelled cypress door has two leaves with recessed panels and is two metres wide and three tall. Craft it from cypress boards.",
+      "recipes": [
+        "Wide panelled cypress door"
+      ]
     },
     {
       "symbol": "ALDER_WINDOWED_DOOR",
@@ -4001,7 +4217,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:663",
       "anchor": "block-alder-windowed-door",
       "family": "doors",
-      "description": "A windowed alder door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from alder boards and glass."
+      "description": "A windowed alder door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from alder boards and glass.",
+      "recipes": [
+        "Windowed alder door"
+      ]
     },
     {
       "symbol": "ALDER_WINDOWED_WIDE_DOOR",
@@ -4016,7 +4235,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:667",
       "anchor": "block-alder-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed alder door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from alder boards and glass."
+      "description": "A wide windowed alder door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from alder boards and glass.",
+      "recipes": [
+        "Wide windowed alder door"
+      ]
     },
     {
       "symbol": "BIRCH_WINDOWED_DOOR",
@@ -4031,7 +4253,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:669",
       "anchor": "block-birch-windowed-door",
       "family": "doors",
-      "description": "A windowed birch door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from birch boards and glass."
+      "description": "A windowed birch door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from birch boards and glass.",
+      "recipes": [
+        "Windowed birch door"
+      ]
     },
     {
       "symbol": "BIRCH_WINDOWED_WIDE_DOOR",
@@ -4046,7 +4271,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:673",
       "anchor": "block-birch-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed birch door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from birch boards and glass."
+      "description": "A wide windowed birch door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from birch boards and glass.",
+      "recipes": [
+        "Wide windowed birch door"
+      ]
     },
     {
       "symbol": "PINE_WINDOWED_DOOR",
@@ -4061,7 +4289,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:675",
       "anchor": "block-pine-windowed-door",
       "family": "doors",
-      "description": "A windowed pine door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from pine boards and glass."
+      "description": "A windowed pine door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from pine boards and glass.",
+      "recipes": [
+        "Windowed pine door"
+      ]
     },
     {
       "symbol": "PINE_WINDOWED_WIDE_DOOR",
@@ -4076,7 +4307,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:679",
       "anchor": "block-pine-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed pine door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from pine boards and glass."
+      "description": "A wide windowed pine door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from pine boards and glass.",
+      "recipes": [
+        "Wide windowed pine door"
+      ]
     },
     {
       "symbol": "OAK_WINDOWED_DOOR",
@@ -4091,7 +4325,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:681",
       "anchor": "block-oak-windowed-door",
       "family": "doors",
-      "description": "A windowed oak door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from oak boards and glass."
+      "description": "A windowed oak door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from oak boards and glass.",
+      "recipes": [
+        "Windowed oak door"
+      ]
     },
     {
       "symbol": "OAK_WINDOWED_WIDE_DOOR",
@@ -4106,7 +4343,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:685",
       "anchor": "block-oak-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed oak door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from oak boards and glass."
+      "description": "A wide windowed oak door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from oak boards and glass.",
+      "recipes": [
+        "Wide windowed oak door"
+      ]
     },
     {
       "symbol": "FRUIT_WINDOWED_DOOR",
@@ -4121,7 +4361,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:687",
       "anchor": "block-fruit-windowed-door",
       "family": "doors",
-      "description": "A windowed fruitwood door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from fruitwood boards and glass."
+      "description": "A windowed fruitwood door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from fruitwood boards and glass.",
+      "recipes": [
+        "Windowed fruitwood door"
+      ]
     },
     {
       "symbol": "FRUIT_WINDOWED_WIDE_DOOR",
@@ -4136,7 +4379,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:691",
       "anchor": "block-fruit-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed fruitwood door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from fruitwood boards and glass."
+      "description": "A wide windowed fruitwood door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from fruitwood boards and glass.",
+      "recipes": [
+        "Wide windowed fruitwood door"
+      ]
     },
     {
       "symbol": "ACACIA_WINDOWED_DOOR",
@@ -4151,7 +4397,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:693",
       "anchor": "block-acacia-windowed-door",
       "family": "doors",
-      "description": "A windowed acacia door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from acacia boards and glass."
+      "description": "A windowed acacia door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from acacia boards and glass.",
+      "recipes": [
+        "Windowed acacia door"
+      ]
     },
     {
       "symbol": "ACACIA_WINDOWED_WIDE_DOOR",
@@ -4166,7 +4415,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:697",
       "anchor": "block-acacia-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed acacia door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from acacia boards and glass."
+      "description": "A wide windowed acacia door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from acacia boards and glass.",
+      "recipes": [
+        "Wide windowed acacia door"
+      ]
     },
     {
       "symbol": "WILLOW_WINDOWED_DOOR",
@@ -4181,7 +4433,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:699",
       "anchor": "block-willow-windowed-door",
       "family": "doors",
-      "description": "A windowed willow door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from willow boards and glass."
+      "description": "A windowed willow door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from willow boards and glass.",
+      "recipes": [
+        "Windowed willow door"
+      ]
     },
     {
       "symbol": "WILLOW_WINDOWED_WIDE_DOOR",
@@ -4196,7 +4451,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:703",
       "anchor": "block-willow-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed willow door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from willow boards and glass."
+      "description": "A wide windowed willow door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from willow boards and glass.",
+      "recipes": [
+        "Wide windowed willow door"
+      ]
     },
     {
       "symbol": "MANGROVE_WINDOWED_DOOR",
@@ -4211,7 +4469,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:705",
       "anchor": "block-mangrove-windowed-door",
       "family": "doors",
-      "description": "A windowed mangrove door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from mangrove boards and glass."
+      "description": "A windowed mangrove door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from mangrove boards and glass.",
+      "recipes": [
+        "Windowed mangrove door"
+      ]
     },
     {
       "symbol": "MANGROVE_WINDOWED_WIDE_DOOR",
@@ -4226,7 +4487,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:709",
       "anchor": "block-mangrove-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed mangrove door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from mangrove boards and glass."
+      "description": "A wide windowed mangrove door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from mangrove boards and glass.",
+      "recipes": [
+        "Wide windowed mangrove door"
+      ]
     },
     {
       "symbol": "JUNGLE_WINDOWED_DOOR",
@@ -4241,7 +4505,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:711",
       "anchor": "block-jungle-windowed-door",
       "family": "doors",
-      "description": "A windowed jungle door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from jungle boards and glass."
+      "description": "A windowed jungle door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from jungle boards and glass.",
+      "recipes": [
+        "Windowed jungle door"
+      ]
     },
     {
       "symbol": "JUNGLE_WINDOWED_WIDE_DOOR",
@@ -4256,7 +4523,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:715",
       "anchor": "block-jungle-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed jungle door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from jungle boards and glass."
+      "description": "A wide windowed jungle door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from jungle boards and glass.",
+      "recipes": [
+        "Wide windowed jungle door"
+      ]
     },
     {
       "symbol": "CHERRY_WINDOWED_DOOR",
@@ -4271,7 +4541,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:717",
       "anchor": "block-cherry-windowed-door",
       "family": "doors",
-      "description": "A windowed cherry door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from cherry boards and glass."
+      "description": "A windowed cherry door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from cherry boards and glass.",
+      "recipes": [
+        "Windowed cherry door"
+      ]
     },
     {
       "symbol": "CHERRY_WINDOWED_WIDE_DOOR",
@@ -4286,7 +4559,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:721",
       "anchor": "block-cherry-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed cherry door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from cherry boards and glass."
+      "description": "A wide windowed cherry door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from cherry boards and glass.",
+      "recipes": [
+        "Wide windowed cherry door"
+      ]
     },
     {
       "symbol": "GIANT_WINDOWED_DOOR",
@@ -4301,7 +4577,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:723",
       "anchor": "block-giant-windowed-door",
       "family": "doors",
-      "description": "A windowed giant door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from giant boards and glass."
+      "description": "A windowed giant door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from giant boards and glass.",
+      "recipes": [
+        "Windowed giant door"
+      ]
     },
     {
       "symbol": "GIANT_WINDOWED_WIDE_DOOR",
@@ -4316,7 +4595,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:727",
       "anchor": "block-giant-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed giant door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from giant boards and glass."
+      "description": "A wide windowed giant door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from giant boards and glass.",
+      "recipes": [
+        "Wide windowed giant door"
+      ]
     },
     {
       "symbol": "PALM_WINDOWED_DOOR",
@@ -4331,7 +4613,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:729",
       "anchor": "block-palm-windowed-door",
       "family": "doors",
-      "description": "A windowed palm door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from palm boards and glass."
+      "description": "A windowed palm door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from palm boards and glass.",
+      "recipes": [
+        "Windowed palm door"
+      ]
     },
     {
       "symbol": "PALM_WINDOWED_WIDE_DOOR",
@@ -4346,7 +4631,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:733",
       "anchor": "block-palm-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed palm door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from palm boards and glass."
+      "description": "A wide windowed palm door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from palm boards and glass.",
+      "recipes": [
+        "Wide windowed palm door"
+      ]
     },
     {
       "symbol": "MESQUITE_WINDOWED_DOOR",
@@ -4361,7 +4649,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:735",
       "anchor": "block-mesquite-windowed-door",
       "family": "doors",
-      "description": "A windowed mesquite door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from mesquite boards and glass."
+      "description": "A windowed mesquite door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from mesquite boards and glass.",
+      "recipes": [
+        "Windowed mesquite door"
+      ]
     },
     {
       "symbol": "MESQUITE_WINDOWED_WIDE_DOOR",
@@ -4376,7 +4667,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:739",
       "anchor": "block-mesquite-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed mesquite door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from mesquite boards and glass."
+      "description": "A wide windowed mesquite door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from mesquite boards and glass.",
+      "recipes": [
+        "Wide windowed mesquite door"
+      ]
     },
     {
       "symbol": "FIG_WINDOWED_DOOR",
@@ -4391,7 +4685,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:741",
       "anchor": "block-fig-windowed-door",
       "family": "doors",
-      "description": "A windowed fig door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from fig boards and glass."
+      "description": "A windowed fig door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from fig boards and glass.",
+      "recipes": [
+        "Windowed fig door"
+      ]
     },
     {
       "symbol": "FIG_WINDOWED_WIDE_DOOR",
@@ -4406,7 +4703,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:745",
       "anchor": "block-fig-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed fig door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from fig boards and glass."
+      "description": "A wide windowed fig door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from fig boards and glass.",
+      "recipes": [
+        "Wide windowed fig door"
+      ]
     },
     {
       "symbol": "CYPRESS_WINDOWED_DOOR",
@@ -4421,7 +4721,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:747",
       "anchor": "block-cypress-windowed-door",
       "family": "doors",
-      "description": "A windowed cypress door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from cypress boards and glass."
+      "description": "A windowed cypress door is a single-leaf panelled door with glass in its upper panel, one metre wide and two tall. Craft it from cypress boards and glass.",
+      "recipes": [
+        "Windowed cypress door"
+      ]
     },
     {
       "symbol": "CYPRESS_WINDOWED_WIDE_DOOR",
@@ -4436,7 +4739,10 @@
       "evidence": "crates/voxelgame-core/src/world/block/table.rs:751",
       "anchor": "block-cypress-windowed-wide-door",
       "family": "doors",
-      "description": "A wide windowed cypress door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from cypress boards and glass."
+      "description": "A wide windowed cypress door has two panelled leaves with glass in their upper panels and is two metres wide and three tall. Craft it from cypress boards and glass.",
+      "recipes": [
+        "Wide windowed cypress door"
+      ]
     }
   ]
 }
