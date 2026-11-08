@@ -1169,7 +1169,7 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "The recipe tables are generated from data/recipes.json, refreshed on 8 November 2026 from the complete Craft-tab registry at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: 151 recipes, including the two cooking recipes shared with the stove and 90 doors by wood. tools/validate_guides.py --game rechecks every name, section, amount, game description and source line against that export. The Craft tab, its queue, the Ready filter, starred recipes and the X shortcut were source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (game/craft_queue.rs, game/crafting.rs, game/inventory_input.rs, game/inventory_qol.rs, game/net_client/crafting.rs, and the panel and screen drawing in voxelgame-render inventory_ui.rs and hud.rs). The block-type section, the cooking stove, the fire and cooking text, the ingredient groups and the Glow crystal section were source-checked at dfeb362d. The gathering section keeps its earlier check (dd29d91).",
+    "method": "The recipe tables are generated from data/recipes.json, refreshed on 8 November 2026 from the complete Craft-tab registry at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c and rechecked at 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (unchanged, with new source lines): 151 recipes, including the two cooking recipes shared with the stove and 90 doors by wood. tools/validate_guides.py --game rechecks every name, section, amount, game description and source line against that export. The Craft tab, its queue, the Ready filter, starred recipes and the X shortcut were source-checked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (game/craft_queue.rs, game/crafting.rs, game/inventory_input.rs, game/inventory_qol.rs, game/net_client/crafting.rs, and the panel and screen drawing in voxelgame-render inventory_ui.rs and hud.rs). The cooking stove plan's description and connected tooltip were rechecked at 251b9e46 (inventory.rs:811, the renderer's inventory_ui.rs:391-400). The block-type section, the rest of the cooking stove, the fire and cooking text, the ingredient groups and the Glow crystal section were source-checked at dfeb362d. The gathering section keeps its earlier check (dd29d91).",
     "limits": "Source-checked at Voxelgame dfeb362d and 251b9e46 on 8 November 2026; not play-tested. The crafting queue and cooking on a server were not tried live. Amounts are carried pieces: 8 pieces make one full one-metre block. Furnaces, smelting and metal tools do not exist yet."
    },
    "sections": [
@@ -1402,11 +1402,6 @@
       {
        "t": "p",
        "text": "Cooking also works when you join a server or LAN world and when you host your own world. Right-click the stove as usual. The tab first says it is waiting for the server, and after each click the buttons wait until the server confirms your pack. If the stove hint says 'Cooking waits for the server world, stock and recovery state', wait a moment and try again. Other players can use the same stove, plot claims still apply, and the server keeps cooking a started batch after you leave."
-      },
-      {
-       "t": "note",
-       "kind": "limit",
-       "text": "The plan's description in the game still says 'Local worlds only'. In this version cooking on servers works as described above."
       },
       {
        "t": "note",
@@ -5280,8 +5275,8 @@
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "Controls, costs, sizes, refusal messages and server limits were read from the game source at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c and are cited in the ledger rows planned-doors-chests-furniture, furniture-tables-and-desks, furniture-table-displays and furniture-move-and-history. Main files, beneath crates/voxelgame-core/src/: furniture/definition.rs, furniture/placement.rs, furniture/modular_table.rs, furniture/display.rs, game/furniture.rs, game/furniture/controls.rs, game/furniture/catalog.rs, game/furniture/display.rs, game/furniture/materials.rs, game/furniture/object_actions.rs, game/furniture/seating.rs, game/net_client/furniture/history.rs and inventory.rs; on-screen text from crates/voxelgame-render/src/furniture_workbench_ui.rs and furniture_catalog_text.rs. The seat, kitchen and bathroom facts moved here from the building guide were rechecked at the same commit.",
-    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no screenshots and no live server session. Table joins, lanterns on tables and server Undo follow the code and its tests only."
+    "method": "Controls, costs, sizes, refusal messages and server limits were read from the game source at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c and are cited in the ledger rows planned-doors-chests-furniture, furniture-tables-and-desks, furniture-table-displays and furniture-move-and-history. Main files, beneath crates/voxelgame-core/src/: furniture/definition.rs, furniture/placement.rs, furniture/modular_table.rs, furniture/display.rs, game/furniture.rs, game/furniture/controls.rs, game/furniture/catalog.rs, game/furniture/display.rs, game/furniture/materials.rs, game/furniture/object_actions.rs, game/furniture/seating.rs, game/net_client/furniture/history.rs and inventory.rs; on-screen text from crates/voxelgame-render/src/furniture_workbench_ui.rs and furniture_catalog_text.rs. The seat, kitchen and bathroom facts moved here from the building guide were rechecked at the same commit. Wall lamp placement and refusals, the list of 31 plans and the designs that change materials on a server were rechecked at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480 (furniture/definition.rs:83-117 and :312-326, furniture/placement.rs:161, game/furniture/controls.rs:216-246 and game/furniture/materials.rs:79-90).",
+    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no screenshots and no live server session. Table joins, lanterns on tables and server Undo follow the code and its tests only. The 251b9e46 additions on 8 November 2026 are source-checked only, too."
    },
    "owns": [
     "planned-doors-chests-furniture",
@@ -5319,7 +5314,7 @@
         "**Tables:** table, coffee table, side table and desk.",
         "**Kitchen:** kitchen counter, sink, cupboard, wall cupboard, counter cabinet and sink cabinet, and the cooking stove.",
         "**Bathroom:** washbasin, toilet and bathtub.",
-        "**Storage, beds and lamps:** wardrobe, chest of drawers, wooden chest, bookcase, wall shelf, single and double bed, floor lamp and table lamp."
+        "**Storage, beds and lamps:** wardrobe, chest of drawers, wooden chest, bookcase, wall shelf, single and double bed, floor lamp, table lamp and wall lamp."
        ]
       }
      ]
@@ -5368,7 +5363,7 @@
       },
       {
        "t": "p",
-       "text": "Wall pieces, such as the kitchen wall cupboard, hang instead of standing. Aim at the side of a wall and press [[R]] until the back faces it."
+       "text": "Wall pieces (the kitchen wall cupboard, the wall shelf and the wall lamp) hang instead of standing. Aim at the side of a wall and press [[R]] until the back faces it; until then the game says \"Aim at a wall side; R turns the back toward it\"."
       },
       {
        "t": "p",
@@ -5379,7 +5374,7 @@
        "items": [
         "You aim at a wall or ceiling: \"Aim at the top of solid ground\".",
         "A leg would not stand on a solid block: \"Every furniture leg needs solid ground\". Leaves, plants, doors and chests do not hold furniture up.",
-        "A wall piece has no complete solid wall behind it.",
+        "A wall piece has no complete solid wall behind it: \"The furniture needs a complete solid wall behind it\".",
         "A block or other furniture is in the way: \"That space is already occupied\". An open door gives \"An open door stands in that space\".",
         "You or another player stand there: \"Someone stands where the furniture would go\".",
         "Part of the piece is more than 6 m from you: \"The furniture is out of reach\".",
@@ -5639,7 +5634,7 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The same workbench builds wardrobes, chests of drawers, a bookcase, a wall shelf, single and double beds, and floor and table lamps. They use the plans, materials, placing and take-up controls on this page. Their storage, resting and lighting, and the lantern on a bookcase or wall shelf, are covered in {{guide:storage-beds-and-lamps|Storage, beds and lamps}}."
+       "text": "The same workbench builds wardrobes, chests of drawers, a bookcase, a wall shelf, single and double beds, and floor, table and wall lamps. They use the plans, materials, placing and take-up controls on this page. Their storage, resting and lighting, and the lantern on a bookcase or wall shelf, are covered in {{guide:storage-beds-and-lamps|Storage, beds and lamps}}."
       },
       {
        "t": "p",
@@ -5663,7 +5658,7 @@
        "t": "list",
        "items": [
         "Placing, moving, turning and taking up furniture in Survival and Creative. In Survival you must carry a Furniture hammer, and the server takes and refunds the materials.",
-        "Changing the materials of tables, coffee tables, side tables, desks, kitchen counters, sinks, cupboards and cabinets, bathroom fixtures and storage furniture. The panel shows no price: the server works out the cost and refund when you apply.",
+        "Changing the materials of tables, coffee tables, side tables, desks, kitchen counters, sinks, cupboards and cabinets, bathroom fixtures, storage furniture and wall shelves. The panel shows no price: the server works out the cost and refund when you apply.",
         "Sitting and standing, once the server confirms the seat.",
         "Putting a red lantern on a table and taking it off. No hammer is needed.",
         "Undo and redo, once the server confirms each step. Aim at the table when you undo or redo a lantern."
@@ -5672,7 +5667,7 @@
       {
        "t": "note",
        "kind": "limit",
-       "text": "On a server, chairs, stools, benches, armchairs and sofas cannot change materials; take the piece up and build it again. A step that paid or refunded Survival materials can only be undone in Survival, and a free Creative lantern can only be put back in Creative. In Survival, only moves, lanterns and paid steps can be undone. If an answer is lost, the game asks you to reconnect and check the world before you try again."
+       "text": "On a server, chairs, stools, benches, armchairs, sofas, beds, lamps and the cooking stove cannot change materials; take the piece up and build it again. A step that paid or refunded Survival materials can only be undone in Survival, and a free Creative lantern can only be put back in Creative. In Survival, only moves, lanterns and paid steps can be undone. If an answer is lost, the game asks you to reconnect and check the world before you try again."
       }
      ]
     }
@@ -5686,9 +5681,9 @@
    "kicker": "Home",
    "title": "Storage, beds and lamps",
    "headline": "Put things away,<br><em>rest and light the room.</em>",
-   "summary": "Wardrobes, drawers, kitchen cupboards, bookcases and shelves for storage, beds to lie down in, and floor and table lamps for light.",
+   "summary": "Wardrobes, drawers, kitchen cupboards, bookcases and shelves for storage, beds to lie down in, and floor, table and wall lamps for light.",
    "lead": "Storage furniture keeps your things where you live, beds give you somewhere to lie down, and lamps light a room without fuel. All of them are built from furniture plans.",
-   "readTime": "6 min read",
+   "readTime": "7 min read",
    "audience": "Everyone",
    "updated": "2026-11-08",
    "state": "complete",
@@ -5698,6 +5693,7 @@
     "furniture-bookcase-and-shelf",
     "furniture-beds-and-rest",
     "furniture-lamps",
+    "furniture-wall-lamp",
     "rest-respawn-point"
    ],
    "next": [
@@ -5706,15 +5702,16 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Source-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026. Plan names, sizes and costs come from furniture/definition.rs (designs, storage, display, lamp and wall rules, and the volume-based costs), the part files and their tests (wardrobe_parts, drawers_parts, counter_parts, wall_cupboard_parts, cupboard_fittings_tests, bookcase_parts, wall_shelf_parts, bed_parts, lamp_parts) and the plan descriptions in inventory.rs:799-809. Storage limits and refusals: furniture/storage.rs:15-56 and game/furniture/storage.rs:46-299. Right-click handling: game.rs:2662-2710. Displays: game/furniture/display.rs:51-324 and furniture/display.rs:140-174. Beds: game/furniture/resting.rs:27-221, game/furniture/seating.rs:54-85,270-287 and session/furniture/resting.rs:40-207. Lamps: game/furniture/lamp.rs:10-77, furniture/lamp_state.rs:12-49 and the renderer's local_lights.rs:11-156. Door and drawer animation: the renderer's furniture_motion.rs:95-219. Servers: game/net_client/furniture_storage.rs:285-345 and game/net_client/furniture/history.rs:63-71. Paths beginning furniture/, game/, session/ or game.rs are beneath crates/voxelgame-core/src/; renderer files are beneath crates/voxelgame-render/src/.",
-    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested. No new game capture, server or LAN session. The game's own player guide does not yet describe wardrobes, chests of drawers, bookcases or wall shelves, and the bed plan descriptions still say solo worlds only; this guide follows the code."
+    "method": "Source-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c on 8 November 2026. Plan names, sizes and costs come from furniture/definition.rs (designs, storage, display, lamp and wall rules, and the volume-based costs), the part files and their tests (wardrobe_parts, drawers_parts, counter_parts, wall_cupboard_parts, cupboard_fittings_tests, bookcase_parts, wall_shelf_parts, bed_parts, lamp_parts) and the plan descriptions in inventory.rs:799-809. Storage limits and refusals: furniture/storage.rs:15-56 and game/furniture/storage.rs:46-299. Right-click handling: game.rs:2662-2710. Displays: game/furniture/display.rs:51-324 and furniture/display.rs:140-174. Beds: game/furniture/resting.rs:27-221, game/furniture/seating.rs:54-85,270-287 and session/furniture/resting.rs:40-207. Lamps: game/furniture/lamp.rs:10-77, furniture/lamp_state.rs:12-49 and the renderer's local_lights.rs:11-156. Door and drawer animation: the renderer's furniture_motion.rs:95-219. Servers: game/net_client/furniture_storage.rs:285-345 and game/net_client/furniture/history.rs:63-71. Paths beginning furniture/, game/, session/ or game.rs are beneath crates/voxelgame-core/src/; renderer files are beneath crates/voxelgame-render/src/. Wall lamp, bed meal and hosting follow-up on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480: the wall lamp design, parts, backing and costs (furniture/definition.rs, lamp_parts.rs, lamp_parts/wall_tests.rs and the plan description in inventory.rs:804), wall placement and its refusals (furniture/placement.rs:161 and :311-373, game/furniture/controls.rs:216-246, world/placed_furniture.rs:434-439), the workbench hint (furniture_catalog_text.rs:185-194), opening the inventory while resting (game.rs:1548-1573 and :2040-2041), the dedicated-server meal refusal (voxelgame-server host/food.rs:47-54 and host/furniture/durability/stock.rs:85-96, shown by game/net_client/food.rs:130-160) and a host's blocked bed exit (session/hosting.rs:419-525). Other sections keep the dfeb362d check.",
+    "limits": "Source-checked at Voxelgame dfeb362d on 8 November 2026, with the wall lamp, blocked-exit meal and hosting additions source-checked at 251b9e46 the same day; not play-tested. No new game capture, server or LAN session. The game's own player guide now describes the storage pieces, beds and lamps, but its furniture table leaves out the wall lamp; this guide follows the code."
    },
    "owns": [
     "furniture-wardrobes-and-drawers",
     "furniture-kitchen-storage",
     "furniture-bookcase-and-shelf",
     "furniture-beds-and-rest",
-    "furniture-lamps"
+    "furniture-lamps",
+    "furniture-wall-lamp"
    ],
    "partial": [],
    "sections": [
@@ -5871,7 +5868,7 @@
       },
       {
        "t": "p",
-       "text": "The bed needs solid ground under all its legs, room for your whole body on top and a clear, supported way between you and the bed. Otherwise the game says why, for example **Move within 2 m of a resting position**, **The bed needs clear room for your whole body** or **The bed needs a clear, supported approach and exit**. While you rest you can look around; other actions wait until you stand up. {{furniture-beds-and-rest}}"
+       "text": "The bed needs solid ground under all its legs, room for your whole body on top and a clear, supported way between you and the bed. Otherwise the game says why, for example **Move within 2 m of a resting position**, **The bed needs clear room for your whole body** or **The bed needs a clear, supported approach and exit**. While you rest you can look around and open your inventory; other actions wait until you stand up. {{furniture-beds-and-rest}}"
       },
       {
        "t": "p",
@@ -5897,16 +5894,37 @@
        "items": [
         "**Floor lamp** (Floor lamp plan): 0.5 m square and 1.6875 m tall.",
         "**Table lamp** (Table lamp plan): the same base and lantern on a short stem, 0.5 m square and 0.875 m tall.",
-        "Each costs one **Red lantern** plus 2 board pieces: 1 **Frame** (feet and stem) and 1 **Panel** (base and top). Red lanterns are crafted; see {{guide:crafting-and-recipes|Crafting and recipes}}.",
-        "Both stand on four feet, so each foot needs a solid block under it. The table lamp is meant for a counter or ledge built from blocks. It cannot stand on furniture, so not on a furniture table, desk or kitchen counter.",
+        "**Wall lamp** (Wall lamp plan): the same lantern on a wooden backplate and bracket that hangs on a wall. It is 0.5 m wide and 0.75 m high, and reaches 0.75 m out from the wall. {{furniture-wall-lamp}}",
+        "Each costs one **Red lantern** plus 2 board pieces: 1 **Frame** and 1 **Panel**. On the floor and table lamps the Frame wood makes the feet and stem; on the wall lamp it makes the backplate and bracket. The Panel wood makes the base and top. Red lanterns are crafted; see {{guide:crafting-and-recipes|Crafting and recipes}}.",
+        "The floor and table lamps stand on four feet, so each foot needs a solid block under it. The table lamp is meant for a counter or ledge built from blocks. It cannot stand on furniture, so not on a furniture table, desk or kitchen counter.",
         "Taking up a lamp you paid for returns its lantern and boards, if your pack has room."
        ]
+      },
+      {
+       "t": "h",
+       "text": "Hang a wall lamp"
+      },
+      {
+       "t": "steps",
+       "items": [
+        "Select the **Wall lamp** plan and aim at the side of a wall, not its top. The workbench hint reads **Wall side | R turns back | RMB on/off**.",
+        "Press [[R]] until the back of the ghost faces the wall. Until it does, the game says **Aim at a wall side; R turns the back toward it**.",
+        "Right click to hang it. Four full solid wall pieces must be behind it; leaves, plants, doors and chests do not count. Otherwise the game says **The furniture needs a complete solid wall behind it**. The lamp needs no floor."
+       ]
+      },
+      {
+       "t": "p",
+       "text": "You cannot remove a block that holds up a wall lamp (**Take up the furniture before removing its support**). To move it, select any furniture plan, lock the lamp with [[Shift]] + left click, aim at another wall side, turn its back to the wall with [[R]] and right click."
+      },
+      {
+       "t": "h",
+       "text": "Switch a lamp on or off"
       },
       {
        "t": "steps",
        "items": [
         "Put the plan and any tool away; an empty hand works.",
-        "Aim at the lamp. The hint shows its state, for example **Floor lamp | On | RMB switch off**.",
+        "Aim at the lamp. The hint shows its state, for example **Floor lamp | On | RMB switch off** or **Wall lamp | Off | RMB switch on**.",
         "Right click to switch it off or on."
        ]
       },
@@ -5930,7 +5948,9 @@
         "**Storage:** opening a piece asks the server for its contents (**Opening furniture storage | waiting for server**), and each move waits for the server too. You can only use storage where you are allowed to build, not on another player's plot. If the panel says **Furniture storage waits for pack confirmation**, open it again to refresh. In Creative, the left list shows your carried supplies.",
         "**Displays:** putting a lantern on display or taking it back waits for the server to confirm your stock (**RMB place display | Server confirms stock**).",
         "**Beds:** right click, then wait for the server to confirm (**Waiting for the server to confirm bed use**). Other players see you lying down, and two players can share a double bed. A place someone already uses is refused: **That resting position is occupied**.",
-        "**Lamps:** switching waits for the server. Switch a lamp on before taking it up: **Switch the lamp on before taking it up; history keeps its power**.",
+        "**A blocked way out:** on a dedicated server you cannot eat while you lie in a bed, or sit on a seat, whose way out is blocked: **Eating refused: Make room to stand up before eating | food kept**. Clear the space first; the food stays in your pack.",
+        "**Hosting:** if you host the world and lie in a bed whose way out gets blocked, saving and **Stop hosting** wait until you can stand up beside the bed. Other players can still dig, build and move furniture meanwhile, so the space can be cleared. Then try again.",
+        "**Lamps:** wall lamps work on a server like the other lamps. Switching waits for the server. Switch a lamp on before taking it up: **Switch the lamp on before taking it up; history keeps its power**.",
         "**Changing woods:** storage pieces and the wall shelf can change materials on a server; beds and lamps cannot (**This furniture does not support material changes on servers**).",
         "Opening doors and drawers are drawn only on your own screen; other players see the piece closed."
        ]

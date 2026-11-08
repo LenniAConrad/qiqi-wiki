@@ -6,7 +6,7 @@
     "sourceSha256": "15f92fc7879f74ba56dc49bb6cf89909af098db291c5b989d8adf3ee5cbc05d5"
   },
   "recipeGame": {
-    "commit": "dfeb362ddeca56ff5de77fa26ccdb6e37d05192c",
+    "commit": "251b9e46aeefd207a5e34046dd8a973c2a2cb480",
     "source": "crates/voxelgame-core/src/inventory.rs RECIPES, with inventory/cooking.rs and inventory/door_recipes.rs"
   },
   "acquisitionGame": {
