@@ -752,3 +752,21 @@ navigation, search, file URLs and no-JavaScript reading. Six captures were made
 and three inspected directly. The original fixed-date browser fixture is not
 used as current-history acceptance and remains unchanged. The retained runtime
 receipt records the corrected private review focus and earlier failed attempt.
+
+## Game interface skin and guide screenshots — 8 November 2026
+
+The wiki now wears the game's stone-and-brass interface (palette and shapes from
+the game's `ui_style.rs`): bracketed masonry panels, raised buttons, capsule chips,
+square fields, recessed slots and the brass divider, in a dark game theme and a
+light limestone variant. Headings and labels use `fonts/trailhead.woff2`, built
+from the game's own Trailhead glyph tables (see NOTICE.md). The five guide
+screenshots (start menu, HUD, Catalogue, Settings and the new Craft tab) were
+recaptured headlessly from a game build of that day; `tools/captures/guide_screens.json`
+is the replay. Burst verification was light: the static gate plus spot-checked
+desktop/mobile captures, not the full browser acceptance run.
+
+Still outdated: the 94 animal portraits predate model changes (95 of the 118
+hashed source files in `data/animals.json` now differ) and need the Blender
+pipeline in the README, which is not installed on the fleet host; biome photos
+and the home hero come from the 27 September source and need a frozen-source
+build, survey and recapture with `tools/capture_biomes.py`.
