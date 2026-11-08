@@ -1,24 +1,25 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-only
-"""Block icons cropped from the game's own creative Catalogue, one sprite for the Blocks page.
+"""Block and item icons cropped from the game's own creative Catalogue, one shared sprite.
 
 `replays OUT_DIR` writes two replays for Voxelgame's `tools/game_debug.py replay`: each opens the
 creative Catalogue in a disposable seed-42 world (1280 x 720, offscreen, no packs), captures a page,
-then clicks every slot so the debug state records which block that slot selects. `build SESSION...`
-reads those evidence directories, keeps only slots whose click changed the selected block (so items
-that are not blocks are never mislabelled), crops each slot and writes `images/blocks/icons.webp`
-plus `data/block-icons.json`. Pixels are copied 1:1; nothing is redrawn, scaled or recoloured.
+then clicks every slot so the game's status line names what that slot gives. `build SESSION...` reads
+those evidence directories, keeps only slots whose click produced a new 'X selected/taken/equipped from
+creative catalog' status (furniture plans report no name and are skipped), crops each slot and writes
+`images/catalogue/icons.webp` plus `data/catalogue-icons.json`. Pixels are copied 1:1; nothing is redrawn, scaled or recoloured.
 """
 import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
 
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-SPRITE = 'images/blocks/icons.webp'
-MANIFEST = 'data/block-icons.json'
+SPRITE = 'images/catalogue/icons.webp'
+MANIFEST = 'data/catalogue-icons.json'
 # Catalogue geometry at 1280 x 720 (the debug state's catalog_first and catalog_search rects).
 FIRST_X, FIRST_Y, SLOT = 430.0, 209.2857, 52.3214
 PITCH = (797.5 - 14 * SLOT) / 13 + SLOT
@@ -27,6 +28,7 @@ NEXT_PAGE, PARK = [1209, 587], [640, 690]
 INSET = 3  # drop the slot rim so a selected slot's brass frame never shows
 SIZE = 52 - 2 * INSET
 SPRITE_COLUMNS = 16
+STATUS = re.compile(r'^(.*) (?:selected|taken|equipped) from creative catalog$')
 
 
 def slot_centre(slot):
@@ -58,7 +60,7 @@ def replay(pages):
             commands += click(slot_centre(slot))
     return {'version': 1, 'license': 'SPDX-License-Identifier: GPL-3.0-only',
             'description': f'Creative Catalogue pages {list(pages)}: capture each page, then click every slot to '
-                           'record its block. Disposable world, no normal saves or window.',
+                           'record what it gives. Disposable world, no normal saves or window.',
             'commands': commands}
 
 
@@ -70,12 +72,12 @@ def slots(session):
         request = row['request']
         if request['command'] == 'capture_frame':
             page, slot = int(request['name'][4]), 0
-            previous = rows[index - 1]['response']['result']['selected_block']
+            previous = rows[index - 1]['response']['result']['status']
         elif page and request['command'] == 'step' and request.get('buttons') and request['pointer'] != NEXT_PAGE:
-            label = rows[index + 1]['response']['result']['selected_block']
-            # The catalogue opens with the first slot already selected.
-            yield page, slot, label if label != previous or (page, slot) == (1, 0) else None
-            previous, slot = label, slot + 1
+            status = rows[index + 1]['response']['result']['status']
+            match = STATUS.match(status or '') if status != previous else None
+            yield page, slot, match and match.group(1)
+            previous, slot = status, slot + 1
 
 
 def build(sessions, root=ROOT):
@@ -119,7 +121,7 @@ def main():
         for name, pages in (('a', (1, 2)), ('b', (3, 4))):
             (args.out / f'catalogue_{name}.json').write_text(json.dumps(replay(pages)) + '\n')
     else:
-        print(f'Wrote {len(build(args.sessions)["icons"])} block icons to {SPRITE}')
+        print(f'Wrote {len(build(args.sessions)["icons"])} Catalogue icons to {SPRITE}')
 
 
 if __name__ == '__main__':

@@ -171,7 +171,7 @@ footer nav a { color: var(--muted); text-underline-offset: 3px; }
 .block-swatch::before, .block-swatch::after { content: ""; position: absolute; }
 .block-swatch::before { inset: 0; border-radius: 2px; background: var(--slot); box-shadow: inset 2px 2px var(--slot-shade), inset -1px -1px var(--slot-lip); }
 .block-swatch::after { inset: 3px; background: inherit; }
-.block-icon { display: inline-block; width: 46px; height: 46px; margin-right: 10px; vertical-align: middle; border-radius: 2px; background: url(images/blocks/icons.webp) no-repeat; image-rendering: pixelated; box-shadow: 0 0 0 1px var(--edge); }
+.block-icon { display: inline-block; width: 46px; height: 46px; margin-right: 10px; vertical-align: middle; border-radius: 2px; background: url(images/catalogue/icons.webp) no-repeat; image-rendering: pixelated; box-shadow: 0 0 0 1px var(--edge); }
 .block-table tr, .mob-table tr, .recipe-table tr { scroll-margin-top: 16px; }
 /* Block and animal tables read like the game's lists: brass header, line-separated rows, hover fill. */
 .reference-page .block-table th, .reference-page .block-table td, .reference-page .mob-table th, .reference-page .mob-table td { padding-inline: 10px 12px; }

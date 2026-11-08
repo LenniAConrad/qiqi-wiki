@@ -80,15 +80,16 @@ build of that day, replaying `tools/captures/guide_screens.json` with the game's
 same replay added the Craft tab screenshot, `images/guides/craft-tab.webp`.
 
 
-## Block icons — 8 November 2026
+## Catalogue icons — 8 November 2026
 
-`images/blocks/icons.webp` holds 285 block icons cropped pixel-for-pixel from the
-original game's creative Catalogue. `tools/build_block_icons.py replays` writes the
-two headless replays for the game's `tools/game_debug.py` (seed 42, 1280 × 720, no
-packs, no normal saves or window); each slot is clicked so the debug state names
-its block, and `build` keeps only slots whose click selected a new block.
-`data/block-icons.json` records the binary and page-capture hashes. Lossless WebP;
-no pixel is redrawn, scaled or recoloured. Project GPL-3.0-only terms apply.
+`images/catalogue/icons.webp` holds block and item icons cropped pixel-for-pixel
+from the original game's creative Catalogue. `tools/build_catalogue_icons.py replays`
+writes the two headless replays for the game's `tools/game_debug.py` (seed 42,
+1280 × 720, no packs, no normal saves or window); each slot is clicked so the game's
+status line names what it gives, and `build` keeps only slots with a new named
+status. `data/catalogue-icons.json` records the binary and page-capture hashes.
+Lossless WebP; no pixel is redrawn, scaled or recoloured. Project GPL-3.0-only
+terms apply.
 
 ## Responsive gallery and guide previews — 13 October 2026
 

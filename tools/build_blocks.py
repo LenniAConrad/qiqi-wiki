@@ -16,7 +16,7 @@ from reference_layout import article_open, article_close
 from build_guides import recipe_anchor
 
 ROOT = Path(__file__).resolve().parents[1]
-ICONS = json.loads((ROOT / 'data/block-icons.json').read_text())
+ICONS = json.loads((ROOT / 'data/catalogue-icons.json').read_text())
 TABLE = 'crates/voxelgame-core/src/world/block/table.rs'
 FAMILIES = (
     ('ground', 'Natural ground'), ('stone', 'Stone and minerals'),
@@ -388,7 +388,7 @@ def render(data):
                        f'<td data-label="How to get it">{recipes}</td></tr>')
         out.append('</tbody></table></div></section>')
     out.append('<p class="reference-receipt">Icons are cropped unchanged from the game’s creative Catalogue '
-               '(<a href="data/block-icons.json">icon receipt</a>, 8 November 2026); a square colour is a base tint '
+               '(<a href="data/catalogue-icons.json">icon receipt</a>, 8 November 2026); a square colour is a base tint '
                'shown where the Catalogue has no icon. '
                f'<a href="data/blocks.json">Block reference</a>: {data["catalogCount"]} entries, including air, '
                f'Voxelgame <code>{data["game"]["commit"][:7]}</code>. '
