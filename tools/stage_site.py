@@ -30,7 +30,7 @@ PUBLIC_FILES = (
     'guide-moving-and-aiming.html', 'guide-caves-and-landmarks.html', 'guide-volcanoes-water-and-expeditions.html', 'guide-islands-and-biomes.html',
     'performance.html', 'scale.html', 'ABOUT.md',
     'style.css', 'wiki.css', 'features.css', 'guides.css', 'islands.css',
-    'performance.css', 'scale.css',
+    'performance.css', 'scale.css', 'fonts/trailhead.woff2',
     'app.js', 'wiki-search.js', 'data/search.js', 'animals.js', 'features.js', 'guides.js', 'islands.js',
     'scale.js', 'favicon.svg', 'images/brand/qiqi-cube.svg', 'LICENSE', 'NOTICE.md',
     'PERFORMANCE_ANALYSIS.md', 'PERFORMANCE_OPTIMIZATION.md',

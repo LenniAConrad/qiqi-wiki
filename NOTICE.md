@@ -9,7 +9,7 @@ This local atlas was created on 25 September 2026 from the sibling **Voxelgame**
 - WebP conversion: biome frames use quality 94; animal portraits use quality 92. Conversion lossily encodes the complete original frames without cropping, compositing, or changing the depicted terrain. PNGs and replay metadata remain in the local ignored `.cache` directory.
 - Island overviews: generated height, water, material and physical-climate samples from the original game. The 4K panoramas are offline Blender terrain renders with no vertical exaggeration; they omit vegetation, caves and small structures. North-up maps and diagnostic layers use NumPy and Pillow. Legend arrows and scale bars are drawn locally; island views use WebP quality 94. They are distinct from production-renderer biome photographs. Grid and image hashes are recorded in `data/islands.json`.
 - Animals: descriptions and habitat candidates derive from `entities/mod.rs`. The 13 October 2026 gallery uses game commit `9e946731`, with all 94 species and 376 portraits. Production pose meshes and exported renderer materials are rendered in Blender 4.5.3 LTS at 512 × 512, using Eevee, 16 samples and neutral lights scaled to each model. Atlas layers and the exporter’s CPU approximations of shader accents retain the existing game artwork; no animal textures or models were edited. These are studio previews, not gameplay captures. WebP quality is 92 without cropping. `data/animals.json` records source, mesh, image and capture-receipt hashes, the full source commit/tree and actual render settings. Raw PNGs, exports, complete frozen source and the previous 93-species September gallery are preserved privately with their original receipts.
-- Fonts: the visitor's installed system fonts; no font assets are redistributed.
+- Fonts: the visitor's installed system fonts, plus the game's own Trailhead face described below; no third-party font assets are redistributed.
 - Biome source/binary snapshot hashes: `data/provenance.json`. The source was a modified local working tree, so the recorded Git commit alone does not reproduce it. The generation-9 biome capture build is isolated: the previously complete application snapshot plus the terrain, generation-version and debug-horizon changes. Unfinished concurrent entity, shader and profiling edits are excluded; the exact composition is recorded in the frozen source manifest, without reverting the shared game checkout.
 
 The fixed-seed measurements describe this snapshot. They are not guaranteed frequencies for all seeds or future game versions.
@@ -23,6 +23,20 @@ notice, transparent canvas and neutral outline are preserved. The SVG scales
 directly in the browser; no raster conversion or resampling was applied.
 The source and copied-file hashes are retained in the repository's internal
 `data/brand-source.json` receipt. The full licence is in [LICENSE](LICENSE).
+
+## Trailhead webfont — 8 November 2026
+
+`fonts/trailhead.woff2` is the game's own Trailhead pixel typeface, which the
+game source describes as an original face drawn for Voxelgame. It was converted
+by `tools/build_trailhead_font.py` from the Rust glyph tables in
+`crates/voxelgame-render/src/font.rs` and `font/latin1.rs`, using Voxelgame
+commit `64926d80`. That is the last change to the font sources at checkout
+`251b9e46`. Each lit pixel becomes a square outline. Shapes, advances and the
+character mapping are unchanged, and no glyphs were added or redrawn. Coverage
+is printable ASCII and U+00A0–U+00FF. The game's bounded Chinese glyphs,
+including its GNU Unifont furniture subset, are not included. The font is
+GPL-3.0-only like the game. Its name table records the licence; the full text
+is in [LICENSE](LICENSE).
 
 ## Responsive island previews — 13 October 2026
 
