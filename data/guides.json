@@ -732,7 +732,7 @@
    "lead": "What the four bars mean, what to do in the first minutes, which crafting chain gets you tools and a roof, and what can actually hurt you.",
    "readTime": "8 min read",
    "audience": "New players",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "survival-milestones",
@@ -764,8 +764,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction.",
-    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe receipts."
+    "method": "Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357: starter quantities, Pack controls, manual item dropping and death/respawn, including the relevant source tests. The other meter, recipe, gathering and home instructions retain their earlier audits. The X shortcut retains its 5856103c check; the temperature policy retains its 35cfc2f8 correction. Home crate, keyboard, repair, pack-up and rest instructions, including Home on a server, were source-checked on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c (game/home.rs, game/home/keyboard.rs, game/net_client/home.rs, session/home.rs and session/home/*.rs, the Home tab in inventory_ui.rs, and the bed rest pose in game/furniture/resting.rs).",
+    "limits": "Source-checked, not play-tested. No game build or native test run was performed for this update. Inventory is still being developed; this guide documents the landed controls at the stated source pin, without refreshing the other gameplay sections or older recipe receipts. The 8 November Home update was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, and no server Home session was run."
    },
    "sections": [
     {
@@ -947,18 +947,56 @@
       {
        "t": "steps",
        "items": [
-        "Stand on dry, solid ground, open the **Home** tab and choose **Establish home**. It costs 8 board pieces and places a small crate 1.5 m beside you.",
+        "Stand on dry, solid ground, open the **Home** tab and choose **Establish home**. It costs 8 board pieces in Survival and nothing in Creative, and places a small crate 1.5 m beside you.",
         "Move items to and from the crate by clicking rows in the Home tab; it holds up to 400 capacity while you are within 6 m. Shift + click moves as many as fit.",
         "Build a roof with cover on at least two sides next to the crate, then choose **Rest / set respawn** there."
        ]
       },
       {
-       "t": "p",
-       "text": "If the crate is destroyed, stand within 6 m of its old spot and choose **Establish home** again to rebuild it for 8 board pieces. The old spot needs dry ground, solid ground under it and nobody standing in it. Otherwise the game refuses the repair and keeps your boards and stored items."
+       "t": "keys",
+       "rows": [
+        [
+         "Arrow keys",
+         "Move between the three buttons and the Pack and Home lists. Up from the first row returns to the buttons."
+        ],
+        [
+         "Page Up / Page Down",
+         "Turn the page of the selected list."
+        ],
+        [
+         "Enter or Space",
+         "Use the selected button, or move one of the selected item. Hold [[Shift]] to move as many as fit."
+        ]
+       ]
       },
       {
        "t": "p",
-       "text": "Resting sets your respawn point and refills stamina; it does not heal or feed you. Leaves and tree trunks count as cover, plants and water do not. {{home-crate}} {{rest-respawn-point}}"
+       "text": "If the crate is destroyed, stand within 6 m of its old spot and choose **Establish home** again to rebuild it for 8 board pieces (free in Creative). The old spot needs dry ground, solid ground under it and nobody standing in it. Otherwise the game refuses the repair and keeps your boards and stored items."
+      },
+      {
+       "t": "p",
+       "text": "To move your home, empty its storage, stand within 6 m of the crate and choose **Pack up**. Survival gives back 8 Alder board pieces, so leave room for them in your pack; Creative gives nothing back. Your last rest point stays, and you can establish a new home elsewhere."
+      },
+      {
+       "t": "p",
+       "text": "Resting sets your respawn point and refills stamina; it does not heal or feed you. Leaves and tree trunks count as cover, plants and water do not. Lying in a bed is separate: it never moves your respawn point. {{home-crate}} {{rest-respawn-point}}"
+      },
+      {
+       "t": "h",
+       "text": "Home on a server"
+      },
+      {
+       "t": "p",
+       "text": "On a server, only the world's saved owner has a Home crate. Anyone else is refused with 'This personal Home belongs to the saved world owner'. The first button reads **Establish / repair (8 boards)** in Survival or **Establish / repair (free)** in Creative, and **Repair crate** once your Home storage has opened. Storage, rest and Pack up follow the solo rules, and the crate must stand on a plot you may build on."
+      },
+      {
+       "t": "p",
+       "text": "Each action shows '… | waiting for server' until the server confirms it, for example 'Rested at Home | respawn point set'. If it is refused, select the Home tab again to refresh it."
+      },
+      {
+       "t": "note",
+       "kind": "tip",
+       "text": "In Creative on a server, building or repairing the crate is free and Pack up gives no boards. When you join a Creative server, the list is headed **Carried supplies**: it shows only what you really carry on the server, so free catalogue items cannot be stored. As the Creative host, wait until your pack is confirmed; until then the tab says 'Home storage waits for pack confirmation'."
       }
      ]
     },
@@ -1091,9 +1129,7 @@
     "temperature-shelter",
     "planned-ground-drops"
    ],
-   "partial": [
-    "home-crate"
-   ]
+   "partial": []
   },
   {
    "id": "crafting-and-recipes",
@@ -3932,7 +3968,7 @@
    "lead": "Your world file keeps your character, carried items and changes to the world. Untouched terrain is rebuilt from the saved seed and generation. Display, audio and input preferences are shared across worlds.",
    "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "save-contents",
@@ -3948,8 +3984,8 @@
     "settings-and-performance"
    ],
    "verification": {
-    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit. Targeted 5 November source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: current save sections, shared preferences, generation 12, Worlds backup/recovery and stopped-host retry/choice paths. Existing unrelated opening-screen evidence keeps its earlier receipt. The game’s dated WORLD_BACKUP_20261016 verification records offscreen backup recovery; this wiki pass did not rerun it.",
-    "limits": "Source-checked in this follow-up; no new game process, native save/fault injection, LAN play or screenshot capture. Existing loading-screen prose retains its earlier audit. Backup and stopped-host instructions need integration browser review; an uncheckpointed session is not guaranteed to survive a restart."
+    "method": "What a save keeps comes from the save writer's section list (crates/voxelgame-core/src/save/write.rs) and the session-only settings in the ledger. Limits and messages were checked against Voxelgame 51169272: 8 MiB and 200,000-edit constants and the 190,000 warning threshold (save.rs, game.rs), the 'saves' refusals and the version checks (save.rs, load.rs). Opening rules come from src/app.rs and src/single_instance.rs. Targeted compatibility clarification at 35cfc2f8: the serialized temperature field remains inert in survival.rs; other save evidence retains its original audit. Targeted 5 November source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: current save sections, shared preferences, generation 12, Worlds backup/recovery and stopped-host retry/choice paths. Existing unrelated opening-screen evidence keeps its earlier receipt. The game’s dated WORLD_BACKUP_20261016 verification records offscreen backup recovery; this wiki pass did not rerun it. Targeted 8 November 2026 source follow-up at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 confirms only after a local write (src/app.rs), the 8 MiB refusal in the save encoder and writer (save.rs), size refusals on servers (session/crafting.rs, creatures.rs, items.rs, water.rs and home/*.rs), dedicated-server save waits (voxelgame-server host/furniture/durability/stock.rs), the seat and bed exit check before saving (save/write.rs, game/furniture/resting.rs, seating.rs) and saved lamp and stove state (furniture/lamp_state.rs, furniture/cooking.rs).",
+    "limits": "Source-checked in this follow-up; no new game process, native save/fault injection, LAN play or screenshot capture. Existing loading-screen prose retains its earlier audit. Backup and stopped-host instructions need integration browser review; an uncheckpointed session is not guaranteed to survive a restart. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no game process, server or save-fault run."
    },
    "owns": [
     "save-contents",
@@ -3977,7 +4013,8 @@
         "Your inventory, hotbar bindings and selected slot, and the tool you hold.",
         "Every block you changed, including water and door state.",
         "Time of day, weather and season controls.",
-        "Your home crate and rest point, chest contents, placed furniture and one saved build palette.",
+        "Your home crate and rest point, chest contents and one saved build palette.",
+        "Placed furniture with its stored items, whether each lamp is switched on, and a stove's contents and unfinished batch.",
         "Journal places, expedition finds, milestones and the map destination.",
         "Up to 8 sailing boats.",
         "Player-hatched animals and dropped item stacks. {{save-contents}}"
@@ -3996,7 +4033,7 @@
       {
        "t": "list",
        "items": [
-        "[[F6]] saves now and shows “World saved safely” after success.",
+        "[[F6]] saves now. “World saved safely” appears only after the world file is written, including the world you host. In a world you joined, or a session started with --no-save, F6 writes nothing and says “This session does not save the world locally”.",
         "Autosave checks about every 30 seconds and saves when world state has changed.",
         "Choosing Main menu, Save & quit or Quit, pressing [[Ctrl]]+[[Q]], closing the window, or loading or creating another world saves first.",
         "Main menu keeps a hosted world running. Use **Stop hosting** on the Multiplayer page to end hosting."
@@ -4004,7 +4041,15 @@
       },
       {
        "t": "p",
-       "text": "A failed save keeps a visible warning. If saving fails while you are quitting, the game stays open so you can fix the problem and retry. {{saving}}"
+       "text": "A failed save shows “Save refused:” with the reason and keeps a visible warning until a save succeeds. If saving fails while you are quitting, the game stays open so you can fix the problem and retry. {{saving}}"
+      },
+      {
+       "t": "p",
+       "text": "If you save while sitting or lying in a bed, the world reopens with you standing beside it. Saving needs a clear spot to stand there; otherwise it is refused with 'Bed exit blocked; cannot save an embedded player' or 'Seat exit blocked; cannot save an embedded player'. Make room and save again."
+      },
+      {
+       "t": "p",
+       "text": "In a world you joined, the server keeps the world. A dedicated server confirms most actions only after it has saved them; see {{guide:not-in-the-game-yet|Multiplayer and feature limits}}."
       },
       {
        "t": "h",
@@ -4033,10 +4078,11 @@
       {
        "t": "list",
        "items": [
-        "Each world file is capped at 8 MiB.",
+        "Each world file is capped at 8 MiB. A save that would be bigger is refused with “Save refused: refusing to exceed the 8 MiB debug-save safety budget”, and the existing file stays as it was.",
         "A world holds up to 200,000 changed blocks. Beyond that, new building is refused with 'Save edit budget reached'. Spreading water never pushes a save past the limit.",
         "From 190,000 changed blocks, the status line warns 'saving stops at 200000' about every 20 seconds.",
-        "A home crate, blueprint or structure that would go past the limit is not placed."
+        "A home crate, blueprint or structure that would go past the limit is not placed.",
+        "On a hosted or dedicated server, the size cap also limits other actions, such as crafting, hitting animals, moving or dropping items and filling flasks. If the world file would go over, the server refuses with a message ending 'would exceed the save budget or saved state is invalid', for example 'Crafting would exceed the save budget or saved state is invalid'. An exact fit is allowed, and actions that make the save smaller still work."
        ]
       },
       {
@@ -4867,11 +4913,11 @@
    "kicker": "Reference",
    "title": "Multiplayer and feature limits",
    "headline": "Multiplayer and feature limits",
-   "summary": "LAN hosting, joining a world and recovering a stopped host, with a short list of features still missing.",
+   "summary": "LAN hosting, joining, saving on a server and recovering a stopped host, with the furniture and other limits that still apply.",
    "lead": "Play together on your local network, then check the limits that still apply.",
-   "readTime": "3 min read",
+   "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-11-05",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "fire",
@@ -4890,8 +4936,8 @@
     "maps-and-finding-your-way"
    ],
    "verification": {
-    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042. Furniture availability and remaining bed/closet/extendable-table gaps were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (crates/voxelgame-core/src/furniture/definition.rs:18-97; game/furniture/catalog.rs:43-76; game/furniture/workbench.rs:97-116). This is a targeted correction, not a new check of the other missing-feature sections. Multiplayer follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked hosted save/refusal, F6 retry, Shift+F6 recovery choice, server-owned stock/crafting and Survival recovery. Preserve the separate furniture helper’s verification additions.",
-    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships. No new native host/join, two-computer LAN, fault-injection or gameplay capture in this multiplayer follow-up."
+    "method": "Each item comes from the feature ledger, which cites the game source for the audited version. The absence checks searched the source for block, recipe and gameplay names. Fire, lava, waterfall, dripstone and fixed explorer colours were spot-checked again at game commit ddc0042. Furniture availability and remaining bed/closet/extendable-table gaps were source-checked on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357 (crates/voxelgame-core/src/furniture/definition.rs:18-97; game/furniture/catalog.rs:43-76; game/furniture/workbench.rs:97-116). This is a targeted correction, not a new check of the other missing-feature sections. Multiplayer follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357: source-checked hosted save/refusal, F6 retry, Shift+F6 recovery choice, server-owned stock/crafting and Survival recovery. Preserve the separate furniture helper’s verification additions. Multiplayer and furniture follow-up on 8 November 2026 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: F6 in joined and hosted worlds (src/app.rs), dedicated-server save waits (voxelgame-server host.rs, host/raise.rs, host/furniture/durability/stock.rs), server size refusals (session/*.rs), the owner's seat and bed exit before stopping (session/hosting.rs), Creative Home and storage supplies (game/net_client/home.rs, furniture_storage.rs, session/home/*.rs), Creative moves of paid furniture (game/net_client/furniture/commands.rs) and the furniture list and limits (furniture/definition.rs, modular_table.rs, placement.rs, inventory.rs).",
+    "limits": "Source-checked, not play-tested. This page says what is missing, not how the planned features will work. Recheck it when a listed feature ships. No new native host/join, two-computer LAN, fault-injection or gameplay capture in this multiplayer follow-up. The 8 November follow-up was source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested, with no host, join or dedicated-server session."
    },
    "owns": [],
    "partial": [],
@@ -4915,7 +4961,7 @@
         "Open **Multiplayer** on the main menu and choose **Host this world**.",
         "Read the join address shown. Other players can choose your world from their LAN list, or type that complete address and port into **SERVER**. {{mp-lan-world-list}}",
         "Keep the host computer on and connected. Opening **Main menu** keeps hosting.",
-        "Choose **Stop hosting** to disconnect other players and return to solo play with the recovered world and pack. If the initial save fails, hosting continues; fix the reported problem and try again."
+        "Choose **Stop hosting** to disconnect other players and return to solo play with the recovered world and pack. If the initial save fails, hosting continues; fix the reported problem and try again. If you are sitting or lying on furniture and the space beside it is blocked, saving and stopping wait until you can stand up safely. Clear the space or get up, then try again."
        ]
       },
       {
@@ -4936,7 +4982,7 @@
       },
       {
        "t": "p",
-       "text": "Each player has a separate inventory. Supported crafting, chest transfers, Survival needs and recovery wait for the server. Boats and some other actions remain limited. A refusal message explains when an action is unavailable."
+       "text": "Each player has a separate inventory. Crafting, storage, Survival needs and recovery wait for the server, and the status line says when an action is waiting. Only the world's saved owner has a Home crate; see {{guide:first-survival-day|Your first survival day}}. Boats and some other actions remain limited. A refusal message explains when an action is unavailable."
       },
       {
        "t": "p",
@@ -4950,6 +4996,32 @@
       {
        "t": "p",
        "text": "For the separate server program and console commands, see {{mp-dedicated-server}}."
+      },
+      {
+       "t": "h",
+       "text": "Saving on a server"
+      },
+      {
+       "t": "list",
+       "items": [
+        "In a world you joined, [[F6]] writes nothing on your computer and says 'This session does not save the world locally'. The server keeps that world. While you host, F6 saves your hosted world as usual.",
+        "A dedicated server confirms an action that changes your items, needs or the world, such as crafting, eating, building, storing or respawning, only after it has saved the change. Refusals arrive at once.",
+        "If the dedicated server cannot save, the action keeps waiting until a later save works, and it is never carried out twice. If you disconnect while waiting, rejoin and check your pack and the world before trying again.",
+        "Near the 8 MiB save limit, any server refuses an action that would make its world file too big, for example 'Crafting would exceed the save budget or saved state is invalid'. Refused crafting keeps its ingredients."
+       ]
+      },
+      {
+       "t": "h",
+       "text": "Creative on a server"
+      },
+      {
+       "t": "list",
+       "items": [
+        "When you join a Creative server, Home, chest and furniture storage move only the supplies you really carry on the server, listed as **Carried supplies**. Free catalogue items stay separate and cannot be stored.",
+        "As the Creative host, wait for your pack to be confirmed before using storage. The Home tab says 'Home storage waits for pack confirmation' until then.",
+        "The world's saved owner can build, repair, rest at and pack up the Home crate in Creative too. The crate is free, and packing it up gives no boards.",
+        "You can move and turn furniture that was paid for in Survival. It is not charged again and still refunds its materials when it is later taken up in Survival. Moving filled kitchen storage keeps what is inside."
+       ]
       }
      ]
     },
@@ -5002,20 +5074,24 @@
     },
     {
      "id": "storage",
-     "title": "Furniture that is still missing",
+     "title": "Furniture limits",
      "blocks": [
       {
+       "t": "p",
+       "text": "The furniture plans cover chairs, stools, benches, armchairs, sofas, single and double beds, wardrobes, chests of drawers, a bookcase, a wall shelf, dining tables, writing desks, coffee and side tables, floor and table lamps, a cooking stove, kitchen units and bathroom fixtures. Use them as shown in the {{guide:building-basics|Building guide}}. Survival carpentry needs a carried Furniture hammer. {{planned-doors-chests-furniture}}"
+      },
+      {
+       "t": "p",
+       "text": "Each table and desk has a fixed size. For a longer one, place matching pieces with the same woods side by side at the same height: dining tables join on any edge, desks only end to end."
+      },
+      {
        "t": "note",
-       "kind": "planned",
-       "text": "Beds, closets and extendable tables are not in this version. Tables currently have a fixed size."
+       "kind": "limit",
+       "text": "A table lamp needs a solid block counter or ledge; it cannot stand on a furniture table. Sinks, basins and bathtubs hold no water of their own, and there is no plumbing."
       },
       {
        "t": "p",
-       "text": "Chairs, stools, benches, armchairs, sofas, kitchen units and bathroom fixtures are available. Use the furniture plans in the {{guide:building-basics|Building guide}}. Survival carpentry needs a carried Furniture hammer. {{planned-doors-chests-furniture}}"
-      },
-      {
-       "t": "p",
-       "text": "Wooden chests and doors are also available; see {{wooden-chests}} and {{doors}}. Basins and bathtubs do not create or store water, and plumbing is still absent."
+       "text": "Wooden chests and doors are also available; see {{wooden-chests}} and {{doors}}."
       }
      ]
     },

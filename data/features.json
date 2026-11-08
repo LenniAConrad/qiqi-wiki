@@ -401,7 +401,7 @@
    "modes": [
     "any"
    ],
-   "summary": "The world autosaves about every 30 seconds when it has unsaved changes, and F6 saves at once ('World saved safely'). Settings > Main menu saves and returns to the start menu. Ctrl+Q, Save & quit, Quit or closing the window all save first; if saving fails, the game stays open.",
+   "summary": "The world autosaves about every 30 seconds when it has unsaved changes, and F6 saves at once, showing 'World saved safely' after the file is written; a joined server world is not saved locally. Settings > Main menu saves and returns to the start menu. Ctrl+Q, Save & quit, Quit or closing the window all save first; if saving fails, the game stays open.",
    "controls": [
     [
      "F6",
@@ -425,16 +425,18 @@
     ]
    ],
    "evidence": [
-    "src/app.rs:592-598 — F6",
-    "src/app.rs:201-212 — Ctrl+Q",
-    "src/app.rs:161-165 — window close saves first",
-    "src/app.rs:610-614 — Main menu saves, then opens the start menu"
+    "src/app.rs:1557-1572 — F6",
+    "src/app.rs:2014-2025 — F6 confirms only a local write",
+    "src/app.rs:442-452 — Ctrl+Q saves, then closes",
+    "src/app.rs:403-407 — window close saves first",
+    "src/app.rs:1597-1606 — Main menu saves, then opens the start menu"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
     "label": "Getting started: your first session"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. F6 in a joined server world or a --no-save session says 'This session does not save the world locally'."
   },
   {
    "id": "window-and-fullscreen",
@@ -1305,11 +1307,15 @@
     "creative",
     "survival"
    ],
-   "summary": "In the Home tab, Establish home while standing on dry, solid ground: it costs 8 board pieces (free in creative) and places a small crate 1.5 m beside you. The crate stores up to 400 capacity while you are within 6 m.",
+   "summary": "In the Home tab, Establish home while standing on dry, solid ground: it costs 8 board pieces (free in Creative) and places a small crate 1.5 m beside you. The crate stores up to 400 capacity while you are within 6 m. On a server only the world's saved owner has a Home; establish, repair, storage, rest and Pack up wait for server confirmation, in Survival and Creative.",
    "controls": [
     [
      "Click Establish home",
      "Place the crate (or repair a lost one at its original spot) (Home tab)"
+    ],
+    [
+     "Click Establish / repair or Repair crate",
+     "Server version of the same button: 8 boards in Survival, free in Creative (Home tab, on a server)"
     ],
     [
      "Click a carried / stored row",
@@ -1320,24 +1326,41 @@
      "Move as many as fit (Home tab)"
     ],
     [
+     "Arrow keys",
+     "Move between the three buttons and the carried and stored lists; Up from the first row returns to the buttons (Home tab)"
+    ],
+    [
+     "Page Up / Page Down",
+     "Turn the page of the selected list (Home tab)"
+    ],
+    [
+     "Enter / Space",
+     "Use the selected button or move one of the selected item; with Shift, move as many as fit (Home tab)"
+    ],
+    [
      "Click Pack up",
-     "Remove the crate; survival refunds 8 Alder boards (Home tab, storage empty)"
+     "Remove the crate; Survival refunds 8 Alder boards, Creative none (Home tab, storage empty)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/home.rs:106-170 — establish and repair",
-    "crates/voxelgame-core/src/game/home.rs:124-146 — repair spot must be dry, solid below and clear of the player; refusal keeps boards and items",
-    "crates/voxelgame-core/src/game/home.rs:194-221 — pack up needs empty storage and pack room; refunds 8 Alder boards",
-    "crates/voxelgame-core/src/game/home.rs:223-257 — transfers",
-    "crates/voxelgame-render/src/inventory_ui.rs:464-539 — Home tab layout ('Storage: needs 8 board pieces', 'Home: X / 400')"
+    "crates/voxelgame-core/src/game/home.rs:186-225 — establish: dry ground, clear spot beside you, 8 board pieces in Survival, free in Creative",
+    "crates/voxelgame-core/src/game/home.rs:162-184 — repair a lost crate within 6 m; dry, solid, clear spot; refusals keep boards and items",
+    "crates/voxelgame-core/src/game/home.rs:250-287 — pack up needs empty storage and pack room; Survival refunds 8 Alder boards, Creative none",
+    "crates/voxelgame-core/src/game/home.rs:289-308 — transfers within 6 m; connected transfers go to the server",
+    "crates/voxelgame-core/src/game/home/keyboard.rs:24-50 — connected Survival and Creative send establish/repair, rest and pack up to the server",
+    "crates/voxelgame-core/src/game/home/keyboard.rs:60-127 — arrows, Page Up/Down, Enter/Space and Shift on the Home tab",
+    "crates/voxelgame-render/src/inventory_ui.rs:733-803 — Home tab buttons, 'Carried supplies' heading on servers, 'Home: X / 400'",
+    "crates/voxelgame-core/src/game/net_client/home/crate_actions.rs:15-76 — free Creative or 8-board crate work waits for the server",
+    "crates/voxelgame-core/src/session/home.rs:189-206 — only the saved world owner ('This personal Home belongs to the saved world owner')",
+    "crates/voxelgame-core/src/session/home/pack_up.rs:20-60 — server pack-up: empty storage, 8 boards in Survival, none in Creative",
+    "crates/voxelgame-core/src/game/net_client/furniture_storage.rs:190-232 — joined Creative storage lists real server supplies, not the catalogue"
    ],
    "backlog": [],
-   "notes": "One home at a time; to move it, empty storage and Pack up. If the crate is destroyed (e.g. by TNT) the stored items are kept and Establish home within 6 m of the old spot repairs it, if that spot is dry, has solid ground under it and is clear of you; otherwise the repair is refused and nothing is used up. Pack up refunds Alder boards even if you paid with other species. Your rest point stays after packing up.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. One home at a time; to move it, empty storage and Pack up. A destroyed crate keeps its items; Establish home within 6 m of the old spot repairs it if the spot is dry, solid underneath and clear of you, otherwise nothing is used up. Pack up refunds Alder boards whatever species paid. Your rest point stays. On a server the crate also needs build permission on its plot, and other players are refused. Creative crate work earns no Home milestone.",
    "guide": {
-    "state": "partial",
+    "state": "complete",
     "page": "guide-first-survival-day.html",
-    "label": "Your first survival day",
-    "next": "Your first survival day"
+    "label": "Your first survival day"
    }
   },
   {
@@ -1349,12 +1372,16 @@
     "creative",
     "survival"
    ],
-   "summary": "Home tab > Rest / set respawn works within 6 m of your crate, on dry ground, under a roof with cover on at least two sides. It sets your respawn point there and refills stamina, but does not heal or feed you.",
+   "summary": "Home tab > Rest / set respawn works within 6 m of your crate, on dry ground, under a roof with cover on at least two sides. It sets your respawn point there and refills stamina, but does not heal or feed you. On a server the saved owner can rest in Survival or Creative; wait for 'Rested at Home | respawn point set'.",
    "evidence": [
-    "crates/voxelgame-core/src/game/home.rs:172-192 — rest conditions and effects ('Rest needs dry ground, a roof and cover on two sides')",
-    "crates/voxelgame-core/src/game/home.rs:444-472 — test: rest restores stamina only"
+    "crates/voxelgame-core/src/game/home.rs:227-248 — rest conditions and effects ('Rest needs dry ground, a roof and cover on two sides')",
+    "crates/voxelgame-core/src/game/home.rs:35-55 — shelter roof and wall probes shared by solo and server rest",
+    "crates/voxelgame-core/src/game/home.rs:615-643 — test: rest restores stamina only",
+    "crates/voxelgame-core/src/session/home/rest.rs:19-104 — server rest for the saved owner in Survival or Creative; same shelter check; respawn and stamina only",
+    "crates/voxelgame-core/src/game/net_client/home.rs:189-216 — connected rest waits for the server ('Resting at Home | waiting for server')",
+    "crates/voxelgame-core/src/game/furniture/resting.rs:11-14 — lying in a bed never changes the home or spawn"
    ],
-   "notes": "Leaves and tree trunks count as solid cover; plants and water do not. The shelter check runs when you press Rest. Targeted source update at 35cfc2f8: game.rs no longer applies shelter warmth; home.rs keeps the shelter requirement for Rest. The rest-condition evidence retains its original audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Leaves and tree trunks count as solid cover; plants and water do not. The shelter check runs when you press Rest. Shelter gives no warmth. Creative rest on a server, for the host or the saved owner, sets the respawn point and stamina but earns no Rested milestone. Bed rest is separate and never moves the respawn point.",
    "guide": {
     "state": "complete",
     "page": "guide-first-survival-day.html",
@@ -5240,7 +5267,7 @@
    "modes": [
     "any"
    ],
-   "summary": "F6 saves explicitly. Main menu, quitting and switching worlds save first; a failed quit-time save keeps the game open. Autosave checks about every 30 seconds and writes changed world state. Main menu continues hosting. If a stopped hosted pack needs recovery, F6 retries recovery instead of writing the partial network view.",
+   "summary": "F6 saves explicitly and shows 'World saved safely' only after the world file is written, including a hosted world. In a joined world or a --no-save session it writes nothing and says 'This session does not save the world locally'. Main menu, quitting and switching worlds save first; a failed quit-time save keeps the game open. Autosave checks about every 30 seconds. Main menu continues hosting. If a stopped hosted pack needs recovery, F6 retries recovery.",
    "controls": [
     [
      "F6",
@@ -5260,13 +5287,15 @@
     ]
    ],
    "evidence": [
-    "src/app.rs:1553-1568 — recovery input before ordinary F6 save",
-    "src/app.rs:1594-1602 — main-menu save and return",
-    "src/app.rs:1641-1650 — 30-second dirty-state autosave",
-    "src/app.rs:1881-1918 — save, continued hosting on menu visits, guarded close",
-    "src/app/owner_recovery.rs:11-45 — F6 retry and Shift+F6 choice"
+    "src/app.rs:1553-1572 — recovery input before the ordinary F6 save",
+    "src/app.rs:2002-2025 — 'World saved safely' only after a local write; otherwise 'This session does not save the world locally'",
+    "src/app.rs:1597-1606 — main-menu save and return",
+    "src/app.rs:1644-1660 — 30-second dirty-state autosave",
+    "src/app.rs:1884-1922 — save before leaving, continued hosting on menu visits, guarded close",
+    "src/app/owner_recovery.rs:11-45 — F6 retry and Shift+F6 choice",
+    "crates/voxelgame-core/src/game/save_status.rs:14-29 — 'Save refused: …' warning kept until a save succeeds"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. A reported failure does not establish durable success. Keep the session open, fix the reported error and retry. Walking alone does not make the sparse world dirty; explicit saves include character state. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. A reported failure does not mean the world was saved. Keep the session open, fix the reported error and retry. Walking alone does not make the sparse world dirty; explicit saves include character state. A dedicated server saves its own world and confirms most actions after saving them.",
    "guide": {
     "state": "complete",
     "page": "guide-troubleshooting.html",
@@ -5282,15 +5311,18 @@
     "creative",
     "survival"
    ],
-   "summary": "A save keeps pose, mode, Survival meters, inventory/equipment/hotbar, edits and water/door state, environment controls, home/rest/palette/journal, boats, chest/furniture state, milestones, player-hatched animals and dropped item stacks. Procedural wildlife, flying projectiles and primed TNT reset. Display/audio/input preferences are shared separately.",
+   "summary": "A save keeps pose, mode, Survival meters, inventory/equipment/hotbar, edits and water/door state, environment controls, home/rest/palette/journal, boats, chest and furniture state (including furniture storage, lamp switches and stove contents with an unfinished batch), milestones, player-hatched animals and dropped item stacks. Procedural wildlife, flying projectiles and primed TNT reset. Display/audio/input preferences are shared separately.",
    "evidence": [
     "crates/voxelgame-core/src/save/write.rs:163-205 — current ordered save sections",
     "crates/voxelgame-core/src/save/write.rs:344-361 — pose, Survival meters and inventory",
     "crates/voxelgame-core/src/entities/persistence.rs:9-21 — persistent player hatchlings, procedural wildlife excluded",
     "src/settings_profile.rs:25-32 — preferences inherited across worlds",
-    "crates/voxelgame-core/src/settings_profile.rs:19-43 — shared profile excludes diagnostics"
+    "crates/voxelgame-core/src/settings_profile.rs:19-43 — shared profile excludes diagnostics",
+    "crates/voxelgame-core/src/furniture/lamp_state.rs:1-18 — saved lamp on/off state",
+    "crates/voxelgame-core/src/furniture/cooking.rs:1-21 — stove contents and progress; no offline progress",
+    "crates/voxelgame-core/src/save/write.rs:147-154 — a seated or lying player is saved standing at the furniture exit"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Save format 40 includes dropped items and carried-stock records. Serialized legacy temperature is inert. Old settings fields remain in .vxw for compatibility; the native profile owns shared preferences. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Save format 40 includes dropped items and carried-stock records; it did not change in this range. Serialized legacy temperature is inert. Old settings fields remain in .vxw for compatibility. Saving while seated or in a bed needs a clear exit, otherwise it is refused ('Bed exit blocked; cannot save an embedded player').",
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
@@ -5333,18 +5365,27 @@
     "creative",
     "survival"
    ],
-   "summary": "Each world file is capped at 8 MiB and 200,000 changed half-metre blocks. From 190,000 changes the game repeats a warning ('saving stops at 200000'), and building refuses changes beyond the budget with 'Save edit budget reached'.",
+   "summary": "Each world file is capped at 8 MiB and 200,000 changed half-metre blocks. From 190,000 changes the game repeats a warning ('saving stops at 200000'), and building refuses changes beyond the budget with 'Save edit budget reached'. A save over 8 MiB is refused and the old file kept. Hosted and dedicated servers also refuse crafting, animal hits, item moves and drops, water exchanges and other actions that would not fit ('… would exceed the save budget or saved state is invalid').",
    "evidence": [
-    "crates/voxelgame-core/src/game/building.rs:129-132 — brush edits refused at the budget",
-    "crates/voxelgame-core/src/game/home.rs:151 — home crate placement refused at the budget",
-    "crates/voxelgame-core/src/world/mod.rs:2345-2350 — spreading water never pushes the save past the limit",
-    "crates/voxelgame-core/src/save/write.rs:94-98 — save refused above 200,000 edits"
+    "crates/voxelgame-core/src/save.rs:116-120 — 8 MiB, 200,000 edits and the 190,000 warning threshold",
+    "crates/voxelgame-core/src/save.rs:283-326 — encoder refuses output above 8 MiB ('refusing to exceed the 8 MiB debug-save safety budget')",
+    "crates/voxelgame-core/src/save.rs:346-351 — nothing is written when the save is too big",
+    "crates/voxelgame-core/src/save/write.rs:118-123 — save refused above 200,000 edits",
+    "crates/voxelgame-core/src/game.rs:2052-2064 — warning every 20 seconds from 190,000 edits",
+    "crates/voxelgame-core/src/game/building.rs:203-205 — brush edits refused at the budget",
+    "crates/voxelgame-core/src/game/home.rs:204-207 — home crate placement refused at the budget",
+    "crates/voxelgame-core/src/world/mod.rs:2417-2424 — spreading water never pushes the save past the limit",
+    "crates/voxelgame-core/src/session/crafting.rs:88-91 — server crafting refused when the world save would not fit",
+    "crates/voxelgame-core/src/session/creatures.rs:161 — server animal hit refused when the world save would not fit",
+    "crates/voxelgame-core/src/session/items.rs:105 — server item transfer refused when the world save would not fit",
+    "crates/voxelgame-core/src/session/water.rs:88-90 — server water exchange refused when the world save would not fit"
    ],
    "guide": {
     "state": "complete",
     "page": "guide-saves.html",
     "label": "Saves and world files"
-   }
+   },
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Server refusals check the whole prospective save before anything changes: an exact fit is allowed and actions that shrink the save still work. A refused crafting order keeps its ingredients. A refused arrow, rock or egg impact still uses the shot or egg; a refused kill leaves the animal and its drops as they were."
   },
   {
    "id": "save-compatibility",
@@ -5591,11 +5632,14 @@
     "crates/voxelgame-core/src/game/startup_multiplayer.rs:14-19 — address/name/recent-server limits",
     "src/net_client.rs:61 — whole-join timeout",
     "src/net_client/discovery.rs:62-74 — LAN rows and incompatible version label",
-    "crates/voxelgame-core/src/game.rs:2045-2062 — server water and replicated creatures/projectiles",
-    "crates/voxelgame-core/src/session/crafting.rs:15-42 — authenticated Survival crafting",
-    "crates/voxelgame-core/src/session/survival.rs:78-105 — authoritative needs/damage",
-    "crates/voxelgame-core/src/session/survival.rs:157-215 — explicit recovery",
-    "docs/MULTIPLAYER.md:1703-1715 — remaining actions and LAN/device acceptance"
+    "crates/voxelgame-core/src/game.rs:2077-2095 — server water and replicated creatures/projectiles",
+    "crates/voxelgame-core/src/session/crafting.rs:15-93 — authenticated Survival crafting; refused when the save would not fit",
+    "crates/voxelgame-core/src/session/survival.rs:78-108 — authoritative needs/damage",
+    "crates/voxelgame-core/src/session/survival.rs:178-200 — explicit recovery",
+    "src/app.rs:2007-2025 — F6 in a joined world: 'This session does not save the world locally'",
+    "crates/voxelgame-core/src/game/net_client/furniture_storage.rs:190-232 — joined Creative storage uses real server supplies",
+    "crates/voxelgame-core/src/game/net_client/furniture/commands.rs:492-498 — Creative moves keep paid furniture's refund",
+    "docs/MULTIPLAYER.md:2084-2096 — remaining actions and LAN/device acceptance"
    ],
    "backlog": [
     "VOX-NET-M2-EDITS",
@@ -5605,14 +5649,14 @@
     "VOX-NET-SERVER-REPORTS",
     "VOX-NET-SEC-QUINN-FLOOR"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. The earlier blanket “no damage/death, no shared animals/inventory/crafting” limitation is obsolete. Shared does not mean a communal inventory. Vehicles/boats and guarded unsupported actions stay limited. This source check does not establish complete multiplayer parity or physical target-device acceptance. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Shared does not mean a communal inventory. Joined Creative players store only real carried supplies, not catalogue items. F6 does not save a joined world locally. Dedicated servers confirm most changes only after saving them. Vehicles/boats and some guarded actions stay limited. This does not establish complete multiplayer parity or physical target-device acceptance. Not tested on two computers."
   },
   {
    "id": "mp-dedicated-server",
    "area": "platform",
    "name": "Run a dedicated server (voxelgame-server)",
    "status": "in-development",
-   "summary": "The dedicated server is a separate program that the installers do not build. Built from source, `voxelgame-server --world DIR` hosts a world on 127.0.0.1:27015 by default; for LAN play bind your LAN address, for example --bind 192.168.1.20:27015. Its console accepts /list, /say, /save, /stop and /help.",
+   "summary": "The dedicated server is a separate program that the installers do not build. Built from source, `voxelgame-server --world DIR` hosts a world on 127.0.0.1:27015 by default; for LAN play bind your LAN address, for example --bind 192.168.1.20:27015. Its console accepts /list, /say, /save, /stop and /help. It confirms most player actions only after saving the change.",
    "controls": [
     [
      "/list, /say <text>, /save, /stop, /help",
@@ -5621,11 +5665,17 @@
    ],
    "evidence": [
     "crates/voxelgame-server/Cargo.toml:14-16 — separate voxelgame-server program",
-    "install.sh:128-129 — installers build only the voxelgame program",
-    "install-windows.ps1:111 — installers build only the voxelgame program",
-    "crates/voxelgame-server/src/config.rs:20-23 — options; public or all-interface addresses refused without --allow-public"
+    "install.sh:6 — the installer entry runs scripts/desktop/install.sh",
+    "install-windows.ps1:12 — the Windows installer entry runs scripts\\desktop\\install-windows.ps1",
+    "search: scripts/desktop/install.sh:164-165 and install-windows.ps1:117 build only --bin voxelgame (game repository at dfeb362d; scripts/ is not in the exported snapshot)",
+    "crates/voxelgame-server/src/config.rs:3-10 — loopback default; public or all-interface addresses refused without --allow-public",
+    "crates/voxelgame-server/src/config.rs:30-34 — command-line options",
+    "crates/voxelgame-server/src/host.rs:138-141 — a server with a world folder, not a game you host, waits for its own saves",
+    "crates/voxelgame-server/src/host/furniture/durability/stock.rs:84-113 — successful replies wait for the world save, plus the player record for rest, meals, water and respawn",
+    "crates/voxelgame-server/src/host/furniture/durability/stock.rs:198-239 — replies are released only once saved; failed writes keep them waiting",
+    "crates/voxelgame-server/src/host/furniture/durability/stock.rs:30-32 — at most eight unsaved or queued actions of one kind per connection"
    ],
-   "notes": "Other options: --seed, --name, --motd, --max-players, --autosave-minutes. Developers can test with the scripted bot: cargo run --release -p voxelgame-server --example bot -- HOST:PORT."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Other options: --seed, --name, --motd, --mode, --max-players, --autosave-minutes, --no-tui. Refusals arrive at once; a successful craft, meal, drop, placement, storage move, Home action, animal hit, paid shot or respawn waits for the save. A failed write keeps it waiting without repeating it. Developers can test with the scripted bot: cargo run --release -p voxelgame-server --example bot -- HOST:PORT."
   },
   {
    "id": "mp-chat",
@@ -5668,9 +5718,12 @@
     "crates/voxelgame-render/src/startup_ui/stopped_owner_choice.rs:16-57 — choice explanation and 3-second hold",
     "src/net_client/ready_recovery/canonical_choice.rs:48-87 — preserve copy before final-pack selection",
     "src/net_client/ready_recovery/missing_world.rs:157-190 — preserve copy before saved-world-and-pack selection",
-    "src/app.rs:1904-1918 — menu continues hosting; guarded shutdown"
+    "src/app.rs:1906-1922 — menu continues hosting; guarded shutdown",
+    "src/app.rs:2007-2012 — F6 writes the hosted world while you host",
+    "crates/voxelgame-core/src/session/hosting.rs:421-440 — a blocked seat or bed exit makes the owner's save/handback wait",
+    "crates/voxelgame-core/src/game/home/keyboard.rs:24-50 — the Creative host's Home actions go to the server"
    ],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Use a trusted LAN; physical two-computer acceptance remains incomplete. The dialog explains which catalogue or later hosted state is set aside. Unresolved state blocks ordinary save/world replacement/quit. State is durable only after a successful checkpoint; keep the session open after a failed write. Source-checked; this wiki slice ran no native game or two-computer playtest. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c; no new play test. Use a trusted LAN; two-computer acceptance remains incomplete. F6 saves the hosted world. The Creative host can rest and pack up an empty Home (no boards) after pack confirmation. Stopping or saving while seated or in a bed waits for a clear exit. Unresolved recovery blocks ordinary save, world replacement and quit; keep the session open after a failed write. Not tested on two computers.",
    "backlog": [
     "VOX-NET-M5-LAN"
    ],
