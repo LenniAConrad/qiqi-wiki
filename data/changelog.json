@@ -31,17 +31,17 @@
         "date": "2026-10-09"
       },
       "last": {
-        "commit": "9017e34a98f7274cf5ffcba2146aa9a58091b34b",
-        "date": "2026-11-05"
+        "commit": "ec84c2d323419f3b5b74b78cf6b0f7f9d5f930e2",
+        "date": "2026-11-08"
       },
-      "commitCount": 119,
+      "commitCount": 154,
       "tags": [],
       "publicCommitLinks": true,
       "releases": "none",
-      "checked": "2026-11-05"
+      "checked": "2026-11-08"
     }
   ],
-  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test. The 5 November continuation reviewed only the 12 later wiki changes through 9017e34. The 8 November continuation reviews all 1,768 game changes after the 13 October cutoff through 21d656c2 (1,405 non-merge subjects, with message bodies, file lists and selected patches), checks added features against a clean export of 251b9e46 and 21d656c2, and re-checks every compatibility note there. The public game history was rewritten after the 13 October review without changing its shape: the same 704 commits, dates and subjects lead to the old cutoff 5856103c, which is 4723e3fc in the current history. Groups through 13 October keep the identifiers recorded at that review; later groups, the new 13 October entries and the new compatibility evidence use current identifiers, and the source range is pinned to the current root f4c9aee8 and 21d656c2 (2,472 commits).",
+  "method": "Dates are Git committer dates in each commit’s recorded timezone, not release or download dates. Every available commit subject in the pinned intervals was reviewed; summaries group related base-game changes, with source and patch checks for compatibility and controls. This is a source-history review, not a new gameplay test. The 5 November continuation reviewed only the 12 later wiki changes through 9017e34; the 8 November continuation adds the 35 wiki changes after it through ec84c2d3. The 8 November continuation reviews all 1,768 game changes after the 13 October cutoff through 21d656c2 (1,405 non-merge subjects, with message bodies, file lists and selected patches), checks added features against a clean export of 251b9e46 and 21d656c2, and re-checks every compatibility note there. The public game history was rewritten after the 13 October review without changing its shape: the same 704 commits, dates and subjects lead to the old cutoff 5856103c, which is 4723e3fc in the current history. Groups through 13 October keep the identifiers recorded at that review; later groups, the new 13 October entries and the new compatibility evidence use current identifiers, and the source range is pinned to the current root f4c9aee8 and 21d656c2 (2,472 commits).",
   "gaps": [
     "The game history starts with a large snapshot on 16 August 2026. Earlier development and changes between recorded snapshots cannot be dated more precisely.",
     "There are no tags in either inspected checkout. The public game release endpoint returned 404 during review, so game releases could not be verified. The wiki release endpoint returned an empty list. No release numbers are inferred from package metadata.",
@@ -153,6 +153,199 @@
   ],
   "periods": [
     {
+      "id": "wiki-2026-11-08",
+      "source": "wiki",
+      "date": "2026-11-08",
+      "title": "New guides, a full recheck and the game's look",
+      "entries": [
+        {
+          "kind": "Added",
+          "area": "Player guides",
+          "text": "Three new guides at Voxelgame dfeb362d and 251b9e46: Furniture and carpentry (plans, the workbench, placing, moving, refinishing and taking up furniture), Storage, beds and lamps (chests, wardrobes, beds, resting and lamps) and Fishing (the reed rod, casting, bites and catches).",
+          "refs": [
+            {
+              "commit": "3d7cc491593ece47ff736c8b03f2639dd47af5b3",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "e5dcaa043670e44381eb1ebef20e901e918da632",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "1e33174ef7885af4fc5cfb976796b9fec7bba0d7",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "60bb99b92aee2f9777a64613ba3168cb010c3ae1",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Added guides to furniture and carpentry, storage, beds and lamps, and fishing."
+        },
+        {
+          "kind": "Changed",
+          "area": "Player guides",
+          "text": "New game features are documented from source: door styles and Creative door moves, chest refinishing, all 151 recipes and stove cooking, wall lamps and blocked bed exits, the crafting queue with its Ready filter and starred recipes, the shared undo history, the current boards and species doors in Blocks, and the matching keys in the controls reference.",
+          "refs": [
+            {
+              "commit": "c897f733a652ef6d1cb8d468df20a73c25dd0a37",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "62fbac3f3eb0b19d37176544f48850a89fb0ebc6",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "5f3e966c3e9252d24633bfd7b63fc9551d5fd720",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "7f5ffa6c368d62691754319ec6d69fa36554507c",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "207284e97bff1be81636c29463cc5b4388bba179",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "af55f93c2d786665633f0bcd065c44a3327cdc1f",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "03d1f9dc4b7b8927cb530eb0a7dde13b8c9d12a0",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Documented door styles and moves, chest refinishing, stove cooking, wall lamps, the crafting queue and undo."
+        },
+        {
+          "kind": "Changed",
+          "area": "Player guides",
+          "text": "Guides were source-checked against Voxelgame 251b9e46 (the creatures calls section at 21d656c2): saving and hosting, explosives, creatures, settings, weather and seasons, menus and worlds, aiming and held items, islands and water, maps and sailing, building, the structure library and caves. Corrections follow the code; no new play test was run.",
+          "refs": [
+            {
+              "commit": "589dee5377f2c90a4fd27c9e3d2be7898f27d6ee",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "69fbfde1646b78b230d048bb383f383be0ce5ebf",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "befdc52a5bf91ad021d043cd273e25fbe3f8eec8",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "8fc1bc55fddf24fe905bd6cd15ed22d41e987837",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "4368c3fcbe81718dc5d80b37eba815cafefe8540",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "8cbfe198dab2e2a4a31b8bcbbb41497a967eeb7a",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "ff172789c0ca7a1600999f118388ea7959cd6853",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "db23e953c07631c68cbce1f38b85819dfb363401",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "48e2787d7929b252f16c28dec0e5d23cf66e4d0b",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "3b02af24756bbb236f078fc505e12e6c14ab0110",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "988c4d5e70c4a81969f59b79fea2b6bc52ed8463",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Rechecked most guides against the current game, including the 57 animals that now call."
+        },
+        {
+          "kind": "Changed",
+          "area": "Look",
+          "text": "The site takes the game's stone-and-brass interface: game-panel layouts for the home page, feature ledger, guides, reference, topic, changelog and gallery pages, the game's Trailhead pixel face as a webfont kept on whole pixels, and a header that fits small screens.",
+          "refs": [
+            {
+              "commit": "12463874df84c1d1e0cba03ec28d8dfdaf327325",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "e04ad7a49d6549c00f3bfb862f6044222b4098de",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "c7348f5655119f504ca6b088986bedb998587428",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "eaaa4a94eb8728010649ad6fd50add0b6a8ae580",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "26185c243ddd3fec1faf9772249a6a734828b3ef",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "58397d789f090fe2b6f1a88e7ddc957eb675f306",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "4bd840c80e0baa230921dad71c591fe9fe74a9e0",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "dafe8509c8a356701d02660ea561089b7bd3d938",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "9fc47d4a176668615bf16e489d7986629a4182fd",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "4b61209228ea6bf05c4be55de64cbd438caaace4",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Restyled the wiki to match the game's stone-and-brass menus and pixel font."
+        },
+        {
+          "kind": "Changed",
+          "area": "Finding answers",
+          "text": "The furniture, storage and fishing guides are linked from the topic pages and related guides.",
+          "refs": [
+            {
+              "commit": "7b1c0c4b1bf62dd2c8fd2c3ca93e32d0c2c6b185",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Linked the new furniture, storage and fishing guides from topic pages."
+        },
+        {
+          "kind": "Changed",
+          "area": "Changelog",
+          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame 21d656c2 on 8 November, with day groups for 13 October to 8 November.",
+          "refs": [
+            {
+              "commit": "ec84c2d323419f3b5b74b78cf6b0f7f9d5f930e2",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Extended the game changelog to 8 November."
+        }
+      ],
+      "publicTitle": "New guides, a full recheck and the game's look"
+    },
+    {
       "id": "wiki-2026-11-05",
       "source": "wiki",
       "date": "2026-11-05",
@@ -181,6 +374,18 @@
             }
           ],
           "publicSummary": "Made furniture and multiplayer instructions easier to find."
+        },
+        {
+          "kind": "Changed",
+          "area": "Changelog",
+          "text": "The wiki chronology is brought through 9017e34, the 5 November guide refresh.",
+          "refs": [
+            {
+              "commit": "407e28b8c5b2511adf7f90113388e08950e0fcb4",
+              "date": "2026-11-05"
+            }
+          ],
+          "publicSummary": "Brought the wiki changelog up to 5 November."
         }
       ],
       "publicTitle": "Inventory, backups, LAN hosting, furniture and controls"
