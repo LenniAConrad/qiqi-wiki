@@ -4187,7 +4187,7 @@
    "headline": "Animal spawning, calls and spawn eggs<br><em>where animals appear, and how to place them.</em>",
    "summary": "Wild animals appear around you as you explore, depending on the biome. Up to 36 can be around you at once. Creative mode has a spawn egg for each of the 94 species.",
    "lead": "Wild animals appear on their own as you walk, sail and fly around the world. Which ones you see depends on the biome and nearby water. This page covers where animals appear, how many there can be, which species call, and how to use creative spawn eggs.",
-   "readTime": "3 min read",
+   "readTime": "4 min read",
    "audience": "Everyone",
    "updated": "2026-11-08",
    "state": "complete",
@@ -4203,8 +4203,8 @@
     "crafting-and-recipes"
    ],
    "verification": {
-    "method": "Spawn rules come from crates/voxelgame-core/src/entities/mod.rs at Voxelgame 51169272 (spawn rules) and 98c662d6 (species roster: Species::ALL has 94 entries; names from name()): the 36-animal cap, 32 m spawn cells, the empty-cell roll, the 96 m height limit, the 180 m removal distance, the per-species caps and the biome species groups. Call rules come from has_ambient_call, ambient_call and the 24 m falloff in the same file. Egg rules come from ranged_input.rs (wind-up, survival use, 64-creature limit for thrown eggs in entities/mod.rs) and ui.rs (MOBS tab only). A search of the game code found no spawn-egg crafting recipe. On 8 November 2026 the height and eggs sections were re-checked at Voxelgame dfeb362ddeca56ff5de77fa26ccdb6e37d05192c: entities/persistence.rs:1-22 and 146-194 (hatched animals are saved and wake within 180 m), entities/mod.rs:100-102 and 1411-1419 (36 wild animals, 64 hatched animals, 180 m), entities/hatching.rs:64-81, save/write.rs:132-136 and game.rs:2203-2212.",
-    "limits": "Source-checked, not play-tested in this guide. No captures of spawned animals exist yet. Exact spawn counts depend on the terrain around you, so the numbers here are caps, not what you will always see. The height and eggs sections were source-checked at Voxelgame dfeb362d on 8 November 2026; not play-tested."
+    "method": "Re-checked on 8 November 2026 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480. Spawning: crates/voxelgame-core/src/entities/mod.rs (36-animal cap at line 100; per-species caps at 677-710; the 25 squares of 32 m, the one-in-five empty squares, the 96 m height check, the water-depth rule and natural ground at 1696-1909; square memory at 1924-1955; 180 m removal at 1412-1420), entities/biome_species.rs:10-327 (biome species groups, swans, empty volcanic biomes), entities/ambient_spawn.rs:7-29 (natural ground) and session.rs:735-747 (one shared population on a server). Swimming: entities/aquatic_cruise.rs:164-278 and 324-367, and entities/mod.rs:1157-1167 (fish that keep their distance). Calls: entities/mod.rs:456-485 and 999-1040, game/audio.rs:154-170, events.rs:74-86 and 155-160, ambience.rs:190-209, entities/idle_behaviour.rs:15-19 and src/audio.rs:889-917. Species: Species::ALL (94 entries) and name() in entities/mod.rs:359-584. Eggs: ui.rs:249 and 276-277, game/hotbar.rs:217-228, game/ranged_input.rs:51-163, projectile.rs:1476-1526, entities/hatching.rs:72-132, entities/persistence.rs:117-194, game.rs:2203-2212, session/eggs.rs:92-150 and game/net_client/egg_throws.rs:62-97 and 178-194. A search of the game code found no spawn-egg crafting recipe.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. No captures of spawned animals exist yet. Exact spawn counts depend on the terrain around you, so the numbers here are caps, not what you will always see."
    },
    "owns": [
     "animal-natural-spawning",
@@ -4220,17 +4220,18 @@
      "blocks": [
       {
        "t": "p",
-       "text": "The game checks squares of ground about 32 m across near you, as you move. About one square in five is left empty. In the others, one animal may appear, picked from the species that fit that biome. {{animal-natural-spawning}}"
+       "text": "As you move, the game checks the 25 squares of ground around you, each about 32 m across. About one square in five is left empty. In the others, one animal may appear, picked from the species that fit that biome. In a given world, a square always offers the same species at the same spot. {{animal-natural-spawning}}"
       },
       {
        "t": "list",
        "items": [
-        "Up to 36 wild animals can be around you at the same time.",
+        "Up to 36 wild animals can be around you at the same time. On a server, all players share the same animals and the same limit.",
         "Each biome has its own small group of species. A meadow, a forest and a snowy tundra have different animals.",
-        "Wetlands, fens, flooded grasslands and deltas can have swans.",
-        "Each species has a cap. Wolves, bears, foxes and the big cats: 3 at a time. Boars, goats, buffalo, bison and giraffes: 5. Rabbits, frogs, ducks and river fish: 8.",
-        "Fish and other water animals appear only where the water is deep enough for them.",
-        "Animals do not appear on built roofs or on ledges around lanterns."
+        "Wetland fens, flooded grasslands, inland deltas and river deltas can have swans.",
+        "Volcanic fields, meteor fields, geyser basins and surface lava tubes have no wild animals.",
+        "Each species has a cap. Whales, orcas and giant squid: 1 at a time. Wolves, bears, foxes, crocodiles, lions, tigers and panthers: 3. Boars, goats, buffalo, bison and giraffes: 5. Rabbits, frogs, ducks, salmon, trout and carp: 8. Tiny animals such as butterflies, flies and ants: 10. Most others: 4 to 7.",
+        "Fish and other swimmers appear only where the water is deep enough below sea level for their body.",
+        "Land animals appear only on natural ground such as grass, dirt, sand, snow, ice or stone. They never appear on planks, bricks, plaster, marble, glass or roof tiles."
        ]
       }
      ]
@@ -4241,11 +4242,15 @@
      "blocks": [
       {
        "t": "p",
-       "text": "New animals do not appear while you are more than 96 m above the ground. Spawning starts again once you come back down near the ground."
+       "text": "New animals do not appear while you are more than 96 m above or below the ground. Over water, the sea surface counts as the ground. Spawning starts again once you are back within 96 m."
       },
       {
        "t": "p",
-       "text": "Any wild animal more than 180 m from you is removed from the world. Animals you hatched from eggs are set aside instead. They are saved with the world and come back when you return within 180 m. {{animal-spawn-eggs}}"
+       "text": "Any wild animal more than 180 m from you is removed from the world. Each square gets one try while you stay nearby. It is tried again only after you have moved roughly 250 m away and come back, so animals you hunt are not replaced straight away. Wild animals are not saved: after you load a world, they appear afresh."
+      },
+      {
+       "t": "p",
+       "text": "Animals you hatched from eggs are set aside instead. They are saved with the world and come back when you return within 180 m. {{animal-spawn-eggs}}"
       }
      ]
     },
@@ -4255,15 +4260,16 @@
      "blocks": [
       {
        "t": "p",
-       "text": "Fish, sharks, whales and orcas keep swimming while you watch. They do not stop dead in open water. Each one follows its own swimming style."
+       "text": "Fish and other water animals do not walk and stand like land animals. Each species follows one of three swimming styles."
       },
       {
        "t": "list",
        "items": [
-        "Whales, orcas, hammerhead and frilled sharks, and flying fish keep travelling in open water. Between strokes they glide, slowing to about half speed.",
-        "Salmon, trout, carp, catfish, devil's hole pupfish and triops swim in short bouts and hold still between them.",
+        "Whales, orcas, hammerhead and frilled sharks, and flying fish keep travelling in open water. Now and then they glide, slowing to about half speed.",
+        "Salmon, trout, carp, catfish, Devil's Hole pupfish and triops swim in short bouts and hold still between them.",
         "Blobfish, comb jellies and giant squid mostly hover or drift slowly.",
-        "A swimmer turns away from shores, walls and the edge of loaded terrain before it reaches them. If it has no open route, it holds still."
+        "A swimmer turns away from shores, walls and the edge of loaded terrain before it reaches them. If it has no open route, it holds still.",
+        "A hurt swimmer flees at full speed. Salmon, trout and carp also dart away when you come within about 5 m."
        ]
       },
       {
@@ -4284,15 +4290,12 @@
       {
        "t": "list",
        "items": [
-        "You hear a call from an animal within about 24 m. The closer it is, the louder it sounds.",
-        "When several animals are close, the game picks one caller at a time and rotates through them.",
-        "Blue jays and crows call only while woodland birds are active."
+        "You hear a call from an animal within about 24 m. The closer it is, the louder and clearer it sounds.",
+        "At most one call plays every 7 to 13 seconds. When several animals are close, the game picks one caller at a time and rotates through them.",
+        "A call follows the animal while it plays. You hear it from the animal's side, and it gets louder or quieter as you or the animal move.",
+        "Blue jays and crows call only while morning birdsong plays: between sunrise and noon, near trees, outdoors and not in heavy rain.",
+        "Cows, sheep, pigs and chickens rest at night and stay quiet while they rest."
        ]
-      },
-      {
-       "t": "note",
-       "kind": "limit",
-       "text": "A call's loudness is set when it starts. It does not change as the animal or you move."
       }
      ]
     },
@@ -4323,21 +4326,22 @@
        "items": [
         "Open the creative catalog and choose the **MOBS** tab.",
         "Take the egg of the species you want. It becomes the item you hold.",
-        "Hold the right mouse button to wind up the throw. Release it to throw the egg.",
-        "The animal hatches where the egg lands."
+        "Hold the right mouse button to wind up the throw. A full wind-up takes 0.7 s and throws farther. Release it to throw the egg.",
+        "The egg flies past animals and bursts on the first block it hits. The animal hatches there."
        ]
       },
       {
        "t": "note",
        "kind": "careful",
-       "text": "A quick tap is not enough. If you release too early, the game says 'Too hasty — wind up before releasing' and nothing is thrown."
+       "text": "A quick tap is not enough. If you release in under about 0.2 s, the game says 'Too hasty — wind up before releasing' and nothing is thrown."
       },
       {
        "t": "list",
        "items": [
-        "A thrown egg can add animals above the normal 36 limit. An egg cannot hatch while 64 animals are around you, once the world keeps 64 hatched animals, or where the animal does not fit. The game then says \"The egg burst, but nothing could hatch here\".",
-        "Hatched animals are saved with the world. When you move more than 180 m away they wait where they were, and they return when you come back.",
-        "In survival, a thrown egg uses one you are carrying. Eggs have no crafting recipe."
+        "A thrown egg can add animals above the normal 36 limit. An egg cannot hatch while 64 animals are around you, once the world keeps 64 hatched animals, or where the animal does not fit. The game then says \"The egg burst, but nothing could hatch here\". Eggs do hatch on built floors and roofs.",
+        "Hatched animals are saved with the world. When you move more than 180 m away they wait where they were, and they return when you come back. A hatched animal that is killed is gone for good.",
+        "In survival, a thrown egg uses one you are carrying. Eggs have no crafting recipe.",
+        "On a server, wait for the server to confirm the throw: the game says '<Animal> egg thrown by server'. If the server refuses, for example with 'Wait a moment before throwing another egg' or 'This plot belongs to another player', you keep the egg. An egg cannot hatch on another player's plot."
        ]
       }
      ]
