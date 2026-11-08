@@ -597,6 +597,31 @@ cannot leave its bottom images invisible to native lazy loading.
 Compare identical runner versions and profiles. Time readings on a busy shared
 host need the same caution as the network model described above.
 
+## Guide screenshots and Catalogue icons
+
+Guide screenshots and the Catalogue icon sprite come from the game's own headless
+debug adapter, never a visible window or a normal save. Use a devtools build of the
+game (`cargo build --release --features devtools`, or an existing build that answers
+`--debug-stdio`) and a private HDD scratch directory:
+
+```sh
+export VOXELGAME_SCRATCH=/path/to/scratch TMPDIR=/path/to/scratch/tmp PYTHONDONTWRITEBYTECODE=1
+GAME=/path/to/Voxelgame BIN=/path/to/devtools/voxelgame
+python3 "$GAME/tools/game_debug.py" replay tools/captures/guide_screens.json --binary "$BIN"
+python3 "$GAME/tools/game_debug.py" replay tools/captures/furniture_scenes.json --binary "$BIN"
+python3 tools/build_catalogue_icons.py replays "$VOXELGAME_SCRATCH"
+python3 "$GAME/tools/game_debug.py" replay "$VOXELGAME_SCRATCH/catalogue_a.json" --binary "$BIN"
+python3 "$GAME/tools/game_debug.py" replay "$VOXELGAME_SCRATCH/catalogue_b.json" --binary "$BIN"
+python3 tools/build_catalogue_icons.py build "$VOXELGAME_SCRATCH"/debug/session-A "$VOXELGAME_SCRATCH"/debug/session-B
+```
+
+Convert chosen PNGs to WebP in `images/guides/` (quality 88), regenerate their
+previews, then rebuild the guides, Blocks and home pages. The icon builder labels a
+slot only when its click produced a new "… selected/taken/equipped from creative
+catalog" status, so unnamed furniture plans and repeated clicks are skipped; inspect
+a contact sheet before publishing. `tools/catalogue_icons.py` renders the icons
+(46 px slots; 23 px for recipe ingredients) and wiki.css assumes 16 icons per row.
+
 ## Light and dark themes
 
 The header's Theme selector offers System, Light and Dark. System follows the

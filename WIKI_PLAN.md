@@ -762,7 +762,11 @@ light limestone variant. Headings and labels use `fonts/trailhead.woff2`, built
 from the game's own Trailhead glyph tables (see NOTICE.md). The five guide
 screenshots (start menu, HUD, Catalogue, Settings and the new Craft tab) were
 recaptured headlessly from a game build of that day; `tools/captures/guide_screens.json`
-is the replay. Burst verification was light: the static gate plus spot-checked
+is the replay. A Catalogue icon sprite (309 block and item icons cropped from the
+game's creative Catalogue by `tools/build_catalogue_icons.py`) now illustrates the
+Blocks page, the home palette, recipe tables and the Items topic, and three furniture
+pictures (`tools/captures/furniture_scenes.json`) illustrate the furniture guides.
+Burst verification was light: the static gate plus spot-checked
 desktop/mobile captures, not the full browser acceptance run.
 
 Still outdated: the 94 animal portraits predate model changes (95 of the 118
