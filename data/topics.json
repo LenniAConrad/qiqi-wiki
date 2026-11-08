@@ -62,7 +62,7 @@
         {"name": "Building materials", "description": "Boards, bricks, glass and stone for walls, floors and roofs.", "href": "blocks.html"}
       ],
       "guides": ["explosives"],
-      "references": [["guide-getting-started.html#pack", "Inventory and the hotbar"], ["guide-first-survival-day.html#tools", "Making your first tools"], ["guide-hunting.html", "Bows, rifles and hunting"], ["guide-first-survival-day.html#eat-drink", "Food, thirst and drinking"], ["guide-crafting.html#lumen", "Lumen crystal equipment"]],
+      "references": [["guide-getting-started.html#pack", "Inventory and the hotbar"], ["guide-first-survival-day.html#tools", "Making your first tools"], ["guide-hunting.html", "Bows, rifles and hunting"], ["guide-first-survival-day.html#eat-drink", "Food, thirst and drinking"], ["guide-crafting.html#lumen", "Lanterns, rifles and explosives"]],
       "related": ["crafting", "mobs", "getting-started"]
     },
     {

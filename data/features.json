@@ -1776,7 +1776,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Open the inventory and choose Craft. Recipes are grouped into Timber, Fire & food, Materials and Tools & arms; the panel shows each ingredient as carried / required and crafts anywhere, with no workbench, fire or furnace.",
+   "summary": "Open the inventory and choose Craft. Recipes are grouped into Timber, Fire & food, Materials and Tools & arms; each ingredient shows as carried / required, or 'Need n more' in Survival, and no workbench, fire or furnace is needed. Queue (Enter or C) adds one batch to the Survival craft queue; Shift counts the batches that fit and a second press queues them as one order (at most 256). In Creative, Create makes the recipe at once with free ingredients.",
    "controls": [
     [
      "Up / Down arrows, mouse wheel",
@@ -1787,21 +1787,150 @@
      "Change section (Craft tab)"
     ],
     [
-     "Enter or C, or click Craft",
-     "Craft once (Craft tab)"
+     "Enter or C, or click Queue (Create in Creative)",
+     "Queue one batch; Creative makes it at once (Craft tab)"
     ],
     [
-     "Shift+Enter, Shift+C or Shift+click Craft",
-     "Craft repeatedly until materials or space run out (max 256 batches) (Craft tab)"
+     "Shift+Enter, Shift+C, Shift+click Queue, or Review craft all",
+     "Count the batches that fit now (max 256); press again or click Confirm all to queue them as one order (Craft tab)"
+    ],
+    [
+     "Cancel",
+     "Drop the review without spending anything (Craft tab, while reviewing)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/inventory.rs:793-833 — four sections and their descriptions",
-    "crates/voxelgame-core/src/game/crafting.rs:69-121 — survival spends ingredients atomically; creative only checks space for the output",
-    "crates/voxelgame-core/src/game/inventory_input.rs:87-133 — arrows, wheel, Enter/C, Shift batches, clicks",
-    "crates/voxelgame-core/src/game/inventory_input.rs:261-297 — arrows, wheel, Enter/C, Shift batches, clicks"
+    "crates/voxelgame-core/src/inventory.rs:1341-1374 — four sections and their descriptions",
+    "crates/voxelgame-core/src/game/crafting.rs:81-111 — Creative makes the result at once from free ingredients but needs room; refusal messages",
+    "crates/voxelgame-core/src/game/crafting.rs:113-142 — tools equipped, boat selected, 'Crafted …' message",
+    "crates/voxelgame-core/src/game/inventory_input.rs:265-351 — arrows, wheel, Enter/C and Shift",
+    "crates/voxelgame-core/src/game/inventory_input.rs:448-480 — section, recipe and Queue button clicks",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:168-198 — Shift counts batches (max 256); a second press with an unchanged pack confirms",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:293-299 — Cancel drops the review, otherwise stops the queue",
+    "crates/voxelgame-render/src/inventory_ui.rs:252-317 — 'Makes …', carried / required or 'Need n more', and the line below the ingredients",
+    "crates/voxelgame-render/src/inventory_ui.rs:603-634 — Review craft all (max 256), Confirm all: n batches, Cancel and Stop queue",
+    "crates/voxelgame-render/src/inventory_ui.rs:635-725 — section buttons, recipe list, Shift hint and the Queue / Create button"
    ],
-   "notes": "Survival: ingredients are consumed and the output needs pack room; failures say 'Missing materials for <recipe>' or 'Not enough free carry capacity'. Creative: ingredients are free ('Creative: ingredients are free'). Crafted tools are equipped; a crafted boat is selected. You cannot open the inventory while in a vehicle. The creative Build tab buttons Timber/Masonry/Coastal/Garden are hotbar material palettes, not crafting stations.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The line under the ingredients can also read 'Creative: ingredients are free' or, during a review, 'Confirm spends the ingredients x<n>'. A review reads 'Review: <recipe> x<n> batches. Confirm all to spend materials; Cancel keeps them.'; with nothing to make it says 'Cannot craft now: check ingredients and carry capacity'. Creative refusal: 'Not enough free carry capacity'. Crafted tools are equipped; a crafted boat is selected. You cannot open the inventory in a vehicle.",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
+  },
+  {
+   "id": "craft-queue",
+   "area": "crafting",
+   "name": "Survival crafting queue",
+   "status": "available",
+   "modes": [
+    "survival"
+   ],
+   "summary": "In Survival every craft is an order in a short queue: each order takes 0.8 s, up to 8 can wait, and materials stay in the pack until an order finishes. An order that can no longer be paid for or stored waits without partial spending. Progress shows in the Craft panel and during play. The queue keeps running with the inventory closed, stops while menus or the fullscreen map are open, and is not saved. On servers each finished order waits for the server.",
+   "controls": [
+    [
+     "Enter or C, or click Queue",
+     "Add one batch as an order (Craft tab, Survival)"
+    ],
+    [
+     "Confirm all",
+     "Add the reviewed batches as one order (Craft tab, Survival)"
+    ],
+    [
+     "Stop queue",
+     "Clear every queued order; nothing unfinished is spent (Craft tab, while orders wait)"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/game/craft_queue.rs:7-8 — each order takes 0.8 s; at most 8 orders",
+    "crates/voxelgame-core/src/game/craft_queue.rs:35-71 — Creative crafts at once; Survival refusals and the Queued message",
+    "crates/voxelgame-core/src/game/craft_queue.rs:73-81 — Stop queue keeps unspent materials",
+    "crates/voxelgame-core/src/game/craft_queue.rs:83-124 — orders finish in turn, wait without partial spending and clear outside Survival",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:291-299 — Craft all and Cancel / Stop queue controls",
+    "crates/voxelgame-render/src/inventory_ui.rs:603-634 — Confirm all and Stop queue buttons",
+    "crates/voxelgame-render/src/inventory_ui.rs:1367-1392 — 'Crafting (n) | recipe' or 'Waiting (n) | recipe' with a progress bar",
+    "crates/voxelgame-render/src/hud.rs:325 — the same progress bar during play",
+    "crates/voxelgame-core/src/game.rs:1420-1451 — the fullscreen map and settings (the pause menu opens settings) return before the queue advances",
+    "crates/voxelgame-core/src/game.rs:2040-2050 — the queue advances every frame, with the inventory open or closed",
+    "crates/voxelgame-core/src/game/net_client/crafting.rs:43-65 — on servers crafting needs Survival and a ready connection",
+    "crates/voxelgame-core/src/game/net_client/crafting.rs:68-129 — a finished order is sent to the server; the next waits for its answer",
+    "crates/voxelgame-core/src/game/net_client/crafting.rs:144-172 — server confirmation or 'Crafting refused: … | materials kept'",
+    "crates/voxelgame-core/src/game/net_client/chests.rs:308-310 — on servers chests wait while crafts are queued"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Messages: 'Queued <recipe> x<n> | materials kept until finished', 'Cannot queue <recipe> | check materials and carry capacity', 'Craft queue full (8 orders) | finish or cancel in Craft', 'Craft waiting | restore materials or pack space, or cancel in Craft', 'Craft queue cancelled | all unspent materials kept'. Switching to Creative empties the queue. On servers Home and furniture storage also wait while orders are queued. The queue arrived in game commit 23b2f021 (17 October 2026).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
+  },
+  {
+   "id": "recipe-ready-filter",
+   "area": "crafting",
+   "name": "Ready recipes filter (Craft tab)",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "An icon button under the Craft-tab sections, named 'Ready recipes', shows only recipes that can make one complete batch now, including free carry capacity for the result. In Creative the ingredients are free, so it hides only results that do not fit. It also narrows the starred list. The filter is not saved.",
+   "controls": [
+    [
+     "Ready recipes button",
+     "Show only recipes you can make now; click again to show all (Craft tab)"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/game/crafting.rs:21-35 — the list keeps only ready recipes while the filter is on",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:127-139 — ready means one complete batch fits, result included; Creative ingredients are free",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:276-279 — the button switches the filter",
+    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:75 — tooltip 'Ready recipes | Includes ingredients and free carry capacity'",
+    "crates/voxelgame-render/src/inventory_ui.rs:568-592 — Ready, Star and Starred recipes icon buttons, highlighted while on",
+    "crates/voxelgame-render/src/inventory_ui.rs:644-654 — 'No recipes match these filters'",
+    "crates/voxelgame-core/src/game/crafting/doors.rs:106-121 — a door choice the filters would hide switches them off ('Showing all recipes')",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:48-66 — session-only and never saved to a world"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. The game's own player guide calls this filter 'Can craft now'. Choosing a door Style, Wood or Size that the filter would hide switches it off and the status line adds 'Showing all recipes'. The filter arrived in game commit 062321d0 (17 October 2026).",
+   "guide": {
+    "state": "complete",
+    "page": "guide-crafting.html",
+    "label": "Crafting and recipes"
+   }
+  },
+  {
+   "id": "starred-recipes",
+   "area": "crafting",
+   "name": "Starred recipes (Craft tab)",
+   "status": "available",
+   "modes": [
+    "creative",
+    "survival"
+   ],
+   "summary": "The Star button stars or unstars the selected recipe, up to four. Each starred recipe gets a name button under the Craft-tab icons that jumps to it, and the Starred recipes button lists them from every section. Choosing a section returns to the normal list. Stars last for this session and are not saved.",
+   "controls": [
+    [
+     "Star button",
+     "Star or unstar the selected recipe, up to four (Craft tab)"
+    ],
+    [
+     "Starred recipes button",
+     "List starred recipes from every section; click again for the normal list (Craft tab)"
+    ],
+    [
+     "Click a starred recipe's name",
+     "Select that recipe (Craft tab)"
+    ]
+   ],
+   "evidence": [
+    "crates/voxelgame-core/src/game/inventory_qol.rs:141-156 — up to four stars and their messages",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:281-290 — Starred recipes switch and the name buttons",
+    "crates/voxelgame-core/src/game/crafting.rs:21-35 — the starred list spans every section",
+    "crates/voxelgame-core/src/game/crafting.rs:69-79 — choosing a section leaves the starred list",
+    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:76-77 — 'Star this recipe | Keep up to four for this session' and 'Starred recipes | Browse across crafting sections'",
+    "crates/voxelgame-render/src/inventory_ui.rs:568-602 — Star and Starred recipes icons and one name button per starred recipe",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:48-66 — session-only and never saved to a world"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Messages: 'Recipe starred for this session', 'Recipe unstarred' and 'Four favorites pinned; unstar one to make room'. The name buttons' tooltip reads 'Favorite recipe: <recipe>'. These are separate from the starred items in the Creative catalogue. Stars arrived in game commit 062321d0 (17 October 2026).",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -1816,18 +1945,20 @@
    "modes": [
     "survival"
    ],
-   "summary": "With the inventory closed, X repeats the recipe selected on the Craft tab once. If it needs materials, nothing is crafted and a message names the missing recipe. In creative it only shows a message.",
+   "summary": "With the inventory closed, X queues one more batch of the recipe selected on the Craft tab, in the same 0.8-second Survival queue. If that recipe lacks materials, nothing is queued and a message names it; X never switches to another recipe. In Creative it only shows a message.",
    "controls": [
     [
      "X",
-     "Repeat the selected Craft-tab recipe once (survival, on foot, inventory closed)"
+     "Queue one batch of the selected Craft-tab recipe (Survival, on foot, inventory closed)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1502-1506 — X repeats the selected recipe when the inventory is closed and the player is not in a vehicle",
-    "crates/voxelgame-core/src/game/crafting.rs:130-147 — selected recipe, missing-material message and creative refusal"
+    "crates/voxelgame-core/src/game.rs:2040-2045 — X with the inventory closed and outside a vehicle",
+    "crates/voxelgame-core/src/game/crafting.rs:144-164 — selected recipe only, missing-material message and Creative refusal",
+    "crates/voxelgame-core/src/game/craft_queue.rs:35-71 — the batch joins the Survival queue",
+    "crates/voxelgame-core/src/bindings.rs:41 — key binding 'Craft selected recipe', default X"
    ],
-   "notes": "This row was source-checked at Voxelgame 5856103c on 13 October 2026; the change landed in a6d56495. Select a recipe on the Craft tab before using X. The shortcut no longer falls back to the first affordable recipe or spends the starter boards on an unrelated recipe. This is a source check, not a new gameplay test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Select a recipe on the Craft tab before using X. Messages: 'Missing materials for <recipe> | pick another recipe on the Craft tab' and, in Creative, 'Crafting uses carried resources in survival'. The selected-recipe behaviour landed in a6d56495 (checked at 5856103c); since 23b2f021 the batch is queued rather than made at once.",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -2126,7 +2257,7 @@
     "crates/voxelgame-core/src/world/generator/ecology.rs:438-449 — Wild flax only in Meadow, Flower meadow and Rolling downs of current-generation worlds",
     "crates/voxelgame-core/src/world/generator/surface.rs:177-182 — clay on alluvial terraces, marshes and river deltas"
    ],
-   "notes": "Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Glow crystal has no practical survival source (see lumen-crystal-supply).",
+   "notes": "Biome placement detail belongs to the world audit; this list only links recipe inputs to known sources. Older (generation-9) worlds have no Wild flax, so use Wool for bindings there. Glow crystal does not generate naturally, but no recipe needs it (see lumen-crystal-supply).",
    "guide": {
     "state": "complete",
     "page": "guide-crafting.html",
@@ -6573,12 +6704,12 @@
    ]
   },
   {
-   "topic": "The alder rifle needs Glow crystal",
-   "detail": "The README calls the rifle craftable. Its recipe needs 8 Glow crystal pieces, and a survival world contains a single piece at one landmark, so rifles, rounds, TNT and dynamite are effectively creative-only.",
+   "topic": "The Craft-tab filter name",
+   "detail": "The game's player guide calls the Craft-tab filter Can craft now. In the game it is an icon button whose tooltip reads 'Ready recipes'; it shows only recipes you can make now, including room for the result.",
    "evidence": [
-    "README.md:360-361",
-    "crates/voxelgame-core/src/inventory.rs:1173-1179",
-    "crates/voxelgame-core/src/game/exploration.rs:240"
+    "docs/PLAYER_GUIDE.md:85-90",
+    "crates/voxelgame-core/src/game/inventory_qol/presentation.rs:75",
+    "crates/voxelgame-core/src/game/inventory_qol.rs:276-279"
    ]
   },
   {
