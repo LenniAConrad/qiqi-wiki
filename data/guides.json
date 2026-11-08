@@ -2329,7 +2329,7 @@
    "lead": "The season changes how the world looks, with no survival penalties. Nothing you build, mine or walk on changes with it.",
    "readTime": "3 min read",
    "audience": "Everyone",
-   "updated": "2026-10-12",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "seasons",
@@ -2340,8 +2340,8 @@
     "controls-reference"
    ],
    "verification": {
-    "method": "Season length, colours and the Settings > World rows retain their original source audit. The targeted temperature-policy correction is recorded at 35cfc2f8: ambient temperature and shelter warmth no longer affect survival, and the Home temperature line is removed. The earlier 150cd60 correction removed the seasonal temperature offset. Neither correction is a new season screenshot or native play-test receipt.",
-    "limits": "Source-checked, not play-tested in this guide. Season colours are described in words because no season screenshots exist yet."
+    "method": "Re-checked against the game source at Voxelgame 251b9e46 on 8 November 2026: year and season length, the starting season, season order and names (environment.rs), seasonal colour palettes (shader.wgsl), seasonal sky and sunlight (sky_light.rs), autumn falling leaves (game.rs, particles/ambient.rs), the Gameplay > World Season row (settings.rs, ui.rs, music_settings.rs), Home rest shelter (home.rs), and the absence of temperature effects (survival.rs, environment.rs) and of season checks in world content, animals and crafting.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. Season colours are described in words because no season screenshots exist yet."
    },
    "owns": [
     "seasons"
@@ -2356,11 +2356,15 @@
      "blocks": [
       {
        "t": "p",
-       "text": "A full year lasts 80 real minutes, so each season lasts about 20 minutes. New worlds start in summer. The order is spring, summer, autumn and winter, then back to spring. {{seasons}}"
+       "text": "A full year lasts 80 real minutes, so each season lasts 20 minutes. New worlds start in the middle of summer. The order is spring, summer, autumn and winter, then back to spring. {{seasons}}"
       },
       {
        "t": "p",
-       "text": "Each season changes the colours of grass, deciduous leaves, needles, blossoms and water. The sky and sunlight change too: autumn leaves turn russet, and winter light is cooler."
+       "text": "Each season changes the colours of grass, broadleaf leaves, needles, blossoms and water, blending slowly from one season to the next. The sky and sunlight change too: autumn turns leaves and grass russet and gold, and winter mutes them to grey-green under a cooler, weaker light."
+      },
+      {
+       "t": "p",
+       "text": "In autumn, single leaves drift down from broadleaf and blossom trees around you and blow with the wind. They are only for show: the trees keep all their blocks. Falling leaves need **Graphics > Display > Shader** set to Fast or Cinematic and **Interface > Accessibility > Reduce motion** off."
       }
      ]
     },
@@ -2371,14 +2375,14 @@
       {
        "t": "steps",
        "items": [
-        "Press [[Esc]] and open the World tab in Settings.",
-        "Click a Season chip, or use its arrows, to hold Spring, Summer, Autumn or Winter.",
-        "Choose Auto to go back to the normal cycle."
+        "Press [[Esc]], choose **Settings**, then open **Gameplay > World**.",
+        "On the **Season** row, click **<** or **>** to hold Spring, Summer, Autumn or Winter. A held season shows its full colours.",
+        "Choose Auto to go back to the normal cycle. It carries on from the season you held."
        ]
       },
       {
        "t": "p",
-       "text": "The Season row reads AUTO / and the current season while the cycle runs. If a creative player fixed the season, the row shows that season instead. In survival you cannot change the row. {{creative-world-controls}}"
+       "text": "While the cycle runs, the Season row reads **Auto /** and the current season, for example **Auto / summer**. A held season shows just its name. In survival you cannot change the row: the game says **Time, weather, and season controls are read-only in survival**. {{creative-world-controls}}"
       }
      ]
     },
@@ -2392,12 +2396,12 @@
       },
       {
        "t": "p",
-       "text": "A roof and walls are still needed when you rest at home to set your respawn point. Shelter has no warmth effect."
+       "text": "To rest at your Home crate and set your respawn point, you still need dry ground, a roof and cover on two sides. Shelter has no warmth effect."
       },
       {
        "t": "note",
        "kind": "tip",
-       "text": "The Home tab has no temperature line. Use its food, water, pack-space and shelter readouts to prepare for a trip."
+       "text": "The Home tab has no temperature line. Use its food, water, empty-flask, free-capacity and shelter readouts to prepare for a trip."
       }
      ]
     },
@@ -2408,8 +2412,8 @@
       {
        "t": "list",
        "items": [
-        "No snow falls and no snow blocks appear.",
-        "Trees keep all their blocks. Leaves do not thin out.",
+        "No snow falls and no snow blocks appear. Water does not freeze in winter.",
+        "Trees keep all their blocks. Leaves do not thin out; falling autumn leaves are only for show.",
         "Weather follows its own pattern, not the season.",
         "The season does not change which animals appear or what crafting needs."
        ]
@@ -3917,9 +3921,9 @@
    "headline": "Day, night and weather<br><em>what changes and when.</em>",
    "summary": "A day lasts 20 minutes. Weather follows a 30-minute pattern in every world, rain stops at roofs, and creative players can hold the time and weather.",
    "lead": "A full day and night lasts 20 real minutes. Weather in a world follows the same 30-minute pattern, so you can plan around rain and storms. Nothing skips the night: the sun keeps moving, and you cannot sleep through it.",
-   "readTime": "3 min read",
+   "readTime": "4 min read",
    "audience": "Everyone",
-   "updated": "2026-10-15",
+   "updated": "2026-11-08",
    "state": "complete",
    "covers": [
     "day-night-cycle",
@@ -3931,8 +3935,8 @@
     "first-survival-day"
    ],
    "verification": {
-    "method": "Day length, the weather pattern and its blending, weather effects, rain and roof rules, lightning behaviour and the creative Time and Weather rows come from the game source at Voxelgame ee6fa20 (environment.rs, settings.rs, music_settings.rs, ambience.rs, game.rs). Day and weather rows in the feature ledger cite the same code. Cloud heights and the altitude limit for rain and rain sound were checked separately at Voxelgame 61a4257fe2364fa708805911b30e3dbdb30e17f6 on 15 October 2026, with fresh disposable native before/after captures and automated geometry, audio, cache and GPU cloud tests. Targeted game.rs/survival.rs correction at 35cfc2f8: day, night and rain cause no ambient-temperature survival penalties. Existing cycle and weather evidence retains its original audit.",
-    "limits": "The earlier day-length, weather-pattern and creative-control guidance remains source-checked at ee6fa20. The altitude change has native visual and automated regression evidence; it is not a full play-through of all weather controls. No public weather or night photographs have been added."
+    "method": "Re-checked against the game source at Voxelgame 251b9e46 on 8 November 2026: day length, start time and sun path (environment.rs, game.rs, frame.rs), the night sky (shader.wgsl), farm animals resting at night (entities), beds and Home rest leaving the clock alone (furniture/resting.rs, home.rs), the weather order, step length and blending, the rain, cloud, fog and wind of each weather, lightning and thunder timing (environment.rs), rain stopping at blocks and at the cloud ceiling (precipitation.rs), roof rain and wildlife sounds (ambience.rs), sailing wind (sailing.rs), the clock pausing in menus (game.rs), the shared server clock (session.rs, server host, net bridge) and the Gameplay > World rows (settings.rs, ui.rs, music_settings.rs, settings_search.rs). The cloud heights still match the native before/after captures and automated altitude tests recorded at Voxelgame 61a4257 on 15 October 2026; those captures were not repeated.",
+    "limits": "Source-checked at Voxelgame 251b9e46 on 8 November 2026; not play-tested. No new captures were taken. No public weather or night photographs have been added."
    },
    "owns": [
     "day-night-cycle",
@@ -3946,14 +3950,16 @@
      "blocks": [
       {
        "t": "p",
-       "text": "One day and night lasts 20 real minutes. The sun is up for about 10 minutes and down for about 10. New worlds start just after sunrise. {{day-night-cycle}}"
+       "text": "One day and night lasts 20 real minutes. The sun is up for about 10 minutes and down for about 10. New worlds start about a minute after sunrise. {{day-night-cycle}}"
       },
       {
        "t": "list",
        "items": [
-        "Night is darker and the moon is out. Nothing dangerous happens at night because of the time of day.",
-        "You cannot sleep or skip the night. Rest at home only sets your respawn point and restores stamina.",
-        "Birds sing in the morning. Night wildlife sounds take over after dark, unless it is raining or you are under a roof."
+        "Night is darker and the moon is out. On clear nights you also see stars and the Milky Way; cloud hides them. Nothing dangerous happens at night because of the time of day.",
+        "Cows, sheep, pigs and chickens stop wandering and rest on dry ground from about a minute after sunset until about a minute before sunrise. An animal you hit still runs.",
+        "You cannot sleep or skip the night. Lying in a bed does not pass time ({{guide:storage-beds-and-lamps|Storage, beds and lamps}}), and **Rest / set respawn** at your Home crate only sets your respawn point and refills stamina.",
+        "Birds sing near trees from sunrise until about midday. Night wildlife sounds take over after dark. Both are quieter in rain and silent under a roof, high above the ground, on coasts and in deserts, snowy or volcanic land.",
+        "In a single-player world, time stops while the pause menu, Settings or the fullscreen map is open. On a server the clock keeps running."
        ]
       },
       {
@@ -3969,39 +3975,41 @@
       {
        "t": "steps",
        "items": [
-        "The weather cycle takes 30 minutes. Each step lasts about 3 minutes.",
+        "The weather cycle takes 30 minutes. Each step lasts 3 minutes.",
         "The order is clear, cloudy, rain, cloudy, partly cloudy, foggy, cloudy, rainstorm, thunderstorm, cloudy. Then it starts again.",
-        "The sky, rain and wind fade in and out between steps, so changes are gradual."
+        "Rain, cloud, mist and wind blend over about 15 seconds when the step changes, so there is no sudden switch."
        ]
       },
       {
        "t": "p",
-       "text": "Each world starts at a different point in the cycle. The world shares one weather pattern, so rain falls over deserts too. Local rain depends on altitude and shelter. There is no snowfall. {{automatic-weather}}"
+       "text": "Each world starts at a different point in the cycle. The whole world shares one weather pattern, so rain falls over deserts too. There is no snowfall. To see the current step, press [[Esc]], choose **Settings** and open **Gameplay > World**: the Weather row reads, for example, **Auto / rain**. {{automatic-weather}}"
       },
       {
        "t": "list",
        "items": [
-        "Clear, partly cloudy and cloudy: no rain.",
-        "Rain: steady rain and light wind.",
-        "Rainstorm: heavy rain and strong wind, with no lightning.",
-        "Thunderstorm: heavy rain, the strongest wind and lightning with delayed thunder.",
-        "Foggy: low visibility and no rain."
+        "**Clear**: a cloudless sky. **Partly cloudy**: scattered clouds. **Cloudy**: grey overcast. None of them rain.",
+        "**Rain**: steady rain and a light breeze.",
+        "**Rainstorm**: heavy rain and strong wind, with no lightning.",
+        "**Thunderstorm**: the heaviest rain, the strongest wind, and lightning with thunder.",
+        "**Foggy**: thick mist that cuts visibility, with no rain."
        ]
       },
       {
        "t": "list",
        "items": [
-        "Rain stops at the first solid or liquid block. A roof you build keeps the rain off you.",
+        "Rain stops at the first solid or liquid block, so a roof you build keeps the rain off you.",
+        "Under a roof, rain is heard as a softer patter on the roof.",
+        "Overcast and rain darken the sky, and rain thickens the haze.",
+        "In a thunderstorm, lightning lights up the sky and land about every 18 seconds, and thunder follows one to three seconds later. Lightning does not damage you or set anything on fire.",
         "Cloud banks begin at 1,200, 1,800 and 2,500 metres above world zero.",
-        "Rain and its sound fade through the lowest cloud deck and stop by 1,600 metres. Flying above the clouds does not stop rain in the world below.",
-        "Under cover, rain is heard as a softer roof sound.",
-        "Lightning only flashes the sky and plays thunder. It does not damage you or set anything on fire.",
-        "Rain has no ambient-temperature survival penalty."
+        "Rain and its sound fade as you climb through the lowest cloud bank and stop by 1,600 metres. Flying above the clouds does not stop rain in the world below.",
+        "Weather never hurts you. Rain, storms and fog have no health, food, water or temperature penalty.",
+        "The music leans towards songs that suit the time of day, rain, storms and fog."
        ]
       },
       {
        "t": "p",
-       "text": "Wind strength changes with the weather, so sailing is affected too. {{sailing-wind-and-tacking}}"
+       "text": "Wind strength changes with the weather, from about 2.8 m/s in clear weather to 8.5 m/s in a thunderstorm, so sailing is affected too. {{sailing-wind-and-tacking}}"
       }
      ]
     },
@@ -4012,28 +4020,36 @@
       {
        "t": "steps",
        "items": [
-        "Press [[Esc]] and open the World tab in Settings.",
-        "Click a Time of day chip, or use its arrows, to hold Dawn, Day, Dusk or Night. Choose Cycle to go back to the normal day.",
-        "Click a Weather chip, or use its arrows, to hold a weather. Choose Auto to go back to the normal pattern."
+        "Press [[Esc]], choose **Settings**, then open **Gameplay > World**.",
+        "On the **Time of day** row, click **<** or **>** to step through Cycle, Dawn, Day, Dusk and Night. Cycle goes back to the normal day.",
+        "On the **Weather** row, step through Auto, Clear, Partly cloudy, Cloudy, Rain, Rainstorm, Thunderstorm and Foggy. Auto goes back to the normal pattern."
        ]
       },
       {
        "t": "keys",
        "rows": [
         [
+         "Cycle",
+         "Normal day and night."
+        ],
+        [
+         "Dawn, Day, Dusk, Night",
+         "Hold the sun at sunrise, midday or sunset, or hold the moon at midnight."
+        ],
+        [
          "Auto",
          "Follow the normal weather pattern."
         ],
         [
-         "Clear, Partly, Cloudy",
-         "Dry skies with different amounts of cloud."
+         "Clear, Partly cloudy, Cloudy",
+         "Dry skies with no cloud, scattered cloud or overcast."
         ],
         [
-         "Rain, Storm",
-         "Steady rain, or a rainstorm without lightning."
+         "Rain, Rainstorm",
+         "Steady rain, or heavy rain without lightning."
         ],
         [
-         "Thunder",
+         "Thunderstorm",
          "Heavy rain with lightning and thunder."
         ],
         [
@@ -4044,7 +4060,15 @@
       },
       {
        "t": "p",
-       "text": "The held time or weather stays in force if you switch to survival with [[F4]]. The row is saved with each world. In survival the rows only show the current state. {{creative-world-controls}}"
+       "text": "You can also pick a row with the Up / Down arrow keys and change it with Left / Right or [[Enter]]; right-click a row to step it back. Both lists wrap round. **Reset page** sets Time of day back to Cycle and Weather and Season back to Auto."
+      },
+      {
+       "t": "p",
+       "text": "A held time or weather is saved with the world and stays in force if you switch to survival with [[F4]]. In survival the rows only show the current state; trying to change one says **Time, weather, and season controls are read-only in survival**. {{creative-world-controls}}"
+      },
+      {
+       "t": "p",
+       "text": "On a server, everyone shares the server's time, weather and season. Changes in this tab do not reach the server and are replaced within a few seconds."
       }
      ]
     },
