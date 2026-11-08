@@ -1997,7 +1997,8 @@
     "crates/voxelgame-core/src/game/net_client/crafting.rs:43-65 — on servers crafting needs Survival and a ready connection",
     "crates/voxelgame-core/src/game/net_client/crafting.rs:68-129 — a finished order is sent to the server; the next waits for its answer",
     "crates/voxelgame-core/src/game/net_client/crafting.rs:144-172 — server confirmation or 'Crafting refused: … | materials kept'",
-    "crates/voxelgame-core/src/game/net_client/chests.rs:308-310 — on servers chests wait while crafts are queued"
+    "crates/voxelgame-core/src/game/net_client/chests.rs:308-310 — on servers chests wait while crafts are queued",
+    "crates/voxelgame-core/src/game/craft_queue.rs:138-160 — an order refused only for arriving too soon returns to the front, up to 3 times (game a5b4d699)"
    ],
    "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. Messages: 'Queued <recipe> x<n> | materials kept until finished', 'Cannot queue <recipe> | check materials and carry capacity', 'Craft queue full (8 orders) | finish or cancel in Craft', 'Craft waiting | restore materials or pack space, or cancel in Craft', 'Craft queue cancelled | all unspent materials kept'. Switching to Creative empties the queue. On servers Home and furniture storage also wait while orders are queued. The queue arrived in game commit 23b2f021 (17 October 2026).",
    "guide": {
@@ -5013,9 +5014,11 @@
     "crates/voxelgame-core/src/vehicle.rs:1085-1103 — C or F5 changes the camera",
     "crates/voxelgame-core/src/vehicle.rs:845-872 — Alt free look returns the view on release",
     "crates/voxelgame-core/src/game.rs:1548-1551 — the pack does not open at the helm",
-    "crates/voxelgame-core/src/game.rs:1811-1823 — V is refused on servers"
+    "crates/voxelgame-core/src/game.rs:1811-1823 — V is refused on servers",
+    "src/audio/sailing.rs:1-94 — at the helm, a hull rush that follows speed, sail flutter and a rare plank creak",
+    "src/audio.rs:592-597 — boat sounds share the ambience bus and its volume slider"
    ],
-   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. There is no reverse. The boat turns slowly while stopped and faster at speed. It stops dead if the hull would run aground or hit another boat, and it can only turn where the new heading still has water under the whole hull (crates/voxelgame-core/src/vehicle/sailing.rs:170-211), so a grounded boat may need packing up and relaunching. A boat with nobody at the helm does not drift. On servers V says 'Vehicles aren't available on servers yet'.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame 251b9e46aeefd207a5e34046dd8a973c2a2cb480; no new play test. There is no reverse. The boat turns slowly while stopped and faster at speed. It stops dead if the hull would run aground or hit another boat, and it can only turn where the new heading still has water under the whole hull (crates/voxelgame-core/src/vehicle/sailing.rs:170-211), so a grounded boat may need packing up and relaunching. A boat with nobody at the helm does not drift. On servers V says 'Vehicles aren't available on servers yet'. Boat sounds checked at a5b4d699.",
    "guide": {
     "state": "complete",
     "page": "guide-sailing.html",

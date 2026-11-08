@@ -12,10 +12,10 @@
         "date": "2026-08-16"
       },
       "last": {
-        "commit": "c56a00c4219e69c433f2bb6f908198998519fdfc",
+        "commit": "a5b4d69997307e4fac75e555d851d7c0fe565287",
         "date": "2026-11-08"
       },
-      "commitCount": 2511,
+      "commitCount": 2667,
       "tags": [],
       "publicCommitLinks": false,
       "releases": "unavailable",
@@ -1089,7 +1089,7 @@
       "id": "game-2026-11-08",
       "source": "game",
       "date": "2026-11-08",
-      "title": "Beds, cooking stove, lamps, lantern light and animal voices",
+      "title": "Beds, cooking stove, lamps, lantern light, animal voices and boat sounds",
       "entries": [
         {
           "kind": "Added",
@@ -1286,9 +1286,37 @@
             }
           ],
           "publicSummary": "Explosions, shells and tank tracks no longer knock the support out from under placed furniture in single-player worlds."
+        },
+        {
+          "kind": "Added",
+          "area": "Sailing",
+          "text": "At the helm of the Small sailing boat you now hear a hull rush whose loudness and brightness follow your speed, a sail flutter when the sail hangs slack or the tiller swings hard, and a rare quiet plank creak under way. A boat at rest is silent, and the sounds follow the Ambience volume slider.",
+          "refs": [
+            {
+              "commit": "11997be017de7f49b65bbff1be28aa951d314156",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "3fb4748c21f634c33430ef69ac4a75ed1a7e2a63",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Added boat sounds at the helm: rushing water that follows your speed, sail flutter and an occasional creak."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Multiplayer",
+          "text": "On a server, a queued craft the server refused only for arriving too soon now goes back to the front of the queue and is sent again ('Server busy | retrying … x n, materials kept'), up to three times in a row, instead of being dropped.",
+          "refs": [
+            {
+              "commit": "f3b8e3d6bf93d9baf9fa7ba513d95cf9715b6e61",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed queued crafts on a server being dropped when the server was briefly busy."
         }
       ],
-      "publicTitle": "Beds, cooking stove, lamps, lantern light and animal voices"
+      "publicTitle": "Beds, cooking stove, lamps, lantern light, animal voices and boat sounds"
     },
     {
       "id": "game-2026-11-07",
