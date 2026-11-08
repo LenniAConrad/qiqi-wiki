@@ -31,10 +31,10 @@
         "date": "2026-10-09"
       },
       "last": {
-        "commit": "ae2bb121d07dca51a3441a9d14dedd12a18f5f17",
+        "commit": "62aa9e968f6b4c853e5d3782883bb21feac668cd",
         "date": "2026-11-08"
       },
-      "commitCount": 179,
+      "commitCount": 181,
       "tags": [],
       "publicCommitLinks": true,
       "releases": "none",
@@ -417,7 +417,7 @@
         {
           "kind": "Changed",
           "area": "Changelog",
-          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame a5b4d699 on 8 November, with day groups for 13 October to 8 November.",
+          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame ac5a66dc on 8 November, with day groups for 13 October to 8 November.",
           "refs": [
             {
               "commit": "ec84c2d323419f3b5b74b78cf6b0f7f9d5f930e2",
@@ -429,6 +429,10 @@
             },
             {
               "commit": "ae2bb121d07dca51a3441a9d14dedd12a18f5f17",
+              "date": "2026-11-08"
+            },
+            {
+              "commit": "62aa9e968f6b4c853e5d3782883bb21feac668cd",
               "date": "2026-11-08"
             }
           ],
