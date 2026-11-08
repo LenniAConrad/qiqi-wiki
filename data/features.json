@@ -243,14 +243,17 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/startup/worlds.rs:278-328 — search, shortcuts, stars and scrolling",
-    "crates/voxelgame-core/src/game/startup/worlds.rs:348-415 — separate actions, selection, double-click and Enter",
-    "crates/voxelgame-core/src/game/startup/worlds.rs:420-495 — held delete; active-world refusal",
+    "crates/voxelgame-core/src/game/startup/worlds.rs:279-328 — search, shortcuts, stars and scrolling",
+    "crates/voxelgame-core/src/game/startup/worlds.rs:342-415 — separate actions, selection, double-click and Enter",
+    "crates/voxelgame-core/src/game/startup/worlds.rs:420-497 — held delete; active-world refusal",
+    "crates/voxelgame-core/src/game.rs:208 — the 3-second delete hold",
     "src/worlds.rs:161-170 — active, starred, recent and name ordering",
-    "crates/voxelgame-render/src/startup_ui/worlds.rs:459-494 — selected-world seed, mode, generation and history"
+    "crates/voxelgame-render/src/startup_ui/worlds.rs:447-506 — selected-world seed, mode, generation and history",
+    "src/app/backup.rs:8-27 — hosting refusal when backing up the current world",
+    "src/app/world_management.rs:18-40 — hosting refusal when duplicating the current world"
    ],
    "backlog": [],
-   "notes": "Targeted 5 November 2026 source follow-up at aa136e0103ce5599c6d8a9f70c669dbc758b7357. Rename changes display metadata. Duplicate and backup preserve independent copies; active hosting and unfinished save recovery must be resolved first. Some old worlds have unknown or partial session history. Source-checked; no native game or two-computer play test was run. Unrelated ledger rows retain their earlier audit.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Rename changes only the name shown. Duplicate and backup keep independent copies; the world you are in cannot be duplicated or backed up while you are hosting (stop hosting or load a local world first). Some old worlds show unknown or partial session history.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -314,12 +317,14 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/settings.rs:25-89 — groups and subpages",
-    "crates/voxelgame-core/src/game/music_settings.rs:211-239 — pause actions",
-    "crates/voxelgame-core/src/game/music_settings.rs:275-411 — row edits and navigation",
+    "crates/voxelgame-core/src/game/music_settings.rs:149-204 — row edits",
+    "crates/voxelgame-core/src/game/music_settings.rs:206-275 — pause actions",
+    "crates/voxelgame-core/src/game/music_settings.rs:277-415 — navigation and pointer input",
     "crates/voxelgame-core/src/game/settings_search.rs:41-153 — search and reset",
-    "crates/voxelgame-render/src/menus_ui.rs:523-545 — Reset page, Back and Resume"
+    "crates/voxelgame-render/src/menus_ui.rs:543-570 — Reset page, Back and Resume",
+    "src/settings_profile.rs:25-33 — preferences shared between worlds"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Changes apply immediately. Graphics, audio, interface and keys follow the player between worlds (src/settings_profile.rs:25-39). Key bindings resets every key; survival World controls have no editable defaults. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Changes apply immediately. Graphics, audio, interface and keys follow the player between worlds. Reset page on Key bindings resets every key; it is unavailable on Survival's World page, which has no editable defaults.",
    "guide": {
     "state": "partial",
     "page": "guide-getting-started.html",
@@ -334,7 +339,7 @@
    "modes": [
     "any"
    ],
-   "summary": "Esc closes the current panel or dialog; with no panel open, it opens the pause menu and releases the mouse. Choose Settings there. Esc from those settings returns to the pause menu. Local worlds pause in these menus and the fullscreen map; the pack does not pause. A connected server keeps running.",
+   "summary": "Esc closes the current panel or dialog; with no panel open, it opens the pause menu and releases the mouse. The pause menu offers Resume, Settings, Save & main menu, Save & quit, First steps and Screenshot. Esc from Settings returns to the pause menu. Local worlds pause in these menus and the fullscreen map; the pack does not pause. A connected server keeps running.",
    "controls": [
     [
      "Esc",
@@ -350,12 +355,14 @@
     ]
    ],
    "evidence": [
-    "src/app.rs:461-490 — Escape routing",
-    "crates/voxelgame-core/src/game.rs:3404-3415 — pause menu",
-    "crates/voxelgame-core/src/game.rs:3424-3500 — close one layer",
-    "crates/voxelgame-core/src/game.rs:1415-1445 — map/settings return with connected ticks"
+    "src/app.rs:443-475 — Print Screen and Escape routing",
+    "crates/voxelgame-core/src/game.rs:3511-3524 — pause menu",
+    "crates/voxelgame-core/src/game.rs:3529-3611 — close one layer",
+    "crates/voxelgame-core/src/game.rs:1420-1450 — map/settings return with connected ticks",
+    "crates/voxelgame-core/src/game/music_settings.rs:211-275 — pause actions and keys",
+    "crates/voxelgame-render/src/menus_ui.rs:600-653 — pause menu labels and server notice"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Esc first cancels binding capture or an active chat/name entry. Esc can close the pack even while its search field is active. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Esc first cancels binding capture or an active chat/name entry. Esc can close the pack even while its search field is active.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -386,12 +393,13 @@
     ]
    ],
    "evidence": [
-    "src/app.rs:408-417 — focus/occlusion release",
-    "src/app.rs:453-499 — Print Screen, Escape and discarded click",
-    "src/app.rs:1622-1626 — panel capture changes",
-    "src/app.rs:1756-1770 — capture eligibility"
+    "src/app.rs:405-414 — focus/occlusion release",
+    "src/app.rs:443-484 — Print Screen, Escape and discarded click",
+    "src/app.rs:1615-1620 — panel capture changes",
+    "src/app.rs:1749-1772 — capture eligibility and refusal message",
+    "src/app.rs:2069-2071 — capture needs focus, a visible window and no panel"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Print Screen releases the pointer for a system screenshot tool. F10 is the separate default in-game screenshot key. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Print Screen releases the pointer for a system screenshot tool. F10 is the separate default in-game screenshot key.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -459,17 +467,17 @@
     ]
    ],
    "evidence": [
-    "src/app.rs:63 — fixed title",
-    "src/app.rs:80-83 — second launch",
+    "src/app.rs:61-63 — fixed title",
+    "src/app.rs:79-85 — second launch",
     "src/app.rs:149-157 — window dimensions",
-    "src/app.rs:425-440 — fullscreen shortcuts",
-    "src/app.rs:1855-1860 — borderless toggle"
+    "src/app.rs:422-433 — fullscreen shortcuts",
+    "src/app.rs:1848-1855 — borderless toggle"
    ],
    "backlog": [
     "VOX-OWNER-WINDOW-TITLE",
     "VOX-OWNER-DISPLAY-AWAKE"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Fullscreen remains a window/session choice; the global profile stores no fullscreen field. Display-awake support is documented separately. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Fullscreen remains a window/session choice; the global profile stores no fullscreen field. Display-awake support is documented separately.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -486,14 +494,14 @@
    ],
    "summary": "Play with keyboard and mouse. Change gameplay keys in Settings > Controls > Key bindings; the reference shows defaults. Keys use physical positions, so non-QWERTY keyboards follow those positions until reassigned. There is no gamepad input path.",
    "evidence": [
-    "src/input_adapter.rs:76-117 — physical keyboard and text",
-    "src/input_adapter.rs:121-154 — mouse and wheel",
+    "src/input_adapter.rs:57-120 — physical keyboard and text",
+    "src/input_adapter.rs:122-157 — mouse and wheel",
     "crates/voxelgame-core/src/bindings.rs:24-74 — actions/defaults",
-    "crates/voxelgame-core/src/bindings.rs:150-185 — reserved keys and conflicts",
-    "crates/voxelgame-core/src/game/controls.rs:43-124 — capture and reset",
-    "src/settings_profile.rs:25-39 — shared bindings"
+    "crates/voxelgame-core/src/bindings.rs:150-187 — reserved keys, conflicts and Right Shift/Ctrl",
+    "crates/voxelgame-core/src/game/controls.rs:35-124 — capture and reset",
+    "src/settings_profile.rs:25-33 — shared bindings"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). One physical key per action. Esc, F6, F11 and Print Screen are reserved. Shared keys warn of conflicts and can fire both actions. Menu navigation stays physical. Unicode and IME commits have input paths; native desktop IME behavior was not retested. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. One physical key per action; Right Shift and Right Ctrl also work as sneak and sprint while those keep their default keys. Esc, F6, F11 and Print Screen are reserved. Shared keys warn of conflicts and can fire both actions. Menu navigation stays physical. Unicode and IME commits have input paths; native desktop IME behaviour was not retested.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -589,15 +597,16 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game/credits.rs:10-29 — cards/timing/buttons",
-    "crates/voxelgame-core/src/game/credits.rs:76-84 — timed loop",
-    "crates/voxelgame-core/src/game/credits.rs:148-185 — navigation"
+    "crates/voxelgame-core/src/game/credits.rs:10-30 — cards/timing/buttons",
+    "crates/voxelgame-core/src/game/credits.rs:77-85 — timed loop",
+    "crates/voxelgame-core/src/game/credits.rs:104-133 — card and button navigation",
+    "crates/voxelgame-core/src/game/credits.rs:148-186 — keys and pointer"
    ],
    "backlog": [
     "VOX-OWNER-CREDITS-NAVIGATION",
     "VOX-OWNER-CREDITS-MUSIC"
    ],
-   "notes": "Targeted source check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Manual navigation restarts the card timer. Previous/Next stop at the ends; automatic playback loops. Audio scheduling is documented separately. Source review only; no new play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Manual navigation restarts the card timer. Previous/Next stop at the ends and Tab skips a disabled button; automatic playback loops. Audio scheduling is documented separately.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -625,12 +634,16 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/session.rs:139-156 — W/A/S/D, Space, Shift, Ctrl and C are read into the movement intent",
-    "crates/voxelgame-core/src/player.rs:549-618 — wished direction and per-posture speeds",
-    "crates/voxelgame-core/src/game.rs:1071-1094 — look and movement only while the pointer is captured and the pack panel is closed",
-    "src/input_adapter.rs:18-23 — keys are read as physical key codes, not typed letters"
+    "crates/voxelgame-core/src/session.rs:152-172 — W/A/S/D, Space, Shift, Ctrl and C are read into the movement intent",
+    "crates/voxelgame-core/src/player.rs:617-690 — wished direction and per-posture speeds (walk 4.32 m/s)",
+    "crates/voxelgame-core/src/player.rs:33-37 — step height clears half-metre rises; a full metre needs a jump",
+    "crates/voxelgame-core/src/game.rs:1709-1760 — look and movement only while the pointer is captured and the pack is closed",
+    "src/app.rs:1567-1569 — pointer capture enables gameplay input",
+    "src/input_adapter.rs:89-120 — keys are read as physical key codes, not typed letters",
+    "crates/voxelgame-core/src/bindings.rs:25-28 — Forward, Backward, Left and Right default to W, S, A and D",
+    "crates/voxelgame-core/src/player.rs:655-681 — Dune sand multiplies speed by 0.64"
    ],
-   "notes": "Keys are physical positions: on AZERTY or other layouts use the key that sits where W is on a QWERTY board. Jumps mostly keep their take-off direction. Movement runs on a fixed 60 Hz tick, so speed does not depend on frame rate.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Keys are physical positions: on AZERTY or other layouts use the key that sits where W is on a QWERTY board, or rebind in Settings > Controls > Key bindings. Jumps mostly keep their take-off direction. Walking on Dune sand slows you to about two thirds speed. Movement runs on a fixed 60 Hz tick, so speed does not depend on frame rate.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -658,10 +671,12 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/player.rs:710-732 — jump only from the ground and not while crawling; held Space repeats",
-    "crates/voxelgame-core/src/player.rs:1542-1543 — test holding_space_repeats_jumps_after_each_landing",
-    "crates/voxelgame-core/src/player.rs:499-501 — Space cancels a crawl request"
+    "crates/voxelgame-core/src/player.rs:793-808 — jump only from the ground and not while crawling; held Space repeats",
+    "crates/voxelgame-core/src/player.rs:801-803 — jump arc of roughly 1.25 blocks",
+    "crates/voxelgame-core/src/player_tests.rs:532-553 — test holding_space_repeats_jumps_after_each_landing",
+    "crates/voxelgame-core/src/player.rs:565-570 — Space cancels a crawl request"
    ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Space is the default; rebind Jump in Settings > Controls > Key bindings.",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -677,7 +692,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Hold Ctrl while moving forward with W to sprint at about 5.6 m/s. A sprint-jump adds a small forward push. In survival, sprinting uses stamina and stops when stamina is nearly empty.",
+   "summary": "Hold Ctrl while moving forward with W to sprint at about 5.6 m/s. A sprint-jump adds a small forward push. In survival, sprinting uses stamina (a full bar lasts about 8 seconds) and stops when stamina is nearly empty. Settings > Gameplay > Movement > Sprint can change Hold to Toggle, so each Ctrl press switches sprint on or off.",
    "controls": [
     [
      "Ctrl + W (hold)",
@@ -686,15 +701,23 @@
     [
      "Ctrl + Space while sprinting",
      "Sprint-jump with a small forward push (on foot)"
+    ],
+    [
+     "Ctrl (tap, Toggle mode)",
+     "Switch sprint on or off; W still moves you (Settings > Gameplay > Movement > Sprint)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/player.rs:578-583 — sprint requires Ctrl and W held, and not flying, sneaking or crawling",
-    "crates/voxelgame-core/src/player.rs:717-724 — sprint-jump forward boost",
-    "crates/voxelgame-core/src/game/locomotion.rs:116 — current stamina gates sprinting",
-    "crates/voxelgame-core/src/game.rs:1099-1108 — stamina and other meters only update in survival"
+    "crates/voxelgame-core/src/player.rs:648-654 — sprint requires Ctrl and W held, not S, flying, sneaking or crawling, and stamina above 3%",
+    "crates/voxelgame-core/src/player.rs:677-678 — sprint speed 5.61 m/s",
+    "crates/voxelgame-core/src/player.rs:793-799 — sprint-jump forward boost",
+    "crates/voxelgame-core/src/game/locomotion.rs:184-194 — Hold or Toggle for sprint and sneak",
+    "crates/voxelgame-core/src/game/locomotion.rs:218 — current stamina gates sprinting",
+    "crates/voxelgame-core/src/survival.rs:41-52 — sprinting drains stamina; stopping recovers it",
+    "crates/voxelgame-core/src/game.rs:1775-1778 — stamina and other meters only update in survival",
+    "crates/voxelgame-core/src/settings.rs:573-575 — Hold, Hold and Toggle defaults for sprint, sneak and crawl"
    ],
-   "notes": "Ctrl with only A, D or S held does not sprint. High speed also widens the view slightly (see camera-bob-and-speed-fov).",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Ctrl with only A, D or S held does not sprint. Opening a menu clears a Toggle latch. High speed also widens the view slightly (see camera-bob-and-speed-fov).",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -710,20 +733,26 @@
     "creative",
     "survival"
    ],
-   "summary": "Hold Shift on the ground to sneak at about 1.3 m/s with a slightly lower view. While sneaking you cannot walk off an edge, and the hint under the crosshair reads 'SNEAK: LEDGE GUARD ACTIVE'.",
+   "summary": "Hold Shift on the ground to sneak at about 1.3 m/s with a slightly lower view. While sneaking you cannot walk off an edge. With no tool equipped, the hint under the crosshair can read 'SNEAK: LEDGE GUARD ACTIVE', or start with 'SNEAK SAFE |' when a block is in view. Settings > Gameplay > Movement > Sneak can change Hold to Toggle.",
    "controls": [
     [
      "Shift (hold)",
      "Sneak with ledge protection (on the ground, not flying or in water)"
+    ],
+    [
+     "Shift (tap, Toggle mode)",
+     "Switch sneaking on or off (Settings > Gameplay > Movement > Sneak)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/player.rs:538 — sneaking = Shift held, not flying, not in water, not crawling",
-    "crates/voxelgame-core/src/player.rs:745-748 — edge guard while sneaking or crawling on the ground",
-    "crates/voxelgame-core/src/player.rs:1881-1882 — test crouching_prevents_walking_off_a_single_block_ledge",
-    "crates/voxelgame-render/src/menus_ui.rs:224-234 — 'SNEAK: LEDGE GUARD ACTIVE' / 'SNEAK SAFE' hints"
+    "crates/voxelgame-core/src/player.rs:608 — sneaking = Shift held, not flying, not in water, not crawling",
+    "crates/voxelgame-core/src/player.rs:675-676 — sneak speed 1.31 m/s",
+    "crates/voxelgame-core/src/player.rs:822-834 — edge guard while sneaking or crawling on the ground",
+    "crates/voxelgame-core/src/player_tests.rs:936-954 — test crouching_prevents_walking_off_a_single_block_ledge",
+    "crates/voxelgame-render/src/menus_ui.rs:232-242 — 'SNEAK: LEDGE GUARD ACTIVE' / 'SNEAK SAFE' hints",
+    "crates/voxelgame-core/src/game/locomotion.rs:190-194 — sneak Hold or Toggle"
    ],
-   "notes": "Shift is shared: it also switches mining/placing to half-metre pieces, dives while swimming, descends while flying and steadies ranged weapons.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Shift is shared: it also switches mining/placing to half-metre pieces, dives while swimming, descends while flying and steadies ranged weapons. Right Shift also works while Sneak keeps its default key.",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -739,7 +768,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Press C on foot to crawl with a 0.6 m tall body at about 1 m/s to get through low gaps. Press C again or Space to stand; you only stand once there is full headroom, and in a low space the game keeps you crawling automatically.",
+   "summary": "Press C on foot to crawl with a 0.6 m tall body at about 1 m/s to get through low gaps. Press C again or Space to stand; you only stand once there is full headroom, and in a low space the game keeps you crawling automatically. Settings > Gameplay > Movement > Crawl can change Toggle (the default) to Hold, which crawls only while C is held.",
    "controls": [
     [
      "C",
@@ -748,14 +777,21 @@
     [
      "Space",
      "Ask to stand up (while crawling)"
+    ],
+    [
+     "C (hold, Hold mode)",
+     "Crawl while held (Settings > Gameplay > Movement > Crawl)"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/player.rs:496-501 — C toggles crawl; flying, swimming or Space clear the request",
-    "crates/voxelgame-core/src/player.rs:525-535 — stays compact while the standing body would collide",
-    "crates/voxelgame-render/src/menus_ui.rs:191-193 — hint 'CRAWL: WASD | C / SPACE STAND WHEN CLEAR'"
+    "crates/voxelgame-core/src/player.rs:565-570 — C toggles crawl; flying, swimming or Space clear the request",
+    "crates/voxelgame-core/src/player.rs:595-605 — stays compact while the standing body would collide",
+    "crates/voxelgame-core/src/player.rs:673-674 — crawl speed 1 m/s",
+    "crates/voxelgame-core/src/game/locomotion.rs:195-235 — crawl Hold or Toggle",
+    "crates/voxelgame-render/src/menus_ui.rs:79-84 — hint 'CRAWL: WASD | C / SPACE STAND WHEN CLEAR'",
+    "crates/voxelgame-core/src/vehicle.rs:1098-1117 — in a vehicle, C changes the camera"
    ],
-   "notes": "Inside a vehicle C changes camera instead. You cannot jump while crawling.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Inside a vehicle C changes camera instead. You cannot jump while crawling. The ledge guard also applies while crawling.",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -791,12 +827,15 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/player.rs:557-561 — forward follows the view pitch while swimming",
-    "crates/voxelgame-core/src/player.rs:683-706 — vertical swim response",
-    "crates/voxelgame-render/src/menus_ui.rs:186-189 — hint 'SWIM: LOOK + WASD | SPACE UP | SHIFT DIVE | CTRL FAST'",
-    "crates/voxelgame-core/src/game.rs:1046-1055 — Space taps in water never toggle creative flight"
+    "crates/voxelgame-core/src/player.rs:562-564 — chest-deep water starts swimming",
+    "crates/voxelgame-core/src/player.rs:627-631 — forward follows the view pitch while swimming",
+    "crates/voxelgame-core/src/player.rs:667-672 — swim speed 2.2 m/s, 3.4 m/s fast",
+    "crates/voxelgame-core/src/player.rs:759-782 — vertical swim response",
+    "crates/voxelgame-render/src/menus_ui.rs:73-78 — hint 'SWIM: LOOK + WASD | SPACE UP | SHIFT DIVE | CTRL FAST'",
+    "crates/voxelgame-core/src/game.rs:1684-1701 — Space taps in water never toggle creative flight",
+    "crates/voxelgame-core/src/survival.rs:41-52 — basic swimming carries no stamina tax"
    ],
-   "notes": "Ankle-deep wading stays upright. No drowning or air meter was found in this code (grep drown/breath/oxygen); being underwater only drains stamina slowly in survival.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Ankle-deep wading stays upright. No drowning or air meter was found in the code. Swimming costs no stamina; fast swimming with Ctrl + W drains it like sprinting in survival. Normal pace is about 2.2 m/s, fast about 3.4 m/s.",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -811,7 +850,7 @@
    "modes": [
     "creative"
    ],
-   "summary": "In creative, press F or double-tap Space on dry land to start or stop flying. Hold Space to rise, Shift to descend and Ctrl to boost from 16 to 32 m/s. Flight also ends when you switch to survival, board a vehicle or respawn.",
+   "summary": "In creative, press F or double-tap Space within 0.3 seconds on dry land to start or stop flying. Hold Space to rise, Shift to descend and Ctrl to boost from 16 to 32 m/s. Flight also ends when you switch to survival, board a vehicle or respawn.",
    "controls": [
     [
      "F",
@@ -839,12 +878,15 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:1037-1063 — F and double-tap Space handling",
-    "crates/voxelgame-core/src/game.rs:2556-2565 — 'Creative flight enabled/disabled' status",
-    "crates/voxelgame-core/src/player.rs:668-679 — Space up, Shift down while flying",
-    "crates/voxelgame-core/src/player.rs:458-460 — survival never flies"
+    "crates/voxelgame-core/src/game.rs:1675-1701 — F and double-tap Space handling",
+    "crates/voxelgame-core/src/game.rs:3618-3627 — 'Creative flight enabled/disabled' status",
+    "crates/voxelgame-core/src/player.rs:661-666 — flight speed 16 m/s, boosted 32 m/s",
+    "crates/voxelgame-core/src/player.rs:744-755 — Space up, Shift down while flying",
+    "crates/voxelgame-core/src/player.rs:517-519 — survival never flies",
+    "crates/voxelgame-core/src/vehicle/occupied.rs:135 — boarding a vehicle ends flight",
+    "crates/voxelgame-core/src/player.rs:899-902 — respawn ends flight"
    ],
-   "notes": "In survival, F only shows 'Flight is available in creative mode'. Touching the ground does not end flight.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. In survival, F only shows 'Flight is available in creative mode'. Touching the ground does not end flight.",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -868,11 +910,13 @@
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:986-996 — Z zoom on foot, right mouse zoom in vehicles",
-    "crates/voxelgame-core/src/game/readouts.rs:238-244 — smooth zoom easing",
-    "crates/voxelgame-render/src/reticle_ui.rs:363-366 — 'ZOOM' label"
+    "crates/voxelgame-core/src/game.rs:1620-1632 — Z zoom on foot, right mouse zoom in vehicles",
+    "crates/voxelgame-core/src/game/readouts.rs:287-296 — smooth zoom easing",
+    "crates/voxelgame-render/src/camera_view.rs:92-94 — zoom narrows the view to 30 degrees",
+    "crates/voxelgame-core/src/game.rs:1719-1726 — mouse look slows while zoomed",
+    "crates/voxelgame-render/src/reticle_ui.rs:582-583 — 'ZOOM' label"
    ],
-   "notes": "Ctrl+Z is undo in creative, so Z does not zoom while Ctrl is held.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Ctrl+Z is undo in creative, so Z does not zoom while Ctrl is held. Z can be rebound (Zoom / undo modifier).",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -901,11 +945,12 @@
    ],
    "evidence": [
     "crates/voxelgame-core/src/camera.rs:13-43 — three modes and their names",
-    "crates/voxelgame-core/src/camera.rs:45-69 — camera stops before solid blocks; plants and water do not block it",
-    "crates/voxelgame-core/src/game.rs:866-873 — F5 handling and status message",
-    "crates/voxelgame-render/src/reticle_ui.rs:305-325 — rear view projects the aim point, front view hides the crosshair"
+    "crates/voxelgame-core/src/camera.rs:45-90 — camera stops before solid blocks; plants and water do not block it",
+    "crates/voxelgame-core/src/game.rs:1452-1459 — F5 handling and status message",
+    "crates/voxelgame-render/src/reticle_ui.rs:527-570 — rear view projects the aim point, front view hides the crosshair",
+    "crates/voxelgame-core/src/vehicle.rs:1098-1117 — F5 or C changes the camera in a vehicle"
    ],
-   "notes": "The perspective is not saved; every session starts in first person.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. The perspective is not saved; every session starts in first person. F5 can be rebound (Camera perspective).",
    "guide": {
     "state": "complete",
     "page": "guide-controls.html",
@@ -921,18 +966,21 @@
     "creative",
     "survival"
    ],
-   "summary": "Walking gently bobs the camera; turn it off in Settings > Gameplay > Movement > Camera bob. Speed FOV widens the view by up to 5 degrees at high horizontal speed, reaching full widening at about 16 m/s; jumps and falls do not change it. Turn it off with Settings > Gameplay > Movement > Speed FOV. When you lose at least 1 HP, the camera dips briefly by up to 7 cm; Settings > Gameplay > Movement > Damage bob sets this to Off, Reduced or Full (Full by default).",
+   "summary": "Walking gently bobs the camera; turn it off in Settings > Gameplay > Movement > Camera bob. Speed FOV widens the view by up to 5 degrees at high horizontal speed, reaching full widening at about 16 m/s; jumps and falls do not change it. Turn it off with Settings > Gameplay > Movement > Speed FOV. When you lose at least 1 HP, the camera dips briefly by up to 7 cm; Settings > Gameplay > Movement > Damage bob sets this to Off, Reduced or Full (Full by default). Settings > Interface > Accessibility > Reduce motion turns off all three.",
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:89-104 — Speed FOV maximum, ease time and target from horizontal speed",
-    "crates/voxelgame-core/src/game.rs:93-99 — damage dip size, rate and minimum damage",
-    "crates/voxelgame-core/src/game.rs:1661 — camera position takes the damage dip",
-    "crates/voxelgame-render/src/lib.rs:2148-2160 — field of view adds the speed boost unless Speed FOV is off",
-    "crates/voxelgame-core/src/settings.rs:323-325 — Target info, Speed FOV and Damage bob defaults",
-    "crates/voxelgame-core/src/player.rs:780-790 — bob strength follows walking speed",
-    "crates/voxelgame-core/src/player.rs:349 — camera position applies bob only when enabled",
-    "crates/voxelgame-core/src/settings.rs:65-88 — current settings route"
+    "crates/voxelgame-core/src/game.rs:186-203 — Speed FOV maximum, ease time and target from horizontal speed",
+    "crates/voxelgame-core/src/game.rs:190-197 — damage dip size, rate and minimum damage",
+    "crates/voxelgame-core/src/game/readouts.rs:186-219 — Speed FOV and damage dip follow their settings and Reduce motion",
+    "crates/voxelgame-core/src/game/readouts.rs:247-285 — a hit of at least 1 HP starts the dip",
+    "crates/voxelgame-core/src/game.rs:2560-2566 — camera position takes bob and the damage dip",
+    "crates/voxelgame-render/src/camera_view.rs:84-92 — field of view adds the eased speed boost",
+    "crates/voxelgame-core/src/settings.rs:552 — Camera bob default",
+    "crates/voxelgame-core/src/settings.rs:583-585 — Target info, Speed FOV and Damage bob defaults",
+    "crates/voxelgame-core/src/player.rs:383-393 — camera position applies bob only when enabled",
+    "crates/voxelgame-core/src/player.rs:878-888 — bob strength follows walking speed",
+    "crates/voxelgame-core/src/settings.rs:25-89 — current settings route"
    ],
-   "notes": "Targeted settings-route check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). Other numeric/visual behavior retains its earlier audit. Graphics, audio and interface preferences now follow the player (src/settings_profile.rs:25-39); this is not a fresh capture or play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Camera bob and Speed FOV default to on. Settings follow the player between worlds (src/settings_profile.rs:25-33).",
    "guide": {
     "state": "complete",
     "page": "guide-moving-and-aiming.html",
@@ -948,14 +996,18 @@
     "creative",
     "survival"
    ],
-   "summary": "During play the status line sits top-left, the looking-at card top-right just left of the compact map, the compact map top-right with the FPS/coordinates box beneath it, the crosshair and action hint in the middle, the four survival bars lower-left (survival only) and the ten-slot hotbar with its item label at the bottom.",
+   "summary": "During play the status line sits top-left, the looking-at card top-right just left of the compact map, the compact map top-right with the FPS/coordinates box beneath it, the crosshair and action hint in the middle, the four survival bars lower-left (survival only) and the ten-slot hotbar with its item label at the bottom. A milestone line appears under the status line, and the HUD compass is off by default.",
    "evidence": [
-    "crates/voxelgame-render/src/hud.rs:118-138 — order of HUD layers",
-    "crates/voxelgame-render/src/hud.rs:219-312 — status line, chat, vehicle instruments, cards, map, readout",
-    "crates/voxelgame-render/src/hud.rs:353-395 — action hint below the crosshair (vehicle hints in a lower-left panel)",
-    "crates/voxelgame-core/src/ui.rs:594-600 — looking-at card right-aligned at top, 10 units left of the compact map"
+    "crates/voxelgame-render/src/hud.rs:297-334 — order of HUD layers",
+    "crates/voxelgame-render/src/hud.rs:457-600 — status line, milestone line, chat, cards, map, readout",
+    "crates/voxelgame-render/src/hud.rs:604-666 — action hint below the crosshair (vehicle hints in a lower-left panel)",
+    "crates/voxelgame-core/src/ui.rs:773-794 — compact map top-right; looking-at card right-aligned at top, 10 units left of it",
+    "crates/voxelgame-render/src/hud/survival.rs:8-44 — survival bars lower-left, survival only",
+    "crates/voxelgame-render/src/hotbar_ui.rs:315-318 — hotbar and its item label",
+    "crates/voxelgame-core/src/game.rs:178 — ten hotbar slots",
+    "crates/voxelgame-core/src/settings.rs:588 — HUD compass off by default"
    ],
-   "notes": "Opening a menu hides the gameplay HUD. Status messages stay until replaced. Changed after the audited commit dd29d91: game commit 6acf338 (on main 4bd6541) moved the card and added these settings; evidence lines for this row are from 4bd6541.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Opening a menu hides the gameplay HUD. Status messages stay until replaced; long ones are cut to fit.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
@@ -1034,7 +1086,7 @@
     "creative",
     "survival"
    ],
-   "summary": "Press F1 to hide the HUD, crosshair, prompts, compact map, block highlight and first-person hands and tools, for example for screenshots. Menus still appear when opened. Press F1 again to bring everything back.",
+   "summary": "Press F1 to hide the HUD, crosshair, prompts, compact map, block highlight and first-person hands and tools, for example for screenshots. Menus still appear when opened, and the screenshot-saved message still shows. Press F1 again to bring everything back.",
    "controls": [
     [
      "F1",
@@ -1043,20 +1095,27 @@
     [
      "F10",
      "Save a game screenshot (default; configurable)"
+    ],
+    [
+     "Pause menu > Screenshot",
+     "Close the menu and save a screenshot"
     ]
    ],
    "evidence": [
-    "crates/voxelgame-core/src/game.rs:959-967 — F1 toggle and messages",
-    "crates/voxelgame-render/src/hud.rs:110-111 — only open menus draw while hidden",
-    "crates/voxelgame-render/src/viewmodel.rs:382 — first-person hands/tools hidden",
-    "crates/voxelgame-render/src/highlight.rs:21 — block highlight hidden",
+    "crates/voxelgame-core/src/game.rs:1539-1547 — F1 toggle and messages",
+    "crates/voxelgame-render/src/hud.rs:272-274 — only open menus draw while hidden",
+    "crates/voxelgame-render/src/viewmodel.rs:419-424 — first-person hands/tools hidden",
+    "crates/voxelgame-render/src/highlight.rs:94-96 — block highlight hidden",
     "crates/voxelgame-core/src/bindings.rs:51-71 — HUD/screenshot defaults",
-    "crates/voxelgame-core/src/game.rs:1158-1177 — screenshot request",
-    "src/app.rs:1689-1693 — native capture request",
-    "crates/voxelgame-core/src/game/screenshots.rs:14-28 — completion feedback",
-    "src/screenshots.rs:7-40 — destination"
+    "crates/voxelgame-core/src/game.rs:1163-1183 — screenshot request (function keys)",
+    "crates/voxelgame-core/src/game.rs:1265-1273 — screenshot request (other keys)",
+    "crates/voxelgame-core/src/game/music_settings.rs:211-241 — pause menu Screenshot action",
+    "src/app.rs:1682-1688 — native capture request",
+    "crates/voxelgame-core/src/game/screenshots.rs:15-48 — completion feedback",
+    "crates/voxelgame-render/src/hud.rs:147-174 — notice drawn in clean view and menus",
+    "src/screenshots.rs:7-41 — destination"
    ],
-   "notes": "Targeted screenshot check: aa136e0103ce5599c6d8a9f70c669dbc758b7357 (2026-11-05). F1 and F10 can be rebound. Screenshots go under Pictures/voxelgame and report the saved path or failure. Preserved images are unchanged; no new capture or play test.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. F1 and F10 can be rebound. Screenshots go under Pictures/voxelgame and report the saved path or failure for four seconds.",
    "guide": {
     "state": "complete",
     "page": "guide-getting-started.html",
