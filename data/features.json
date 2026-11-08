@@ -1584,12 +1584,14 @@
    "summary": "A reviewed survival progression is planned beyond the 15 one-time milestones, which are in the game now (see Survival milestones). The only other progress tracking today is the Journal's three landmark discoveries and their one-time finds.",
    "evidence": [
     "search: grep -ri 'achievement' crates/ src/ — no hits",
-    "crates/voxelgame-core/src/game/exploration.rs:17-24 — discovery and claimed-find flags only"
+    "crates/voxelgame-core/src/milestone.rs:11-63 — the 15 one-time Survival milestones (Milestone::ALL)",
+    "crates/voxelgame-core/src/game/exploration.rs:30-37 — discovery and claimed-find flags for the three landmarks only"
    ],
    "backlog": [
     "VOX-OWNER-SURVIVAL-PLAYTHROUGH",
     "VOX-OWNER-PROGRESSION-CONVENIENCE-BALANCE"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Milestones are reached once, only in Survival, and are saved with the world (milestone.rs:1-6). Nothing else tracks progress."
   },
   {
    "id": "planned-planting-food-plants",
@@ -1601,14 +1603,16 @@
    ],
    "summary": "Plantable saplings/seeds, growth, harvestable fruit trees and berry bushes are planned; today saplings are world decoration only, orchard Fruit and Date clusters are inedible blocks, and Berries come only from the starter pack.",
    "evidence": [
-    "crates/voxelgame-core/src/world/generator.rs:2808 — Sapling exists only as a world-generation decoration",
-    "crates/voxelgame-core/src/survival.rs:100-105 — only Berries, Raw meat, Venison and Cooked meat are edible",
-    "search: grep -ri 'replant|seedling|grow_' crates/voxelgame-core/src/game — no planting system"
+    "crates/voxelgame-core/src/world/generator.rs:1236-1237 — Sapling exists only as a world-generation decoration (SurfaceStructure::Sapling)",
+    "crates/voxelgame-core/src/survival.rs:68-75 — only Berries, Venison, Raw meat and Cooked meat can be eaten",
+    "crates/voxelgame-core/src/inventory.rs:1001-1005 — Berries are in the Survival starting pack",
+    "search: grep -rniE 'replant|seedling|grow_' crates/voxelgame-core/src/game — no planting system"
    ],
    "backlog": [
     "VOX-OWNER-PLANTING-GROWTH",
     "VOX-OWNER-FRUIT-TREES-BERRY-BUSHES"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Fruit blocks and Date clusters are only placeable blocks; nothing in the source lets the player eat them or plant a sapling."
   },
   {
    "id": "inventory-workspaces",
@@ -2512,16 +2516,16 @@
    ],
    "summary": "The compact Pack icon grid is implemented, with quantity labels, hover help, search, sorting and pages. Click to use an item, or assign its kind to the hotbar with a number key or drag.",
    "evidence": [
-    "crates/voxelgame-render/src/inventory_ui.rs:425-535 — Pack grid, search, sorting, quantities and page controls",
-    "crates/voxelgame-render/src/inventory_ui.rs:349-385 — item hover help",
+    "crates/voxelgame-render/src/inventory_ui.rs:453-563 — Pack grid, search, sorting, quantities and page controls",
+    "crates/voxelgame-render/src/inventory_ui.rs:367-450 — item hover help",
     "crates/voxelgame-core/src/game/hotbar.rs:28-112 — click, drag and number-key quick-slot assignment",
-    "crates/voxelgame-core/src/game/tests.rs:5620-5659 — test: grid positions match drawn items"
+    "crates/voxelgame-core/src/game/tests.rs:5627-5667 — test: grid positions match drawn items"
    ],
    "backlog": [
     "VOX-OWNER-COMPACT-INVENTORY",
     "VOX-OWNER-INVENTORY-ICON-DEFECTS"
    ],
-   "notes": "Inventory is still being developed. The landed grid does not offer arbitrary cell rearrangement or split stacks: carried items remain grouped by kind, and drags assign hotbar shortcuts. Targeted source review on 5 November 2026 at Voxelgame aa136e0103ce5599c6d8a9f70c669dbc758b7357. Source tests were read, not run; no native play test is claimed.",
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. The grid does not offer arbitrary cell rearrangement or split stacks: carried items stay grouped by kind (Inventory::organized_entries), and a drag only assigns a hotbar shortcut. Source tests were read, not run.",
    "guide": {
     "state": "partial",
     "page": "guide-first-survival-day.html",
@@ -5703,12 +5707,14 @@
    "status": "developer",
    "summary": "Developers can browse, place and capture models and textures in a disposable headless session and export creature, gear and character galleries. These are review tools: they edit nothing, write no saves and are absent from normal builds.",
    "evidence": [
-    "src/main.rs:9-10 — --debug-stdio needs a devtools build",
-    "src/main.rs:45-56 — --debug-stdio needs a devtools build",
-    "Cargo.toml:63-65 — devtools feature is opt-in",
-    "src/debug_session/assets.rs:189-506 — catalog, inspect, spawn, frame and texture-capture commands; test 'inspection does not edit'"
+    "src/main.rs:9-10 — the debug session is compiled only with the devtools feature",
+    "src/main.rs:78-91 — --debug-stdio needs a devtools build",
+    "Cargo.toml:77-79 — devtools feature is opt-in",
+    "src/debug_session/assets.rs:317-735 — catalog, inspect, spawn, frame and texture-capture commands",
+    "src/debug_session/assets.rs:903-925 — test: inspection does not edit the world",
+    "Cargo.toml:132-134 — the character gallery exporter needs devtools"
    ],
-   "notes": "Not reachable by players; the wiki should not present these as editors."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Not reachable by players; the wiki should not present these as editors."
   },
   {
    "id": "player-skins",
@@ -5736,11 +5742,13 @@
    "area": "customize",
    "name": "Animal Workshop, painter and animation preview",
    "status": "planned",
-   "summary": "There is no in-game animal editor, animal painter, pixel-density control or live pose preview. Animals are built into the game's code, and only developers can export them for review.",
+   "summary": "There is no in-game animal editor, animal painter, pixel-density control or live pose preview. Animals are built into the game's code. Developers can export them for review and test-paint their skin tiles in a debug session, but no menu or key opens a painter.",
    "evidence": [
-    "search: grep -i 'workshop|painter|animal.editor|editor' over crates/, src/ — no editor code;",
+    "search: grep -rniE 'animal.editor|animal editor' crates/ src/ — no editor screen or menu entry",
+    "crates/voxelgame-core/src/paint.rs:1-23 — the painter's drawing model; nothing in the game screens uses it",
+    "src/debug_session.rs:200 — paint_coat is a debug-session command only",
     "crates/voxelgame-core/src/entities/models.rs — species geometry is code",
-    "crates/voxelgame-render/Cargo.toml:32-34 — creature export needs the creature-gallery feature"
+    "crates/voxelgame-render/Cargo.toml:41-44 — creature export needs the creature-gallery feature"
    ],
    "backlog": [
     "VOX-OWNER-ANIMAL-EDITOR",
@@ -5750,23 +5758,26 @@
     "VOX-OWNER-ANIMAL-PAINTER-PIXEL-DENSITY",
     "VOX-OWNER-CREATURE-AUTHORING-DATA"
    ],
-   "notes": "Backlog wording ('adjust animal painter', 'extend existing software') assumes an editor exists; none is on landed main dd29d91."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Backlog wording ('adjust animal painter', 'extend existing software') assumes a player-facing editor exists; none is reachable in normal play."
   },
   {
    "id": "structure-workshop-blueprints",
    "area": "customize",
    "name": "Structure Workshop and player blueprints",
    "status": "planned",
-   "summary": "Importing or exporting blueprints and sharing them are not in the game. The main menu's Structure workshop is a flat creative world for building and saving blueprints; it is source-checked only. Blueprints do not work on servers yet.",
+   "summary": "Importing, exporting and sharing blueprints are not in the game. The main menu's Structure workshop opens the structure library and a flat Creative editor that is not a world save; F6 saves to your blueprints. It is source-checked only. On a server, Creative blueprints can be built, but Survival blueprints cannot yet.",
    "evidence": [
-    "README.md:719-727 — legacy (elevated) workshops stay in Worlds; main menu makes a separate flat workshop",
-    "crates/voxelgame-core/src/game/structures.rs:446-521 — stamping supports only X/Z mirroring for generated sites",
-    "crates/voxelgame-core/src/game/building.rs:233-263 — Copy clipboard"
+    "crates/voxelgame-core/src/game/startup.rs:78-87 — the main-menu entry reads Structure workshop (Leave workshop inside it)",
+    "crates/voxelgame-core/src/game/blueprint_desk/workshop.rs:80-116 — the editor opens on flat ground with F6 Save and Esc Library hints",
+    "crates/voxelgame-core/src/game/blueprint_desk/workshop.rs:192-252 — F6 saves only blocks and refuses furniture, carved ground, liquids and storage or door state",
+    "crates/voxelgame-core/src/game/net_client/raise.rs:156-186 — on a server Creative blueprints are built; Survival ones are refused",
+    "search: grep -rniE 'import|export' crates/voxelgame-core/src/game/blueprint_desk crates/voxelgame-render/src/structure_library_ui.rs — no import or export command"
    ],
    "backlog": [
     "VOX-OWNER-STRUCTURE-WORKSHOP",
     "VOX-OWNER-BLUEPRINT-INTEGRATION"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. The library offers Open, Rename, Duplicate, Delete, Create new and Back (ui/structures.rs:252). Old plate workshops stay listed in Worlds as legacy workshops."
   },
   {
    "id": "shader-tiers",
@@ -6755,13 +6766,17 @@
    "area": "platform",
    "name": "Choose a save file or play without saving (VOXELGAME_SAVE_PATH, --no-save)",
    "status": "developer",
-   "summary": "Advanced: set VOXELGAME_SAVE_PATH to start on a specific.vxw file (relative or absolute path), or start the game with --no-save to play without ever writing the world.",
+   "summary": "Advanced: set VOXELGAME_SAVE_PATH to start on a specific .vxw file (relative or absolute path), or start the game with --no-save to play without ever writing the world.",
    "evidence": [
-    "src/worlds.rs:36-40 — VOXELGAME_SAVE_PATH",
-    "src/launch.rs:163 — --no-save option",
-    "src/launch.rs:208 — --no-save option",
-    "src/app.rs:503-516 — creating or deleting worlds is disabled with --no-save"
-   ]
+    "src/worlds.rs:96-101 — VOXELGAME_SAVE_PATH, else the last-played world, else worlds/debug/debug.vxw",
+    "src/launch.rs:170 — --no-save in the option list",
+    "src/launch.rs:216 — --no-save option",
+    "src/app/world_management.rs:8-13 — creating a world is refused with --no-save",
+    "src/app/world_management.rs:21-26 — renaming, duplicating and backing up are refused with --no-save",
+    "src/app/world_delete.rs:28-29 — deleting a world is refused with --no-save",
+    "docs/PLAYER_GUIDE.md:455-456 — VOXELGAME_SAVE_PATH overrides the selected save"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. --headless and --bench also turn on --no-save (launch.rs:199-203, 217-223). Starring a world is refused too (app.rs:872-874)."
   },
   {
    "id": "setup-logs",
@@ -7100,17 +7115,19 @@
    "summary": "Advanced: `voxelgame --headless --screenshot=FILE.png` or `--headless --bench=SECONDS` renders offscreen with the normal renderer, without a window, audio or save writes, and can run beside the open game. Benchmarks print one BENCH line with mean, median, 1%-low and worst frame times.",
    "controls": [
     [
-     "--headless --screenshot=PATH [--screenshot-after=SECS] /…",
+     "--headless --screenshot=PATH [--screenshot-after=SECS], or --headless --bench=SECONDS",
      "Capture one PNG or measure frame times, then exit (command line)"
     ]
    ],
    "evidence": [
-    "src/launch.rs:134-168 — full option list (--help)",
-    "src/launch.rs:309-318 — headless needs --bench or --screenshot and refuses --connect",
-    "src/launch.rs:440-520 — BENCH output line",
-    "src/headless.rs:17-25 — loads the active save read-only, no audio"
+    "src/launch.rs:139-174 — full option list (--help)",
+    "src/launch.rs:317-326 — headless needs --bench or --screenshot and refuses --connect",
+    "src/launch.rs:458-483 — BENCH output line",
+    "src/launch.rs:564-601 — mean, median, 1% low and worst frame times",
+    "src/app.rs:75-77 — --headless runs the offscreen path",
+    "src/headless.rs:17-25 — loads the active save, no audio, no save writes"
    ],
-   "notes": "Other options: --screen=world|menu|inventory|settings|map, --position=X,Y,Z, --look=YAW,PITCH, --time=cycle|dawn|day|dusk|night|0..1, --weather=..., --shader=none|fast|cinematic, --view-distance=N, --window=WxH, --uncap, --auto-start, --no-save. Works in normal builds but is a developer tool. There is no --profile flag."
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Other options: --screen=world|menu|inventory|settings|map, --position=X,Y,Z, --look=YAW,PITCH, --time=cycle|dawn|day|dusk|night|0..1, --weather=..., --shader=none|fast|cinematic, --view-distance=N, --window=WxH, --uncap, --auto-start, --no-save. Works in normal builds; there is no --profile flag."
   },
   {
    "id": "devtools-profiling",
@@ -7119,23 +7136,30 @@
    "status": "developer",
    "summary": "Developers can build with `cargo build --release --features devtools` and set VOXELGAME_PROFILE_JSON=/path/report.json on a headless --bench run to collect CPU scope and GPU pass timings after the warm-up.",
    "evidence": [
-    "Cargo.toml:63-65 — devtools feature",
-    "src/headless.rs:40-55 — profile collection after warm-up",
-    "src/profiling.rs:8-37 — JSON report",
-    "crates/voxelgame-render/src/loading.rs:77-82 — GPU timestamps only offscreen with devtools"
-   ]
+    "Cargo.toml:77-79 — devtools feature",
+    "src/headless.rs:44-60 — profile collection starts after the warm-up",
+    "src/headless.rs:118-137 — JSON report written to VOXELGAME_PROFILE_JSON",
+    "src/profiling.rs:8-38 — JSON report",
+    "crates/voxelgame-render/src/loading.rs:85-91 — GPU timestamps only offscreen with devtools",
+    "docs/DEBUGGING.md:488 — VOXELGAME_PROFILE_JSON for a headless --bench"
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Players cannot reach this; ordinary builds ignore VOXELGAME_PROFILE_JSON."
   },
   {
    "id": "debug-sessions",
    "area": "platform",
    "name": "Disposable debug sessions and replays (devtools build)",
    "status": "developer",
-   "summary": "With a devtools build, `voxelgame --debug-stdio` and `python3 tools/game_debug.py replay <scenario.json>` drive a paused, disposable copy of the game for bug reproduction and screenshots. These sessions never save worlds, play audio or listen on a network port.",
+   "summary": "With a devtools build, `voxelgame --debug-stdio` and `python3 tools/game_debug.py replay <scenario.json>` drive a paused, disposable copy of the game for bug reproduction and screenshots. These sessions never write normal player saves or play audio, and nothing listens on a network port except an optional test fixture on the computer's own loopback address.",
    "evidence": [
-    "src/main.rs:44-58 — --debug-stdio needs the devtools build",
-    "tools/game_debug.py",
+    "src/main.rs:78-91 — --debug-stdio needs the devtools build",
+    "src/debug_session.rs:35-37 — --debug-stdio takes no other launch options",
+    "src/debug_session/lan.rs:1-10 — optional LAN fixture stays on loopback",
+    "docs/DEBUGGING.md:59-62 — never writes normal player saves, plays audio or captures the pointer",
+    "tools/game_debug.py:771 — mcp, replay, schema and compare modes",
     "tools/debug_scenarios/pomodoro.json — example scenario"
-   ]
+   ],
+   "notes": "Source-checked on 2026-11-08 at Voxelgame c56a00c4219e69c433f2bb6f908198998519fdfc; no new play test. Not reachable by players. Ordinary builds print an error and exit if --debug-stdio is used."
   },
   {
    "id": "app-icon",
