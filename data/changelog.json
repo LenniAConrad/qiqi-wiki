@@ -12,10 +12,10 @@
         "date": "2026-08-16"
       },
       "last": {
-        "commit": "ac5a66dc684f81068bbd0b0c5e7a3c44db1dd26c",
+        "commit": "de630243c3ad41e6c12ab775bc9622b8dc7d3729",
         "date": "2026-11-08"
       },
-      "commitCount": 2681,
+      "commitCount": 2699,
       "tags": [],
       "publicCommitLinks": false,
       "releases": "unavailable",
@@ -417,7 +417,7 @@
         {
           "kind": "Changed",
           "area": "Changelog",
-          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame ac5a66dc on 8 November, with day groups for 13 October to 8 November.",
+          "text": "The game chronology now runs from the 13 October cutoff to Voxelgame de630243 on 8 November, with day groups for 13 October to 8 November.",
           "refs": [
             {
               "commit": "ec84c2d323419f3b5b74b78cf6b0f7f9d5f930e2",
@@ -1346,6 +1346,42 @@
             }
           ],
           "publicSummary": "Fixed players near an unusual animal on a server being disconnected."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Survival",
+          "text": "Eating or drinking a flask by clicking it in the inventory is now refused while you sit or rest, as the eat and drink keys already were.",
+          "refs": [
+            {
+              "commit": "e1733889a2e1f763dcce801660265cf302f15d82",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed eating and drinking from the inventory while seated or resting."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Combat",
+          "text": "Each bow shot now checks its own draw time instead of the previous shot's draw.",
+          "refs": [
+            {
+              "commit": "3e64431953645f622e1262ad9386f815b0286115",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed bow shots using the previous shot's draw time."
+        },
+        {
+          "kind": "Fixed",
+          "area": "Saves",
+          "text": "Deleting a world now also removes its pack recovery record, so a new world created at the same path loads normally.",
+          "refs": [
+            {
+              "commit": "d4f5da5940489c14b3fe119fc26d7fc9d79d55c8",
+              "date": "2026-11-08"
+            }
+          ],
+          "publicSummary": "Fixed a new world failing to load after a deleted world had used its path."
         }
       ],
       "publicTitle": "Beds, cooking stove, lamps, lantern light, animal voices and boat sounds"
